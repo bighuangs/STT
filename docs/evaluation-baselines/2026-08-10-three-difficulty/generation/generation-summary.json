@@ -1,0 +1,2097 @@
+{
+  "schema_version": "stt.eval.dataset-generation.v1",
+  "suite_key": "three-difficulty-live-2026-08-10",
+  "generated_at": "2026-08-10T03:33:04.872655+00:00",
+  "authoring_model": "qwen-flash",
+  "source_scope": {
+    "index_version_id": "idx_fb5eeac133f540f4af31004dbde23151",
+    "version_no": 2,
+    "document_id": "doc_9353bf25fcfa4991a8a0425713a3c9f1",
+    "document_version_id": "dv_8d7fe6750ff5445e8dfbfd80b913b216",
+    "content_sha256": "c4c7b2a434f3f86c4988d3961ac7304970029e71b0201fb6c10ca722b63bce2b",
+    "chunk_count": 218,
+    "logical_name": "source.pdf"
+  },
+  "source_evidence_count": 218,
+  "source_evidence_digest": "4d530c78454cf1b63c71ca39ca86a388dbd6d2cd4ff80226a85f7afba6750a77",
+  "plans": {
+    "easy": [
+      {
+        "plan_id": "easy-001",
+        "evidence_ids": [
+          "ev_0298b28982a0d3e18d2766c35221a9111a455313"
+        ],
+        "chunk_ids": [
+          "chk_7f707e204d0cb9bb79b557303b69954f"
+        ],
+        "pages": [
+          2
+        ]
+      },
+      {
+        "plan_id": "easy-002",
+        "evidence_ids": [
+          "ev_4c6651f11c91cdadd5443619ff6480cc1b625ceb"
+        ],
+        "chunk_ids": [
+          "chk_1aa379873f701c7831e2f117771c2d87"
+        ],
+        "pages": [
+          6
+        ]
+      },
+      {
+        "plan_id": "easy-003",
+        "evidence_ids": [
+          "ev_70e1da742ddd8d2b506890422625113c71836783"
+        ],
+        "chunk_ids": [
+          "chk_e1b0b7ed3aca12e0199e2a74e4dce671"
+        ],
+        "pages": [
+          7
+        ]
+      },
+      {
+        "plan_id": "easy-004",
+        "evidence_ids": [
+          "ev_eb82ca20c9a5eb299917f5967a93dff8b3c57fd8"
+        ],
+        "chunk_ids": [
+          "chk_06707f51bee8864f077d401a11f4ff70"
+        ],
+        "pages": [
+          8
+        ]
+      },
+      {
+        "plan_id": "easy-005",
+        "evidence_ids": [
+          "ev_cdb645f23ba94eaf3de759176aea0bc17c8986b6"
+        ],
+        "chunk_ids": [
+          "chk_c12052057917a859ebb97a37e880796f"
+        ],
+        "pages": [
+          13
+        ]
+      },
+      {
+        "plan_id": "easy-006",
+        "evidence_ids": [
+          "ev_9afc450d3fbb7fc5a1ec87df11e33dc94a275233"
+        ],
+        "chunk_ids": [
+          "chk_343b0bf4ac852321eac60b464057cf87"
+        ],
+        "pages": [
+          15
+        ]
+      },
+      {
+        "plan_id": "easy-007",
+        "evidence_ids": [
+          "ev_5092ba4b7eda6415e116d41bbcd221d541c4608b"
+        ],
+        "chunk_ids": [
+          "chk_23b1cb9039179532b89451ef889eb762"
+        ],
+        "pages": [
+          16
+        ]
+      },
+      {
+        "plan_id": "easy-008",
+        "evidence_ids": [
+          "ev_7f2c9632fffe8363681787f5563ed1748a8babea"
+        ],
+        "chunk_ids": [
+          "chk_437f487c5bf35d719442fbc05fffd942"
+        ],
+        "pages": [
+          17
+        ]
+      },
+      {
+        "plan_id": "easy-009",
+        "evidence_ids": [
+          "ev_bad2a436c23b941ec6a7a6ad7022330147cbf3fb"
+        ],
+        "chunk_ids": [
+          "chk_55b336b1888956766573ccd7e652e147"
+        ],
+        "pages": [
+          18
+        ]
+      },
+      {
+        "plan_id": "easy-010",
+        "evidence_ids": [
+          "ev_0350d77c3028a1fced441dd5c6cadf68541f811b"
+        ],
+        "chunk_ids": [
+          "chk_dde0ef21775d6a6c2480436f9950bafb"
+        ],
+        "pages": [
+          19
+        ]
+      },
+      {
+        "plan_id": "easy-011",
+        "evidence_ids": [
+          "ev_414cc0c0b1f13524ff54de5148879e01ae9d0ce1"
+        ],
+        "chunk_ids": [
+          "chk_dc35ce93d141e14def97da661a2321a1"
+        ],
+        "pages": [
+          20
+        ]
+      },
+      {
+        "plan_id": "easy-012",
+        "evidence_ids": [
+          "ev_a4337cb04380459fd3ae4238ec0cfa8cde6acb85"
+        ],
+        "chunk_ids": [
+          "chk_624fb1bb7a2b7c3a746806e858aac16b"
+        ],
+        "pages": [
+          22
+        ]
+      },
+      {
+        "plan_id": "easy-013",
+        "evidence_ids": [
+          "ev_cdca7d8455f4b7f6bff2c2bae6c89a757074d5b9"
+        ],
+        "chunk_ids": [
+          "chk_c691e0e37da5ae051b64e46288405ade"
+        ],
+        "pages": [
+          23
+        ]
+      },
+      {
+        "plan_id": "easy-014",
+        "evidence_ids": [
+          "ev_7ad6a777087235bb919b54f7d565cdfc99dc2014"
+        ],
+        "chunk_ids": [
+          "chk_8f14aaec3a70a09db3d0555bb9621af2"
+        ],
+        "pages": [
+          25
+        ]
+      },
+      {
+        "plan_id": "easy-015",
+        "evidence_ids": [
+          "ev_c53f37b3138ccaf59c675c3df8719977e4efd1f3"
+        ],
+        "chunk_ids": [
+          "chk_d5663e18e84e4805f9f3f9e256b20b62"
+        ],
+        "pages": [
+          28
+        ]
+      },
+      {
+        "plan_id": "easy-016",
+        "evidence_ids": [
+          "ev_3690f6804c2b23468e1adfdd64c76884240907f1"
+        ],
+        "chunk_ids": [
+          "chk_d4ce5d5aa5ce6421878525518937e931"
+        ],
+        "pages": [
+          30
+        ]
+      },
+      {
+        "plan_id": "easy-017",
+        "evidence_ids": [
+          "ev_9e6dd8373c76730cd851448405fc2023e02cf60e"
+        ],
+        "chunk_ids": [
+          "chk_334f3a0a7acccc6dd1e1b2c0213a3e89"
+        ],
+        "pages": [
+          35
+        ]
+      },
+      {
+        "plan_id": "easy-018",
+        "evidence_ids": [
+          "ev_31402e889e673bf5b09056f97978acb0396da033"
+        ],
+        "chunk_ids": [
+          "chk_67311cfde7b549972c34c696ec3b59ee"
+        ],
+        "pages": [
+          36
+        ]
+      },
+      {
+        "plan_id": "easy-019",
+        "evidence_ids": [
+          "ev_0ef6bbc7a94850a4cd95af416df36fed2853ceed"
+        ],
+        "chunk_ids": [
+          "chk_998d7b5d54f3bc4094c5bbaafd33def7"
+        ],
+        "pages": [
+          36
+        ]
+      },
+      {
+        "plan_id": "easy-020",
+        "evidence_ids": [
+          "ev_29b3eb191361db11c61cffb1b138d0b6a178e624"
+        ],
+        "chunk_ids": [
+          "chk_7a6bd36b16689c1a0e6ba1977a2c4cb8"
+        ],
+        "pages": [
+          38
+        ]
+      },
+      {
+        "plan_id": "easy-021",
+        "evidence_ids": [
+          "ev_f2ffece9998e38a74dbd614526ea323edf0fd84b"
+        ],
+        "chunk_ids": [
+          "chk_54cb8175d6e6c4afc763d45bb8960ed2"
+        ],
+        "pages": [
+          39
+        ]
+      },
+      {
+        "plan_id": "easy-022",
+        "evidence_ids": [
+          "ev_6129cbb7c961980800dec92490db18ae21794416"
+        ],
+        "chunk_ids": [
+          "chk_582ccd10381ded85d340dbc5bfb16f49"
+        ],
+        "pages": [
+          40
+        ]
+      },
+      {
+        "plan_id": "easy-023",
+        "evidence_ids": [
+          "ev_535b540e691e334746295f1652016dafc464a276"
+        ],
+        "chunk_ids": [
+          "chk_465cc28fa04773d8960217a0555e36d8"
+        ],
+        "pages": [
+          43
+        ]
+      },
+      {
+        "plan_id": "easy-024",
+        "evidence_ids": [
+          "ev_2116b1570c1e3f36cc24e2d7820828a79d0fd25c"
+        ],
+        "chunk_ids": [
+          "chk_d765349e3628ec45d1b0fb4e196265f2"
+        ],
+        "pages": [
+          44
+        ]
+      },
+      {
+        "plan_id": "easy-025",
+        "evidence_ids": [
+          "ev_0668a05fd52a862bef2d72ec8d3285dc96346c91"
+        ],
+        "chunk_ids": [
+          "chk_a545f8a553a368c2a5498b3dea3fcf55"
+        ],
+        "pages": [
+          45
+        ]
+      },
+      {
+        "plan_id": "easy-026",
+        "evidence_ids": [
+          "ev_69fa1f0684d5a9a9ec7d1dc3e5ae71d718dc8f82"
+        ],
+        "chunk_ids": [
+          "chk_a0d81f09e5f2fefd3194a2ee22e617f3"
+        ],
+        "pages": [
+          46
+        ]
+      },
+      {
+        "plan_id": "easy-027",
+        "evidence_ids": [
+          "ev_65d3ed27def65366972db2a3b10eb6714c866700"
+        ],
+        "chunk_ids": [
+          "chk_1a322f270cda6a0a3585e2f23af8c2bd"
+        ],
+        "pages": [
+          48
+        ]
+      },
+      {
+        "plan_id": "easy-028",
+        "evidence_ids": [
+          "ev_c4baaaaab8d0c3e6a2df4d5e1f6c016c0bb9ad60"
+        ],
+        "chunk_ids": [
+          "chk_ac8ac529bd2aa2dfcbc43c0a88997d54"
+        ],
+        "pages": [
+          48
+        ]
+      },
+      {
+        "plan_id": "easy-029",
+        "evidence_ids": [
+          "ev_b3e3c0aade2780ea5a3c0d5f21b1e1774d6d17b5"
+        ],
+        "chunk_ids": [
+          "chk_61d03eec81bc8bcc175f531a120a095b"
+        ],
+        "pages": [
+          49
+        ]
+      },
+      {
+        "plan_id": "easy-030",
+        "evidence_ids": [
+          "ev_cd68c0f0546b3ee27a8f961467f925898b227a6b"
+        ],
+        "chunk_ids": [
+          "chk_030327079512b1c0c1afb70ee999a82d"
+        ],
+        "pages": [
+          50
+        ]
+      },
+      {
+        "plan_id": "easy-031",
+        "evidence_ids": [
+          "ev_fecf19bc8f234ec75ed379efd654006cd036fad5"
+        ],
+        "chunk_ids": [
+          "chk_5ab108aac39b921838a5118483ed445d"
+        ],
+        "pages": [
+          50
+        ]
+      },
+      {
+        "plan_id": "easy-032",
+        "evidence_ids": [
+          "ev_61111fc5d50b478d6b714519597a3ce3940b7ae3"
+        ],
+        "chunk_ids": [
+          "chk_90d0be04f1bc0d15eaf26af03c853ab5"
+        ],
+        "pages": [
+          51
+        ]
+      },
+      {
+        "plan_id": "easy-033",
+        "evidence_ids": [
+          "ev_c17a94157e27fb0730ba87539e8775dbed773ec3"
+        ],
+        "chunk_ids": [
+          "chk_1b4c61f30219195083cf271a69e8ed5a"
+        ],
+        "pages": [
+          54
+        ]
+      },
+      {
+        "plan_id": "easy-034",
+        "evidence_ids": [
+          "ev_aa313840530edccc5fb7c6a9fe92b2036b3eb359"
+        ],
+        "chunk_ids": [
+          "chk_e4d10fba3859d946b96f2a1bb40af430"
+        ],
+        "pages": [
+          54
+        ]
+      },
+      {
+        "plan_id": "easy-035",
+        "evidence_ids": [
+          "ev_45dcf8115762cda79b092ec4718932cc869a2139"
+        ],
+        "chunk_ids": [
+          "chk_c075d31f8b5e2a239f4d22eabf325b6d"
+        ],
+        "pages": [
+          55
+        ]
+      },
+      {
+        "plan_id": "easy-036",
+        "evidence_ids": [
+          "ev_30a38253df74711824964334f75ba970ae2c5a21"
+        ],
+        "chunk_ids": [
+          "chk_ae4387a75e0acbb552f305d79ff3dc76"
+        ],
+        "pages": [
+          59
+        ]
+      },
+      {
+        "plan_id": "easy-037",
+        "evidence_ids": [
+          "ev_5153648389dc174ea893427af695f6b3e4a70189"
+        ],
+        "chunk_ids": [
+          "chk_43a935c747a3951734fdcd25de938400"
+        ],
+        "pages": [
+          62
+        ]
+      },
+      {
+        "plan_id": "easy-038",
+        "evidence_ids": [
+          "ev_dbc245e4a879e950d0cd1af53fc769bc10e16a3c"
+        ],
+        "chunk_ids": [
+          "chk_1b9e42e786295e0969035868d8872a5a"
+        ],
+        "pages": [
+          64
+        ]
+      },
+      {
+        "plan_id": "easy-039",
+        "evidence_ids": [
+          "ev_cd5e8691254311449427e9ae96c29cf5dd15050f"
+        ],
+        "chunk_ids": [
+          "chk_4d6462d4acdcd8d25d358eba3b1fb097"
+        ],
+        "pages": [
+          64
+        ]
+      },
+      {
+        "plan_id": "easy-040",
+        "evidence_ids": [
+          "ev_279f9c40cc0f3b387599192cec22e001868bcffc"
+        ],
+        "chunk_ids": [
+          "chk_59b57759d01382e49d84873c947adeaa"
+        ],
+        "pages": [
+          65
+        ]
+      },
+      {
+        "plan_id": "easy-041",
+        "evidence_ids": [
+          "ev_2efb3c7ba14d6ae02f3de4a4942fdb39a10e6a53"
+        ],
+        "chunk_ids": [
+          "chk_947c0fd31a99de6dee6f4ab1764d46fd"
+        ],
+        "pages": [
+          68
+        ]
+      },
+      {
+        "plan_id": "easy-042",
+        "evidence_ids": [
+          "ev_552731dd2dc318f0c3ebf65f4208d0e12b4ea7b9"
+        ],
+        "chunk_ids": [
+          "chk_a075b51705c6ff4429530e6f369b650e"
+        ],
+        "pages": [
+          71
+        ]
+      },
+      {
+        "plan_id": "easy-043",
+        "evidence_ids": [
+          "ev_fab5c992f95b2387045ce2be2691ec3775ec999d"
+        ],
+        "chunk_ids": [
+          "chk_c9387c2d59dee780e145bc3da7092886"
+        ],
+        "pages": [
+          76
+        ]
+      },
+      {
+        "plan_id": "easy-044",
+        "evidence_ids": [
+          "ev_c579ea3db027222994485fb0cd311864859ae5d7"
+        ],
+        "chunk_ids": [
+          "chk_65d895a412367eab4c6885ffa513d359"
+        ],
+        "pages": [
+          79
+        ]
+      },
+      {
+        "plan_id": "easy-045",
+        "evidence_ids": [
+          "ev_c16eaf0aa32c605ab40d189a51079d05b160ed85"
+        ],
+        "chunk_ids": [
+          "chk_550b1a984f9416b3aea46611c234604a"
+        ],
+        "pages": [
+          85
+        ]
+      },
+      {
+        "plan_id": "easy-046",
+        "evidence_ids": [
+          "ev_7aa7ff92a8f1f7536c5bcd7560f48d004672babd"
+        ],
+        "chunk_ids": [
+          "chk_1d0023b481e831a407c5970b5518f523"
+        ],
+        "pages": [
+          86
+        ]
+      },
+      {
+        "plan_id": "easy-047",
+        "evidence_ids": [
+          "ev_f0e6029144c83f20f961249e2fdc5c60e757470b"
+        ],
+        "chunk_ids": [
+          "chk_b79bc4aa06b76864828b4a2589fb8f13"
+        ],
+        "pages": [
+          86
+        ]
+      },
+      {
+        "plan_id": "easy-048",
+        "evidence_ids": [
+          "ev_6e897c530fc292839d6282db45a6af8da7b3721e"
+        ],
+        "chunk_ids": [
+          "chk_d34328c8a5ebb2d120f16263e258cd1a"
+        ],
+        "pages": [
+          90
+        ]
+      },
+      {
+        "plan_id": "easy-049",
+        "evidence_ids": [
+          "ev_a15a520f37b5352b1aa0265c875cfca852ce6e0d"
+        ],
+        "chunk_ids": [
+          "chk_e154227232ba798f3d78cecc51b4040b"
+        ],
+        "pages": [
+          90
+        ]
+      },
+      {
+        "plan_id": "easy-050",
+        "evidence_ids": [
+          "ev_a3caa46e4502309ed384e55f39d12894c47c45d0"
+        ],
+        "chunk_ids": [
+          "chk_dca3c9fd81e2739a0cb2b93f9382db5c"
+        ],
+        "pages": [
+          94
+        ]
+      }
+    ],
+    "medium": [
+      {
+        "plan_id": "medium-001",
+        "evidence_ids": [
+          "ev_84173e3fe5a8ec8e8b8a13cedccb6b3aae7b055d"
+        ],
+        "chunk_ids": [
+          "chk_38c0d3c4747b578d14cb19f34db027f5"
+        ],
+        "pages": [
+          6
+        ]
+      },
+      {
+        "plan_id": "medium-002",
+        "evidence_ids": [
+          "ev_1b3eb2878fb886a49d96992d9063ab2a5f185fe3"
+        ],
+        "chunk_ids": [
+          "chk_863cd5259f047d9628e8b9d2ce5f4430"
+        ],
+        "pages": [
+          7
+        ]
+      },
+      {
+        "plan_id": "medium-003",
+        "evidence_ids": [
+          "ev_1b5a1b1cccfcbe046898717ba0b26b5960f4f7e6"
+        ],
+        "chunk_ids": [
+          "chk_d85fedec9a00e558b6d9163b0f425f3f"
+        ],
+        "pages": [
+          18
+        ]
+      },
+      {
+        "plan_id": "medium-004",
+        "evidence_ids": [
+          "ev_1cd266d7d173f9d3fa0218dc1ecad2d25bb48a8a"
+        ],
+        "chunk_ids": [
+          "chk_e85e43211c7b0b6a6aa4ab6c1d752d00"
+        ],
+        "pages": [
+          19
+        ]
+      },
+      {
+        "plan_id": "medium-005",
+        "evidence_ids": [
+          "ev_e135836733209122e7c70f0690fc320ba10d7229"
+        ],
+        "chunk_ids": [
+          "chk_375ae5f0054ac3e2361955434f3e715c"
+        ],
+        "pages": [
+          20
+        ]
+      },
+      {
+        "plan_id": "medium-006",
+        "evidence_ids": [
+          "ev_576de18184e0cb2e408ff05b5b6f4c85ee20d732"
+        ],
+        "chunk_ids": [
+          "chk_43a140591b18aadfa986eecc3ac2b914"
+        ],
+        "pages": [
+          22
+        ]
+      },
+      {
+        "plan_id": "medium-007",
+        "evidence_ids": [
+          "ev_2a11ab791256c306e4098cec9ce3053aeabf752e"
+        ],
+        "chunk_ids": [
+          "chk_bf0a88043b789e6c0e427fe444e3d05e"
+        ],
+        "pages": [
+          23
+        ]
+      },
+      {
+        "plan_id": "medium-008",
+        "evidence_ids": [
+          "ev_a6040aa7bae13553594e2116e8e7e899f0ef88af"
+        ],
+        "chunk_ids": [
+          "chk_ced131671bfa73e1db665edb335800ea"
+        ],
+        "pages": [
+          24
+        ]
+      },
+      {
+        "plan_id": "medium-009",
+        "evidence_ids": [
+          "ev_1e8d8fb46d5efb335894bb47b77e9e82905f2010"
+        ],
+        "chunk_ids": [
+          "chk_59f5c9af40d7f0119ebadb932cc8e7c9"
+        ],
+        "pages": [
+          26
+        ]
+      },
+      {
+        "plan_id": "medium-010",
+        "evidence_ids": [
+          "ev_dec07eb643faef9e2cbaacfae5515ef4f76c13fa"
+        ],
+        "chunk_ids": [
+          "chk_5754427ef366628c61ac475835512a55"
+        ],
+        "pages": [
+          27
+        ]
+      },
+      {
+        "plan_id": "medium-011",
+        "evidence_ids": [
+          "ev_3572619d8294d42344e1c8a643fcb8dfe99dba3c"
+        ],
+        "chunk_ids": [
+          "chk_c091441a183e8610403e71094e9bac5d"
+        ],
+        "pages": [
+          30
+        ]
+      },
+      {
+        "plan_id": "medium-012",
+        "evidence_ids": [
+          "ev_82cd952e333b6690bb80dda3807ba0bc766c733a"
+        ],
+        "chunk_ids": [
+          "chk_cb02419af2bf83345ea67e39aacf0c74"
+        ],
+        "pages": [
+          30
+        ]
+      },
+      {
+        "plan_id": "medium-013",
+        "evidence_ids": [
+          "ev_36847bb873bef4b329d509278526191d54a0a264"
+        ],
+        "chunk_ids": [
+          "chk_cadd9332058ea62d2a2b699741c17eb3"
+        ],
+        "pages": [
+          32
+        ]
+      },
+      {
+        "plan_id": "medium-014",
+        "evidence_ids": [
+          "ev_23ea6e8f38f34f0444e5ecb89d6398e31c3a3190"
+        ],
+        "chunk_ids": [
+          "chk_54a05b5f77e838a0f7871bf18f869247"
+        ],
+        "pages": [
+          33
+        ]
+      },
+      {
+        "plan_id": "medium-015",
+        "evidence_ids": [
+          "ev_4c3f611e5e9d1df3f843bf6bb033ae5f33e9aee9"
+        ],
+        "chunk_ids": [
+          "chk_338306eb5c55b1ccf9756f00d2fccd65"
+        ],
+        "pages": [
+          35
+        ]
+      },
+      {
+        "plan_id": "medium-016",
+        "evidence_ids": [
+          "ev_2a09438b87ee66cef1dfdf0d7627448691e3babe"
+        ],
+        "chunk_ids": [
+          "chk_f2276d2a0c8e4261f1b6924ae0399329"
+        ],
+        "pages": [
+          37
+        ]
+      },
+      {
+        "plan_id": "medium-017",
+        "evidence_ids": [
+          "ev_5acf839622d1cc8e6d725a79244feca679130dfd"
+        ],
+        "chunk_ids": [
+          "chk_4383db89d2d9532d73b1193459690991"
+        ],
+        "pages": [
+          39
+        ]
+      },
+      {
+        "plan_id": "medium-018",
+        "evidence_ids": [
+          "ev_fe59ce7fd78c8da261d5c26ad45f82e91651d528"
+        ],
+        "chunk_ids": [
+          "chk_d4edecec9b4e48497692ff399206a09d"
+        ],
+        "pages": [
+          40
+        ]
+      },
+      {
+        "plan_id": "medium-019",
+        "evidence_ids": [
+          "ev_cc016a1690ccd910ca614f9e9c5b0d067939993d"
+        ],
+        "chunk_ids": [
+          "chk_679ab0b0eb73c217e58b0c8801c76ac5"
+        ],
+        "pages": [
+          41
+        ]
+      },
+      {
+        "plan_id": "medium-020",
+        "evidence_ids": [
+          "ev_e82045c83eade66ce947f1ee6930b68917b7ec36"
+        ],
+        "chunk_ids": [
+          "chk_32728a78602fd088144ee8cc8a1817d0"
+        ],
+        "pages": [
+          43
+        ]
+      },
+      {
+        "plan_id": "medium-021",
+        "evidence_ids": [
+          "ev_a1e191c4b00a0f7587fe66d45aee2cbb967cbbcc"
+        ],
+        "chunk_ids": [
+          "chk_76827473264d82d71ff005d7c8f05cc9"
+        ],
+        "pages": [
+          44
+        ]
+      },
+      {
+        "plan_id": "medium-022",
+        "evidence_ids": [
+          "ev_89231f1f5f5a1db26ded67c3ab973dc938f32aea"
+        ],
+        "chunk_ids": [
+          "chk_205bf6f55df1a369af302d103d40c17e"
+        ],
+        "pages": [
+          45
+        ]
+      },
+      {
+        "plan_id": "medium-023",
+        "evidence_ids": [
+          "ev_1ce0d57def0d26bb50956188d79a1b835da677a5"
+        ],
+        "chunk_ids": [
+          "chk_323bce9bd2647434a1bdfb55002a00ba"
+        ],
+        "pages": [
+          46
+        ]
+      },
+      {
+        "plan_id": "medium-024",
+        "evidence_ids": [
+          "ev_9becb7edc17707acda32f6c8744ce3705c263cd8"
+        ],
+        "chunk_ids": [
+          "chk_f290b2dee189909c4ebf7fa036551e4e"
+        ],
+        "pages": [
+          50
+        ]
+      },
+      {
+        "plan_id": "medium-025",
+        "evidence_ids": [
+          "ev_74fa055331ac0caf91835d5d54ec6a8d2717f5a8"
+        ],
+        "chunk_ids": [
+          "chk_39dda6b0304e11ca4ff33ed8a891c209"
+        ],
+        "pages": [
+          53
+        ]
+      },
+      {
+        "plan_id": "medium-026",
+        "evidence_ids": [
+          "ev_4db4505771bcb5cc36e899f476e3bbfe92c81583"
+        ],
+        "chunk_ids": [
+          "chk_7773233c2e72e9ff94e2b282dc1ece19"
+        ],
+        "pages": [
+          53
+        ]
+      },
+      {
+        "plan_id": "medium-027",
+        "evidence_ids": [
+          "ev_7f9826001ac04d2408f1fd6e4e7c4e7604c487e0"
+        ],
+        "chunk_ids": [
+          "chk_fd00570959e8b604e16b0c16692043bf"
+        ],
+        "pages": [
+          54
+        ]
+      },
+      {
+        "plan_id": "medium-028",
+        "evidence_ids": [
+          "ev_3cdb391f262f8ffecd5e3bf60a3303e2882af8b7"
+        ],
+        "chunk_ids": [
+          "chk_64246d73989b0076d7dcc880bd1d1181"
+        ],
+        "pages": [
+          57
+        ]
+      },
+      {
+        "plan_id": "medium-029",
+        "evidence_ids": [
+          "ev_5837e1c99bb43af1682aa6298b927609bd3237b8"
+        ],
+        "chunk_ids": [
+          "chk_7846debcb3f46cc646ffbd3b47121082"
+        ],
+        "pages": [
+          58
+        ]
+      },
+      {
+        "plan_id": "medium-030",
+        "evidence_ids": [
+          "ev_455ebcd180cebb869d6504ccb16893796842ab15"
+        ],
+        "chunk_ids": [
+          "chk_56a04efd7fb8808fec170bac6c41d5f1"
+        ],
+        "pages": [
+          60
+        ]
+      },
+      {
+        "plan_id": "medium-031",
+        "evidence_ids": [
+          "ev_e1cc4563370206505bf8b9e5f752b5248f760233"
+        ],
+        "chunk_ids": [
+          "chk_d016af06b7e9cae99106fc49f171a49a"
+        ],
+        "pages": [
+          63
+        ]
+      },
+      {
+        "plan_id": "medium-032",
+        "evidence_ids": [
+          "ev_173e3d555180ec9eff9f6be21e86cb14e1a154b6"
+        ],
+        "chunk_ids": [
+          "chk_c8853a64a7d209fc496a262dfbfcd931"
+        ],
+        "pages": [
+          64
+        ]
+      },
+      {
+        "plan_id": "medium-033",
+        "evidence_ids": [
+          "ev_a91e1d74eb8474f88248fb232d1b4e99aca505eb"
+        ],
+        "chunk_ids": [
+          "chk_55f9ebdded700a4a87590b9cc46c158c"
+        ],
+        "pages": [
+          65
+        ]
+      },
+      {
+        "plan_id": "medium-034",
+        "evidence_ids": [
+          "ev_e6cd0b674a0a5b45348395bffe3225b6d19f8fef"
+        ],
+        "chunk_ids": [
+          "chk_a25868de6dfa89105d4374400726c95d"
+        ],
+        "pages": [
+          66
+        ]
+      },
+      {
+        "plan_id": "medium-035",
+        "evidence_ids": [
+          "ev_a3f391df5b0c14007c38a8c426e39592c48fd854"
+        ],
+        "chunk_ids": [
+          "chk_d042dcdc44a32bef8e5bb545987a23c5"
+        ],
+        "pages": [
+          68
+        ]
+      },
+      {
+        "plan_id": "medium-036",
+        "evidence_ids": [
+          "ev_601d095f59313d8a71b6592431868e343b0467b1"
+        ],
+        "chunk_ids": [
+          "chk_c4b42adb85f04025e03790cf5abbaaa9"
+        ],
+        "pages": [
+          69
+        ]
+      },
+      {
+        "plan_id": "medium-037",
+        "evidence_ids": [
+          "ev_a28277e67f76a8471548c82a79b5c384593c9582"
+        ],
+        "chunk_ids": [
+          "chk_a8225227b180799ee084761349e47531"
+        ],
+        "pages": [
+          72
+        ]
+      },
+      {
+        "plan_id": "medium-038",
+        "evidence_ids": [
+          "ev_e6c9e049993ea8736d7962342d57bc57984648bd"
+        ],
+        "chunk_ids": [
+          "chk_7ebb2c3441135db59503aec30d2ac717"
+        ],
+        "pages": [
+          76
+        ]
+      },
+      {
+        "plan_id": "medium-039",
+        "evidence_ids": [
+          "ev_ee696de1bd6dcdeb9c673828918e142287d5df1e"
+        ],
+        "chunk_ids": [
+          "chk_908c5b75d61c914464464002167aecdf"
+        ],
+        "pages": [
+          79
+        ]
+      },
+      {
+        "plan_id": "medium-040",
+        "evidence_ids": [
+          "ev_14aadf31c771df1e8362bfc0ff68d37529621d5f"
+        ],
+        "chunk_ids": [
+          "chk_e3b8ae6346310899c78b23a4f6b0584b"
+        ],
+        "pages": [
+          79
+        ]
+      },
+      {
+        "plan_id": "medium-041",
+        "evidence_ids": [
+          "ev_6787a18a9e3438dfd763cd4cd26517464b5e675a"
+        ],
+        "chunk_ids": [
+          "chk_99448009b5547debd4fada47d16876ea"
+        ],
+        "pages": [
+          81
+        ]
+      },
+      {
+        "plan_id": "medium-042",
+        "evidence_ids": [
+          "ev_256ac76fff3c937659f089bb733d895e39573392"
+        ],
+        "chunk_ids": [
+          "chk_d031b6b897fad5457187e1177739ea99"
+        ],
+        "pages": [
+          82
+        ]
+      },
+      {
+        "plan_id": "medium-043",
+        "evidence_ids": [
+          "ev_3bad8f1532160bdc8aac7c72d03c0b5d1d28b212"
+        ],
+        "chunk_ids": [
+          "chk_dc0f9c40d87afe27b41f8e858489e2f8"
+        ],
+        "pages": [
+          84
+        ]
+      },
+      {
+        "plan_id": "medium-044",
+        "evidence_ids": [
+          "ev_c9895eb1d2eb948d42cb6b092ab0031d3cc40919"
+        ],
+        "chunk_ids": [
+          "chk_79970a3b5415a3f904f436232b9f2ff3"
+        ],
+        "pages": [
+          85
+        ]
+      },
+      {
+        "plan_id": "medium-045",
+        "evidence_ids": [
+          "ev_8d8365de60e04f7a3a57d428ea3e13c6f0da7e2f"
+        ],
+        "chunk_ids": [
+          "chk_6797eff3eb945110a8503c2dbb8b73cb"
+        ],
+        "pages": [
+          86
+        ]
+      },
+      {
+        "plan_id": "medium-046",
+        "evidence_ids": [
+          "ev_d39e725413ed40b23244ae2dd374bd5b6dc12f19"
+        ],
+        "chunk_ids": [
+          "chk_72fb99900edc57182064979d5590c891"
+        ],
+        "pages": [
+          86
+        ]
+      },
+      {
+        "plan_id": "medium-047",
+        "evidence_ids": [
+          "ev_c00e6d132e49e09877b5b035a2d9efc4dd1c76ea"
+        ],
+        "chunk_ids": [
+          "chk_4d6cb1cd23b433853d4835a0048f0042"
+        ],
+        "pages": [
+          90
+        ]
+      },
+      {
+        "plan_id": "medium-048",
+        "evidence_ids": [
+          "ev_3c9f56da5f7bfd9acff9d56ff44620774769b868"
+        ],
+        "chunk_ids": [
+          "chk_cc8f88ba1cecee1ba21956bee861e840"
+        ],
+        "pages": [
+          93
+        ]
+      },
+      {
+        "plan_id": "medium-049",
+        "evidence_ids": [
+          "ev_458a9cf8b7d36cf1a4ad1673751c55aeba3be9cb"
+        ],
+        "chunk_ids": [
+          "chk_9dcf3a61e5e5650793ca10340dc0be32"
+        ],
+        "pages": [
+          2
+        ]
+      },
+      {
+        "plan_id": "medium-050",
+        "evidence_ids": [
+          "ev_e87c56375625dedd786468635fa532e7add79b7f"
+        ],
+        "chunk_ids": [
+          "chk_bc6e6d2e8f53c55e804b2a8084a79036"
+        ],
+        "pages": [
+          5
+        ]
+      }
+    ],
+    "hard": [
+      {
+        "plan_id": "hard-001",
+        "evidence_ids": [
+          "ev_cdb645f23ba94eaf3de759176aea0bc17c8986b6",
+          "ev_83d85d4762c8b0296831d47710f5be0059fcc774"
+        ],
+        "chunk_ids": [
+          "chk_c12052057917a859ebb97a37e880796f",
+          "chk_82d006f88925682f94b45e2fcda89b61"
+        ],
+        "pages": [
+          13,
+          15
+        ]
+      },
+      {
+        "plan_id": "hard-002",
+        "evidence_ids": [
+          "ev_5092ba4b7eda6415e116d41bbcd221d541c4608b",
+          "ev_a7843a005c8ae3e7260c786d8e37f301e0f79a55"
+        ],
+        "chunk_ids": [
+          "chk_23b1cb9039179532b89451ef889eb762",
+          "chk_39b020c3cf953e3b1723393ee1bfd74c"
+        ],
+        "pages": [
+          16,
+          16
+        ]
+      },
+      {
+        "plan_id": "hard-003",
+        "evidence_ids": [
+          "ev_ee696de1bd6dcdeb9c673828918e142287d5df1e",
+          "ev_14aadf31c771df1e8362bfc0ff68d37529621d5f"
+        ],
+        "chunk_ids": [
+          "chk_908c5b75d61c914464464002167aecdf",
+          "chk_e3b8ae6346310899c78b23a4f6b0584b"
+        ],
+        "pages": [
+          79,
+          79
+        ]
+      },
+      {
+        "plan_id": "hard-004",
+        "evidence_ids": [
+          "ev_912d2d392240784162d5f7966e45d0a285044324",
+          "ev_6787a18a9e3438dfd763cd4cd26517464b5e675a"
+        ],
+        "chunk_ids": [
+          "chk_e050013f4937800f8f5f1d3532e523f1",
+          "chk_99448009b5547debd4fada47d16876ea"
+        ],
+        "pages": [
+          80,
+          81
+        ]
+      },
+      {
+        "plan_id": "hard-005",
+        "evidence_ids": [
+          "ev_256ac76fff3c937659f089bb733d895e39573392",
+          "ev_a5640468c6a0555ee06d8f2612ba96285b824b7c"
+        ],
+        "chunk_ids": [
+          "chk_d031b6b897fad5457187e1177739ea99",
+          "chk_2a3bb14c0b1b45a5f9eef6c503bc96ea"
+        ],
+        "pages": [
+          82,
+          83
+        ]
+      },
+      {
+        "plan_id": "hard-006",
+        "evidence_ids": [
+          "ev_3bad8f1532160bdc8aac7c72d03c0b5d1d28b212",
+          "ev_c16eaf0aa32c605ab40d189a51079d05b160ed85"
+        ],
+        "chunk_ids": [
+          "chk_dc0f9c40d87afe27b41f8e858489e2f8",
+          "chk_550b1a984f9416b3aea46611c234604a"
+        ],
+        "pages": [
+          84,
+          85
+        ]
+      },
+      {
+        "plan_id": "hard-007",
+        "evidence_ids": [
+          "ev_c9895eb1d2eb948d42cb6b092ab0031d3cc40919",
+          "ev_755f37b309039e4c88ad79e934a9049940e1a236"
+        ],
+        "chunk_ids": [
+          "chk_79970a3b5415a3f904f436232b9f2ff3",
+          "chk_bb94b49fd1a55abea749688e96255a37"
+        ],
+        "pages": [
+          85,
+          85
+        ]
+      },
+      {
+        "plan_id": "hard-008",
+        "evidence_ids": [
+          "ev_7aa7ff92a8f1f7536c5bcd7560f48d004672babd",
+          "ev_8d8365de60e04f7a3a57d428ea3e13c6f0da7e2f"
+        ],
+        "chunk_ids": [
+          "chk_1d0023b481e831a407c5970b5518f523",
+          "chk_6797eff3eb945110a8503c2dbb8b73cb"
+        ],
+        "pages": [
+          86,
+          86
+        ]
+      },
+      {
+        "plan_id": "hard-009",
+        "evidence_ids": [
+          "ev_d39e725413ed40b23244ae2dd374bd5b6dc12f19",
+          "ev_f0e6029144c83f20f961249e2fdc5c60e757470b"
+        ],
+        "chunk_ids": [
+          "chk_72fb99900edc57182064979d5590c891",
+          "chk_b79bc4aa06b76864828b4a2589fb8f13"
+        ],
+        "pages": [
+          86,
+          86
+        ]
+      },
+      {
+        "plan_id": "hard-010",
+        "evidence_ids": [
+          "ev_6e897c530fc292839d6282db45a6af8da7b3721e",
+          "ev_93e030b216d466144e62c43adb295bd84c6e8937"
+        ],
+        "chunk_ids": [
+          "chk_d34328c8a5ebb2d120f16263e258cd1a",
+          "chk_dff7b3e15f778b2b965bea3232ddb8d9"
+        ],
+        "pages": [
+          90,
+          90
+        ]
+      },
+      {
+        "plan_id": "hard-011",
+        "evidence_ids": [
+          "ev_576de18184e0cb2e408ff05b5b6f4c85ee20d732",
+          "ev_a4337cb04380459fd3ae4238ec0cfa8cde6acb85"
+        ],
+        "chunk_ids": [
+          "chk_43a140591b18aadfa986eecc3ac2b914",
+          "chk_624fb1bb7a2b7c3a746806e858aac16b"
+        ],
+        "pages": [
+          22,
+          22
+        ]
+      },
+      {
+        "plan_id": "hard-012",
+        "evidence_ids": [
+          "ev_5f32dc446e0d84e1ee67807de6dd0205f8392588",
+          "ev_11c572b8623a764d83f3593584ad9de3c5eada96"
+        ],
+        "chunk_ids": [
+          "chk_3bdb2cf73f24154635b27272dea50be1",
+          "chk_f46ba716b971a4be5c35183c396e363f"
+        ],
+        "pages": [
+          23,
+          24
+        ]
+      },
+      {
+        "plan_id": "hard-013",
+        "evidence_ids": [
+          "ev_7ad6a777087235bb919b54f7d565cdfc99dc2014",
+          "ev_1e8d8fb46d5efb335894bb47b77e9e82905f2010"
+        ],
+        "chunk_ids": [
+          "chk_8f14aaec3a70a09db3d0555bb9621af2",
+          "chk_59f5c9af40d7f0119ebadb932cc8e7c9"
+        ],
+        "pages": [
+          25,
+          26
+        ]
+      },
+      {
+        "plan_id": "hard-014",
+        "evidence_ids": [
+          "ev_dec07eb643faef9e2cbaacfae5515ef4f76c13fa",
+          "ev_eadea2d8eb3bc43f3f32a4645eb6f81f2a35bbc5"
+        ],
+        "chunk_ids": [
+          "chk_5754427ef366628c61ac475835512a55",
+          "chk_aec09eb7781df7285ad868efde409db0"
+        ],
+        "pages": [
+          27,
+          28
+        ]
+      },
+      {
+        "plan_id": "hard-015",
+        "evidence_ids": [
+          "ev_c53f37b3138ccaf59c675c3df8719977e4efd1f3",
+          "ev_30a38253df74711824964334f75ba970ae2c5a21"
+        ],
+        "chunk_ids": [
+          "chk_d5663e18e84e4805f9f3f9e256b20b62",
+          "chk_ae4387a75e0acbb552f305d79ff3dc76"
+        ],
+        "pages": [
+          28,
+          59
+        ]
+      },
+      {
+        "plan_id": "hard-016",
+        "evidence_ids": [
+          "ev_0350d77c3028a1fced441dd5c6cadf68541f811b",
+          "ev_3572619d8294d42344e1c8a643fcb8dfe99dba3c"
+        ],
+        "chunk_ids": [
+          "chk_dde0ef21775d6a6c2480436f9950bafb",
+          "chk_c091441a183e8610403e71094e9bac5d"
+        ],
+        "pages": [
+          19,
+          30
+        ]
+      },
+      {
+        "plan_id": "hard-017",
+        "evidence_ids": [
+          "ev_82cd952e333b6690bb80dda3807ba0bc766c733a",
+          "ev_4a8c32d04733b51ab9774737d918619ec373d0d7"
+        ],
+        "chunk_ids": [
+          "chk_cb02419af2bf83345ea67e39aacf0c74",
+          "chk_b6aa99b820e92905d52c1088119e38bf"
+        ],
+        "pages": [
+          30,
+          32
+        ]
+      },
+      {
+        "plan_id": "hard-018",
+        "evidence_ids": [
+          "ev_36847bb873bef4b329d509278526191d54a0a264",
+          "ev_23ea6e8f38f34f0444e5ecb89d6398e31c3a3190"
+        ],
+        "chunk_ids": [
+          "chk_cadd9332058ea62d2a2b699741c17eb3",
+          "chk_54a05b5f77e838a0f7871bf18f869247"
+        ],
+        "pages": [
+          32,
+          33
+        ]
+      },
+      {
+        "plan_id": "hard-019",
+        "evidence_ids": [
+          "ev_4c3f611e5e9d1df3f843bf6bb033ae5f33e9aee9",
+          "ev_31402e889e673bf5b09056f97978acb0396da033"
+        ],
+        "chunk_ids": [
+          "chk_338306eb5c55b1ccf9756f00d2fccd65",
+          "chk_67311cfde7b549972c34c696ec3b59ee"
+        ],
+        "pages": [
+          35,
+          36
+        ]
+      },
+      {
+        "plan_id": "hard-020",
+        "evidence_ids": [
+          "ev_c2f2987fd09ab03df951508c04f7bd93095655e6",
+          "ev_2a09438b87ee66cef1dfdf0d7627448691e3babe"
+        ],
+        "chunk_ids": [
+          "chk_ec587b4f8f7c149a304553615fbbc871",
+          "chk_f2276d2a0c8e4261f1b6924ae0399329"
+        ],
+        "pages": [
+          36,
+          37
+        ]
+      },
+      {
+        "plan_id": "hard-021",
+        "evidence_ids": [
+          "ev_2d9e4f1c45df7a19098ae3cf12e7c8ef1ed1df12",
+          "ev_fe59ce7fd78c8da261d5c26ad45f82e91651d528"
+        ],
+        "chunk_ids": [
+          "chk_1de2216a4acc7de824ca6001e5ea16eb",
+          "chk_d4edecec9b4e48497692ff399206a09d"
+        ],
+        "pages": [
+          40,
+          40
+        ]
+      },
+      {
+        "plan_id": "hard-022",
+        "evidence_ids": [
+          "ev_cc016a1690ccd910ca614f9e9c5b0d067939993d",
+          "ev_d54db2333fdba11cf497854672986796d65364cf"
+        ],
+        "chunk_ids": [
+          "chk_679ab0b0eb73c217e58b0c8801c76ac5",
+          "chk_ab5df1c60be19bae8db8a36aa5b8a331"
+        ],
+        "pages": [
+          41,
+          41
+        ]
+      },
+      {
+        "plan_id": "hard-023",
+        "evidence_ids": [
+          "ev_e82045c83eade66ce947f1ee6930b68917b7ec36",
+          "ev_535b540e691e334746295f1652016dafc464a276"
+        ],
+        "chunk_ids": [
+          "chk_32728a78602fd088144ee8cc8a1817d0",
+          "chk_465cc28fa04773d8960217a0555e36d8"
+        ],
+        "pages": [
+          43,
+          43
+        ]
+      },
+      {
+        "plan_id": "hard-024",
+        "evidence_ids": [
+          "ev_a1e191c4b00a0f7587fe66d45aee2cbb967cbbcc",
+          "ev_2116b1570c1e3f36cc24e2d7820828a79d0fd25c"
+        ],
+        "chunk_ids": [
+          "chk_76827473264d82d71ff005d7c8f05cc9",
+          "chk_d765349e3628ec45d1b0fb4e196265f2"
+        ],
+        "pages": [
+          44,
+          44
+        ]
+      },
+      {
+        "plan_id": "hard-025",
+        "evidence_ids": [
+          "ev_89231f1f5f5a1db26ded67c3ab973dc938f32aea",
+          "ev_1ce0d57def0d26bb50956188d79a1b835da677a5"
+        ],
+        "chunk_ids": [
+          "chk_205bf6f55df1a369af302d103d40c17e",
+          "chk_323bce9bd2647434a1bdfb55002a00ba"
+        ],
+        "pages": [
+          45,
+          46
+        ]
+      },
+      {
+        "plan_id": "hard-026",
+        "evidence_ids": [
+          "ev_74fa055331ac0caf91835d5d54ec6a8d2717f5a8",
+          "ev_4db4505771bcb5cc36e899f476e3bbfe92c81583"
+        ],
+        "chunk_ids": [
+          "chk_39dda6b0304e11ca4ff33ed8a891c209",
+          "chk_7773233c2e72e9ff94e2b282dc1ece19"
+        ],
+        "pages": [
+          53,
+          53
+        ]
+      },
+      {
+        "plan_id": "hard-027",
+        "evidence_ids": [
+          "ev_d96e0a3b75f9da2b01a11f5bde6cbd3418d6ed0f",
+          "ev_aa313840530edccc5fb7c6a9fe92b2036b3eb359"
+        ],
+        "chunk_ids": [
+          "chk_4cb1f7bbad913e1e9a1561c902e88d73",
+          "chk_e4d10fba3859d946b96f2a1bb40af430"
+        ],
+        "pages": [
+          54,
+          54
+        ]
+      },
+      {
+        "plan_id": "hard-028",
+        "evidence_ids": [
+          "ev_3cdb391f262f8ffecd5e3bf60a3303e2882af8b7",
+          "ev_44ab6d60692b89ce129391c86c11b8f3d3416890"
+        ],
+        "chunk_ids": [
+          "chk_64246d73989b0076d7dcc880bd1d1181",
+          "chk_8b04d1e09d6f0f20cd72716fd8f411d0"
+        ],
+        "pages": [
+          57,
+          57
+        ]
+      },
+      {
+        "plan_id": "hard-029",
+        "evidence_ids": [
+          "ev_5837e1c99bb43af1682aa6298b927609bd3237b8",
+          "ev_455ebcd180cebb869d6504ccb16893796842ab15"
+        ],
+        "chunk_ids": [
+          "chk_7846debcb3f46cc646ffbd3b47121082",
+          "chk_56a04efd7fb8808fec170bac6c41d5f1"
+        ],
+        "pages": [
+          58,
+          60
+        ]
+      },
+      {
+        "plan_id": "hard-030",
+        "evidence_ids": [
+          "ev_6cd8703f4015f66b0ba21e715b9f56c8ce265e42",
+          "ev_cd5e8691254311449427e9ae96c29cf5dd15050f"
+        ],
+        "chunk_ids": [
+          "chk_dbf4036b9fb6393b1245019c8e2e6dcb",
+          "chk_4d6462d4acdcd8d25d358eba3b1fb097"
+        ],
+        "pages": [
+          63,
+          64
+        ]
+      },
+      {
+        "plan_id": "hard-031",
+        "evidence_ids": [
+          "ev_a91e1d74eb8474f88248fb232d1b4e99aca505eb",
+          "ev_279f9c40cc0f3b387599192cec22e001868bcffc"
+        ],
+        "chunk_ids": [
+          "chk_55f9ebdded700a4a87590b9cc46c158c",
+          "chk_59b57759d01382e49d84873c947adeaa"
+        ],
+        "pages": [
+          65,
+          65
+        ]
+      },
+      {
+        "plan_id": "hard-032",
+        "evidence_ids": [
+          "ev_9dce4921dbddba8f3e01b6a54f3ba17984d111d1",
+          "ev_e6cd0b674a0a5b45348395bffe3225b6d19f8fef"
+        ],
+        "chunk_ids": [
+          "chk_5e397bb5f028250f0462777f4811bfbc",
+          "chk_a25868de6dfa89105d4374400726c95d"
+        ],
+        "pages": [
+          66,
+          66
+        ]
+      },
+      {
+        "plan_id": "hard-033",
+        "evidence_ids": [
+          "ev_2efb3c7ba14d6ae02f3de4a4942fdb39a10e6a53",
+          "ev_a3f391df5b0c14007c38a8c426e39592c48fd854"
+        ],
+        "chunk_ids": [
+          "chk_947c0fd31a99de6dee6f4ab1764d46fd",
+          "chk_d042dcdc44a32bef8e5bb545987a23c5"
+        ],
+        "pages": [
+          68,
+          68
+        ]
+      },
+      {
+        "plan_id": "hard-034",
+        "evidence_ids": [
+          "ev_0bd8ad485ebaca14d17914a76c44cc28fb06f07c",
+          "ev_7b271e5895b27cb3ce9fb852be3b93d68f257435"
+        ],
+        "chunk_ids": [
+          "chk_5d199768cb8c1af65703d1bb290bf47e",
+          "chk_27cb3e4306bf15820cd45eee3ae884f3"
+        ],
+        "pages": [
+          74,
+          75
+        ]
+      },
+      {
+        "plan_id": "hard-035",
+        "evidence_ids": [
+          "ev_1e2620525590d2ebb53abcf183a4068614b564d8",
+          "ev_e6c9e049993ea8736d7962342d57bc57984648bd"
+        ],
+        "chunk_ids": [
+          "chk_76649960a24bdef7f922a8bbcaee3e36",
+          "chk_7ebb2c3441135db59503aec30d2ac717"
+        ],
+        "pages": [
+          75,
+          76
+        ]
+      },
+      {
+        "plan_id": "hard-036",
+        "evidence_ids": [
+          "ev_0298b28982a0d3e18d2766c35221a9111a455313",
+          "ev_458a9cf8b7d36cf1a4ad1673751c55aeba3be9cb"
+        ],
+        "chunk_ids": [
+          "chk_7f707e204d0cb9bb79b557303b69954f",
+          "chk_9dcf3a61e5e5650793ca10340dc0be32"
+        ],
+        "pages": [
+          2,
+          2
+        ]
+      },
+      {
+        "plan_id": "hard-037",
+        "evidence_ids": [
+          "ev_82c71a223525922e9158416347c996f49c5f6a94",
+          "ev_908fa3505befa9377bc7784ef8b923380dd8518b"
+        ],
+        "chunk_ids": [
+          "chk_33cf34ea443dc65bbe5c2d5b76110f35",
+          "chk_e458dde4b90d5e6b9be41ae3de84fe8e"
+        ],
+        "pages": [
+          4,
+          4
+        ]
+      },
+      {
+        "plan_id": "hard-038",
+        "evidence_ids": [
+          "ev_e87c56375625dedd786468635fa532e7add79b7f",
+          "ev_4c6651f11c91cdadd5443619ff6480cc1b625ceb"
+        ],
+        "chunk_ids": [
+          "chk_bc6e6d2e8f53c55e804b2a8084a79036",
+          "chk_1aa379873f701c7831e2f117771c2d87"
+        ],
+        "pages": [
+          5,
+          6
+        ]
+      },
+      {
+        "plan_id": "hard-039",
+        "evidence_ids": [
+          "ev_84173e3fe5a8ec8e8b8a13cedccb6b3aae7b055d",
+          "ev_1b3eb2878fb886a49d96992d9063ab2a5f185fe3"
+        ],
+        "chunk_ids": [
+          "chk_38c0d3c4747b578d14cb19f34db027f5",
+          "chk_863cd5259f047d9628e8b9d2ce5f4430"
+        ],
+        "pages": [
+          6,
+          7
+        ]
+      },
+      {
+        "plan_id": "hard-040",
+        "evidence_ids": [
+          "ev_70e1da742ddd8d2b506890422625113c71836783",
+          "ev_eb82ca20c9a5eb299917f5967a93dff8b3c57fd8"
+        ],
+        "chunk_ids": [
+          "chk_e1b0b7ed3aca12e0199e2a74e4dce671",
+          "chk_06707f51bee8864f077d401a11f4ff70"
+        ],
+        "pages": [
+          7,
+          8
+        ]
+      },
+      {
+        "plan_id": "hard-041",
+        "evidence_ids": [
+          "ev_0a525a165721eb386151a53dbac85847f7fba4e7",
+          "ev_bad2a436c23b941ec6a7a6ad7022330147cbf3fb"
+        ],
+        "chunk_ids": [
+          "chk_51d1a6b1b06f767207bc5ffd99315d65",
+          "chk_55b336b1888956766573ccd7e652e147"
+        ],
+        "pages": [
+          14,
+          18
+        ]
+      },
+      {
+        "plan_id": "hard-042",
+        "evidence_ids": [
+          "ev_1b5a1b1cccfcbe046898717ba0b26b5960f4f7e6",
+          "ev_1cd266d7d173f9d3fa0218dc1ecad2d25bb48a8a"
+        ],
+        "chunk_ids": [
+          "chk_d85fedec9a00e558b6d9163b0f425f3f",
+          "chk_e85e43211c7b0b6a6aa4ab6c1d752d00"
+        ],
+        "pages": [
+          18,
+          19
+        ]
+      },
+      {
+        "plan_id": "hard-043",
+        "evidence_ids": [
+          "ev_a6040aa7bae13553594e2116e8e7e899f0ef88af",
+          "ev_9becb7edc17707acda32f6c8744ce3705c263cd8"
+        ],
+        "chunk_ids": [
+          "chk_ced131671bfa73e1db665edb335800ea",
+          "chk_f290b2dee189909c4ebf7fa036551e4e"
+        ],
+        "pages": [
+          24,
+          50
+        ]
+      },
+      {
+        "plan_id": "hard-044",
+        "evidence_ids": [
+          "ev_5fa68b4baf0c1b2b601b1741188c30c6d6521e78",
+          "ev_601d095f59313d8a71b6592431868e343b0467b1"
+        ],
+        "chunk_ids": [
+          "chk_bb0f05756e4acf90f120a0d0bb2b500c",
+          "chk_c4b42adb85f04025e03790cf5abbaaa9"
+        ],
+        "pages": [
+          69,
+          69
+        ]
+      },
+      {
+        "plan_id": "hard-045",
+        "evidence_ids": [
+          "ev_552731dd2dc318f0c3ebf65f4208d0e12b4ea7b9",
+          "ev_45e5f9a3fcf4faff3d00050d82c5ab06453ded60"
+        ],
+        "chunk_ids": [
+          "chk_a075b51705c6ff4429530e6f369b650e",
+          "chk_c8faf881396b522843a384cb52a54ba0"
+        ],
+        "pages": [
+          71,
+          78
+        ]
+      }
+    ]
+  },
+  "usage": {
+    "calls": 21,
+    "prompt_tokens": 160844,
+    "completion_tokens": 33092,
+    "total_tokens": 193936,
+    "records": [
+      {
+        "difficulty": "easy",
+        "batch": 1,
+        "attempt": 1,
+        "model": "qwen-flash",
+        "prompt_tokens": 5251,
+        "completion_tokens": 1251,
+        "total_tokens": 6502
+      },
+      {
+        "difficulty": "easy",
+        "batch": 2,
+        "attempt": 1,
+        "model": "qwen-flash",
+        "prompt_tokens": 3909,
+        "completion_tokens": 1069,
+        "total_tokens": 4978
+      },
+      {
+        "difficulty": "easy",
+        "batch": 3,
+        "attempt": 1,
+        "model": "qwen-flash",
+        "prompt_tokens": 3709,
+        "completion_tokens": 1242,
+        "total_tokens": 4951
+      },
+      {
+        "difficulty": "easy",
+        "batch": 4,
+        "attempt": 1,
+        "model": "qwen-flash",
+        "prompt_tokens": 4023,
+        "completion_tokens": 1065,
+        "total_tokens": 5088
+      },
+      {
+        "difficulty": "easy",
+        "batch": 5,
+        "attempt": 1,
+        "model": "qwen-flash",
+        "prompt_tokens": 5344,
+        "completion_tokens": 1080,
+        "total_tokens": 6424
+      },
+      {
+        "difficulty": "medium",
+        "batch": 1,
+        "attempt": 1,
+        "model": "qwen-flash",
+        "prompt_tokens": 6327,
+        "completion_tokens": 2005,
+        "total_tokens": 8332
+      },
+      {
+        "difficulty": "medium",
+        "batch": 1,
+        "attempt": 2,
+        "model": "qwen-flash",
+        "prompt_tokens": 6327,
+        "completion_tokens": 1787,
+        "total_tokens": 8114
+      },
+      {
+        "difficulty": "medium",
+        "batch": 2,
+        "attempt": 1,
+        "model": "qwen-flash",
+        "prompt_tokens": 7527,
+        "completion_tokens": 2208,
+        "total_tokens": 9735
+      },
+      {
+        "difficulty": "medium",
+        "batch": 3,
+        "attempt": 1,
+        "model": "qwen-flash",
+        "prompt_tokens": 5604,
+        "completion_tokens": 1667,
+        "total_tokens": 7271
+      },
+      {
+        "difficulty": "medium",
+        "batch": 4,
+        "attempt": 1,
+        "model": "qwen-flash",
+        "prompt_tokens": 6529,
+        "completion_tokens": 2075,
+        "total_tokens": 8604
+      },
+      {
+        "difficulty": "medium",
+        "batch": 5,
+        "attempt": 1,
+        "model": "qwen-flash",
+        "prompt_tokens": 6854,
+        "completion_tokens": 1917,
+        "total_tokens": 8771
+      },
+      {
+        "difficulty": "hard",
+        "batch": 1,
+        "attempt": 1,
+        "model": "qwen-flash",
+        "prompt_tokens": 10976,
+        "completion_tokens": 2297,
+        "total_tokens": 13273
+      },
+      {
+        "difficulty": "hard",
+        "batch": 2,
+        "attempt": 1,
+        "model": "qwen-flash",
+        "prompt_tokens": 13821,
+        "completion_tokens": 1631,
+        "total_tokens": 15452
+      },
+      {
+        "difficulty": "hard",
+        "batch": 2,
+        "attempt": 2,
+        "model": "qwen-flash",
+        "prompt_tokens": 13821,
+        "completion_tokens": 1996,
+        "total_tokens": 15817
+      },
+      {
+        "difficulty": "hard",
+        "batch": 3,
+        "attempt": 1,
+        "model": "qwen-flash",
+        "prompt_tokens": 11342,
+        "completion_tokens": 2051,
+        "total_tokens": 13393
+      },
+      {
+        "difficulty": "hard",
+        "batch": 4,
+        "attempt": 1,
+        "model": "qwen-flash",
+        "prompt_tokens": 12142,
+        "completion_tokens": 2051,
+        "total_tokens": 14193
+      },
+      {
+        "difficulty": "hard",
+        "batch": 4,
+        "attempt": 2,
+        "model": "qwen-flash",
+        "prompt_tokens": 12142,
+        "completion_tokens": 1980,
+        "total_tokens": 14122
+      },
+      {
+        "difficulty": "hard",
+        "batch": 5,
+        "attempt": 1,
+        "model": "qwen-flash",
+        "prompt_tokens": 6299,
+        "completion_tokens": 807,
+        "total_tokens": 7106
+      },
+      {
+        "difficulty": "hard",
+        "batch": 5,
+        "attempt": 2,
+        "model": "qwen-flash",
+        "prompt_tokens": 6299,
+        "completion_tokens": 851,
+        "total_tokens": 7150
+      },
+      {
+        "difficulty": "hard",
+        "batch": 5,
+        "attempt": 3,
+        "model": "qwen-flash",
+        "prompt_tokens": 6299,
+        "completion_tokens": 980,
+        "total_tokens": 7279
+      },
+      {
+        "difficulty": "hard",
+        "batch": 5,
+        "attempt": 4,
+        "model": "qwen-flash",
+        "prompt_tokens": 6299,
+        "completion_tokens": 1082,
+        "total_tokens": 7381
+      }
+    ]
+  }
+}

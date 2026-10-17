@@ -1,0 +1,37 @@
+{
+  "schema_version": "stt.eval.quality-targets.v1",
+  "suite_key": "three-difficulty-live-2026-08-11-reviewed-v2",
+  "primary_metric": {
+    "name": "final_visible_answer_binary_accuracy",
+    "production_path": "metrics.case_outcome.final_answer_accuracy",
+    "description": "最终呈现给用户的答案按题二元判定正确或错误，再按难度汇总正确率。"
+  },
+  "independent_blind_review": {
+    "role": "audit_only",
+    "counts_toward_target": false,
+    "description": "独立盲审仅用于审计生产评测结论，不替代或混入生产正确率。"
+  },
+  "targets": {
+    "easy": {
+      "required": true,
+      "operator": ">",
+      "threshold": 0.95,
+      "case_count": 50,
+      "minimum_correct_cases": 48
+    },
+    "medium": {
+      "required": true,
+      "operator": ">",
+      "threshold": 0.85,
+      "case_count": 50,
+      "minimum_correct_cases": 43
+    },
+    "hard": {
+      "required": false,
+      "operator": null,
+      "threshold": null,
+      "case_count": 50,
+      "minimum_correct_cases": null
+    }
+  }
+}

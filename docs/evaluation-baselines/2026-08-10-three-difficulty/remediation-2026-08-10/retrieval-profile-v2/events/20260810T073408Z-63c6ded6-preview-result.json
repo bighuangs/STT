@@ -1,0 +1,35 @@
+{
+  "action": "preview",
+  "api_snapshots": {
+    "directory": "retrieval-profile-v2/api-snapshots/20260810T073408Z-63c6ded6-preview",
+    "log_path": "retrieval-profile-v2/api-snapshots/20260810T073408Z-63c6ded6-preview/requests.jsonl",
+    "log_sha256": "509a1825301d30f9d2b591b5457784c9960e254c86da5f8d417143f3ed016599",
+    "metadata_path": "retrieval-profile-v2/api-snapshots/20260810T073408Z-63c6ded6-preview/metadata.json",
+    "metadata_sha256": "4c73254183dfdcea61fab3ac175659cc156755341c9a86eb40b50f9be13c1987",
+    "request_count": 5
+  },
+  "error_type": null,
+  "invocation_id": "20260810T073408Z-63c6ded6-preview",
+  "kb_id": "kb_2fad25538aab42d19baf79fba782a06c",
+  "logout_error_type": null,
+  "phase": "result",
+  "recorded_at": "2026-08-10T07:34:14.831302+00:00",
+  "result": {
+    "current_identity": [
+      "rpf_default",
+      1,
+      "published"
+    ],
+    "invocation_id": "20260810T073408Z-63c6ded6-preview",
+    "previewed_at": "2026-08-10T07:34:14.785700+00:00",
+    "query_length": 20,
+    "query_sha256": "ea696afef2ffd107b725618ea644b3b132654ac210cc8c238ebce3d5f7cef796",
+    "response_sha256": "8991d3fd7ef01d4c9047977e142f8672c3b28144840a0ca76b1ef8c8aa6859ad",
+    "result_count": 15,
+    "route_count": 1,
+    "status": "succeeded",
+    "target_config_hash": "14c97101feef81868625efe11380136ef39f8bc846269ba2cad577f4952c5639"
+  },
+  "schema_version": "stt.eval.retrieval-profile-event.v1",
+  "status": "succeeded"
+}

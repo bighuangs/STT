@@ -1,0 +1,109 @@
+{
+  "schema_version": "stt.eval.llm-quality-adjudication.v1",
+  "adjudicated_at": "2026-08-10T03:50:53.282577+00:00",
+  "suite_key": "three-difficulty-live-2026-08-10",
+  "model": "qwen-plus",
+  "status": "failed",
+  "original_failed_count": 1,
+  "resolved_count": 0,
+  "unresolved_count": 1,
+  "cases": [
+    {
+      "case_id": "P3500-HARD-026",
+      "difficulty": "hard",
+      "original_judgment": {
+        "case_id": "P3500-HARD-026",
+        "difficulty": "hard",
+        "pass": false,
+        "grounded": true,
+        "complete": false,
+        "unambiguous": true,
+        "difficulty_fit": true,
+        "uses_all_evidence": true,
+        "severity": "high",
+        "issues": [
+          "参考答案中提到的‘将Mopria print service设置为打开，并确保“Cloud Print”或“HP Print Service Plugin”设置为关闭’在证据中未提及，属于外部补充信息。"
+        ]
+      },
+      "rounds": [
+        {
+          "round": 1,
+          "reference_seen": "在基础结构连接模式中，若使用Android移动设备，必须将Mopria print service设置为打开，并确保“Cloud Print”或“HP Print Service Plugin”设置为关闭。",
+          "pass": false,
+          "grounded": false,
+          "complete": false,
+          "unambiguous": true,
+          "difficulty_fit": true,
+          "uses_all_evidence": null,
+          "severity": "high",
+          "issues": [
+            "参考答案中‘必须将Mopria print service设置为打开，并确保‘Cloud Print’或‘HP Print Service Plugin’设置为关闭’未在任一证据中出现；证据仅说明‘若使用Android移动设备，可以使用Mopria移动打印’，未提及其服务启用状态、禁用冲突插件等配置要求；所有技术细节（如service开关、Cloud Print/HP插件互斥）均无证据支持"
+          ]
+        },
+        {
+          "round": 2,
+          "reference_seen": "在基础结构连接模式中，若使用Android移动设备，必须将Mopria print service设置为打开，并确保“Cloud Print”或“HP Print Service Plugin”设置为关闭。",
+          "pass": false,
+          "grounded": false,
+          "complete": false,
+          "unambiguous": true,
+          "difficulty_fit": true,
+          "uses_all_evidence": null,
+          "severity": "high",
+          "issues": [
+            "参考答案中‘Mopria print service设置为打开’‘Cloud Print或HP Print Service Plugin设置为关闭’等具体配置要求在证据中完全未出现；证据仅说明‘若使用Android移动设备，可以使用Mopria移动打印’，未提及其启用条件、服务开关状态或与其他打印插件的互斥关系"
+          ]
+        },
+        {
+          "round": 3,
+          "reference_seen": "在基础结构连接模式中，若使用Android移动设备，必须将Mopria print service设置为打开，并确保“Cloud Print”或“HP Print Service Plugin”设置为关闭。",
+          "pass": false,
+          "grounded": false,
+          "complete": false,
+          "unambiguous": true,
+          "difficulty_fit": true,
+          "uses_all_evidence": null,
+          "severity": "high",
+          "issues": [
+            "参考答案中‘Mopria print service设置为打开’‘Cloud Print或HP Print Service Plugin设置为关闭’等具体配置要求在证据中完全未出现；证据仅说明‘若使用Android移动设备，可以使用Mopria移动打印’，未提任何服务开关状态、冲突插件或禁用要求；该答案引入了证据外的、未被证实的技术细节"
+          ]
+        }
+      ],
+      "pass_votes": 0,
+      "fail_votes": 3,
+      "resolved_as_pass": false
+    }
+  ],
+  "usage": {
+    "calls": 3,
+    "prompt_tokens": 4560,
+    "completion_tokens": 635,
+    "total_tokens": 5195,
+    "records": [
+      {
+        "case_id": "P3500-HARD-026",
+        "round": 1,
+        "model": "qwen-plus",
+        "prompt_tokens": 1520,
+        "completion_tokens": 223,
+        "total_tokens": 1743
+      },
+      {
+        "case_id": "P3500-HARD-026",
+        "round": 2,
+        "model": "qwen-plus",
+        "prompt_tokens": 1520,
+        "completion_tokens": 201,
+        "total_tokens": 1721
+      },
+      {
+        "case_id": "P3500-HARD-026",
+        "round": 3,
+        "model": "qwen-plus",
+        "prompt_tokens": 1520,
+        "completion_tokens": 211,
+        "total_tokens": 1731
+      }
+    ]
+  }
+}

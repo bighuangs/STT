@@ -1,0 +1,48 @@
+{
+  "schema_version": "stt.eval.suite.v2-concept-contract-candidate",
+  "suite_key": "three-difficulty-live-2026-08-10-concept-v2-candidate",
+  "version": "2.0.0-candidate.1",
+  "status": "candidate_pending_full_review",
+  "parent_suite_key": "three-difficulty-live-2026-08-10",
+  "evaluation_mode": "live",
+  "knowledge_base_id": "kb_2fad25538aab42d19baf79fba782a06c",
+  "source_sha256": "c4c7b2a434f3f86c4988d3961ac7304970029e71b0201fb6c10ca722b63bce2b",
+  "index_version_id": "idx_fb5eeac133f540f4af31004dbde23151",
+  "import_allowed": false,
+  "baseline_registration_allowed": false,
+  "datasets": {
+    "easy": {
+      "path": "datasets/easy.v2.json",
+      "dataset_key": "pantum-p3500-easy-live-baseline-concept-v2-candidate",
+      "version": "2.0.0-candidate.1",
+      "case_count": 50,
+      "checksum": "a4eb57b2588ad85797c4e5176645755d622e28e8dd1d9a04a67d0103abcc7c20",
+      "parent_path": "../datasets/easy.json",
+      "parent_file_sha256": "1a3cacbb59b3aa7f354a569f828ad6214351f07cd3d0923a798e98cc33c41b2a"
+    },
+    "medium": {
+      "path": "datasets/medium.v2.json",
+      "dataset_key": "pantum-p3500-medium-live-baseline-concept-v2-candidate",
+      "version": "2.0.0-candidate.1",
+      "case_count": 50,
+      "checksum": "84f43d42eccdf273da0fd67f24810fd947785748e113198eb757e698c2b3f18b",
+      "parent_path": "../datasets/medium.json",
+      "parent_file_sha256": "89c570d10282342fd7facec9bd7d20af61337b5ecaef0038157ed824c25c0369"
+    },
+    "hard": {
+      "path": "datasets/hard.v2.json",
+      "dataset_key": "pantum-p3500-hard-live-baseline-concept-v2-candidate",
+      "version": "2.0.0-candidate.1",
+      "case_count": 50,
+      "checksum": "e3debda5901e4f548e7b3823ccb5cb22661b5e0c71074f3ca87d20b8b2628f63",
+      "parent_path": "../datasets/hard.json",
+      "parent_file_sha256": "e5be4d2495618e819b9758fa753bb10d553037ca10b26dc6ccd8521404600a04"
+    }
+  },
+  "review_gate": {
+    "full_150_same_prompt_review_required": true,
+    "independent_review_merge_required": true,
+    "hard_blockers_must_equal_zero": true,
+    "all_review_flags_must_be_resolved_or_accepted_with_rationale": true
+  }
+}

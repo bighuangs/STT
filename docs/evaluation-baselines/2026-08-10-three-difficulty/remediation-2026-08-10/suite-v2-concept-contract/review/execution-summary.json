@@ -1,0 +1,30 @@
+{
+  "status": "succeeded",
+  "model": "qwen3.7-max",
+  "runner_version": "2.32.0-v229-formal-ledger-strict-scalars",
+  "transport": "openai-compatible-sse-v4-strict-terminal-schema",
+  "sse_completion_policy": "strict-terminal-usage-complete-json-v2",
+  "prompt_sha256": "d5af42cbcf5385c408583c4ed36b110ac89740be24d83248fafb58681d04a78b",
+  "calibration_succeeded": true,
+  "raw_contract_calibration_passes": 3,
+  "projectable_calibration_passes": 1,
+  "current_runner_calibration_usage": {
+    "prompt_tokens": 1759,
+    "completion_tokens": 6392,
+    "total_tokens": 8151
+  },
+  "current_runner_calibration_api_attempts_recorded": 4,
+  "case_success_count": 150,
+  "case_expected_count": 150,
+  "failed_custom_ids": [],
+  "usage": {
+    "prompt_tokens": 447144,
+    "completion_tokens": 674538,
+    "total_tokens": 1121682
+  },
+  "formal_api_attempts_recorded": 253,
+  "calibration_api_attempts_recorded": 119,
+  "usage_is_lower_bound": true,
+  "price_amount": null,
+  "completed_at": "2026-08-12T04:59:09.656916+00:00"
+}

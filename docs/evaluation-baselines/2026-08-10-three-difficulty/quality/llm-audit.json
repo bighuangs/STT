@@ -1,0 +1,2039 @@
+{
+  "schema_version": "stt.eval.llm-quality-audit.v1",
+  "audited_at": "2026-08-10T03:55:30.988779+00:00",
+  "suite_key": "three-difficulty-live-2026-08-10",
+  "model": "qwen-flash",
+  "dataset_checksums": {
+    "easy": "1a3cacbb59b3aa7f354a569f828ad6214351f07cd3d0923a798e98cc33c41b2a",
+    "medium": "89c570d10282342fd7facec9bd7d20af61337b5ecaef0038157ed824c25c0369",
+    "hard": "e5be4d2495618e819b9758fa753bb10d553037ca10b26dc6ccd8521404600a04"
+  },
+  "status": "passed",
+  "review_count": 150,
+  "failed_count": 0,
+  "by_difficulty": {
+    "easy": {
+      "reviewed": 50,
+      "passed": 50,
+      "failed": 0,
+      "pass_rate": 1.0
+    },
+    "medium": {
+      "reviewed": 50,
+      "passed": 50,
+      "failed": 0,
+      "pass_rate": 1.0
+    },
+    "hard": {
+      "reviewed": 50,
+      "passed": 50,
+      "failed": 0,
+      "pass_rate": 1.0
+    }
+  },
+  "usage": {
+    "calls": 15,
+    "prompt_tokens": 108496,
+    "completion_tokens": 11670,
+    "total_tokens": 120166,
+    "records": [
+      {
+        "difficulty": "easy",
+        "batch": 1,
+        "attempt": 1,
+        "model": "qwen-flash",
+        "prompt_tokens": 5006,
+        "completion_tokens": 770,
+        "total_tokens": 5776
+      },
+      {
+        "difficulty": "easy",
+        "batch": 2,
+        "attempt": 1,
+        "model": "qwen-flash",
+        "prompt_tokens": 3510,
+        "completion_tokens": 770,
+        "total_tokens": 4280
+      },
+      {
+        "difficulty": "easy",
+        "batch": 3,
+        "attempt": 1,
+        "model": "qwen-flash",
+        "prompt_tokens": 3497,
+        "completion_tokens": 720,
+        "total_tokens": 4217
+      },
+      {
+        "difficulty": "easy",
+        "batch": 4,
+        "attempt": 1,
+        "model": "qwen-flash",
+        "prompt_tokens": 3589,
+        "completion_tokens": 720,
+        "total_tokens": 4309
+      },
+      {
+        "difficulty": "easy",
+        "batch": 5,
+        "attempt": 1,
+        "model": "qwen-flash",
+        "prompt_tokens": 4951,
+        "completion_tokens": 770,
+        "total_tokens": 5721
+      },
+      {
+        "difficulty": "medium",
+        "batch": 1,
+        "attempt": 1,
+        "model": "qwen-flash",
+        "prompt_tokens": 6603,
+        "completion_tokens": 770,
+        "total_tokens": 7373
+      },
+      {
+        "difficulty": "medium",
+        "batch": 2,
+        "attempt": 1,
+        "model": "qwen-flash",
+        "prompt_tokens": 8204,
+        "completion_tokens": 860,
+        "total_tokens": 9064
+      },
+      {
+        "difficulty": "medium",
+        "batch": 3,
+        "attempt": 1,
+        "model": "qwen-flash",
+        "prompt_tokens": 5829,
+        "completion_tokens": 770,
+        "total_tokens": 6599
+      },
+      {
+        "difficulty": "medium",
+        "batch": 4,
+        "attempt": 1,
+        "model": "qwen-flash",
+        "prompt_tokens": 6917,
+        "completion_tokens": 770,
+        "total_tokens": 7687
+      },
+      {
+        "difficulty": "medium",
+        "batch": 5,
+        "attempt": 1,
+        "model": "qwen-flash",
+        "prompt_tokens": 7197,
+        "completion_tokens": 770,
+        "total_tokens": 7967
+      },
+      {
+        "difficulty": "hard",
+        "batch": 1,
+        "attempt": 1,
+        "model": "qwen-flash",
+        "prompt_tokens": 10556,
+        "completion_tokens": 720,
+        "total_tokens": 11276
+      },
+      {
+        "difficulty": "hard",
+        "batch": 2,
+        "attempt": 1,
+        "model": "qwen-flash",
+        "prompt_tokens": 13242,
+        "completion_tokens": 770,
+        "total_tokens": 14012
+      },
+      {
+        "difficulty": "hard",
+        "batch": 3,
+        "attempt": 1,
+        "model": "qwen-flash",
+        "prompt_tokens": 10800,
+        "completion_tokens": 860,
+        "total_tokens": 11660
+      },
+      {
+        "difficulty": "hard",
+        "batch": 4,
+        "attempt": 1,
+        "model": "qwen-flash",
+        "prompt_tokens": 11894,
+        "completion_tokens": 860,
+        "total_tokens": 12754
+      },
+      {
+        "difficulty": "hard",
+        "batch": 5,
+        "attempt": 1,
+        "model": "qwen-flash",
+        "prompt_tokens": 6701,
+        "completion_tokens": 770,
+        "total_tokens": 7471
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "case_id": "P3500-EASY-001",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-002",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-003",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-004",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-005",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-006",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-007",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-008",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-009",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-010",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-011",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-012",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-013",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-014",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-015",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-016",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-017",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-018",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-019",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-020",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-021",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-022",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-023",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-024",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-025",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-026",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-027",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-028",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-029",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-030",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-031",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-032",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-033",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-034",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-035",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-036",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-037",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-038",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-039",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-040",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-041",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-042",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-043",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-044",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-045",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-046",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-047",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-048",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-049",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-EASY-050",
+      "difficulty": "easy",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-001",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-002",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-003",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-004",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-005",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-006",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-007",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-008",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-009",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-010",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-011",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": [
+        "concise Chinese strings"
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-012",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": [
+        "concise Chinese strings"
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-013",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": [
+        "concise Chinese strings"
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-014",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": [
+        "concise Chinese strings"
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-015",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": [
+        "concise Chinese strings"
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-016",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": [
+        "concise Chinese strings"
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-017",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": [
+        "concise Chinese strings"
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-018",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": [
+        "concise Chinese strings"
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-019",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": [
+        "concise Chinese strings"
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-020",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": [
+        "concise Chinese strings"
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-021",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-022",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-023",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-024",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-025",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-026",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-027",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-028",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-029",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-030",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-031",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-032",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-033",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-034",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-035",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-036",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-037",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-038",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-039",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-040",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-041",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-042",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-043",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-044",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-045",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-046",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-047",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-048",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-049",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-050",
+      "difficulty": "medium",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-HARD-001",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-HARD-002",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-HARD-003",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-HARD-004",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-HARD-005",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-HARD-006",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-HARD-007",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-HARD-008",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-HARD-009",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-HARD-010",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-HARD-011",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-HARD-012",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-HARD-013",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-HARD-014",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-HARD-015",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-HARD-016",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-HARD-017",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-HARD-018",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-HARD-019",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-HARD-020",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-HARD-021",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": [
+        "concise Chinese strings"
+      ]
+    },
+    {
+      "case_id": "P3500-HARD-022",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": [
+        "concise Chinese strings"
+      ]
+    },
+    {
+      "case_id": "P3500-HARD-023",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": [
+        "concise Chinese strings"
+      ]
+    },
+    {
+      "case_id": "P3500-HARD-024",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": [
+        "concise Chinese strings"
+      ]
+    },
+    {
+      "case_id": "P3500-HARD-025",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": [
+        "concise Chinese strings"
+      ]
+    },
+    {
+      "case_id": "P3500-HARD-026",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": [
+        "concise Chinese strings"
+      ]
+    },
+    {
+      "case_id": "P3500-HARD-027",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": [
+        "concise Chinese strings"
+      ]
+    },
+    {
+      "case_id": "P3500-HARD-028",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": [
+        "concise Chinese strings"
+      ]
+    },
+    {
+      "case_id": "P3500-HARD-029",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": [
+        "concise Chinese strings"
+      ]
+    },
+    {
+      "case_id": "P3500-HARD-030",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": [
+        "concise Chinese strings"
+      ]
+    },
+    {
+      "case_id": "P3500-HARD-031",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": [
+        "concise Chinese strings"
+      ]
+    },
+    {
+      "case_id": "P3500-HARD-032",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": [
+        "concise Chinese strings"
+      ]
+    },
+    {
+      "case_id": "P3500-HARD-033",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": [
+        "concise Chinese strings"
+      ]
+    },
+    {
+      "case_id": "P3500-HARD-034",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": [
+        "concise Chinese strings"
+      ]
+    },
+    {
+      "case_id": "P3500-HARD-035",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": [
+        "concise Chinese strings"
+      ]
+    },
+    {
+      "case_id": "P3500-HARD-036",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": [
+        "concise Chinese strings"
+      ]
+    },
+    {
+      "case_id": "P3500-HARD-037",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": [
+        "concise Chinese strings"
+      ]
+    },
+    {
+      "case_id": "P3500-HARD-038",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": [
+        "concise Chinese strings"
+      ]
+    },
+    {
+      "case_id": "P3500-HARD-039",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": [
+        "concise Chinese strings"
+      ]
+    },
+    {
+      "case_id": "P3500-HARD-040",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": [
+        "concise Chinese strings"
+      ]
+    },
+    {
+      "case_id": "P3500-HARD-041",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-HARD-042",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-HARD-043",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-HARD-044",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-HARD-045",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": true,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-HARD-046",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-HARD-047",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-HARD-048",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-HARD-049",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    },
+    {
+      "case_id": "P3500-HARD-050",
+      "difficulty": "hard",
+      "pass": true,
+      "grounded": true,
+      "complete": true,
+      "unambiguous": true,
+      "difficulty_fit": true,
+      "uses_all_evidence": null,
+      "severity": "none",
+      "issues": []
+    }
+  ]
+}

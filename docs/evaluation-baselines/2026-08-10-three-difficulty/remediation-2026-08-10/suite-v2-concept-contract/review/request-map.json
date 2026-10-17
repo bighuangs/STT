@@ -1,0 +1,902 @@
+[
+  {
+    "custom_id": "concept-review-84971800911393f6b8b3",
+    "case_id": "P3500-EASY-V2-001",
+    "parent_case_id": "P3500-EASY-001",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-932a52ce6216f64e367b",
+    "case_id": "P3500-EASY-V2-002",
+    "parent_case_id": "P3500-EASY-002",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-21e07a884792bfb278b3",
+    "case_id": "P3500-EASY-V2-003",
+    "parent_case_id": "P3500-EASY-003",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-a3296e36f48ff4df10d1",
+    "case_id": "P3500-EASY-V2-004",
+    "parent_case_id": "P3500-EASY-004",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-4a1ac89422766345b7ce",
+    "case_id": "P3500-EASY-V2-005",
+    "parent_case_id": "P3500-EASY-005",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-98c8027aaa3507066354",
+    "case_id": "P3500-EASY-V2-006",
+    "parent_case_id": "P3500-EASY-006",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-4810f5f3b1b697e87c8e",
+    "case_id": "P3500-EASY-V2-007",
+    "parent_case_id": "P3500-EASY-007",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-3b8147e7e6d7f4f2014a",
+    "case_id": "P3500-EASY-V2-008",
+    "parent_case_id": "P3500-EASY-008",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-62c6066751d870e0ca33",
+    "case_id": "P3500-EASY-V2-009",
+    "parent_case_id": "P3500-EASY-009",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-439f49c3d0c453704921",
+    "case_id": "P3500-EASY-V2-010",
+    "parent_case_id": "P3500-EASY-010",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-23e2244120779cc35098",
+    "case_id": "P3500-EASY-V2-011",
+    "parent_case_id": "P3500-EASY-011",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-a1dd171c0b60a51760cd",
+    "case_id": "P3500-EASY-V2-012",
+    "parent_case_id": "P3500-EASY-012",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-78f02797069e60d29b47",
+    "case_id": "P3500-EASY-V2-013",
+    "parent_case_id": "P3500-EASY-013",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-0fc78b397eb6867b958b",
+    "case_id": "P3500-EASY-V2-014",
+    "parent_case_id": "P3500-EASY-014",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-cff5154b84365dc0e065",
+    "case_id": "P3500-EASY-V2-015",
+    "parent_case_id": "P3500-EASY-015",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-29826d930d1661daf642",
+    "case_id": "P3500-EASY-V2-016",
+    "parent_case_id": "P3500-EASY-016",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-2f2e05212a6a911698e3",
+    "case_id": "P3500-EASY-V2-017",
+    "parent_case_id": "P3500-EASY-017",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-dd9e179f878d45e4f5c4",
+    "case_id": "P3500-EASY-V2-018",
+    "parent_case_id": "P3500-EASY-018",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-5c98623e72e2f516cc3e",
+    "case_id": "P3500-EASY-V2-019",
+    "parent_case_id": "P3500-EASY-019",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-cb146df0763cab3d0e14",
+    "case_id": "P3500-EASY-V2-020",
+    "parent_case_id": "P3500-EASY-020",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-e384ad182900dafc22d1",
+    "case_id": "P3500-EASY-V2-021",
+    "parent_case_id": "P3500-EASY-021",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-133232fe7efdbb47f97a",
+    "case_id": "P3500-EASY-V2-022",
+    "parent_case_id": "P3500-EASY-022",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-40777d01f5d9d2aeac48",
+    "case_id": "P3500-EASY-V2-023",
+    "parent_case_id": "P3500-EASY-023",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-4b0c8d17e5d45a4b4008",
+    "case_id": "P3500-EASY-V2-024",
+    "parent_case_id": "P3500-EASY-024",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-02a8a31337106f72d041",
+    "case_id": "P3500-EASY-V2-025",
+    "parent_case_id": "P3500-EASY-025",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-ad86ce6e1e45b9ccb462",
+    "case_id": "P3500-EASY-V2-026",
+    "parent_case_id": "P3500-EASY-026",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-bf175c36c26c9d0eee63",
+    "case_id": "P3500-EASY-V2-027",
+    "parent_case_id": "P3500-EASY-027",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-00c22498ae661f19de24",
+    "case_id": "P3500-EASY-V2-028",
+    "parent_case_id": "P3500-EASY-028",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-137279e05ddd9a2f0569",
+    "case_id": "P3500-EASY-V2-029",
+    "parent_case_id": "P3500-EASY-029",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-be3dd8b05fb129641669",
+    "case_id": "P3500-EASY-V2-030",
+    "parent_case_id": "P3500-EASY-030",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-4cdad7793e3c79bd1014",
+    "case_id": "P3500-EASY-V2-031",
+    "parent_case_id": "P3500-EASY-031",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-c3d392a6cd2f9d64cf6e",
+    "case_id": "P3500-EASY-V2-032",
+    "parent_case_id": "P3500-EASY-032",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-4283f03e0b95570b1ec6",
+    "case_id": "P3500-EASY-V2-033",
+    "parent_case_id": "P3500-EASY-033",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-3777f74c2d11c9266be5",
+    "case_id": "P3500-EASY-V2-034",
+    "parent_case_id": "P3500-EASY-034",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-8dfdf8284ad1ba8417c1",
+    "case_id": "P3500-EASY-V2-035",
+    "parent_case_id": "P3500-EASY-035",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-74751ed56058dad883a3",
+    "case_id": "P3500-EASY-V2-036",
+    "parent_case_id": "P3500-EASY-036",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-41c77fece1f0b3bf4858",
+    "case_id": "P3500-EASY-V2-037",
+    "parent_case_id": "P3500-EASY-037",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-6f7dcda3625a3b872b3b",
+    "case_id": "P3500-EASY-V2-038",
+    "parent_case_id": "P3500-EASY-038",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-2a577f615e7a2e4dd19c",
+    "case_id": "P3500-EASY-V2-039",
+    "parent_case_id": "P3500-EASY-039",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-55d0e5b9d434ea9f7a24",
+    "case_id": "P3500-EASY-V2-040",
+    "parent_case_id": "P3500-EASY-040",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-055663d9f12351cc9445",
+    "case_id": "P3500-EASY-V2-041",
+    "parent_case_id": "P3500-EASY-041",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-7e75178d383093e55434",
+    "case_id": "P3500-EASY-V2-042",
+    "parent_case_id": "P3500-EASY-042",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-2aa085748d4953b62524",
+    "case_id": "P3500-EASY-V2-043",
+    "parent_case_id": "P3500-EASY-043",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-048c9a10a958f37fa2db",
+    "case_id": "P3500-EASY-V2-044",
+    "parent_case_id": "P3500-EASY-044",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-218cdec2fc30e64b5b74",
+    "case_id": "P3500-EASY-V2-045",
+    "parent_case_id": "P3500-EASY-045",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-28a7cc8f1939ad721de3",
+    "case_id": "P3500-EASY-V2-046",
+    "parent_case_id": "P3500-EASY-046",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-0e7bcfc1e03e51d87643",
+    "case_id": "P3500-EASY-V2-047",
+    "parent_case_id": "P3500-EASY-047",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-dc0f5e94b982d7a831cd",
+    "case_id": "P3500-EASY-V2-048",
+    "parent_case_id": "P3500-EASY-048",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-efa5973346e8419cf580",
+    "case_id": "P3500-EASY-V2-049",
+    "parent_case_id": "P3500-EASY-049",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-97dc01cb5db7013214f1",
+    "case_id": "P3500-EASY-V2-050",
+    "parent_case_id": "P3500-EASY-050",
+    "difficulty": "easy"
+  },
+  {
+    "custom_id": "concept-review-1e68fa6f17b5e16ad17d",
+    "case_id": "P3500-MEDIUM-V2-001",
+    "parent_case_id": "P3500-MEDIUM-001",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-d2dd585b5b94f89b5ddd",
+    "case_id": "P3500-MEDIUM-V2-002",
+    "parent_case_id": "P3500-MEDIUM-002",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-158e905d4948779c67aa",
+    "case_id": "P3500-MEDIUM-V2-003",
+    "parent_case_id": "P3500-MEDIUM-003",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-03ef8ba34ba75564c819",
+    "case_id": "P3500-MEDIUM-V2-004",
+    "parent_case_id": "P3500-MEDIUM-004",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-4c6186dfd9358a684f62",
+    "case_id": "P3500-MEDIUM-V2-005",
+    "parent_case_id": "P3500-MEDIUM-005",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-9cc0eba6a4d176b1f5ea",
+    "case_id": "P3500-MEDIUM-V2-006",
+    "parent_case_id": "P3500-MEDIUM-006",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-8301751e300b04c694da",
+    "case_id": "P3500-MEDIUM-V2-007",
+    "parent_case_id": "P3500-MEDIUM-007",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-19f9c7837f3c0610bb81",
+    "case_id": "P3500-MEDIUM-V2-008",
+    "parent_case_id": "P3500-MEDIUM-008",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-14bae18455d423c067e0",
+    "case_id": "P3500-MEDIUM-V2-009",
+    "parent_case_id": "P3500-MEDIUM-009",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-c056c7fdf1ea854b490a",
+    "case_id": "P3500-MEDIUM-V2-010",
+    "parent_case_id": "P3500-MEDIUM-010",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-46ab2acb6dd6f86e594a",
+    "case_id": "P3500-MEDIUM-V2-011",
+    "parent_case_id": "P3500-MEDIUM-011",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-33a5e5806136f3f44fa1",
+    "case_id": "P3500-MEDIUM-V2-012",
+    "parent_case_id": "P3500-MEDIUM-012",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-cea9cd6db74c21ad22e1",
+    "case_id": "P3500-MEDIUM-V2-013",
+    "parent_case_id": "P3500-MEDIUM-013",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-a0217df5e1adbd3ee60c",
+    "case_id": "P3500-MEDIUM-V2-014",
+    "parent_case_id": "P3500-MEDIUM-014",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-9bd8fd8dfa21eb59b66f",
+    "case_id": "P3500-MEDIUM-V2-015",
+    "parent_case_id": "P3500-MEDIUM-015",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-78485d12756dfd51fa57",
+    "case_id": "P3500-MEDIUM-V2-016",
+    "parent_case_id": "P3500-MEDIUM-016",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-31a994e8281482b9473f",
+    "case_id": "P3500-MEDIUM-V2-017",
+    "parent_case_id": "P3500-MEDIUM-017",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-bc8f44d70129a0b001a3",
+    "case_id": "P3500-MEDIUM-V2-018",
+    "parent_case_id": "P3500-MEDIUM-018",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-0a840d1f6117993b9e2e",
+    "case_id": "P3500-MEDIUM-V2-019",
+    "parent_case_id": "P3500-MEDIUM-019",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-b9dc458ac59e4fe838ec",
+    "case_id": "P3500-MEDIUM-V2-020",
+    "parent_case_id": "P3500-MEDIUM-020",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-a28ad1e88c28df3aa34b",
+    "case_id": "P3500-MEDIUM-V2-021",
+    "parent_case_id": "P3500-MEDIUM-021",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-bc1624f12c9fe6d4688a",
+    "case_id": "P3500-MEDIUM-V2-022",
+    "parent_case_id": "P3500-MEDIUM-022",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-89d759d14ce466b76223",
+    "case_id": "P3500-MEDIUM-V2-023",
+    "parent_case_id": "P3500-MEDIUM-023",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-d0b773e12c286df6a953",
+    "case_id": "P3500-MEDIUM-V2-024",
+    "parent_case_id": "P3500-MEDIUM-024",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-7052d5e621cf462ccab9",
+    "case_id": "P3500-MEDIUM-V2-025",
+    "parent_case_id": "P3500-MEDIUM-025",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-1a3be26320cd85458efb",
+    "case_id": "P3500-MEDIUM-V2-026",
+    "parent_case_id": "P3500-MEDIUM-026",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-12d38dc7e51867a889a7",
+    "case_id": "P3500-MEDIUM-V2-027",
+    "parent_case_id": "P3500-MEDIUM-027",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-50f3b33cae491b189afd",
+    "case_id": "P3500-MEDIUM-V2-028",
+    "parent_case_id": "P3500-MEDIUM-028",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-90103f69373a781c8457",
+    "case_id": "P3500-MEDIUM-V2-029",
+    "parent_case_id": "P3500-MEDIUM-029",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-34288cc0a71a455cda7f",
+    "case_id": "P3500-MEDIUM-V2-030",
+    "parent_case_id": "P3500-MEDIUM-030",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-2e7baa4d56115320c839",
+    "case_id": "P3500-MEDIUM-V2-031",
+    "parent_case_id": "P3500-MEDIUM-031",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-9360e4fff015c438d074",
+    "case_id": "P3500-MEDIUM-V2-032",
+    "parent_case_id": "P3500-MEDIUM-032",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-2ef60c547f9f85ab9729",
+    "case_id": "P3500-MEDIUM-V2-033",
+    "parent_case_id": "P3500-MEDIUM-033",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-0e0479e3bbef0c06096f",
+    "case_id": "P3500-MEDIUM-V2-034",
+    "parent_case_id": "P3500-MEDIUM-034",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-ebebe1c18ceba172af92",
+    "case_id": "P3500-MEDIUM-V2-035",
+    "parent_case_id": "P3500-MEDIUM-035",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-4040a5efd561b4924af6",
+    "case_id": "P3500-MEDIUM-V2-036",
+    "parent_case_id": "P3500-MEDIUM-036",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-c7ad43bb546d16d5b925",
+    "case_id": "P3500-MEDIUM-V2-037",
+    "parent_case_id": "P3500-MEDIUM-037",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-6b94e9431f9835ffb3f7",
+    "case_id": "P3500-MEDIUM-V2-038",
+    "parent_case_id": "P3500-MEDIUM-038",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-3940c2deb9a60462f2e0",
+    "case_id": "P3500-MEDIUM-V2-039",
+    "parent_case_id": "P3500-MEDIUM-039",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-37c795e95929fdeac0ea",
+    "case_id": "P3500-MEDIUM-V2-040",
+    "parent_case_id": "P3500-MEDIUM-040",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-7d36629f96bfd5e3ef81",
+    "case_id": "P3500-MEDIUM-V2-041",
+    "parent_case_id": "P3500-MEDIUM-041",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-f7c491ff03efa2ed5ce3",
+    "case_id": "P3500-MEDIUM-V2-042",
+    "parent_case_id": "P3500-MEDIUM-042",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-9e902a30128eeea34132",
+    "case_id": "P3500-MEDIUM-V2-043",
+    "parent_case_id": "P3500-MEDIUM-043",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-cd0457b47df649c6e912",
+    "case_id": "P3500-MEDIUM-V2-044",
+    "parent_case_id": "P3500-MEDIUM-044",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-8c6cc9891d71fcef2b46",
+    "case_id": "P3500-MEDIUM-V2-045",
+    "parent_case_id": "P3500-MEDIUM-045",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-8815afac73e2df03a34f",
+    "case_id": "P3500-MEDIUM-V2-046",
+    "parent_case_id": "P3500-MEDIUM-046",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-3ffb8f7b91d4c65fe988",
+    "case_id": "P3500-MEDIUM-V2-047",
+    "parent_case_id": "P3500-MEDIUM-047",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-5f574e03b0a7714a381d",
+    "case_id": "P3500-MEDIUM-V2-048",
+    "parent_case_id": "P3500-MEDIUM-048",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-caf66a56bdba9acb1ed8",
+    "case_id": "P3500-MEDIUM-V2-049",
+    "parent_case_id": "P3500-MEDIUM-049",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-29c4939cd6293f8d8738",
+    "case_id": "P3500-MEDIUM-V2-050",
+    "parent_case_id": "P3500-MEDIUM-050",
+    "difficulty": "medium"
+  },
+  {
+    "custom_id": "concept-review-c3f489d9307e0f3a272f",
+    "case_id": "P3500-HARD-V2-001",
+    "parent_case_id": "P3500-HARD-001",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-15120c66f989f201ca3b",
+    "case_id": "P3500-HARD-V2-002",
+    "parent_case_id": "P3500-HARD-002",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-dea38fbbd5069fb9b163",
+    "case_id": "P3500-HARD-V2-003",
+    "parent_case_id": "P3500-HARD-003",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-9db619ba58bd3f987c6c",
+    "case_id": "P3500-HARD-V2-004",
+    "parent_case_id": "P3500-HARD-004",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-f4ee756d81e14abe7335",
+    "case_id": "P3500-HARD-V2-005",
+    "parent_case_id": "P3500-HARD-005",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-b8e5c9cad1e89e649bab",
+    "case_id": "P3500-HARD-V2-006",
+    "parent_case_id": "P3500-HARD-006",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-33fcbb5ce748d2b6ec17",
+    "case_id": "P3500-HARD-V2-007",
+    "parent_case_id": "P3500-HARD-007",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-2bca6284816a2572fe99",
+    "case_id": "P3500-HARD-V2-008",
+    "parent_case_id": "P3500-HARD-008",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-b57f42a429adb2e37dd3",
+    "case_id": "P3500-HARD-V2-009",
+    "parent_case_id": "P3500-HARD-009",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-c081d2bbbabb4a193aaa",
+    "case_id": "P3500-HARD-V2-010",
+    "parent_case_id": "P3500-HARD-010",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-93aff5b2d95fb16b1626",
+    "case_id": "P3500-HARD-V2-011",
+    "parent_case_id": "P3500-HARD-011",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-f11a475d3e17003110f3",
+    "case_id": "P3500-HARD-V2-012",
+    "parent_case_id": "P3500-HARD-012",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-030dcf9908e19556e9ad",
+    "case_id": "P3500-HARD-V2-013",
+    "parent_case_id": "P3500-HARD-013",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-d971def8ddbfbd3ae38c",
+    "case_id": "P3500-HARD-V2-014",
+    "parent_case_id": "P3500-HARD-014",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-8f71c3b130ac94d798d7",
+    "case_id": "P3500-HARD-V2-015",
+    "parent_case_id": "P3500-HARD-015",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-2de039e32036be4df2aa",
+    "case_id": "P3500-HARD-V2-016",
+    "parent_case_id": "P3500-HARD-016",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-f0e25e414b88aa8bf43c",
+    "case_id": "P3500-HARD-V2-017",
+    "parent_case_id": "P3500-HARD-017",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-2daf9727a7d208e0dbee",
+    "case_id": "P3500-HARD-V2-018",
+    "parent_case_id": "P3500-HARD-018",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-80c6f753a77b9c8640fd",
+    "case_id": "P3500-HARD-V2-019",
+    "parent_case_id": "P3500-HARD-019",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-df5ecf3d66574afae1b3",
+    "case_id": "P3500-HARD-V2-020",
+    "parent_case_id": "P3500-HARD-020",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-9f33ce7b65c89c129f72",
+    "case_id": "P3500-HARD-V2-021",
+    "parent_case_id": "P3500-HARD-021",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-d12b850181c7ab23c00a",
+    "case_id": "P3500-HARD-V2-022",
+    "parent_case_id": "P3500-HARD-022",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-fcadf924395f9024f0d8",
+    "case_id": "P3500-HARD-V2-023",
+    "parent_case_id": "P3500-HARD-023",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-2625c9b7f7908b452203",
+    "case_id": "P3500-HARD-V2-024",
+    "parent_case_id": "P3500-HARD-024",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-ebc989d67265f3ca8cdc",
+    "case_id": "P3500-HARD-V2-025",
+    "parent_case_id": "P3500-HARD-025",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-16c62379fcbc52b6306f",
+    "case_id": "P3500-HARD-V2-026",
+    "parent_case_id": "P3500-HARD-026",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-9be8b85bd344b439e523",
+    "case_id": "P3500-HARD-V2-027",
+    "parent_case_id": "P3500-HARD-027",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-26f42410d2d8c487cd7f",
+    "case_id": "P3500-HARD-V2-028",
+    "parent_case_id": "P3500-HARD-028",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-abf6a2b98e89e2a2dbaa",
+    "case_id": "P3500-HARD-V2-029",
+    "parent_case_id": "P3500-HARD-029",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-5520147d32ee5ad81030",
+    "case_id": "P3500-HARD-V2-030",
+    "parent_case_id": "P3500-HARD-030",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-99d779c3f90158d0124e",
+    "case_id": "P3500-HARD-V2-031",
+    "parent_case_id": "P3500-HARD-031",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-ebfb81fd334bc47c8be2",
+    "case_id": "P3500-HARD-V2-032",
+    "parent_case_id": "P3500-HARD-032",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-8db6f14aa0d03aadc223",
+    "case_id": "P3500-HARD-V2-033",
+    "parent_case_id": "P3500-HARD-033",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-5a351d72960c6137a570",
+    "case_id": "P3500-HARD-V2-034",
+    "parent_case_id": "P3500-HARD-034",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-793fcdc32a1e526e282b",
+    "case_id": "P3500-HARD-V2-035",
+    "parent_case_id": "P3500-HARD-035",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-ea383bb3eca99b0a968f",
+    "case_id": "P3500-HARD-V2-036",
+    "parent_case_id": "P3500-HARD-036",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-0b02d5aa9ee2b31e7172",
+    "case_id": "P3500-HARD-V2-037",
+    "parent_case_id": "P3500-HARD-037",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-c30c56980e9d645b2d5f",
+    "case_id": "P3500-HARD-V2-038",
+    "parent_case_id": "P3500-HARD-038",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-c5947e533582e0e7792a",
+    "case_id": "P3500-HARD-V2-039",
+    "parent_case_id": "P3500-HARD-039",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-c46d9b9d055ab7f77d26",
+    "case_id": "P3500-HARD-V2-040",
+    "parent_case_id": "P3500-HARD-040",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-63e1752b3d9dec3fddb8",
+    "case_id": "P3500-HARD-V2-041",
+    "parent_case_id": "P3500-HARD-041",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-a3de7472ba8817aa9e3d",
+    "case_id": "P3500-HARD-V2-042",
+    "parent_case_id": "P3500-HARD-042",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-f341f7c89e05fd3a6bd7",
+    "case_id": "P3500-HARD-V2-043",
+    "parent_case_id": "P3500-HARD-043",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-b1dcdcfbcb3dab81d614",
+    "case_id": "P3500-HARD-V2-044",
+    "parent_case_id": "P3500-HARD-044",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-aefb3127081c45242315",
+    "case_id": "P3500-HARD-V2-045",
+    "parent_case_id": "P3500-HARD-045",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-1b20bd388cfd5450e93c",
+    "case_id": "P3500-HARD-V2-046",
+    "parent_case_id": "P3500-HARD-046",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-243ac4acd660c45a23d3",
+    "case_id": "P3500-HARD-V2-047",
+    "parent_case_id": "P3500-HARD-047",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-90f1b7e2c081045f3907",
+    "case_id": "P3500-HARD-V2-048",
+    "parent_case_id": "P3500-HARD-048",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-aac9ff7ba931ef4370f8",
+    "case_id": "P3500-HARD-V2-049",
+    "parent_case_id": "P3500-HARD-049",
+    "difficulty": "hard"
+  },
+  {
+    "custom_id": "concept-review-da5f55bfc0d97ab8c22d",
+    "case_id": "P3500-HARD-V2-050",
+    "parent_case_id": "P3500-HARD-050",
+    "difficulty": "hard"
+  }
+]

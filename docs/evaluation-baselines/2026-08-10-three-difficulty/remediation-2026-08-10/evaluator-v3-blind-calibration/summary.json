@@ -1,0 +1,1262 @@
+{
+  "analysis_policy": {
+    "blind_judge_role": "independent calibration proxy, not absolute ground truth",
+    "blocking_reference_policy": "exclude nine PDF visual-review blockers",
+    "final_label_policy": "reuse only when case_id, query, reference and exact visible answer are identical; otherwise unknown",
+    "partition": {
+      "caveat": "the split is deterministic and label-free, but evaluator revisions used aggregate full-set feedback before this report; holdout is not claimed as prospectively untouched",
+      "input": "sha256(query) + sha256(reference_answer)",
+      "rule": "first 64 digest bits / 2^64; calibration if <0.5 else holdout",
+      "uses_case_id": false,
+      "uses_difficulty": false,
+      "uses_labels_or_evaluator_output": false,
+      "version": "stt.eval.v3-blind-content-sha-split.v1"
+    },
+    "positive_class": "independent_blind_semantic_correct",
+    "pre_grounding_label_policy": "current run independent qwen3.7-max blind review",
+    "predicted_positive": "evaluator_v3_final_correct"
+  },
+  "assessment": {
+    "final_calibration_conclusion": "not certifiable without a complete current-run final blind review",
+    "policy_freeze_recommendation": {
+      "fully_reviewed_concept_suite": "explicit_stt.eval.case.v3_opt_in_for_shadow_candidate_only",
+      "global_default_when_case_policy_omitted": "stt.eval.case.v2",
+      "historical_runs": "preserve_frozen_snapshot_policy_without_reinterpretation",
+      "legacy_suite_without_authored_concept_groups": "explicitly_pin_stt.eval.case.v2",
+      "v3_opt_in_preconditions": [
+        "all answerable cases have independently reviewed concept_groups",
+        "all unanswerable cases have independently reviewed absence contracts",
+        "all suite review gates pass and manifest hashes are frozen",
+        "current-run final full blind review and stable holdout pass before baseline registration"
+      ]
+    },
+    "pre_grounding_calibration_conclusion": "9 false negatives and 9 false positives versus the independent blind proxy after official source exclusions",
+    "production_baseline_gate": "blocked_by_pre_proxy_mismatch_and_incomplete_final_label_coverage",
+    "production_default_blockers": [
+      "pre-grounding blind-proxy mismatches remain after official source exclusions",
+      "current-run final blind labels are unavailable for most eligible cases",
+      "the final exact-answer subset is selection-biased and cannot be extrapolated"
+    ],
+    "production_default_recommended": false,
+    "status": "not_ready_for_production_default",
+    "synthetic_contract_gates": {
+      "fabricated_fact_with_refusal": {
+        "applicable_count": 5,
+        "blocked_count": 5,
+        "incorrect_pass_count": 0
+      },
+      "multi_branch_truncation": {
+        "applicable_count": 27,
+        "blocked_count": 27,
+        "incorrect_pass_count": 0
+      },
+      "numeric_mutation": {
+        "applicable_count": 36,
+        "blocked_count": 36,
+        "incorrect_pass_count": 0
+      },
+      "unsupported_false_addition": {
+        "applicable_count": 145,
+        "blocked_count": 145,
+        "incorrect_pass_count": 0
+      }
+    }
+  },
+  "calibration": {
+    "final": {
+      "blind_label_availability": {
+        "eligible_case_count": 141,
+        "eligible_labeled_count": 33,
+        "eligible_unlabeled_count": 108,
+        "full_current_run_final_blind_review_available": false,
+        "provenance_counts": {
+          "prior_run_exact_semantic_input_identity": 4,
+          "same_case_exact_visible_answer_as_pre_grounding": 29
+        },
+        "selection_bias": "label availability depends on exact answer identity; partial final metrics must not be generalized to all 150 cases"
+      },
+      "by_difficulty": {
+        "easy": {
+          "accuracy": 0.954545,
+          "blind_semantic_correct_count": 21,
+          "blind_semantic_incorrect_count": 1,
+          "confusion_matrix": {
+            "false_negative": 1,
+            "false_positive": 0,
+            "true_negative": 1,
+            "true_positive": 20
+          },
+          "eligible_case_count": 48,
+          "false_negative_rate": 0.047619,
+          "false_positive_rate": 0.0,
+          "label_coverage": 0.458333,
+          "labeled_case_count": 22,
+          "precision": 1.0,
+          "recall": 0.952381,
+          "specificity": 1.0,
+          "v3_correct_count": 20,
+          "v3_incorrect_count": 2
+        },
+        "hard": {
+          "accuracy": 1.0,
+          "blind_semantic_correct_count": 6,
+          "blind_semantic_incorrect_count": 0,
+          "confusion_matrix": {
+            "false_negative": 0,
+            "false_positive": 0,
+            "true_negative": 0,
+            "true_positive": 6
+          },
+          "eligible_case_count": 43,
+          "false_negative_rate": 0.0,
+          "false_positive_rate": null,
+          "label_coverage": 0.139535,
+          "labeled_case_count": 6,
+          "precision": 1.0,
+          "recall": 1.0,
+          "specificity": null,
+          "v3_correct_count": 6,
+          "v3_incorrect_count": 0
+        },
+        "medium": {
+          "accuracy": 1.0,
+          "blind_semantic_correct_count": 5,
+          "blind_semantic_incorrect_count": 0,
+          "confusion_matrix": {
+            "false_negative": 0,
+            "false_positive": 0,
+            "true_negative": 0,
+            "true_positive": 5
+          },
+          "eligible_case_count": 50,
+          "false_negative_rate": 0.0,
+          "false_positive_rate": null,
+          "label_coverage": 0.1,
+          "labeled_case_count": 5,
+          "precision": 1.0,
+          "recall": 1.0,
+          "specificity": null,
+          "v3_correct_count": 5,
+          "v3_incorrect_count": 0
+        }
+      },
+      "by_partition": {
+        "calibration": {
+          "by_difficulty": {
+            "easy": {
+              "accuracy": 0.888889,
+              "blind_semantic_correct_count": 9,
+              "blind_semantic_incorrect_count": 0,
+              "confusion_matrix": {
+                "false_negative": 1,
+                "false_positive": 0,
+                "true_negative": 0,
+                "true_positive": 8
+              },
+              "eligible_case_count": 24,
+              "false_negative_rate": 0.111111,
+              "false_positive_rate": null,
+              "label_coverage": 0.375,
+              "labeled_case_count": 9,
+              "precision": 1.0,
+              "recall": 0.888889,
+              "specificity": null,
+              "v3_correct_count": 8,
+              "v3_incorrect_count": 1
+            },
+            "hard": {
+              "accuracy": 1.0,
+              "blind_semantic_correct_count": 2,
+              "blind_semantic_incorrect_count": 0,
+              "confusion_matrix": {
+                "false_negative": 0,
+                "false_positive": 0,
+                "true_negative": 0,
+                "true_positive": 2
+              },
+              "eligible_case_count": 17,
+              "false_negative_rate": 0.0,
+              "false_positive_rate": null,
+              "label_coverage": 0.117647,
+              "labeled_case_count": 2,
+              "precision": 1.0,
+              "recall": 1.0,
+              "specificity": null,
+              "v3_correct_count": 2,
+              "v3_incorrect_count": 0
+            },
+            "medium": {
+              "accuracy": 1.0,
+              "blind_semantic_correct_count": 1,
+              "blind_semantic_incorrect_count": 0,
+              "confusion_matrix": {
+                "false_negative": 0,
+                "false_positive": 0,
+                "true_negative": 0,
+                "true_positive": 1
+              },
+              "eligible_case_count": 21,
+              "false_negative_rate": 0.0,
+              "false_positive_rate": null,
+              "label_coverage": 0.047619,
+              "labeled_case_count": 1,
+              "precision": 1.0,
+              "recall": 1.0,
+              "specificity": null,
+              "v3_correct_count": 1,
+              "v3_incorrect_count": 0
+            }
+          },
+          "overall": {
+            "accuracy": 0.916667,
+            "blind_semantic_correct_count": 12,
+            "blind_semantic_incorrect_count": 0,
+            "confusion_matrix": {
+              "false_negative": 1,
+              "false_positive": 0,
+              "true_negative": 0,
+              "true_positive": 11
+            },
+            "eligible_case_count": 62,
+            "false_negative_rate": 0.083333,
+            "false_positive_rate": null,
+            "label_coverage": 0.193548,
+            "labeled_case_count": 12,
+            "precision": 1.0,
+            "recall": 0.916667,
+            "specificity": null,
+            "v3_correct_count": 11,
+            "v3_incorrect_count": 1
+          }
+        },
+        "holdout": {
+          "by_difficulty": {
+            "easy": {
+              "accuracy": 1.0,
+              "blind_semantic_correct_count": 12,
+              "blind_semantic_incorrect_count": 1,
+              "confusion_matrix": {
+                "false_negative": 0,
+                "false_positive": 0,
+                "true_negative": 1,
+                "true_positive": 12
+              },
+              "eligible_case_count": 24,
+              "false_negative_rate": 0.0,
+              "false_positive_rate": 0.0,
+              "label_coverage": 0.541667,
+              "labeled_case_count": 13,
+              "precision": 1.0,
+              "recall": 1.0,
+              "specificity": 1.0,
+              "v3_correct_count": 12,
+              "v3_incorrect_count": 1
+            },
+            "hard": {
+              "accuracy": 1.0,
+              "blind_semantic_correct_count": 4,
+              "blind_semantic_incorrect_count": 0,
+              "confusion_matrix": {
+                "false_negative": 0,
+                "false_positive": 0,
+                "true_negative": 0,
+                "true_positive": 4
+              },
+              "eligible_case_count": 26,
+              "false_negative_rate": 0.0,
+              "false_positive_rate": null,
+              "label_coverage": 0.153846,
+              "labeled_case_count": 4,
+              "precision": 1.0,
+              "recall": 1.0,
+              "specificity": null,
+              "v3_correct_count": 4,
+              "v3_incorrect_count": 0
+            },
+            "medium": {
+              "accuracy": 1.0,
+              "blind_semantic_correct_count": 4,
+              "blind_semantic_incorrect_count": 0,
+              "confusion_matrix": {
+                "false_negative": 0,
+                "false_positive": 0,
+                "true_negative": 0,
+                "true_positive": 4
+              },
+              "eligible_case_count": 29,
+              "false_negative_rate": 0.0,
+              "false_positive_rate": null,
+              "label_coverage": 0.137931,
+              "labeled_case_count": 4,
+              "precision": 1.0,
+              "recall": 1.0,
+              "specificity": null,
+              "v3_correct_count": 4,
+              "v3_incorrect_count": 0
+            }
+          },
+          "overall": {
+            "accuracy": 1.0,
+            "blind_semantic_correct_count": 20,
+            "blind_semantic_incorrect_count": 1,
+            "confusion_matrix": {
+              "false_negative": 0,
+              "false_positive": 0,
+              "true_negative": 1,
+              "true_positive": 20
+            },
+            "eligible_case_count": 79,
+            "false_negative_rate": 0.0,
+            "false_positive_rate": 0.0,
+            "label_coverage": 0.265823,
+            "labeled_case_count": 21,
+            "precision": 1.0,
+            "recall": 1.0,
+            "specificity": 1.0,
+            "v3_correct_count": 20,
+            "v3_incorrect_count": 1
+          }
+        }
+      },
+      "label_scope": "partial exact-semantic-input identity subset only",
+      "overall": {
+        "accuracy": 0.969697,
+        "blind_semantic_correct_count": 32,
+        "blind_semantic_incorrect_count": 1,
+        "confusion_matrix": {
+          "false_negative": 1,
+          "false_positive": 0,
+          "true_negative": 1,
+          "true_positive": 31
+        },
+        "eligible_case_count": 141,
+        "false_negative_rate": 0.03125,
+        "false_positive_rate": 0.0,
+        "label_coverage": 0.234043,
+        "labeled_case_count": 33,
+        "precision": 1.0,
+        "recall": 0.96875,
+        "specificity": 1.0,
+        "v3_correct_count": 31,
+        "v3_incorrect_count": 2
+      },
+      "reason_analysis": {
+        "by_reason": {
+          "answer_correctness_below_minimum": {
+            "false_negative_count": 1,
+            "false_negative_share_among_flags": 0.5,
+            "flagged_count": 2,
+            "hard_gate_calibration": "unsafe_as_independent_hard_gate_on_this_sample",
+            "high_reference_evidence_false_negative_count": 1,
+            "semantic_correct_recall_loss": 0.03125,
+            "share_of_all_false_negatives": 1.0,
+            "true_negative_count": 1
+          },
+          "contradictory_factual_claim": {
+            "false_negative_count": 0,
+            "false_negative_share_among_flags": 0.0,
+            "flagged_count": 1,
+            "hard_gate_calibration": "no_false_negative_observed_on_this_sample",
+            "high_reference_evidence_false_negative_count": 0,
+            "semantic_correct_recall_loss": 0.0,
+            "share_of_all_false_negatives": 0.0,
+            "true_negative_count": 1
+          },
+          "faithfulness_below_minimum": {
+            "false_negative_count": 0,
+            "false_negative_share_among_flags": 0.0,
+            "flagged_count": 3,
+            "hard_gate_calibration": "no_false_negative_observed_on_this_sample",
+            "high_reference_evidence_false_negative_count": 0,
+            "semantic_correct_recall_loss": 0.0,
+            "share_of_all_false_negatives": 0.0,
+            "true_negative_count": 0
+          },
+          "polarity_mismatch": {
+            "false_negative_count": 0,
+            "false_negative_share_among_flags": 0.0,
+            "flagged_count": 1,
+            "hard_gate_calibration": "no_false_negative_observed_on_this_sample",
+            "high_reference_evidence_false_negative_count": 0,
+            "semantic_correct_recall_loss": 0.0,
+            "share_of_all_false_negatives": 0.0,
+            "true_negative_count": 1
+          },
+          "quality_score_below_minimum": {
+            "false_negative_count": 1,
+            "false_negative_share_among_flags": 0.5,
+            "flagged_count": 2,
+            "hard_gate_calibration": "unsafe_as_independent_hard_gate_on_this_sample",
+            "high_reference_evidence_false_negative_count": 1,
+            "semantic_correct_recall_loss": 0.03125,
+            "share_of_all_false_negatives": 1.0,
+            "true_negative_count": 1
+          }
+        },
+        "false_negative_reason_combinations": [
+          {
+            "count": 1,
+            "reason_codes": [
+              "answer_correctness_below_minimum",
+              "quality_score_below_minimum"
+            ]
+          }
+        ],
+        "false_negative_reason_counts": {
+          "answer_correctness_below_minimum": 1,
+          "quality_score_below_minimum": 1
+        },
+        "target_reason_codes": {
+          "abstention_contains_factual_claim": {
+            "false_negative_count": 0,
+            "false_negative_share_among_flags": null,
+            "flagged_count": 0,
+            "hard_gate_calibration": "not_observed",
+            "high_reference_evidence_false_negative_count": 0,
+            "semantic_correct_recall_loss": null,
+            "share_of_all_false_negatives": null,
+            "true_negative_count": 0
+          },
+          "abstention_incorrect": {
+            "false_negative_count": 0,
+            "false_negative_share_among_flags": null,
+            "flagged_count": 0,
+            "hard_gate_calibration": "not_observed",
+            "high_reference_evidence_false_negative_count": 0,
+            "semantic_correct_recall_loss": null,
+            "share_of_all_false_negatives": null,
+            "true_negative_count": 0
+          },
+          "contradictory_factual_claim": {
+            "false_negative_count": 0,
+            "false_negative_share_among_flags": 0.0,
+            "flagged_count": 1,
+            "hard_gate_calibration": "no_false_negative_observed_on_this_sample",
+            "high_reference_evidence_false_negative_count": 0,
+            "semantic_correct_recall_loss": 0.0,
+            "share_of_all_false_negatives": 0.0,
+            "true_negative_count": 1
+          },
+          "critical_identifier_mismatch": {
+            "false_negative_count": 0,
+            "false_negative_share_among_flags": null,
+            "flagged_count": 0,
+            "hard_gate_calibration": "not_observed",
+            "high_reference_evidence_false_negative_count": 0,
+            "semantic_correct_recall_loss": null,
+            "share_of_all_false_negatives": null,
+            "true_negative_count": 0
+          },
+          "critical_number_mismatch": {
+            "false_negative_count": 0,
+            "false_negative_share_among_flags": null,
+            "flagged_count": 0,
+            "hard_gate_calibration": "not_observed",
+            "high_reference_evidence_false_negative_count": 0,
+            "semantic_correct_recall_loss": null,
+            "share_of_all_false_negatives": null,
+            "true_negative_count": 0
+          },
+          "polarity_mismatch": {
+            "false_negative_count": 0,
+            "false_negative_share_among_flags": 0.0,
+            "flagged_count": 1,
+            "hard_gate_calibration": "no_false_negative_observed_on_this_sample",
+            "high_reference_evidence_false_negative_count": 0,
+            "semantic_correct_recall_loss": 0.0,
+            "share_of_all_false_negatives": 0.0,
+            "true_negative_count": 1
+          },
+          "required_branch_incomplete": {
+            "false_negative_count": 0,
+            "false_negative_share_among_flags": null,
+            "flagged_count": 0,
+            "hard_gate_calibration": "not_observed",
+            "high_reference_evidence_false_negative_count": 0,
+            "semantic_correct_recall_loss": null,
+            "share_of_all_false_negatives": null,
+            "true_negative_count": 0
+          },
+          "unsupported_factual_claim": {
+            "false_negative_count": 0,
+            "false_negative_share_among_flags": null,
+            "flagged_count": 0,
+            "hard_gate_calibration": "not_observed",
+            "high_reference_evidence_false_negative_count": 0,
+            "semantic_correct_recall_loss": null,
+            "share_of_all_false_negatives": null,
+            "true_negative_count": 0
+          }
+        },
+        "true_negative_reason_counts": {
+          "answer_correctness_below_minimum": 1,
+          "contradictory_factual_claim": 1,
+          "polarity_mismatch": 1,
+          "quality_score_below_minimum": 1
+        }
+      }
+    },
+    "pre_grounding": {
+      "by_difficulty": {
+        "easy": {
+          "accuracy": 0.875,
+          "blind_semantic_correct_count": 45,
+          "blind_semantic_incorrect_count": 3,
+          "confusion_matrix": {
+            "false_negative": 3,
+            "false_positive": 3,
+            "true_negative": 0,
+            "true_positive": 42
+          },
+          "eligible_case_count": 48,
+          "false_negative_rate": 0.066667,
+          "false_positive_rate": 1.0,
+          "label_coverage": 1.0,
+          "labeled_case_count": 48,
+          "precision": 0.933333,
+          "recall": 0.933333,
+          "specificity": 0.0,
+          "v3_correct_count": 45,
+          "v3_incorrect_count": 3
+        },
+        "hard": {
+          "accuracy": 0.860465,
+          "blind_semantic_correct_count": 29,
+          "blind_semantic_incorrect_count": 14,
+          "confusion_matrix": {
+            "false_negative": 3,
+            "false_positive": 3,
+            "true_negative": 11,
+            "true_positive": 26
+          },
+          "eligible_case_count": 43,
+          "false_negative_rate": 0.103448,
+          "false_positive_rate": 0.214286,
+          "label_coverage": 1.0,
+          "labeled_case_count": 43,
+          "precision": 0.896552,
+          "recall": 0.896552,
+          "specificity": 0.785714,
+          "v3_correct_count": 29,
+          "v3_incorrect_count": 14
+        },
+        "medium": {
+          "accuracy": 0.88,
+          "blind_semantic_correct_count": 44,
+          "blind_semantic_incorrect_count": 6,
+          "confusion_matrix": {
+            "false_negative": 3,
+            "false_positive": 3,
+            "true_negative": 3,
+            "true_positive": 41
+          },
+          "eligible_case_count": 50,
+          "false_negative_rate": 0.068182,
+          "false_positive_rate": 0.5,
+          "label_coverage": 1.0,
+          "labeled_case_count": 50,
+          "precision": 0.931818,
+          "recall": 0.931818,
+          "specificity": 0.5,
+          "v3_correct_count": 44,
+          "v3_incorrect_count": 6
+        }
+      },
+      "by_partition": {
+        "calibration": {
+          "by_difficulty": {
+            "easy": {
+              "accuracy": 0.791667,
+              "blind_semantic_correct_count": 22,
+              "blind_semantic_incorrect_count": 2,
+              "confusion_matrix": {
+                "false_negative": 3,
+                "false_positive": 2,
+                "true_negative": 0,
+                "true_positive": 19
+              },
+              "eligible_case_count": 24,
+              "false_negative_rate": 0.136364,
+              "false_positive_rate": 1.0,
+              "label_coverage": 1.0,
+              "labeled_case_count": 24,
+              "precision": 0.904762,
+              "recall": 0.863636,
+              "specificity": 0.0,
+              "v3_correct_count": 21,
+              "v3_incorrect_count": 3
+            },
+            "hard": {
+              "accuracy": 0.941176,
+              "blind_semantic_correct_count": 12,
+              "blind_semantic_incorrect_count": 5,
+              "confusion_matrix": {
+                "false_negative": 1,
+                "false_positive": 0,
+                "true_negative": 5,
+                "true_positive": 11
+              },
+              "eligible_case_count": 17,
+              "false_negative_rate": 0.083333,
+              "false_positive_rate": 0.0,
+              "label_coverage": 1.0,
+              "labeled_case_count": 17,
+              "precision": 1.0,
+              "recall": 0.916667,
+              "specificity": 1.0,
+              "v3_correct_count": 11,
+              "v3_incorrect_count": 6
+            },
+            "medium": {
+              "accuracy": 0.857143,
+              "blind_semantic_correct_count": 18,
+              "blind_semantic_incorrect_count": 3,
+              "confusion_matrix": {
+                "false_negative": 1,
+                "false_positive": 2,
+                "true_negative": 1,
+                "true_positive": 17
+              },
+              "eligible_case_count": 21,
+              "false_negative_rate": 0.055556,
+              "false_positive_rate": 0.666667,
+              "label_coverage": 1.0,
+              "labeled_case_count": 21,
+              "precision": 0.894737,
+              "recall": 0.944444,
+              "specificity": 0.333333,
+              "v3_correct_count": 19,
+              "v3_incorrect_count": 2
+            }
+          },
+          "overall": {
+            "accuracy": 0.854839,
+            "blind_semantic_correct_count": 52,
+            "blind_semantic_incorrect_count": 10,
+            "confusion_matrix": {
+              "false_negative": 5,
+              "false_positive": 4,
+              "true_negative": 6,
+              "true_positive": 47
+            },
+            "eligible_case_count": 62,
+            "false_negative_rate": 0.096154,
+            "false_positive_rate": 0.4,
+            "label_coverage": 1.0,
+            "labeled_case_count": 62,
+            "precision": 0.921569,
+            "recall": 0.903846,
+            "specificity": 0.6,
+            "v3_correct_count": 51,
+            "v3_incorrect_count": 11
+          }
+        },
+        "holdout": {
+          "by_difficulty": {
+            "easy": {
+              "accuracy": 0.958333,
+              "blind_semantic_correct_count": 23,
+              "blind_semantic_incorrect_count": 1,
+              "confusion_matrix": {
+                "false_negative": 0,
+                "false_positive": 1,
+                "true_negative": 0,
+                "true_positive": 23
+              },
+              "eligible_case_count": 24,
+              "false_negative_rate": 0.0,
+              "false_positive_rate": 1.0,
+              "label_coverage": 1.0,
+              "labeled_case_count": 24,
+              "precision": 0.958333,
+              "recall": 1.0,
+              "specificity": 0.0,
+              "v3_correct_count": 24,
+              "v3_incorrect_count": 0
+            },
+            "hard": {
+              "accuracy": 0.807692,
+              "blind_semantic_correct_count": 17,
+              "blind_semantic_incorrect_count": 9,
+              "confusion_matrix": {
+                "false_negative": 2,
+                "false_positive": 3,
+                "true_negative": 6,
+                "true_positive": 15
+              },
+              "eligible_case_count": 26,
+              "false_negative_rate": 0.117647,
+              "false_positive_rate": 0.333333,
+              "label_coverage": 1.0,
+              "labeled_case_count": 26,
+              "precision": 0.833333,
+              "recall": 0.882353,
+              "specificity": 0.666667,
+              "v3_correct_count": 18,
+              "v3_incorrect_count": 8
+            },
+            "medium": {
+              "accuracy": 0.896552,
+              "blind_semantic_correct_count": 26,
+              "blind_semantic_incorrect_count": 3,
+              "confusion_matrix": {
+                "false_negative": 2,
+                "false_positive": 1,
+                "true_negative": 2,
+                "true_positive": 24
+              },
+              "eligible_case_count": 29,
+              "false_negative_rate": 0.076923,
+              "false_positive_rate": 0.333333,
+              "label_coverage": 1.0,
+              "labeled_case_count": 29,
+              "precision": 0.96,
+              "recall": 0.923077,
+              "specificity": 0.666667,
+              "v3_correct_count": 25,
+              "v3_incorrect_count": 4
+            }
+          },
+          "overall": {
+            "accuracy": 0.886076,
+            "blind_semantic_correct_count": 66,
+            "blind_semantic_incorrect_count": 13,
+            "confusion_matrix": {
+              "false_negative": 4,
+              "false_positive": 5,
+              "true_negative": 8,
+              "true_positive": 62
+            },
+            "eligible_case_count": 79,
+            "false_negative_rate": 0.060606,
+            "false_positive_rate": 0.384615,
+            "label_coverage": 1.0,
+            "labeled_case_count": 79,
+            "precision": 0.925373,
+            "recall": 0.939394,
+            "specificity": 0.615385,
+            "v3_correct_count": 67,
+            "v3_incorrect_count": 12
+          }
+        }
+      },
+      "label_scope": "complete after explicit PDF blocker exclusions",
+      "overall": {
+        "accuracy": 0.87234,
+        "blind_semantic_correct_count": 118,
+        "blind_semantic_incorrect_count": 23,
+        "confusion_matrix": {
+          "false_negative": 9,
+          "false_positive": 9,
+          "true_negative": 14,
+          "true_positive": 109
+        },
+        "eligible_case_count": 141,
+        "false_negative_rate": 0.076271,
+        "false_positive_rate": 0.391304,
+        "label_coverage": 1.0,
+        "labeled_case_count": 141,
+        "precision": 0.923729,
+        "recall": 0.923729,
+        "specificity": 0.608696,
+        "v3_correct_count": 118,
+        "v3_incorrect_count": 23
+      },
+      "reason_analysis": {
+        "by_reason": {
+          "answer_correctness_below_minimum": {
+            "false_negative_count": 9,
+            "false_negative_share_among_flags": 0.391304,
+            "flagged_count": 23,
+            "hard_gate_calibration": "unsafe_as_independent_hard_gate_on_this_sample",
+            "high_reference_evidence_false_negative_count": 5,
+            "semantic_correct_recall_loss": 0.076271,
+            "share_of_all_false_negatives": 1.0,
+            "true_negative_count": 14
+          },
+          "citation_coverage_below_minimum": {
+            "false_negative_count": 9,
+            "false_negative_share_among_flags": 0.066176,
+            "flagged_count": 136,
+            "hard_gate_calibration": "unsafe_as_independent_hard_gate_on_this_sample",
+            "high_reference_evidence_false_negative_count": 5,
+            "semantic_correct_recall_loss": 0.076271,
+            "share_of_all_false_negatives": 1.0,
+            "true_negative_count": 14
+          },
+          "critical_number_mismatch": {
+            "false_negative_count": 1,
+            "false_negative_share_among_flags": 0.5,
+            "flagged_count": 2,
+            "hard_gate_calibration": "unsafe_as_independent_hard_gate_on_this_sample",
+            "high_reference_evidence_false_negative_count": 0,
+            "semantic_correct_recall_loss": 0.008475,
+            "share_of_all_false_negatives": 0.111111,
+            "true_negative_count": 1
+          },
+          "faithfulness_below_minimum": {
+            "false_negative_count": 7,
+            "false_negative_share_among_flags": 0.069307,
+            "flagged_count": 101,
+            "hard_gate_calibration": "unsafe_as_independent_hard_gate_on_this_sample",
+            "high_reference_evidence_false_negative_count": 3,
+            "semantic_correct_recall_loss": 0.059322,
+            "share_of_all_false_negatives": 0.777778,
+            "true_negative_count": 14
+          },
+          "polarity_mismatch": {
+            "false_negative_count": 0,
+            "false_negative_share_among_flags": 0.0,
+            "flagged_count": 1,
+            "hard_gate_calibration": "no_false_negative_observed_on_this_sample",
+            "high_reference_evidence_false_negative_count": 0,
+            "semantic_correct_recall_loss": 0.0,
+            "share_of_all_false_negatives": 0.0,
+            "true_negative_count": 1
+          },
+          "quality_score_below_minimum": {
+            "false_negative_count": 9,
+            "false_negative_share_among_flags": 0.310345,
+            "flagged_count": 29,
+            "hard_gate_calibration": "unsafe_as_independent_hard_gate_on_this_sample",
+            "high_reference_evidence_false_negative_count": 5,
+            "semantic_correct_recall_loss": 0.076271,
+            "share_of_all_false_negatives": 1.0,
+            "true_negative_count": 14
+          }
+        },
+        "false_negative_reason_combinations": [
+          {
+            "count": 6,
+            "reason_codes": [
+              "answer_correctness_below_minimum",
+              "citation_coverage_below_minimum",
+              "faithfulness_below_minimum",
+              "quality_score_below_minimum"
+            ]
+          },
+          {
+            "count": 2,
+            "reason_codes": [
+              "answer_correctness_below_minimum",
+              "citation_coverage_below_minimum",
+              "quality_score_below_minimum"
+            ]
+          },
+          {
+            "count": 1,
+            "reason_codes": [
+              "answer_correctness_below_minimum",
+              "citation_coverage_below_minimum",
+              "critical_number_mismatch",
+              "faithfulness_below_minimum",
+              "quality_score_below_minimum"
+            ]
+          }
+        ],
+        "false_negative_reason_counts": {
+          "answer_correctness_below_minimum": 9,
+          "citation_coverage_below_minimum": 9,
+          "critical_number_mismatch": 1,
+          "faithfulness_below_minimum": 7,
+          "quality_score_below_minimum": 9
+        },
+        "target_reason_codes": {
+          "abstention_contains_factual_claim": {
+            "false_negative_count": 0,
+            "false_negative_share_among_flags": null,
+            "flagged_count": 0,
+            "hard_gate_calibration": "not_observed",
+            "high_reference_evidence_false_negative_count": 0,
+            "semantic_correct_recall_loss": null,
+            "share_of_all_false_negatives": null,
+            "true_negative_count": 0
+          },
+          "abstention_incorrect": {
+            "false_negative_count": 0,
+            "false_negative_share_among_flags": null,
+            "flagged_count": 0,
+            "hard_gate_calibration": "not_observed",
+            "high_reference_evidence_false_negative_count": 0,
+            "semantic_correct_recall_loss": null,
+            "share_of_all_false_negatives": null,
+            "true_negative_count": 0
+          },
+          "contradictory_factual_claim": {
+            "false_negative_count": 0,
+            "false_negative_share_among_flags": null,
+            "flagged_count": 0,
+            "hard_gate_calibration": "not_observed",
+            "high_reference_evidence_false_negative_count": 0,
+            "semantic_correct_recall_loss": null,
+            "share_of_all_false_negatives": null,
+            "true_negative_count": 0
+          },
+          "critical_identifier_mismatch": {
+            "false_negative_count": 0,
+            "false_negative_share_among_flags": null,
+            "flagged_count": 0,
+            "hard_gate_calibration": "not_observed",
+            "high_reference_evidence_false_negative_count": 0,
+            "semantic_correct_recall_loss": null,
+            "share_of_all_false_negatives": null,
+            "true_negative_count": 0
+          },
+          "critical_number_mismatch": {
+            "false_negative_count": 1,
+            "false_negative_share_among_flags": 0.5,
+            "flagged_count": 2,
+            "hard_gate_calibration": "unsafe_as_independent_hard_gate_on_this_sample",
+            "high_reference_evidence_false_negative_count": 0,
+            "semantic_correct_recall_loss": 0.008475,
+            "share_of_all_false_negatives": 0.111111,
+            "true_negative_count": 1
+          },
+          "polarity_mismatch": {
+            "false_negative_count": 0,
+            "false_negative_share_among_flags": 0.0,
+            "flagged_count": 1,
+            "hard_gate_calibration": "no_false_negative_observed_on_this_sample",
+            "high_reference_evidence_false_negative_count": 0,
+            "semantic_correct_recall_loss": 0.0,
+            "share_of_all_false_negatives": 0.0,
+            "true_negative_count": 1
+          },
+          "required_branch_incomplete": {
+            "false_negative_count": 0,
+            "false_negative_share_among_flags": null,
+            "flagged_count": 0,
+            "hard_gate_calibration": "not_observed",
+            "high_reference_evidence_false_negative_count": 0,
+            "semantic_correct_recall_loss": null,
+            "share_of_all_false_negatives": null,
+            "true_negative_count": 0
+          },
+          "unsupported_factual_claim": {
+            "false_negative_count": 0,
+            "false_negative_share_among_flags": null,
+            "flagged_count": 0,
+            "hard_gate_calibration": "not_observed",
+            "high_reference_evidence_false_negative_count": 0,
+            "semantic_correct_recall_loss": null,
+            "share_of_all_false_negatives": null,
+            "true_negative_count": 0
+          }
+        },
+        "true_negative_reason_counts": {
+          "answer_correctness_below_minimum": 14,
+          "citation_coverage_below_minimum": 14,
+          "critical_number_mismatch": 1,
+          "faithfulness_below_minimum": 14,
+          "polarity_mismatch": 1,
+          "quality_score_below_minimum": 14
+        }
+      }
+    }
+  },
+  "exclusions": {
+    "blocking_reference_case_count": 9,
+    "blocking_reference_case_ids": [
+      "P3500-EASY-004",
+      "P3500-EASY-049",
+      "P3500-HARD-008",
+      "P3500-HARD-015",
+      "P3500-HARD-021",
+      "P3500-HARD-037",
+      "P3500-HARD-040",
+      "P3500-HARD-041",
+      "P3500-HARD-042"
+    ],
+    "dispositions": {
+      "P3500-EASY-004": "confirmed_source_conflict",
+      "P3500-EASY-049": "not_explicit_in_source",
+      "P3500-HARD-008": "confirmed_source_conflict",
+      "P3500-HARD-015": "confirmed_source_conflict",
+      "P3500-HARD-021": "source_scope_not_explicit",
+      "P3500-HARD-037": "confirmed_source_conflict",
+      "P3500-HARD-040": "confirmed_source_conflict",
+      "P3500-HARD-041": "confirmed_source_conflict",
+      "P3500-HARD-042": "reference_does_not_answer_query"
+    },
+    "source": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/suite-source-evaluator-qa/pdf-visual-review/summary.json"
+  },
+  "inputs": {
+    "pre_blind_judge": {
+      "model": "qwen3.7-max",
+      "prompt_version": "stt.semantic-visible-answer-judge.v2",
+      "record_count": 153,
+      "records_path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/semantic-reviews/live-cand-max-mono-01/direct-answer-v3-qwen3.7-max/pre_grounding/semantic-correctness-review.jsonl"
+    },
+    "prior_final_blind_judge": {
+      "records_path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/semantic-reviews/live-candidate-v2-qwen-plus-grounding-v3-01/direct-answer-v3-qwen3.7-max/semantic-correctness-review.jsonl",
+      "run_label": "live-candidate-v2-qwen-plus-grounding-v3-01",
+      "use": "exact semantic-input identity rows only"
+    },
+    "script_path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/evaluator-v3-blind-calibration/calibrate_evaluator_v3.py",
+    "script_sha256": "d21c4e694232d1325eb4fb10d0c3beb0bcecacad5ca1dbc3aef0cecdc98cee7f",
+    "sha256": {
+      "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/easy.json": "1a3cacbb59b3aa7f354a569f828ad6214351f07cd3d0923a798e98cc33c41b2a",
+      "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/hard.json": "e5be4d2495618e819b9758fa753bb10d553037ca10b26dc6ccd8521404600a04",
+      "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/medium.json": "89c570d10282342fd7facec9bd7d20af61337b5ecaef0038157ed824c25c0369",
+      "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/evaluator-v3-shadow-replay/SHA256SUMS": "8467a7e474d61396452483319f71199a7bf56d43f9d012df79a5bcff73fa87f9",
+      "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/evaluator-v3-shadow-replay/shadow-cases.json": "86bc37d5f827444351ac4c840dea314e5357dee7083f06891fea9b0d9901f052",
+      "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/evaluator-v3-shadow-replay/summary.json": "184ccea981c4711e8c87773e6bb72eb59aa8382abe39ce255b1ba3307a611883",
+      "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/runs/live-cand-max-mono-01/artifacts/easy/erun_5943e3f1a8d24eb79ec1ad3897e40f63/results.jsonl": "3ab1b34b089639552e98d873c1440b7b6ad982d784780a304577482414efe88a",
+      "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/runs/live-cand-max-mono-01/artifacts/hard/erun_6556fff1063f43f0a38569799d87511d/results.jsonl": "2a954a6a1cbf82eb79b1ae763d4d2e7889edfcda712f5a4ebc908dcdc0126235",
+      "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/runs/live-cand-max-mono-01/artifacts/medium/erun_8faab68e39c1405b98202e0b195468dd/results.jsonl": "eee1ee51916f8c22edf351000707c50981021efd9852c1526aad390a9f3e2e9c",
+      "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/semantic-reviews/live-cand-max-mono-01/direct-answer-v3-qwen3.7-max/pre_grounding/semantic-correctness-review.jsonl": "ec4f4a35b570c70e806c20023e45265c96d51189f8ddb9c2b31fb7e869c5e850",
+      "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/semantic-reviews/live-cand-max-mono-01/direct-answer-v3-qwen3.7-max/pre_grounding/summary.json": "dbe0dadaeba6b872d2720e55be6583f5971f78c31e022eabfd34493f911c1d91",
+      "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/semantic-reviews/live-candidate-v2-qwen-plus-grounding-v3-01/direct-answer-v3-qwen3.7-max/semantic-correctness-review.jsonl": "d062a2c420a7e91f9f84351645f48a25daa64e6787c7cf2aad2d446b8858472b",
+      "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/semantic-reviews/live-candidate-v2-qwen-plus-grounding-v3-01/direct-answer-v3-qwen3.7-max/summary.json": "dda43324990d10d58a1016aee899818c24fc64cdb14f68f6b0fbc9b68b365aac",
+      "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/suite-source-evaluator-qa/pdf-visual-review/cases.json": "9d4e1ae706093173a13c47d063c64e9b0b24fb5314b23b662a2b86226b07f76a",
+      "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/suite-source-evaluator-qa/pdf-visual-review/summary.json": "27aa89cce086496cf18b2586e7107134aeef7994303272088c03b95726458e59"
+    }
+  },
+  "integrity": {
+    "authored_concept_group_case_count": 0,
+    "blind_record_hashes_verified": true,
+    "case_join_complete": true,
+    "dataset_case_count": 150,
+    "input_file_hashes_recorded": true,
+    "partition_case_counts_after_exclusion": {
+      "calibration": 62,
+      "holdout": 79
+    },
+    "partition_case_counts_before_exclusion": {
+      "calibration": 68,
+      "holdout": 82
+    },
+    "partition_is_content_sha_only": true,
+    "pre_blind_case_count": 150,
+    "pre_visible_answer_hashes_verified": true,
+    "prior_final_blind_case_count": 150,
+    "query_reference_hashes_verified": true,
+    "result_case_count": 150,
+    "shadow_checksum_manifest_verified": true,
+    "shadow_row_count": 300,
+    "shadow_stage_case_count": {
+      "final": 150,
+      "pre_grounding": 150
+    },
+    "shadow_summary_input_hashes_verified": true
+  },
+  "policy_versions": {
+    "previous": "stt.eval.case.v2",
+    "shadow": "stt.eval.case.v3"
+  },
+  "representative_samples": [
+    {
+      "answer": "在控制面板上设置语言和休眠时间时,两者进入“1.系统设置”后的后续操作不同点在于:语言设置需直接按“OK”键选择“1.语言设置”选项[E2];而休眠时间设置需按方向键“▲”或“▼”选择“2.休眠时间设置”选项后再按“OK”键[E3]。\n\n具体操作差异如下:\n-   语言设置在按“OK”键选择“1.系统设置”选项后,需按“OK”键选择“1.语言设置”选项[E2]。\n-   休眠时间设置在按“OK”键选择“1.系统设置”选项后,需按方向键“▲”或“▼”选择“2.休眠时间设置”选项,再按“OK”键[E3]。",
+      "blind_semantic_correct": true,
+      "case_id": "P3500-HARD-028",
+      "confusion_bucket": "FN",
+      "context_excerpt": "标题路径:前言 > 7.2. 休眠时间设置\n\n设置休眠模式将降低耗电量,“休眠时间设置”可以选择设备进入休眠模式之前的闲置时间。\n\n1) 按“菜单”键进入菜单设置界面。\n\n2) 按“OK”键选择“1.系统设置”选项。\n\n3) 按方向键“▲”或“▼”选择“2.休眠时间设置”选项,按“OK”键。\n\n[image omitted]\n\n[image omitted]\n\n4) 按方向键“▲”或“▼”可选择“1 分钟”、“5 分钟”、“15 分钟”、“30 分钟”、“60 分钟”、“8 小时”。\n\n注: • 打印机进入休眠状态时,按任意键或者发送打印作业,可以唤醒打印机。\n\n系统设置  \n2.休眠时间设置  \n圆形导航键:上箭头、下箭头、右箭头、中心“OK”按钮,左侧有“鼠”图标(指向左)  \n下方两个按钮:左侧为Wi-Fi图标加实心圆点,右侧为“×”符号按钮  \n底部标注“△(←→)”  \n\n系统设置  \n3.省电  \n圆形导航键:上箭头、下箭头、右箭头、中心“OK”按钮,左侧有“鼠”图标(指向左)  \n下方两个按钮:左侧为Wi-Fi图标加实心圆点,右侧为“×”符号按钮  \n底部标注“△(←→)”",
+      "context_label": "E3",
+      "difficulty": "hard",
+      "partition": "calibration",
+      "primary_reason_code": "critical_number_mismatch",
+      "query": "在控制面板上设置语言和休眠时间时，两者都需要进入“系统设置”菜单，但后续操作有何不同？",
+      "reference_answer": "设置语言时，需选择“1.语言设置”选项；设置休眠时间时，需选择“2.休眠时间设置”选项。",
+      "reference_coverage_in_answer": 0.8125,
+      "reference_coverage_in_context": 0.625,
+      "v3_final_correct": false,
+      "v3_reason_codes": [
+        "answer_correctness_below_minimum",
+        "citation_coverage_below_minimum",
+        "critical_number_mismatch",
+        "faithfulness_below_minimum",
+        "quality_score_below_minimum"
+      ]
+    },
+    {
+      "answer": "在进行无线网络安装前,必须了解接入点(无线路由器)的网络名(SSID)和密码 [E1][E2]。\n\n-   如果无法确定网络名(SSID)和密码,请咨询您的网络管理员或接入点(无线路由器)制造商 [E1][E2]。\n-   如果不了解网络安全模式及密码,也需咨询您的网络管理员或接入点(无线路由器)制造商 [E3]。",
+      "blind_semantic_correct": true,
+      "case_id": "P3500-EASY-018",
+      "confusion_bucket": "FN",
+      "context_excerpt": "标题路径:前言 > 4.2.1. 基础结构连接模式\n\n您可以通过接入点(无线路由器)作为媒介,将计算机和打印机连接在一起。接入点(无线路由器)连接分为无线网络配置和Wi-Fi Protected Setup配置两种方式。\n\n重要:在进行无线网络安装前,必须了解您的接入点(无线路由器)的网络名(SSID)和密码。如果无法确定,请咨询您的网络管理员或接入点(无线路由器)制造商。",
+      "context_label": "E1",
+      "difficulty": "easy",
+      "partition": "calibration",
+      "primary_reason_code": "coverage_or_contract_false_negative",
+      "query": "添加打印机前必须了解无线路由器的什么信息？",
+      "reference_answer": "网络名（SSID）和密码",
+      "reference_coverage_in_answer": 1.0,
+      "reference_coverage_in_context": 1.0,
+      "v3_final_correct": false,
+      "v3_reason_codes": [
+        "answer_correctness_below_minimum",
+        "citation_coverage_below_minimum",
+        "faithfulness_below_minimum",
+        "quality_score_below_minimum"
+      ]
+    },
+    {
+      "answer": "当打印机在网络中无法被搜索到时,应检查以下内容:\n\n-   关闭计算机、接入点(无线路由器)和打印机的电源,然后再重启 [E1]。\n-   检查防火墙软件是否封锁通信,如果计算机和打印机连接在同一网络中却搜索不到,可能是因为防火墙软件封锁了通信 [E1]。\n-   检查打印机 IP 地址的分配是否正确,您可以打印打印机的网络配置信息页来检查 IP地址 [E1]。\n-   检查计算机、接入点(无线路由器)或打印机电源是否已打开 [E2]。\n-   检查计算机和打印机之间是否已连接了USB线 [E2]。\n-   检查打印机是否支持无线网络连接 [E2]。\n-   检查接入点(无线路由器)的电源开关是否已打开 [E3]。\n-   若打印机找不到您选择或输入的接入点(无线路由器)的网络名称 (SSID),请检查接入点上的网络名称(SSID)并尝试重新连接 [E3]。\n-   每当接入点(无线路由器)的配置发生变化时,您必须重新设置打印机的无线网络 [E3]。\n-   请检查接入点(无线路由器)和打印机的安全模式、密码是否正确 [E4]。\n-   若计算机无法连接打印机的无线热点,请检查打印机电源是否已打开 [E4]。\n-   检查打印机周围的无线接收,如果路由器远离打印机或中间有障碍,可能影响信号的接收 [E4]。\n-   关闭接入点(无线路由器)和打印机的电源,然后再重新启动 [E4]。",
+      "blind_semantic_correct": true,
+      "case_id": "P3500-MEDIUM-023",
+      "confusion_bucket": "FN",
+      "context_excerpt": "标题路径:前言 > 4.如果在网络中使用打印机时出现问题,请检查以下几方面:\n\n• 关闭计算机、接入点(无线路由器)和打印机的电源,然后再重启。\n\n• 检查防火墙软件是否封锁通信。如果计算机和打印机连接在同一网络中却搜索不到,可能是因为防火墙软件封锁了通信。请参阅防火墙软件的用户指南,将防火墙关闭,然后重新尝试搜索打印机。\n\n• 检查打印机 IP 地址的分配是否正确。您可以打印打印机的网络配置信息页来检查 IP地址。\n\n[image omitted]\n\n注:• 有关接入点(无线路由器)的信息,请参阅其用户指南或咨询其制造商。\n\n一般图形内容  \n一张带有折角的纸张,其上排列着多行短横线,每行由多个等距短横线组成,共约六行;一支带条纹笔身的铅笔从右上方斜向插入纸面,笔尖指向纸张中部偏右位置,正接触其中一行短横线;纸张右下角有向上翻折的角状边缘。",
+      "context_label": "E1",
+      "difficulty": "medium",
+      "partition": "holdout",
+      "primary_reason_code": "coverage_or_contract_false_negative",
+      "query": "当打印机在网络中无法被搜索到时，应检查哪几项内容？请列出所有相关检查点。",
+      "reference_answer": "关闭计算机、接入点（无线路由器）和打印机的电源，然后再重启；检查防火墙软件是否封锁通信；检查打印机IP地址的分配是否正确。",
+      "reference_coverage_in_answer": 1.0,
+      "reference_coverage_in_context": 1.0,
+      "v3_final_correct": false,
+      "v3_reason_codes": [
+        "answer_correctness_below_minimum",
+        "citation_coverage_below_minimum",
+        "quality_score_below_minimum"
+      ]
+    },
+    {
+      "answer": "在进行基础结构连接模式的无线网络安装前,必须了解接入点(无线路由器)的网络名(SSID)和密码 [E1][E2][E3]。\n\n-   如果无法确定网络名(SSID)和密码,请咨询您的网络管理员或接入点(无线路由器)制造商 [E1][E2][E3]。\n-   若需手动添加IP地址或主机名进行安装,还需要知道所连接的打印机IP地址或主机名 [E4]。",
+      "blind_semantic_correct": true,
+      "case_id": "P3500-MEDIUM-019",
+      "confusion_bucket": "FN",
+      "context_excerpt": "标题路径:前言 > 3.1.3.1.基础结构连接安装\n\n驱动安装前,必须了解您的接入点(无线路由器)的“网络名(SSID)”和“密码”。如果无法确定,请咨询您的网络管理员或接入点(无线路由器)制造商。\n\n以下操作以Pantum P3500DW Series为例:\n\n1.计算机已成功连接到接入点(无线路由器)。\n\n2.使用USB线连接打印机和计算机,打开电源。\n\n3.在计算机的光驱中插入随附的安装光盘,运行Autorun.exe安装程序。\n\n4.阅读许可协议,选择安装语言和打印机型号,选择“连接至新的网络的打印机”,点击安装。\n\n[image omitted]\n\n5.按照安装窗口提示进行操作,将打印机配置到无线网络(如何配置,参阅第4.2.1.章)。\n\n6.无线网络配置成功后,安装程序自动搜索打印机,搜索过程可能需要1-2分钟。\n\n7.选择需要连接的打印机,点击“下一步”。\n\n[image omitted]\n\n注: • 若已搜索到的打印机列表中,没有您需要连接的打印机,点击刷新;\n\n• 若以主机名方式安装打印机驱动,请同时勾选您需要连接的“打印机名称”和“以主机名安装列表中的打印机”;\n\n视觉类型:软件安装向导界面截图(包含两个连续步骤窗口)\n标题:Pantum P3500 Series PCL6\n轴/图例/标签:安装语言、选择打印机、安装方式、用户指南、我同意许可协议、安装;已搜索到的打印机、打印机名称、IP地址、主机名、以主机名安装列表中的打印机、刷新;上一步、下一步、退出\n数据点:\n- 安装语言:中文(简体)\n- 选择打印机:Pantum P3500DW Series PCL6\n- 安装方式选项:\n  - USB打印机(打印机关联JSB至计算机)\n  - 已连接至网络的打印机(已配置打印机并连接至网络)\n  - 连接至新的网络的打印机(配置打印机连接至新的无线网络)——该选项被选中\n- “我同意许可协议”复选框处于勾选状态\n- “安装”按钮位于右下角\n- 已搜索到的打印机表格包含一行:\n  - 打印机名称:Pantum P3500DW Series PC...…",
+      "context_label": "E3",
+      "difficulty": "medium",
+      "partition": "calibration",
+      "primary_reason_code": "coverage_or_contract_false_negative",
+      "query": "在进行基础结构连接模式的无线网络安装前，必须了解哪些关键信息？请根据文档内容回答。",
+      "reference_answer": "必须了解您的接入点（无线路由器）的网络名（SSID）和密码；如果无法确定，请咨询您的网络管理员或接入点（无线路由器）制造商。",
+      "reference_coverage_in_answer": 0.9394,
+      "reference_coverage_in_context": 0.9697,
+      "v3_final_correct": false,
+      "v3_reason_codes": [
+        "answer_correctness_below_minimum",
+        "citation_coverage_below_minimum",
+        "faithfulness_below_minimum",
+        "quality_score_below_minimum"
+      ]
+    },
+    {
+      "answer": "当计算机无法连接打印机的无线热点时,应检查打印机电源是否已打开[E1]。\n\n此外,若涉及连接失败或网络使用问题,还应检查以下方面:\n-   检查接入点(无线路由器)和打印机的安全模式、密码是否正确[E1]。\n-   检查打印机周围的无线接收,如果路由器远离打印机或中间有障碍,可能影响信号的接收[E1]。\n-   关闭接入点(无线路由器)和打印机的电源,然后再重新启动[E1]。\n-   检查防火墙软件是否封锁通信,如果计算机和打印机连接在同一网络中却搜索不到,可能是因为防火墙软件封锁了通信[E5]。\n-   检查打印机 IP 地址的分配是否正确,可以打印打印机的网络配置信息页来检查 IP地址[E5]。",
+      "blind_semantic_correct": true,
+      "case_id": "P3500-EASY-026",
+      "confusion_bucket": "FN",
+      "context_excerpt": "标题路径:前言 > 3.连接失败\n\n• 请检查接入点(无线路由器)和打印机的安全模式、密码是否正确。\n\n• 计算机无法连接打印机的无线热点,请检查打印机电源是否已打开。\n\n• 检查打印机周围的无线接收。如果路由器远离打印机或中间有障碍,可能影响信号的接收。\n\n• 关闭接入点(无线路由器)和打印机的电源,然后再重新启动。",
+      "context_label": "E1",
+      "difficulty": "easy",
+      "partition": "calibration",
+      "primary_reason_code": "coverage_or_contract_false_negative",
+      "query": "当计算机无法连接打印机的无线热点时，应检查什么？",
+      "reference_answer": "请检查打印机电源是否已打开。",
+      "reference_coverage_in_answer": 0.9167,
+      "reference_coverage_in_context": 1.0,
+      "v3_final_correct": false,
+      "v3_reason_codes": [
+        "answer_correctness_below_minimum",
+        "citation_coverage_below_minimum",
+        "quality_score_below_minimum"
+      ]
+    },
+    {
+      "answer": "黑色竖条故障的解决办法中,需要清洁的部件包括机器背部激光器反光玻璃、打印机背部进纸通道以及机器内部进纸通道[E2]。\n\n具体清洁操作如下:\n-   清洁机器背部激光器反光玻璃[E2]。\n-   清洁打印机背部进纸通道[E2]。\n-   清洁机器内部进纸通道[E2]。",
+      "blind_semantic_correct": false,
+      "case_id": "P3500-EASY-047",
+      "confusion_bucket": "FP",
+      "context_excerpt": "标题路径:前言 > 10.3.1. 一般故障\n\n表题:10.3.2. 图像缺陷\n| 故障现象 | 故障原因 | 解决办法 |\n| --- | --- | --- |\n| 碳粉脱落 | 使用了不符合使用规格的打印介质,例如介质受潮或太粗糙。机器内部脏污。激光碳粉盒损坏。机器内部部件损坏。 | 请使用规格范围内的打印介质。清洁机器内部。建议更换原装激光碳粉盒。 |\n| 黑色竖条 | 激光碳粉盒脏污。激光碳粉盒内部部件损坏。机器内部激光器反光玻璃脏污。进纸通道脏污。·使用了不符合使用规格的打印介质,例如介质受潮或太粗糙。·激光碳粉盒脏污。·激光碳粉盒内部部件损坏。·进纸通道脏污。·打印内部转印电压异常。 | 清洁机器背部激光器反光玻璃。清洁打印机背部进纸通道。·请使用规格范围内的打印介质。·清洁机器内部进纸通道。 |\n| 黑色背景(底灰) |  |  |",
+      "context_label": "E2",
+      "difficulty": "easy",
+      "partition": "calibration",
+      "primary_reason_code": "v3_pass_blind_semantic_incorrect",
+      "query": "黑色竖条故障的解决办法中，需要清洁哪些部件？",
+      "reference_answer": "清洁机器背部激光器反光玻璃。清洁打印机背部进纸通道。",
+      "reference_coverage_in_answer": 1.0,
+      "reference_coverage_in_context": 1.0,
+      "v3_final_correct": true,
+      "v3_reason_codes": [
+        "citation_coverage_below_minimum",
+        "faithfulness_below_minimum"
+      ]
+    },
+    {
+      "answer": "在控制面板设置纸张类型时,按“OK键”进入的是“纸盒设置界面”[E1]。\n\n具体操作路径如下:\n-   按控制面板的“菜单键”,按“方向键”,选择“纸盒设置”[E1]。\n-   按“OK键”,进入“纸盒设置界面”,按“方向键”,选择需要设置的纸盒[E1]。\n-   再次按“OK键”,进入“设置界面”,按“方向键”,选择“纸张类型”[E1]。\n-   再按“OK键”,进入“纸张类型界面”[E1]。",
+      "blind_semantic_correct": false,
+      "case_id": "P3500-EASY-038",
+      "confusion_bucket": "FP",
+      "context_excerpt": "标题路径:前言 > 8.4.1.1.控制面板纸张类型设置\n\n1.按控制面板的“菜单键”,按“方向键”,选择“纸盒设置”。\n\n2.按“OK键”,进入“纸盒设置界面”,按“方向键”,选择需要设置的纸盒。\n\n3.按“OK键”,进入“设置界面”,按“方向键”,选择“纸张类型”。\n\n4.按“OK键”,进入“纸张类型界面”。\n\n5.按“方向键”,选择需要设置的选项。再按“OK键”,设置选项。\n\n注:• 请确保纸张类型设置,与纸盒放置的纸张类型相匹配。",
+      "context_label": "E1",
+      "difficulty": "easy",
+      "partition": "calibration",
+      "primary_reason_code": "v3_pass_blind_semantic_incorrect",
+      "query": "在控制面板设置纸张类型时，应按“OK键”进入哪个界面？",
+      "reference_answer": "设置界面",
+      "reference_coverage_in_answer": 1.0,
+      "reference_coverage_in_context": 1.0,
+      "v3_final_correct": true,
+      "v3_reason_codes": [
+        "citation_coverage_below_minimum",
+        "faithfulness_below_minimum"
+      ]
+    },
+    {
+      "answer": "- 打印机工作环境温度要求为5~35°C,最佳工作温度为10~32°C [E1]。\n- 安装时请将本产品安装在温度介于10°C至32.5°C之间的地方 [E2]。\n- 220V型号支持的电源电压范围为AC220~240V(±10%),电流为4A [E1]。",
+      "blind_semantic_correct": false,
+      "case_id": "P3500-MEDIUM-048",
+      "confusion_bucket": "FP",
+      "context_excerpt": "标题路径:前言 > 规格总述\n\n| 产品尺寸(长×宽×高) | 370mm*370mm*286mm |\n| --- | --- |\n| 产品重量 | 9.4Kg(不包含包装及粉盒) |\n| 工作环境 | 工作环境温度:5~35°C,最佳工作温度:10~32°C |\n| 工作环境 | 工作环境湿度:20%RH~80%RH |\n| 电源电压 | 110V Model: |\n| 电源电压 | AC100~127V(±10%),50HZ/60HZ(±2%),8A |\n| 电源电压 | 220V Model: |\n| 电源电压 | AC220~240V(±10%),50HZ/60HZ(±2%),4A |\n| 噪音 | 打印:≤55dB(A) |\n| 噪音 | 待机:≤30dB(A) |\n| 功耗 | TEC:符合EnergyStarV2.0要求及中国能效 |\n| 操作系统 | Microsoft Windows Server2003/Server2008/Server2012/XP/Vista/Windows7/Windows 8/Windows 8.1/Windows10 (32/64 Bit) |\n| 操作系统 | Mac OS 10.7/10.8/10.9/10.10/10.11 |\n| 操作系统 | Linux(有版本限制) |\n| 操作系统 | IOS/Android(有版本限制) |\n| 操作系统 | 中标麒麟(龙芯/飞腾)(有版本限制) |\n| 通信接口 | Hi-Speed USB 2.0 |\n| 通信接口 | 10Base-T/100Base-TX/1000Base-T(除USB型号) |\n| 通信接口 | Wi-Fi IEEE802.11b/g/n(仅Wi-Fi型号) |\n| 处理器 | 600MHZ |\n| 内存 | 标配256MB |",
+      "context_label": "E1",
+      "difficulty": "medium",
+      "partition": "calibration",
+      "primary_reason_code": "v3_pass_blind_semantic_incorrect",
+      "query": "打印机的工作环境温度要求是多少？电源电压在220V型号下支持的电压范围和电流是多少？",
+      "reference_answer": "工作环境温度：5~35°C；AC220~240V(±10%),50HZ/60HZ(±2%),4A。",
+      "reference_coverage_in_answer": 0.8235,
+      "reference_coverage_in_context": 1.0,
+      "v3_final_correct": true,
+      "v3_reason_codes": [
+        "citation_coverage_below_minimum",
+        "faithfulness_below_minimum",
+        "quality_score_below_minimum"
+      ]
+    },
+    {
+      "answer": "根据Evidence,多功能纸盒和标准纸盒支持的纸张尺寸如下:\n\n-   多功能纸盒支持的纸张尺寸为:自动*、A4、Letter、Legal、Folio、Oficio、Statement、Executive、JIS B5、ISO B5、A5、A5 L、A6、B6、Monarch Env、DL Env、C5 Env、NO.10 Env、C6 Env、Jap Postcard、Postcard、Yougata2、Nagagata3、Younaga3、Yougata4、Long Paper (1.2m)、ZL、16K、Big 16K、32K、Big 32K [E2]。\n-   标准纸盒支持的纸张尺寸为:自动*、Folio、Oficio、Executive、ISO B5、A5 L、A6、B6、16K、Big 16K、32K、Big 32K [E2]。\n\n两者都支持的纸张尺寸包括:\n-   自动* [E2]\n-   Folio [E2]\n-   Oficio [E2]\n-   Executive [E2]\n-   ISO B5 [E2]\n-   A5 L [E2]\n-   A6 [E2]\n-   B6 [E2]\n-   16K [E2]\n-   Big 16K [E2]\n-   32K [E2]\n-   Big 32K [E2]",
+      "blind_semantic_correct": false,
+      "case_id": "P3500-MEDIUM-031",
+      "confusion_bucket": "FP",
+      "context_excerpt": "标题路径:前言 > 8.4.纸盒与纸张类型/纸张尺寸的对应关系\n\n表头:纸盒 | 控制面板 |  | 拨盘\n表头:纸盒 | 支持的纸张类型 | 支持的纸张尺寸 | 支持的纸张尺寸\n| 多功能纸盒 | 自动*、普通纸、厚纸、透明胶片纸、卡片纸、标签纸、信封纸、薄纸 | 自动*、A4、Letter、Legal、Folio、Oficio、Statement、Executive、JIS B5、ISO B5、A5、A5 L、A6、B6、Monarch Env、DL Env、C5 Env、NO.10 Env、C6 Env、Jap Postcard、Postcard、Yougata2、Nagagata3、Younaga3、Yougata4、Long Paper (1.2m)、ZL、16K、Big 16K、32K、Big 32K。 | 无拨盘 |\n| --- | --- | --- | --- |\n| 标准纸盒 | 自动*、普通纸、薄纸 | 自动*、Folio、Oficio、Executive、ISO B5、A5 L、A6、B6、16K、Big 16K、32K、Big 32K。 | *(自动)、A5、A4、LTR、LGL、STA、B5。 |\n| 选配纸盒 | 自动*、普通纸、薄纸 | 自动*、Folio、Oficio、Executive、ISO B5、16K、Big 16K。 | *(自动)、A5、A4、LTR、LGL、STA、B5。 |",
+      "context_label": "E2",
+      "difficulty": "medium",
+      "partition": "calibration",
+      "primary_reason_code": "v3_pass_blind_semantic_incorrect",
+      "query": "根据打印机纸盒与纸张尺寸的对应关系，多功能纸盒和标准纸盒分别支持哪些纸张尺寸？请列出两者都支持的尺寸。",
+      "reference_answer": "多功能纸盒支持的纸张尺寸包括：A4、Letter、Legal、Folio、Oficio、Statement、Executive、JIS B5、ISO B5、A5、A5 L、A6、B6、Monarch Env、DL Env、C5 Env、NO.10 Env、C6 Env、Jap Postcard、Postcard、Yougata2、Nagagata3、Younaga3、Yougata4、Long Paper (1.2m)、ZL、16K、Big 16K、32K、Big 32K。标准纸盒支持的纸张尺寸包括：Folio、Oficio、Executive、ISO B5、A5 L、A6、B6、16K、Big 16K、32K、Big 32K。两者都支持的尺寸为：Folio、Oficio、Executive、ISO B5、A5 L、A6、B6、16K、Big 16K、32K、Big 32K。",
+      "reference_coverage_in_answer": 0.9818,
+      "reference_coverage_in_context": 0.8545,
+      "v3_final_correct": true,
+      "v3_reason_codes": [
+        "citation_coverage_below_minimum",
+        "faithfulness_below_minimum"
+      ]
+    },
+    {
+      "answer": "在设置电子邮件通知时,应点击“设置”-“机器设置”-“电子邮件通知”界面中的按钮(原文未给出该按钮具体名称),在弹出的联系人列表里选择希望添加的邮件地址 [E1]。\n\n-   操作路径为点击“设置”-“机器设置”-“电子邮件通知” [E1]。\n-   点击该按钮后,可在弹出的联系人列表里选择您希望添加的邮件地址 [E1]。\n-   您也可以勾选“地址X”(如地址1),手动输入您希望添加的收件人邮件地址 [E1]。",
+      "blind_semantic_correct": false,
+      "case_id": "P3500-EASY-031",
+      "confusion_bucket": "FP",
+      "context_excerpt": "标题路径:前言 > 三.设置电子邮件通知\n\n1.点击“设置”-“机器设置”-“电子邮件通知”。\n\n2.点击 按钮,在弹出的联系人列表里,选择您希望添加的邮件地址。\n\n您也可以勾选“地址X”(如地址1),手动输入您希望添加的收件人邮件地址。\n\n3.勾选您希望通知的邮件地址和通知的内容,点击“应用”。",
+      "context_label": "E1",
+      "difficulty": "easy",
+      "partition": "holdout",
+      "primary_reason_code": "v3_pass_blind_semantic_incorrect",
+      "query": "在设置电子邮件通知时，应点击哪个按钮来添加邮件地址？",
+      "reference_answer": "点击 按钮",
+      "reference_coverage_in_answer": 1.0,
+      "reference_coverage_in_context": 1.0,
+      "v3_final_correct": true,
+      "v3_reason_codes": [
+        "citation_coverage_below_minimum",
+        "faithfulness_below_minimum"
+      ]
+    }
+  ],
+  "run_label": "live-cand-max-mono-01",
+  "schema_version": "stt.eval.v3-blind-calibration.v2",
+  "suite_key": "three-difficulty-live-2026-08-10"
+}

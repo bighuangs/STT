@@ -1,0 +1,175 @@
+{
+  "schema_version": "stt.eval.semantic-correctness-review-summary.v1",
+  "status": "succeeded",
+  "generated_at": "2026-08-10T10:24:17.603836+00:00",
+  "label": "live-candidate-v2-qwen-plus-grounding-v3-01",
+  "review_iteration": "direct-answer-v3-qwen3.7-max",
+  "input": {
+    "run_index_path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/runs/live-candidate-v2-qwen-plus-grounding-v3-01/run-index.json",
+    "run_index_sha256": "c0c130cfd2a22ff31c18e8ac15a1f124077a02f6f860135ee39b95977a1a6fae",
+    "baseline_registry_path": "docs/evaluation-baselines/2026-08-10-three-difficulty/baselines/baselines.json",
+    "baseline_registry_sha256": "0b292fe4a68507d9e720ac0a1c44c4ef8065695693289532f2768b2229a031df",
+    "selection": "all",
+    "mode": "live"
+  },
+  "judge": {
+    "script_path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/review_semantic_correctness.py",
+    "script_sha256": "9512da60d069a28e3abd8f9710b6737c0f6c011e308ad686b6aec22876c89fd9",
+    "requested_model": "qwen3.7-max",
+    "response_model_counts": {
+      "qwen3.7-max": 171
+    },
+    "temperature": 0,
+    "prompt_version": "stt.semantic-visible-answer-judge.v2",
+    "prompt_template_sha256": "1fdfc4903d2e55f8406ee26891b204fa2174b2204149e9212673ff3eb0a472d3",
+    "safe_base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+    "visible_answer_only": true,
+    "citation_content_supplied": false,
+    "expected_terms_supplied": false,
+    "production_metrics_supplied": false,
+    "free_text_judgment_recorded": false,
+    "query_reference_answer_text_recorded_in_review_output": false
+  },
+  "review_policy": {
+    "binary_correct_rule": "semantic_correct=true only",
+    "low_confidence_second_review_below": 0.8,
+    "production_correctness_binary_threshold": 0.8,
+    "second_review_is_final": true
+  },
+  "calibration": {
+    "P3500-EASY-001": {
+      "expected_semantic_correct": false,
+      "actual_semantic_correct": false,
+      "matched": true,
+      "review_count": 1,
+      "final_review_index": 1,
+      "semantic_score": 0.0,
+      "confidence_score": 0.95,
+      "final_record_sha256": "801c4aa386583ce203fe751fa9bf19ef0893ddd3714b71cf9aaf18dc2e3c5473"
+    },
+    "P3500-EASY-006": {
+      "expected_semantic_correct": true,
+      "actual_semantic_correct": true,
+      "matched": true,
+      "review_count": 2,
+      "final_review_index": 2,
+      "semantic_score": 1.0,
+      "confidence_score": 1.0,
+      "final_record_sha256": "5acf2dbfb689cfa2162a37a28453ffa265ba9736749198d5a64c116caf53ff41"
+    }
+  },
+  "calibration_passed": true,
+  "overall": {
+    "case_count": 150,
+    "correct_count": 70,
+    "incorrect_count": 80,
+    "binary_accuracy": 0.466667,
+    "mean_semantic_score": 0.587567,
+    "mean_confidence_score": 0.963,
+    "second_review_count": 18,
+    "production_correctness_conflict_review_count": 18
+  },
+  "per_difficulty": {
+    "easy": {
+      "case_count": 50,
+      "correct_count": 38,
+      "incorrect_count": 12,
+      "binary_accuracy": 0.76,
+      "mean_semantic_score": 0.76,
+      "mean_confidence_score": 0.989,
+      "second_review_count": 4,
+      "production_correctness_conflict_review_count": 4,
+      "response_model_counts": {
+        "qwen3.7-max": 54
+      },
+      "usage": {
+        "successful_call_count": 54,
+        "input_tokens": 28668,
+        "input_tokens_unknown_call_count": 0,
+        "output_tokens": 33329,
+        "output_tokens_unknown_call_count": 0,
+        "total_tokens": 61997,
+        "total_tokens_unknown_call_count": 0
+      },
+      "run_id": "erun_cf5fbd4157f44734b64c6c7a8b884ebd",
+      "dataset_path": "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/easy.json",
+      "dataset_sha256": "1a3cacbb59b3aa7f354a569f828ad6214351f07cd3d0923a798e98cc33c41b2a",
+      "results_path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/runs/live-candidate-v2-qwen-plus-grounding-v3-01/artifacts/easy/erun_cf5fbd4157f44734b64c6c7a8b884ebd/results.jsonl",
+      "results_sha256": "d6286088964d3fca1176fca4f0804bbc962f0253769c3e94ae0e4406c27165d2"
+    },
+    "medium": {
+      "case_count": 50,
+      "correct_count": 21,
+      "incorrect_count": 29,
+      "binary_accuracy": 0.42,
+      "mean_semantic_score": 0.5807,
+      "mean_confidence_score": 0.952,
+      "second_review_count": 8,
+      "production_correctness_conflict_review_count": 8,
+      "response_model_counts": {
+        "qwen3.7-max": 58
+      },
+      "usage": {
+        "successful_call_count": 58,
+        "input_tokens": 36045,
+        "input_tokens_unknown_call_count": 0,
+        "output_tokens": 51229,
+        "output_tokens_unknown_call_count": 0,
+        "total_tokens": 87274,
+        "total_tokens_unknown_call_count": 0
+      },
+      "run_id": "erun_fc72b890b1824145b921689b9e65de4e",
+      "dataset_path": "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/medium.json",
+      "dataset_sha256": "89c570d10282342fd7facec9bd7d20af61337b5ecaef0038157ed824c25c0369",
+      "results_path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/runs/live-candidate-v2-qwen-plus-grounding-v3-01/artifacts/medium/erun_fc72b890b1824145b921689b9e65de4e/results.jsonl",
+      "results_sha256": "74040cfb2b9330b6029adb1b2288be2ab56940d830a38b8f64b0b716db34574c"
+    },
+    "hard": {
+      "case_count": 50,
+      "correct_count": 11,
+      "incorrect_count": 39,
+      "binary_accuracy": 0.22,
+      "mean_semantic_score": 0.422,
+      "mean_confidence_score": 0.948,
+      "second_review_count": 6,
+      "production_correctness_conflict_review_count": 6,
+      "response_model_counts": {
+        "qwen3.7-max": 56
+      },
+      "usage": {
+        "successful_call_count": 56,
+        "input_tokens": 33464,
+        "input_tokens_unknown_call_count": 0,
+        "output_tokens": 48966,
+        "output_tokens_unknown_call_count": 0,
+        "total_tokens": 82430,
+        "total_tokens_unknown_call_count": 0
+      },
+      "run_id": "erun_43dbd8fb22ba4b74bf437ea5f0424eb7",
+      "dataset_path": "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/hard.json",
+      "dataset_sha256": "e5be4d2495618e819b9758fa753bb10d553037ca10b26dc6ccd8521404600a04",
+      "results_path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/runs/live-candidate-v2-qwen-plus-grounding-v3-01/artifacts/hard/erun_43dbd8fb22ba4b74bf437ea5f0424eb7/results.jsonl",
+      "results_sha256": "4a9eda5a1176e1a0cf6bd92ec5413789f0b1f50fedf6b95e9ad5cadce5243ee8"
+    }
+  },
+  "usage": {
+    "successful_call_count": 171,
+    "input_tokens": 99847,
+    "input_tokens_unknown_call_count": 0,
+    "output_tokens": 135988,
+    "output_tokens_unknown_call_count": 0,
+    "total_tokens": 235835,
+    "total_tokens_unknown_call_count": 0
+  },
+  "record_count": 171,
+  "records_path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/semantic-reviews/live-candidate-v2-qwen-plus-grounding-v3-01/direct-answer-v3-qwen3.7-max/semantic-correctness-review.jsonl",
+  "records_sha256": "d062a2c420a7e91f9f84351645f48a25daa64e6787c7cf2aad2d446b8858472b",
+  "resume_recovery": {
+    "event_count": 0,
+    "audit_path": null,
+    "audit_sha256": null,
+    "raw_truncated_tail_recorded": false
+  },
+  "credentials_recorded": false,
+  "raw_provider_responses_recorded": false
+}

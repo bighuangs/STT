@@ -1,0 +1,168 @@
+{
+  "schema_version": "stt.eval.semantic-correctness-review-summary.v1",
+  "status": "calibration_failed",
+  "generated_at": "2026-08-10T09:16:51.023274+00:00",
+  "label": "live-candidate-v2-qwen-plus-grounding-v3-01",
+  "input": {
+    "run_index_path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/runs/live-candidate-v2-qwen-plus-grounding-v3-01/run-index.json",
+    "run_index_sha256": "c0c130cfd2a22ff31c18e8ac15a1f124077a02f6f860135ee39b95977a1a6fae",
+    "baseline_registry_path": "docs/evaluation-baselines/2026-08-10-three-difficulty/baselines/baselines.json",
+    "baseline_registry_sha256": "0b292fe4a68507d9e720ac0a1c44c4ef8065695693289532f2768b2229a031df",
+    "selection": "all",
+    "mode": "live"
+  },
+  "judge": {
+    "script_path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/review_semantic_correctness.py",
+    "script_sha256": "17efa0987f322783471c2bb8050993123f7708ac634b25586fe667b877af83ad",
+    "requested_model": "qwen-plus",
+    "response_model_counts": {
+      "qwen-plus": 2
+    },
+    "temperature": 0,
+    "prompt_version": "stt.semantic-visible-answer-judge.v1",
+    "prompt_template_sha256": "9b206b0a81a2b4434ce84b1ee104949a20310b0a26fbc13be5c5f07864e28987",
+    "safe_base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+    "visible_answer_only": true,
+    "citation_content_supplied": false,
+    "expected_terms_supplied": false,
+    "production_metrics_supplied": false,
+    "free_text_judgment_recorded": false,
+    "query_reference_answer_text_recorded_in_review_output": false
+  },
+  "review_policy": {
+    "binary_correct_rule": "semantic_correct=true only",
+    "low_confidence_second_review_below": 0.8,
+    "production_correctness_binary_threshold": 0.8,
+    "second_review_is_final": true
+  },
+  "calibration": {
+    "P3500-EASY-001": {
+      "expected_semantic_correct": false,
+      "actual_semantic_correct": true,
+      "matched": false,
+      "review_count": 2,
+      "final_review_index": 2,
+      "semantic_score": 1.0,
+      "confidence_score": 0.95,
+      "final_record_sha256": "e0456eac6e66b3b8f6ec0f3ad4b00802347d7e8e6b550d1a579a0c682f2d7e65"
+    },
+    "P3500-EASY-006": {
+      "expected_semantic_correct": true,
+      "actual_semantic_correct": null,
+      "matched": false,
+      "review_count": 0,
+      "final_review_index": null,
+      "semantic_score": null,
+      "confidence_score": null,
+      "final_record_sha256": null
+    }
+  },
+  "calibration_passed": false,
+  "overall": {
+    "case_count": 0,
+    "correct_count": 0,
+    "incorrect_count": 0,
+    "binary_accuracy": null,
+    "mean_semantic_score": null,
+    "mean_confidence_score": null,
+    "second_review_count": 0,
+    "production_correctness_conflict_review_count": 0
+  },
+  "per_difficulty": {
+    "easy": {
+      "case_count": 0,
+      "correct_count": 0,
+      "incorrect_count": 0,
+      "binary_accuracy": null,
+      "mean_semantic_score": null,
+      "mean_confidence_score": null,
+      "second_review_count": 0,
+      "production_correctness_conflict_review_count": 0,
+      "response_model_counts": {},
+      "usage": {
+        "successful_call_count": 0,
+        "input_tokens": 0,
+        "input_tokens_unknown_call_count": 0,
+        "output_tokens": 0,
+        "output_tokens_unknown_call_count": 0,
+        "total_tokens": 0,
+        "total_tokens_unknown_call_count": 0
+      },
+      "run_id": "erun_cf5fbd4157f44734b64c6c7a8b884ebd",
+      "dataset_path": "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/easy.json",
+      "dataset_sha256": "1a3cacbb59b3aa7f354a569f828ad6214351f07cd3d0923a798e98cc33c41b2a",
+      "results_path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/runs/live-candidate-v2-qwen-plus-grounding-v3-01/artifacts/easy/erun_cf5fbd4157f44734b64c6c7a8b884ebd/results.jsonl",
+      "results_sha256": "d6286088964d3fca1176fca4f0804bbc962f0253769c3e94ae0e4406c27165d2"
+    },
+    "medium": {
+      "case_count": 0,
+      "correct_count": 0,
+      "incorrect_count": 0,
+      "binary_accuracy": null,
+      "mean_semantic_score": null,
+      "mean_confidence_score": null,
+      "second_review_count": 0,
+      "production_correctness_conflict_review_count": 0,
+      "response_model_counts": {},
+      "usage": {
+        "successful_call_count": 0,
+        "input_tokens": 0,
+        "input_tokens_unknown_call_count": 0,
+        "output_tokens": 0,
+        "output_tokens_unknown_call_count": 0,
+        "total_tokens": 0,
+        "total_tokens_unknown_call_count": 0
+      },
+      "run_id": "erun_fc72b890b1824145b921689b9e65de4e",
+      "dataset_path": "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/medium.json",
+      "dataset_sha256": "89c570d10282342fd7facec9bd7d20af61337b5ecaef0038157ed824c25c0369",
+      "results_path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/runs/live-candidate-v2-qwen-plus-grounding-v3-01/artifacts/medium/erun_fc72b890b1824145b921689b9e65de4e/results.jsonl",
+      "results_sha256": "74040cfb2b9330b6029adb1b2288be2ab56940d830a38b8f64b0b716db34574c"
+    },
+    "hard": {
+      "case_count": 0,
+      "correct_count": 0,
+      "incorrect_count": 0,
+      "binary_accuracy": null,
+      "mean_semantic_score": null,
+      "mean_confidence_score": null,
+      "second_review_count": 0,
+      "production_correctness_conflict_review_count": 0,
+      "response_model_counts": {},
+      "usage": {
+        "successful_call_count": 0,
+        "input_tokens": 0,
+        "input_tokens_unknown_call_count": 0,
+        "output_tokens": 0,
+        "output_tokens_unknown_call_count": 0,
+        "total_tokens": 0,
+        "total_tokens_unknown_call_count": 0
+      },
+      "run_id": "erun_43dbd8fb22ba4b74bf437ea5f0424eb7",
+      "dataset_path": "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/hard.json",
+      "dataset_sha256": "e5be4d2495618e819b9758fa753bb10d553037ca10b26dc6ccd8521404600a04",
+      "results_path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/runs/live-candidate-v2-qwen-plus-grounding-v3-01/artifacts/hard/erun_43dbd8fb22ba4b74bf437ea5f0424eb7/results.jsonl",
+      "results_sha256": "4a9eda5a1176e1a0cf6bd92ec5413789f0b1f50fedf6b95e9ad5cadce5243ee8"
+    }
+  },
+  "usage": {
+    "successful_call_count": 2,
+    "input_tokens": 1015,
+    "input_tokens_unknown_call_count": 0,
+    "output_tokens": 271,
+    "output_tokens_unknown_call_count": 0,
+    "total_tokens": 1286,
+    "total_tokens_unknown_call_count": 0
+  },
+  "record_count": 2,
+  "records_path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/semantic-reviews/live-candidate-v2-qwen-plus-grounding-v3-01/semantic-correctness-review.jsonl",
+  "records_sha256": "c56c278bdbf69485adb24e9d4e7e88bd0eeb6fb1a54dc0b972393ffafedbdcf7",
+  "resume_recovery": {
+    "event_count": 0,
+    "audit_path": null,
+    "audit_sha256": null,
+    "raw_truncated_tail_recorded": false
+  },
+  "credentials_recorded": false,
+  "raw_provider_responses_recorded": false
+}

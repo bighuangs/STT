@@ -1,0 +1,167 @@
+{
+  "$schema": "urn:minimum-sufficient-solution:decision:1.0.0",
+  "schema_version": "1.0.0",
+  "decision_id": "hak180-easy-proof-workflow-20260825",
+  "created_at": "2026-08-25T17:30:00+08:00",
+  "scope": {
+    "target": "HAK180 冻结简单集的 proof-carrying query answering 功能",
+    "goal": "在 n=50 的冻结简单集上达到 accuracy 至少 48/50、strict correctness 至少 45/50，并保持引用与忠实度安全门",
+    "constraints": [
+      "只处理简单集，中等集和困难集不在范围内",
+      "P3500-EASY-002 保留在正式分母中但不得读取或分析其正文及派生内容",
+      "不得用 case 特判、金标注入、放宽 strict guard 或修改评分口径制造通过",
+      "当前没有新的付费模型正式评测授权",
+      "v1.6 只能记录为计划第 2 轮候选，当前只执行确定性离线验证，未正式评测前不得宣称达标"
+    ],
+    "out_of_scope": [
+      "中等集与困难集",
+      "新增外部服务或更换模型",
+      "单 Agent 或多 Agent 升级",
+      "Fine-tuning",
+      "未重新授权的付费正式评测"
+    ]
+  },
+  "strategy": {
+    "strategy_module_id": "agent-capability-ladder",
+    "current_rung_id": "fixed_workflow_prompt_chain",
+    "primary_method_family": "fixed_workflow_prompt_chain",
+    "method_family": "proof_carrying_fixed_workflow",
+    "method_id": "proof_carrying_workflow_v1_6_draft",
+    "axis_selections": [
+      {"axis_id": "knowledge_grounding", "option_id": "retrieval_augmented_generation", "rationale": "回答依赖冻结知识库检索产生的 WitnessCatalog；当前证据不要求新增知识源。"},
+      {"axis_id": "evaluation_harness", "option_id": "repeatable_evaluation_harness", "rationale": "冻结 n=50 数据集、版本化 grader 和不可变 run 资产用于比较零轮与通用优化轮。"},
+      {"axis_id": "agent_runtime_harness", "option_id": "durable_agent_runtime_harness", "rationale": "现有 QueryRun、checkpoint、预算快照、恢复和事件记录已经构成当前运行边界，本轮不新增运行时层级。"},
+      {"axis_id": "advanced_execution", "option_id": "bounded_evaluator_replan_loop", "rationale": "当前方法只保留一次受限 semantic review repair edge，并由确定性终止与预算约束。"},
+      {"axis_id": "human_governance", "option_id": "policy_only", "rationale": "模型调用、数据外发、预算和提交均由确定性授权与安全快照治理。"},
+      {"axis_id": "model_adaptation", "option_id": "no_model_adaptation", "rationale": "没有稳定重复缺口、训练数据或经济性证据支持 Fine-tuning。"}
+    ],
+    "selection_rationale": "剩余失败可由显式章节标题检索可达性与来源有界的 OPEN_ENUM 表格行闭合等通用缺口解释；query-planner-rules/1.4.0、witness-catalog-builder.v7、带 identifier-header gate 的 query-anchored-table-row-closure-receipt.v4、proof v3、coverage v4、evaluator identity replay 与 source-table-authority-summary.v1 权威正文重放均可在同一固定 workflow 内实现，无证据要求提升自治层级、增加服务或训练模型。"
+  },
+  "authorizations": {
+    "method_selection": {"mode": "user_gate", "status": "authorized", "decision_ref": "conversation:user-selected-option-3-proof-carrying-answer-graph"},
+    "implementation": {"mode": "user_gate", "status": "authorized", "decision_ref": "conversation:user-approved-large-refactor-and-iterative-fix"},
+    "evaluation_execution": {"mode": "user_gate", "status": "authorized", "decision_ref": "conversation:historical-single-post-fix-paid-run-consumed-by-erun_db77ab5661ba4d9690c6e49340121dbe; no current run authority"},
+    "iteration": {"mode": "auto", "status": "authorized", "decision_ref": "conversation:user-approved-general-root-cause-iteration-within-selected-method"}
+  },
+  "complexity_control": {
+    "approved_complexity_ceiling": {
+      "primary_rung_id": "fixed_workflow_prompt_chain",
+      "axis_limits": [
+        {"axis_id": "knowledge_grounding", "option_id": "retrieval_augmented_generation"},
+        {"axis_id": "evaluation_harness", "option_id": "repeatable_evaluation_harness"},
+        {"axis_id": "agent_runtime_harness", "option_id": "durable_agent_runtime_harness"},
+        {"axis_id": "advanced_execution", "option_id": "bounded_evaluator_replan_loop"},
+        {"axis_id": "human_governance", "option_id": "policy_only"},
+        {"axis_id": "model_adaptation", "option_id": "no_model_adaptation"}
+      ],
+      "source": "explicit_user_scope",
+      "decision_ref": "conversation:user-selected-option-3-proof-carrying-answer-graph",
+      "evidence_ref": "docs/experiment/hak180-easy-proof-carrying-answer/experiment.md#方法筛选"
+    },
+    "candidate_profiles": [
+      {
+        "candidate_id": "single_agent_dynamic_replanning",
+        "primary_rung_id": "single_agent",
+        "axis_selections": [
+          {"axis_id": "knowledge_grounding", "option_id": "retrieval_augmented_generation"},
+          {"axis_id": "evaluation_harness", "option_id": "repeatable_evaluation_harness"},
+          {"axis_id": "agent_runtime_harness", "option_id": "durable_agent_runtime_harness"},
+          {"axis_id": "advanced_execution", "option_id": "bounded_evaluator_replan_loop"},
+          {"axis_id": "human_governance", "option_id": "policy_only"},
+          {"axis_id": "model_adaptation", "option_id": "no_model_adaptation"}
+        ],
+        "candidate_purpose": "read_only_comparison",
+        "ceiling_relation": "exceeds",
+        "rationale": "动态 Agent 会增加动作空间、终止与恢复复杂度；当前失败可由预定义阶段内的通用契约修复解释，尚无升级证据。",
+        "evidence_refs": ["docs/experiment/hak180-easy-proof-carrying-answer/solution-selection-report.md"]
+      }
+    ]
+  },
+  "evaluation": {
+    "metrics": [
+      {"metric_id": "final_answer_accuracy", "role": "required", "target_definition": "冻结简单集 n=50 的 accuracy 至少 48/50", "observed_value": {"count": 38, "denominator": 50, "rate": 0.76}, "verdict": "not_met", "evidence_refs": ["var/evals/erun_db77ab5661ba4d9690c6e49340121dbe/generation-602023bb832882bf2b7fb8a1df0ae444"]},
+      {"metric_id": "strict_correctness", "role": "required", "target_definition": "冻结简单集 n=50 的 strict correctness 至少 45/50", "observed_value": {"count": 35, "denominator": 50, "rate": 0.7}, "verdict": "not_met", "evidence_refs": ["var/evals/erun_db77ab5661ba4d9690c6e49340121dbe/generation-602023bb832882bf2b7fb8a1df0ae444"]},
+      {"metric_id": "citation_correctness_answered", "role": "guardrail", "target_definition": "有回答样本的 citation correctness 不退化", "observed_value": {"count": 39, "denominator": 39, "rate": 1.0}, "verdict": "met", "evidence_refs": ["var/evals/erun_db77ab5661ba4d9690c6e49340121dbe/generation-602023bb832882bf2b7fb8a1df0ae444"]},
+      {"metric_id": "faithfulness_answered", "role": "guardrail", "target_definition": "有回答样本的 faithfulness 不退化", "observed_value": {"count": 39, "denominator": 39, "rate": 1.0}, "verdict": "met", "evidence_refs": ["var/evals/erun_db77ab5661ba4d9690c6e49340121dbe/generation-602023bb832882bf2b7fb8a1df0ae444"]}
+    ],
+    "hard_gates": [
+      {"gate_id": "formal_easy_run_complete", "definition": "冻结简单集 n=50 正式运行完成且运行资产可追溯", "verdict": "pass", "evidence_refs": ["var/evals/erun_db77ab5661ba4d9690c6e49340121dbe/generation-602023bb832882bf2b7fb8a1df0ae444"]},
+      {"gate_id": "easy_only_scope", "definition": "正式运行仅覆盖获准的简单集，中等集与困难集未执行", "verdict": "pass", "evidence_refs": ["docs/experiment/hak180-easy-proof-carrying-answer/evaluation-manifest.yaml"]}
+    ],
+    "aggregate": {
+      "aggregation_rule": "两个 required 指标均达标、两个 guardrail 均不退化且全部硬门通过时才是 target_met。",
+      "metric_verdict_counts": {"met": 2, "not_met": 2, "not_evaluated": 0},
+      "hard_gate_verdict": "pass",
+      "target_verdict": "target_not_met"
+    },
+    "near_target_rule": {"status": "not_defined", "definition": null, "metric_ids": []},
+    "near_target_assessment": {"verdict": "not_assessed", "rationale": "95/90 目标的 near-target 距离规则未在查看本轮结果前预注册，因此只能报告 Unknown。", "evidence_refs": ["docs/experiment/hak180-easy-proof-carrying-answer/solution-selection-report.md"]}
+  },
+  "iteration_history": {
+    "active_method_family_id": "proof_carrying_fixed_workflow",
+    "method_family_histories": [
+      {
+        "method_family_id": "proof_carrying_fixed_workflow",
+        "mechanism_definition": {
+          "control_flow": "predefined_question_contract_plan_review_projection_verify_render_workflow",
+          "model_usage": "bounded_structured_plan_and_semantic_review_calls",
+          "knowledge_access": "frozen_rag_witness_catalog_only",
+          "runtime_behavior": "fixed_graph_with_bounded_provider_retry_and_single_repair_edge",
+          "adaptation": "offline_general_root_cause_contract_and_prompt_iteration_only"
+        },
+        "mechanism_signature": "sha256:07b1084138fcd3e7c4a7adfc7d5ece3015e30d0a2162717acb7970f92699a89d",
+        "supersedes_family_id": null,
+        "switch_classification": "initial",
+        "switch_reason": "用户已选择 Proof-Carrying Answer Graph；以首次完成的同机制正式运行作为该方法族零轮基线。",
+        "switch_evidence_refs": ["conversation:user-selected-option-3-proof-carrying-answer-graph", "var/evals/erun_47d0b8f621714a77b92cc25c7e7ddd4d/generation-d228c0adefaaa5a62f23e5ba018ef56b"],
+        "baseline_round0": {
+          "round_number": 0,
+          "baseline_id": "erun_47d0b8f621714a77b92cc25c7e7ddd4d",
+          "method_id": "proof_carrying_workflow_round0",
+          "evaluation": {"evaluation_ref": "var/evals/erun_47d0b8f621714a77b92cc25c7e7ddd4d/generation-d228c0adefaaa5a62f23e5ba018ef56b", "target_verdict": "target_not_met", "near_rule_status": "not_defined", "near_verdict": "not_assessed"},
+          "evidence_refs": ["docs/experiment/hak180-easy-proof-carrying-answer/evaluation-manifest.yaml", "var/evals/erun_47d0b8f621714a77b92cc25c7e7ddd4d/generation-d228c0adefaaa5a62f23e5ba018ef56b"]
+        },
+        "maximum_valid_rounds": 3,
+        "valid_round_count": 1,
+        "invalid_run_count": 1,
+        "additional_valid_rounds_allowed": true,
+        "stop_state": "active",
+        "stop_reason": null,
+        "valid_rounds": [
+          {
+            "round_number": 1,
+            "method_family": "proof_carrying_fixed_workflow",
+            "method_id": "proof_carrying_workflow_v1_4",
+            "change_summary": "统一 canonical-to-safe Witness 映射、required facet 不变量、结构化 wire/closure 与 2048 输出预算，并保持同一固定 proof-carrying workflow。",
+            "evaluation": {"evaluation_ref": "var/evals/erun_db77ab5661ba4d9690c6e49340121dbe/generation-602023bb832882bf2b7fb8a1df0ae444", "target_verdict": "target_not_met", "near_rule_status": "not_defined", "near_verdict": "not_assessed"},
+            "evidence_refs": ["docs/experiment/hak180-easy-proof-carrying-answer/evaluation-manifest.yaml", "var/evals/erun_db77ab5661ba4d9690c6e49340121dbe/generation-602023bb832882bf2b7fb8a1df0ae444"]
+          }
+        ],
+        "invalid_runs": [
+          {"run_id": "erun_5e08787d8cda4dee92e466df55510c93", "occurred_at": "2026-08-25T00:00:00+08:00", "reason": "正式安全快照缺少 LLM target-domain 绑定，运行在 5/50 中断；没有可用指标，因此不计有效轮。精确开始时间未在耐久摘要中记录。", "evidence_refs": ["docs/experiment/hak180-easy-proof-carrying-answer/evaluation-manifest.yaml"]}
+        ]
+      }
+    ]
+  },
+  "decision": {
+    "stop_current_method": false,
+    "next_action": "continue_current_method",
+    "rationale": "第 1 轮从 11/50、0/50 提升到 38/50、35/50，但仍未达到 48/50、45/50。存在可推广、可检验的同方法族修复依据且三轮预算尚余两轮，因此继续 v1.6 第 2 轮候选的确定性离线实现和工程验证；没有运行新的付费简单集 50 题，单次付费授权已消耗，在获得新授权前停止正式模型评测。",
+    "user_gate": {
+      "required": false,
+      "reason": "none",
+      "status": "not_required",
+      "options_presented": ["retain_current", "collect_more_evidence", "stop"],
+      "selected_option": "undecided",
+      "selected_candidate_id": null,
+      "decision_ref": null
+    }
+  },
+  "evidence_refs": [
+    "docs/experiment/hak180-easy-proof-carrying-answer/experiment.md",
+    "docs/experiment/hak180-easy-proof-carrying-answer/evaluation-manifest.yaml",
+    "docs/experiment/hak180-easy-proof-carrying-answer/solution-selection-report.md",
+    "var/evals/erun_47d0b8f621714a77b92cc25c7e7ddd4d/generation-d228c0adefaaa5a62f23e5ba018ef56b",
+    "var/evals/erun_db77ab5661ba4d9690c6e49340121dbe/generation-602023bb832882bf2b7fb8a1df0ae444"
+  ]
+}

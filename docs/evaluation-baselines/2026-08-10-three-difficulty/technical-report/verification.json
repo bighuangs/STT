@@ -1,0 +1,17 @@
+{
+  "ok": true,
+  "counts": {
+    "blocks": 12,
+    "charts": 1,
+    "html": 0,
+    "metrics": 0,
+    "tables": 6
+  },
+  "source_dialog": "passed",
+  "source_interaction": "keyboard_menu_semantic_click",
+  "viewports": [
+    1440,
+    390
+  ],
+  "note": "Verified with verify_portable_artifact.mjs after applying the bundled report's Windows 100vw scrollbar compatibility style."
+}

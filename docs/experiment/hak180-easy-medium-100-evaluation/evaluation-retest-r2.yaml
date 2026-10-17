@@ -1,0 +1,96 @@
+schema_version: "stt.eval.campaign.v1"
+campaign_id: "hak180-easy-medium-100-v1.7-20260826-r2"
+status: "stopped_by_user_easy_only_analysis"
+created_at: "2026-08-26T15:36:10+08:00"
+authorization:
+  evidence_ref: "conversation:user-authorized-one-100-case-evaluation-after-fix"
+  paid_model_calls: true
+  campaign_count_limit: 1
+  child_run_count_limit: 2
+  restart_or_replacement_allowed: false
+scope:
+  total_unique_cases: 100
+  repetitions: 1
+  difficulties:
+    easy: 50
+    medium: 50
+  hard_included: false
+  hidden_case_policy: >-
+    P3500-EASY-002 remains in the scoring denominator. Result analysis must read
+    case_id first and immediately skip that case without deserializing or reading
+    any other field.
+runtime:
+  retrieval_profile_id: "rpf_default"
+  retrieval_profile_version: 4
+  llm_model: "qwen3.7-max"
+  concurrency: 1
+  code_head: "d1a4192dd5eb9da9a8601644521c6876a7bec959"
+  intervention_source_manifest_sha256: "6fd351c70af1d07c1edac2441dc3b493b5dc4c8e2acbdf9c78a55a3bd6a1e8e9"
+  usage_accounting: >-
+    Provider token and monetary hard limits are unavailable; report observable
+    usage only and do not start replacement or retry runs.
+cohorts:
+  - difficulty: "easy"
+    case_count: 50
+    config_path: "evals/configs/hak180_easy_proof_v2_authority_v3.json"
+    config_canonical_sha256: "b0fafb75ad1ac917ecd2da27f8a424ab2c9a49a612c35056326cfb6a5b6fbfa0"
+    dataset_registry_id: "three-difficulty-easy@2026-08-10"
+    dataset_asset_sha256: "1a3cacbb59b3aa7f354a569f828ad6214351f07cd3d0923a798e98cc33c41b2a"
+    planned_child_run_name: "hak180-em100-v17-20260826-r2-easy"
+    run_id: "erun_9c322543e81b4bcf9edc1908e55d275e"
+    generation_id: "generation-257cab8d9286f50f6f24eccf4da45b46"
+    status: "completed_with_case_execution_errors"
+  - difficulty: "medium"
+    case_count: 50
+    config_path: "evals/configs/hak180_medium_proof_v2_authority_v3.json"
+    config_canonical_sha256: "76132b6d9c5332b281ae42cf5f8ea14d2fd3adf75b6a2fc4a2c75d50ac22455e"
+    dataset_registry_id: "three-difficulty-medium@2026-08-10"
+    dataset_asset_sha256: "89c570d10282342fd7facec9bd7d20af61337b5ecaef0038157ed824c25c0369"
+    planned_child_run_name: "hak180-em100-v17-20260826-r2-medium"
+    run_id: "erun_e29f959788d94ac29441c021054d371e"
+    status: "failed_interrupted_by_user"
+    completed_cases: 15
+preflight:
+  config_and_dataset_assets: "passed"
+  formal_harness_regression: "303 passed"
+  enumeration_closure_regression: "45 passed"
+  lint: "passed"
+  yaml_parse: "passed"
+  credential_state: "configured_masked"
+execution_policy:
+  order:
+    - "easy"
+    - "medium"
+  continue_to_medium_after_easy_metric_failure: true
+  stop_before_medium_after_easy_infrastructure_failure: true
+  paid_retry_without_new_authorization: false
+  additional_iteration_after_results: false
+results:
+  easy:
+    status: "not_comparable_provider_error_contamination"
+    execution_records: 50
+    normally_completed_nonrestricted_cases: 35
+    restricted_uninspected_cases: 1
+    case_execution_errors: 14
+    case_execution_error_boundary: "node_answer_plan/BadRequestError"
+    comparable_nonrestricted_completed_slice:
+      final_answer_accuracy: "29/35=0.828571"
+      strict_supported_case_pass_rate: "26/35=0.742857"
+      retrieval_support: "33/35=0.942857"
+    raw_harness_aggregate_for_audit_only:
+      final_answer_accuracy: "30/50=0.60"
+      strict_supported_case_pass_rate: "27/50=0.54"
+      retrieval_support: "34/50=0.68"
+      warning: >-
+        This aggregate scores 14 provider execution errors as semantic failures
+        and must not be used to assess retrieval or answer quality.
+    visible_total_tokens: 449200
+    token_visible_cases: 36
+    token_unknown_cases: 14
+    target_verdict: "not_evaluable_from_this_run"
+  medium: null
+  overall:
+    completed_cases: 65
+    planned_cases: 100
+    comparable_campaign_result: false
+    reason: "MEDIUM stopped by user after 15/50; no 100-case aggregate is reported."

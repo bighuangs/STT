@@ -1,0 +1,16 @@
+{
+  "action": "create",
+  "baseline_registry_sha256": "0b292fe4a68507d9e720ac0a1c44c4ef8065695693289532f2768b2229a031df",
+  "current_identity": [
+    "rpf_default",
+    1,
+    "published"
+  ],
+  "invocation_id": "20260810T073321Z-14876a2f-create",
+  "kb_id": "kb_2fad25538aab42d19baf79fba782a06c",
+  "phase": "intent",
+  "recorded_at": "2026-08-10T07:33:22.071360+00:00",
+  "schema_version": "stt.eval.retrieval-profile-event.v1",
+  "source_config_hash": "5679fb0a7723d50846f945c5e4269d5ed64393aae371810b9d9497351abd7185",
+  "target_canonical_config_sha256": "14c97101feef81868625efe11380136ef39f8bc846269ba2cad577f4952c5639"
+}

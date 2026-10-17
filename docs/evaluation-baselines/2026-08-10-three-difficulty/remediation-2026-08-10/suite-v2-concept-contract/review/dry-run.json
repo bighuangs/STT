@@ -1,0 +1,21 @@
+{
+  "status": "not_executed",
+  "request_count": 150,
+  "calibration_call_count": 4,
+  "estimated_total_call_count": 154,
+  "prompt_sha256": "d5af42cbcf5385c408583c4ed36b110ac89740be24d83248fafb58681d04a78b",
+  "payload_excludes": [
+    "case_id",
+    "difficulty",
+    "production answer",
+    "production pass/fail",
+    "production metrics"
+  ],
+  "execution_gate": [
+    "--execute",
+    "--acknowledge-cost",
+    "--confirm-full-review",
+    "successful synthetic calibration",
+    "DASHSCOPE_API_KEY in environment"
+  ]
+}

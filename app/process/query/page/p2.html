@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>STT P2 高级能力验收实验台</title>
+  <link rel="stylesheet" href="/ui-assets/stt-console.css?v=20260807.1">
+  <script src="/ui-assets/stt-console.js?v=20260807.1" defer></script>
+  <script src="/ui-assets/stt-diagnostics.js?v=20260807.1" defer></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --page: #f3f6fb;
+      --panel: #fff;
+      --soft: #f7f9fc;
+      --ink: #172235;
+      --muted: #64748b;
+      --line: #dce4ef;
+      --blue: #1769e0;
+      --blue-soft: #eaf3ff;
+      --green: #147a4d;
+      --green-soft: #e9f8f1;
+      --amber: #9a5b00;
+      --amber-soft: #fff6df;
+      --red: #b42318;
+      --red-soft: #fff0ef;
+      --shadow: 0 1px 2px rgba(24, 36, 56, .06);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--page);
+      font-family: "Segoe UI", "Microsoft YaHei", system-ui, sans-serif;
+    }
+    button, input { font: inherit; }
+    .shell { width: min(1380px, calc(100% - 30px)); margin: 20px auto 50px; }
+    .topbar, .panel {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(255,255,255,.96);
+      box-shadow: none;
+    }
+    .topbar {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      padding: 15px 18px;
+    }
+    .brand { min-width: 270px; }
+    .brand strong { display: block; font-size: 17px; }
+    .brand span { color: var(--muted); font-size: 12px; }
+    .auth {
+      display: flex;
+      flex: 1;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    input {
+      min-height: 38px;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      color: var(--ink);
+      background: #fff;
+    }
+    .auth input { width: 155px; }
+    .auth input[type=password] { width: 140px; }
+    button, .link-button {
+      min-height: 38px;
+      padding: 8px 13px;
+      border: 1px solid transparent;
+      border-radius: 9px;
+      color: #fff;
+      background: var(--blue);
+      cursor: pointer;
+      text-decoration: none;
+    }
+    button.secondary, .link-button.secondary {
+      color: var(--blue);
+      border-color: #bad1f2;
+      background: var(--blue-soft);
+    }
+    button.ghost { color: var(--ink); border-color: var(--line); background: #fff; }
+    button.danger { color: var(--red); border-color: #efb7b1; background: var(--red-soft); }
+    button:disabled { cursor: wait; opacity: .52; }
+    button:focus-visible, input:focus-visible, a:focus-visible {
+      outline: 3px solid rgba(23,105,224,.25);
+      outline-offset: 2px;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0,1fr) auto;
+      gap: 20px;
+      align-items: end;
+      padding: 31px 3px 18px;
+    }
+    .hero h1 { margin: 0; font-size: clamp(25px,3vw,40px); line-height: 1.15; }
+    .hero p { max-width: 900px; margin: 11px 0 0; color: var(--muted); line-height: 1.7; }
+    .hero nav { display: flex; gap: 8px; flex-wrap: wrap; }
+    .notice {
+      display: none;
+      margin-bottom: 15px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      white-space: pre-wrap;
+    }
+    .notice.show { display: block; }
+    .notice.good { border-color: #9fd8bd; background: var(--green-soft); color: var(--green); }
+    .notice.bad { border-color: #efb7b1; background: var(--red-soft); color: var(--red); }
+    .notice.info { border-color: #bad1f2; background: var(--blue-soft); color: var(--blue); }
+    .layout { display: grid; grid-template-columns: minmax(0,1.8fr) minmax(330px,.8fr); gap: 16px; min-width: 0; }
+    .column { display: grid; gap: 16px; align-content: start; min-width: 0; }
+    .panel { min-width: 0; padding: 19px; box-shadow: none; }
+    .panel h2 { margin: 0 0 5px; font-size: 18px; }
+    .panel > p { margin: 0 0 15px; color: var(--muted); line-height: 1.6; font-size: 13px; }
+    .toolbar { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 14px; }
+    .toolbar input { min-width: 260px; flex: 1; }
+    .cards { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+    .card {
+      min-height: 135px;
+      padding: 13px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: var(--soft);
+    }
+    .card-head { display: flex; justify-content: space-between; gap: 8px; align-items: flex-start; }
+    .card strong { font-size: 14px; }
+    .card p { margin: 8px 0 0; color: var(--muted); font-size: 12px; line-height: 1.55; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 25px;
+      padding: 3px 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: #fff;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+    .badge.good { color: var(--green); border-color: #9fd8bd; background: var(--green-soft); }
+    .badge.bad { color: var(--red); border-color: #efb7b1; background: var(--red-soft); }
+    .badge.warn { color: var(--amber); border-color: #ebcc8a; background: var(--amber-soft); }
+    .details { margin-top: 9px; font: 11px/1.5 ui-monospace,Consolas,monospace; word-break: break-word; }
+    .resource-list { display: grid; gap: 9px; }
+    .resource {
+      padding: 11px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--soft);
+      font-size: 12px;
+    }
+    .resource-row { display: flex; justify-content: space-between; gap: 8px; align-items: center; }
+    .resource code { color: var(--muted); word-break: break-all; }
+    .resource-actions { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+    .resource-actions button { min-height: 30px; padding: 4px 8px; font-size: 11px; }
+    .kv { display: grid; grid-template-columns: 145px 1fr; gap: 6px 10px; font-size: 12px; }
+    .kv dt { color: var(--muted); }
+    .kv dd { margin: 0; word-break: break-word; }
+    pre {
+      max-height: 380px;
+      margin: 0;
+      padding: 13px;
+      overflow: auto;
+      border: 1px solid #24364d;
+      border-radius: 10px;
+      color: #d9e7fa;
+      background: #132033;
+      font: 11px/1.55 ui-monospace,Consolas,monospace;
+      white-space: pre-wrap;
+    }
+    .file-line { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .file-line input[type=file] { max-width: 100%; min-height: auto; }
+    .hint {
+      padding: 11px 12px;
+      border: 1px solid #ebcc8a;
+      border-radius: 9px;
+      color: var(--amber);
+      background: var(--amber-soft);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+    @media (max-width: 980px) {
+      .topbar, .hero { display: block; }
+      .auth { justify-content: flex-start; margin-top: 12px; }
+      .hero nav { margin-top: 14px; }
+      .layout { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 650px) {
+      .cards { grid-template-columns: 1fr; }
+      .shell { width: min(100% - 18px,1380px); }
+      .toolbar input { min-width: 100%; }
+    }
+  </style>
+</head>
+<body class="stt-workbench" data-stt-diagnostic="p2">
+  <a class="stt-skip-link" href="#diagnosticMain">跳到主要内容</a>
+  <main class="stt-shell" id="diagnosticMain" data-stt-protected hidden>
+    <header class="stt-topbar">
+      <div class="stt-brand">
+        <strong>掌柜智库</strong>
+        <span>高级能力与资源验证工作台</span>
+      </div>
+      <nav class="stt-nav" aria-label="工作台导航">
+        <a href="/html"><svg class="stt-nav-icon" aria-hidden="true" focusable="false"><use href="/ui-assets/lucide-nav.svg#message-circle"></use></svg><span>知识问答</span></a>
+        <a href="http://127.0.0.1:8000/html"><svg class="stt-nav-icon" aria-hidden="true" focusable="false"><use href="/ui-assets/lucide-nav.svg#database"></use></svg><span>知识库运维</span></a>
+        <a href="/eval/html"><svg class="stt-nav-icon" aria-hidden="true" focusable="false"><use href="/ui-assets/lucide-nav.svg#chart-no-axes-combined"></use></svg><span>能力评测</span></a>
+        <div class="stt-nav-section">
+          <a href="/p3/html" aria-current="page"><svg class="stt-nav-icon" aria-hidden="true" focusable="false"><use href="/ui-assets/lucide-nav.svg#shield-check"></use></svg><span>系统验证</span></a>
+          <div class="stt-subnav" aria-label="系统验证功能">
+            <a class="is-active" href="/p2/html">P2 高级能力</a>
+            <a href="/p3/html">P3 可靠性与安全</a>
+            <a href="/docs">API 文档</a>
+          </div>
+        </div>
+      </nav>
+      <div class="stt-account auth">
+        <span id="identity" class="badge">未登录</span>
+        <button id="logoutBtn" type="button" class="ghost">退出</button>
+      </div>
+    </header>
+
+    <div class="stt-page-grid">
+      <div class="stt-primary-column">
+      <section class="stt-page-heading" aria-labelledby="p2Title">
+        <div>
+        <h1 id="p2Title">一次看清 P2 的能力、边界与真实状态</h1>
+        <p>
+          自检会运行七项真实领域服务，但不会调用外部模型、MCP 或远端连接器。
+          “保存演示资源”是独立的显式动作，用来验证控制库在刷新页面后仍保留版本事实。
+        </p>
+        </div>
+      </section>
+
+      <div id="notice" class="notice" role="status" aria-live="polite"></div>
+
+        <section class="panel">
+          <h2>1. 七项能力确定性自检</h2>
+          <p>
+            从当前账号有权访问的知识库中选择目标。每一项都返回稳定状态、降级或删除结果。
+            普通自检需要 p2:run；保存演示策略会写控制库，额外需要 p2:manage。
+          </p>
+          <div class="toolbar">
+            <select id="kbId" aria-label="选择授权知识库"></select>
+            <button id="runBtn" type="button">运行全部 P2 自检</button>
+            <button id="runPersistBtn" type="button" class="secondary" disabled title="需要 p2:manage 权限">
+              自检并保存演示策略
+            </button>
+            <button id="catalogBtn" type="button" class="ghost">刷新能力目录</button>
+          </div>
+          <div id="checks" class="cards">
+            <div class="card"><strong>等待运行</strong><p>登录并选择授权知识库后，再运行七项能力自检。</p></div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>2. HAK180 多模态黄金集与图片输入边界</h2>
+          <p>校验真实 PDF hash、人工复核渲染 hash、页面区域，以及“查询附件不能冒充知识库证据”的隔离规则。</p>
+          <div class="toolbar">
+            <button id="datasetBtn" type="button">验证 HAK180 数据集</button>
+          </div>
+          <dl id="datasetFacts" class="kv">
+            <dt>状态</dt><dd>尚未验证</dd>
+          </dl>
+          <div class="hint" style="margin-top:13px">
+            图片检查只接受 PNG/JPEG/GIF/BMP/TIFF/WebP 的真实魔数；PDF 不是图片，直接上传会被正确拒绝。
+            若要检查手册页面，请先将第 1 页渲染成 PNG，再在下方选择。该附件仍是当前用户的查询附件，不会写成 KB Evidence。
+          </div>
+          <div class="file-line" style="margin-top:12px">
+            <label for="imageFile">选择图片附件</label>
+            <input id="imageFile" type="file" accept="image/png,image/jpeg,image/gif,image/bmp,image/tiff,image/webp">
+            <button id="inspectBtn" type="button" class="secondary">检查图片与隔离身份</button>
+          </div>
+          <pre id="imageOutput" style="margin-top:12px">等待选择图片。</pre>
+        </section>
+
+        <section class="panel">
+          <h2>3. 持久能力资源生命周期</h2>
+          <p>验证 draft → published → enabled/disabled → retired；同一逻辑 ID + 版本 + 相同 payload 幂等，换 payload 冲突。</p>
+          <div class="toolbar">
+            <input id="resourceVersion" value="1.0.0" aria-label="演示资源版本">
+            <button id="createResourceBtn" type="button">创建 memory policy 草稿</button>
+            <button id="resourcesBtn" type="button" class="ghost">刷新资源</button>
+          </div>
+          <div id="resources" class="resource-list">
+            <div class="resource">尚未读取当前租户的 P2 资源。</div>
+          </div>
+        </section>
+      </div>
+
+      <aside class="stt-context-rail" aria-label="P2 能力与响应上下文">
+        <section class="panel stt-context-panel">
+          <h2>能力目录</h2>
+          <p>资源存在不等于在线启用；执行时还必须通过发布状态、tenant/KB、数据分类和预算。</p>
+          <div id="catalog" class="resource-list">
+            <div class="resource">登录后加载。</div>
+          </div>
+        </section>
+
+        <section class="panel stt-context-panel">
+          <h2>验收原始响应</h2>
+          <p>用于核对 request_id、不可变 hash、状态和诊断，不展示密钥或图片字节。</p>
+          <pre id="raw">等待操作。</pre>
+        </section>
+      </aside>
+    </div>
+  </main>
+
+  <script>
+    const $ = id => document.getElementById(id);
+    const state = { authenticated: false, canManageP2: false, bootstrap: null };
+
+    function element(tagName, className = "", text = "") {
+      const node = document.createElement(tagName);
+      if (className) node.className = className;
+      if (text !== "") node.textContent = String(text);
+      return node;
+    }
+
+    function appendText(parent, tagName, className, text) {
+      const node = element(tagName, className, text);
+      parent.appendChild(node);
+      return node;
+    }
+
+    function clear(node) {
+      node.replaceChildren();
+    }
+
+    function appendFact(root, label, value, badgeTone = "") {
+      appendText(root, "dt", "", label);
+      const detail = element("dd");
+      if (badgeTone) {
+        const badge = appendText(detail, "span", `badge ${badgeTone}`, value.label);
+        badge.setAttribute("role", "status");
+        detail.appendChild(document.createTextNode(` ${value.text}`));
+      } else {
+        detail.textContent = String(value);
+      }
+      root.appendChild(detail);
+    }
+
+    function notice(message, type = "info") {
+      const node = $("notice");
+      node.textContent = message;
+      node.className = `notice show ${type}`;
+    }
+
+    function raw(value) {
+      $("raw").textContent = JSON.stringify(value, null, 2);
+    }
+
+    async function api(path, options = {}) {
+      if (window.STTUI) return window.STTUI.apiJson(path, options);
+      const response = await fetch(path, {
+        credentials: "same-origin",
+        ...options,
+        headers: options.body instanceof FormData
+          ? {...(options.headers || {})}
+          : {"Content-Type": "application/json", ...(options.headers || {})}
+      });
+      const text = await response.text();
+      let payload;
+      try { payload = text ? JSON.parse(text) : {}; }
+      catch (_) { payload = {raw: text}; }
+      if (!response.ok) {
+        const message = payload?.error?.message || payload?.detail || `${response.status} ${response.statusText}`;
+        const error = new Error(message);
+        error.payload = payload;
+        error.status = response.status;
+        throw error;
+      }
+      return payload;
+    }
+
+    function busy(button, enabled) {
+      button.disabled = enabled;
+    }
+
+    function applyIdentity(me, permissions = []) {
+      const roles = new Set(me.roles || []);
+      const scopes = new Set(permissions);
+      state.authenticated = true;
+      state.canManageP2 =
+        roles.has("TenantAdmin") ||
+        roles.has("KBAdmin") ||
+        scopes.has("*") ||
+        scopes.has("p2:manage");
+      $("identity").textContent = `${me.roles?.join(",") || "已登录"} · ${me.tenant_id}`;
+      $("identity").className = "badge good";
+      $("runPersistBtn").disabled = !state.canManageP2;
+      $("runPersistBtn").title = state.canManageP2
+        ? "运行自检并把演示 memory policy 写入控制库"
+        : "当前账号缺少 p2:manage；仍可运行普通 P2 自检";
+    }
+
+    function clearIdentity() {
+      state.authenticated = false;
+      state.canManageP2 = false;
+      $("runPersistBtn").disabled = true;
+      $("runPersistBtn").title = "需要 p2:manage 权限";
+    }
+
+    async function loadCatalog() {
+      try {
+        const response = await api("/api/v1/p2/capabilities");
+        const data = response.data;
+        const root = $("catalog");
+        clear(root);
+        for (const item of data.capabilities || []) {
+          const counts = item.resource_counts || {};
+          const card = element("div", "resource");
+          const row = element("div", "resource-row");
+          appendText(row, "strong", "", item.todo || "未命名能力");
+          appendText(row, "span", "badge warn", "默认关闭");
+          card.appendChild(row);
+          const name = appendText(card, "div", "", item.name || "—");
+          name.style.marginTop = "5px";
+          appendText(
+            card,
+            "code",
+            "",
+            `published=${counts.published || 0}, enabled=${counts.enabled || 0}`
+          );
+          root.appendChild(card);
+        }
+        if (!root.childElementCount) {
+          appendText(root, "div", "resource", "当前账号没有可读取的 P2 能力。");
+        }
+        raw(response);
+      } catch (error) {
+        notice(`能力目录读取失败：${error.message}`, "bad");
+      }
+    }
+
+    async function runSelfCheck(persist) {
+      const kb = $("kbId").value.trim();
+      if (!kb) {
+        notice("请先填写已存在的 KB ID。", "bad");
+        return;
+      }
+      if (persist && !state.canManageP2) {
+        notice("保存演示策略需要 p2:manage 权限；当前账号仍可运行普通 P2 自检。", "bad");
+        return;
+      }
+      const button = persist ? $("runPersistBtn") : $("runBtn");
+      busy(button, true);
+      notice("正在运行七项无外调自检……", "info");
+      try {
+        const response = await api("/api/v1/p2/self-check", {
+          method: "POST",
+          body: JSON.stringify({kb_id: kb, persist_demo_resources: persist})
+        });
+        const data = response.data;
+        const root = $("checks");
+        clear(root);
+        for (const check of data.checks || []) {
+          const detail = check.details || {error_type: check.error_type, message: check.message};
+          const card = element("article", "card");
+          const header = element("div", "card-head");
+          appendText(header, "strong", "", `${check.todo || "检查"} · ${check.name || "未命名"}`);
+          appendText(header, "span", `badge ${check.passed ? "good" : "bad"}`, check.passed ? "通过" : "失败");
+          card.appendChild(header);
+          const detailNode = appendText(card, "div", "details", JSON.stringify(detail, null, 2));
+          detailNode.style.whiteSpace = "pre-wrap";
+          root.appendChild(card);
+        }
+        notice(data.passed ? "P2 七项确定性自检全部通过。" : "有 P2 自检未通过，请查看卡片和原始响应。", data.passed ? "good" : "bad");
+        raw(response);
+        if (persist) await Promise.all([loadResources(), loadCatalog()]);
+      } catch (error) {
+        const message = persist && error.status === 403
+          ? "保存演示策略被拒绝：需要 p2:manage 权限。你仍可运行不持久化的普通自检。"
+          : `P2 自检失败：${error.message}`;
+        notice(message, "bad");
+        raw(error.payload || {error: error.message});
+      } finally {
+        button.disabled = persist ? !state.canManageP2 : false;
+      }
+    }
+
+    async function loadDataset() {
+      const button = $("datasetBtn");
+      busy(button, true);
+      try {
+        const response = await api("/api/v1/p2/hak180-multimodal-dataset");
+        const data = response.data;
+        const verify = data.runtime_verification;
+        const facts = $("datasetFacts");
+        clear(facts);
+        appendFact(facts, "PDF", data.source.logical_name || "—");
+        appendFact(
+          facts,
+          "PDF hash",
+          {
+            label: verify.pdf_hash_matches ? "匹配" : "不匹配",
+            text: verify.current_pdf_sha256 || "—"
+          },
+          verify.pdf_hash_matches ? "good" : "bad"
+        );
+        appendFact(facts, "页面", `${data.source.page_count || 0} 页，${data.source.layout || "—"}`);
+        appendFact(
+          facts,
+          "复核渲染",
+          verify.review_render_exists
+            ? (verify.review_render_hash_matches ? "存在且 hash 匹配" : "存在但 hash 不匹配")
+            : "当前未保留临时渲染；不影响 PDF hash 验证"
+        );
+        const cases = Array.isArray(data.cases) ? data.cases : [];
+        appendFact(
+          facts,
+          "区域用例",
+          `${cases.filter(item => Array.isArray(item.relevant_regions) && item.relevant_regions.length).length} 个；另有 1 个查询附件隔离负例`
+        );
+        appendFact(facts, "数据集", verify.dataset_path || "—");
+        notice(verify.pdf_hash_matches ? "HAK180 数据集与当前 PDF 一致。" : "HAK180 PDF hash 不一致，请停止验收。", verify.pdf_hash_matches ? "good" : "bad");
+        raw(response);
+      } catch (error) {
+        notice(`HAK180 数据集验证失败：${error.message}`, "bad");
+        raw(error.payload || {error: error.message});
+      } finally {
+        busy(button, false);
+      }
+    }
+
+    async function inspectImage() {
+      const file = $("imageFile").files[0];
+      if (!file) {
+        notice("请先选择一张渲染后的图片；不要直接选择 PDF。", "bad");
+        return;
+      }
+      const button = $("inspectBtn");
+      busy(button, true);
+      const body = new FormData();
+      body.append("file", file);
+      try {
+        const response = await api("/api/v1/p2/multimodal/images:inspect?source_kind=query_attachment", {
+          method: "POST",
+          body
+        });
+        $("imageOutput").textContent = JSON.stringify(response.data, null, 2);
+        notice("图片魔数、MIME、像素上限与当前用户附件作用域均通过。它没有成为 KB Evidence。", "good");
+        raw(response);
+      } catch (error) {
+        $("imageOutput").textContent = JSON.stringify(error.payload || {error: error.message}, null, 2);
+        notice(`图片检查失败：${error.message}`, "bad");
+      } finally {
+        busy(button, false);
+      }
+    }
+
+    function demoResourcePayload() {
+      return {
+        resource_type: "memory_policy",
+        logical_id: "p2_ui_memory_policy",
+        version: $("resourceVersion").value.trim(),
+        schema_version: "memory-policy.v1",
+        kb_id: $("kbId").value.trim(),
+        payload: {
+          auto_candidate_extraction_enabled: false,
+          auto_activation_enabled: false,
+          preference_ttl_days: 365,
+          profile_fact_ttl_days: 180,
+          episodic_ttl_days: 30,
+          max_context_tokens: 256,
+          max_hits: 8,
+          embedding_version: "memory-lexical/1.0.0"
+        }
+      };
+    }
+
+    async function createResource() {
+      const payload = demoResourcePayload();
+      if (!payload.kb_id || !payload.version) {
+        notice("创建资源前请填写 KB ID 和版本。", "bad");
+        return;
+      }
+      const button = $("createResourceBtn");
+      busy(button, true);
+      try {
+        const response = await api("/api/v1/p2/resources", {
+          method: "POST",
+          body: JSON.stringify(payload)
+        });
+        notice(`草稿已创建或幂等复用：${response.data.id}`, "good");
+        raw(response);
+        await Promise.all([loadResources(), loadCatalog()]);
+      } catch (error) {
+        notice(`资源创建失败：${error.message}`, "bad");
+        raw(error.payload || {error: error.message});
+      } finally {
+        busy(button, false);
+      }
+    }
+
+    async function mutateResource(id, action, body, trigger = null) {
+      if (action === "retire") {
+        const confirmed = window.STTUI
+          ? await window.STTUI.confirmAction({
+            title: "确认退役资源",
+            message: "退役后该资源不能再启用，但历史事实仍会保留。",
+            confirmLabel: "确认退役",
+            danger: true
+          })
+          : window.confirm("确认退役该资源？");
+        if (!confirmed) return;
+      }
+      if (trigger) busy(trigger, true);
+      try {
+        const response = await api(`/api/v1/p2/resources/${encodeURIComponent(id)}:${action}`, {
+          method: "POST",
+          body: body === undefined ? "{}" : JSON.stringify(body)
+        });
+        notice(`资源 ${action} 成功：${id}`, "good");
+        raw(response);
+        await Promise.all([loadResources(), loadCatalog()]);
+      } catch (error) {
+        notice(`资源 ${action} 失败：${error.message}`, "bad");
+        raw(error.payload || {error: error.message});
+      } finally {
+        if (trigger?.isConnected) busy(trigger, false);
+      }
+    }
+
+    function appendResourceAction(actions, item, label, action, body, className = "") {
+      const button = appendText(actions, "button", className, label);
+      button.type = "button";
+      button.addEventListener("click", () => mutateResource(item.id, action, body, button));
+    }
+
+    async function loadResources() {
+      try {
+        const params = new URLSearchParams({resource_type: "memory_policy"});
+        const kb = $("kbId").value.trim();
+        if (kb) params.set("kb_id", kb);
+        const response = await api(`/api/v1/p2/resources?${params}`);
+        const items = Array.isArray(response.data.items) ? response.data.items : [];
+        const root = $("resources");
+        clear(root);
+        for (const item of items) {
+          const card = element("div", "resource");
+          const row = element("div", "resource-row");
+          appendText(row, "strong", "", `${item.logical_id || "未命名"} · ${item.version || "—"}`);
+          appendText(
+            row,
+            "span",
+            `badge ${item.enabled ? "good" : (item.status === "retired" ? "bad" : "warn")}`,
+            `${item.status || "unknown"}${item.enabled ? " / enabled" : ""}`
+          );
+          card.appendChild(row);
+          appendText(card, "code", "", `${item.id || "—"}\n${item.payload_hash || "—"}`);
+          const actions = element("div", "resource-actions");
+          if (item.status === "draft") {
+            appendResourceAction(actions, item, "发布但不启用", "publish", {enable: false});
+          }
+          if (item.status === "published" && !item.enabled) {
+            appendResourceAction(actions, item, "启用", "enable", {enabled: true});
+          }
+          if (item.status === "published" && item.enabled) {
+            appendResourceAction(actions, item, "停用", "enable", {enabled: false}, "ghost");
+          }
+          if (item.status !== "retired") {
+            appendResourceAction(actions, item, "退役", "retire", undefined, "danger");
+          }
+          card.appendChild(actions);
+          root.appendChild(card);
+        }
+        if (!items.length) {
+          appendText(root, "div", "resource", "当前筛选下没有 memory policy 资源。");
+        }
+        raw(response);
+      } catch (error) {
+        if (error.status !== 401) notice(`资源读取失败：${error.message}`, "bad");
+      }
+    }
+
+    $("catalogBtn").addEventListener("click", loadCatalog);
+    $("runBtn").addEventListener("click", () => runSelfCheck(false));
+    $("runPersistBtn").addEventListener("click", () => runSelfCheck(true));
+    $("datasetBtn").addEventListener("click", loadDataset);
+    $("inspectBtn").addEventListener("click", inspectImage);
+    $("createResourceBtn").addEventListener("click", createResource);
+    $("resourcesBtn").addEventListener("click", loadResources);
+    $("kbId").addEventListener("change", loadResources);
+    window.STTDiagnosticPage = {
+      async onAuthenticated(bootstrap) {
+        state.bootstrap = bootstrap;
+        applyIdentity(bootstrap.identity || {}, bootstrap.permissions || []);
+        notice("已载入当前租户的授权知识库，可开始 P2 验证。", "good");
+        await Promise.all([loadCatalog(), loadResources()]);
+      },
+      onSignedOut() {
+        state.bootstrap = null;
+        clearIdentity();
+        $("identity").textContent = "未登录";
+        $("identity").className = "badge";
+      }
+    };
+  </script>
+</body>
+</html>

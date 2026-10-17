@@ -1,0 +1,161 @@
+{
+  "schema_version": "stt.eval.quality.v1",
+  "validated_at": "2026-08-10T03:53:18.677379+00:00",
+  "suite_key": "three-difficulty-live-2026-08-10",
+  "status": "passed",
+  "checks": {
+    "case_grain": "one immutable evaluation case",
+    "total_cases": 150,
+    "active_index_version_id": "idx_fb5eeac133f540f4af31004dbde23151",
+    "active_evidence_count": 218,
+    "source_sha256": "c4c7b2a434f3f86c4988d3961ac7304970029e71b0201fb6c10ca722b63bce2b",
+    "near_duplicate_threshold": 0.88
+  },
+  "profiles": {
+    "easy": {
+      "case_count": 50,
+      "answerable_count": 50,
+      "unanswerable_count": 0,
+      "critical_count": 10,
+      "unique_evidence_count": 50,
+      "evidence_reuse_max": 1,
+      "page_min": 2,
+      "page_max": 94,
+      "unique_page_count": 43,
+      "mean_query_chars": 25.06,
+      "median_query_chars": 23.5,
+      "mean_reference_chars": 15.22,
+      "median_reference_chars": 9.0,
+      "mean_expected_terms": 1.66
+    },
+    "medium": {
+      "case_count": 50,
+      "answerable_count": 50,
+      "unanswerable_count": 0,
+      "critical_count": 10,
+      "unique_evidence_count": 50,
+      "evidence_reuse_max": 1,
+      "page_min": 2,
+      "page_max": 93,
+      "unique_page_count": 46,
+      "mean_query_chars": 40.24,
+      "median_query_chars": 37.0,
+      "mean_reference_chars": 89.64,
+      "median_reference_chars": 65.0,
+      "mean_expected_terms": 4.76
+    },
+    "hard": {
+      "case_count": 50,
+      "answerable_count": 45,
+      "unanswerable_count": 5,
+      "critical_count": 14,
+      "unique_evidence_count": 90,
+      "evidence_reuse_max": 1,
+      "page_min": 2,
+      "page_max": 90,
+      "unique_page_count": 58,
+      "mean_query_chars": 65.2,
+      "median_query_chars": 61.0,
+      "mean_reference_chars": 66.46,
+      "median_reference_chars": 58.0,
+      "mean_expected_terms": 5.06
+    }
+  },
+  "near_duplicates": [],
+  "issue_counts": {
+    "warning": 13
+  },
+  "issues": [
+    {
+      "severity": "warning",
+      "check": "hard_evidence_coverage",
+      "difficulty": "hard",
+      "case_id": "P3500-HARD-001",
+      "message": "hard evidence #2 has no expected-term label"
+    },
+    {
+      "severity": "warning",
+      "check": "hard_evidence_coverage",
+      "difficulty": "hard",
+      "case_id": "P3500-HARD-003",
+      "message": "hard evidence #2 has no expected-term label"
+    },
+    {
+      "severity": "warning",
+      "check": "hard_evidence_coverage",
+      "difficulty": "hard",
+      "case_id": "P3500-HARD-007",
+      "message": "hard evidence #2 has no expected-term label"
+    },
+    {
+      "severity": "warning",
+      "check": "hard_evidence_coverage",
+      "difficulty": "hard",
+      "case_id": "P3500-HARD-008",
+      "message": "hard evidence #2 has no expected-term label"
+    },
+    {
+      "severity": "warning",
+      "check": "hard_evidence_coverage",
+      "difficulty": "hard",
+      "case_id": "P3500-HARD-016",
+      "message": "hard evidence #1 has no expected-term label"
+    },
+    {
+      "severity": "warning",
+      "check": "hard_evidence_coverage",
+      "difficulty": "hard",
+      "case_id": "P3500-HARD-019",
+      "message": "hard evidence #2 has no expected-term label"
+    },
+    {
+      "severity": "warning",
+      "check": "hard_evidence_coverage",
+      "difficulty": "hard",
+      "case_id": "P3500-HARD-023",
+      "message": "hard evidence #2 has no expected-term label"
+    },
+    {
+      "severity": "warning",
+      "check": "hard_evidence_coverage",
+      "difficulty": "hard",
+      "case_id": "P3500-HARD-030",
+      "message": "hard evidence #2 has no expected-term label"
+    },
+    {
+      "severity": "warning",
+      "check": "hard_evidence_coverage",
+      "difficulty": "hard",
+      "case_id": "P3500-HARD-032",
+      "message": "hard evidence #2 has no expected-term label"
+    },
+    {
+      "severity": "warning",
+      "check": "hard_evidence_coverage",
+      "difficulty": "hard",
+      "case_id": "P3500-HARD-035",
+      "message": "hard evidence #2 has no expected-term label"
+    },
+    {
+      "severity": "warning",
+      "check": "hard_evidence_coverage",
+      "difficulty": "hard",
+      "case_id": "P3500-HARD-036",
+      "message": "hard evidence #2 has no expected-term label"
+    },
+    {
+      "severity": "warning",
+      "check": "hard_evidence_coverage",
+      "difficulty": "hard",
+      "case_id": "P3500-HARD-038",
+      "message": "hard evidence #2 has no expected-term label"
+    },
+    {
+      "severity": "warning",
+      "check": "hard_evidence_coverage",
+      "difficulty": "hard",
+      "case_id": "P3500-HARD-039",
+      "message": "hard evidence #2 has no expected-term label"
+    }
+  ]
+}

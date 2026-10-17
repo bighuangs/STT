@@ -1,0 +1,2212 @@
+{
+  "fabricated_fact_with_refusal": {
+    "applicable_count": 5,
+    "blocked_count": 5,
+    "incorrect_pass_count": 0,
+    "rows": [
+      {
+        "case_id": "P3500-HARD-046",
+        "incorrectly_passed": false,
+        "reasons": [
+          "abstention_contains_factual_claim"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-047",
+        "incorrectly_passed": false,
+        "reasons": [
+          "abstention_contains_factual_claim"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-048",
+        "incorrectly_passed": false,
+        "reasons": [
+          "abstention_contains_factual_claim"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-049",
+        "incorrectly_passed": false,
+        "reasons": [
+          "abstention_contains_factual_claim"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-050",
+        "incorrectly_passed": false,
+        "reasons": [
+          "abstention_contains_factual_claim"
+        ]
+      }
+    ]
+  },
+  "multi_branch_truncation": {
+    "applicable_count": 27,
+    "blocked_count": 27,
+    "incorrect_pass_count": 0,
+    "rows": [
+      {
+        "case_id": "P3500-EASY-047",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "concept_group_incomplete",
+          "required_branch_incomplete",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-001",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "concept_group_incomplete",
+          "required_branch_incomplete",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-005",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "concept_group_incomplete",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-007",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "concept_group_incomplete",
+          "required_branch_incomplete",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-019",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "concept_group_incomplete",
+          "required_branch_incomplete",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-038",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "concept_group_incomplete",
+          "required_branch_incomplete",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-042",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "concept_group_incomplete",
+          "required_branch_incomplete",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-043",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "concept_group_incomplete",
+          "required_branch_incomplete",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-047",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "concept_group_incomplete",
+          "required_branch_incomplete",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-049",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "concept_group_incomplete",
+          "required_branch_incomplete",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-050",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "concept_group_incomplete",
+          "required_branch_incomplete",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-012",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "concept_group_incomplete",
+          "required_branch_incomplete",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-013",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "concept_group_incomplete",
+          "required_branch_incomplete",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-014",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "concept_group_incomplete",
+          "required_branch_incomplete",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-016",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "concept_group_incomplete",
+          "required_branch_incomplete",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-018",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "concept_group_incomplete",
+          "required_branch_incomplete",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-020",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "concept_group_incomplete",
+          "required_branch_incomplete",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-021",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "concept_group_incomplete",
+          "required_branch_incomplete",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-022",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "concept_group_incomplete",
+          "required_branch_incomplete",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-024",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "concept_group_incomplete",
+          "required_branch_incomplete",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-025",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "concept_group_incomplete",
+          "required_branch_incomplete",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-026",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "concept_group_incomplete",
+          "required_branch_incomplete",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-027",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "concept_group_incomplete",
+          "required_branch_incomplete",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-031",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "concept_group_incomplete",
+          "required_branch_incomplete",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-036",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "concept_group_incomplete",
+          "required_branch_incomplete",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-037",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "concept_group_incomplete",
+          "required_branch_incomplete",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-040",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "concept_group_incomplete",
+          "required_branch_incomplete",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      }
+    ]
+  },
+  "numeric_mutation": {
+    "applicable_count": 36,
+    "blocked_count": 36,
+    "incorrect_pass_count": 0,
+    "rows": [
+      {
+        "case_id": "P3500-EASY-006",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "critical_number_mismatch",
+          "unsupported_factual_claim",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-008",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "critical_number_mismatch",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-009",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "critical_number_mismatch",
+          "unsupported_factual_claim",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-011",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "critical_number_mismatch",
+          "unsupported_factual_claim",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-012",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "critical_number_mismatch",
+          "unsupported_factual_claim",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-024",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "critical_number_mismatch",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-025",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "critical_number_mismatch",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-028",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "critical_number_mismatch",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-032",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "critical_number_mismatch",
+          "unsupported_factual_claim",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-034",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "critical_identifier_mismatch",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-050",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "critical_number_mismatch",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-002",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "critical_number_mismatch",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-003",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "critical_number_mismatch",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-004",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "critical_number_mismatch",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-006",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "critical_number_mismatch",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-009",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "critical_number_mismatch",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-017",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "critical_number_mismatch",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-026",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "critical_number_mismatch",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-035",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "critical_number_mismatch",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-036",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "critical_number_mismatch",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-048",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "critical_number_mismatch",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-011",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "critical_number_mismatch",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-012",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "critical_number_mismatch",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-017",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "critical_number_mismatch",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-023",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "critical_number_mismatch",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-027",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "critical_identifier_mismatch",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-028",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "critical_number_mismatch",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-029",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "critical_number_mismatch",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-033",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "critical_number_mismatch",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-036",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "critical_number_mismatch",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-037",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "critical_number_mismatch",
+          "critical_identifier_mismatch",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-041",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "critical_number_mismatch",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-042",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "critical_number_mismatch",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-043",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "critical_number_mismatch",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-044",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "critical_number_mismatch",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-045",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "critical_number_mismatch",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      }
+    ]
+  },
+  "unsupported_false_addition": {
+    "applicable_count": 145,
+    "blocked_count": 145,
+    "incorrect_pass_count": 0,
+    "rows": [
+      {
+        "case_id": "P3500-EASY-001",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-002",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-003",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-004",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-005",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-006",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-007",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-008",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-009",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-010",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-011",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-012",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-013",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-014",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-015",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-016",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-017",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-018",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-019",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-020",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-021",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-022",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-023",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-024",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-025",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-026",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-027",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-028",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-029",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-030",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-031",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-032",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-033",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-034",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-035",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-036",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-037",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-038",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-039",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-040",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-041",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-042",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-043",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-044",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-045",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-046",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-047",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-048",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-049",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-EASY-050",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-001",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-002",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-003",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-004",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-005",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-006",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-007",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-008",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-009",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-010",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-011",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-012",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-013",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-014",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-015",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-016",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-017",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-018",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-019",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-020",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-021",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-022",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-023",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-024",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-025",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-026",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-027",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-028",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-029",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-030",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-031",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-032",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-033",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-034",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-035",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-036",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-037",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-038",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-039",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-040",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-041",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-042",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-043",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-044",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-045",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-046",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-047",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-048",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-049",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-MEDIUM-050",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-001",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-002",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-003",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-004",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-005",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-006",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-007",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-008",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-009",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-010",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-011",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-012",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-013",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-014",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-015",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-016",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-017",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-018",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-019",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-020",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-021",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-022",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-023",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-024",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-025",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-026",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-027",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-028",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-029",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-030",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-031",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-032",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-033",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-034",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-035",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-036",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-037",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-038",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-039",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-040",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-041",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-042",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-043",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-044",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      },
+      {
+        "case_id": "P3500-HARD-045",
+        "incorrectly_passed": false,
+        "reasons": [
+          "answer_correctness_below_minimum",
+          "faithfulness_below_minimum",
+          "citation_coverage_below_minimum",
+          "quality_score_below_minimum"
+        ]
+      }
+    ]
+  }
+}

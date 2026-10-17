@@ -1,0 +1,282 @@
+schema_version: "stt.eval.campaign.v1"
+campaign_id: "hak180-easy-medium-100-v1.6-20260826-r1"
+status: "completed_target_not_met_offline_iteration_in_validation"
+completed_at: "2026-08-26T14:21:20+08:00"
+created_at: "2026-08-26T13:50:17+08:00"
+updated_at: "2026-08-26T15:18:31+08:00"
+authorization:
+  evidence_ref: "conversation:user-authorized-one-easy-plus-medium-100-case-test"
+  paid_model_calls: true
+  campaign_count_limit: 1
+  child_run_count_limit: 2
+  restart_or_replacement_allowed: false
+scope:
+  total_unique_cases: 100
+  repetitions: 1
+  difficulties:
+    easy: 50
+    medium: 50
+  hard_included: false
+  hidden_case_policy: "P3500-EASY-002 remains in the scoring denominator; no content-level analysis"
+runtime:
+  retrieval_profile_id: "rpf_default"
+  retrieval_profile_version: 4
+  llm_model: "qwen3.7-max"
+  concurrency: 1
+  code_head: "d1a4192dd5eb9da9a8601644521c6876a7bec959"
+  effective_source_sha256: "607ba7cb52546a46fc33463a64fbc812f2bf6f1c3ac783d65227838606af6f9e"
+  usage_accounting: "provider token and monetary cost hard limits unavailable; report observable usage only"
+cohorts:
+  - difficulty: "easy"
+    case_count: 50
+    config_path: "evals/configs/hak180_easy_proof_v2_authority_v3.json"
+    config_canonical_sha256: "b0fafb75ad1ac917ecd2da27f8a424ab2c9a49a612c35056326cfb6a5b6fbfa0"
+    dataset_registry_id: "three-difficulty-easy@2026-08-10"
+    dataset_asset_sha256: "1a3cacbb59b3aa7f354a569f828ad6214351f07cd3d0923a798e98cc33c41b2a"
+    planned_child_run_name: "hak180-em100-v16-20260826-r1-easy"
+    run_id: "erun_a7b71d8508d748869fd41e6ebc981b92"
+    generation_id: "generation-53c80d473bee2d89ff82383431f0aa72"
+    completed_at: "2026-08-26T14:01:22+08:00"
+    status: "succeeded"
+  - difficulty: "medium"
+    case_count: 50
+    config_path: "evals/configs/hak180_medium_proof_v2_authority_v3.json"
+    config_canonical_sha256: "76132b6d9c5332b281ae42cf5f8ea14d2fd3adf75b6a2fc4a2c75d50ac22455e"
+    dataset_registry_id: "three-difficulty-medium@2026-08-10"
+    dataset_asset_sha256: "89c570d10282342fd7facec9bd7d20af61337b5ecaef0038157ed824c25c0369"
+    planned_child_run_name: "hak180-em100-v16-20260826-r1-medium"
+    run_id: "erun_47d0fbb3f9fe481ba7297e5186350ac2"
+    generation_id: "generation-44a6927e6d00ee7bf4d20b7dea7f0f9e"
+    completed_at: "2026-08-26T14:21:20+08:00"
+    status: "succeeded"
+metrics:
+  primary:
+    - "final_answer_accuracy"
+    - "strict_supported_case_pass_rate"
+  report_by:
+    - "campaign"
+    - "difficulty"
+  easy_targets:
+    final_answer_accuracy: ">=48/50"
+    strict_supported_case_pass_rate: ">=45/50"
+  medium_targets:
+    final_answer_accuracy: ">=43/50"
+    strict_supported_case_pass_rate: "report_only_no_preregistered_threshold"
+execution_policy:
+  order:
+    - "easy"
+    - "medium"
+  continue_to_medium_after_easy_metric_failure: true
+  stop_before_medium_after_easy_infrastructure_failure: true
+  paid_retry_without_new_authorization: false
+preflight:
+  config_and_dataset_assets: "passed"
+  formal_harness_tests: "50 passed"
+  active_evaluation_run_count: 0
+  credential_state: "configured_masked"
+results:
+  validation: "passed"
+  artifact_policy: >-
+    manifest.json and summary.json retained as campaign summaries; the two explicit
+    results.jsonl assets were read only through a sanitized structural analyzer.
+    Each line first enters a case_id-only pre-parser; P3500-EASY-002 immediately
+    continues without JSON deserialization or access to any other field.
+  selected_case_identity:
+    total_count: 100
+    hard_case_count: 0
+    p3500_easy_002_count: 1
+    p3500_easy_002_content_analyzed: false
+  easy:
+    run_id: "erun_a7b71d8508d748869fd41e6ebc981b92"
+    generation_id: "generation-53c80d473bee2d89ff82383431f0aa72"
+    status: "succeeded"
+    completed_cases: 50
+    final_answer_accuracy: "40/50=0.80"
+    strict_supported_case_pass_rate: "37/50=0.74"
+    retrieval_support: "47/50=0.94"
+    answered_citation_coverage: "42/42=1.0"
+    answered_faithfulness: "42/42=1.0"
+    visible_total_tokens: 645673
+    token_visible_cases: 49
+    token_unknown_cases: 1
+    gate_status: "baseline_recorded_with_failures"
+    target_verdict: "not_met"
+  medium:
+    run_id: "erun_47d0fbb3f9fe481ba7297e5186350ac2"
+    generation_id: "generation-44a6927e6d00ee7bf4d20b7dea7f0f9e"
+    status: "succeeded"
+    completed_cases: 50
+    final_answer_accuracy: "22/50=0.44"
+    strict_supported_case_pass_rate: "9/50=0.18"
+    retrieval_support: "36/50=0.72"
+    answered_citation_coverage: "24/24=1.0"
+    answered_faithfulness: "24/24=1.0"
+    visible_total_tokens: 568451
+    token_visible_cases: 38
+    token_unknown_cases: 12
+    gate_status: "baseline_recorded_with_failures"
+    target_verdict: "not_met"
+  overall:
+    completed_cases: 100
+    final_answer_accuracy: "62/100=0.62"
+    strict_supported_case_pass_rate: "46/100=0.46"
+    retrieval_support: "83/100=0.83"
+    answered_citation_coverage: "66/66=1.0"
+    answered_faithfulness: "66/66=1.0"
+    visible_total_tokens: 1214124
+    token_visible_cases: 87
+    token_unknown_cases: 13
+    monetary_cost: "unavailable"
+    target_verdict: "not_met"
+sanitized_badcase_analysis:
+  status: "completed_corrected_by_direct_trace"
+  completed_at: "2026-08-26T14:58:17+08:00"
+  corrected_at: "2026-08-26T15:18:31+08:00"
+  correction_evidence: >-
+    Direct production trace node and exception metadata supersede the preliminary
+    error-boundary attribution; no question, answer, Evidence, gold, or expected-term
+    content was copied into this record.
+  failure_population: "strict_supported_case_pass=false"
+  data_boundary:
+    allowed_fields:
+      - "case_id"
+      - "stage/reason/decision"
+      - "structural metrics"
+      - "artifact hashes"
+    forbidden_fields:
+      - "question text"
+      - "answer text"
+      - "Evidence"
+      - "gold"
+      - "expected terms"
+    p3500_easy_002_handling: >-
+      Read case_id only and immediately continue; no other field is parsed,
+      analyzed, copied, or written to the experiment records.
+  source_artifacts:
+    - difficulty: "easy"
+      path: "var/evals/erun_a7b71d8508d748869fd41e6ebc981b92/generation-53c80d473bee2d89ff82383431f0aa72/results.jsonl"
+      sha256: "0ae92e189f4f0d26149977eccfd57bd10b11d634e72e1eba5cfbe91111ce81af"
+      total_lines: 50
+      sanitized_analyzed_lines: 49
+    - difficulty: "medium"
+      path: "var/evals/erun_47d0fbb3f9fe481ba7297e5186350ac2/generation-44a6927e6d00ee7bf4d20b7dea7f0f9e/results.jsonl"
+      sha256: "3233cc0f7e1e1e2124e9752f804e09ce1f53ee68178b402b1683892f77aa9bbc"
+      total_lines: 50
+      sanitized_analyzed_lines: 50
+  safe_aggregate:
+    easy:
+      analyzed_lines: 49
+      strict_badcases: 13
+      final_and_strict: 10
+      strict_only: 3
+      earliest_stage_counts:
+        input: 0
+        retrieval: 1
+        context: 0
+        witness: 0
+        plan: 9
+        review: 0
+        coverage: 0
+        render: 1
+        render_evaluator_boundary: 2
+        evaluator: 0
+        dependency: 0
+    medium:
+      analyzed_lines: 50
+      strict_badcases: 41
+      final_and_strict: 28
+      strict_only: 13
+      earliest_stage_counts:
+        input: 0
+        retrieval: 2
+        context: 11
+        witness: 0
+        plan: 26
+        review: 0
+        coverage: 0
+        render: 0
+        render_evaluator_boundary: 1
+        evaluator: 0
+        dependency: 1
+    combined:
+      analyzed_lines: 99
+      strict_badcases: 54
+      final_and_strict: 38
+      strict_only: 16
+      earliest_stage_counts:
+        input: 0
+        retrieval: 3
+        context: 11
+        witness: 0
+        plan: 35
+        review: 0
+        coverage: 0
+        render: 1
+        render_evaluator_boundary: 3
+        evaluator: 0
+        dependency: 1
+  root_cause_summary:
+    primary: >-
+      Plan closure is the largest shared earliest-divergence class: 35/54 strict
+      badcases. All 35 have full relevant retrieval, a complete witness catalog,
+      non-empty Context/Witness structures, unresolved required obligations, and
+      zero source-enumeration closure receipts.
+    secondary:
+      - >-
+        node_context_pack PromptAssemblyError: 11 cases; confirmed shared cause is
+        WitnessCatalogOmissionPromptView omitting safe_mapping_budget_exceeded while
+        the truncated-code allowset omitted the same Literal.
+      - "Relevant evidence not retrieved: 3 cases"
+      - "node_answer_render ValidationError: 1 case"
+      - "Render/evaluator boundary requiring blinded adjudication: 3 cases"
+      - "answer_plan_semantic_review PAYLOAD_TOO_LARGE: 1 dependency case"
+    plan_obligation_counts:
+      open_enumeration: 31
+      closed_count: 2
+      single: 23
+    limitations: >-
+      This is an earliest-observable structural attribution. Because prohibited
+      content fields were not read, it does not adjudicate source meaning,
+      rendered answer text, or evaluator-label correctness.
+iteration:
+  status: "implemented_offline_validation_in_progress_awaiting_paid_retest"
+  paid_retest:
+    executed: false
+    result: null
+    statement: "No new paid easy/medium evaluation has been run after these candidates."
+  candidates:
+    - id: "prompt-literal-safe-mapping-budget-exceeded"
+      change: >-
+        Add safe_mapping_budget_exceeded to WitnessCatalogOmissionPromptView and to
+        the truncated-code allowset used by node_context_pack Prompt assembly.
+      evidence_status: "causal chain confirmed by direct trace"
+      implementation_status: "implemented"
+      offline_validation_status: "regression implemented"
+      paid_retest_status: "not_run"
+      intended_slice: "11 node_context_pack PromptAssemblyError cases"
+    - id: "proof-safe-second-repair-and-review"
+      change: >-
+        Permit one bounded second repair only under proof-safe preconditions, then
+        require a fresh semantic review before any answer can be committed.
+      evidence_status: "supported by 13 REPAIR_LIMIT_REACHED plan cases"
+      implementation_status: "implemented"
+      offline_validation_status: "in_progress"
+      paid_retest_status: "not_run"
+      intended_slice: "plan closure and repair-limit failures"
+    - id: "what-information-open-enumeration-recognition"
+      change: >-
+        Recognize the generic Chinese intent pattern “什么信息” as an
+        open-enumeration obligation when the surrounding contract semantics require
+        an exhaustive list.
+      evidence_status: "generic intent-classification change; no case-specific branch"
+      implementation_status: "implemented"
+      offline_validation_status: "in_progress"
+      paid_retest_status: "not_run"
+      intended_slice: "open-enumeration contract classification"
+  guardrails:
+    - "No case_id-specific branches, expected-answer injection, or evaluation-threshold changes."
+    - "Run deterministic offline Contract and proof replay checks before any paid evaluation."
+    - "Use held-out and unaffected slices; do not claim generalized improvement from known badcases alone."
+records:
+  analysis: "docs/experiment/hak180-easy-medium-100-evaluation/badcase-analysis.md"
+  sanitized_error_cases: "docs/experiment/hak180-easy-medium-100-evaluation/sanitized-error-cases.csv"

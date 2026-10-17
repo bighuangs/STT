@@ -1,0 +1,40 @@
+﻿case_id,difficulty,declared_evidence_pages,visual_pages_checked,adjacent_page_material_required,visual_source_disposition,reference_disposition,finding,recommended_action
+P3500-EASY-004,easy,[8],[8],False,visual_material_present,confirmed_source_conflict,问题问哪一种物质，表格仅铅(Pb)在部分部件为×；旧参考列出全部六种物质。,将答案合同修为铅(Pb)，并明确超限部件为金属、电线电缆、电路板。
+P3500-EASY-009,easy,[18],[18],False,visual_material_present,not_fully_adjudicated,视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。,在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。
+P3500-EASY-010,easy,[19],[19],False,visual_material_present,not_fully_adjudicated,视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。,在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。
+P3500-EASY-028,easy,[48],[48],False,visual_material_present,not_fully_adjudicated,视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。,在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。
+P3500-EASY-046,easy,[86],"[86, 87]",True,visual_material_present,not_fully_adjudicated,视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。,在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。
+P3500-EASY-049,easy,[90],"[90, 91]",False,visual_material_present,not_explicit_in_source,菜单表存在横向分隔线，但源页没有‘四条水平横线代表文本行’的图例或定义。,人工重写为源文档可直接判定的问题，或移出确定性评分集。
+P3500-HARD-004,hard,"[80, 81]","[80, 81]",False,visual_material_present,not_fully_adjudicated,视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。,在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。
+P3500-HARD-005,hard,"[82, 83]","[82, 83]",False,visual_material_present,not_fully_adjudicated,视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。,在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。
+P3500-HARD-008,hard,[86],"[86, 87, 88]",True,visual_material_present,confirmed_source_conflict,周期性痕迹的源解决办法是清洁/更换硒鼓或更换定影组件；旧参考声称与页面歪斜共享清洁进纸通道/调整介质。,分开建立两类故障的 all-of 概念，删除无源的重叠结论。
+P3500-HARD-012,hard,"[23, 24]","[23, 24, 25]",True,visual_material_present,not_fully_adjudicated,视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。,在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。
+P3500-HARD-015,hard,"[28, 59]","[28, 59]",False,visual_material_present,confirmed_source_conflict,源文明确‘阴影部分表示非打印区域’，旧参考称白色空白区域；省墨分支有明确支持。,将第一分支修为图中阴影边缘区域，保留省墨分支。
+P3500-HARD-016,hard,"[19, 30]","[19, 30]",False,visual_material_present,not_fully_adjudicated,视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。,在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。
+P3500-HARD-017,hard,"[30, 32]","[30, 32]",False,visual_material_present,not_fully_adjudicated,视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。,在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。
+P3500-HARD-018,hard,"[32, 33]","[32, 33]",False,visual_material_present,not_fully_adjudicated,视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。,在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。
+P3500-HARD-021,hard,[40],"[40, 41]",False,visual_material_present,source_scope_not_explicit,源分别描述 IPv6 地址类型和两种无线拓扑，但没有把 DHCPv6/路由器地址与基础结构、FE80 与热点模式建立一一合同。,避免要求无明确源绑定的推断；拆为地址类型题与连接拓扑题。
+P3500-HARD-022,hard,[41],[41],False,visual_material_present,not_fully_adjudicated,视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。,在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。
+P3500-HARD-023,hard,[43],[43],False,visual_material_present,not_fully_adjudicated,视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。,在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。
+P3500-HARD-024,hard,[44],[44],False,visual_material_present,not_fully_adjudicated,视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。,在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。
+P3500-HARD-029,hard,"[58, 60]","[58, 60]",False,visual_material_present,not_fully_adjudicated,视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。,在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。
+P3500-HARD-032,hard,[66],"[66, 67]",True,visual_material_present,not_fully_adjudicated,视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。,在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。
+P3500-HARD-037,hard,[4],[4],False,visual_material_present,confirmed_source_conflict,激光标签可见文字为 INVISIBLE LASER RADIATION，旧参考误写为 MAILABLE LASER RADIATION。,按标签原文修正标识符；评测合同要求关键标识符全保留。
+P3500-HARD-040,hard,"[7, 8]","[7, 8]",False,visual_material_present,confirmed_source_conflict,第二问要求列出超限部件；表格答案为金属、电线电缆、电路板（均为铅），旧参考只泛述‘部分部件’。,补全第二分支的部件与物质绑定。
+P3500-HARD-041,hard,"[14, 18]","[14, 18]",False,visual_material_present,confirmed_source_conflict,后视图编号表明确标签1为 USB 接口，不是左侧后部竖向通风口；硒鼓100%分支有支持。,删除错误图号绑定，或改问标签1对应的 USB 接口。
+P3500-HARD-042,hard,"[18, 19]","[18, 19]",False,visual_material_present,reference_does_not_answer_query,源支持月负荷和 IP 数值，但问题要求判断是否仍在可接受工作负载；旧参考只复述数字和IP，没有给出判断。,"参考答案需明确：接近4,000页仍在推荐范围内且远低于50,000页最大月负荷；IP与负荷判断无关。"
+P3500-MEDIUM-003,medium,[18],[18],False,visual_material_present,not_fully_adjudicated,视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。,在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。
+P3500-MEDIUM-004,medium,[19],[19],False,visual_material_present,not_fully_adjudicated,视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。,在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。
+P3500-MEDIUM-005,medium,[20],[20],False,visual_material_present,not_fully_adjudicated,视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。,在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。
+P3500-MEDIUM-011,medium,[30],[30],False,visual_material_present,not_fully_adjudicated,视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。,在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。
+P3500-MEDIUM-012,medium,[30],[30],False,visual_material_present,not_fully_adjudicated,视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。,在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。
+P3500-MEDIUM-013,medium,[32],[32],False,visual_material_present,not_fully_adjudicated,视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。,在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。
+P3500-MEDIUM-014,medium,[33],[33],False,visual_material_present,not_fully_adjudicated,视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。,在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。
+P3500-MEDIUM-021,medium,[44],[44],False,visual_material_present,not_fully_adjudicated,视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。,在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。
+P3500-MEDIUM-029,medium,[58],[58],False,visual_material_present,not_fully_adjudicated,视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。,在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。
+P3500-MEDIUM-038,medium,[76],[76],False,visual_material_present,not_fully_adjudicated,视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。,在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。
+P3500-MEDIUM-040,medium,[79],[79],False,visual_material_present,not_fully_adjudicated,视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。,在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。
+P3500-MEDIUM-041,medium,[81],[81],False,visual_material_present,not_fully_adjudicated,视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。,在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。
+P3500-MEDIUM-042,medium,[82],[82],False,visual_material_present,not_fully_adjudicated,视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。,在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。
+P3500-MEDIUM-045,medium,[86],"[86, 88]",True,visual_material_present,not_fully_adjudicated,视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。,在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。
+P3500-MEDIUM-047,medium,[90],"[90, 91]",True,visual_material_present,not_fully_adjudicated,视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。,在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。

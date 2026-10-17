@@ -1,0 +1,69 @@
+{
+  "schema_version": "stt.eval.frontend-qa.v1",
+  "checked_at": "2026-08-10T05:02:07.483Z",
+  "page_url": "http://127.0.0.1:8001/eval/html#detailTitle",
+  "page_title": "STT 知识库能力评测控制台",
+  "assertions": {
+    "difficulty_order": [
+      "[简单] Pantum P3500 简单难度全链路测试集 · v1.0.0 · 题数达标 50 / 50",
+      "[中等] Pantum P3500 中等难度全链路测试集 · v1.0.0 · 题数达标 50 / 50",
+      "[困难] Pantum P3500 困难难度全链路测试集 · v1.0.0 · 题数达标 50 / 50"
+    ],
+    "selected_dataset": "eds_fe266df58c0a2e81761569009ed688da",
+    "selected_mode": "live",
+    "case_count_badges": [
+      "50 / 50",
+      "50 / 50",
+      "50 / 50"
+    ],
+    "preflight_status": "passed",
+    "baseline_root_filter": [
+      {
+        "text": "请选择成功的基线运行",
+        "value": ""
+      },
+      {
+        "text": "[简单 · 完整链路] 2026/8/10 12:03:55 · three-difficulty-easy-live-baseline · erun_67606fd2466…",
+        "value": "erun_67606fd246654edb9a6b57ecfc4aab79"
+      }
+    ],
+    "final_runs": [
+      {
+        "difficulty": "hard",
+        "run_id": "erun_54375b39653d4a2fb52b931f4dfbb01c",
+        "status": "succeeded",
+        "progress": "50 / 50",
+        "mode": "live"
+      },
+      {
+        "difficulty": "medium",
+        "run_id": "erun_eb7884462cd34655b1e703974f2d8662",
+        "status": "succeeded",
+        "progress": "50 / 50",
+        "mode": "live"
+      },
+      {
+        "difficulty": "easy",
+        "run_id": "erun_67606fd246654edb9a6b57ecfc4aab79",
+        "status": "succeeded",
+        "progress": "50 / 50",
+        "mode": "live"
+      }
+    ],
+    "hard_detail": {
+      "difficulty": "困难",
+      "scope": "完整链路",
+      "gate": "基线含关键失败",
+      "tokens": 86071,
+      "cost": "unknown"
+    },
+    "console_warnings_or_errors": []
+  },
+  "screenshots": [
+    "datasets-and-live-mode.png",
+    "preflight-passed.png",
+    "three-baseline-runs.png",
+    "three-baseline-runs-lower.png",
+    "hard-baseline-detail.png"
+  ]
+}

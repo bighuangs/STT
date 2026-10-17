@@ -1,0 +1,35 @@
+{
+  "schema_version": "stt.experiment-decision.v1",
+  "recorded_at": "2026-08-14",
+  "objective": "重构模块化单体及其 RAG 评测架构",
+  "method_selection": "user_selected",
+  "selected_method": "phoenix",
+  "architecture": "modular_monolith_with_external_observability",
+  "alternatives_considered": [
+    "internal_harness_only",
+    "minimal_boundary_refactor",
+    "ragas",
+    "deepeval",
+    "mlflow_genai"
+  ],
+  "authorizations": {
+    "implementation": true,
+    "formal_evaluation_execution": false,
+    "iteration": "manual",
+    "external_platform_write": false,
+    "model_calls": false
+  },
+  "sources": [
+    "https://www.arize.com/docs/phoenix/tracing/how-to-tracing/setup-tracing/setup-using-phoenix-otel",
+    "https://arize.com/docs/phoenix/integrations/python/langchain/langchain-tracing",
+    "https://arize.com/docs/phoenix/tracing/how-to-tracing/advanced/masking-span-attributes",
+    "https://arize.com/docs/phoenix/sdk-api-reference/python/arize-phoenix-client",
+    "https://arize.com/docs/phoenix/datasets-and-experiments/how-to-experiments/run-experiments"
+  ],
+  "execution": {
+    "phoenix_connected": false,
+    "dataset_published": false,
+    "experiment_run": false,
+    "formal_quality_claim": false
+  }
+}

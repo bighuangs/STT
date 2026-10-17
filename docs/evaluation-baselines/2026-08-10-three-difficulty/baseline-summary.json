@@ -1,0 +1,2397 @@
+{
+  "artifact_integrity": {
+    "all_expected_checksums_verified": true,
+    "calculated_only_count": 25,
+    "expected_checksum_count": 24,
+    "files": [
+      {
+        "expected_sha256": null,
+        "path": "baselines/baselines.json",
+        "role": "baseline_registry",
+        "sha256": "0b292fe4a68507d9e720ac0a1c44c4ef8065695693289532f2768b2229a031df",
+        "size_bytes": 1152556,
+        "verification": "calculated_only"
+      },
+      {
+        "expected_sha256": "1a3cacbb59b3aa7f354a569f828ad6214351f07cd3d0923a798e98cc33c41b2a",
+        "path": "datasets/easy.json",
+        "role": "dataset_manifest",
+        "sha256": "1a3cacbb59b3aa7f354a569f828ad6214351f07cd3d0923a798e98cc33c41b2a",
+        "size_bytes": 118267,
+        "verification": "matched_expected"
+      },
+      {
+        "expected_sha256": "e5be4d2495618e819b9758fa753bb10d553037ca10b26dc6ccd8521404600a04",
+        "path": "datasets/hard.json",
+        "role": "dataset_manifest",
+        "sha256": "e5be4d2495618e819b9758fa753bb10d553037ca10b26dc6ccd8521404600a04",
+        "size_bytes": 244183,
+        "verification": "matched_expected"
+      },
+      {
+        "expected_sha256": "89c570d10282342fd7facec9bd7d20af61337b5ecaef0038157ed824c25c0369",
+        "path": "datasets/medium.json",
+        "role": "dataset_manifest",
+        "sha256": "89c570d10282342fd7facec9bd7d20af61337b5ecaef0038157ed824c25c0369",
+        "size_bytes": 171576,
+        "verification": "matched_expected"
+      },
+      {
+        "expected_sha256": null,
+        "path": "quality/deterministic-validation.json",
+        "role": "deterministic_report",
+        "sha256": "a7b08cf5e327279cfefd3bad72e8f1a52bbdac839cb1d636b3e7aad6dc575d50",
+        "size_bytes": 4830,
+        "verification": "calculated_only"
+      },
+      {
+        "expected_sha256": null,
+        "path": "quality/llm-audit.json",
+        "role": "online_audit_report",
+        "sha256": "bb594a7953d4df767e8edc13d43e6591f55120336949c05f2a0bd6decc16d5c1",
+        "size_bytes": 49573,
+        "verification": "calculated_only"
+      },
+      {
+        "expected_sha256": null,
+        "path": "quality/quality-summary.json",
+        "role": "quality_summary",
+        "sha256": "f6cc6f6abd0d8afe69d04f7d261eb433901c32a7bfb5145431d5cf604c0e01df",
+        "size_bytes": 690,
+        "verification": "calculated_only"
+      },
+      {
+        "expected_sha256": null,
+        "path": "runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/api/comparison.json",
+        "role": "archived_run_artifact",
+        "sha256": "9a486277aeb4e4168b086c3ad3e93b277ad7f0eef880f4c394da2bf55f2afd67",
+        "size_bytes": 1156,
+        "verification": "calculated_only"
+      },
+      {
+        "expected_sha256": null,
+        "path": "runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/api/dataset-import.json",
+        "role": "archived_run_artifact",
+        "sha256": "2bf6b6e65551ab4b6888cd8e21b21e00eeba697d044d847bdf1a8c7c33a59faa",
+        "size_bytes": 250351,
+        "verification": "calculated_only"
+      },
+      {
+        "expected_sha256": null,
+        "path": "runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/api/preflight.json",
+        "role": "archived_run_artifact",
+        "sha256": "f838e3a7357b98412bd3a0270a6de8c4c8771ca913ae8c9ac794d2069adbdf05",
+        "size_bytes": 28243,
+        "verification": "calculated_only"
+      },
+      {
+        "expected_sha256": null,
+        "path": "runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/api/results.json",
+        "role": "api_results_snapshot",
+        "sha256": "aa0cce4c95bb4b14a07399b74ac6bfbfd2249a2ee00013cf5c6c260226e30e01",
+        "size_bytes": 14568652,
+        "verification": "calculated_only"
+      },
+      {
+        "expected_sha256": null,
+        "path": "runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/api/run-create.json",
+        "role": "archived_run_artifact",
+        "sha256": "0f4e69e3c568aae9863fd098bf2200eed72a55155866da1eed13e2945b2ff802",
+        "size_bytes": 41723,
+        "verification": "calculated_only"
+      },
+      {
+        "expected_sha256": null,
+        "path": "runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/api/run-final.json",
+        "role": "archived_run_artifact",
+        "sha256": "59db13ea7cbb104a80fec1c2554d0c45429d55616c30d5df52cf773edb56a2bd",
+        "size_bytes": 105809,
+        "verification": "calculated_only"
+      },
+      {
+        "expected_sha256": null,
+        "path": "runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/api/run-resume.json",
+        "role": "archived_run_artifact",
+        "sha256": "46fa8a9799aa4141505e9a86df6d511d33f3af90233ac8786c6ef166a4c5d5fa",
+        "size_bytes": 105809,
+        "verification": "calculated_only"
+      },
+      {
+        "expected_sha256": "d04fb8e0fe06ad96f4e167eecf2be154b169c1d1310b0ca1bcc039de8867032d",
+        "path": "runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/artifact-copy-manifest.json",
+        "role": "artifact_copy_manifest",
+        "sha256": "d04fb8e0fe06ad96f4e167eecf2be154b169c1d1310b0ca1bcc039de8867032d",
+        "size_bytes": 6082,
+        "verification": "matched_expected"
+      },
+      {
+        "expected_sha256": "2305d6d1d71e632dfa10f1ef47794218656102a78b02b904c036da751e4b061e",
+        "path": "runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/manifest.json",
+        "role": "archived_run_artifact",
+        "sha256": "2305d6d1d71e632dfa10f1ef47794218656102a78b02b904c036da751e4b061e",
+        "size_bytes": 40725,
+        "verification": "matched_expected"
+      },
+      {
+        "expected_sha256": "fb024a64314a2df9555edd4106e9066daeb1e65239baddb94c9e4f6dee82f1ba",
+        "path": "runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/report.html",
+        "role": "archived_run_artifact",
+        "sha256": "fb024a64314a2df9555edd4106e9066daeb1e65239baddb94c9e4f6dee82f1ba",
+        "size_bytes": 17872065,
+        "verification": "matched_expected"
+      },
+      {
+        "expected_sha256": "fb59107a311d5c81bbe2e4964881033682b82c6269837ffeb3c839b178e49d31",
+        "path": "runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/report.json",
+        "role": "full_json_report",
+        "sha256": "fb59107a311d5c81bbe2e4964881033682b82c6269837ffeb3c839b178e49d31",
+        "size_bytes": 14972212,
+        "verification": "matched_expected"
+      },
+      {
+        "expected_sha256": "f428a71cbe5096c614cbe7b10d24bc9fd062c66ff79e4c9d8f635dfcc66e03fc",
+        "path": "runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/report.md",
+        "role": "archived_run_artifact",
+        "sha256": "f428a71cbe5096c614cbe7b10d24bc9fd062c66ff79e4c9d8f635dfcc66e03fc",
+        "size_bytes": 9590,
+        "verification": "matched_expected"
+      },
+      {
+        "expected_sha256": "f24db5bb3fa99734a6d434318c6a8026014b71c1370a2a7d00c35f68d0fe8ba7",
+        "path": "runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/results.jsonl",
+        "role": "archived_run_artifact",
+        "sha256": "f24db5bb3fa99734a6d434318c6a8026014b71c1370a2a7d00c35f68d0fe8ba7",
+        "size_bytes": 9710775,
+        "verification": "matched_expected"
+      },
+      {
+        "expected_sha256": "56a70005dcb961ea952c25a591c2472cae4d2782ec09a7b5af15a52a0d4a4aec",
+        "path": "runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/summary.json",
+        "role": "aggregate_summary",
+        "sha256": "56a70005dcb961ea952c25a591c2472cae4d2782ec09a7b5af15a52a0d4a4aec",
+        "size_bytes": 55357,
+        "verification": "matched_expected"
+      },
+      {
+        "expected_sha256": null,
+        "path": "runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/api/comparison.json",
+        "role": "archived_run_artifact",
+        "sha256": "9566ee0424b0dd52991685c40fae04485b524309a1be52130565030f3b2ff89e",
+        "size_bytes": 1234,
+        "verification": "calculated_only"
+      },
+      {
+        "expected_sha256": null,
+        "path": "runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/api/dataset-import.json",
+        "role": "archived_run_artifact",
+        "sha256": "2e48f07387539d9df9d0d1a1016b157640e509ed1142fb4b2db9983276c84eaf",
+        "size_bytes": 505627,
+        "verification": "calculated_only"
+      },
+      {
+        "expected_sha256": null,
+        "path": "runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/api/preflight.json",
+        "role": "archived_run_artifact",
+        "sha256": "ae2c01b72ce994fcc88d136a1ea94a81febfeb390b5ac14c01e3a0036c6caeca",
+        "size_bytes": 28243,
+        "verification": "calculated_only"
+      },
+      {
+        "expected_sha256": null,
+        "path": "runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/api/results.json",
+        "role": "api_results_snapshot",
+        "sha256": "ec9be7d3f51080cbaded95b90b7a13ce46b246a351427d398e915fd5954787b1",
+        "size_bytes": 19125838,
+        "verification": "calculated_only"
+      },
+      {
+        "expected_sha256": null,
+        "path": "runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/api/run-create.json",
+        "role": "archived_run_artifact",
+        "sha256": "1bd84db7b2f014a42a15767e59a78f10877e241d59a340d00d58d96310c07040",
+        "size_bytes": 41723,
+        "verification": "calculated_only"
+      },
+      {
+        "expected_sha256": null,
+        "path": "runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/api/run-final.json",
+        "role": "archived_run_artifact",
+        "sha256": "5a651bfd5832f95d007b985d5f9050b744b8f4758cf729d28c636732b285d6e8",
+        "size_bytes": 612065,
+        "verification": "calculated_only"
+      },
+      {
+        "expected_sha256": "78a63f26847e7d56b0933f6e10865db67e7a0a5187a7214b71abe8dcd2b643f2",
+        "path": "runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/artifact-copy-manifest.json",
+        "role": "artifact_copy_manifest",
+        "sha256": "78a63f26847e7d56b0933f6e10865db67e7a0a5187a7214b71abe8dcd2b643f2",
+        "size_bytes": 5659,
+        "verification": "matched_expected"
+      },
+      {
+        "expected_sha256": "750ed051e7fb37b4231a4f1a0440ecda37b4000d42d3e522a882138804eae024",
+        "path": "runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/manifest.json",
+        "role": "archived_run_artifact",
+        "sha256": "750ed051e7fb37b4231a4f1a0440ecda37b4000d42d3e522a882138804eae024",
+        "size_bytes": 40725,
+        "verification": "matched_expected"
+      },
+      {
+        "expected_sha256": "689cdd06eed31609c28b50b8f69fc8bcf30ca687e0d5a2c69bc5633805deb360",
+        "path": "runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/report.html",
+        "role": "archived_run_artifact",
+        "sha256": "689cdd06eed31609c28b50b8f69fc8bcf30ca687e0d5a2c69bc5633805deb360",
+        "size_bytes": 23858464,
+        "verification": "matched_expected"
+      },
+      {
+        "expected_sha256": "72a8aee454fc18b733ea8795851dae0094be87d0597a58b13b9dbb107390b696",
+        "path": "runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/report.json",
+        "role": "full_json_report",
+        "sha256": "72a8aee454fc18b733ea8795851dae0094be87d0597a58b13b9dbb107390b696",
+        "size_bytes": 20089165,
+        "verification": "matched_expected"
+      },
+      {
+        "expected_sha256": "000dc979c43c961358827ad8ebb9ea96b2693ecb4bc12138dec06a38ee2252dd",
+        "path": "runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/report.md",
+        "role": "archived_run_artifact",
+        "sha256": "000dc979c43c961358827ad8ebb9ea96b2693ecb4bc12138dec06a38ee2252dd",
+        "size_bytes": 14032,
+        "verification": "matched_expected"
+      },
+      {
+        "expected_sha256": "f554f80bda8eb025fd216a3a7e6e5b54f96addfbfc2026b868e50a842a3ff946",
+        "path": "runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/results.jsonl",
+        "role": "archived_run_artifact",
+        "sha256": "f554f80bda8eb025fd216a3a7e6e5b54f96addfbfc2026b868e50a842a3ff946",
+        "size_bytes": 13001971,
+        "verification": "matched_expected"
+      },
+      {
+        "expected_sha256": "4f3ead6ce33d2c3f90ac89963decae06ebdd55a3ec0573b52b47d864389d0a87",
+        "path": "runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/summary.json",
+        "role": "aggregate_summary",
+        "sha256": "4f3ead6ce33d2c3f90ac89963decae06ebdd55a3ec0573b52b47d864389d0a87",
+        "size_bytes": 509260,
+        "verification": "matched_expected"
+      },
+      {
+        "expected_sha256": null,
+        "path": "runs/medium/erun_eb7884462cd34655b1e703974f2d8662/api/comparison.json",
+        "role": "archived_run_artifact",
+        "sha256": "b447bb804de6c10d2cc9cfdcaaeaffac56350db584194a4f496fa621f7ed91e7",
+        "size_bytes": 1224,
+        "verification": "calculated_only"
+      },
+      {
+        "expected_sha256": null,
+        "path": "runs/medium/erun_eb7884462cd34655b1e703974f2d8662/api/dataset-import.json",
+        "role": "archived_run_artifact",
+        "sha256": "eb1b7c41b8ba6682af4d1aa301d810ce9a586885260cd5d2df6a669f1fbacbc8",
+        "size_bytes": 358329,
+        "verification": "calculated_only"
+      },
+      {
+        "expected_sha256": null,
+        "path": "runs/medium/erun_eb7884462cd34655b1e703974f2d8662/api/preflight.json",
+        "role": "archived_run_artifact",
+        "sha256": "f7203350597b551c440f1019f1a24c0766d2104d915e0f2518d85e3021f7df6b",
+        "size_bytes": 28245,
+        "verification": "calculated_only"
+      },
+      {
+        "expected_sha256": null,
+        "path": "runs/medium/erun_eb7884462cd34655b1e703974f2d8662/api/results.json",
+        "role": "api_results_snapshot",
+        "sha256": "0ada849ea5cd5f86fc7843e9fd4fe298614972f98cf054fe8a754e6a20af9eb9",
+        "size_bytes": 19657439,
+        "verification": "calculated_only"
+      },
+      {
+        "expected_sha256": null,
+        "path": "runs/medium/erun_eb7884462cd34655b1e703974f2d8662/api/run-create.json",
+        "role": "archived_run_artifact",
+        "sha256": "8c81d27342b505d8932e078413474562262ea57d49fd501158b7abee03a4f79a",
+        "size_bytes": 41831,
+        "verification": "calculated_only"
+      },
+      {
+        "expected_sha256": null,
+        "path": "runs/medium/erun_eb7884462cd34655b1e703974f2d8662/api/run-final.json",
+        "role": "archived_run_artifact",
+        "sha256": "be302a327c290f011f92dc4c1803645b2345863c4c6e37bf178a781c7516b69a",
+        "size_bytes": 366418,
+        "verification": "calculated_only"
+      },
+      {
+        "expected_sha256": null,
+        "path": "runs/medium/erun_eb7884462cd34655b1e703974f2d8662/api/run-resume.json",
+        "role": "archived_run_artifact",
+        "sha256": "35cf9eebaccb5af7c4a81c0e2a78e00c2b71e36d5285ba02545fd5540b3470ba",
+        "size_bytes": 41871,
+        "verification": "calculated_only"
+      },
+      {
+        "expected_sha256": "0c4d9da7a065018acaac95938476773b9721d04decf3558736aa020182a8c9b9",
+        "path": "runs/medium/erun_eb7884462cd34655b1e703974f2d8662/artifact-copy-manifest.json",
+        "role": "artifact_copy_manifest",
+        "sha256": "0c4d9da7a065018acaac95938476773b9721d04decf3558736aa020182a8c9b9",
+        "size_bytes": 5673,
+        "verification": "matched_expected"
+      },
+      {
+        "expected_sha256": "4f121d61048eabbf903c3d455012367466b26660d7fa13e947c76129bfcb3584",
+        "path": "runs/medium/erun_eb7884462cd34655b1e703974f2d8662/manifest.json",
+        "role": "archived_run_artifact",
+        "sha256": "4f121d61048eabbf903c3d455012367466b26660d7fa13e947c76129bfcb3584",
+        "size_bytes": 40833,
+        "verification": "matched_expected"
+      },
+      {
+        "expected_sha256": "bba368b479eec5ede42e16a750e35c88a8de6d697447151bc7efcea0d632dfbd",
+        "path": "runs/medium/erun_eb7884462cd34655b1e703974f2d8662/report.html",
+        "role": "archived_run_artifact",
+        "sha256": "bba368b479eec5ede42e16a750e35c88a8de6d697447151bc7efcea0d632dfbd",
+        "size_bytes": 24124179,
+        "verification": "matched_expected"
+      },
+      {
+        "expected_sha256": "f5517fff39a06a3d619a4c43f87fa42b367fd616fa3de5dff88fd7ee7b121b26",
+        "path": "runs/medium/erun_eb7884462cd34655b1e703974f2d8662/report.json",
+        "role": "full_json_report",
+        "sha256": "f5517fff39a06a3d619a4c43f87fa42b367fd616fa3de5dff88fd7ee7b121b26",
+        "size_bytes": 20393034,
+        "verification": "matched_expected"
+      },
+      {
+        "expected_sha256": "30f44b2c90b95f0a308ab180de38ee42f1f1b5805ee5ff001aef4ba957cbc4c7",
+        "path": "runs/medium/erun_eb7884462cd34655b1e703974f2d8662/report.md",
+        "role": "archived_run_artifact",
+        "sha256": "30f44b2c90b95f0a308ab180de38ee42f1f1b5805ee5ff001aef4ba957cbc4c7",
+        "size_bytes": 11499,
+        "verification": "matched_expected"
+      },
+      {
+        "expected_sha256": "b878e23e046abdc08c1e6aab30cb6d6959b72be9cac72e775ad3831e8f06d8df",
+        "path": "runs/medium/erun_eb7884462cd34655b1e703974f2d8662/results.jsonl",
+        "role": "archived_run_artifact",
+        "sha256": "b878e23e046abdc08c1e6aab30cb6d6959b72be9cac72e775ad3831e8f06d8df",
+        "size_bytes": 13364440,
+        "verification": "matched_expected"
+      },
+      {
+        "expected_sha256": "8ddbfffce4f375a5c9624474ee9b526c881913b2a5be8720d061747bafae0ec8",
+        "path": "runs/medium/erun_eb7884462cd34655b1e703974f2d8662/summary.json",
+        "role": "aggregate_summary",
+        "sha256": "8ddbfffce4f375a5c9624474ee9b526c881913b2a5be8720d061747bafae0ec8",
+        "size_bytes": 288199,
+        "verification": "matched_expected"
+      },
+      {
+        "expected_sha256": null,
+        "path": "summarize_baselines.py",
+        "role": "summarizer_source",
+        "sha256": "2a28197051a777735fa97ac480ad02cc09d2f1605caf76395e05e8b12632d558",
+        "size_bytes": 50975,
+        "verification": "calculated_only"
+      }
+    ]
+  },
+  "difficulties": {
+    "easy": {
+      "artifacts": [
+        {
+          "expected_sha256": "1a3cacbb59b3aa7f354a569f828ad6214351f07cd3d0923a798e98cc33c41b2a",
+          "path": "datasets/easy.json",
+          "role": "dataset_manifest",
+          "sha256": "1a3cacbb59b3aa7f354a569f828ad6214351f07cd3d0923a798e98cc33c41b2a",
+          "size_bytes": 118267,
+          "verification": "matched_expected"
+        },
+        {
+          "expected_sha256": null,
+          "path": "runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/api/comparison.json",
+          "role": "archived_run_artifact",
+          "sha256": "9a486277aeb4e4168b086c3ad3e93b277ad7f0eef880f4c394da2bf55f2afd67",
+          "size_bytes": 1156,
+          "verification": "calculated_only"
+        },
+        {
+          "expected_sha256": null,
+          "path": "runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/api/dataset-import.json",
+          "role": "archived_run_artifact",
+          "sha256": "2bf6b6e65551ab4b6888cd8e21b21e00eeba697d044d847bdf1a8c7c33a59faa",
+          "size_bytes": 250351,
+          "verification": "calculated_only"
+        },
+        {
+          "expected_sha256": null,
+          "path": "runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/api/preflight.json",
+          "role": "archived_run_artifact",
+          "sha256": "f838e3a7357b98412bd3a0270a6de8c4c8771ca913ae8c9ac794d2069adbdf05",
+          "size_bytes": 28243,
+          "verification": "calculated_only"
+        },
+        {
+          "expected_sha256": null,
+          "path": "runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/api/results.json",
+          "role": "api_results_snapshot",
+          "sha256": "aa0cce4c95bb4b14a07399b74ac6bfbfd2249a2ee00013cf5c6c260226e30e01",
+          "size_bytes": 14568652,
+          "verification": "calculated_only"
+        },
+        {
+          "expected_sha256": null,
+          "path": "runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/api/run-create.json",
+          "role": "archived_run_artifact",
+          "sha256": "0f4e69e3c568aae9863fd098bf2200eed72a55155866da1eed13e2945b2ff802",
+          "size_bytes": 41723,
+          "verification": "calculated_only"
+        },
+        {
+          "expected_sha256": null,
+          "path": "runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/api/run-final.json",
+          "role": "archived_run_artifact",
+          "sha256": "59db13ea7cbb104a80fec1c2554d0c45429d55616c30d5df52cf773edb56a2bd",
+          "size_bytes": 105809,
+          "verification": "calculated_only"
+        },
+        {
+          "expected_sha256": null,
+          "path": "runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/api/run-resume.json",
+          "role": "archived_run_artifact",
+          "sha256": "46fa8a9799aa4141505e9a86df6d511d33f3af90233ac8786c6ef166a4c5d5fa",
+          "size_bytes": 105809,
+          "verification": "calculated_only"
+        },
+        {
+          "expected_sha256": "d04fb8e0fe06ad96f4e167eecf2be154b169c1d1310b0ca1bcc039de8867032d",
+          "path": "runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/artifact-copy-manifest.json",
+          "role": "artifact_copy_manifest",
+          "sha256": "d04fb8e0fe06ad96f4e167eecf2be154b169c1d1310b0ca1bcc039de8867032d",
+          "size_bytes": 6082,
+          "verification": "matched_expected"
+        },
+        {
+          "expected_sha256": "2305d6d1d71e632dfa10f1ef47794218656102a78b02b904c036da751e4b061e",
+          "path": "runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/manifest.json",
+          "role": "archived_run_artifact",
+          "sha256": "2305d6d1d71e632dfa10f1ef47794218656102a78b02b904c036da751e4b061e",
+          "size_bytes": 40725,
+          "verification": "matched_expected"
+        },
+        {
+          "expected_sha256": "fb024a64314a2df9555edd4106e9066daeb1e65239baddb94c9e4f6dee82f1ba",
+          "path": "runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/report.html",
+          "role": "archived_run_artifact",
+          "sha256": "fb024a64314a2df9555edd4106e9066daeb1e65239baddb94c9e4f6dee82f1ba",
+          "size_bytes": 17872065,
+          "verification": "matched_expected"
+        },
+        {
+          "expected_sha256": "fb59107a311d5c81bbe2e4964881033682b82c6269837ffeb3c839b178e49d31",
+          "path": "runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/report.json",
+          "role": "full_json_report",
+          "sha256": "fb59107a311d5c81bbe2e4964881033682b82c6269837ffeb3c839b178e49d31",
+          "size_bytes": 14972212,
+          "verification": "matched_expected"
+        },
+        {
+          "expected_sha256": "f428a71cbe5096c614cbe7b10d24bc9fd062c66ff79e4c9d8f635dfcc66e03fc",
+          "path": "runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/report.md",
+          "role": "archived_run_artifact",
+          "sha256": "f428a71cbe5096c614cbe7b10d24bc9fd062c66ff79e4c9d8f635dfcc66e03fc",
+          "size_bytes": 9590,
+          "verification": "matched_expected"
+        },
+        {
+          "expected_sha256": "f24db5bb3fa99734a6d434318c6a8026014b71c1370a2a7d00c35f68d0fe8ba7",
+          "path": "runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/results.jsonl",
+          "role": "archived_run_artifact",
+          "sha256": "f24db5bb3fa99734a6d434318c6a8026014b71c1370a2a7d00c35f68d0fe8ba7",
+          "size_bytes": 9710775,
+          "verification": "matched_expected"
+        },
+        {
+          "expected_sha256": "56a70005dcb961ea952c25a591c2472cae4d2782ec09a7b5af15a52a0d4a4aec",
+          "path": "runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/summary.json",
+          "role": "aggregate_summary",
+          "sha256": "56a70005dcb961ea952c25a591c2472cae4d2782ec09a7b5af15a52a0d4a4aec",
+          "size_bytes": 55357,
+          "verification": "matched_expected"
+        }
+      ],
+      "cases": {
+        "error": 0,
+        "failed": 22,
+        "passed": 28,
+        "total": 50
+      },
+      "completed_at": "2026-08-10T04:13:54.297574+00:00",
+      "dataset": {
+        "case_count": 50,
+        "checksum": "c5e28b1d04aa31403795d796984d7ddd52bfa6faa0abc4b6300c4b61c648b5ac",
+        "id": "eds_fe266df58c0a2e81761569009ed688da",
+        "key": "pantum-p3500-easy-live-baseline",
+        "source_path": "datasets/easy.json",
+        "source_sha256": "1a3cacbb59b3aa7f354a569f828ad6214351f07cd3d0923a798e98cc33c41b2a",
+        "version": "1.0.0"
+      },
+      "difficulty": "easy",
+      "failures": {
+        "cases": [
+          {
+            "case_id": "P3500-EASY-001",
+            "critical": true,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-EASY-002",
+            "critical": true,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-EASY-003",
+            "critical": true,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75",
+              "retrieval_recall_at_10_zero"
+            ]
+          },
+          {
+            "case_id": "P3500-EASY-004",
+            "critical": true,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-EASY-006",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-EASY-008",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-EASY-010",
+            "critical": true,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-EASY-011",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-EASY-013",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-EASY-016",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-EASY-017",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-EASY-018",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "retrieval_recall_at_10_zero"
+            ]
+          },
+          {
+            "case_id": "P3500-EASY-020",
+            "critical": true,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75",
+              "retrieval_recall_at_10_zero"
+            ]
+          },
+          {
+            "case_id": "P3500-EASY-022",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-EASY-026",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-EASY-028",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-EASY-034",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-EASY-035",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-EASY-043",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-EASY-045",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-EASY-047",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-EASY-049",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          }
+        ],
+        "critical_case_ids": [
+          "P3500-EASY-001",
+          "P3500-EASY-002",
+          "P3500-EASY-003",
+          "P3500-EASY-004",
+          "P3500-EASY-010",
+          "P3500-EASY-020"
+        ],
+        "ordinary_case_ids": [
+          "P3500-EASY-006",
+          "P3500-EASY-008",
+          "P3500-EASY-011",
+          "P3500-EASY-013",
+          "P3500-EASY-016",
+          "P3500-EASY-017",
+          "P3500-EASY-018",
+          "P3500-EASY-022",
+          "P3500-EASY-026",
+          "P3500-EASY-028",
+          "P3500-EASY-034",
+          "P3500-EASY-035",
+          "P3500-EASY-043",
+          "P3500-EASY-045",
+          "P3500-EASY-047",
+          "P3500-EASY-049"
+        ],
+        "reason_slices": {
+          "expected_term_recall_below_0.75": {
+            "case_ids": [
+              "P3500-EASY-001",
+              "P3500-EASY-002",
+              "P3500-EASY-003",
+              "P3500-EASY-004",
+              "P3500-EASY-006",
+              "P3500-EASY-008",
+              "P3500-EASY-010",
+              "P3500-EASY-011",
+              "P3500-EASY-013",
+              "P3500-EASY-016",
+              "P3500-EASY-017",
+              "P3500-EASY-020",
+              "P3500-EASY-022",
+              "P3500-EASY-026",
+              "P3500-EASY-028",
+              "P3500-EASY-034",
+              "P3500-EASY-035",
+              "P3500-EASY-043",
+              "P3500-EASY-045",
+              "P3500-EASY-047",
+              "P3500-EASY-049"
+            ],
+            "count": 21,
+            "critical_case_ids": [
+              "P3500-EASY-001",
+              "P3500-EASY-002",
+              "P3500-EASY-003",
+              "P3500-EASY-004",
+              "P3500-EASY-010",
+              "P3500-EASY-020"
+            ],
+            "label": "期望词召回低于 0.75",
+            "ordinary_case_ids": [
+              "P3500-EASY-006",
+              "P3500-EASY-008",
+              "P3500-EASY-011",
+              "P3500-EASY-013",
+              "P3500-EASY-016",
+              "P3500-EASY-017",
+              "P3500-EASY-022",
+              "P3500-EASY-026",
+              "P3500-EASY-028",
+              "P3500-EASY-034",
+              "P3500-EASY-035",
+              "P3500-EASY-043",
+              "P3500-EASY-045",
+              "P3500-EASY-047",
+              "P3500-EASY-049"
+            ]
+          },
+          "retrieval_recall_at_10_zero": {
+            "case_ids": [
+              "P3500-EASY-003",
+              "P3500-EASY-018",
+              "P3500-EASY-020"
+            ],
+            "count": 3,
+            "critical_case_ids": [
+              "P3500-EASY-003",
+              "P3500-EASY-020"
+            ],
+            "label": "Recall@10 为 0",
+            "ordinary_case_ids": [
+              "P3500-EASY-018"
+            ]
+          }
+        }
+      },
+      "gate": {
+        "critical_failed_cases": [
+          "P3500-EASY-001",
+          "P3500-EASY-002",
+          "P3500-EASY-003",
+          "P3500-EASY-004",
+          "P3500-EASY-010",
+          "P3500-EASY-020"
+        ],
+        "failures": [],
+        "interpretation": "first baseline recorded with critical case failures; quality did not pass",
+        "passed": false,
+        "policy_version": "stt.eval.gate.v2",
+        "reason": "首次运行已建立事实基线，但关键 case 失败，不能视为质量门禁通过",
+        "status": "baseline_recorded_with_failures"
+      },
+      "metrics": {
+        "abstention": {
+          "accuracy": 0.88,
+          "count": 50,
+          "false_negative": 0,
+          "false_positive": 6,
+          "false_positive_rate": 0.12,
+          "false_positive_rate_denominator": 50,
+          "true_negative": 44,
+          "true_positive": 0,
+          "unknown_count": 0
+        },
+        "citation": {
+          "coverage": 1.0,
+          "precision": 0.7902597402597403,
+          "recall": 0.84
+        },
+        "generation": {
+          "correctness": 0.6166666666666667,
+          "faithfulness": 0.8571428571428571
+        },
+        "retrieval": {
+          "mrr": 0.8583333333333333,
+          "ndcg_at_10": 0.8790879114471845,
+          "recall_at_1": 0.8,
+          "recall_at_10": 0.94,
+          "recall_at_3": 0.92
+        },
+        "runtime": {
+          "cost": {
+            "currency": null,
+            "known_case_count": 0,
+            "status": "unknown",
+            "total": null,
+            "unknown_case_count": 50
+          },
+          "latency_ms": {
+            "known_case_count": 50,
+            "mean": 11910.685759999998,
+            "p95": 22757.8539,
+            "unknown_case_count": 0
+          },
+          "total_tokens": {
+            "known_case_count": 49,
+            "status": "partial",
+            "total": 83158.0,
+            "unknown_case_count": 1
+          }
+        }
+      },
+      "run_id": "erun_67606fd246654edb9a6b57ecfc4aab79",
+      "runtime_identity": {
+        "code_revision": "head:d1a4192dd5eb9da9a8601644521c6876a7bec959;source-sha256:0d0a0cb341f7e32ed5900eb10a066ea7c622788ca5b857f567888c291e325d3a",
+        "index_version_ids": [
+          "idx_fb5eeac133f540f4af31004dbde23151"
+        ],
+        "kb_id": "kb_2fad25538aab42d19baf79fba782a06c",
+        "llm_model": "qwen-flash",
+        "mode": "live",
+        "vector_read_set_digest": "sha256:f583155382b2537d0279ca7e5fb4fe2be89307585caee738727cadd89b41a399"
+      },
+      "started_at": "2026-08-10T04:03:55.048079+00:00"
+    },
+    "hard": {
+      "artifacts": [
+        {
+          "expected_sha256": "e5be4d2495618e819b9758fa753bb10d553037ca10b26dc6ccd8521404600a04",
+          "path": "datasets/hard.json",
+          "role": "dataset_manifest",
+          "sha256": "e5be4d2495618e819b9758fa753bb10d553037ca10b26dc6ccd8521404600a04",
+          "size_bytes": 244183,
+          "verification": "matched_expected"
+        },
+        {
+          "expected_sha256": null,
+          "path": "runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/api/comparison.json",
+          "role": "archived_run_artifact",
+          "sha256": "9566ee0424b0dd52991685c40fae04485b524309a1be52130565030f3b2ff89e",
+          "size_bytes": 1234,
+          "verification": "calculated_only"
+        },
+        {
+          "expected_sha256": null,
+          "path": "runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/api/dataset-import.json",
+          "role": "archived_run_artifact",
+          "sha256": "2e48f07387539d9df9d0d1a1016b157640e509ed1142fb4b2db9983276c84eaf",
+          "size_bytes": 505627,
+          "verification": "calculated_only"
+        },
+        {
+          "expected_sha256": null,
+          "path": "runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/api/preflight.json",
+          "role": "archived_run_artifact",
+          "sha256": "ae2c01b72ce994fcc88d136a1ea94a81febfeb390b5ac14c01e3a0036c6caeca",
+          "size_bytes": 28243,
+          "verification": "calculated_only"
+        },
+        {
+          "expected_sha256": null,
+          "path": "runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/api/results.json",
+          "role": "api_results_snapshot",
+          "sha256": "ec9be7d3f51080cbaded95b90b7a13ce46b246a351427d398e915fd5954787b1",
+          "size_bytes": 19125838,
+          "verification": "calculated_only"
+        },
+        {
+          "expected_sha256": null,
+          "path": "runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/api/run-create.json",
+          "role": "archived_run_artifact",
+          "sha256": "1bd84db7b2f014a42a15767e59a78f10877e241d59a340d00d58d96310c07040",
+          "size_bytes": 41723,
+          "verification": "calculated_only"
+        },
+        {
+          "expected_sha256": null,
+          "path": "runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/api/run-final.json",
+          "role": "archived_run_artifact",
+          "sha256": "5a651bfd5832f95d007b985d5f9050b744b8f4758cf729d28c636732b285d6e8",
+          "size_bytes": 612065,
+          "verification": "calculated_only"
+        },
+        {
+          "expected_sha256": "78a63f26847e7d56b0933f6e10865db67e7a0a5187a7214b71abe8dcd2b643f2",
+          "path": "runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/artifact-copy-manifest.json",
+          "role": "artifact_copy_manifest",
+          "sha256": "78a63f26847e7d56b0933f6e10865db67e7a0a5187a7214b71abe8dcd2b643f2",
+          "size_bytes": 5659,
+          "verification": "matched_expected"
+        },
+        {
+          "expected_sha256": "750ed051e7fb37b4231a4f1a0440ecda37b4000d42d3e522a882138804eae024",
+          "path": "runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/manifest.json",
+          "role": "archived_run_artifact",
+          "sha256": "750ed051e7fb37b4231a4f1a0440ecda37b4000d42d3e522a882138804eae024",
+          "size_bytes": 40725,
+          "verification": "matched_expected"
+        },
+        {
+          "expected_sha256": "689cdd06eed31609c28b50b8f69fc8bcf30ca687e0d5a2c69bc5633805deb360",
+          "path": "runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/report.html",
+          "role": "archived_run_artifact",
+          "sha256": "689cdd06eed31609c28b50b8f69fc8bcf30ca687e0d5a2c69bc5633805deb360",
+          "size_bytes": 23858464,
+          "verification": "matched_expected"
+        },
+        {
+          "expected_sha256": "72a8aee454fc18b733ea8795851dae0094be87d0597a58b13b9dbb107390b696",
+          "path": "runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/report.json",
+          "role": "full_json_report",
+          "sha256": "72a8aee454fc18b733ea8795851dae0094be87d0597a58b13b9dbb107390b696",
+          "size_bytes": 20089165,
+          "verification": "matched_expected"
+        },
+        {
+          "expected_sha256": "000dc979c43c961358827ad8ebb9ea96b2693ecb4bc12138dec06a38ee2252dd",
+          "path": "runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/report.md",
+          "role": "archived_run_artifact",
+          "sha256": "000dc979c43c961358827ad8ebb9ea96b2693ecb4bc12138dec06a38ee2252dd",
+          "size_bytes": 14032,
+          "verification": "matched_expected"
+        },
+        {
+          "expected_sha256": "f554f80bda8eb025fd216a3a7e6e5b54f96addfbfc2026b868e50a842a3ff946",
+          "path": "runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/results.jsonl",
+          "role": "archived_run_artifact",
+          "sha256": "f554f80bda8eb025fd216a3a7e6e5b54f96addfbfc2026b868e50a842a3ff946",
+          "size_bytes": 13001971,
+          "verification": "matched_expected"
+        },
+        {
+          "expected_sha256": "4f3ead6ce33d2c3f90ac89963decae06ebdd55a3ec0573b52b47d864389d0a87",
+          "path": "runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/summary.json",
+          "role": "aggregate_summary",
+          "sha256": "4f3ead6ce33d2c3f90ac89963decae06ebdd55a3ec0573b52b47d864389d0a87",
+          "size_bytes": 509260,
+          "verification": "matched_expected"
+        }
+      ],
+      "cases": {
+        "error": 0,
+        "failed": 41,
+        "passed": 9,
+        "total": 50
+      },
+      "completed_at": "2026-08-10T04:56:09.618995+00:00",
+      "dataset": {
+        "case_count": 50,
+        "checksum": "57099f7dbdb789fae887447b1bcb3666af3f5f8b45f1f9675b0b36a7d6274bad",
+        "id": "eds_068c54129014fb6b0dfa21af5443ebfd",
+        "key": "pantum-p3500-hard-live-baseline",
+        "source_path": "datasets/hard.json",
+        "source_sha256": "e5be4d2495618e819b9758fa753bb10d553037ca10b26dc6ccd8521404600a04",
+        "version": "1.0.0"
+      },
+      "difficulty": "hard",
+      "failures": {
+        "cases": [
+          {
+            "case_id": "P3500-HARD-001",
+            "critical": true,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-002",
+            "critical": true,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-003",
+            "critical": true,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-004",
+            "critical": true,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-005",
+            "critical": true,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-006",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-007",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-008",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-009",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-010",
+            "critical": true,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-011",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-012",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75",
+              "retrieval_recall_at_10_zero"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-013",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-014",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-015",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-016",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "retrieval_recall_at_10_zero"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-018",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-019",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75",
+              "retrieval_recall_at_10_zero"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-020",
+            "critical": true,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-021",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-022",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-023",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-024",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-026",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75",
+              "retrieval_recall_at_10_zero"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-027",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-028",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-029",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-030",
+            "critical": true,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-031",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-032",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-034",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-035",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-036",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-037",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-039",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-040",
+            "critical": true,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75",
+              "retrieval_recall_at_10_zero"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-041",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-042",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-043",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-044",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-HARD-045",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75",
+              "retrieval_recall_at_10_zero"
+            ]
+          }
+        ],
+        "critical_case_ids": [
+          "P3500-HARD-001",
+          "P3500-HARD-002",
+          "P3500-HARD-003",
+          "P3500-HARD-004",
+          "P3500-HARD-005",
+          "P3500-HARD-010",
+          "P3500-HARD-020",
+          "P3500-HARD-030",
+          "P3500-HARD-040"
+        ],
+        "ordinary_case_ids": [
+          "P3500-HARD-006",
+          "P3500-HARD-007",
+          "P3500-HARD-008",
+          "P3500-HARD-009",
+          "P3500-HARD-011",
+          "P3500-HARD-012",
+          "P3500-HARD-013",
+          "P3500-HARD-014",
+          "P3500-HARD-015",
+          "P3500-HARD-016",
+          "P3500-HARD-018",
+          "P3500-HARD-019",
+          "P3500-HARD-021",
+          "P3500-HARD-022",
+          "P3500-HARD-023",
+          "P3500-HARD-024",
+          "P3500-HARD-026",
+          "P3500-HARD-027",
+          "P3500-HARD-028",
+          "P3500-HARD-029",
+          "P3500-HARD-031",
+          "P3500-HARD-032",
+          "P3500-HARD-034",
+          "P3500-HARD-035",
+          "P3500-HARD-036",
+          "P3500-HARD-037",
+          "P3500-HARD-039",
+          "P3500-HARD-041",
+          "P3500-HARD-042",
+          "P3500-HARD-043",
+          "P3500-HARD-044",
+          "P3500-HARD-045"
+        ],
+        "reason_slices": {
+          "expected_term_recall_below_0.75": {
+            "case_ids": [
+              "P3500-HARD-001",
+              "P3500-HARD-002",
+              "P3500-HARD-003",
+              "P3500-HARD-004",
+              "P3500-HARD-005",
+              "P3500-HARD-006",
+              "P3500-HARD-007",
+              "P3500-HARD-008",
+              "P3500-HARD-009",
+              "P3500-HARD-010",
+              "P3500-HARD-011",
+              "P3500-HARD-012",
+              "P3500-HARD-013",
+              "P3500-HARD-014",
+              "P3500-HARD-015",
+              "P3500-HARD-018",
+              "P3500-HARD-019",
+              "P3500-HARD-020",
+              "P3500-HARD-021",
+              "P3500-HARD-022",
+              "P3500-HARD-023",
+              "P3500-HARD-024",
+              "P3500-HARD-026",
+              "P3500-HARD-027",
+              "P3500-HARD-028",
+              "P3500-HARD-029",
+              "P3500-HARD-030",
+              "P3500-HARD-031",
+              "P3500-HARD-032",
+              "P3500-HARD-034",
+              "P3500-HARD-035",
+              "P3500-HARD-036",
+              "P3500-HARD-037",
+              "P3500-HARD-039",
+              "P3500-HARD-040",
+              "P3500-HARD-041",
+              "P3500-HARD-042",
+              "P3500-HARD-043",
+              "P3500-HARD-044",
+              "P3500-HARD-045"
+            ],
+            "count": 40,
+            "critical_case_ids": [
+              "P3500-HARD-001",
+              "P3500-HARD-002",
+              "P3500-HARD-003",
+              "P3500-HARD-004",
+              "P3500-HARD-005",
+              "P3500-HARD-010",
+              "P3500-HARD-020",
+              "P3500-HARD-030",
+              "P3500-HARD-040"
+            ],
+            "label": "期望词召回低于 0.75",
+            "ordinary_case_ids": [
+              "P3500-HARD-006",
+              "P3500-HARD-007",
+              "P3500-HARD-008",
+              "P3500-HARD-009",
+              "P3500-HARD-011",
+              "P3500-HARD-012",
+              "P3500-HARD-013",
+              "P3500-HARD-014",
+              "P3500-HARD-015",
+              "P3500-HARD-018",
+              "P3500-HARD-019",
+              "P3500-HARD-021",
+              "P3500-HARD-022",
+              "P3500-HARD-023",
+              "P3500-HARD-024",
+              "P3500-HARD-026",
+              "P3500-HARD-027",
+              "P3500-HARD-028",
+              "P3500-HARD-029",
+              "P3500-HARD-031",
+              "P3500-HARD-032",
+              "P3500-HARD-034",
+              "P3500-HARD-035",
+              "P3500-HARD-036",
+              "P3500-HARD-037",
+              "P3500-HARD-039",
+              "P3500-HARD-041",
+              "P3500-HARD-042",
+              "P3500-HARD-043",
+              "P3500-HARD-044",
+              "P3500-HARD-045"
+            ]
+          },
+          "retrieval_recall_at_10_zero": {
+            "case_ids": [
+              "P3500-HARD-012",
+              "P3500-HARD-016",
+              "P3500-HARD-019",
+              "P3500-HARD-026",
+              "P3500-HARD-040",
+              "P3500-HARD-045"
+            ],
+            "count": 6,
+            "critical_case_ids": [
+              "P3500-HARD-040"
+            ],
+            "label": "Recall@10 为 0",
+            "ordinary_case_ids": [
+              "P3500-HARD-012",
+              "P3500-HARD-016",
+              "P3500-HARD-019",
+              "P3500-HARD-026",
+              "P3500-HARD-045"
+            ]
+          }
+        }
+      },
+      "gate": {
+        "critical_failed_cases": [
+          "P3500-HARD-001",
+          "P3500-HARD-002",
+          "P3500-HARD-003",
+          "P3500-HARD-004",
+          "P3500-HARD-005",
+          "P3500-HARD-010",
+          "P3500-HARD-020",
+          "P3500-HARD-030",
+          "P3500-HARD-040"
+        ],
+        "failures": [],
+        "interpretation": "first baseline recorded with critical case failures; quality did not pass",
+        "passed": false,
+        "policy_version": "stt.eval.gate.v2",
+        "reason": "首次运行已建立事实基线，但关键 case 失败，不能视为质量门禁通过",
+        "status": "baseline_recorded_with_failures"
+      },
+      "metrics": {
+        "abstention": {
+          "accuracy": 0.68,
+          "count": 50,
+          "false_negative": 0,
+          "false_positive": 16,
+          "false_positive_rate": 0.35555555555555557,
+          "false_positive_rate_denominator": 45,
+          "true_negative": 29,
+          "true_positive": 5,
+          "unknown_count": 0
+        },
+        "citation": {
+          "coverage": 1.0,
+          "precision": 0.7467980295566503,
+          "recall": 0.3
+        },
+        "generation": {
+          "correctness": 0.37566666666666665,
+          "faithfulness": 0.66
+        },
+        "retrieval": {
+          "mrr": 0.8037037037037037,
+          "ndcg_at_10": 0.6706207312819754,
+          "recall_at_1": 0.37777777777777777,
+          "recall_at_10": 0.6666666666666666,
+          "recall_at_3": 0.6444444444444445
+        },
+        "runtime": {
+          "cost": {
+            "currency": null,
+            "known_case_count": 0,
+            "status": "unknown",
+            "total": null,
+            "unknown_case_count": 50
+          },
+          "latency_ms": {
+            "known_case_count": 50,
+            "mean": 27571.14758,
+            "p95": 39980.9309,
+            "unknown_case_count": 0
+          },
+          "total_tokens": {
+            "known_case_count": 48,
+            "status": "partial",
+            "total": 86071.0,
+            "unknown_case_count": 2
+          }
+        }
+      },
+      "run_id": "erun_54375b39653d4a2fb52b931f4dfbb01c",
+      "runtime_identity": {
+        "code_revision": "head:d1a4192dd5eb9da9a8601644521c6876a7bec959;source-sha256:0d0a0cb341f7e32ed5900eb10a066ea7c622788ca5b857f567888c291e325d3a",
+        "index_version_ids": [
+          "idx_fb5eeac133f540f4af31004dbde23151"
+        ],
+        "kb_id": "kb_2fad25538aab42d19baf79fba782a06c",
+        "llm_model": "qwen-flash",
+        "mode": "live",
+        "vector_read_set_digest": "sha256:f583155382b2537d0279ca7e5fb4fe2be89307585caee738727cadd89b41a399"
+      },
+      "started_at": "2026-08-10T04:33:04.257159+00:00"
+    },
+    "medium": {
+      "artifacts": [
+        {
+          "expected_sha256": "89c570d10282342fd7facec9bd7d20af61337b5ecaef0038157ed824c25c0369",
+          "path": "datasets/medium.json",
+          "role": "dataset_manifest",
+          "sha256": "89c570d10282342fd7facec9bd7d20af61337b5ecaef0038157ed824c25c0369",
+          "size_bytes": 171576,
+          "verification": "matched_expected"
+        },
+        {
+          "expected_sha256": null,
+          "path": "runs/medium/erun_eb7884462cd34655b1e703974f2d8662/api/comparison.json",
+          "role": "archived_run_artifact",
+          "sha256": "b447bb804de6c10d2cc9cfdcaaeaffac56350db584194a4f496fa621f7ed91e7",
+          "size_bytes": 1224,
+          "verification": "calculated_only"
+        },
+        {
+          "expected_sha256": null,
+          "path": "runs/medium/erun_eb7884462cd34655b1e703974f2d8662/api/dataset-import.json",
+          "role": "archived_run_artifact",
+          "sha256": "eb1b7c41b8ba6682af4d1aa301d810ce9a586885260cd5d2df6a669f1fbacbc8",
+          "size_bytes": 358329,
+          "verification": "calculated_only"
+        },
+        {
+          "expected_sha256": null,
+          "path": "runs/medium/erun_eb7884462cd34655b1e703974f2d8662/api/preflight.json",
+          "role": "archived_run_artifact",
+          "sha256": "f7203350597b551c440f1019f1a24c0766d2104d915e0f2518d85e3021f7df6b",
+          "size_bytes": 28245,
+          "verification": "calculated_only"
+        },
+        {
+          "expected_sha256": null,
+          "path": "runs/medium/erun_eb7884462cd34655b1e703974f2d8662/api/results.json",
+          "role": "api_results_snapshot",
+          "sha256": "0ada849ea5cd5f86fc7843e9fd4fe298614972f98cf054fe8a754e6a20af9eb9",
+          "size_bytes": 19657439,
+          "verification": "calculated_only"
+        },
+        {
+          "expected_sha256": null,
+          "path": "runs/medium/erun_eb7884462cd34655b1e703974f2d8662/api/run-create.json",
+          "role": "archived_run_artifact",
+          "sha256": "8c81d27342b505d8932e078413474562262ea57d49fd501158b7abee03a4f79a",
+          "size_bytes": 41831,
+          "verification": "calculated_only"
+        },
+        {
+          "expected_sha256": null,
+          "path": "runs/medium/erun_eb7884462cd34655b1e703974f2d8662/api/run-final.json",
+          "role": "archived_run_artifact",
+          "sha256": "be302a327c290f011f92dc4c1803645b2345863c4c6e37bf178a781c7516b69a",
+          "size_bytes": 366418,
+          "verification": "calculated_only"
+        },
+        {
+          "expected_sha256": null,
+          "path": "runs/medium/erun_eb7884462cd34655b1e703974f2d8662/api/run-resume.json",
+          "role": "archived_run_artifact",
+          "sha256": "35cf9eebaccb5af7c4a81c0e2a78e00c2b71e36d5285ba02545fd5540b3470ba",
+          "size_bytes": 41871,
+          "verification": "calculated_only"
+        },
+        {
+          "expected_sha256": "0c4d9da7a065018acaac95938476773b9721d04decf3558736aa020182a8c9b9",
+          "path": "runs/medium/erun_eb7884462cd34655b1e703974f2d8662/artifact-copy-manifest.json",
+          "role": "artifact_copy_manifest",
+          "sha256": "0c4d9da7a065018acaac95938476773b9721d04decf3558736aa020182a8c9b9",
+          "size_bytes": 5673,
+          "verification": "matched_expected"
+        },
+        {
+          "expected_sha256": "4f121d61048eabbf903c3d455012367466b26660d7fa13e947c76129bfcb3584",
+          "path": "runs/medium/erun_eb7884462cd34655b1e703974f2d8662/manifest.json",
+          "role": "archived_run_artifact",
+          "sha256": "4f121d61048eabbf903c3d455012367466b26660d7fa13e947c76129bfcb3584",
+          "size_bytes": 40833,
+          "verification": "matched_expected"
+        },
+        {
+          "expected_sha256": "bba368b479eec5ede42e16a750e35c88a8de6d697447151bc7efcea0d632dfbd",
+          "path": "runs/medium/erun_eb7884462cd34655b1e703974f2d8662/report.html",
+          "role": "archived_run_artifact",
+          "sha256": "bba368b479eec5ede42e16a750e35c88a8de6d697447151bc7efcea0d632dfbd",
+          "size_bytes": 24124179,
+          "verification": "matched_expected"
+        },
+        {
+          "expected_sha256": "f5517fff39a06a3d619a4c43f87fa42b367fd616fa3de5dff88fd7ee7b121b26",
+          "path": "runs/medium/erun_eb7884462cd34655b1e703974f2d8662/report.json",
+          "role": "full_json_report",
+          "sha256": "f5517fff39a06a3d619a4c43f87fa42b367fd616fa3de5dff88fd7ee7b121b26",
+          "size_bytes": 20393034,
+          "verification": "matched_expected"
+        },
+        {
+          "expected_sha256": "30f44b2c90b95f0a308ab180de38ee42f1f1b5805ee5ff001aef4ba957cbc4c7",
+          "path": "runs/medium/erun_eb7884462cd34655b1e703974f2d8662/report.md",
+          "role": "archived_run_artifact",
+          "sha256": "30f44b2c90b95f0a308ab180de38ee42f1f1b5805ee5ff001aef4ba957cbc4c7",
+          "size_bytes": 11499,
+          "verification": "matched_expected"
+        },
+        {
+          "expected_sha256": "b878e23e046abdc08c1e6aab30cb6d6959b72be9cac72e775ad3831e8f06d8df",
+          "path": "runs/medium/erun_eb7884462cd34655b1e703974f2d8662/results.jsonl",
+          "role": "archived_run_artifact",
+          "sha256": "b878e23e046abdc08c1e6aab30cb6d6959b72be9cac72e775ad3831e8f06d8df",
+          "size_bytes": 13364440,
+          "verification": "matched_expected"
+        },
+        {
+          "expected_sha256": "8ddbfffce4f375a5c9624474ee9b526c881913b2a5be8720d061747bafae0ec8",
+          "path": "runs/medium/erun_eb7884462cd34655b1e703974f2d8662/summary.json",
+          "role": "aggregate_summary",
+          "sha256": "8ddbfffce4f375a5c9624474ee9b526c881913b2a5be8720d061747bafae0ec8",
+          "size_bytes": 288199,
+          "verification": "matched_expected"
+        }
+      ],
+      "cases": {
+        "error": 0,
+        "failed": 29,
+        "passed": 21,
+        "total": 50
+      },
+      "completed_at": "2026-08-10T04:32:50.932723+00:00",
+      "dataset": {
+        "case_count": 50,
+        "checksum": "4924a812732614a5da729c088d2d269a38e67393cc2afa6ba3addcf450c7b4ae",
+        "id": "eds_6cb86c7774af28bc0cdf115430db3116",
+        "key": "pantum-p3500-medium-live-baseline",
+        "source_path": "datasets/medium.json",
+        "source_sha256": "89c570d10282342fd7facec9bd7d20af61337b5ecaef0038157ed824c25c0369",
+        "version": "1.0.0"
+      },
+      "difficulty": "medium",
+      "failures": {
+        "cases": [
+          {
+            "case_id": "P3500-MEDIUM-001",
+            "critical": true,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-MEDIUM-002",
+            "critical": true,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-MEDIUM-003",
+            "critical": true,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-MEDIUM-004",
+            "critical": true,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75",
+              "retrieval_recall_at_10_zero"
+            ]
+          },
+          {
+            "case_id": "P3500-MEDIUM-005",
+            "critical": true,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75",
+              "retrieval_recall_at_10_zero"
+            ]
+          },
+          {
+            "case_id": "P3500-MEDIUM-006",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-MEDIUM-008",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-MEDIUM-013",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-MEDIUM-014",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-MEDIUM-015",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75",
+              "retrieval_recall_at_10_zero"
+            ]
+          },
+          {
+            "case_id": "P3500-MEDIUM-017",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-MEDIUM-018",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-MEDIUM-019",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75",
+              "retrieval_recall_at_10_zero"
+            ]
+          },
+          {
+            "case_id": "P3500-MEDIUM-020",
+            "critical": true,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-MEDIUM-023",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-MEDIUM-025",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-MEDIUM-026",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-MEDIUM-027",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-MEDIUM-029",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-MEDIUM-031",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-MEDIUM-035",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-MEDIUM-037",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-MEDIUM-038",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-MEDIUM-040",
+            "critical": true,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-MEDIUM-043",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-MEDIUM-045",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-MEDIUM-047",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-MEDIUM-048",
+            "critical": false,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          },
+          {
+            "case_id": "P3500-MEDIUM-050",
+            "critical": true,
+            "error_detail": null,
+            "error_type": null,
+            "reasons": [
+              "expected_term_recall_below_0.75"
+            ]
+          }
+        ],
+        "critical_case_ids": [
+          "P3500-MEDIUM-001",
+          "P3500-MEDIUM-002",
+          "P3500-MEDIUM-003",
+          "P3500-MEDIUM-004",
+          "P3500-MEDIUM-005",
+          "P3500-MEDIUM-020",
+          "P3500-MEDIUM-040",
+          "P3500-MEDIUM-050"
+        ],
+        "ordinary_case_ids": [
+          "P3500-MEDIUM-006",
+          "P3500-MEDIUM-008",
+          "P3500-MEDIUM-013",
+          "P3500-MEDIUM-014",
+          "P3500-MEDIUM-015",
+          "P3500-MEDIUM-017",
+          "P3500-MEDIUM-018",
+          "P3500-MEDIUM-019",
+          "P3500-MEDIUM-023",
+          "P3500-MEDIUM-025",
+          "P3500-MEDIUM-026",
+          "P3500-MEDIUM-027",
+          "P3500-MEDIUM-029",
+          "P3500-MEDIUM-031",
+          "P3500-MEDIUM-035",
+          "P3500-MEDIUM-037",
+          "P3500-MEDIUM-038",
+          "P3500-MEDIUM-043",
+          "P3500-MEDIUM-045",
+          "P3500-MEDIUM-047",
+          "P3500-MEDIUM-048"
+        ],
+        "reason_slices": {
+          "expected_term_recall_below_0.75": {
+            "case_ids": [
+              "P3500-MEDIUM-001",
+              "P3500-MEDIUM-002",
+              "P3500-MEDIUM-003",
+              "P3500-MEDIUM-004",
+              "P3500-MEDIUM-005",
+              "P3500-MEDIUM-006",
+              "P3500-MEDIUM-008",
+              "P3500-MEDIUM-013",
+              "P3500-MEDIUM-014",
+              "P3500-MEDIUM-015",
+              "P3500-MEDIUM-017",
+              "P3500-MEDIUM-018",
+              "P3500-MEDIUM-019",
+              "P3500-MEDIUM-020",
+              "P3500-MEDIUM-023",
+              "P3500-MEDIUM-025",
+              "P3500-MEDIUM-026",
+              "P3500-MEDIUM-027",
+              "P3500-MEDIUM-029",
+              "P3500-MEDIUM-031",
+              "P3500-MEDIUM-035",
+              "P3500-MEDIUM-037",
+              "P3500-MEDIUM-038",
+              "P3500-MEDIUM-040",
+              "P3500-MEDIUM-043",
+              "P3500-MEDIUM-045",
+              "P3500-MEDIUM-047",
+              "P3500-MEDIUM-048",
+              "P3500-MEDIUM-050"
+            ],
+            "count": 29,
+            "critical_case_ids": [
+              "P3500-MEDIUM-001",
+              "P3500-MEDIUM-002",
+              "P3500-MEDIUM-003",
+              "P3500-MEDIUM-004",
+              "P3500-MEDIUM-005",
+              "P3500-MEDIUM-020",
+              "P3500-MEDIUM-040",
+              "P3500-MEDIUM-050"
+            ],
+            "label": "期望词召回低于 0.75",
+            "ordinary_case_ids": [
+              "P3500-MEDIUM-006",
+              "P3500-MEDIUM-008",
+              "P3500-MEDIUM-013",
+              "P3500-MEDIUM-014",
+              "P3500-MEDIUM-015",
+              "P3500-MEDIUM-017",
+              "P3500-MEDIUM-018",
+              "P3500-MEDIUM-019",
+              "P3500-MEDIUM-023",
+              "P3500-MEDIUM-025",
+              "P3500-MEDIUM-026",
+              "P3500-MEDIUM-027",
+              "P3500-MEDIUM-029",
+              "P3500-MEDIUM-031",
+              "P3500-MEDIUM-035",
+              "P3500-MEDIUM-037",
+              "P3500-MEDIUM-038",
+              "P3500-MEDIUM-043",
+              "P3500-MEDIUM-045",
+              "P3500-MEDIUM-047",
+              "P3500-MEDIUM-048"
+            ]
+          },
+          "retrieval_recall_at_10_zero": {
+            "case_ids": [
+              "P3500-MEDIUM-004",
+              "P3500-MEDIUM-005",
+              "P3500-MEDIUM-015",
+              "P3500-MEDIUM-019"
+            ],
+            "count": 4,
+            "critical_case_ids": [
+              "P3500-MEDIUM-004",
+              "P3500-MEDIUM-005"
+            ],
+            "label": "Recall@10 为 0",
+            "ordinary_case_ids": [
+              "P3500-MEDIUM-015",
+              "P3500-MEDIUM-019"
+            ]
+          }
+        }
+      },
+      "gate": {
+        "critical_failed_cases": [
+          "P3500-MEDIUM-001",
+          "P3500-MEDIUM-002",
+          "P3500-MEDIUM-003",
+          "P3500-MEDIUM-004",
+          "P3500-MEDIUM-005",
+          "P3500-MEDIUM-020",
+          "P3500-MEDIUM-040",
+          "P3500-MEDIUM-050"
+        ],
+        "failures": [],
+        "interpretation": "first baseline recorded with critical case failures; quality did not pass",
+        "passed": false,
+        "policy_version": "stt.eval.gate.v2",
+        "reason": "首次运行已建立事实基线，但关键 case 失败，不能视为质量门禁通过",
+        "status": "baseline_recorded_with_failures"
+      },
+      "metrics": {
+        "abstention": {
+          "accuracy": 0.8,
+          "count": 50,
+          "false_negative": 0,
+          "false_positive": 10,
+          "false_positive_rate": 0.2,
+          "false_positive_rate_denominator": 50,
+          "true_negative": 40,
+          "true_positive": 0,
+          "unknown_count": 0
+        },
+        "citation": {
+          "coverage": 1.0,
+          "precision": 0.8400000000000001,
+          "recall": 0.72
+        },
+        "generation": {
+          "correctness": 0.521,
+          "faithfulness": 0.7666666666666667
+        },
+        "retrieval": {
+          "mrr": 0.86,
+          "ndcg_at_10": 0.875711570428575,
+          "recall_at_1": 0.8,
+          "recall_at_10": 0.92,
+          "recall_at_3": 0.92
+        },
+        "runtime": {
+          "cost": {
+            "currency": null,
+            "known_case_count": 0,
+            "status": "unknown",
+            "total": null,
+            "unknown_case_count": 50
+          },
+          "latency_ms": {
+            "known_case_count": 50,
+            "mean": 22248.50638,
+            "p95": 36896.732849999986,
+            "unknown_case_count": 0
+          },
+          "total_tokens": {
+            "known_case_count": 49,
+            "status": "partial",
+            "total": 92497.0,
+            "unknown_case_count": 1
+          }
+        }
+      },
+      "run_id": "erun_eb7884462cd34655b1e703974f2d8662",
+      "runtime_identity": {
+        "code_revision": "head:d1a4192dd5eb9da9a8601644521c6876a7bec959;source-sha256:0d0a0cb341f7e32ed5900eb10a066ea7c622788ca5b857f567888c291e325d3a",
+        "index_version_ids": [
+          "idx_fb5eeac133f540f4af31004dbde23151"
+        ],
+        "kb_id": "kb_2fad25538aab42d19baf79fba782a06c",
+        "llm_model": "qwen-flash",
+        "mode": "live",
+        "vector_read_set_digest": "sha256:f583155382b2537d0279ca7e5fb4fe2be89307585caee738727cadd89b41a399"
+      },
+      "started_at": "2026-08-10T04:14:08.607678+00:00"
+    }
+  },
+  "difficulty_order": [
+    "easy",
+    "medium",
+    "hard"
+  ],
+  "generated_at": "2026-08-10T04:56:47.469730+00:00",
+  "limitations": [
+    "correctness、faithfulness、citation 与 abstention 来自确定性词项/证据启发式，不是独立 LLM judge，也不等价于人工语义评审。",
+    "cost 只有在运行时保存了供应商定价快照后才可计算；当前未定价时必须保留为 unknown，不能按 0 成本解释。",
+    "tokens 与 cost 的 unknown 会从均值和总量中排除；部分覆盖时的 total 不是全集估算。",
+    "首次 baseline 没有候选配对，因此 baseline_recorded 只表示事实基线已保存，baseline_recorded_with_failures 更不表示质量通过。",
+    "每个难度固定 50 题，报告为描述性快照；未计算置信区间，也不能据此推断其他文档或流量。",
+    "失败原因切片按当前 case-pass 启发式反推；运行时 error_type/error_detail 才是异常根因的权威记录。"
+  ],
+  "quality_audit": {
+    "dataset_checksum_matches": {
+      "easy": {
+        "actual_sha256": "1a3cacbb59b3aa7f354a569f828ad6214351f07cd3d0923a798e98cc33c41b2a",
+        "expected_sha256": "1a3cacbb59b3aa7f354a569f828ad6214351f07cd3d0923a798e98cc33c41b2a",
+        "matched": true
+      },
+      "hard": {
+        "actual_sha256": "e5be4d2495618e819b9758fa753bb10d553037ca10b26dc6ccd8521404600a04",
+        "expected_sha256": "e5be4d2495618e819b9758fa753bb10d553037ca10b26dc6ccd8521404600a04",
+        "matched": true
+      },
+      "medium": {
+        "actual_sha256": "89c570d10282342fd7facec9bd7d20af61337b5ecaef0038157ed824c25c0369",
+        "expected_sha256": "89c570d10282342fd7facec9bd7d20af61337b5ecaef0038157ed824c25c0369",
+        "matched": true
+      }
+    },
+    "deterministic_status": "passed",
+    "online_audit_status": "passed",
+    "passed": true,
+    "path": "quality/quality-summary.json",
+    "ready_for_import": true,
+    "sha256": "f6cc6f6abd0d8afe69d04f7d261eb433901c32a7bfb5145431d5cf604c0e01df",
+    "suite_key": "three-difficulty-live-2026-08-10"
+  },
+  "reproducibility": {
+    "commands": [
+      "uv run python docs/evaluation-baselines/2026-08-10-three-difficulty/validate_suite.py --online-audit",
+      "uv run python docs/evaluation-baselines/2026-08-10-three-difficulty/run_live_baselines.py --kb-id kb_2fad25538aab42d19baf79fba782a06c --overwrite",
+      "uv run python docs/evaluation-baselines/2026-08-10-three-difficulty/summarize_baselines.py"
+    ],
+    "resume_command": "uv run python docs/evaluation-baselines/2026-08-10-three-difficulty/run_live_baselines.py --kb-id kb_2fad25538aab42d19baf79fba782a06c --resume",
+    "working_directory": "repository root"
+  },
+  "schema_version": "stt.eval.three-difficulty-baseline-summary.v1",
+  "shared_runtime": {
+    "all_consistent": true,
+    "index_version_ids": {
+      "by_difficulty": {
+        "easy": [
+          "idx_fb5eeac133f540f4af31004dbde23151"
+        ],
+        "hard": [
+          "idx_fb5eeac133f540f4af31004dbde23151"
+        ],
+        "medium": [
+          "idx_fb5eeac133f540f4af31004dbde23151"
+        ]
+      },
+      "consistent": true,
+      "value": [
+        "idx_fb5eeac133f540f4af31004dbde23151"
+      ]
+    },
+    "kb_id": {
+      "by_difficulty": {
+        "easy": "kb_2fad25538aab42d19baf79fba782a06c",
+        "hard": "kb_2fad25538aab42d19baf79fba782a06c",
+        "medium": "kb_2fad25538aab42d19baf79fba782a06c"
+      },
+      "consistent": true,
+      "value": "kb_2fad25538aab42d19baf79fba782a06c",
+      "values": [
+        "kb_2fad25538aab42d19baf79fba782a06c"
+      ]
+    },
+    "llm_model": {
+      "by_difficulty": {
+        "easy": "qwen-flash",
+        "hard": "qwen-flash",
+        "medium": "qwen-flash"
+      },
+      "consistent": true,
+      "value": "qwen-flash",
+      "values": [
+        "qwen-flash"
+      ]
+    },
+    "mode": {
+      "by_difficulty": {
+        "easy": "live",
+        "hard": "live",
+        "medium": "live"
+      },
+      "consistent": true,
+      "value": "live",
+      "values": [
+        "live"
+      ]
+    }
+  },
+  "source_baselines": {
+    "generated_at": "2026-08-10T04:56:24.295885+00:00",
+    "path": "baselines/baselines.json",
+    "sha256": "0b292fe4a68507d9e720ac0a1c44c4ef8065695693289532f2768b2229a031df",
+    "status": "succeeded"
+  },
+  "suite_key": "three-difficulty-live-2026-08-10"
+}

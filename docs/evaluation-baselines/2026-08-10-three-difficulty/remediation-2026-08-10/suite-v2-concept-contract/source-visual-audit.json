@@ -1,0 +1,102 @@
+{
+  "schema_version": "stt.eval.source-visual-audit.v1",
+  "source_pdf_sha256": "c4c7b2a434f3f86c4988d3961ac7304970029e71b0201fb6c10ca722b63bce2b",
+  "policy": {
+    "application": "data-driven annotations applied after the same deterministic contract build; no case-specific code path",
+    "confirmed_conflict_effect": "block candidate promotion without changing the frozen reference in place",
+    "unresolved_visual_effect": "retain manual review requirement",
+    "adjacent_page_effect": "treat merged-chunk page attribution as a page-window issue, not missing source content"
+  },
+  "records": [
+    {
+      "parent_case_id": "P3500-EASY-004",
+      "status": "confirmed_reference_source_conflict",
+      "severity": "block",
+      "declared_evidence_pages": [8],
+      "visual_pdf_pages": [8],
+      "finding": "表格中只有铅(Pb)在金属、线缆和电路板相关部件列为×；旧参考把汞、镉、六价铬、PBB、PBDE也列为超限物质，明显扩大了答案。",
+      "required_resolution": "在全套版本化 reference 重建中按表格单元格重新签核；不得原地覆盖旧题。"
+    },
+    {
+      "parent_case_id": "P3500-HARD-008",
+      "status": "confirmed_reference_source_conflict",
+      "severity": "block",
+      "declared_evidence_pages": [86, 86],
+      "visual_pdf_pages": [87, 88],
+      "finding": "周期性痕迹的解决方案是清洁或更换硒鼓/定影组件；旧参考把它与页面歪斜合并为清洁进纸通道或调整介质，缺乏页面支持。",
+      "required_resolution": "重新建立两个问题分支和各自证据概念，不能保留不受支持的重叠判断。"
+    },
+    {
+      "parent_case_id": "P3500-HARD-015",
+      "status": "confirmed_reference_source_conflict",
+      "severity": "block",
+      "declared_evidence_pages": [28, 59],
+      "visual_pdf_pages": [28, 59],
+      "finding": "页28明确阴影部分为非打印区；旧参考写成内外边框之间的白色空白区域，视觉极性相反。",
+      "required_resolution": "按图例重新签核位置概念，并保留省墨模式的独立分支。"
+    },
+    {
+      "parent_case_id": "P3500-HARD-021",
+      "status": "confirmed_reference_source_conflict",
+      "severity": "block",
+      "declared_evidence_pages": [40, 40],
+      "visual_pdf_pages": [40, 41],
+      "finding": "源页没有把两种无线连接模式分别绑定到旧参考声称的两类IPv6地址分配规则。",
+      "required_resolution": "删除无直接证据的模式→IPv6绑定，或改写为源页能明确回答的合同。"
+    },
+    {
+      "parent_case_id": "P3500-HARD-037",
+      "status": "confirmed_reference_source_conflict",
+      "severity": "block",
+      "declared_evidence_pages": [4, 4],
+      "visual_pdf_pages": [4],
+      "finding": "激光标签原文为“INVISIBLE LASER RADIATION…”，旧参考误写为“MAILABLE LASER RADIATION…”。",
+      "required_resolution": "按标签可见文字重新签核关键标识符，不能把拼写错误纳入 any_of。"
+    },
+    {
+      "parent_case_id": "P3500-HARD-040",
+      "status": "confirmed_reference_incomplete",
+      "severity": "block",
+      "declared_evidence_pages": [7, 8],
+      "visual_pdf_pages": [7, 8],
+      "finding": "问题要求列出超限部件，旧参考只泛述“部分部件”，没有回答表格分支。",
+      "required_resolution": "按表格列出部件并与回收分支分别建立必答概念。"
+    },
+    {
+      "parent_case_id": "P3500-HARD-041",
+      "status": "confirmed_reference_source_conflict",
+      "severity": "block",
+      "declared_evidence_pages": [14, 18],
+      "visual_pdf_pages": [14, 18],
+      "finding": "页14表中标签1是USB接口，不是设备左后部竖向通风口；旧参考对象识别错误。",
+      "required_resolution": "按产品视图标签表重建对象概念，并独立处理硒鼓剩余量。"
+    },
+    {
+      "parent_case_id": "P3500-HARD-042",
+      "status": "confirmed_reference_incomplete",
+      "severity": "block",
+      "declared_evidence_pages": [18, 19],
+      "visual_pdf_pages": [18, 19],
+      "finding": "问题要求判断接近推荐上限时是否仍处于可接受工作负载，旧参考只复述打印量和IP地址，没有给出判断。",
+      "required_resolution": "补齐比较/判断分支；IP地址若不影响负载判断，应在全套重写时删除无关约束。"
+    },
+    {
+      "parent_case_id": "P3500-EASY-049",
+      "status": "manual_visual_review_required",
+      "severity": "high",
+      "declared_evidence_pages": [90],
+      "visual_pdf_pages": [90],
+      "finding": "页面没有明确图例说明“四条水平横线代表文本行”；该解释仍是视觉推断。",
+      "required_resolution": "保留人工审阅，不以文字提取或单个模型判断自动批准。"
+    },
+    {
+      "parent_case_id": "P3500-MEDIUM-047",
+      "status": "adjacent_page_attribution",
+      "severity": "medium",
+      "declared_evidence_pages": [90],
+      "visual_pdf_pages": [91],
+      "finding": "目标无线网络三级菜单实际位于PDF页91；merged chunk 的 primary page=90 是邻页归属，不代表源内容缺失。",
+      "required_resolution": "检索/评测允许同一 merged chunk 的相邻页窗口，并单独修复通用 page attribution。"
+    }
+  ]
+}

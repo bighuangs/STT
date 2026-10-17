@@ -1,0 +1,260 @@
+schema_version: "1.0"
+evaluation_id: "hak180-medium-badcase-r4-eval"
+evaluation_version: "1.2.0"
+feature_id: "hak180-medium-proof-carrying-answer"
+question: "Scoped typed source closure 是否能在不降低 proof guardrail 的前提下使冻结 Medium 50 final 至少 43/50、strict 至少 41/50？"
+status:
+  formal_evaluation: "completed_valid"
+  target: "target_not_met"
+  valid_formal_rounds: 1
+  offline_engineering: "verified"
+hypotheses:
+  - "多 representation 中唯一结构块的 typed receipt 会把可证明完整的 procedure/list/table obligation 从 indeterminate 提升为 complete。"
+  - "模型在 prompt 获得 receipt member 集合后会选择全部成员，使拒答与 partial 数量显著下降。"
+  - "生产和独立 evaluator 的 raw-authority replay 对篡改、歧义、截断和缺失保持 fail-closed。"
+comparison_axis: "horizontal"
+baseline:
+  variant_id: "medium-proof-r0"
+  version_refs:
+    - "var/evals/erun_d1b179e0579e407cbe19cfe2aef11258/generation-fe83c80cb960443e18a8152b4353bec6/results.jsonl"
+candidates:
+  - variant_id: "medium-scoped-source-closure-r1"
+    version_refs:
+      - "solution-decision.json"
+      - "app/application/query_understanding_service.py"
+      - "app/domain/query_planning.py"
+      - "app/application/query_answering/atomizer.py"
+      - "app/application/query_answering/builders.py"
+      - "app/domain/answering/markdown_table.py"
+      - "app/domain/answering/fact_set_closure.py"
+      - "app/domain/answering/enumeration_closure.py"
+      - "app/domain/answering/item_boundary.py"
+      - "app/domain/answering/proof.py"
+      - "app/domain/evaluation_proof.py"
+      - "app/application/query_answering/pipeline.py"
+      - "app/infrastructure/answering/provider.py"
+changed_variables:
+  - "QueryContract instruction projection, necessity preservation and relational closed-count facet splitting"
+  - "Markdown table parsing/atomization and query-key selection with fail-closed continuation ownership"
+  - "schema-gated scoped procedure v4, table-selection v2, fact-set v1, bullet-list v1 and inline-action-chain v1 receipts"
+  - "builder/evaluator raw-authority replay and complete receipt-member proof projection"
+  - "markdown_table_projected_cell_item.v1 closed-count segmentation with downgrade-bypass rejection"
+held_constants:
+  - "frozen Medium dataset and 50-case denominator"
+  - "retrieval profile, embedding, reranker, LLM and output token cap"
+  - "citation, faithfulness, grounding, safety and strict grader thresholds"
+  - "fixed workflow, repair budget and external egress policy"
+dataset:
+  required: true
+  decision_reason: "概率性 Answer Plan 的 final/strict 效果不能由离线 fixture 推断；正式结果必须来自冻结 Medium 50。"
+  dataset_id: "three-difficulty-medium@2026-08-10"
+  version: "1.0.0"
+  source_refs:
+    - "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/medium.json"
+  slices:
+    - "procedure"
+    - "table"
+    - "explicit_list_or_clause"
+    - "direct_fact"
+    - "retrieval_miss"
+    - "runtime_error"
+  sample_size: 50
+  hidden_set_policy: "已知冻结集用于 badcase 开发；禁止 case/gold 分支，并以内容扰动负向测试约束泛化。"
+  data_classification: "internal"
+protocol:
+  environment_ref: "evals/configs/hak180_medium_proof_v2_authority_v3.json"
+  dependency_versions:
+    - "uv.lock sha256:7d4c3b82e9fd2cc7385d9528507f6a20ee190a60eb85c38160ffcbdc6ec4c926"
+  random_seed: null
+  repetitions: 1
+  concurrency: 1
+  cache_policy: "formal live run; immutable run assets; no result reinterpretation"
+metrics:
+  - metric_id: "final_answer_accuracy"
+    role: "required"
+    target: "at least 43/50 (86%)"
+  - metric_id: "strict_correctness"
+    role: "required"
+    target: "at least 41/50 (82%)"
+  - metric_id: "source_closure_signed_cases"
+    role: "diagnostic"
+    target: "reported by structure slice"
+  - metric_id: "diagnostic_structural_strict_candidate"
+    role: "diagnostic"
+    target: "report only; must not be promoted to formal strict_correctness"
+  - metric_id: "diagnostic_final_counterfactual_potential"
+    role: "diagnostic"
+    target: "report only; must not be promoted to formal final_answer_accuracy"
+guardrails:
+  - metric_id: "retrieval_support"
+    target: "at least 47/50"
+  - metric_id: "answered_faithfulness"
+    target: "no regression from 1.0 baseline level"
+  - metric_id: "answered_citation_correctness"
+    target: "no regression from 1.0 baseline level"
+  - metric_id: "unsupported_factual_claim_count"
+    target: "0"
+  - metric_id: "execution_error_count"
+    target: "0"
+trajectory_fields:
+  - "witness_catalog.universe_status"
+  - "witness_catalog.omissions"
+  - "source_closure.schema_version"
+  - "source_closure.block_kind"
+  - "source_closure.member_witness_ids"
+  - "source_closure.candidate_count_across_authority"
+  - "answer_plan.selected_member_coverage"
+  - "production_evaluator_replay_match"
+  - "proof_item.segmentation_method"
+  - "proof_item.projected_cell_span"
+grader:
+  grader_refs:
+    - "app/domain/evaluation_proof.py"
+    - "evals/configs/hak180_medium_proof_v2_authority_v3.json"
+  judge_model_ref: null
+  rubric_version: "stt.eval.case.v2 + typed-proof authority replay"
+  human_calibration_ref: null
+statistics:
+  method: "exact counts and rates on frozen n=50; no paired significance claim for one run"
+  uncertainty_reporting: "report counts, rates, slice denominators and run validity"
+decision_rule: "两项 required 指标分别至少 43/50、41/50，所有 guardrail 通过且运行有效时才 target_met。"
+formal_results:
+  - variant_id: "medium-proof-r0"
+    run_id: "erun_d1b179e0579e407cbe19cfe2aef11258"
+    final_answer_accuracy:
+      count: 29
+      denominator: 50
+      rate: 0.58
+    strict_correctness:
+      count: 10
+      denominator: 50
+      rate: 0.20
+    retrieval_support:
+      count: 47
+      denominator: 50
+      rate: 0.94
+    target_status: "target_not_met"
+  - variant_id: "medium-scoped-source-closure-r1"
+    run_id: "erun_3d9f4e215f8f4cca87246cd25850c53b"
+    generation_id: "404a12b0ce0605de5288d78ae4c3f157"
+    run_status: "succeeded"
+    effect_validity: "valid"
+    completed_cases: 50
+    execution_error_count: 0
+    final_answer_accuracy:
+      count: 33
+      denominator: 50
+      rate: 0.66
+    strict_correctness:
+      count: 26
+      denominator: 50
+      rate: 0.52
+    retrieval_support:
+      count: 49
+      denominator: 50
+      rate: 0.98
+    answered_faithfulness:
+      count: 39
+      denominator: 39
+      rate: 1.0
+    answered_citation_correctness:
+      count: 39
+      denominator: 39
+      rate: 1.0
+    unsupported_factual_claim_count:
+      maximum: 0
+      mean: 0.0
+    baseline_delta:
+      final_answer_accuracy_cases: 4
+      strict_correctness_cases: 16
+    artifact_root: "var/evals/erun_3d9f4e215f8f4cca87246cd25850c53b/generation-404a12b0ce0605de5288d78ae4c3f157"
+    summary_ref: "docs/experiment/hak180-easy-medium-100-evaluation/results/formal-evaluation-r4-summary.json"
+    guardrail_status: "passed"
+    target_status: "target_not_met"
+diagnostic_result_refs:
+  - "docs/experiment/hak180-medium-badcase-r4/offline-structural-replay.json"
+diagnostic_results:
+  variant_id: "medium-scoped-source-closure-r1"
+  evidence_kind: "deterministic_structural_replay_not_formal_evaluation"
+  replay:
+    case_count: 50
+    succeeded_count: 49
+    failed_count: 0
+    missing_context_count: 1
+    missing_context_case_ids:
+      - "P3500-MEDIUM-014"
+  receipts:
+    receipt_count: 33
+    receipt_case_count: 30
+    receipt_complete_required_open_case_count: 30
+    schema_counts:
+      query_anchored_inline_action_chain_closure_receipt_v1: 3
+      query_anchored_scoped_bullet_list_closure_receipt_v1: 2
+      query_anchored_scoped_fact_set_closure_receipt_v1: 7
+      query_anchored_scoped_procedure_list_closure_receipt_v4: 16
+      query_anchored_scoped_table_selection_closure_receipt_v2: 5
+  structural_strict_candidate:
+    count: 41
+    denominator: 50
+    rate: 0.82
+    mutually_disjoint_components:
+      baseline_strict: 10
+      receipt_complete_required_open: 30
+      closed_count_projected_cell: 1
+    closed_count_case_id: "P3500-MEDIUM-045"
+    margin_cases: 0
+  final_counterfactual_potential:
+    count: 44
+    denominator: 50
+    rate: 0.88
+    baseline_count: 29
+    incremental_receipt_complete_count: 15
+    incremental_case_ids:
+      - "P3500-MEDIUM-005"
+      - "P3500-MEDIUM-011"
+      - "P3500-MEDIUM-012"
+      - "P3500-MEDIUM-013"
+      - "P3500-MEDIUM-016"
+      - "P3500-MEDIUM-022"
+      - "P3500-MEDIUM-023"
+      - "P3500-MEDIUM-024"
+      - "P3500-MEDIUM-028"
+      - "P3500-MEDIUM-030"
+      - "P3500-MEDIUM-032"
+      - "P3500-MEDIUM-033"
+      - "P3500-MEDIUM-037"
+      - "P3500-MEDIUM-039"
+      - "P3500-MEDIUM-041"
+  residual_strict_case_ids:
+    - "P3500-MEDIUM-004"
+    - "P3500-MEDIUM-007"
+    - "P3500-MEDIUM-014"
+    - "P3500-MEDIUM-015"
+    - "P3500-MEDIUM-017"
+    - "P3500-MEDIUM-019"
+    - "P3500-MEDIUM-026"
+    - "P3500-MEDIUM-034"
+    - "P3500-MEDIUM-038"
+  residual_final_opportunity_case_ids:
+    - "P3500-MEDIUM-004"
+    - "P3500-MEDIUM-014"
+    - "P3500-MEDIUM-015"
+    - "P3500-MEDIUM-019"
+    - "P3500-MEDIUM-026"
+    - "P3500-MEDIUM-038"
+  interpretation: "Diagnostic structural projection only. It depends on no runtime fallback/regression and correct retrieval/model planning; it is not a formal final or strict result."
+stop_conditions:
+  - "同方法族任一有效轮达到目标即停止增加复杂度。"
+  - "三轮有效通用优化后仍未达标则停止当前方法族并进入升级用户门。"
+  - "生产与 evaluator replay 不一致、出现错误签发或 guardrail 退化时不得正式运行。"
+budgets:
+  time_seconds: null
+  token_count: null
+  tool_calls: null
+  cost_currency: "CNY"
+  cost_limit: null
+limitations:
+  - "R4 正式授权已消费；当前没有 retry、replacement 或额外正式付费评测授权。"
+  - "离线 strict 结构投影 41/50 未在 live run 中实现；正式 strict 为 26/50，说明结构可闭合不等于 plan/review 会稳定消费 receipt。"
+  - "P3500-MEDIUM-014 的历史离线 replay 缺 context；R4 live 已成功执行，但 plan/review 仍错误拒答。"
+  - "冻结开发集已知，必须依赖无 case 分支审计与扰动负向测试降低过拟合风险。"

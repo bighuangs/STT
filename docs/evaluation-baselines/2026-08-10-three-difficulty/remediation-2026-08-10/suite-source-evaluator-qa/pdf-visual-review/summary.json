@@ -1,0 +1,40 @@
+{
+  "schema_version": "stt.eval.pdf-visual-source-review.v1",
+  "suite_key": "three-difficulty-live-2026-08-10",
+  "source": {
+    "path": "doc/PantumP3500用户手册zh_CNV1.2_1644316283788.pdf",
+    "sha256": "c4c7b2a434f3f86c4988d3961ac7304970029e71b0201fb6c10ca722b63bce2b",
+    "page_count": 95
+  },
+  "review_scope": {
+    "source_ambiguity_candidate_count": 39,
+    "pdf_text_extraction_gap_count": 37,
+    "unique_declared_page_count": 30,
+    "visual_material_present_count": 39,
+    "adjacent_page_material_case_count": 6
+  },
+  "reference_dispositions": {
+    "confirmed_source_conflict": 6,
+    "not_explicit_in_source": 1,
+    "not_fully_adjudicated": 30,
+    "reference_does_not_answer_query": 1,
+    "source_scope_not_explicit": 1
+  },
+  "blocking_reference_cases": [
+    "P3500-EASY-004",
+    "P3500-EASY-049",
+    "P3500-HARD-008",
+    "P3500-HARD-015",
+    "P3500-HARD-021",
+    "P3500-HARD-037",
+    "P3500-HARD-040",
+    "P3500-HARD-041",
+    "P3500-HARD-042"
+  ],
+  "conclusion": {
+    "source_missing_claim": false,
+    "layout_extraction_note": "37项文本提取缺口均有对应视觉材料；缺口不能再被解释为PDF源文件不存在。",
+    "reference_quality_note": "视觉材料存在不代表旧参考正确；已确认的冲突/不显式/不作答题必须在suite v2修订后才能进入新基线。",
+    "page_binding_note": "至少6题的关键信息位于声明页的相邻页，反映合并chunk以起始页归属，预检不应把它误报为源缺失。"
+  }
+}

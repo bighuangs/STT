@@ -1,0 +1,3363 @@
+{
+  "surface": "report",
+  "manifest": {
+    "version": 1,
+    "surface": "report",
+    "title": "三难度在线评测修复技术报告",
+    "description": "Baseline, failure diagnostics and semantic judge audit; final label intentionally pending.",
+    "generatedAt": "2026-08-10T04:56:24.295885+00:00",
+    "sources": [
+      {
+        "id": "baseline-registry",
+        "label": "Three-difficulty baseline registry",
+        "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/baselines/baselines.json",
+        "query": {
+          "engine": "Repository JSON archive",
+          "id": "sha256:0b292fe4a68507d9e720ac0a1c44c4ef8065695693289532f2768b2229a031df",
+          "language": "json",
+          "executed_at": "2026-08-10T04:56:24.295885+00:00",
+          "description": "Registered easy/medium/hard live root runs and their dataset, gate and artifact identities.",
+          "tables_used": [
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/baselines/baselines.json"
+          ],
+          "filters": [
+            "easy, medium and hard",
+            "full live evaluation",
+            "exact archived rows only"
+          ]
+        }
+      },
+      {
+        "id": "baseline-diagnostics",
+        "label": "Read-only baseline failure diagnostics",
+        "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/failure-diagnostics.json",
+        "query": {
+          "engine": "Repository JSON archive",
+          "id": "sha256:436086870470954f01e872d1bca6d6121030cb153ec260689b67ba5672950935",
+          "language": "json",
+          "executed_at": "2026-08-10T04:56:47.469730+00:00",
+          "description": "Case-level primary/secondary attribution and deterministic semantic-correctness proxy for failed baseline cases.",
+          "tables_used": [
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/failure-diagnostics.json"
+          ],
+          "filters": [
+            "easy, medium and hard",
+            "full live evaluation",
+            "exact archived rows only"
+          ]
+        }
+      },
+      {
+        "id": "semantic-judge-summary",
+        "label": "Semantic judge review summary",
+        "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-summary.json",
+        "query": {
+          "engine": "Repository JSON archive",
+          "id": "sha256:b4fefb5dc833061104d90fa80557d6823f88f5220a9b38410a02fd3e5dcba423",
+          "language": "json",
+          "executed_at": "2026-08-10T04:56:24.295885+00:00",
+          "description": "qwen-plus review coverage and two-case answer-claims-isolation calibration receipt; no credentials are included.",
+          "tables_used": [
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-summary.json"
+          ],
+          "filters": [
+            "easy, medium and hard",
+            "full live evaluation",
+            "exact archived rows only"
+          ]
+        }
+      },
+      {
+        "id": "report-derivation",
+        "label": "Deterministic report projection",
+        "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/technical-report/generate_artifact.py",
+        "query": {
+          "engine": "Python 3 deterministic file projection",
+          "id": "sha256:c3dc34b2a1e715a6ce474b2cc355f06efcecd3cf9cd1480d95e191107f672e7e",
+          "language": "python",
+          "executed_at": "2026-08-10T04:56:24.295885+00:00",
+          "description": "Validates registry/run/artifact identities and hashes, then projects bounded case, metric, diagnostic and judge tables.",
+          "tables_used": [
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/baselines/baselines.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/artifact-copy-manifest.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/results.jsonl",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/artifact-copy-manifest.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/results.jsonl",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/artifact-copy-manifest.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/results.jsonl",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/failure-diagnostics.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/api/results.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/easy.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/api/results.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/hard.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/api/results.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/medium.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-responses.jsonl"
+          ],
+          "filters": [
+            "easy, medium and hard",
+            "full live evaluation",
+            "exact archived rows only"
+          ],
+          "metric_definitions": [
+            "case pass rate = archived result rows with passed=true / all archived result rows",
+            "failed excludes rows with error_type/error_detail; error is reported separately",
+            "Recall@K, MRR, nDCG@10, generation and citation values are arithmetic means from archived summary.json",
+            "abstention FPR = false_positive / (false_positive + true_negative)",
+            "cost remains unknown when the archived runtime has no priced total"
+          ]
+        }
+      },
+      {
+        "id": "case_outcomes-query",
+        "label": "Case outcome composition query",
+        "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/technical-report/generate_artifact.py",
+        "query": {
+          "engine": "SQLite over validated repository JSON projections",
+          "id": "sha256:c3dc34b2a1e715a6ce474b2cc355f06efcecd3cf9cd1480d95e191107f672e7e",
+          "language": "sql",
+          "executed_at": "2026-08-10T04:56:24.295885+00:00",
+          "description": "SQLite ordering and bounded projection for snapshot.datasets.case_outcomes.",
+          "tables_used": [
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/baselines/baselines.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/artifact-copy-manifest.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/results.jsonl",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/artifact-copy-manifest.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/results.jsonl",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/artifact-copy-manifest.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/results.jsonl",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/failure-diagnostics.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/api/results.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/easy.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/api/results.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/hard.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/api/results.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/medium.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-responses.jsonl"
+          ],
+          "filters": [
+            "easy, medium and hard",
+            "full live evaluation",
+            "exact archived rows only"
+          ],
+          "sql": "SELECT \"order\", difficulty_run, difficulty, role, passed, failed, error, total FROM case_outcomes ORDER BY \"order\";"
+        }
+      },
+      {
+        "id": "run_facts-query",
+        "label": "Run and gate facts query",
+        "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/technical-report/generate_artifact.py",
+        "query": {
+          "engine": "SQLite over validated repository JSON projections",
+          "id": "sha256:c3dc34b2a1e715a6ce474b2cc355f06efcecd3cf9cd1480d95e191107f672e7e",
+          "language": "sql",
+          "executed_at": "2026-08-10T04:56:24.295885+00:00",
+          "description": "SQLite ordering and bounded projection for snapshot.datasets.run_facts.",
+          "tables_used": [
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/baselines/baselines.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/artifact-copy-manifest.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/results.jsonl",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/artifact-copy-manifest.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/results.jsonl",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/artifact-copy-manifest.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/results.jsonl",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/failure-diagnostics.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/api/results.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/easy.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/api/results.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/hard.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/api/results.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/medium.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-responses.jsonl"
+          ],
+          "filters": [
+            "easy, medium and hard",
+            "full live evaluation",
+            "exact archived rows only"
+          ],
+          "sql": "SELECT * FROM run_facts ORDER BY \"order\";"
+        }
+      },
+      {
+        "id": "quality_metrics-query",
+        "label": "Quality metric query",
+        "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/technical-report/generate_artifact.py",
+        "query": {
+          "engine": "SQLite over validated repository JSON projections",
+          "id": "sha256:c3dc34b2a1e715a6ce474b2cc355f06efcecd3cf9cd1480d95e191107f672e7e",
+          "language": "sql",
+          "executed_at": "2026-08-10T04:56:24.295885+00:00",
+          "description": "SQLite ordering and bounded projection for snapshot.datasets.quality_metrics.",
+          "tables_used": [
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/baselines/baselines.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/artifact-copy-manifest.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/results.jsonl",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/artifact-copy-manifest.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/results.jsonl",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/artifact-copy-manifest.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/results.jsonl",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/failure-diagnostics.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/api/results.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/easy.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/api/results.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/hard.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/api/results.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/medium.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-responses.jsonl"
+          ],
+          "filters": [
+            "easy, medium and hard",
+            "full live evaluation",
+            "exact archived rows only"
+          ],
+          "sql": "SELECT * FROM quality_metrics ORDER BY \"order\";"
+        }
+      },
+      {
+        "id": "runtime_telemetry-query",
+        "label": "Runtime telemetry query",
+        "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/technical-report/generate_artifact.py",
+        "query": {
+          "engine": "SQLite over validated repository JSON projections",
+          "id": "sha256:c3dc34b2a1e715a6ce474b2cc355f06efcecd3cf9cd1480d95e191107f672e7e",
+          "language": "sql",
+          "executed_at": "2026-08-10T04:56:24.295885+00:00",
+          "description": "SQLite ordering and bounded projection for snapshot.datasets.runtime_telemetry.",
+          "tables_used": [
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/baselines/baselines.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/artifact-copy-manifest.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/results.jsonl",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/artifact-copy-manifest.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/results.jsonl",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/artifact-copy-manifest.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/results.jsonl",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/failure-diagnostics.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/api/results.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/easy.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/api/results.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/hard.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/api/results.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/medium.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-responses.jsonl"
+          ],
+          "filters": [
+            "easy, medium and hard",
+            "full live evaluation",
+            "exact archived rows only"
+          ],
+          "sql": "SELECT * FROM runtime_telemetry ORDER BY \"order\";"
+        }
+      },
+      {
+        "id": "identity_facts-query",
+        "label": "Comparison identity query",
+        "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/technical-report/generate_artifact.py",
+        "query": {
+          "engine": "SQLite over validated repository JSON projections",
+          "id": "sha256:c3dc34b2a1e715a6ce474b2cc355f06efcecd3cf9cd1480d95e191107f672e7e",
+          "language": "sql",
+          "executed_at": "2026-08-10T04:56:24.295885+00:00",
+          "description": "SQLite ordering and bounded projection for snapshot.datasets.identity_facts.",
+          "tables_used": [
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/baselines/baselines.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/artifact-copy-manifest.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/results.jsonl",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/artifact-copy-manifest.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/results.jsonl",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/artifact-copy-manifest.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/results.jsonl",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/failure-diagnostics.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/api/results.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/easy.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/api/results.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/hard.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/api/results.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/medium.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-responses.jsonl"
+          ],
+          "filters": [
+            "easy, medium and hard",
+            "full live evaluation",
+            "exact archived rows only"
+          ],
+          "sql": "SELECT * FROM identity_facts ORDER BY \"order\";"
+        }
+      },
+      {
+        "id": "diagnostic_attribution-query",
+        "label": "Baseline diagnostic attribution query",
+        "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/technical-report/generate_artifact.py",
+        "query": {
+          "engine": "SQLite over validated repository JSON projections",
+          "id": "sha256:c3dc34b2a1e715a6ce474b2cc355f06efcecd3cf9cd1480d95e191107f672e7e",
+          "language": "sql",
+          "executed_at": "2026-08-10T04:56:24.295885+00:00",
+          "description": "SQLite ordering and bounded projection for snapshot.datasets.diagnostic_attribution.",
+          "tables_used": [
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/baselines/baselines.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/artifact-copy-manifest.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/results.jsonl",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/artifact-copy-manifest.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/results.jsonl",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/artifact-copy-manifest.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/results.jsonl",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/failure-diagnostics.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/api/results.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/easy.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/api/results.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/hard.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/api/results.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/medium.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-responses.jsonl"
+          ],
+          "filters": [
+            "easy, medium and hard",
+            "full live evaluation",
+            "exact archived rows only"
+          ],
+          "sql": "SELECT * FROM diagnostic_attribution ORDER BY case_count DESC, \"primary\" ASC;"
+        }
+      },
+      {
+        "id": "diagnostic_semantic-query",
+        "label": "Baseline semantic-proxy query",
+        "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/technical-report/generate_artifact.py",
+        "query": {
+          "engine": "SQLite over validated repository JSON projections",
+          "id": "sha256:c3dc34b2a1e715a6ce474b2cc355f06efcecd3cf9cd1480d95e191107f672e7e",
+          "language": "sql",
+          "executed_at": "2026-08-10T04:56:24.295885+00:00",
+          "description": "SQLite ordering and bounded projection for snapshot.datasets.diagnostic_semantic.",
+          "tables_used": [
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/baselines/baselines.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/artifact-copy-manifest.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/results.jsonl",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/artifact-copy-manifest.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/results.jsonl",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/artifact-copy-manifest.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/results.jsonl",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/failure-diagnostics.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/api/results.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/easy.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/api/results.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/hard.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/api/results.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/medium.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-responses.jsonl"
+          ],
+          "filters": [
+            "easy, medium and hard",
+            "full live evaluation",
+            "exact archived rows only"
+          ],
+          "sql": "SELECT * FROM diagnostic_semantic ORDER BY case_count DESC, status ASC;"
+        }
+      },
+      {
+        "id": "diagnostic_failures-query",
+        "label": "Baseline case-diagnostic query",
+        "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/technical-report/generate_artifact.py",
+        "query": {
+          "engine": "SQLite over validated repository JSON projections",
+          "id": "sha256:c3dc34b2a1e715a6ce474b2cc355f06efcecd3cf9cd1480d95e191107f672e7e",
+          "language": "sql",
+          "executed_at": "2026-08-10T04:56:24.295885+00:00",
+          "description": "SQLite ordering and bounded projection for snapshot.datasets.diagnostic_failures.",
+          "tables_used": [
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/baselines/baselines.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/artifact-copy-manifest.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/results.jsonl",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/artifact-copy-manifest.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/results.jsonl",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/artifact-copy-manifest.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/results.jsonl",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/failure-diagnostics.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/api/results.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/easy.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/api/results.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/hard.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/api/results.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/medium.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-responses.jsonl"
+          ],
+          "filters": [
+            "easy, medium and hard",
+            "full live evaluation",
+            "exact archived rows only"
+          ],
+          "sql": "SELECT * FROM diagnostic_failures ORDER BY critical_order DESC, difficulty ASC, case_id ASC;"
+        }
+      },
+      {
+        "id": "semantic_judge-query",
+        "label": "Semantic judge audit query",
+        "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/technical-report/generate_artifact.py",
+        "query": {
+          "engine": "SQLite over validated repository JSON projections",
+          "id": "sha256:c3dc34b2a1e715a6ce474b2cc355f06efcecd3cf9cd1480d95e191107f672e7e",
+          "language": "sql",
+          "executed_at": "2026-08-10T04:56:24.295885+00:00",
+          "description": "SQLite ordering and bounded projection for snapshot.datasets.semantic_judge.",
+          "tables_used": [
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/baselines/baselines.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/artifact-copy-manifest.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/results.jsonl",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/artifact-copy-manifest.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/results.jsonl",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/artifact-copy-manifest.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/results.jsonl",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/failure-diagnostics.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/api/results.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/easy.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/api/results.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/hard.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/api/results.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/medium.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-responses.jsonl"
+          ],
+          "filters": [
+            "easy, medium and hard",
+            "full live evaluation",
+            "exact archived rows only"
+          ],
+          "sql": "SELECT * FROM semantic_judge ORDER BY \"order\";"
+        }
+      },
+      {
+        "id": "validation_checks-query",
+        "label": "Input validation query",
+        "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/technical-report/generate_artifact.py",
+        "query": {
+          "engine": "SQLite over validated repository JSON projections",
+          "id": "sha256:c3dc34b2a1e715a6ce474b2cc355f06efcecd3cf9cd1480d95e191107f672e7e",
+          "language": "sql",
+          "executed_at": "2026-08-10T04:56:24.295885+00:00",
+          "description": "SQLite ordering and bounded projection for snapshot.datasets.validation_checks.",
+          "tables_used": [
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/baselines/baselines.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/artifact-copy-manifest.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/results.jsonl",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/artifact-copy-manifest.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/results.jsonl",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/artifact-copy-manifest.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/results.jsonl",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/failure-diagnostics.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/api/results.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/easy.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/api/results.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/hard.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/api/results.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/medium.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-responses.jsonl"
+          ],
+          "filters": [
+            "easy, medium and hard",
+            "full live evaluation",
+            "exact archived rows only"
+          ],
+          "sql": "SELECT * FROM validation_checks ORDER BY \"order\";"
+        }
+      },
+      {
+        "id": "input_inventory-query",
+        "label": "Input inventory query",
+        "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/technical-report/generate_artifact.py",
+        "query": {
+          "engine": "SQLite over validated repository JSON projections",
+          "id": "sha256:c3dc34b2a1e715a6ce474b2cc355f06efcecd3cf9cd1480d95e191107f672e7e",
+          "language": "sql",
+          "executed_at": "2026-08-10T04:56:24.295885+00:00",
+          "description": "SQLite ordering and bounded projection for snapshot.datasets.input_inventory.",
+          "tables_used": [
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/baselines/baselines.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/artifact-copy-manifest.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/results.jsonl",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/artifact-copy-manifest.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/results.jsonl",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/artifact-copy-manifest.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/results.jsonl",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/failure-diagnostics.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/api/results.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/easy.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/api/results.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/hard.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/api/results.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/medium.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-summary.json",
+            "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-responses.jsonl"
+          ],
+          "filters": [
+            "easy, medium and hard",
+            "full live evaluation",
+            "exact archived rows only"
+          ],
+          "sql": "SELECT * FROM input_inventory ORDER BY \"order\";"
+        }
+      }
+    ],
+    "charts": [
+      {
+        "id": "case-outcomes",
+        "title": "每档 50 题的结果构成",
+        "subtitle": "当前仅含已登记原始基线；最终 label 尚未选择。",
+        "type": "stackedBar",
+        "dataset": "case_outcomes",
+        "encodings": {
+          "x": {
+            "field": "difficulty_run",
+            "type": "nominal",
+            "label": "难度与运行角色"
+          },
+          "y": {
+            "fields": [
+              "passed",
+              "failed",
+              "error"
+            ],
+            "type": "quantitative",
+            "label": "Case 数"
+          }
+        },
+        "valueFormat": "number",
+        "layout": "full",
+        "sourceId": "case_outcomes-query",
+        "intent": "composition",
+        "question": "每个难度/运行角色的 50 个 case 如何分布为 passed、failed 和 error？",
+        "rationale": "固定分母的堆叠条形图适合比较结果构成；不把不同量纲质量指标画在一起。"
+      }
+    ],
+    "tables": [
+      {
+        "id": "run-facts",
+        "title": "运行与门禁事实",
+        "subtitle": "每档固定 50 题；gate status 与运行成功分开呈现。",
+        "dataset": "run_facts",
+        "density": "dense",
+        "layout": "full",
+        "sourceId": "run_facts-query",
+        "defaultSort": {
+          "field": "order",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "order",
+            "label": "顺序",
+            "type": "number"
+          },
+          {
+            "field": "difficulty",
+            "label": "难度",
+            "type": "text"
+          },
+          {
+            "field": "role",
+            "label": "角色",
+            "type": "text"
+          },
+          {
+            "field": "case_count",
+            "label": "题数",
+            "type": "number"
+          },
+          {
+            "field": "gate_status",
+            "label": "门禁状态",
+            "type": "text"
+          },
+          {
+            "field": "gate_passed",
+            "label": "门禁通过",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "retrieval-metrics",
+        "title": "Case 与检索指标",
+        "subtitle": "比例使用 0–100% 显示；pass rate 直接由 archived result rows 计算。",
+        "dataset": "quality_metrics",
+        "density": "dense",
+        "layout": "full",
+        "sourceId": "quality_metrics-query",
+        "defaultSort": {
+          "field": "order",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "order",
+            "label": "顺序",
+            "type": "number"
+          },
+          {
+            "field": "difficulty",
+            "label": "难度",
+            "type": "text"
+          },
+          {
+            "field": "role",
+            "label": "角色",
+            "type": "text"
+          },
+          {
+            "field": "pass_rate",
+            "label": "Case pass",
+            "format": "percent"
+          },
+          {
+            "field": "recall_at_1",
+            "label": "Recall@1",
+            "format": "percent"
+          },
+          {
+            "field": "recall_at_3",
+            "label": "Recall@3",
+            "format": "percent"
+          },
+          {
+            "field": "recall_at_10",
+            "label": "Recall@10",
+            "format": "percent"
+          }
+        ]
+      },
+      {
+        "id": "ranking-metrics",
+        "title": "检索排序指标",
+        "subtitle": "MRR 与 nDCG@10 使用同一归档 evidence ranking。",
+        "dataset": "quality_metrics",
+        "density": "dense",
+        "layout": "full",
+        "sourceId": "quality_metrics-query",
+        "defaultSort": {
+          "field": "order",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "order",
+            "label": "顺序",
+            "type": "number"
+          },
+          {
+            "field": "difficulty",
+            "label": "难度",
+            "type": "text"
+          },
+          {
+            "field": "role",
+            "label": "角色",
+            "type": "text"
+          },
+          {
+            "field": "mrr",
+            "label": "MRR",
+            "format": "percent"
+          },
+          {
+            "field": "ndcg_at_10",
+            "label": "nDCG@10",
+            "format": "percent"
+          }
+        ]
+      },
+      {
+        "id": "answer-metrics",
+        "title": "生成、引用与拒答指标",
+        "subtitle": "比例使用 0–100% 显示；unknown 不按 0 计。",
+        "dataset": "quality_metrics",
+        "density": "dense",
+        "layout": "full",
+        "sourceId": "quality_metrics-query",
+        "defaultSort": {
+          "field": "order",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "order",
+            "label": "顺序",
+            "type": "number"
+          },
+          {
+            "field": "difficulty",
+            "label": "难度",
+            "type": "text"
+          },
+          {
+            "field": "role",
+            "label": "角色",
+            "type": "text"
+          },
+          {
+            "field": "correctness",
+            "label": "Correctness",
+            "format": "percent"
+          },
+          {
+            "field": "faithfulness",
+            "label": "Faithfulness",
+            "format": "percent"
+          }
+        ]
+      },
+      {
+        "id": "citation-metrics",
+        "title": "引用指标",
+        "subtitle": "Coverage、precision 与 recall 保持各自 archived 定义。",
+        "dataset": "quality_metrics",
+        "density": "dense",
+        "layout": "full",
+        "sourceId": "quality_metrics-query",
+        "defaultSort": {
+          "field": "order",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "order",
+            "label": "顺序",
+            "type": "number"
+          },
+          {
+            "field": "difficulty",
+            "label": "难度",
+            "type": "text"
+          },
+          {
+            "field": "role",
+            "label": "角色",
+            "type": "text"
+          },
+          {
+            "field": "citation_coverage",
+            "label": "Citation coverage",
+            "format": "percent"
+          },
+          {
+            "field": "citation_precision",
+            "label": "Citation precision",
+            "format": "percent"
+          },
+          {
+            "field": "citation_recall",
+            "label": "Citation recall",
+            "format": "percent"
+          }
+        ]
+      },
+      {
+        "id": "abstention-metrics",
+        "title": "拒答指标",
+        "subtitle": "Accuracy 与 false-positive rate 分开呈现。",
+        "dataset": "quality_metrics",
+        "density": "dense",
+        "layout": "full",
+        "sourceId": "quality_metrics-query",
+        "defaultSort": {
+          "field": "order",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "order",
+            "label": "顺序",
+            "type": "number"
+          },
+          {
+            "field": "difficulty",
+            "label": "难度",
+            "type": "text"
+          },
+          {
+            "field": "role",
+            "label": "角色",
+            "type": "text"
+          },
+          {
+            "field": "abstention_accuracy",
+            "label": "Abstention accuracy",
+            "format": "percent"
+          },
+          {
+            "field": "abstention_fpr",
+            "label": "Abstention FPR",
+            "format": "percent"
+          }
+        ]
+      },
+      {
+        "id": "latency-telemetry",
+        "title": "延迟",
+        "subtitle": "Mean 与 P95 均来自 archived runtime summary。",
+        "dataset": "runtime_telemetry",
+        "density": "dense",
+        "layout": "full",
+        "sourceId": "runtime_telemetry-query",
+        "defaultSort": {
+          "field": "order",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "order",
+            "label": "顺序",
+            "type": "number"
+          },
+          {
+            "field": "difficulty",
+            "label": "难度",
+            "type": "text"
+          },
+          {
+            "field": "role",
+            "label": "角色",
+            "type": "text"
+          },
+          {
+            "field": "latency_mean_ms",
+            "label": "Mean latency ms",
+            "type": "number"
+          },
+          {
+            "field": "latency_p95_ms",
+            "label": "P95 latency ms",
+            "type": "number"
+          }
+        ]
+      },
+      {
+        "id": "usage-telemetry",
+        "title": "Token 与成本覆盖",
+        "subtitle": "成本缺少计价快照时保持 unknown；Token unknown 单独计数。",
+        "dataset": "runtime_telemetry",
+        "density": "dense",
+        "layout": "full",
+        "sourceId": "runtime_telemetry-query",
+        "defaultSort": {
+          "field": "order",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "order",
+            "label": "顺序",
+            "type": "number"
+          },
+          {
+            "field": "difficulty",
+            "label": "难度",
+            "type": "text"
+          },
+          {
+            "field": "role",
+            "label": "角色",
+            "type": "text"
+          },
+          {
+            "field": "tokens_total",
+            "label": "Known tokens total",
+            "type": "number"
+          },
+          {
+            "field": "tokens_unknown",
+            "label": "Unknown token cases",
+            "type": "number"
+          },
+          {
+            "field": "cost_status",
+            "label": "Cost",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "identity-facts",
+        "title": "比较身份",
+        "subtitle": "Dataset、KB 与 mode 必须相同；模型、索引和 profile 显式展示而不假定相同。",
+        "dataset": "identity_facts",
+        "density": "dense",
+        "layout": "full",
+        "sourceId": "identity_facts-query",
+        "defaultSort": {
+          "field": "order",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "order",
+            "label": "顺序",
+            "type": "number"
+          },
+          {
+            "field": "difficulty",
+            "label": "难度",
+            "type": "text"
+          },
+          {
+            "field": "role",
+            "label": "角色",
+            "type": "text"
+          },
+          {
+            "field": "dataset_checksum",
+            "label": "Dataset SHA",
+            "type": "text"
+          },
+          {
+            "field": "model",
+            "label": "模型",
+            "type": "text"
+          },
+          {
+            "field": "index_ids",
+            "label": "Index IDs",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "diagnostic-attribution",
+        "title": "历史基线失败主归因",
+        "subtitle": "每个 evaluator-failed case 仅计入一个 primary 类别。",
+        "dataset": "diagnostic_attribution",
+        "density": "dense",
+        "layout": "full",
+        "sourceId": "diagnostic_attribution-query",
+        "defaultSort": {
+          "field": "case_count",
+          "direction": "desc"
+        },
+        "columns": [
+          {
+            "field": "primary",
+            "label": "Primary",
+            "type": "text"
+          },
+          {
+            "field": "case_count",
+            "label": "Case count",
+            "type": "number"
+          },
+          {
+            "field": "share",
+            "label": "Share",
+            "format": "percent"
+          }
+        ]
+      },
+      {
+        "id": "diagnostic-failures",
+        "title": "历史基线逐题归因",
+        "subtitle": "Primary/secondary 与 critical 标记；不是最终候选 verdict。",
+        "dataset": "diagnostic_failures",
+        "density": "dense",
+        "layout": "full",
+        "sourceId": "diagnostic_failures-query",
+        "defaultSort": {
+          "field": "case_id",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "difficulty",
+            "label": "难度",
+            "type": "text"
+          },
+          {
+            "field": "case_id",
+            "label": "Case ID",
+            "type": "text"
+          },
+          {
+            "field": "critical",
+            "label": "Critical",
+            "type": "text"
+          },
+          {
+            "field": "primary",
+            "label": "Primary",
+            "type": "text"
+          },
+          {
+            "field": "secondary",
+            "label": "Secondary",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "diagnostic-semantic-cases",
+        "title": "历史基线语义代理与旧门禁原因",
+        "subtitle": "Semantic proxy 独立于 historical passed；仍不是 LLM judge verdict。",
+        "dataset": "diagnostic_failures",
+        "density": "dense",
+        "layout": "full",
+        "sourceId": "diagnostic_failures-query",
+        "defaultSort": {
+          "field": "case_id",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "case_id",
+            "label": "Case ID",
+            "type": "text"
+          },
+          {
+            "field": "semantic_proxy",
+            "label": "Semantic proxy",
+            "type": "text"
+          },
+          {
+            "field": "historical_gate_reasons",
+            "label": "Historical gate reasons",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "semantic-judge",
+        "title": "语义 judge 审计摘要",
+        "subtitle": "仅展示覆盖与 answer-claims 隔离校准；摘要不含 verdict 分布。",
+        "dataset": "semantic_judge",
+        "density": "dense",
+        "layout": "full",
+        "sourceId": "semantic_judge-query",
+        "defaultSort": {
+          "field": "order",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "order",
+            "label": "顺序",
+            "type": "number"
+          },
+          {
+            "field": "item",
+            "label": "检查",
+            "type": "text"
+          },
+          {
+            "field": "result",
+            "label": "结果",
+            "type": "text"
+          },
+          {
+            "field": "status",
+            "label": "状态",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "validation-checks",
+        "title": "输入与可重复性校验",
+        "subtitle": "任何 required identity/hash 检查失败都会中止 artifact 生成。",
+        "dataset": "validation_checks",
+        "density": "dense",
+        "layout": "full",
+        "sourceId": "validation_checks-query",
+        "defaultSort": {
+          "field": "order",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "order",
+            "label": "顺序",
+            "type": "number"
+          },
+          {
+            "field": "check",
+            "label": "检查",
+            "type": "text"
+          },
+          {
+            "field": "status",
+            "label": "状态",
+            "type": "text"
+          },
+          {
+            "field": "detail",
+            "label": "证据",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "input-inventory",
+        "title": "输入制品清单",
+        "subtitle": "仓库相对路径与生成时复核的 SHA-256（显示截断，完整值用于 combined input hash）。",
+        "dataset": "input_inventory",
+        "density": "dense",
+        "layout": "full",
+        "sourceId": "input_inventory-query",
+        "defaultSort": {
+          "field": "role",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "role",
+            "label": "角色",
+            "type": "text"
+          },
+          {
+            "field": "difficulty",
+            "label": "难度",
+            "type": "text"
+          },
+          {
+            "field": "path",
+            "label": "Path",
+            "type": "text"
+          },
+          {
+            "field": "sha256",
+            "label": "SHA-256",
+            "type": "text"
+          }
+        ]
+      }
+    ],
+    "blocks": [
+      {
+        "id": "title",
+        "type": "markdown",
+        "layout": "full",
+        "body": "# 三难度在线评测修复技术报告"
+      },
+      {
+        "id": "technical-summary",
+        "type": "markdown",
+        "layout": "full",
+        "body": "## 技术摘要\n\n当前原始三难度基线通过 58.0/150.0（简单/中等/困难各 50 题），历史只读诊断覆盖 92 个 evaluator-failed case。语义 judge 摘要覆盖 59 个 case，answer-claims 隔离校准为 通过。\n\n尚未显式指定最终 label，因此本 artifact 为 `partial`：它只陈述注册基线、诊断和 judge 审计事实，不会自动发现或把 remediation/runs 下的任何 candidate 认定为最终结果。"
+      },
+      {
+        "id": "outcome-interpretation",
+        "type": "markdown",
+        "layout": "full",
+        "body": "## Case 结果构成按难度拉开\n\n下图只显示已登记原始基线的 passed、failed、error 构成。最终候选必须通过 `--final-label` 显式选择；在此之前不绘制候选对比，也不形成修复效果结论。"
+      },
+      {
+        "id": "outcome-chart",
+        "type": "chart",
+        "chartId": "case-outcomes",
+        "layout": "full"
+      },
+      {
+        "id": "exact-metrics",
+        "type": "markdown",
+        "layout": "full",
+        "body": "## 精确指标必须与门禁、覆盖率一起阅读\n\n下列表格给出 case、retrieval、generation、citation、abstention、latency 和 token 的精确归档值。门禁失败不等于运行失败；同样，单一 aggregate 改善也不能覆盖 critical case 或 metric coverage 缺口。"
+      },
+      {
+        "id": "run-table",
+        "type": "table",
+        "tableId": "run-facts",
+        "layout": "full"
+      },
+      {
+        "id": "retrieval-table",
+        "type": "table",
+        "tableId": "retrieval-metrics",
+        "layout": "full"
+      },
+      {
+        "id": "ranking-table",
+        "type": "table",
+        "tableId": "ranking-metrics",
+        "layout": "full"
+      },
+      {
+        "id": "answer-table",
+        "type": "table",
+        "tableId": "answer-metrics",
+        "layout": "full"
+      },
+      {
+        "id": "citation-table",
+        "type": "table",
+        "tableId": "citation-metrics",
+        "layout": "full"
+      },
+      {
+        "id": "abstention-table",
+        "type": "table",
+        "tableId": "abstention-metrics",
+        "layout": "full"
+      },
+      {
+        "id": "latency-table",
+        "type": "table",
+        "tableId": "latency-telemetry",
+        "layout": "full"
+      },
+      {
+        "id": "usage-table",
+        "type": "table",
+        "tableId": "usage-telemetry",
+        "layout": "full"
+      },
+      {
+        "id": "diagnostic-note",
+        "type": "markdown",
+        "layout": "full",
+        "body": "## 历史失败主要集中在中间链路损失\n\n基线失败的互斥主归因中，`intermediate_pipeline_loss` 最多：48.0/92（52.2%）。表中的 semantic_proxy 是独立于 historical passed 的确定性参考/证据代理；它不是 LLM judge verdict。"
+      },
+      {
+        "id": "diagnostic-attribution-table",
+        "type": "table",
+        "tableId": "diagnostic-attribution",
+        "layout": "full"
+      },
+      {
+        "id": "diagnostic-failure-table",
+        "type": "table",
+        "tableId": "diagnostic-failures",
+        "layout": "full"
+      },
+      {
+        "id": "diagnostic-semantic-table",
+        "type": "table",
+        "tableId": "diagnostic-semantic-cases",
+        "layout": "full"
+      },
+      {
+        "id": "judge-note",
+        "type": "markdown",
+        "layout": "full",
+        "body": "## 语义 judge 已校准，但摘要不能替代逐题 verdict\n\n审计使用 `qwen-plus`，覆盖 59 个基线失败 case。校准强制只把 visible ACTUAL_ANSWER 作为 answer claims，引用证据仅用于 grounding；EASY-001/EASY-006 的期望结果均匹配。"
+      },
+      {
+        "id": "judge-table",
+        "type": "table",
+        "tableId": "semantic-judge",
+        "layout": "full"
+      },
+      {
+        "id": "scope-definitions",
+        "type": "markdown",
+        "layout": "full",
+        "body": "## 范围、数据与指标定义\n\nSuite 为 `three-difficulty-live-2026-08-10`，KB 为 `kb_2fad25538aab42d19baf79fba782a06c`，范围为 `live/full`；简单、中等、困难各 50 题。Case pass rate 直接按 archived `passed=true` 计数；failed 排除 execution error。Recall@K/MRR/nDCG@10 基于标注证据排名；correctness/faithfulness/citation/abstention 取 archived summary 的算术均值。"
+      },
+      {
+        "id": "identity-table",
+        "type": "table",
+        "tableId": "identity-facts",
+        "layout": "full"
+      },
+      {
+        "id": "methodology",
+        "type": "markdown",
+        "layout": "full",
+        "body": "## 方法：先验证身份与哈希，再投影有界数据\n\n生成器读取 baseline registry，逐档验证 copy manifest、summary、results 和 SHA-256；显式 final label 还必须满足 succeeded、paired_candidate、selection=all、三档 50 case、baseline_run_id/dataset/KB/mode/case-set 一致。随后动态投影 aggregate metrics、失败 reason、baseline diagnostics 与 semantic judge summary。不会扫描目录选择“最新 candidate”。"
+      },
+      {
+        "id": "validation-table",
+        "type": "table",
+        "tableId": "validation-checks",
+        "layout": "full"
+      },
+      {
+        "id": "inventory-table",
+        "type": "table",
+        "tableId": "input-inventory",
+        "layout": "full"
+      },
+      {
+        "id": "limitations",
+        "type": "markdown",
+        "layout": "full",
+        "body": "## 结论边界与稳健性\n\n- `passed` 是当次 archived evaluator 的 case 结果，不等同于“最终答案语义正确”；两者在表中保持分离。\n- correctness、faithfulness、citation 与 abstention 是当前确定性/启发式评测指标，不是盲审人工结论。\n- qwen-plus judge summary 证明 review 覆盖、两例校准及响应哈希，但摘要没有 verdict 分布，故本报告不从中反推语义正确率。\n- 历史 diagnostics 的 source hashes 明确绑定原始 baseline runs；除非另行生成 final-run diagnostics，否则不能把其逐题归因套用到最终候选。\n- Token unknown 保留为 unknown；没有供应商定价快照时 cost 也保持 unknown，不能按 0 解读。\n- 报告只覆盖这三个 50-case 数据集、冻结知识库/数据集身份和显式 label，不外推到其他文档或生产流量。"
+      },
+      {
+        "id": "next-steps",
+        "type": "markdown",
+        "layout": "full",
+        "body": "## 下一步先锁定最终 label，再生成 ready 报告\n\n1. 等在线 runner 完成并由负责人明确选择最终 label；不要用目录时间或名称自动推断。\n2. 用 `--final-label <LABEL>` 重跑生成器；任何缺档、identity 或 SHA-256 不一致都会阻止 ready artifact。\n3. 若需要最终候选的逐题语义结论，先生成与该 label 绑定的 diagnostics/judge summary，再执行 portable HTML builder。"
+      },
+      {
+        "id": "further-questions",
+        "type": "markdown",
+        "layout": "full",
+        "body": "## 仍需回答的问题\n\n最终发布是否要求三档 paired gate 全部通过？哪些 critical case 可以由独立语义 judge 推翻 evaluator false-negative？何时能提供 final-label-specific diagnostics、完整 Token 覆盖和版本化价格快照？"
+      }
+    ]
+  },
+  "snapshot": {
+    "version": 1,
+    "generatedAt": "2026-08-10T04:56:24.295885+00:00",
+    "status": "partial",
+    "datasets": {
+      "case_outcomes": [
+        {
+          "order": 0.0,
+          "difficulty_run": "简单·原始基线",
+          "difficulty": "简单",
+          "role": "原始基线",
+          "passed": 28.0,
+          "failed": 22.0,
+          "error": 0.0,
+          "total": 50.0
+        },
+        {
+          "order": 2.0,
+          "difficulty_run": "中等·原始基线",
+          "difficulty": "中等",
+          "role": "原始基线",
+          "passed": 21.0,
+          "failed": 29.0,
+          "error": 0.0,
+          "total": 50.0
+        },
+        {
+          "order": 4.0,
+          "difficulty_run": "困难·原始基线",
+          "difficulty": "困难",
+          "role": "原始基线",
+          "passed": 9.0,
+          "failed": 41.0,
+          "error": 0.0,
+          "total": 50.0
+        }
+      ],
+      "run_facts": [
+        {
+          "order": 0.0,
+          "difficulty": "简单",
+          "role": "原始基线",
+          "run_id_short": "erun_67606fd246654ed…",
+          "case_count": 50.0,
+          "archive_status": "succeeded",
+          "mode": "live",
+          "gate_status": "baseline_recorded_with_failures",
+          "gate_passed": "false",
+          "model": "qwen-flash",
+          "retrieval_profile": "default v?"
+        },
+        {
+          "order": 2.0,
+          "difficulty": "中等",
+          "role": "原始基线",
+          "run_id_short": "erun_eb7884462cd3465…",
+          "case_count": 50.0,
+          "archive_status": "succeeded",
+          "mode": "live",
+          "gate_status": "baseline_recorded_with_failures",
+          "gate_passed": "false",
+          "model": "qwen-flash",
+          "retrieval_profile": "default v?"
+        },
+        {
+          "order": 4.0,
+          "difficulty": "困难",
+          "role": "原始基线",
+          "run_id_short": "erun_54375b39653d4a2…",
+          "case_count": 50.0,
+          "archive_status": "succeeded",
+          "mode": "live",
+          "gate_status": "baseline_recorded_with_failures",
+          "gate_passed": "false",
+          "model": "qwen-flash",
+          "retrieval_profile": "default v?"
+        }
+      ],
+      "quality_metrics": [
+        {
+          "order": 0.0,
+          "difficulty": "简单",
+          "role": "原始基线",
+          "pass_rate": 0.56,
+          "recall_at_1": 0.8,
+          "recall_at_3": 0.92,
+          "recall_at_10": 0.94,
+          "mrr": 0.8583333333333333,
+          "ndcg_at_10": 0.8790879114471845,
+          "correctness": 0.6166666666666667,
+          "faithfulness": 0.8571428571428571,
+          "citation_coverage": 1.0,
+          "citation_precision": 0.7902597402597403,
+          "citation_recall": 0.84,
+          "abstention_accuracy": 0.88,
+          "abstention_fpr": 0.12
+        },
+        {
+          "order": 2.0,
+          "difficulty": "中等",
+          "role": "原始基线",
+          "pass_rate": 0.42,
+          "recall_at_1": 0.8,
+          "recall_at_3": 0.92,
+          "recall_at_10": 0.92,
+          "mrr": 0.86,
+          "ndcg_at_10": 0.875711570428575,
+          "correctness": 0.521,
+          "faithfulness": 0.7666666666666667,
+          "citation_coverage": 1.0,
+          "citation_precision": 0.8400000000000001,
+          "citation_recall": 0.72,
+          "abstention_accuracy": 0.8,
+          "abstention_fpr": 0.2
+        },
+        {
+          "order": 4.0,
+          "difficulty": "困难",
+          "role": "原始基线",
+          "pass_rate": 0.18,
+          "recall_at_1": 0.37777777777777777,
+          "recall_at_3": 0.6444444444444445,
+          "recall_at_10": 0.6666666666666666,
+          "mrr": 0.8037037037037037,
+          "ndcg_at_10": 0.6706207312819754,
+          "correctness": 0.37566666666666665,
+          "faithfulness": 0.66,
+          "citation_coverage": 1.0,
+          "citation_precision": 0.7467980295566503,
+          "citation_recall": 0.3,
+          "abstention_accuracy": 0.68,
+          "abstention_fpr": 0.35555555555555557
+        }
+      ],
+      "runtime_telemetry": [
+        {
+          "order": 0.0,
+          "difficulty": "简单",
+          "role": "原始基线",
+          "latency_mean_ms": 11910.685759999998,
+          "latency_p95_ms": 22757.8539,
+          "tokens_total": 83158.0,
+          "tokens_unknown": 1.0,
+          "cost_status": "unknown (price snapshot unavailable)"
+        },
+        {
+          "order": 2.0,
+          "difficulty": "中等",
+          "role": "原始基线",
+          "latency_mean_ms": 22248.50638,
+          "latency_p95_ms": 36896.732849999986,
+          "tokens_total": 92497.0,
+          "tokens_unknown": 1.0,
+          "cost_status": "unknown (price snapshot unavailable)"
+        },
+        {
+          "order": 4.0,
+          "difficulty": "困难",
+          "role": "原始基线",
+          "latency_mean_ms": 27571.14758,
+          "latency_p95_ms": 39980.9309,
+          "tokens_total": 86071.0,
+          "tokens_unknown": 2.0,
+          "cost_status": "unknown (price snapshot unavailable)"
+        }
+      ],
+      "identity_facts": [
+        {
+          "order": 0.0,
+          "difficulty": "简单",
+          "role": "原始基线",
+          "kb_id": "kb_2fad25538aab42d…",
+          "dataset_key": "pantum-​p3500-​easy-​live-​baseline",
+          "dataset_checksum": "c5e28b1d04aa314037…",
+          "model": "qwen-flash",
+          "index_ids": "idx_fb5eeac133…",
+          "mode": "live"
+        },
+        {
+          "order": 2.0,
+          "difficulty": "中等",
+          "role": "原始基线",
+          "kb_id": "kb_2fad25538aab42d…",
+          "dataset_key": "pantum-​p3500-​medium-​live-​baseline",
+          "dataset_checksum": "4924a812732614a5da…",
+          "model": "qwen-flash",
+          "index_ids": "idx_fb5eeac133…",
+          "mode": "live"
+        },
+        {
+          "order": 4.0,
+          "difficulty": "困难",
+          "role": "原始基线",
+          "kb_id": "kb_2fad25538aab42d…",
+          "dataset_key": "pantum-​p3500-​hard-​live-​baseline",
+          "dataset_checksum": "57099f7dbdb789fae8…",
+          "model": "qwen-flash",
+          "index_ids": "idx_fb5eeac133…",
+          "mode": "live"
+        }
+      ],
+      "diagnostic_attribution": [
+        {
+          "primary": "intermediate_pipeline_loss",
+          "case_count": 48.0,
+          "share": 0.5217391304347826
+        },
+        {
+          "primary": "generation_or_reasoning",
+          "case_count": 24.0,
+          "share": 0.2608695652173913
+        },
+        {
+          "primary": "retrieval_unclear_or_noisy",
+          "case_count": 12.0,
+          "share": 0.13043478260869565
+        },
+        {
+          "primary": "dataset_reference_issue",
+          "case_count": 3.0,
+          "share": 0.03260869565217391
+        },
+        {
+          "primary": "evaluator_error",
+          "case_count": 3.0,
+          "share": 0.03260869565217391
+        },
+        {
+          "primary": "retrieval_insufficient",
+          "case_count": 2.0,
+          "share": 0.021739130434782608
+        }
+      ],
+      "diagnostic_semantic": [
+        {
+          "status": "likely_incorrect_or_incomplete",
+          "case_count": 52.0,
+          "share": 0.5652173913043478
+        },
+        {
+          "status": "partially_correct",
+          "case_count": 20.0,
+          "share": 0.21739130434782608
+        },
+        {
+          "status": "unresolved",
+          "case_count": 16.0,
+          "share": 0.17391304347826086
+        },
+        {
+          "status": "likely_correct",
+          "case_count": 4.0,
+          "share": 0.043478260869565216
+        }
+      ],
+      "diagnostic_failures": [
+        {
+          "critical_order": 1.0,
+          "difficulty": "中等",
+          "case_id": "P3500-MEDIUM-001",
+          "critical": "true",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning",
+          "confidence": 0.7,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 1.0,
+          "difficulty": "中等",
+          "case_id": "P3500-MEDIUM-002",
+          "critical": "true",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning, evaluator_​error",
+          "confidence": 0.7,
+          "semantic_proxy": "partially_​correct",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 1.0,
+          "difficulty": "中等",
+          "case_id": "P3500-MEDIUM-003",
+          "critical": "true",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning",
+          "confidence": 0.7,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 1.0,
+          "difficulty": "中等",
+          "case_id": "P3500-MEDIUM-004",
+          "critical": "true",
+          "primary": "dataset_​reference_​issue",
+          "secondary": "evaluator_​error",
+          "confidence": 0.7,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75, retrieval_​recall_​at_​10_​zero"
+        },
+        {
+          "critical_order": 1.0,
+          "difficulty": "中等",
+          "case_id": "P3500-MEDIUM-005",
+          "critical": "true",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning",
+          "confidence": 0.9,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75, retrieval_​recall_​at_​10_​zero"
+        },
+        {
+          "critical_order": 1.0,
+          "difficulty": "中等",
+          "case_id": "P3500-MEDIUM-020",
+          "critical": "true",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning",
+          "confidence": 0.7,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 1.0,
+          "difficulty": "中等",
+          "case_id": "P3500-MEDIUM-040",
+          "critical": "true",
+          "primary": "generation_​or_​reasoning",
+          "secondary": "intermediate_​pipeline_​loss",
+          "confidence": 0.9,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 1.0,
+          "difficulty": "中等",
+          "case_id": "P3500-MEDIUM-050",
+          "critical": "true",
+          "primary": "generation_​or_​reasoning",
+          "secondary": "intermediate_​pipeline_​loss",
+          "confidence": 0.9,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 1.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-001",
+          "critical": "true",
+          "primary": "generation_​or_​reasoning",
+          "secondary": "intermediate_​pipeline_​loss, retrieval_​unclear_​or_​noisy",
+          "confidence": 0.9,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 1.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-002",
+          "critical": "true",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning",
+          "confidence": 0.7,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 1.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-003",
+          "critical": "true",
+          "primary": "generation_​or_​reasoning",
+          "secondary": "intermediate_​pipeline_​loss, retrieval_​unclear_​or_​noisy",
+          "confidence": 0.7,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 1.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-004",
+          "critical": "true",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning, evaluator_​error",
+          "confidence": 0.7,
+          "semantic_proxy": "partially_​correct",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 1.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-005",
+          "critical": "true",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning",
+          "confidence": 0.7,
+          "semantic_proxy": "unresolved",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 1.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-010",
+          "critical": "true",
+          "primary": "retrieval_​unclear_​or_​noisy",
+          "secondary": "intermediate_​pipeline_​loss, generation_​or_​reasoning",
+          "confidence": 0.9,
+          "semantic_proxy": "unresolved",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 1.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-020",
+          "critical": "true",
+          "primary": "generation_​or_​reasoning",
+          "secondary": "intermediate_​pipeline_​loss, retrieval_​unclear_​or_​noisy",
+          "confidence": 0.7,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 1.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-030",
+          "critical": "true",
+          "primary": "generation_​or_​reasoning",
+          "secondary": "intermediate_​pipeline_​loss, retrieval_​unclear_​or_​noisy",
+          "confidence": 0.9,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 1.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-040",
+          "critical": "true",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning",
+          "confidence": 0.9,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75, retrieval_​recall_​at_​10_​zero"
+        },
+        {
+          "critical_order": 1.0,
+          "difficulty": "简单",
+          "case_id": "P3500-EASY-001",
+          "critical": "true",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning",
+          "confidence": 0.7,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 1.0,
+          "difficulty": "简单",
+          "case_id": "P3500-EASY-002",
+          "critical": "true",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning",
+          "confidence": 0.7,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 1.0,
+          "difficulty": "简单",
+          "case_id": "P3500-EASY-003",
+          "critical": "true",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning",
+          "confidence": 0.9,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75, retrieval_​recall_​at_​10_​zero"
+        },
+        {
+          "critical_order": 1.0,
+          "difficulty": "简单",
+          "case_id": "P3500-EASY-004",
+          "critical": "true",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning",
+          "confidence": 0.7,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 1.0,
+          "difficulty": "简单",
+          "case_id": "P3500-EASY-010",
+          "critical": "true",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning",
+          "confidence": 0.7,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 1.0,
+          "difficulty": "简单",
+          "case_id": "P3500-EASY-020",
+          "critical": "true",
+          "primary": "dataset_​reference_​issue",
+          "secondary": "evaluator_​error",
+          "confidence": 0.7,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75, retrieval_​recall_​at_​10_​zero"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "中等",
+          "case_id": "P3500-MEDIUM-006",
+          "critical": "false",
+          "primary": "generation_​or_​reasoning",
+          "secondary": "intermediate_​pipeline_​loss",
+          "confidence": 0.9,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "中等",
+          "case_id": "P3500-MEDIUM-008",
+          "critical": "false",
+          "primary": "generation_​or_​reasoning",
+          "secondary": "intermediate_​pipeline_​loss",
+          "confidence": 0.7,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "中等",
+          "case_id": "P3500-MEDIUM-013",
+          "critical": "false",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning",
+          "confidence": 0.7,
+          "semantic_proxy": "unresolved",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "中等",
+          "case_id": "P3500-MEDIUM-014",
+          "critical": "false",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning",
+          "confidence": 0.7,
+          "semantic_proxy": "unresolved",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "中等",
+          "case_id": "P3500-MEDIUM-015",
+          "critical": "false",
+          "primary": "retrieval_​unclear_​or_​noisy",
+          "secondary": "context_​loss",
+          "confidence": 0.9,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75, retrieval_​recall_​at_​10_​zero"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "中等",
+          "case_id": "P3500-MEDIUM-017",
+          "critical": "false",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning",
+          "confidence": 0.7,
+          "semantic_proxy": "partially_​correct",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "中等",
+          "case_id": "P3500-MEDIUM-018",
+          "critical": "false",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning",
+          "confidence": 0.7,
+          "semantic_proxy": "partially_​correct",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "中等",
+          "case_id": "P3500-MEDIUM-019",
+          "critical": "false",
+          "primary": "retrieval_​insufficient",
+          "secondary": "",
+          "confidence": 0.9,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75, retrieval_​recall_​at_​10_​zero"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "中等",
+          "case_id": "P3500-MEDIUM-023",
+          "critical": "false",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning, evaluator_​error",
+          "confidence": 0.7,
+          "semantic_proxy": "partially_​correct",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "中等",
+          "case_id": "P3500-MEDIUM-025",
+          "critical": "false",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning",
+          "confidence": 0.7,
+          "semantic_proxy": "unresolved",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "中等",
+          "case_id": "P3500-MEDIUM-026",
+          "critical": "false",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning",
+          "confidence": 0.7,
+          "semantic_proxy": "unresolved",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "中等",
+          "case_id": "P3500-MEDIUM-027",
+          "critical": "false",
+          "primary": "generation_​or_​reasoning",
+          "secondary": "intermediate_​pipeline_​loss",
+          "confidence": 0.7,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "中等",
+          "case_id": "P3500-MEDIUM-029",
+          "critical": "false",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning, evaluator_​error",
+          "confidence": 0.7,
+          "semantic_proxy": "partially_​correct",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "中等",
+          "case_id": "P3500-MEDIUM-031",
+          "critical": "false",
+          "primary": "generation_​or_​reasoning",
+          "secondary": "intermediate_​pipeline_​loss",
+          "confidence": 0.9,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "中等",
+          "case_id": "P3500-MEDIUM-035",
+          "critical": "false",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning",
+          "confidence": 0.7,
+          "semantic_proxy": "unresolved",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "中等",
+          "case_id": "P3500-MEDIUM-037",
+          "critical": "false",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning",
+          "confidence": 0.7,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "中等",
+          "case_id": "P3500-MEDIUM-038",
+          "critical": "false",
+          "primary": "generation_​or_​reasoning",
+          "secondary": "intermediate_​pipeline_​loss",
+          "confidence": 0.9,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "中等",
+          "case_id": "P3500-MEDIUM-043",
+          "critical": "false",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning, evaluator_​error",
+          "confidence": 0.7,
+          "semantic_proxy": "partially_​correct",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "中等",
+          "case_id": "P3500-MEDIUM-045",
+          "critical": "false",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning, evaluator_​error",
+          "confidence": 0.7,
+          "semantic_proxy": "partially_​correct",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "中等",
+          "case_id": "P3500-MEDIUM-047",
+          "critical": "false",
+          "primary": "generation_​or_​reasoning",
+          "secondary": "intermediate_​pipeline_​loss",
+          "confidence": 0.7,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "中等",
+          "case_id": "P3500-MEDIUM-048",
+          "critical": "false",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning",
+          "confidence": 0.7,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-006",
+          "critical": "false",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning, evaluator_​error",
+          "confidence": 0.7,
+          "semantic_proxy": "partially_​correct",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-007",
+          "critical": "false",
+          "primary": "generation_​or_​reasoning",
+          "secondary": "intermediate_​pipeline_​loss, retrieval_​unclear_​or_​noisy",
+          "confidence": 0.9,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-008",
+          "critical": "false",
+          "primary": "generation_​or_​reasoning",
+          "secondary": "intermediate_​pipeline_​loss, retrieval_​unclear_​or_​noisy",
+          "confidence": 0.7,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-009",
+          "critical": "false",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning, retrieval_​unclear_​or_​noisy",
+          "confidence": 0.7,
+          "semantic_proxy": "unresolved",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-011",
+          "critical": "false",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning, evaluator_​error",
+          "confidence": 0.7,
+          "semantic_proxy": "partially_​correct",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-012",
+          "critical": "false",
+          "primary": "retrieval_​unclear_​or_​noisy",
+          "secondary": "context_​loss",
+          "confidence": 0.9,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75, retrieval_​recall_​at_​10_​zero"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-013",
+          "critical": "false",
+          "primary": "generation_​or_​reasoning",
+          "secondary": "intermediate_​pipeline_​loss, retrieval_​unclear_​or_​noisy",
+          "confidence": 0.7,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-014",
+          "critical": "false",
+          "primary": "retrieval_​unclear_​or_​noisy",
+          "secondary": "intermediate_​pipeline_​loss, generation_​or_​reasoning",
+          "confidence": 0.9,
+          "semantic_proxy": "unresolved",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-015",
+          "critical": "false",
+          "primary": "generation_​or_​reasoning",
+          "secondary": "intermediate_​pipeline_​loss",
+          "confidence": 0.7,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-016",
+          "critical": "false",
+          "primary": "retrieval_​unclear_​or_​noisy",
+          "secondary": "context_​loss",
+          "confidence": 0.9,
+          "semantic_proxy": "partially_​correct",
+          "historical_gate_reasons": "retrieval_​recall_​at_​10_​zero"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-018",
+          "critical": "false",
+          "primary": "retrieval_​unclear_​or_​noisy",
+          "secondary": "intermediate_​pipeline_​loss, generation_​or_​reasoning",
+          "confidence": 0.9,
+          "semantic_proxy": "partially_​correct",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-019",
+          "critical": "false",
+          "primary": "retrieval_​unclear_​or_​noisy",
+          "secondary": "context_​loss",
+          "confidence": 0.9,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75, retrieval_​recall_​at_​10_​zero"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-021",
+          "critical": "false",
+          "primary": "generation_​or_​reasoning",
+          "secondary": "intermediate_​pipeline_​loss, retrieval_​unclear_​or_​noisy",
+          "confidence": 0.9,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-022",
+          "critical": "false",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning, retrieval_​unclear_​or_​noisy",
+          "confidence": 0.7,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-023",
+          "critical": "false",
+          "primary": "retrieval_​unclear_​or_​noisy",
+          "secondary": "intermediate_​pipeline_​loss, generation_​or_​reasoning",
+          "confidence": 0.9,
+          "semantic_proxy": "unresolved",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-024",
+          "critical": "false",
+          "primary": "generation_​or_​reasoning",
+          "secondary": "intermediate_​pipeline_​loss",
+          "confidence": 0.9,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-026",
+          "critical": "false",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning",
+          "confidence": 0.9,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75, retrieval_​recall_​at_​10_​zero"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-027",
+          "critical": "false",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning",
+          "confidence": 0.7,
+          "semantic_proxy": "partially_​correct",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-028",
+          "critical": "false",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning",
+          "confidence": 0.7,
+          "semantic_proxy": "partially_​correct",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-029",
+          "critical": "false",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning",
+          "confidence": 0.7,
+          "semantic_proxy": "partially_​correct",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-031",
+          "critical": "false",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning",
+          "confidence": 0.7,
+          "semantic_proxy": "unresolved",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-032",
+          "critical": "false",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning, evaluator_​error",
+          "confidence": 0.7,
+          "semantic_proxy": "partially_​correct",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-034",
+          "critical": "false",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning",
+          "confidence": 0.7,
+          "semantic_proxy": "unresolved",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-035",
+          "critical": "false",
+          "primary": "retrieval_​unclear_​or_​noisy",
+          "secondary": "intermediate_​pipeline_​loss, generation_​or_​reasoning",
+          "confidence": 0.9,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-036",
+          "critical": "false",
+          "primary": "retrieval_​unclear_​or_​noisy",
+          "secondary": "intermediate_​pipeline_​loss, generation_​or_​reasoning",
+          "confidence": 0.9,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-037",
+          "critical": "false",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning",
+          "confidence": 0.7,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-039",
+          "critical": "false",
+          "primary": "retrieval_​unclear_​or_​noisy",
+          "secondary": "generation_​or_​reasoning",
+          "confidence": 0.9,
+          "semantic_proxy": "partially_​correct",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-041",
+          "critical": "false",
+          "primary": "retrieval_​unclear_​or_​noisy",
+          "secondary": "intermediate_​pipeline_​loss, generation_​or_​reasoning",
+          "confidence": 0.9,
+          "semantic_proxy": "unresolved",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-042",
+          "critical": "false",
+          "primary": "generation_​or_​reasoning",
+          "secondary": "intermediate_​pipeline_​loss",
+          "confidence": 0.9,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-043",
+          "critical": "false",
+          "primary": "generation_​or_​reasoning",
+          "secondary": "intermediate_​pipeline_​loss",
+          "confidence": 0.9,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-044",
+          "critical": "false",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning, evaluator_​error",
+          "confidence": 0.7,
+          "semantic_proxy": "partially_​correct",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "困难",
+          "case_id": "P3500-HARD-045",
+          "critical": "false",
+          "primary": "retrieval_​insufficient",
+          "secondary": "",
+          "confidence": 0.9,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75, retrieval_​recall_​at_​10_​zero"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "简单",
+          "case_id": "P3500-EASY-006",
+          "critical": "false",
+          "primary": "evaluator_​error",
+          "secondary": "intermediate_​pipeline_​loss",
+          "confidence": 0.9,
+          "semantic_proxy": "likely_​correct",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "简单",
+          "case_id": "P3500-EASY-008",
+          "critical": "false",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning, evaluator_​error",
+          "confidence": 0.7,
+          "semantic_proxy": "partially_​correct",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "简单",
+          "case_id": "P3500-EASY-011",
+          "critical": "false",
+          "primary": "generation_​or_​reasoning",
+          "secondary": "intermediate_​pipeline_​loss",
+          "confidence": 0.7,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "简单",
+          "case_id": "P3500-EASY-013",
+          "critical": "false",
+          "primary": "generation_​or_​reasoning",
+          "secondary": "intermediate_​pipeline_​loss",
+          "confidence": 0.9,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "简单",
+          "case_id": "P3500-EASY-016",
+          "critical": "false",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning",
+          "confidence": 0.7,
+          "semantic_proxy": "unresolved",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "简单",
+          "case_id": "P3500-EASY-017",
+          "critical": "false",
+          "primary": "generation_​or_​reasoning",
+          "secondary": "intermediate_​pipeline_​loss",
+          "confidence": 0.9,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "简单",
+          "case_id": "P3500-EASY-018",
+          "critical": "false",
+          "primary": "dataset_​reference_​issue",
+          "secondary": "evaluator_​error",
+          "confidence": 0.7,
+          "semantic_proxy": "likely_​correct",
+          "historical_gate_reasons": "retrieval_​recall_​at_​10_​zero"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "简单",
+          "case_id": "P3500-EASY-022",
+          "critical": "false",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning",
+          "confidence": 0.7,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "简单",
+          "case_id": "P3500-EASY-026",
+          "critical": "false",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning, evaluator_​error",
+          "confidence": 0.7,
+          "semantic_proxy": "partially_​correct",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "简单",
+          "case_id": "P3500-EASY-028",
+          "critical": "false",
+          "primary": "evaluator_​error",
+          "secondary": "generation_​or_​reasoning",
+          "confidence": 0.9,
+          "semantic_proxy": "likely_​correct",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "简单",
+          "case_id": "P3500-EASY-034",
+          "critical": "false",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning",
+          "confidence": 0.7,
+          "semantic_proxy": "unresolved",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "简单",
+          "case_id": "P3500-EASY-035",
+          "critical": "false",
+          "primary": "evaluator_​error",
+          "secondary": "generation_​or_​reasoning",
+          "confidence": 0.9,
+          "semantic_proxy": "likely_​correct",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "简单",
+          "case_id": "P3500-EASY-043",
+          "critical": "false",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning",
+          "confidence": 0.7,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "简单",
+          "case_id": "P3500-EASY-045",
+          "critical": "false",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning",
+          "confidence": 0.7,
+          "semantic_proxy": "unresolved",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "简单",
+          "case_id": "P3500-EASY-047",
+          "critical": "false",
+          "primary": "generation_​or_​reasoning",
+          "secondary": "intermediate_​pipeline_​loss",
+          "confidence": 0.9,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        },
+        {
+          "critical_order": 0.0,
+          "difficulty": "简单",
+          "case_id": "P3500-EASY-049",
+          "critical": "false",
+          "primary": "intermediate_​pipeline_​loss",
+          "secondary": "generation_​or_​reasoning",
+          "confidence": 0.7,
+          "semantic_proxy": "likely_​incorrect_​or_​incomplete",
+          "historical_gate_reasons": "expected_​term_​recall_​below_​0.75"
+        }
+      ],
+      "final_failure_cases": [],
+      "semantic_judge": [
+        {
+          "order": 0.0,
+          "item": "review coverage",
+          "result": "59 unique cases / 59 records",
+          "status": "succeeded"
+        },
+        {
+          "order": 1.0,
+          "item": "calibration P3500-EASY-001",
+          "result": "expected=False; actual=False",
+          "status": "matched"
+        },
+        {
+          "order": 2.0,
+          "item": "calibration P3500-EASY-006",
+          "result": "expected=True; actual=True",
+          "status": "matched"
+        }
+      ],
+      "validation_checks": [
+        {
+          "order": 0.0,
+          "check": "baseline registry",
+          "status": "passed",
+          "detail": "3 × 50 live root runs"
+        },
+        {
+          "order": 1.0,
+          "check": "baseline artifacts",
+          "status": "passed",
+          "detail": "copy-manifest, summary and results SHA-256 verified for all difficulties"
+        },
+        {
+          "order": 2.0,
+          "check": "diagnostic lineage",
+          "status": "passed",
+          "detail": "diagnostic result/dataset hashes match the registered baselines"
+        },
+        {
+          "order": 3.0,
+          "check": "semantic judge archive",
+          "status": "passed",
+          "detail": "summary, selected-case subset and response SHA-256 verified; credentials_recorded=false"
+        },
+        {
+          "order": 4.0,
+          "check": "final label selection",
+          "status": "pending",
+          "detail": "no label auto-discovered; provide --final-label only after explicit approval"
+        }
+      ],
+      "input_inventory": [
+        {
+          "order": 0.0,
+          "role": "artifact_copy_manifest",
+          "difficulty": "easy",
+          "path": "…/​easy/​erun_​67606fd246654edb9a6b57ecfc4aab79/​artifact-​copy-​manifest.json",
+          "sha256": "d04fb8e0fe06ad96f4e1…"
+        },
+        {
+          "order": 1.0,
+          "role": "artifact_copy_manifest",
+          "difficulty": "hard",
+          "path": "…/​hard/​erun_​54375b39653d4a2fb52b931f4dfbb01c/​artifact-​copy-​manifest.json",
+          "sha256": "78a63f26847e7d56b093…"
+        },
+        {
+          "order": 2.0,
+          "role": "artifact_copy_manifest",
+          "difficulty": "medium",
+          "path": "…/​medium/​erun_​eb7884462cd34655b1e703974f2d8662/​artifact-​copy-​manifest.json",
+          "sha256": "0c4d9da7a065018acaac…"
+        },
+        {
+          "order": 3.0,
+          "role": "baseline_failure_diagnostics",
+          "difficulty": "all",
+          "path": "…/​remediation-​2026-​08-​10/​diagnostics/​failure-​diagnostics.json",
+          "sha256": "436086870470954f01e8…"
+        },
+        {
+          "order": 4.0,
+          "role": "baseline_registry",
+          "difficulty": "all",
+          "path": "…/​2026-​08-​10-​three-​difficulty/​baselines/​baselines.json",
+          "sha256": "0b292fe4a68507d9e720…"
+        },
+        {
+          "order": 5.0,
+          "role": "diagnostics_api_results",
+          "difficulty": "easy",
+          "path": "…/​erun_​67606fd246654edb9a6b57ecfc4aab79/​api/​results.json",
+          "sha256": "aa0cce4c95bb4b14a073…"
+        },
+        {
+          "order": 6.0,
+          "role": "diagnostics_api_results",
+          "difficulty": "hard",
+          "path": "…/​erun_​54375b39653d4a2fb52b931f4dfbb01c/​api/​results.json",
+          "sha256": "ec9be7d3f51080cbaded…"
+        },
+        {
+          "order": 7.0,
+          "role": "diagnostics_api_results",
+          "difficulty": "medium",
+          "path": "…/​erun_​eb7884462cd34655b1e703974f2d8662/​api/​results.json",
+          "sha256": "0ada849ea5cd5f86fc78…"
+        },
+        {
+          "order": 8.0,
+          "role": "diagnostics_dataset_manifest",
+          "difficulty": "easy",
+          "path": "docs/​evaluation-​baselines/​2026-​08-​10-​three-​difficulty/​datasets/​easy.json",
+          "sha256": "1a3cacbb59b3aa7f354a…"
+        },
+        {
+          "order": 9.0,
+          "role": "diagnostics_dataset_manifest",
+          "difficulty": "hard",
+          "path": "docs/​evaluation-​baselines/​2026-​08-​10-​three-​difficulty/​datasets/​hard.json",
+          "sha256": "e5be4d2495618e819b97…"
+        },
+        {
+          "order": 10.0,
+          "role": "diagnostics_dataset_manifest",
+          "difficulty": "medium",
+          "path": "…/​2026-​08-​10-​three-​difficulty/​datasets/​medium.json",
+          "sha256": "89c570d10282342fd7fa…"
+        },
+        {
+          "order": 11.0,
+          "role": "results",
+          "difficulty": "easy",
+          "path": "…/​easy/​erun_​67606fd246654edb9a6b57ecfc4aab79/​results.jsonl",
+          "sha256": "f24db5bb3fa99734a6d4…"
+        },
+        {
+          "order": 12.0,
+          "role": "results",
+          "difficulty": "hard",
+          "path": "…/​hard/​erun_​54375b39653d4a2fb52b931f4dfbb01c/​results.jsonl",
+          "sha256": "f554f80bda8eb025fd21…"
+        },
+        {
+          "order": 13.0,
+          "role": "results",
+          "difficulty": "medium",
+          "path": "…/​medium/​erun_​eb7884462cd34655b1e703974f2d8662/​results.jsonl",
+          "sha256": "b878e23e046abdc08c1e…"
+        },
+        {
+          "order": 14.0,
+          "role": "semantic_judge_responses",
+          "difficulty": "all",
+          "path": "…/​remediation-​2026-​08-​10/​diagnostics/​llm-​review-​responses.jsonl",
+          "sha256": "8115bc261a42e8334c36…"
+        },
+        {
+          "order": 15.0,
+          "role": "semantic_judge_summary",
+          "difficulty": "all",
+          "path": "…/​remediation-​2026-​08-​10/​diagnostics/​llm-​review-​summary.json",
+          "sha256": "b4fefb5dc833061104d9…"
+        },
+        {
+          "order": 16.0,
+          "role": "summary",
+          "difficulty": "easy",
+          "path": "…/​easy/​erun_​67606fd246654edb9a6b57ecfc4aab79/​summary.json",
+          "sha256": "56a70005dcb961ea952c…"
+        },
+        {
+          "order": 17.0,
+          "role": "summary",
+          "difficulty": "hard",
+          "path": "…/​hard/​erun_​54375b39653d4a2fb52b931f4dfbb01c/​summary.json",
+          "sha256": "4f3ead6ce33d2c3f90ac…"
+        },
+        {
+          "order": 18.0,
+          "role": "summary",
+          "difficulty": "medium",
+          "path": "…/​medium/​erun_​eb7884462cd34655b1e703974f2d8662/​summary.json",
+          "sha256": "8ddbfffce4f375a5c962…"
+        }
+      ]
+    },
+    "accessIssues": [
+      {
+        "id": "final-label-not-selected",
+        "title": "最终 label 尚未选择",
+        "message": "Required final comparison data is intentionally absent; rerun with --final-label after explicit approval."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "baseline-registry",
+      "label": "Three-difficulty baseline registry",
+      "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/baselines/baselines.json",
+      "query": {
+        "engine": "Repository JSON archive",
+        "id": "sha256:0b292fe4a68507d9e720ac0a1c44c4ef8065695693289532f2768b2229a031df",
+        "language": "json",
+        "executed_at": "2026-08-10T04:56:24.295885+00:00",
+        "description": "Registered easy/medium/hard live root runs and their dataset, gate and artifact identities.",
+        "tables_used": [
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/baselines/baselines.json"
+        ],
+        "filters": [
+          "easy, medium and hard",
+          "full live evaluation",
+          "exact archived rows only"
+        ]
+      }
+    },
+    {
+      "id": "baseline-diagnostics",
+      "label": "Read-only baseline failure diagnostics",
+      "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/failure-diagnostics.json",
+      "query": {
+        "engine": "Repository JSON archive",
+        "id": "sha256:436086870470954f01e872d1bca6d6121030cb153ec260689b67ba5672950935",
+        "language": "json",
+        "executed_at": "2026-08-10T04:56:47.469730+00:00",
+        "description": "Case-level primary/secondary attribution and deterministic semantic-correctness proxy for failed baseline cases.",
+        "tables_used": [
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/failure-diagnostics.json"
+        ],
+        "filters": [
+          "easy, medium and hard",
+          "full live evaluation",
+          "exact archived rows only"
+        ]
+      }
+    },
+    {
+      "id": "semantic-judge-summary",
+      "label": "Semantic judge review summary",
+      "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-summary.json",
+      "query": {
+        "engine": "Repository JSON archive",
+        "id": "sha256:b4fefb5dc833061104d90fa80557d6823f88f5220a9b38410a02fd3e5dcba423",
+        "language": "json",
+        "executed_at": "2026-08-10T04:56:24.295885+00:00",
+        "description": "qwen-plus review coverage and two-case answer-claims-isolation calibration receipt; no credentials are included.",
+        "tables_used": [
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-summary.json"
+        ],
+        "filters": [
+          "easy, medium and hard",
+          "full live evaluation",
+          "exact archived rows only"
+        ]
+      }
+    },
+    {
+      "id": "report-derivation",
+      "label": "Deterministic report projection",
+      "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/technical-report/generate_artifact.py",
+      "query": {
+        "engine": "Python 3 deterministic file projection",
+        "id": "sha256:c3dc34b2a1e715a6ce474b2cc355f06efcecd3cf9cd1480d95e191107f672e7e",
+        "language": "python",
+        "executed_at": "2026-08-10T04:56:24.295885+00:00",
+        "description": "Validates registry/run/artifact identities and hashes, then projects bounded case, metric, diagnostic and judge tables.",
+        "tables_used": [
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/baselines/baselines.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/artifact-copy-manifest.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/results.jsonl",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/artifact-copy-manifest.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/results.jsonl",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/artifact-copy-manifest.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/results.jsonl",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/failure-diagnostics.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/api/results.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/easy.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/api/results.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/hard.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/api/results.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/medium.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-responses.jsonl"
+        ],
+        "filters": [
+          "easy, medium and hard",
+          "full live evaluation",
+          "exact archived rows only"
+        ],
+        "metric_definitions": [
+          "case pass rate = archived result rows with passed=true / all archived result rows",
+          "failed excludes rows with error_type/error_detail; error is reported separately",
+          "Recall@K, MRR, nDCG@10, generation and citation values are arithmetic means from archived summary.json",
+          "abstention FPR = false_positive / (false_positive + true_negative)",
+          "cost remains unknown when the archived runtime has no priced total"
+        ]
+      }
+    },
+    {
+      "id": "case_outcomes-query",
+      "label": "Case outcome composition query",
+      "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/technical-report/generate_artifact.py",
+      "query": {
+        "engine": "SQLite over validated repository JSON projections",
+        "id": "sha256:c3dc34b2a1e715a6ce474b2cc355f06efcecd3cf9cd1480d95e191107f672e7e",
+        "language": "sql",
+        "executed_at": "2026-08-10T04:56:24.295885+00:00",
+        "description": "SQLite ordering and bounded projection for snapshot.datasets.case_outcomes.",
+        "tables_used": [
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/baselines/baselines.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/artifact-copy-manifest.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/results.jsonl",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/artifact-copy-manifest.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/results.jsonl",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/artifact-copy-manifest.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/results.jsonl",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/failure-diagnostics.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/api/results.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/easy.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/api/results.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/hard.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/api/results.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/medium.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-responses.jsonl"
+        ],
+        "filters": [
+          "easy, medium and hard",
+          "full live evaluation",
+          "exact archived rows only"
+        ],
+        "sql": "SELECT \"order\", difficulty_run, difficulty, role, passed, failed, error, total FROM case_outcomes ORDER BY \"order\";"
+      }
+    },
+    {
+      "id": "run_facts-query",
+      "label": "Run and gate facts query",
+      "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/technical-report/generate_artifact.py",
+      "query": {
+        "engine": "SQLite over validated repository JSON projections",
+        "id": "sha256:c3dc34b2a1e715a6ce474b2cc355f06efcecd3cf9cd1480d95e191107f672e7e",
+        "language": "sql",
+        "executed_at": "2026-08-10T04:56:24.295885+00:00",
+        "description": "SQLite ordering and bounded projection for snapshot.datasets.run_facts.",
+        "tables_used": [
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/baselines/baselines.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/artifact-copy-manifest.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/results.jsonl",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/artifact-copy-manifest.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/results.jsonl",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/artifact-copy-manifest.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/results.jsonl",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/failure-diagnostics.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/api/results.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/easy.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/api/results.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/hard.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/api/results.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/medium.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-responses.jsonl"
+        ],
+        "filters": [
+          "easy, medium and hard",
+          "full live evaluation",
+          "exact archived rows only"
+        ],
+        "sql": "SELECT * FROM run_facts ORDER BY \"order\";"
+      }
+    },
+    {
+      "id": "quality_metrics-query",
+      "label": "Quality metric query",
+      "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/technical-report/generate_artifact.py",
+      "query": {
+        "engine": "SQLite over validated repository JSON projections",
+        "id": "sha256:c3dc34b2a1e715a6ce474b2cc355f06efcecd3cf9cd1480d95e191107f672e7e",
+        "language": "sql",
+        "executed_at": "2026-08-10T04:56:24.295885+00:00",
+        "description": "SQLite ordering and bounded projection for snapshot.datasets.quality_metrics.",
+        "tables_used": [
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/baselines/baselines.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/artifact-copy-manifest.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/results.jsonl",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/artifact-copy-manifest.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/results.jsonl",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/artifact-copy-manifest.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/results.jsonl",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/failure-diagnostics.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/api/results.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/easy.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/api/results.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/hard.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/api/results.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/medium.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-responses.jsonl"
+        ],
+        "filters": [
+          "easy, medium and hard",
+          "full live evaluation",
+          "exact archived rows only"
+        ],
+        "sql": "SELECT * FROM quality_metrics ORDER BY \"order\";"
+      }
+    },
+    {
+      "id": "runtime_telemetry-query",
+      "label": "Runtime telemetry query",
+      "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/technical-report/generate_artifact.py",
+      "query": {
+        "engine": "SQLite over validated repository JSON projections",
+        "id": "sha256:c3dc34b2a1e715a6ce474b2cc355f06efcecd3cf9cd1480d95e191107f672e7e",
+        "language": "sql",
+        "executed_at": "2026-08-10T04:56:24.295885+00:00",
+        "description": "SQLite ordering and bounded projection for snapshot.datasets.runtime_telemetry.",
+        "tables_used": [
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/baselines/baselines.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/artifact-copy-manifest.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/results.jsonl",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/artifact-copy-manifest.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/results.jsonl",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/artifact-copy-manifest.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/results.jsonl",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/failure-diagnostics.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/api/results.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/easy.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/api/results.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/hard.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/api/results.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/medium.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-responses.jsonl"
+        ],
+        "filters": [
+          "easy, medium and hard",
+          "full live evaluation",
+          "exact archived rows only"
+        ],
+        "sql": "SELECT * FROM runtime_telemetry ORDER BY \"order\";"
+      }
+    },
+    {
+      "id": "identity_facts-query",
+      "label": "Comparison identity query",
+      "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/technical-report/generate_artifact.py",
+      "query": {
+        "engine": "SQLite over validated repository JSON projections",
+        "id": "sha256:c3dc34b2a1e715a6ce474b2cc355f06efcecd3cf9cd1480d95e191107f672e7e",
+        "language": "sql",
+        "executed_at": "2026-08-10T04:56:24.295885+00:00",
+        "description": "SQLite ordering and bounded projection for snapshot.datasets.identity_facts.",
+        "tables_used": [
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/baselines/baselines.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/artifact-copy-manifest.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/results.jsonl",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/artifact-copy-manifest.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/results.jsonl",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/artifact-copy-manifest.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/results.jsonl",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/failure-diagnostics.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/api/results.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/easy.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/api/results.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/hard.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/api/results.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/medium.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-responses.jsonl"
+        ],
+        "filters": [
+          "easy, medium and hard",
+          "full live evaluation",
+          "exact archived rows only"
+        ],
+        "sql": "SELECT * FROM identity_facts ORDER BY \"order\";"
+      }
+    },
+    {
+      "id": "diagnostic_attribution-query",
+      "label": "Baseline diagnostic attribution query",
+      "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/technical-report/generate_artifact.py",
+      "query": {
+        "engine": "SQLite over validated repository JSON projections",
+        "id": "sha256:c3dc34b2a1e715a6ce474b2cc355f06efcecd3cf9cd1480d95e191107f672e7e",
+        "language": "sql",
+        "executed_at": "2026-08-10T04:56:24.295885+00:00",
+        "description": "SQLite ordering and bounded projection for snapshot.datasets.diagnostic_attribution.",
+        "tables_used": [
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/baselines/baselines.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/artifact-copy-manifest.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/results.jsonl",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/artifact-copy-manifest.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/results.jsonl",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/artifact-copy-manifest.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/results.jsonl",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/failure-diagnostics.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/api/results.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/easy.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/api/results.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/hard.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/api/results.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/medium.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-responses.jsonl"
+        ],
+        "filters": [
+          "easy, medium and hard",
+          "full live evaluation",
+          "exact archived rows only"
+        ],
+        "sql": "SELECT * FROM diagnostic_attribution ORDER BY case_count DESC, \"primary\" ASC;"
+      }
+    },
+    {
+      "id": "diagnostic_semantic-query",
+      "label": "Baseline semantic-proxy query",
+      "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/technical-report/generate_artifact.py",
+      "query": {
+        "engine": "SQLite over validated repository JSON projections",
+        "id": "sha256:c3dc34b2a1e715a6ce474b2cc355f06efcecd3cf9cd1480d95e191107f672e7e",
+        "language": "sql",
+        "executed_at": "2026-08-10T04:56:24.295885+00:00",
+        "description": "SQLite ordering and bounded projection for snapshot.datasets.diagnostic_semantic.",
+        "tables_used": [
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/baselines/baselines.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/artifact-copy-manifest.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/results.jsonl",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/artifact-copy-manifest.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/results.jsonl",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/artifact-copy-manifest.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/results.jsonl",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/failure-diagnostics.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/api/results.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/easy.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/api/results.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/hard.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/api/results.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/medium.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-responses.jsonl"
+        ],
+        "filters": [
+          "easy, medium and hard",
+          "full live evaluation",
+          "exact archived rows only"
+        ],
+        "sql": "SELECT * FROM diagnostic_semantic ORDER BY case_count DESC, status ASC;"
+      }
+    },
+    {
+      "id": "diagnostic_failures-query",
+      "label": "Baseline case-diagnostic query",
+      "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/technical-report/generate_artifact.py",
+      "query": {
+        "engine": "SQLite over validated repository JSON projections",
+        "id": "sha256:c3dc34b2a1e715a6ce474b2cc355f06efcecd3cf9cd1480d95e191107f672e7e",
+        "language": "sql",
+        "executed_at": "2026-08-10T04:56:24.295885+00:00",
+        "description": "SQLite ordering and bounded projection for snapshot.datasets.diagnostic_failures.",
+        "tables_used": [
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/baselines/baselines.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/artifact-copy-manifest.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/results.jsonl",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/artifact-copy-manifest.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/results.jsonl",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/artifact-copy-manifest.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/results.jsonl",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/failure-diagnostics.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/api/results.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/easy.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/api/results.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/hard.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/api/results.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/medium.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-responses.jsonl"
+        ],
+        "filters": [
+          "easy, medium and hard",
+          "full live evaluation",
+          "exact archived rows only"
+        ],
+        "sql": "SELECT * FROM diagnostic_failures ORDER BY critical_order DESC, difficulty ASC, case_id ASC;"
+      }
+    },
+    {
+      "id": "semantic_judge-query",
+      "label": "Semantic judge audit query",
+      "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/technical-report/generate_artifact.py",
+      "query": {
+        "engine": "SQLite over validated repository JSON projections",
+        "id": "sha256:c3dc34b2a1e715a6ce474b2cc355f06efcecd3cf9cd1480d95e191107f672e7e",
+        "language": "sql",
+        "executed_at": "2026-08-10T04:56:24.295885+00:00",
+        "description": "SQLite ordering and bounded projection for snapshot.datasets.semantic_judge.",
+        "tables_used": [
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/baselines/baselines.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/artifact-copy-manifest.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/results.jsonl",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/artifact-copy-manifest.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/results.jsonl",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/artifact-copy-manifest.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/results.jsonl",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/failure-diagnostics.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/api/results.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/easy.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/api/results.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/hard.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/api/results.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/medium.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-responses.jsonl"
+        ],
+        "filters": [
+          "easy, medium and hard",
+          "full live evaluation",
+          "exact archived rows only"
+        ],
+        "sql": "SELECT * FROM semantic_judge ORDER BY \"order\";"
+      }
+    },
+    {
+      "id": "validation_checks-query",
+      "label": "Input validation query",
+      "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/technical-report/generate_artifact.py",
+      "query": {
+        "engine": "SQLite over validated repository JSON projections",
+        "id": "sha256:c3dc34b2a1e715a6ce474b2cc355f06efcecd3cf9cd1480d95e191107f672e7e",
+        "language": "sql",
+        "executed_at": "2026-08-10T04:56:24.295885+00:00",
+        "description": "SQLite ordering and bounded projection for snapshot.datasets.validation_checks.",
+        "tables_used": [
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/baselines/baselines.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/artifact-copy-manifest.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/results.jsonl",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/artifact-copy-manifest.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/results.jsonl",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/artifact-copy-manifest.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/results.jsonl",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/failure-diagnostics.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/api/results.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/easy.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/api/results.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/hard.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/api/results.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/medium.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-responses.jsonl"
+        ],
+        "filters": [
+          "easy, medium and hard",
+          "full live evaluation",
+          "exact archived rows only"
+        ],
+        "sql": "SELECT * FROM validation_checks ORDER BY \"order\";"
+      }
+    },
+    {
+      "id": "input_inventory-query",
+      "label": "Input inventory query",
+      "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/technical-report/generate_artifact.py",
+      "query": {
+        "engine": "SQLite over validated repository JSON projections",
+        "id": "sha256:c3dc34b2a1e715a6ce474b2cc355f06efcecd3cf9cd1480d95e191107f672e7e",
+        "language": "sql",
+        "executed_at": "2026-08-10T04:56:24.295885+00:00",
+        "description": "SQLite ordering and bounded projection for snapshot.datasets.input_inventory.",
+        "tables_used": [
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/baselines/baselines.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/artifact-copy-manifest.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/results.jsonl",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/artifact-copy-manifest.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/results.jsonl",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/artifact-copy-manifest.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/results.jsonl",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/failure-diagnostics.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/easy/erun_67606fd246654edb9a6b57ecfc4aab79/api/results.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/easy.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/hard/erun_54375b39653d4a2fb52b931f4dfbb01c/api/results.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/hard.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/runs/medium/erun_eb7884462cd34655b1e703974f2d8662/api/results.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/medium.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-summary.json",
+          "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/diagnostics/llm-review-responses.jsonl"
+        ],
+        "filters": [
+          "easy, medium and hard",
+          "full live evaluation",
+          "exact archived rows only"
+        ],
+        "sql": "SELECT * FROM input_inventory ORDER BY \"order\";"
+      }
+    }
+  ],
+  "package_info": {
+    "authoring": {
+      "generator": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/technical-report/generate_artifact.py",
+      "final_label": null,
+      "combined_input_sha256": "c3dc34b2a1e715a6ce474b2cc355f06efcecd3cf9cd1480d95e191107f672e7e",
+      "chart_map": [
+        {
+          "section": "Case 结果构成按难度拉开",
+          "question": "每档 50 case 的 passed/failed/error 构成是什么？",
+          "family": "composition",
+          "type": "stackedBar",
+          "fields": [
+            "difficulty_run",
+            "passed",
+            "failed",
+            "error"
+          ],
+          "palette_policy": "three outcome categories; non-color labels preserved in semantic table"
+        }
+      ],
+      "omitted_visuals": "Exact metrics, failures, methodology and source inventory remain tables because lookup/audit is the primary task."
+    }
+  }
+}

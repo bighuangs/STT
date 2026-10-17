@@ -1,0 +1,5 @@
+{{ context_above }}
+
+![figure]({{ image_path }})
+
+{{ context_below }}

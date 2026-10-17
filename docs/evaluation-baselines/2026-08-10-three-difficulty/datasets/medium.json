@@ -1,0 +1,2911 @@
+{
+  "dataset_key": "pantum-p3500-medium-live-baseline",
+  "name": "Pantum P3500 中等难度全链路测试集",
+  "description": "50 道多约束、表格或操作步骤型问题，验证完整信息提取与可信引用。",
+  "version": "1.0.0",
+  "schema_version": "stt.eval.v1",
+  "suite_key": "three-difficulty-live-2026-08-10",
+  "difficulty": "medium",
+  "difficulty_label": "中等",
+  "minimum_case_count": 50,
+  "evaluation_mode_default": "live",
+  "tags": [
+    "manual",
+    "printer",
+    "zh-CN",
+    "pantum-p3500",
+    "three-difficulty-baseline",
+    "difficulty-medium",
+    "live"
+  ],
+  "source": {
+    "logical_name": "source.pdf",
+    "original_logical_name": "PantumP3500用户手册zh_CNV1.2_1644316283788.pdf",
+    "relative_path": "doc/PantumP3500用户手册zh_CNV1.2_1644316283788.pdf",
+    "content_sha256": "c4c7b2a434f3f86c4988d3961ac7304970029e71b0201fb6c10ca722b63bce2b",
+    "page_count": 95,
+    "layout": "A4 portrait, 12 chapters, tables and installation screenshots",
+    "reviewed_from_published_evidence": true,
+    "kb_id": "kb_2fad25538aab42d19baf79fba782a06c",
+    "document_id": "doc_9353bf25fcfa4991a8a0425713a3c9f1",
+    "document_version_id": "dv_8d7fe6750ff5445e8dfbfd80b913b216",
+    "index_version_id": "idx_fb5eeac133f540f4af31004dbde23151"
+  },
+  "generation": {
+    "authoring_model": "qwen-flash",
+    "method": "online-llm-grounded-plus-deterministic-qc",
+    "generated_at": "2026-08-10T03:29:35.123267+00:00",
+    "source_evidence_count": 218
+  },
+  "gate_policy": {
+    "policy_version": "stt.eval.gate.v2",
+    "recall_at_1_max_drop": 0.02,
+    "recall_at_3_max_drop": 0.02,
+    "recall_at_10_max_drop": 0.02,
+    "mrr_max_drop": 0.02,
+    "ndcg_at_10_max_drop": 0.02,
+    "grounding_coverage_max_drop": 0.0,
+    "unanswerable_false_answer_max_increase": 0.0,
+    "p95_latency_max_increase_ratio": 0.2,
+    "critical_failure_blocks": true,
+    "minimum_metric_coverage": 0.8
+  },
+  "cases": [
+    {
+      "case_id": "P3500-MEDIUM-001",
+      "query": "在使用打印机前，若遇到哪些情况必须立即断开电源并联系专业维修人员？同时，请说明为何不应自行拆解机器。",
+      "conversation": [],
+      "reference_answer": "若机器中溅入了液体、受到雨淋或进水、跌落或机壳摔坏、性能发生明显变化，应将机器从计算机和墙上 AC 电源插座上拔下，并联络专业维修人员进行维护；请勿拆解本机器以免造成电击，需要修理时应请专业维护人员进行。",
+      "unanswerable": false,
+      "expected_terms": [
+        "溅入了液体",
+        "受到雨淋或进水",
+        "跌落",
+        "机壳摔坏",
+        "性能发生明显变化"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_38c0d3c4747b578d14cb19f34db027f5"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_84173e3fe5a8ec8e8b8a13cedccb6b3aae7b055d",
+          "chunk_id": "chk_38c0d3c4747b578d14cb19f34db027f5",
+          "page": 6,
+          "text": "标题路径：前言 > 使用打印机前的注意事项：\n\n13. 请勿拆解本机器以免造成电击；需要修理时应请专业维护人员进行；打开或卸下护盖时会有电击或其它危险；不正确的拆装可能会导致以后使用时造成电击；\n\n14. 若出现以下情况，请将机器从计算机和墙上 AC 电源插座上拔下，并联络专业维修人员进行维护：\n\n• 机器中溅入了液体。\n\n• 机器受到雨淋或进水。\n\n• 机器跌落，或机壳摔坏。\n\n• 机器性能发生明显变化。\n\n15. 只调整操作说明中提到的控制；不正确地调整其它控制可能会造成损坏，并且需要专业维修人员用更长时间才能修好；\n\n16. 避免在雷暴天气使用本机器，以免遭到电击；如果可能，请在雷雨期间拔下 AC 电源线；\n\n17. 如果连续打印多页，出纸盘的表面会变得很烫，当心不要触碰此表面，并让儿童远离此表面；\n\n18. 与该打印机相连的设备的信号线不能连接到户外；\n\n19. 在换气不畅的房间中长时间使用或打印大量文件时，请您适时换气；\n\n20. 待机状态下，产品未接收到作业指示一段时间后（如 1 分钟），会自动进入节电（休眠）模式；只有当产品无任何外接输入电源相连时才能实现零能耗；",
+          "match_terms": [
+            "溅入了液体",
+            "受到雨淋或进水",
+            "跌落",
+            "机壳摔坏",
+            "性能发生明显变化"
+          ],
+          "content_hash": "sha256:caea6d0ce8bf51bac584eb4d34f90cfd9a3bb338ca79a0c97e643333919bb543"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "安全注意事项",
+        "故障处理"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "procedure",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": true
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-002",
+      "query": "该打印机符合哪些欧盟指令的合规要求？其适用的地理环境限制是什么？",
+      "conversation": [],
+      "reference_answer": "本产品符合欧共体理事会 2004/108/EC 和 2006/95/EC 指令的成员国近似和协调法规中涉及电磁兼容性和电气设备安全性（为在特定电压范围内使用）的保护要求；本产品仅适用于非热带地区安全使用；本产品仅适用于海拔 2000 米及以下地区安全使用。",
+      "unanswerable": false,
+      "expected_terms": [
+        "2004/108/EC",
+        "2006/95/EC",
+        "非热带地区",
+        "海拔 2000 米及以下",
+        "指令的成员国近似和协调法"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_863cd5259f047d9628e8b9d2ce5f4430"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_1b3eb2878fb886a49d96992d9063ab2a5f185fe3",
+          "chunk_id": "chk_863cd5259f047d9628e8b9d2ce5f4430",
+          "page": 7,
+          "text": "标题路径：前言 > CE\n\n欧共体 (EC) 指令合规性\n\n本产品符合欧共体理事会 2004/108/EC 和 2006/95/EC 指令的成员国近似和协调法规中涉及电磁兼容性和电气设备安全性（为在特定电压范围内使用）的保护要求。本产品制造商为：中华人民共和国广东省珠海市香洲区珠海大道 3883 号珠海奔图电子有限公司。有关这些指令要求的合规声明，可向授权代表索取。本产品符合 EN 55022 的 B 级范围和 EN 60950 的安全要求。\n\n![图片](images/d6452c59cacbb937e852427948fcbf5f6a5b6c7301fd7b4c14fcf45084d89384.jpg)\n\n本产品完全符合 ROHS 指令 2009/95/EC 及重订指令 2011/65/EU 对有毒有害物质的管理要求。\n\n![图片](images/a40ba8b9d71fc5ba2ca1a750f805b0c0a76558c8d0e57f74cd725f16c28b3c6e.jpg)\n\n本产品仅适用于非热带地区安全使用。\n\n![图片](images/718941182e183d5fdaf99cbcbeaf8cc8f7314147bb0628b9f99ab8457d5d945c.jpg)\n\n本产品仅适用于海拔 2000 米及以下地区安全使用。\n\n三个垂直排列的圆形图标。\n\n最上方图标：黑色圆环内有数字“10”，圆环左右两侧各有一个指向内侧的箭头，形成循环符号。\n\n中间图标：黑色圆环内有一条斜线从左上至右下穿过三道波浪形上升线条，下方为水平波浪线代表水面或液体表面。\n\n最下方图标：黑色圆环内有三个山峰形状（左侧和右侧山峰较矮、中间山峰较高），下方有模糊可辨的英文文字“CAMPING”字样。",
+          "match_terms": [
+            "2004/108/EC",
+            "2006/95/EC",
+            "非热带地区",
+            "海拔 2000 米及以下",
+            "指令的成员国近似和协调法"
+          ],
+          "content_hash": "sha256:dd4ba9208c03a13002989662090e8631c6f81c392d2ec42f7042409b99c2643a"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "合规性",
+        "使用环境"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "direct_fact",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": true
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-003",
+      "query": "P3500 Series 黑白激光打印机的推荐月打印量范围是多少？其最大月工作负荷是多少？",
+      "conversation": [],
+      "reference_answer": "750 to 4,000 recommended monthly page volume；50,000 page monthly duty cycle",
+      "unanswerable": false,
+      "expected_terms": [
+        "750 to 4,000 recommended monthly page volume",
+        "50,000 page monthly duty cycle"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_d85fedec9a00e558b6d9163b0f425f3f"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_1b5a1b1cccfcbe046898717ba0b26b5960f4f7e6",
+          "chunk_id": "chk_d85fedec9a00e558b6d9163b0f425f3f",
+          "page": 18,
+          "text": "标题路径：前言 > 1．演示页\n\n![图片](images/dcbcacdb8415dfeac40be3f1aca9c54996b9d268392f59873525204a029a3ab8.jpg)\n\nP3500 Series  \nMonochrome Laser Printer  \n\nAutomatic 2-sided printing  \n50,000 page monthly duty cycle  \n750 to 4,000 recommended monthly page volume  \nEasy USB connection  \n250 sheet input tray  \nEnvironmentally friendly  \nSpace saving design  \nSleep mode to reduce energy consumption  \n\n[ Sample Test ]  \nABCDEFGHIJKLMNOPQRSTUVWXYZ  \nABCDEFGHIJKLMNOPQRSTUVWXYZ  \nABCDEFGHIJKLMNOPQRSTUVWXYZ  \nABCDEFGHIJKLMNOPQRSTUVWXYZ  \nABCDEFGHIJKLMNOPQRSTUVWXYZ  \nABCDEFGHIJKLMNOPQRSTUVWXYZ  \nABCDEFGHIJKLMNOPQRSTUVWXYZ  \nABCDEFGHIJKLMNOPQRSTUVWXYZ  \nABCDEFGHIJKLMNOPQRSTUVWXYZ  \nABCDEFGHIJKLMNOPQRSTUVWXYZ  \n\nA square pattern composed of nested concentric squares in grayscale, positioned to the right of the sample test text. Adjacent to it, a 2×2 grid of squares: top-left gray, top-right black, bottom-left gray, bottom-right white.",
+          "match_terms": [
+            "750 to 4,000 recommended monthly page volume",
+            "50,000 page monthly duty cycle"
+          ],
+          "content_hash": "sha256:e6565742401f2dace4f7265e68e677e32bf18497dbeb04c98ec8716df9105b91"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "规格参数",
+        "性能指标"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "table",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": true
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-004",
+      "query": "当打印机通过无线网络连接时，其IP地址、默认网关和身份验证方式分别是什么？",
+      "conversation": [],
+      "reference_answer": "IP 地址：192.168.0.102；默认网关：192.168.0.1；身份验证方式：WPA/WPA2",
+      "unanswerable": false,
+      "expected_terms": [
+        "192.168.0.102",
+        "WPA/WPA2",
+        "IP",
+        "身份验证方式",
+        "默认网关"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_e85e43211c7b0b6a6aa4ab6c1d752d00"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_1cd266d7d173f9d3fa0218dc1ecad2d25bb48a8a",
+          "chunk_id": "chk_e85e43211c7b0b6a6aa4ab6c1d752d00",
+          "page": 19,
+          "text": "标题路径：前言 > 4．网络配置信息页\n\n可以查看打印机的有线/无线网络信息、无线热点信息。\n\n![图片](images/07c8d4d22ecf12fef656422b7b69949e8a8c05418eef7ce8216cd9809a0d133e.jpg)\n\nP3500 Series  \nPANTUM  \n[ 网络配置信息页 ]  \n[ Page 1 ]  \n有线网络配置  \n连接状态 ：已连接  \n有线硬件地址 ：A0:EF:B4:01:15:04  \n主机名称 ：Pantum-011504  \n设备位置 ：  \n有线网络 IPv4 信息  \n状态 ：开启  \n配置方式 ：自动  \nIP 地址 ：10.10.148.147  \n子网掩码 ：255.255.255.0  \n默认网关 ：10.10.148.254  \nBonjour 名称 ：Pantum P3500DW SERIES 011504  \n邮件通知  \n缺纸 ：关闭  \n墨量低 ：关闭  \n卡纸 ：关闭  \n堵塞/停尽 ：关闭  \n\n无线网络配置  \n连接状态 ：已连接  \n无线硬件地址 ：00:11:F6:AC:BC:F3  \n通信模式 ：基础连接模式  \n网络名称（SSID） ：e8h9  \nBSSID ：e8:3a:35:33:75:40  \n身份验证方式 ：WPA/WPA2  \n无线网络 IPv4 信息  \n状态 ：开启  \n配置方式 ：自动  \nIP 地址 ：192.168.0.102  \n子网掩码 ：255.255.255.0  \n默认网关 ：192.168.0.1  \nBonjour 名称 ：Pantum P3500DW SERIES 011504  \n无线热点信息  \n状态 ：开启  \nSSID ：Pantum-AP-ACBCF3  \nIP 地址 ：192.168.223.1  \n密码 ：12345678  \n已连接设备数 ：0  \n\nP3500 Series  \nPANTUM  \n[ 网络配置信息页 ]  \n[ Page 2 ]  \n网络服务状态信息  \nIPv4 状态 ：开启  \nIPv6 状态 ：开启  \nDHCPv4 状态 ：开启  \nDHCPv6 状态 ：开启  \nRAW 状态 ：开启  \nLPD 状态 ：开启  \nWSD 状态 ：关闭  \nSNMP 状态 ：开启  \nEmail Alert 状态 ：开启  \nBonjour 状态 ：开启  \nMopria 状态 ：开启  \nSLP 状态 ：开启  \nLLMNR 状态 ：关闭",
+          "match_terms": [
+            "192.168.0.102",
+            "WPA/WPA2",
+            "IP",
+            "身份验证方式",
+            "默认网关"
+          ],
+          "content_hash": "sha256:7382210373738ed28bfc558c29f9d01f866c43ef3c2f4e16b725ebb0263d7d69"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "网络配置",
+        "信息查询"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "table",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": true
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-005",
+      "query": "在 Wi-Fi 热点列表页中，信号强度为 60% 的热点有哪些？它们的加密方式是什么？",
+      "conversation": [],
+      "reference_answer": "Test-AP2、Test-AP3；WPA/WPA2",
+      "unanswerable": false,
+      "expected_terms": [
+        "Test-AP2",
+        "Test-AP3",
+        "WPA/WPA2"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_375ae5f0054ac3e2361955434f3e715c"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_e135836733209122e7c70f0690fc320ba10d7229",
+          "chunk_id": "chk_375ae5f0054ac3e2361955434f3e715c",
+          "page": 20,
+          "text": "标题路径：前言 > 5.Wi-Fi热点列表页\n\n表头：P3500 Series PANTUM |  |  | \n表头：[WiFi 热点列表页] |  |  | [Page 1]\n| 序号 | 热点名称 | 加密方式 | 信号强度(%) |\n| --- | --- | --- | --- |\n| 1 | Test-AP1 | WPA/WPA2 | 80% |\n| 2 | Test-AP2 | WPA/WPA2 | 60% |\n| 3 | Test-AP3 | WPA/WPA2 | 60% |\n| 4 | Test-AP4 | 无 | 40% |\n| 5 | Test-AP5 | WPA/WPA2 | 40% |\n| 6 | Test-AP6 | 无 | 30% |\n| 7 | Test-AP7 | WPA/WPA2 | 20% |\n| 8 | Test-AP8 | WPA/WPA2 | 20% |",
+          "match_terms": [
+            "Test-AP2",
+            "Test-AP3",
+            "WPA/WPA2"
+          ],
+          "content_hash": "sha256:a84332c46273e15ff38f0b4ac3a3bccd031a0aed809334a6ae4b19708010bc84"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "网络信息",
+        "数据筛选"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "table",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": true
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-006",
+      "query": "标准纸盒支持的介质克重范围是多少？选配纸盒的最大容量是多少页？",
+      "conversation": [],
+      "reference_answer": "60~105 g/m2；550页(单个选配纸盒)",
+      "unanswerable": false,
+      "expected_terms": [
+        "60~105 g/m2",
+        "550页(单个选配纸盒"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_43a140591b18aadfa986eecc3ac2b914"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_576de18184e0cb2e408ff05b5b6f4c85ee20d732",
+          "chunk_id": "chk_43a140591b18aadfa986eecc3ac2b914",
+          "page": 22,
+          "text": "标题路径：前言 > 2.1. 纸张规格\n\n表头：P3500系列 | 标准纸盒 | 介质类型 | 自动*、普通纸、薄纸\n表头：P3500系列 | 标准纸盒 | 介质尺寸 | 自动*、A4、Letter、A5、Legal、Statement、B5、Folio、Oficio、Executive、ISO B5、A5 L、A6、B6、16K、Big 16K、32K、Big 32K。\n| P3500系列 | 标准纸盒 | 介质克重 | 60~105 g/m2 |\n| --- | --- | --- | --- |\n| P3500系列 | 选配纸盒 | 介质类型 | 自动*、普通纸、薄纸 |\n| P3500系列 | 选配纸盒 | 介质尺寸 | 自动*、A4、A5短边、JIS B5、ISO B5、Letter、Legal、Executive、Folio、Oficio、Statement、16K、Big 16K。 |\n| P3500系列 | 选配纸盒 | 介质克重 | 60~105 g/m2 |\n| P3500系列 | 选配纸盒 | 纸盒最大容量 | 550页(单个选配纸盒) |\n| P3500系列 | 出纸盒容量 | 150页 |  |",
+          "match_terms": [
+            "60~105 g/m2",
+            "550页(单个选配纸盒"
+          ],
+          "content_hash": "sha256:77d5886093736c9046011125703c6f55d272a006ddcd168559218b624de03e8d"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "纸张规格",
+        "容量参数"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "table",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-007",
+      "query": "特殊纸张包括哪些类型？这些纸张应在哪个纸盒中打印？",
+      "conversation": [],
+      "reference_answer": "标签纸、信封、透明胶片、厚纸、卡片纸等；在多功能纸盒进行打印",
+      "unanswerable": false,
+      "expected_terms": [
+        "标签纸",
+        "信封",
+        "透明胶片",
+        "厚纸",
+        "卡片纸"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_bf0a88043b789e6c0e427fe444e3d05e"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_2a11ab791256c306e4098cec9ce3053aeabf752e",
+          "chunk_id": "chk_bf0a88043b789e6c0e427fe444e3d05e",
+          "page": 23,
+          "text": "标题路径：前言 > 特殊纸张说明\n\n本产品支持特殊纸张进行打印，特殊纸张包括：标签纸、信封、透明胶片、厚纸、卡片纸等。特殊纸张需在多功能纸盒进行打印。\n\n注： • 当使用特殊纸张或打印介质时，请确保在打印设置上选择匹配的打印类型和尺寸，以便获得最佳打印效果。\n\n• 当在多功能纸盒使用特殊介质打印时，我们建议一次仅放一张纸。\n\n请遵守以下标准：",
+          "match_terms": [
+            "标签纸",
+            "信封",
+            "透明胶片",
+            "厚纸",
+            "卡片纸"
+          ],
+          "content_hash": "sha256:6408da83d8ab3320f1badd1371a789bf20365c51c69e4080ea0510dbe51060fd"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "特殊介质",
+        "打印位置"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "direct_fact",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-008",
+      "query": "使用标签纸时，正确的做法和错误的做法分别是什么？",
+      "conversation": [],
+      "reference_answer": "仅使用未暴露衬纸的标签。标签使用时应放平。仅使用整张的标签。不保证市面上所有的标签纸都能够满足要求；使用褶皱、起泡或破损的标签纸。",
+      "unanswerable": false,
+      "expected_terms": [
+        "未暴露衬纸",
+        "放平",
+        "整张的标签",
+        "褶皱",
+        "起泡"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_ced131671bfa73e1db665edb335800ea"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_a6040aa7bae13553594e2116e8e7e899f0ef88af",
+          "chunk_id": "chk_ced131671bfa73e1db665edb335800ea",
+          "page": 24,
+          "text": "标题路径：前言 > 特殊纸张说明\n\n| 打印介质种类 | 正确做法 | 错误做法 |\n| --- | --- | --- |\n| 标签纸 | 仅使用未暴露衬纸的标签。标签使用时应放平。仅使用整张的标签。不保证市面上所有的标签纸都能够满足要求。 | 使用褶皱、起泡或破损的标签纸。 |\n| 信封 | 信封应平整置入。 | 使用有褶皱、缺口、粘连或损坏的信封。使用带有别针、按扣、窗口或涂层衬里的信封。使用自粘不干胶或其他合成材料的信封。 |\n| 透明胶片 | 仅使用经核准适用于激光打印机的透明胶片。 | 使用不适用于激光打印机的透明胶片。 |\n| 厚纸、卡片纸 | 仅使用经核准适用于激光打印机并满足本产品重量规格的重质纸。 | 使用重量超过本产品推荐介质规格的纸张,除非是经核准适用于本产品的纸张。 |",
+          "match_terms": [
+            "未暴露衬纸",
+            "放平",
+            "整张的标签",
+            "褶皱",
+            "起泡"
+          ],
+          "content_hash": "sha256:910deb6dd6e197bcd4dc1911a39e64b360dcb385a15f7386c2492dfa01c0c16b"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "操作规范",
+        "错误示例"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "table",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-009",
+      "query": "装入多功能纸盒时，应如何正确放置信封或透明胶片？每次最多可放入多少张打印介质？",
+      "conversation": [],
+      "reference_answer": "双手将信封或透明胶片等打印介质放入多功能纸盒中，直至信封或透明胶片的前端碰到校正辊；每次最多放入 60 张打印介质到多功能纸盒中。",
+      "unanswerable": false,
+      "expected_terms": [
+        "前端碰到校正辊",
+        "60 张打印介质",
+        "双手将信封或透明胶片等打",
+        "手将信封或透明胶片等打印",
+        "将信封或透明胶片等打印介"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_59f5c9af40d7f0119ebadb932cc8e7c9"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_1e8d8fb46d5efb335894bb47b77e9e82905f2010",
+          "chunk_id": "chk_59f5c9af40d7f0119ebadb932cc8e7c9",
+          "page": 26,
+          "text": "标题路径：前言 > 2.2.2. 装入多功能纸盒\n\n1. 抬起出纸托盘，避免打印完的纸张滑落，或在打印完成后立即将打印的文档取走。\n\n![图片](images/ce88554d489d1505d8425fb50150e23483a9d383556435eb59ad7a9565feb7f4.jpg)\n\n2. 打开多功能纸盒。\n\n![图片](images/4bb55c5d3be9bce47297ed290dbc689d90a3d698f0f87bb37101e7b2e8e75382.jpg)\n\n3. 滑动多功能纸盒的导纸板以匹配纸张的两侧。不要用力过度，否则会导致卡纸或纸张歪斜。\n\n![图片](images/7635bbe6e5c5438cb2dbc70f532185dcbc463fc2899942660dd1ef42d97f5239.jpg)\n\n4. 双手将信封或透明胶片等打印介质放入多功能纸盒中，直至信封或透明胶片的前端碰到校正辊。\n\n![图片](images/2c6e9eb0d3ff8e2c3051bf10ecfe317b8271c82ea89d8392c808807cd80def93.jpg)\n\n注： • 当您将纸张放入多功能纸盒时，设置纸张来源为自动选择或者指定设置为多功能纸盒时，将会优先从多功能纸盒进纸打印。\n\n• 每次最多放入 60 张打印介质到多功能纸盒中。\n\n• 将打印介质打印面向上放入多功能纸盒，装入时，纸张的顶部先进入多功能纸盒。\n\n模式 2：一般图形内容\n\n图像由四个垂直排列的线稿图组成，每个图展示一台打印机的不同状态。最上方图中，打印机顶部纸张出口处有一张纸，红色弯曲箭头指向纸张被拉出的方向；打印机正面有控制面板区域，包含按钮与指示灯，右侧有散热格栅，底部有纸盒抽屉。第二张图中，打印机前盖打开，内部结构暴露，红色弯曲箭头指向下方纸张托盘组件；托盘内可见多层导板与滚轮结构，控制面板位于右上角，侧面有竖向散热槽。第三张图中，前盖仍处于打开状态，内部纸张托盘部分抽出，红色水平箭头指向托盘向右滑动方向；托盘上可见纸张导向片与压纸辊等部件，机身正面控制面板位置不变，右侧散热格栅清晰。最下方图中，两只手正从打印机前部纸盒中拉出一张纸，纸张呈浅橙色，红色直箭头指向纸张被拉出的方向；双手穿着袖口有纽扣的长袖衣物，打印机内部可见进纸辊与导纸板结构，控制面板在右上角，侧面散热格栅存在。所有图中均无文字标注，仅以线条勾勒设备轮廓与动作指示箭头。",
+          "match_terms": [
+            "前端碰到校正辊",
+            "60 张打印介质",
+            "双手将信封或透明胶片等打",
+            "手将信封或透明胶片等打印",
+            "将信封或透明胶片等打印介"
+          ],
+          "content_hash": "sha256:c60af194ed28d1d012952e5559af1462033aaa334e4c610c6c842785204b887a"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "操作步骤",
+        "数量限制"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "procedure",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-010",
+      "query": "装入选配纸盒时，应如何调整导纸板？装入纸张前应采取什么操作以避免卡纸？",
+      "conversation": [],
+      "reference_answer": "滑动纸盒的长度导纸板、宽度导纸板到所需的纸张尺寸卡槽，匹配纸张的长度和宽度；请在装入纸张之前展开堆叠的纸张，避免卡纸或进纸错误。",
+      "unanswerable": false,
+      "expected_terms": [
+        "长度导纸板",
+        "宽度导纸板",
+        "展开堆叠的纸张",
+        "避免卡纸",
+        "度导纸板到所需的纸张尺寸"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_5754427ef366628c61ac475835512a55"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_dec07eb643faef9e2cbaacfae5515ef4f76c13fa",
+          "chunk_id": "chk_5754427ef366628c61ac475835512a55",
+          "page": 27,
+          "text": "标题路径：前言 > 2.2.3. 装入选配纸盒\n\n本机可叠加选配纸盒，每个纸盒最多可放入 550 页 80 g/m² 的纸张。如果需要购买选配纸盒，请联系购买此打印机的当地经销商。\n\n注： • 关于选配纸盒安装方式，请参阅第 8 章。\n\n1. 从打印机中完全抽出选配纸盒 。\n\n![图片](images/4b34f747b93765ff753062504ec1e122bed4289faa1ae1abb2d84eaa44cf2993.jpg)\n\n2. 滑动纸盒的长度导纸板、宽度导纸板到所需的纸张尺寸卡槽，匹配纸张的长度和宽度。\n\n![图片](images/f7c34573db89d1942d1b8c10df1b3645f9e0d3b9b0e85840b094b4672d270c3b.jpg)\n\n注： • 请不要过度挤压“长度导纸板”和“宽度导纸板”，否则容易导致纸张变形。• 要装入 Legal 尺寸纸张，请向里按纸盘后端的释放按键并拉出纸盘后端，从而加长纸盘。\n\n3. 请在装入纸张之前展开堆叠的纸张，避免卡纸或进纸错误，再把纸张打印面朝下装入纸盒内，选配纸盒最多可装入 550 张 80 g/m² 纸。\n\n![图片](images/21781083158773ccc198febe5cdac8030f831dbe89b209755fabccf0e902f5f3.jpg)\n\n图像包含多个独立的示意图，展示打印机部件的拆卸与纸张装载操作。左上角为一台打印机整体线稿图，其下部纸盒被向左拉出，红色箭头指示拉出方向；下方为该纸盒的分解视图，内部有双向水平红色箭头指示滑动方向。左下角区域并列三个小图：左侧为双手持一叠纸张呈自然弯曲状态；中间为双手持纸张置于平面上，纸张呈弧形，上方有左右双向箭头及下方单向箭头；右侧为纸盒内部结构特写，一个放大的圆形局部视图指向纸盒内侧的挡板结构，主图中纸张被向下压入纸盒，红色箭头指示下压方向。所有图形均为黑白线条轮廓配浅粉橙色填充，无文字标注，无坐标轴或数据标签，各图之间无数据关联性，不构成可枚举的数据集。",
+          "match_terms": [
+            "长度导纸板",
+            "宽度导纸板",
+            "展开堆叠的纸张",
+            "避免卡纸",
+            "度导纸板到所需的纸张尺寸"
+          ],
+          "content_hash": "sha256:7e783bf6f269091c5b451f22ac5cd7b2046357affca894cb23727c1504ce2174"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "操作流程",
+        "预防措施"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "procedure",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": true
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-011",
+      "query": "在安装Pantum P3500DN Series打印机时，若选择通过网络连接，需要满足哪些条件并执行哪些步骤？请结合安装向导界面说明。",
+      "conversation": [],
+      "reference_answer": "计算机已连接到有线网络；打开打印机和计算机的电源；将网线连接到打印机的网络接口，确保打印机与计算机处于同一网络；在计算机的光驱中插入随附的安装光盘，运行Autorun.exe安装程序；选择安装语言为中文（简体），选择打印机型号为Pantum P3500DN Series PCL6，选择安装方式为已连接至网络的打印机；点击“安装”按钮；安装程序自动搜索打印机，搜索过程可能需要1－2分钟；搜索完成后，选择需要连接的打印机，点击“下一步”。",
+      "unanswerable": false,
+      "expected_terms": [
+        "计算机已连接到有线网络",
+        "已连接至网络的打印机",
+        "中文（简体",
+        "Pantum P3500DN Series PCL6",
+        "Autorun.exe"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_c091441a183e8610403e71094e9bac5d"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_3572619d8294d42344e1c8a643fcb8dfe99dba3c",
+          "chunk_id": "chk_c091441a183e8610403e71094e9bac5d",
+          "page": 30,
+          "text": "标题路径：前言 > 3.1.2. 有线网络安装\n\n以下操作以Pantum P3500DN Series为例：\n\n1.计算机已连接到有线网络。\n\n2.打开打印机和计算机的电源。\n\n3.将网线连接到打印机的网络接口，确保打印机与计算机处于同一网络（如何配置网络，参阅第4.1章）。\n\n4.在计算机的光驱中插入随附的安装光盘，运行Autorun.exe安装程序。\n\n5.阅读许可协议，选择安装语言和打印机型号，选择“已连接至网络的打印机”，点击“安装”。\n\nPantum P3500 Series PCL6\n\n安装语言：\n\n中文（简体）\n\n选择打印机：\n\nPantum P3500DN Series PCL6\n\n![图片](images/d7a42c12e1c4a6d26596c50e420de0e58c39fcab154727f2204fccec34259f9e.jpg)\n\n安装方式：\n\nUSB打印机\n\n打印机已连接JSB至计算机。\n\n已连接至网络的打印机\n\n已配置打印机并连接至网络。\n\n用户指南\n\n我同意许可协议\n\n安装\n\n6.安装程序自动搜索打印机，搜索过程可能需要1－2分钟。\n\n7.搜索完成后，选择需要连接的打印机，点击“下一步”。\n\nPantum P3500 Series PCL6\n\n已搜索到怕的打印机\n\n打印机名称\n\n![图片](images/5d4c6267b011ec26886723dc829bc1c1d048cf212964b1b74ff37dc7bfe4436a.jpg)\n\n以主机名安装列表中的打印机\n\n刷新\n\n手动添加IP地址或主机名\n\n上一步\n\n下一步\n\n退出\n\n视觉类型：软件安装向导界面截图（包含两个连续步骤窗口）\n标题：Pantum P3500 Series PCL6\n轴/图例/标签：安装语言、选择打印机、安装方式、用户指南、我同意许可协议、安装；已搜索到的打印机、打印机名称、IP地址、主机名、以主机名安装列表中的打印机、刷新、手动添加IP地址或主机名、上一步、下一步、退出\n数据点：\n- 安装语言：中文（简体）\n- 选择打印机：Pantum P3500DN Series PCL6\n- 安装方式：USB打印机（未选中）、已连接至网络的打印机（已选中）\n- 用户指南：蓝色超链接文字“用户指南”\n- 许可协议：复选框“我同意许可协议”（已勾选）\n- 按钮：“安装”（位于右下角，被红色方框标注）\n- 已搜索到的打印机：单选按钮选中“已搜索到的打印机”\n- 打印机名称列：复选框 + “Pantum P3500DN Series PC…”\n- IP地址列：文本“192.168.1.2”，带下划线（可点击）\n- 主机名列：文本“Pantum-011504”\n- 复选框“以主机名安装列表中的打印机”（未勾选）\n- 按钮：“刷新”（位于右侧）\n- 单选按钮“手动添加IP地址或主机名”（未选中）\n- 输入框：空白色矩形输入区域（位于手动添加选项下方）\n- 按钮：“上一步”“下一步”“退出”（底部横向排列，“下一步”被红色方框标注）\n\n第一窗口顶部标题栏显示“Pantum P3500 Series PCL6”，右上角有关闭按钮“X”；窗口主体上方为“PANTUM”品牌标识；中部为安装设置区域，包含语言与打印机选择下拉框、安装方式单选按钮组；下方为用户指南链接、许可协议复选框及安装按钮；第二窗口延续同一标题栏，主体为打印机搜索结果区域，含三列表格结构（打印机名称、IP地址、主机名），其下方为安装选项与操作按钮；所有可见文字均逐字转录，无额外解释或推断。",
+          "match_terms": [
+            "计算机已连接到有线网络",
+            "已连接至网络的打印机",
+            "中文（简体",
+            "Pantum P3500DN Series PCL6",
+            "Autorun.exe"
+          ],
+          "content_hash": "sha256:a1f33d66ad1a9f366ad0e91b636221d1a81b0345bb5b55366c15239e2b5d50cf"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "procedure",
+        "installation"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "procedure",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-012",
+      "query": "使用USB线连接Pantum P3500D Series打印机时，安装驱动前需完成哪些操作？请根据安装向导界面描述。",
+      "conversation": [],
+      "reference_answer": "使用USB线连接打印机和计算机，打开电源；在计算机的光驱中插入随附的安装光盘，运行Autorun.exe安装程序；阅读许可协议，选择安装语言为中文（简体），点击“安装”按钮。",
+      "unanswerable": false,
+      "expected_terms": [
+        "使用USB线连接打印机和计算机",
+        "中文（简体",
+        "安装",
+        "Autorun.exe",
+        "在计算机的光驱中插入随附"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_cb02419af2bf83345ea67e39aacf0c74"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_82cd952e333b6690bb80dda3807ba0bc766c733a",
+          "chunk_id": "chk_cb02419af2bf83345ea67e39aacf0c74",
+          "page": 30,
+          "text": "标题路径：前言 > 3.1.1. USB安装\n\n以下操作以Pantum P3500D Series为例：\n\n1.使用USB线连接打印机和计算机，打开电源。\n\n2.在计算机的光驱中插入随附的安装光盘，运行Autorun.exe安装程序。\n\n3.阅读许可协议，选择安装语言，点击“安装”。\n\n![图片](images/8865c162c0e9d14657d4656390b78c503e26ab6749e718565028a3a6daf2776b.jpg)\n\n4.系统自动安装驱动，安装过程可能需要几分钟。\n\n5.安装完成后，弹出“安装完成”界面，约3秒后自动关闭。\n\n安装语言：中文（简体）  \n用户指南  \n我同意许可协议  \n安装  \n\nPantum P3500 Series PCL6 窗口标题栏，右上角有关闭按钮“X”；窗口顶部为灰色横幅，印有“PANTUM”品牌标志；中部区域包含一个带红色边框的选项组，内含标签“安装语言：”及下拉选择框，当前选中项为“中文（简体）”；底部左侧为蓝色超链接文字“用户指南”，右侧为复选框（已勾选）后接文字“我同意许可协议”，再下方是一个带红色边框的矩形“安装”按钮。",
+          "match_terms": [
+            "使用USB线连接打印机和计算机",
+            "中文（简体",
+            "安装",
+            "Autorun.exe",
+            "在计算机的光驱中插入随附"
+          ],
+          "content_hash": "sha256:9238440f96331bfff2bdddd19cc8e5e911a2c3ac056de2a6fa1605bb1ae178ae"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "procedure",
+        "installation"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "procedure",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-013",
+      "query": "在配置Pantum P3500DW Series打印机连接新无线网络时，必须满足什么前提条件，并在安装向导中如何操作？请结合证据说明。",
+      "conversation": [],
+      "reference_answer": "计算机已成功连接到接入点（无线路由器）；在安装光盘中运行Autorun.exe安装程序；选择安装语言为中文（简体），选择打印机型号为Pantum P3500DW Series PCL6，选择安装方式为连接至新的网络的打印机；点击“安装”按钮；按照提示将打印机配置到无线网络；安装程序自动搜索打印机，搜索过程可能需要1－2分钟；选择需要连接的打印机，点击“下一步”。",
+      "unanswerable": false,
+      "expected_terms": [
+        "计算机已成功连接到接入点",
+        "连接至新的网络的打印机",
+        "中文（简体",
+        "Pantum P3500DW Series PCL6",
+        "Autorun.exe"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_cadd9332058ea62d2a2b699741c17eb3"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_36847bb873bef4b329d509278526191d54a0a264",
+          "chunk_id": "chk_cadd9332058ea62d2a2b699741c17eb3",
+          "page": 32,
+          "text": "标题路径：前言 > 3.1.3.1.基础结构连接安装\n\n驱动安装前，必须了解您的接入点（无线路由器）的“网络名（SSID）”和“密码”。如果无法确定，请咨询您的网络管理员或接入点（无线路由器）制造商。\n\n以下操作以Pantum P3500DW Series为例：\n\n1.计算机已成功连接到接入点（无线路由器）。\n\n2.使用USB线连接打印机和计算机，打开电源。\n\n3.在计算机的光驱中插入随附的安装光盘，运行Autorun.exe安装程序。\n\n4.阅读许可协议，选择安装语言和打印机型号，选择“连接至新的网络的打印机”，点击安装。\n\n![图片](images/d955b26d17c069f5dabe896c32ce16e6a61a4ecd12f12850d622dea42c865268.jpg)\n\n5.按照安装窗口提示进行操作，将打印机配置到无线网络（如何配置，参阅第4.2.1.章）。\n\n6.无线网络配置成功后，安装程序自动搜索打印机，搜索过程可能需要1－2分钟。\n\n7.选择需要连接的打印机，点击“下一步”。\n\n![图片](images/0778ff3546879f6dd6904d0e84c8d62e5ae20b3ca77bc3c965293655ae3c68be.jpg)\n\n注： • 若已搜索到的打印机列表中，没有您需要连接的打印机，点击刷新；\n\n• 若以主机名方式安装打印机驱动，请同时勾选您需要连接的“打印机名称”和“以主机名安装列表中的打印机”；\n\n视觉类型：软件安装向导界面截图（包含两个连续步骤窗口）\n标题：Pantum P3500 Series PCL6\n轴/图例/标签：安装语言、选择打印机、安装方式、用户指南、我同意许可协议、安装；已搜索到的打印机、打印机名称、IP地址、主机名、以主机名安装列表中的打印机、刷新；上一步、下一步、退出\n数据点：\n- 安装语言：中文（简体）\n- 选择打印机：Pantum P3500DW Series PCL6\n- 安装方式选项：\n  - USB打印机（打印机关联JSB至计算机）\n  - 已连接至网络的打印机（已配置打印机并连接至网络）\n  - 连接至新的网络的打印机（配置打印机连接至新的无线网络）——该选项被选中\n- “我同意许可协议”复选框处于勾选状态\n- “安装”按钮位于右下角\n- 已搜索到的打印机表格包含一行：\n  - 打印机名称：Pantum P3500DW Series PC…\n  - IP地址：192.168.0.104\n  - 主机名：Pantum-011504\n- “以主机名安装列表中的打印机”复选框未勾选\n- “手动添加IP地址或主机名”单选按钮及对应输入框（为空）\n- 底部按钮从左至右为：“上一步”、“下一步”（高亮）、“退出”\n\n一般图形内容：  \n窗口顶部显示标题“Pantum P3500 Series PCL6”，右上角有关闭按钮“X”。下方为品牌标识“PANTUM”，其下为安装设置区域。左侧标注“安装语言：”后接下拉菜单，当前值为“中文（简体）”；其下方为“选择打印机：”标签，后接下拉菜单，当前值为“Pantum P3500DW Series PCL6”。再下方为“安装方式：”标题，其下垂直排列三个单选按钮选项，每个选项含图标与说明文字；其中第三个选项“连接至新的网络的打印机”被选中，图标为带“WIFI”字样的圆形信号标志，说明文字为“配置打印机连接至新的无线网络。”；该区域下方左侧为蓝色超链接文字“用户指南”，右侧为复选框“我同意许可协议”，复选框内有对勾标记；右下角为矩形“安装”按钮。第二张截图位于下方，标题同为“Pantum P3500 Series PCL6”，顶部同样有“PANTUM”标识和关闭按钮“X”。中部为“已搜索到的打印机”单选按钮（被选中），其下为三列表格，表头分别为“打印机名称”“IP地址”“主机名”，表格内仅一行数据，内容为“Pantum P3500DW Series PC…”、“192.168.0.104”、“Pantum-011504”，第一列前有勾选框且已勾选；表格下方左侧为未勾选的复选框“以主机名安装列表中的打印机”，右侧为“刷新”按钮；再下方为未选中的单选按钮“手动添加IP地址或主机名”及空文本输入框；底部横向排列三个按钮：“上一步”“下",
+          "match_terms": [
+            "计算机已成功连接到接入点",
+            "连接至新的网络的打印机",
+            "中文（简体",
+            "Pantum P3500DW Series PCL6",
+            "Autorun.exe"
+          ],
+          "content_hash": "sha256:a83402835c95fa24a73aeb3746cdf58895733783164646f6d6ce6fafc44cdb4c"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "procedure",
+        "network"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "procedure",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-014",
+      "query": "当通过Wi-Fi热点方式连接Pantum P3500DW Series打印机时，安装过程中应遵循哪些关键步骤？请依据安装界面信息回答。",
+      "conversation": [],
+      "reference_answer": "打开打印机和计算机的电源；打开打印机的Wi-Fi热点；连接计算机到打印机的无线热点；在计算机的光驱中插入随附的安装光盘，运行Autorun.exe安装程序；选择安装语言为中文（简体），选择打印机型号为Pantum P3500DW Series PCL6，选择安装方式为已连接至网络的打印机；点击“安装”按钮；安装程序自动搜索打印机，搜索过程可能需要1－2分钟；选择需要连接的打印机，点击“下一步”；系统自动安装驱动，安装过程可能需要几分钟；安装完成后弹出“安装完成”界面，约3秒后自动关闭。",
+      "unanswerable": false,
+      "expected_terms": [
+        "打开打印机的Wi-Fi热点",
+        "已连接至网络的打印机",
+        "中文（简体",
+        "Pantum P3500DW Series PCL6",
+        "Autorun.exe"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_54a05b5f77e838a0f7871bf18f869247"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_23ea6e8f38f34f0444e5ecb89d6398e31c3a3190",
+          "chunk_id": "chk_54a05b5f77e838a0f7871bf18f869247",
+          "page": 33,
+          "text": "标题路径：前言 > 3.1.3.2.Wi-Fi热点连接安装\n\n驱动安装前，必须了解您的打印机的无线热点信息。如不清楚，请打印网络配置信息页并查看打印机无线热点的SSID和密码（参阅第1.5章）。\n\n以下操作以Pantum P3500DW Series为例：\n\n1.打开打印机和计算机的电源。\n\n2.打开打印机的Wi-Fi热点（如何打开，请查阅第4.2.2章）。\n\n3.点击计算机桌面右下角的 ，连接打印机的无线热点。\n\n4.在计算机的光驱中插入随附的安装光盘，运行Autorun.exe安装程序。\n\n5.阅读许可协议，选择安装语言和打印机型号，选择已连接至网络的打印机，点击安装。\n\n6.安装程序自动搜索打印机，搜索过程可能需要1－2分钟。\n![图片](images/52c01a6bfe77a1eedc89ed193320c60395fdd3c73bba76c0dfd68ae074f29cdd.jpg)\n\n7.选择需要连接的打印机，点击“下一步”。\n\n![图片](images/b48318059dff98173cb65e7deff28e8ecbc41a732cbd354f1e64e60a02eb0e83.jpg)\n\n注：• 若已搜索到的打印机列表中，没有您需要连接的打印机，点击刷新。\n\n• 若以主机名方式安装打印机驱动，请同时勾选您需要连接的打印机名称 和 以主机名安装列表中的打印机。\n\n8.系统自动安装驱动，安装过程可能需要几分钟。\n\n9.安装完成后，弹出“安装完成”界面，约3秒后自动关闭。\n\n视觉类型：安装向导界面截图（包含两个连续窗口）\n标题：Pantum P3500 Series PCL6\n轴/图例/标签：无坐标轴或图例；界面元素为中文标签与控件\n数据点：无数值型数据点；仅存在文本标签、选项、按钮及状态信息\n标题/注释：无独立标题或注释；所有文字均为界面内嵌文本\n\n窗口1（上）：\n- 窗口标题栏显示“Pantum P3500 Series PCL6”，右上角有关闭按钮“X”\n- 顶部品牌区域显示“PANTUM”标志\n- “安装语言：”标签后接下拉框，当前值为“中文（简体）”\n- “选择打印机：”标签后接下拉框，当前值为“Pantum P3500DW Series PCL6”\n- “安装方式：”标题下方三个单选按钮选项：\n  - “USB打印机”，图标为绿色USB插头，说明文字：“打印机已连接JSB至计算机。”\n  - “已连接至网络的打印机”，图标为带信号格的黑色圆盘，被选中（实心圆点），说明文字：“已配置打印机并连接至网络。”\n  - “连接至新的网络的打印机”，图标为带WiFi符号的黑色圆盘，说明文字：“配置打印机连接至新的无线网络。”\n- 左下角有蓝色超链接文字“用户指南”\n- 右下角复选框内文字为“我同意许可协议”，复选框已勾选\n- 底部右侧有一个矩形按钮，文字为“安装”\n\n窗口2（下）：\n- 窗口标题栏同上，含“Pantum P3500 Series PCL6”及关闭按钮“X”\n- 顶部品牌区域显示“PANTUM”标志\n- 单选按钮组：“已搜索到的打印机”被选中（实心圆点），下方表格区域包含三列：\n  - 列标题：“打印机名称”、“IP地址”、“主机名”\n  - 表格内容行：复选框已勾选，打印机名称为“Pantum P3500DW Series PC...”，IP地址为“192.168.223.1”，主机名为“Pantum-011504”\n- 表格下方有两个选项：\n  - 复选框“以主机名安装列表中的打印机”，未勾选\n  - 单选按钮“手动添加IP地址或主机名”，其后接一个空白输入框\n- 右侧有灰色按钮“刷新”\n- 底部横向排列三个按钮：\n  - 左：“上一步”\n  - 中：“下一步”，被红色方框高亮\n  - 右：“退出”",
+          "match_terms": [
+            "打开打印机的Wi-Fi热点",
+            "已连接至网络的打印机",
+            "中文（简体",
+            "Pantum P3500DW Series PCL6",
+            "Autorun.exe"
+          ],
+          "content_hash": "sha256:613a9cfe75b1e77118b0093ec9208a9dd492dfa0b1378f46b57f1ee95a9d0293"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "procedure",
+        "wireless"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "procedure",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-015",
+      "query": "在Mac系统上安装Pantum P3500 Series打印机驱动时，需要完成哪些具体操作？请结合安装流程说明。",
+      "conversation": [],
+      "reference_answer": "打开打印机和计算机的电源；在计算机的光驱中插入随附的安装光盘，双击“Pantum P3500 Series PS”安装包；点击“继续”；阅读许可协议，点击“继续”；点击“同意”，接受许可协议；点击“安装”；输入计算机密码，点击“安装软件”；点击“继续安装”；系统自动完成驱动安装，并弹出无线网络配置提示窗口；根据连接方式选择“是”或“否”；点击“重新启动”，等待计算机重启，完成安装。",
+      "unanswerable": false,
+      "expected_terms": [
+        "Pantum P3500 Series PS",
+        "继续",
+        "同意",
+        "安装软件",
+        "打开打印机和计算机的电源"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_338306eb5c55b1ccf9756f00d2fccd65"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_4c3f611e5e9d1df3f843bf6bb033ae5f33e9aee9",
+          "chunk_id": "chk_338306eb5c55b1ccf9756f00d2fccd65",
+          "page": 35,
+          "text": "标题路径：前言 > 3.2.1. 驱动安装\n\n以下操作以 Mac10.10 为例，您的计算机屏幕信息可能因操作系统的不同而有差异。\n\n1.打开打印机和计算机的电源。\n\n2.在计算机的光驱中插入随附的安装光盘，双击“Pantum P3500 Series PS”安装包。\n\n3.点击“继续”。\n\n4.阅读许可协议，然后点击“继续”。\n\n5.在弹出的提示窗口，点击“同意”，接受许可协议。\n\n6.点击“安装”。\n\n7.输入计算机密码，点击“安装软件”。\n\n8.在弹出的提示窗口，点击“继续安装”。\n\n9.系统自动完成驱动安装，并弹出无线网络配置提示窗口。\n\n是否现在运行“无线网络配置工具”？\n\n是\n\n否\n\n• 若选择USB、有线网络或无线热点方式连接打印机，请点击“否”，退出无线网络配置提示窗口。\n\n• 若选择无线网络基础结构连接模式连接打印机，请点击“是”，通过无线网络配置工具配置打印机的无线网络（参阅第4.2.1.1章）。\n\n9.点击“重新启动”，等待计算机重启，完成安装。\n\n注：• 驱动安装完成后，您需要添加打印机，才能进行打印（请参阅第3.2.2章）。",
+          "match_terms": [
+            "Pantum P3500 Series PS",
+            "继续",
+            "同意",
+            "安装软件",
+            "打开打印机和计算机的电源"
+          ],
+          "content_hash": "sha256:c98f1c04386f41818854ed110dfd7920360c472fbf7c2d3b8f3105a1c1d87de5"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "procedure",
+        "macos"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "procedure",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-016",
+      "query": "在Mac系统中通过Wi-Fi热点连接Pantum打印机时，需要执行哪些步骤？请根据“打印机与扫描仪”设置界面说明。",
+      "conversation": [],
+      "reference_answer": "打开打印机和计算机的电源；打开打印机的Wi-Fi热点；连接计算机到打印机的无线热点；进入计算机的“系统偏好设置”－“打印机与扫描仪”；点击 按钮；选择您的Pantum打印机，然后从“使用”弹出菜单中选择对应的打印机型号；点击“添加”。",
+      "unanswerable": false,
+      "expected_terms": [
+        "系统偏好设置",
+        "打印机与扫描仪",
+        "添加",
+        "Wi-Fi",
+        "Pantum"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_f2276d2a0c8e4261f1b6924ae0399329"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_2a09438b87ee66cef1dfdf0d7627448691e3babe",
+          "chunk_id": "chk_f2276d2a0c8e4261f1b6924ae0399329",
+          "page": 37,
+          "text": "标题路径：前言 > 3.2.2.3.2. Wi-Fi热点连接\n\n驱动安装前，必须了解您的打印机的无线热点信息。如不清楚，请打印“网络配置信息页”并查看打印机无线热点的“SSID”和“密码”（参阅第1.5章）。\n\n1.打开打印机和计算机的电源。\n\n2.打开打印机的Wi-Fi热点（如何打开，请查阅第4.2.2章）。\n\n3.点击计算机桌面右上角的 ，连接打印机的无线热点。\n\n4.进入计算机的“系统偏好设置”－“打印机与扫描仪”。\n\n5.点击 按钮。\n\n6.选择您的Pantum打印机，然后从“使用”弹出菜单中选择对应的打印机型号。\n\n7.点击“添加”。",
+          "match_terms": [
+            "系统偏好设置",
+            "打印机与扫描仪",
+            "添加",
+            "Wi-Fi",
+            "Pantum"
+          ],
+          "content_hash": "sha256:e5230533f11e7ef9f451b9f6eb80240a1dd97494b728f6e68738029a017ffd47"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "procedure",
+        "macos"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "procedure",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-017",
+      "query": "当打印机启用DHCP自动分配功能时，其获取IP地址的过程及注意事项是什么？请结合证据说明。",
+      "conversation": [],
+      "reference_answer": "打开打印机电源，将打印机连接到网络；打印机将自动获取DHCP服务器分配的IP地址，整个过程可能需要几分钟；您可以打印“网络配置信息页”并查看打印机“IP地址”；如果IP地址未列出，请等待几分钟，然后重试；如果DHCP服务器自动分配IP地址不成功，打印机会自动获取系统分配的链路本地地址：169.254.xx.xx。",
+      "unanswerable": false,
+      "expected_terms": [
+        "169.254.xx.xx",
+        "网络配置信息页",
+        "DHCP",
+        "IP",
+        "打印机会自动获取系统分配"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_4383db89d2d9532d73b1193459690991"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_5acf839622d1cc8e6d725a79244feca679130dfd",
+          "chunk_id": "chk_4383db89d2d9532d73b1193459690991",
+          "page": 39,
+          "text": "标题路径：前言 > 4.1.1.1. DHCP自动分配\n\n动态主机配置协议(DHCP)是客户端与服务器之间的一种网络协议。DHCP 服务器提供特定于DHCP 客户端主机请求的配置参数，一般是客户端主机参与某个 IP 网络所需的信息。DHCP还提供用于将 IP 地址分配给客户端主机的机制。打印机默认开启DHCP 自动分配功能。\n\n1.打开打印机电源，将打印机连接到网络。\n\n2.打印机将自动获取DHCP服务器分配的IP地址，整个过程可能需要几分钟。\n\n您可以打印“网络配置信息页”并查看打印机“IP地址”（如何打印，参阅第1.5章）。如果IP地址未列出，请等待几分钟，然后重试。\n\n注：• 如果DHCP服务器自动分配IP地址不成功，打印机会自动获取系统分配的链路本地地址：169.254.xx.xx。",
+          "match_terms": [
+            "169.254.xx.xx",
+            "网络配置信息页",
+            "DHCP",
+            "IP",
+            "打印机会自动获取系统分配"
+          ],
+          "content_hash": "sha256:de04c1a5062677b28ec6fa558171a2358bbae77db125259c08b043c888455c36"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "procedure",
+        "network"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "procedure",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-018",
+      "query": "如何通过内嵌Web服务器启用IPv6协议？请说明具体操作步骤。",
+      "conversation": [],
+      "reference_answer": "打开打印机电源，将打印机连接到网络；登录内嵌Web服务器；点击“设置”－“网络设置”－“协议设置”－“IPv6”；勾选“启用IPv6协议”和“启用DHCPv6”；点击“应用”；可刷新浏览器，在“有线IP配置”界面，查看“IPv6本地链路地址”和“有状态地址”。",
+      "unanswerable": false,
+      "expected_terms": [
+        "启用IPv6协议",
+        "启用DHCPv6",
+        "有线IP配置",
+        "Web",
+        "将打印机连接到网"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_d4edecec9b4e48497692ff399206a09d"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_fe59ce7fd78c8da261d5c26ad45f82e91651d528",
+          "chunk_id": "chk_d4edecec9b4e48497692ff399206a09d",
+          "page": 40,
+          "text": "标题路径：前言 > 4.1.2.2. 通过内嵌Web服务器启用IPv6协议\n\n1.打开打印机电源，将打印机连接到网络。\n\n2.登录内嵌Web服务器（如何登录，参阅第5.2.1章）。\n\n3.点击“设置”－“网络设置”－“协议设置”－“IPv6”。\n\n4.勾选“启用IPv6协议”和 “启用DHCPv6”（默认为勾选），点击“应用”。\n\n您可刷新浏览器，在“有线IP配置”界面，查看“IPv6本地链路地址”和“有状态地址”。\n\n注： 打印机支持使用下列 IPv6 地址进行网络打印和管理；\n\n• IPv6本地链路地址：自行配置的本地 IPv6 地址（以 FE80 开头的地址）。\n\n• 有状态地址：DHCPv6 服务器配置的 IPv6 地址（若网络中无DHCPv6服务器，“有状态地址”不能分配）；\n\n• 无状态地址：网络路由器自动配置的 IPv6 地址（参阅第1.5章，在“网络配置信息页”中查看）。",
+          "match_terms": [
+            "启用IPv6协议",
+            "启用DHCPv6",
+            "有线IP配置",
+            "Web",
+            "将打印机连接到网"
+          ],
+          "content_hash": "sha256:972ce801f19861af3dd336e9e9cdba60d5bde8c8ebc0d3769255692ebf91a7f2"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "procedure",
+        "ipv6"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "procedure",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-019",
+      "query": "在进行基础结构连接模式的无线网络安装前，必须了解哪些关键信息？请根据文档内容回答。",
+      "conversation": [],
+      "reference_answer": "必须了解您的接入点（无线路由器）的网络名（SSID）和密码；如果无法确定，请咨询您的网络管理员或接入点（无线路由器）制造商。",
+      "unanswerable": false,
+      "expected_terms": [
+        "网络名（SSID",
+        "密码",
+        "网络管理员",
+        "必须了解您的接入",
+        "须了解您的接入点"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_679ab0b0eb73c217e58b0c8801c76ac5"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_cc016a1690ccd910ca614f9e9c5b0d067939993d",
+          "chunk_id": "chk_679ab0b0eb73c217e58b0c8801c76ac5",
+          "page": 41,
+          "text": "标题路径：前言 > 4.2.1. 基础结构连接模式\n\n您可以通过接入点（无线路由器）作为媒介，将计算机和打印机连接在一起。接入点（无线路由器）连接分为无线网络配置和Wi-Fi Protected Setup配置两种方式。\n\n重要：在进行无线网络安装前，必须了解您的接入点（无线路由器）的网络名（SSID）和密码。如果无法确定，请咨询您的网络管理员或接入点（无线路由器）制造商。",
+          "match_terms": [
+            "网络名（SSID",
+            "密码",
+            "网络管理员",
+            "必须了解您的接入",
+            "须了解您的接入点"
+          ],
+          "content_hash": "sha256:be4f9052f0fcedcb2ec5aba1fc5eda4e433c208214a3a7ee5b9dbe1a36f2e5cd"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "direct_fact",
+        "network"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "direct_fact",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-020",
+      "query": "在使用无线网络配置工具配置打印机时，输入Wi-Fi密码后应执行哪些操作？请结合界面信息说明。",
+      "conversation": [],
+      "reference_answer": "输入接入点（无线路由器）的Wi-Fi密码，点击“下一步”；计算机开始与打印机建立无线连接；连接成功后，点击“完成”。",
+      "unanswerable": false,
+      "expected_terms": [
+        "点击“下一步”",
+        "连接成功后",
+        "点击“完成”",
+        "Wi-Fi",
+        "计算机开始与打印机建立无"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_32728a78602fd088144ee8cc8a1817d0"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_e82045c83eade66ce947f1ee6930b68917b7ec36",
+          "chunk_id": "chk_32728a78602fd088144ee8cc8a1817d0",
+          "page": 43,
+          "text": "标题路径：前言 > 4.2.1.1.2.无线网络配置工具配置方法\n\n注：• 如果您不清楚接入点（无线路由器）的网络名（SSID），请点击打印无线网络信息页，通过打印机搜索无线网络热点，搜索过程约10秒。\n\n4．输入接入点（无线路由器）的Wi-Fi密码，点击“下一步”。\n\n![图片](images/0c290577ea1433518ddd15ec1c961654812caf616a4e1081941cf1ed29c125b7.jpg)\n\n注：• 如果不了解您的网络安全模式及密码，请咨询您的网络管理员或接入点（无线路由器）制造商。\n\n• 目前，打印机支持的安全模式有三种：无、WEP和WPA/WPA2。\n\n1)无：未使用任何加密方式。\n\n2)WEP：通过使用WEP（有线等效加密），以安全密钥发送和接收数据。WEP密钥适用于64和128位加密网络，可同时包含数字和字母。\n\n3)WPA/WPA2：是Wi-Fi保护接入预共享密钥，它通过使用TKIP或AES加密（WPS－Personal）将无线设备与接入点进行连接。WPA/WPA2使用长度介于8-63个字符之间的预共享密钥（PSK）。\n\n• “显示密码”默认为不勾选，若勾选，所输入的密码将明文显示。\n\n5.计算机开始与打印机建立无线连接。\n\n6.连接成功后，点击“完成”。\n\n注：• 无线网络配置完成后，若打印机不能正常使用，请重新安装驱动。安装方式请选择“已连接至网络的打印机”（Windows系统请参阅第3.1.3章，Mac系统请参阅第3.2.2.3章）。\n\n一般图形内容  \n窗口标题为“Pantum P3500 Series”，右上角有红色关闭按钮（标有“X”）。窗口顶部为横幅区域，包含“PANTUM”品牌标志及下方一条红色细线。主体区域上方有提示文字：“请验证无线凭证，然后单击‘下一步’。”其下依次为：标签“网络名称 (SSID):”后接一个文本输入框，内含文字“ceshi”；标签“安全模式:”后接一个下拉选择框，当前显示“WPA/WPA2”；标签“密码:”后接一个密码输入框，内含八个星号“********”，左侧为该标签，下方有一个未勾选的复选框，标注“显示密码”。窗口底部横向排列三个按钮：“上一步”、“下一步”（蓝色高亮）、“取消”，其中“下一步”按钮被红色方框突出标记，“密码”输入框也被红色方框包围。所有元素自上而下垂直排列，布局为标准向导式设置界面。",
+          "match_terms": [
+            "点击“下一步”",
+            "连接成功后",
+            "点击“完成”",
+            "Wi-Fi",
+            "计算机开始与打印机建立无"
+          ],
+          "content_hash": "sha256:5056985eee292a924e0514f9c160006bfe1bfaadff3e81dfce2ab834f10fd1d5"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "procedure",
+        "wireless"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "procedure",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": true
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-021",
+      "query": "在设置打印机Wi-Fi热点时，需要完成哪些操作步骤？请按顺序说明。",
+      "conversation": [],
+      "reference_answer": "打开打印机电源；按下打印机控制面板“菜单键”－“菜单设置”－“网络设置”－“Wi-Fi热点”－“开启”，打开打印机的Wi-Fi热点；按下打印机控制面板“菜单键”－“打印信息报告”－“网络配置信息页”，打印并查看打印机无线热点的“SSID”和“密码”；开启计算机或移动设备。",
+      "unanswerable": false,
+      "expected_terms": [
+        "打开打印机电源",
+        "Wi-Fi热点",
+        "网络配置信息页",
+        "开启计算机或移动设备",
+        "SSID"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_76827473264d82d71ff005d7c8f05cc9"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_a1e191c4b00a0f7587fe66d45aee2cbb967cbbcc",
+          "chunk_id": "chk_76827473264d82d71ff005d7c8f05cc9",
+          "page": 44,
+          "text": "标题路径：前言 > 4.2.2.2. Wi-Fi热点连接方法\n\n1.打开打印机电源。\n\n2.按下打印机控制面板“菜单键”－“菜单设置”－“网络设置”－“Wi-Fi热点”－“开启”，打开打印机的Wi-Fi热点。\n\n3.按下打印机控制面板“菜单键”－“打印信息报告”－“网络配置信息页”，请打印“网络配置信息页”并查看打印机无线热点的“SSID”和“密码”。\n\n注：• Wi-Fi热点默认为关闭。\n\n• 您还可以通过内嵌Web服务器打开打印机的Wi-Fi热点（参阅5.2.2.1章）。\n\n4.开启计算机或移动设备。",
+          "match_terms": [
+            "打开打印机电源",
+            "Wi-Fi热点",
+            "网络配置信息页",
+            "开启计算机或移动设备",
+            "SSID"
+          ],
+          "content_hash": "sha256:fd0592e89db52fc078779336832a1263bb6b82aef52a9ad6a5d58ab5aea77110"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "procedure"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "procedure",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-022",
+      "query": "关闭打印机无线网络前需满足什么条件？具体操作步骤是什么？",
+      "conversation": [],
+      "reference_answer": "确保打印机处于就绪状态；若打印机进入休眠状态，需按下任意按键唤醒；按“菜单键” － “菜单设置” －“网络设置” － “无线网络设置” －“无线网络” － “关闭”，关闭无线网络。",
+      "unanswerable": false,
+      "expected_terms": [
+        "就绪状态",
+        "休眠状态",
+        "唤醒",
+        "关闭无线网络",
+        "确保打印机处于就绪状"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_205bf6f55df1a369af302d103d40c17e"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_89231f1f5f5a1db26ded67c3ab973dc938f32aea",
+          "chunk_id": "chk_205bf6f55df1a369af302d103d40c17e",
+          "page": 45,
+          "text": "标题路径：前言 > 4.3.关闭无线网络\n\n打印机通过接入点（无线路由器）连接到无线网络，Wi-Fi灯蓝灯常亮 。若要关闭无线网络，请按以下步骤进行操作：\n\n1.确保打印机处于就绪状态。\n\n注：• 若打印机进入休眠状态，请按下打印机控制面板的任意按键，然后松开，再等待约3-6秒，打印机即被唤醒。\n\n2.按打印机控制面板“菜单键” － “菜单设置” －“网络设置” － “无线网络设置” －“无线网络” － “关闭”，关闭无线网络， Wi-Fi灯灭 。",
+          "match_terms": [
+            "就绪状态",
+            "休眠状态",
+            "唤醒",
+            "关闭无线网络",
+            "确保打印机处于就绪状"
+          ],
+          "content_hash": "sha256:edb61456c0bcd4cbfb4f09a72c38177ef80f9246b19a7b99dfab74996bb857a9"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "procedure"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "procedure",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-023",
+      "query": "当打印机在网络中无法被搜索到时，应检查哪几项内容？请列出所有相关检查点。",
+      "conversation": [],
+      "reference_answer": "关闭计算机、接入点（无线路由器）和打印机的电源，然后再重启；检查防火墙软件是否封锁通信；检查打印机IP地址的分配是否正确。",
+      "unanswerable": false,
+      "expected_terms": [
+        "关闭计算机",
+        "防火墙软件",
+        "打印机IP地址",
+        "火墙软件是否封锁通信",
+        "地址的分配是否正"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_323bce9bd2647434a1bdfb55002a00ba"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_1ce0d57def0d26bb50956188d79a1b835da677a5",
+          "chunk_id": "chk_323bce9bd2647434a1bdfb55002a00ba",
+          "page": 46,
+          "text": "标题路径：前言 > 4.如果在网络中使用打印机时出现问题，请检查以下几方面：\n\n• 关闭计算机、接入点（无线路由器）和打印机的电源，然后再重启。\n\n• 检查防火墙软件是否封锁通信。如果计算机和打印机连接在同一网络中却搜索不到，可能是因为防火墙软件封锁了通信。请参阅防火墙软件的用户指南，将防火墙关闭，然后重新尝试搜索打印机。\n\n• 检查打印机 IP 地址的分配是否正确。您可以打印打印机的网络配置信息页来检查 IP地址。\n\n![图片](images/0048ff9c3ab2bfa84d460802b13d59e17cc187f329979bf86e45c088f06601d8.jpg)\n\n注：• 有关接入点（无线路由器）的信息，请参阅其用户指南或咨询其制造商。\n\n一般图形内容  \n一张带有折角的纸张，其上排列着多行短横线，每行由多个等距短横线组成，共约六行；一支带条纹笔身的铅笔从右上方斜向插入纸面，笔尖指向纸张中部偏右位置，正接触其中一行短横线；纸张右下角有向上翻折的角状边缘。",
+          "match_terms": [
+            "关闭计算机",
+            "防火墙软件",
+            "打印机IP地址",
+            "火墙软件是否封锁通信",
+            "地址的分配是否正"
+          ],
+          "content_hash": "sha256:17cc71a53544ebf4fca737ccaa3705a1e2326f4eb65d728704f17b3a7eb179f1"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "direct_fact"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "direct_fact",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-024",
+      "query": "通过内嵌Web服务器设置打印机休眠时间时，需要执行哪些操作？请按顺序说明。",
+      "conversation": [],
+      "reference_answer": "登录内嵌Web服务器；点击“设置”－“机器设置”－“系统”；根据需要选择休眠时间，点击“应用”。",
+      "unanswerable": false,
+      "expected_terms": [
+        "内嵌Web服务器",
+        "设置",
+        "系统",
+        "休眠时间",
+        "需要选择休眠"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_f290b2dee189909c4ebf7fa036551e4e"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_9becb7edc17707acda32f6c8744ce3705c263cd8",
+          "chunk_id": "chk_f290b2dee189909c4ebf7fa036551e4e",
+          "page": 50,
+          "text": "标题路径：前言 > 一、通过Web服务器设置\n\n1.登录内嵌Web服务器（如何登录，参阅第5.2.1章）。\n\n2.点击“设置”－“机器设置”－“系统”。\n\n3.根据您的需要选择休眠时间，点击“应用”。\n\n注：• 若您的打印机恢复出厂设置，休眠时间将自动恢复为1分钟。\n\n![图片](images/3b3d85a6f55099ee3f41cf89b223a717c14e8a10d05924580493164c28981b88.jpg)\n\n一般图形内容  \n一张带有折角的纸张，其上绘制有多行水平短划线，构成类似书写或填空区域的网格；一支铅笔从右上方斜向置于纸面，笔尖朝下对准其中一行短划线，笔身有平行斜线纹理，笔帽部分可见于右上端。纸张轮廓为矩形，右下角有向上翻折的页角。所有线条均为黑色实线，背景为纯白色。",
+          "match_terms": [
+            "内嵌Web服务器",
+            "设置",
+            "系统",
+            "休眠时间",
+            "需要选择休眠"
+          ],
+          "content_hash": "sha256:647bfc81f10c969be4ac2795da4cc1ebf4920cf8de23131f0d50674ddaf49a3b"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "procedure"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "procedure",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-025",
+      "query": "在无线网络连接中，Wi-Fi热点连接模式与基础结构连接模式有何区别？请从连接方式上说明。",
+      "conversation": [],
+      "reference_answer": "Wi-Fi热点连接模式是移动设备与带Wi-Fi功能的打印机直接连接；基础结构连接模式是通过路由器与无线设备连接。",
+      "unanswerable": false,
+      "expected_terms": [
+        "Wi-Fi热点连接模式",
+        "基础结构连接模式",
+        "通过路由器与无线设备连接",
+        "移动设备与带",
+        "功能的打印机"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_39dda6b0304e11ca4ff33ed8a891c209"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_74fa055331ac0caf91835d5d54ec6a8d2717f5a8",
+          "chunk_id": "chk_39dda6b0304e11ca4ff33ed8a891c209",
+          "page": 53,
+          "text": "标题路径：前言 > 6. 移动打印\n\n无线网络连接类型，分为基础结构连接和Wi-Fi热点（推荐）连接两种模式。若您在无线网络设置过程中遇到问题，请参阅第4.4章 无线网络设置常遇问题。\n\n![图片](images/431ee24e276836e5c118ea9379a462152b5ef60475473bc8652d7e5515ff997f.jpg)\n\n基础结构连接模式：通过路由器与无线设备连接\n\n1.通过无线网络连接至接入点的移动设备\n\n2.接入点（无线路由器）\n\n3.无线网络打印机\n\n![图片](images/0edb66ce4f04e00b055e9b5218db0b24460e3894e9d06fe6a7383df928b4d972.jpg)\n\nWi-Fi热点连接模式：移动设备与带Wi-Fi功能的打印机连接\n\n1. 通过无线网络连接打印机热点的移动设备\n\n2. 无线网络打印机\n\n视觉类型：示意图  \n标题：无线网络连接示意  \n轴/图例/标签：数字标签1、2、3；手机界面中的“WLAN”“Pantum-AP-XXXXXX”“Connected”；路由器图标；打印机图标；Wi-Fi信号图标  \n数据点：  \n- 标签1指向左侧竖直排列的智能手机，其屏幕显示“WLAN”“Pantum-AP-XXXXXX”“Connected”，右侧有绿色“ON”指示灯及Wi-Fi信号图标；  \n- 标签2指向顶部中央的双天线无线路由器，其上方有Wi-Fi信号图标；  \n- 标签3指向右上角的打印机，其上方有Wi-Fi信号图标；  \n- 底部区域中，左侧为同一智能手机，屏幕内容与上方一致，下方有放大圆形视图，内含“WLAN”“Pantum-AP-XXXXXX”“Connected”及绿色“ON”指示灯和Wi-Fi信号图标；右侧为同一打印机，其上方有Wi-Fi信号图标；  \n标题/注释：无额外标题或注释文字。\n\n手机屏幕显示：  \nWLAN  \nPantum-AP-XXXXXX  \nConnected  \nWLAN  \nPantum-AP-XXXXXX  \nConnected  \nON  \n（绿色指示条）  \nWi-Fi信号图标  \n\n图像左上角为手机，其右侧为带两根天线的无线路由器，再右侧为打印机；图像左下角为手机，其右侧为打印机；手机与打印机之间有连线指向放大镜视图；所有设备上方均有Wi-Fi信号图标；数字1、2、3分别标注在手机、路由器、打印机附近。",
+          "match_terms": [
+            "Wi-Fi热点连接模式",
+            "基础结构连接模式",
+            "通过路由器与无线设备连接",
+            "移动设备与带",
+            "功能的打印机"
+          ],
+          "content_hash": "sha256:28a03d11cb8b5f1749bc227b916ba35cd7bea358ab2d1b63824e147581016c8f"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "synthesis"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "synthesis",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-026",
+      "query": "进行基础结构连接模式设置前，必须了解哪些关键信息？具体如何连接移动设备和打印机？",
+      "conversation": [],
+      "reference_answer": "必须了解接入点（无线路由器）网络名（SSID）和密码；将打印机连接到接入点（无线路由器），方法参阅第4.2.1章；将移动设备连接到接入点（无线路由器），如何连接请咨询网络管理员或移动设备制造商。",
+      "unanswerable": false,
+      "expected_terms": [
+        "接入点（无线路由器）网络名（SSID",
+        "密码",
+        "连接到接入点",
+        "4.2.1",
+        "网络管理员或移动设备制造"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_7773233c2e72e9ff94e2b282dc1ece19"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_4db4505771bcb5cc36e899f476e3bbfe92c81583",
+          "chunk_id": "chk_7773233c2e72e9ff94e2b282dc1ece19",
+          "page": 53,
+          "text": "标题路径：前言 > 6.1.基础结构连接模式\n\n您可以通过接入点（无线路由器）作为媒介，将移动设备和无线网络打印机连接在一起。\n\n重要：在进行无线网络安装前，必须了解您的接入点（无线路由器）网络名（SSID）和密码。如果无法确定，请咨询您的网络管理员或接入点（无线路由器）制造商。\n\n1.将打印机连接到接入点（无线路由器），连接方法请参阅第4.2.1章。\n\n2.将移动设备连接到接入点（无线路由器），如何连接，请咨询您的网络管理员或移动设备制造商。\n\n3.若您使用的是Android移动设备，可以使用Mopria移动打印。如何打印，请参阅第6.2.1章。\n\n若您使用的是IOS移动设备，可以使用AirPrint移动打印。如何打印，请参阅第6.2.2章。",
+          "match_terms": [
+            "接入点（无线路由器）网络名（SSID",
+            "密码",
+            "连接到接入点",
+            "4.2.1",
+            "网络管理员或移动设备制造"
+          ],
+          "content_hash": "sha256:de2ab10d95777594666def55be9e912dc1249d45ef73229f7d6a1eeebaa822fa"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "procedure"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "procedure",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-027",
+      "query": "中国用户如何下载Mopria Print Service？请说明具体下载路径。",
+      "conversation": [],
+      "reference_answer": "中国用户请登录<http://simplifiedchinese.tyslab.com/> 下载Mopria打印服务 > 下载并安装。",
+      "unanswerable": false,
+      "expected_terms": [
+        "中国用户",
+        "登录<http://simplifiedchinese.tyslab.com/>",
+        "下载Mopria打印服务",
+        "国用户请登录",
+        "下载并安装"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_fd00570959e8b604e16b0c16692043bf"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_7f9826001ac04d2408f1fd6e4e7c4e7604c487e0",
+          "chunk_id": "chk_fd00570959e8b604e16b0c16692043bf",
+          "page": 54,
+          "text": "标题路径：前言 > 6.2.1.1.2.如何下载Mopria Print Service\n\n1.从Google play Store下载并安装Mopria Print Service打印插件到Android移动设备。\n\n2.中国用户请登录<http://simplifiedchinese.tyslab.com/> 下载Mopria打印服务 > 下载并安装。",
+          "match_terms": [
+            "中国用户",
+            "登录<http://simplifiedchinese.tyslab.com/>",
+            "下载Mopria打印服务",
+            "国用户请登录",
+            "下载并安装"
+          ],
+          "content_hash": "sha256:56f7b386426a904218e85b8ab4013401a17ac74c133182476a9662d73f177171"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "direct_fact"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "direct_fact",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-028",
+      "query": "如何通过控制面板更改打印机的语言设置？请按顺序说明操作步骤。",
+      "conversation": [],
+      "reference_answer": "按“菜单”键进入菜单设置界面；按“OK”键选择“1.系统设置”选项；按“OK”键选择“1.语言设置”选项。",
+      "unanswerable": false,
+      "expected_terms": [
+        "菜单键",
+        "系统设置",
+        "语言设置",
+        "OK键",
+        "键进入菜单设置界"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_64246d73989b0076d7dcc880bd1d1181"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_3cdb391f262f8ffecd5e3bf60a3303e2882af8b7",
+          "chunk_id": "chk_64246d73989b0076d7dcc880bd1d1181",
+          "page": 57,
+          "text": "标题路径：前言 > 7.1. 语言设置\n\n“语言设置”用来选择控制面板的显示语言。\n\n1) 按“菜单”键进入菜单设置界面。\n\n2) 按“OK”键选择“1.系统设置”选项。\n\n3) 按“OK”键选择“1.语言设置”选项，如下图：\n\n![图片](images/4aa02c33d8e1a19f43b1df3ce5f093b5a89e61362de4cb8f6dab0185cff31a79.jpg)\n\n一般图形内容  \n图像显示一个遥控器的正面视图，整体为竖直长方形，右侧边缘呈圆弧形。顶部有一个矩形显示屏区域，内含两行文字：第一行为“系统设置”，第二行为“1.语言设置”。屏幕下方是一个圆形导航按键组，中心为红色“OK”按钮；上方为红色向上箭头；下方为红色向下箭头；左侧为红色文件/菜单图标（形似三横线加一竖）；右侧为红色向右弯曲箭头（类似返回或刷新符号）。再下方并列两个功能按钮：左侧为带Wi-Fi信号图标和黑点的按钮，右侧为带“×”符号的按钮。最底部中央位置有三角形加左右箭头的符号“△⟨⟩”。所有元素均以黑色线条勾勒轮廓，部分图标与文字为红色，其余为黑色或白色背景。",
+          "match_terms": [
+            "菜单键",
+            "系统设置",
+            "语言设置",
+            "OK键",
+            "键进入菜单设置界"
+          ],
+          "content_hash": "sha256:d045cf0c445a1f277e52ff2263aa74af612a1b1b1fa29f9c7d75855e45103d4b"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "procedure"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "procedure",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-029",
+      "query": "在省墨设置中，如何开启或关闭省墨模式？请说明具体操作流程。",
+      "conversation": [],
+      "reference_answer": "按“菜单”键进入菜单设置界面；按“OK”键选择“1.系统设置”选项；按方向键“▲”或“▼”选择“3. 省墨”选项，按“OK”键；选择“1. 关闭”或“2. 开启”，按“OK”键，“\\*”表示设置完成。",
+      "unanswerable": false,
+      "expected_terms": [
+        "省墨",
+        "关闭",
+        "开启",
+        "OK键",
+        "键进入菜单设置界"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_7846debcb3f46cc646ffbd3b47121082"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_5837e1c99bb43af1682aa6298b927609bd3237b8",
+          "chunk_id": "chk_7846debcb3f46cc646ffbd3b47121082",
+          "page": 58,
+          "text": "标题路径：前言 > 7.3. 省墨设置\n\n用户可以选择省墨设置，降低打印成本，当省墨模式为“打开”时，打印输出的颜色将偏淡。默认设置为“关闭”。\n\n1.通过控制面板设置：\n\n1) 按“菜单”键进入菜单设置界面。\n\n2) 按“OK”键选择“1.系统设置”选项。\n\n菜单设置1.系统设置\n\n![图片](images/14a7cee0ae73a968af5da5252ca5598a3471de606734c08ee2b232c140d7a3ee.jpg)\n\n3) 按方向键“▲”或“▼”选择“3. 省墨”选项，按“OK”键。\n\n系统设置3.省墨\n\n4) 按方向键“▲”或“▼”选择“1. 关闭”，按“OK”键，“1. 关闭”后出现“\\*”表示关闭省墨设定完成；或按方向键“▲”或“▼”选择“2. 开启”，按“OK”键，“2. 开启”后出现“\\*” 表示开启省墨设置完成。\n\n![图片](images/28a5d7b07f39c17c3d240d48e9a38a0d27a296cf52e27e0483a3f5542c26397f.jpg)\n\n5) 按“菜单”键退出菜单界面，或者选择每级菜单中最后一项“返回上一级”按“OK”键逐级退出菜单界面。\n\n![图片](images/bf4059f483f6956aa244bcc2376e44344703ff5c3b9bf10ede72ab631318ba8d.jpg)\n\n视觉类型：遥控器界面截图  \n标题：菜单设置、省电、航错  \n轴/图例/标签：无坐标轴或图例，仅功能区域标签  \n数据点：无数值数据点或可量化测量值  \n标题/注释：无额外标题或注释  \n\n菜单设置  \n1. 系统设置  \n\n省电  \n1. 关闭  \n\n航错  \n\n每个界面包含以下共同元素：  \n- 顶部矩形文本框，内含当前菜单或状态文字（“菜单设置”、“省电”、“航错”）  \n- 中央圆形导航键，含上、下、左、右方向箭头及中心“OK”按钮；左侧有红色“鼠”图标（指向左），右侧有红色“→”箭头图标  \n- 导航键下方并列两个按钮：左侧为Wi-Fi图标+实心圆点，右侧为“×”符号按钮  \n- 最底部为三角形加左右箭头符号“△|< >|”  \n\n三个界面垂直排列，结构一致，仅顶部文本框内容不同；中间导航键的红色图标在三者中位置与样式略有差异：第一幅图中“鼠”图标位于左下方，“→”箭头在右上方；第二幅图中“鼠”图标位于左下方，“→”箭头未出现；第三幅图中“鼠”图标位于左下方，“→”箭头在右上方。",
+          "match_terms": [
+            "省墨",
+            "关闭",
+            "开启",
+            "OK键",
+            "键进入菜单设置界"
+          ],
+          "content_hash": "sha256:e848a197136197ffb638a114bf553d161d8096ee0c1d96b276bc9152e25ff9a5"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "procedure"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "procedure",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-030",
+      "query": "恢复出厂设置前需进入哪个菜单？具体操作步骤是什么？",
+      "conversation": [],
+      "reference_answer": "按“菜单”键进入菜单设置界面；按“OK”键选择“1.系统设置”选项；按方向键“▲”或“▼”选择“4.恢复出厂设置”选项，按“OK”键。",
+      "unanswerable": false,
+      "expected_terms": [
+        "菜单设置",
+        "系统设置",
+        "恢复出厂设置",
+        "OK键",
+        "键进入菜单设"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_56a04efd7fb8808fec170bac6c41d5f1"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_455ebcd180cebb869d6504ccb16893796842ab15",
+          "chunk_id": "chk_56a04efd7fb8808fec170bac6c41d5f1",
+          "page": 60,
+          "text": "标题路径：前言 > 7.4. 恢复出厂设置\n\n“恢复出厂设置”用来恢复到打印机的默认设置。\n\n1) 按“菜单”键进入菜单设置界面。\n\n2) 按“OK”键选择“1.系统设置”选项。\n\n![图片](images/865771c63c9c1656777b5763666b1b3b03f6e80aa47610cf9985da6eda47f30d.jpg)\n\n3) 按方向键“▲”或“▼”选择“4.恢复出厂设置”选项，按“OK”键。\n\n![图片](images/f3107ae420dc366bb0fe98fd0def9f6dd1fbb3e92754637ba7b417c0cb668cb6.jpg)\n\n注：• 若您通过网络方式安装打印机，可通过内嵌Web服务器恢复出厂设置（请参阅第5.2.2.3章）。\n\n视觉类型：UI 界面截图  \n标题：菜单设置与系统设置界面  \n轴/图例/标签：无坐标轴或图例元素  \n数据点：无可枚举数据点  \n标题/注释：  \n- 上部面板：  \n  - 标题框内文字：“菜单设置”“1.系统设置”  \n  - 中央导航键：圆形，含上、下、左（红色图标“≡”）、右（箭头“→”）方向键及中心“OK”按钮  \n  - 下方两个功能按钮：左侧为 Wi-Fi 图标+实心圆点；右侧为“×”符号按钮  \n  - 最下方标注：“△|< >”  \n- 下部面板：  \n  - 标题框内文字：“系统设置”“4.恢复出厂设置”  \n  - 中央导航键结构同上，方向键位置与上部一致，但上下箭头为纯线条样式（非红底），左键仍为红色“≡”图标，中心“OK”，右键为“→”箭头  \n  - 下方两个功能按钮：左侧为 Wi-Fi 图标+实心圆点；右侧为“×”符号按钮  \n  - 最下方标注：“△|< >”  \n\n两面板垂直堆叠，布局对称，仅标题框内文字内容不同，其余控件图形与排布完全一致。",
+          "match_terms": [
+            "菜单设置",
+            "系统设置",
+            "恢复出厂设置",
+            "OK键",
+            "键进入菜单设"
+          ],
+          "content_hash": "sha256:29c5dee561f42fad33b9e786d7d41ce3704a04c814efd81da85514ee8744da1c"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "procedure"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "procedure",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": true
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-031",
+      "query": "根据打印机纸盒与纸张尺寸的对应关系，多功能纸盒和标准纸盒分别支持哪些纸张尺寸？请列出两者都支持的尺寸。",
+      "conversation": [],
+      "reference_answer": "多功能纸盒支持的纸张尺寸包括：A4、Letter、Legal、Folio、Oficio、Statement、Executive、JIS B5、ISO B5、A5、A5 L、A6、B6、Monarch Env、DL Env、C5 Env、NO.10 Env、C6 Env、Jap Postcard、Postcard、Yougata2、Nagagata3、Younaga3、Yougata4、Long Paper (1.2m)、ZL、16K、Big 16K、32K、Big 32K。标准纸盒支持的纸张尺寸包括：Folio、Oficio、Executive、ISO B5、A5 L、A6、B6、16K、Big 16K、32K、Big 32K。两者都支持的尺寸为：Folio、Oficio、Executive、ISO B5、A5 L、A6、B6、16K、Big 16K、32K、Big 32K。",
+      "unanswerable": false,
+      "expected_terms": [
+        "多功能纸盒",
+        "标准纸盒",
+        "Folio",
+        "Oficio",
+        "Executive"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_d016af06b7e9cae99106fc49f171a49a"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_e1cc4563370206505bf8b9e5f752b5248f760233",
+          "chunk_id": "chk_d016af06b7e9cae99106fc49f171a49a",
+          "page": 63,
+          "text": "标题路径：前言 > 8.4.纸盒与纸张类型/纸张尺寸的对应关系\n\n表头：纸盒 | 控制面板 |  | 拨盘\n表头：纸盒 | 支持的纸张类型 | 支持的纸张尺寸 | 支持的纸张尺寸\n| 多功能纸盒 | 自动*、普通纸、厚纸、透明胶片纸、卡片纸、标签纸、信封纸、薄纸 | 自动*、A4、Letter、Legal、Folio、Oficio、Statement、Executive、JIS B5、ISO B5、A5、A5 L、A6、B6、Monarch Env、DL Env、C5 Env、NO.10 Env、C6 Env、Jap Postcard、Postcard、Yougata2、Nagagata3、Younaga3、Yougata4、Long Paper (1.2m)、ZL、16K、Big 16K、32K、Big 32K。 | 无拨盘 |\n| --- | --- | --- | --- |\n| 标准纸盒 | 自动*、普通纸、薄纸 | 自动*、Folio、Oficio、Executive、ISO B5、A5 L、A6、B6、16K、Big 16K、32K、Big 32K。 | *(自动)、A5、A4、LTR、LGL、STA、B5。 |\n| 选配纸盒 | 自动*、普通纸、薄纸 | 自动*、Folio、Oficio、Executive、ISO B5、16K、Big 16K。 | *(自动)、A5、A4、LTR、LGL、STA、B5。 |",
+          "match_terms": [
+            "多功能纸盒",
+            "标准纸盒",
+            "Folio",
+            "Oficio",
+            "Executive"
+          ],
+          "content_hash": "sha256:9951c3934d83ab3abea5c15c93f051eda5dac85a6e0f76cd2e4e20e264526af3"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "table",
+        "comparison"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "table",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-032",
+      "query": "在控制面板设置纸张尺寸时，需要完成哪几个步骤？请按顺序说明操作流程。",
+      "conversation": [],
+      "reference_answer": "按控制面板的“菜单键”，按“方向键”选择“纸盒设置”；按“OK键”进入“纸盒设置界面”，按“方向键”选择需要设置的纸盒；按“OK键”进入“设置界面”，按“方向键”选择“纸张尺寸”；按“OK键”进入“纸张尺寸界面”，按“方向键”选择需要设置的选项，再按“OK键”确认设置。",
+      "unanswerable": false,
+      "expected_terms": [
+        "菜单键",
+        "方向键",
+        "纸盒设置",
+        "OK键",
+        "纸张尺寸"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_c8853a64a7d209fc496a262dfbfcd931"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_173e3d555180ec9eff9f6be21e86cb14e1a154b6",
+          "chunk_id": "chk_c8853a64a7d209fc496a262dfbfcd931",
+          "page": 64,
+          "text": "标题路径：前言 > 8.4.2.1.控制面板纸张尺寸设置\n\n1.按控制面板的“菜单键”，按“方向键”，选择“纸盒设置”。\n\n2.按“OK键”，进入“纸盒设置界面”，按“方向键”，选择需要设置的纸盒。\n\n3.按“OK键”，进入“设置界面”，按“方向键”，选择“纸张尺寸”。\n\n4.按“OK键”，进入“纸张尺寸界面”。\n\n5.按“方向键”，选择需要设置的选项。再按“OK键”，设置选项。\n\n注：• 请确保纸张尺寸设置，与纸盒放置的纸张尺寸相匹配。",
+          "match_terms": [
+            "菜单键",
+            "方向键",
+            "纸盒设置",
+            "OK键",
+            "纸张尺寸"
+          ],
+          "content_hash": "sha256:074814af7b7481457298016ea9c3c67ce772c7e50483cad2f3f0f5d99d94b003"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "procedure",
+        "step-by-step"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "procedure",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-033",
+      "query": "使用纸盒拨盘设置标准纸盒的纸张尺寸时，应执行哪些具体操作？请描述完整流程。",
+      "conversation": [],
+      "reference_answer": "将标准纸盒从打印机中拉出；拨动纸盒拨盘，选择需要的纸张尺寸；放入纸张，将标准纸盒装入打印机。",
+      "unanswerable": false,
+      "expected_terms": [
+        "标准纸盒",
+        "拉出",
+        "拨动纸盒拨盘",
+        "放入纸张",
+        "装入打印机"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_55f9ebdded700a4a87590b9cc46c158c"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_a91e1d74eb8474f88248fb232d1b4e99aca505eb",
+          "chunk_id": "chk_55f9ebdded700a4a87590b9cc46c158c",
+          "page": 65,
+          "text": "标题路径：前言 > 8.4.2.2.纸盒拨盘纸张尺寸设置\n\n您可以通过打印机的纸盒拨盘，设置标准纸盒/选配纸盒的纸张尺寸。\n\n以下以标准纸盒为例进行操作说明：\n\n1.将标准纸盒从打印机中拉出。\n\n![图片](images/9471f1a0e2284a5af281894b7a3f41adaf307c32528347ce10cf20bd649799ea.jpg)\n\n2.拨动纸盒拨盘，选择您需要的纸张尺寸。\n\n![图片](images/7757bfb661ccd4ba3a3000d5f64be408817d864b957a450acefcd437766886f1.jpg)\n\n3. 放入纸张，将标准纸盒装入打印机。\n\n![图片](images/67f2b59adc8746448a242d7b1a67934f227568ddf10ed6192c64ec68dc9c719b.jpg)\n\n![图片](images/3db69f5887fb1625f6d65c868ced765d1bee96aa1348442528b366c791fe2bac.jpg)\n\n注：• 请确保纸盒拨盘的纸张尺寸设置，与纸盒放置的纸张尺寸相匹配。\n\n视觉类型：技术示意图  \n标题：打印机纸盒操作步骤说明  \n轴/图例/标签：A4（黑色背景白色文字）、A4（浅色背景深色文字）、红色箭头、放大镜视图框  \n数据点：三个独立的插图区域，分别展示纸盒拉出、纸盒内部结构与尺寸标识、纸盒重新装入；每个插图中均含一个红色弯曲箭头指示动作方向；底部左下角有纸张与铅笔图标  \n标题/注释：无额外标题或注释文本\n\n打印机纸盒从机身前部向下拉出，红色箭头指向左下方；纸盒内部结构可见，右侧有带“A4”标识的可调节挡板，放大视图显示该挡板可沿红色弧形箭头方向旋转调整；纸盒重新装入时，纸张从上方送入，红色箭头指示纸张进入方向，纸盒底部再次以红色箭头标示向右推入位置；图像最下方左角有一个由纸张和铅笔组成的图标。",
+          "match_terms": [
+            "标准纸盒",
+            "拉出",
+            "拨动纸盒拨盘",
+            "放入纸张",
+            "装入打印机"
+          ],
+          "content_hash": "sha256:65e7fecb7b0e9693eb611f130ad182730bc9b4f269e4c16ab0cbeef2171d0a37"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "procedure",
+        "physical operation"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "procedure",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-034",
+      "query": "当使用多功能纸盒打印长纸或特殊纸张时，有哪些注意事项？请结合证据说明。",
+      "conversation": [],
+      "reference_answer": "当使用特殊纸张打印时，建议一次仅放一张纸；若设置的纸张尺寸为Long Paper，打印前需打开打印机后盖，使打印纸张从打印机后端排出；打印时，一次只能放置1页纸张。",
+      "unanswerable": false,
+      "expected_terms": [
+        "特殊纸张",
+        "一次仅放一张纸",
+        "Long Paper",
+        "打开打印机后盖",
+        "从打印机后端排出"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_a25868de6dfa89105d4374400726c95d"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_e6cd0b674a0a5b45348395bffe3225b6d19f8fef",
+          "chunk_id": "chk_a25868de6dfa89105d4374400726c95d",
+          "page": 66,
+          "text": "标题路径：前言 > 8.5.2. 多功能纸盒打印\n\n当您将纸张放入多功能纸盒时，本机将自动从多功能纸盒进纸打印。\n\n![图片](images/53bf6d249aa7d0e01eebd116263498e5f7345e2cf394fc2105042281ae95ade3.jpg)\n\n注： • 多功能纸盒可以用来打印特殊纸张，当使用特殊纸张打印时，我们建议一次仅放一张纸。\n\n• 有关在多功能纸盒中装纸，请参阅第 2 章。\n\n• 若您设置的纸张尺寸为Long Paper，打印前请打开打印机后盖，使打印纸张从打印机后端排出。打印时，一次只能放置1页纸张。\n\n一般图形内容  \n图像展示一台打印机的侧面视图，其前部出纸托盘已向外拉出。左侧有一只手正握持一张粉红色的纸张，该纸张位于打印机内部进纸路径中，纸张上印有一个红色箭头，指向右上方；右侧另一只手正扶住纸张下边缘，协助将其从打印机中取出。打印机主体为浅色，顶部有盖板和控制面板区域，控制面板包含若干按钮与一个小型显示屏；机身右侧可见一组垂直散热格栅，下方有一条深色横向装饰带；机器底部有支撑脚。整幅图为线稿风格插图，仅在纸张上使用了粉红与红色填充。",
+          "match_terms": [
+            "特殊纸张",
+            "一次仅放一张纸",
+            "Long Paper",
+            "打开打印机后盖",
+            "从打印机后端排出"
+          ],
+          "content_hash": "sha256:ac2debb13a1602763bb1f20908694c6f51a9d02e8146c98ebc4e01c50067127e"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "condition",
+        "caution"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "direct_fact",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-035",
+      "query": "选配纸盒最多可容纳多少页普通纸？安装时需要注意什么？",
+      "conversation": [],
+      "reference_answer": "选配纸盒最多能放入550页80 g/m²普通纸；请确保选配纸盒与打印机本机正常安装。",
+      "unanswerable": false,
+      "expected_terms": [
+        "550页",
+        "80 g/m²普通纸",
+        "选配纸盒",
+        "正常安装",
+        "配纸盒与打印机本机正常安"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_d042dcdc44a32bef8e5bb545987a23c5"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_a3f391df5b0c14007c38a8c426e39592c48fd854",
+          "chunk_id": "chk_d042dcdc44a32bef8e5bb545987a23c5",
+          "page": 68,
+          "text": "标题路径：前言 > 8.5.3.1. 选配纸盒安装\n\n![图片](images/fe042c44826af2297b1ec42710a92774df0a74c0391eb803014e47c9276d511a.jpg)\n\n注： • 选配纸盒最多能放入 550 页 80 g/m²普通纸。\n\n• 请确保选配纸盒与打印机本机正常安装。\n\n一般图形内容  \n图像展示一台激光打印机的线稿图，主体为立式多层结构，顶部为进纸/出纸区域，可见一张倾斜放置的纸张及内部导板结构；右侧设有控制面板区域，包含圆形旋钮、多个方形按钮及一个矩形显示屏；机身侧面有竖向散热格栅与一条黑色长条形装饰或接口槽；中部正面设有一个横向插槽式面板；底部前侧抽屉被拉出，内部装有一叠浅粉色纸张，抽屉内侧可见金属支架与传动结构；整机以单色线条勾勒，无填充颜色除纸张外，无任何文字或标识。",
+          "match_terms": [
+            "550页",
+            "80 g/m²普通纸",
+            "选配纸盒",
+            "正常安装",
+            "配纸盒与打印机本机正常安"
+          ],
+          "content_hash": "sha256:b5a88f9625e3de71e725ddbd17886a49c1b8600cd215a1a348f58813fa652621"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "direct_fact",
+        "capacity"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "direct_fact",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-036",
+      "query": "多功能纸盒支持自动双面打印吗？如果支持，其最大容量和推荐纸张类型是什么？",
+      "conversation": [],
+      "reference_answer": "多功能纸盒可实现自动双面打印，但最多只能放置60页纸张，且使用推荐的打印纸张类型。",
+      "unanswerable": false,
+      "expected_terms": [
+        "自动双面打印",
+        "最多只能放置60页纸张",
+        "推荐的打印纸张类型",
+        "多功能纸盒可实现自动双面",
+        "功能纸盒可实现自动双面打"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_c4b42adb85f04025e03790cf5abbaaa9"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_601d095f59313d8a71b6592431868e343b0467b1",
+          "chunk_id": "chk_c4b42adb85f04025e03790cf5abbaaa9",
+          "page": 69,
+          "text": "标题路径：前言 > 2) 多功能纸盒自动双面打印\n\n从多功能纸盒中进纸进行自动双面打印。\n\n![图片](images/67f88d64b0d731804b0ba9e1b7623d662e2f864ea79aee2106fd001b49f302b9.jpg)\n\n当您将纸张放入多功能纸盒时，本机将优先选择多功能纸盒中的打印纸张。\n\n注： • 多功能纸盒可实现自动双面打印，但是最多只能放置 60 页纸张，且使用推荐的打印纸张类型。\n\n• 多功能纸盒支持普通纸的自动双面打印。\n\n一般图形内容  \n图像展示一台打印机，其前部输出托盘处于打开状态。左侧有一只手正从打印机中抽出一张纸，该纸张为浅红色，上面印有一个红色箭头，指向右上方；右侧另一只手扶住纸张的下边缘。打印机主体呈长方体，顶部有进纸槽和盖板，右侧设有控制面板区域，包含若干按钮与一个圆形旋钮，侧面可见散热格栅。整幅图为黑白线稿风格，仅纸张为彩色填充。",
+          "match_terms": [
+            "自动双面打印",
+            "最多只能放置60页纸张",
+            "推荐的打印纸张类型",
+            "多功能纸盒可实现自动双面",
+            "功能纸盒可实现自动双面打"
+          ],
+          "content_hash": "sha256:5867726ca256052e639cf8caf7bebd12120a5a49d2a84097109a5b2b88a3b90d"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "direct_fact",
+        "capability"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "direct_fact",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-037",
+      "query": "在Windows系统中如何通过打印首选项打开帮助文档？请说明具体操作路径。",
+      "conversation": [],
+      "reference_answer": "打开“打印首选项”，点击“帮助”按钮，即可打开帮助文档。",
+      "unanswerable": false,
+      "expected_terms": [
+        "打印首选项",
+        "帮助按钮",
+        "打开帮助文档"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_a8225227b180799ee084761349e47531"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_a28277e67f76a8471548c82a79b5c384593c9582",
+          "chunk_id": "chk_a8225227b180799ee084761349e47531",
+          "page": 72,
+          "text": "标题路径：前言 > 8.7. 打开帮助文档\n\n您可以打开“打印首选项”，点击“帮助”按钮（仅适用于 Windows 系统）。帮助文档中有打印机的使用指南，可通过使用指南了解打印的相关设置信息。\n\n![图片](images/24df67c726a45e29418ca0af5b39dfde977276635f07f7ab279dd488c1ac0183.jpg)\n\n![图片](images/a960296cad3252314eb19bb3577b9c7c71151ee3d814d58f75a51a127be4828f.jpg)\n\n视觉类型：图形用户界面（GUI）截图  \n标题：Pantum P3500DW Series PCL6 打印首选项  \n轴/图例/标签：基本、纸张、版面、高级（选项卡）；快速设置、双面打印、份数、分辩率、恢复默认设置、确定、取消、应用(A)、帮助（按钮）；出厂设置（下拉框）；无（单面）、长边、短边（单选按钮及示意图）；1（数值输入框）；600DPI、1200DPI（单选按钮）；打印机驱动使用指南（窗口标题）；目录、索引、搜索（导航栏）；目录树结构（“打印机驱动使用指南”下含“纸张”“版面”“高级”“打印机属性”“打印设置”等节点）  \n数据点：  \n- 选项卡：“基本”“纸张”“版面”“高级”  \n- 快速设置下拉框当前值：“出厂设置”  \n- 双面打印单选组：  \n  - “无（单面）”被选中，配图显示页码1与2在同一页正反面折叠示意  \n  - “长边”未选中，配图显示页码1、2、3沿长边装订的翻页示意  \n  - “短边”未选中，配图显示页码1、2、3沿短边装订的翻页示意  \n- 份数区域：  \n  - “份数”输入框内数字为“1”，上下箭头按钮  \n  - “逐份”复选框未勾选  \n  - “逆序”复选框未勾选  \n  - 下方三个图标分别标有“1”“2”“3”，代表不同页码组合排列  \n- 分辨率区域：  \n  - “600DPI”被选中（实心圆点）  \n  - “1200DPI”未选中（空心圆点）  \n- 底部操作按钮从左至右依次为：“确定”（蓝色高亮）、“取消”、“应用(A)”、“帮助”  \n- 下方窗口标题：“打印机驱动使用指南”，左侧目录树展开项包括“打印机驱动使用指南”“纸张”“版面”“高级”“打印机属性”“打印设置”，其中“基本”被高亮选中  \n- 主体内容区标题“基本”，下方文字说明：“‘基本’选项卡提供有关下列主题的信息：· 快速设置 · 双面打印 · 份数 · 分辨率 · 恢复默认设置”，其后是“快速设置”子标题及说明文字  \n\n标题/注释：  \n- 窗口标题栏显示“Pantum P3500DW Series PCL6 打印首选项”  \n- 左侧导航窗格顶部有“隐藏”“上一步”“前进”“主页”“打印”“选项(Q)”图标按钮  \n- 目录树中“基本”项前有蓝色小方块标记，表示当前激活页  \n- “恢复默认设置”按钮位于“分辨率”区域右下方  \n- “确定”按钮背景为蓝色，其余按钮为灰色  \n- 所有可见文本均按原样转录，如“PANTUM”品牌标识出现在两个位置：中间区域下方和左下角  \n- 界面整体分为上下两个窗口，上方为主设置窗口，下方为帮助文档窗口，二者并列布局  \n- 帮助文档窗口右侧有垂直滚动条，底部有最小化、最大化、关闭按钮  \n- “快速设置”说明段落末尾提及“您也可以根据需要修改打印设置（如‘方向’，‘纸张’，‘份数’等），并将其保存以便下次使用。”",
+          "match_terms": [
+            "打印首选项",
+            "帮助按钮",
+            "打开帮助文档"
+          ],
+          "content_hash": "sha256:4c2d4348a30e8f2d46345ef173f8c6e0d97c4e87093ef19f8a7104461865d869"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "procedure",
+        "GUI interaction"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "procedure",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-038",
+      "query": "更换激光碳粉盒后，需要完成哪些后续操作以确保打印正常？请按顺序说明。",
+      "conversation": [],
+      "reference_answer": "取下保护罩，将激光碳粉盒沿导轨放入打印机，盖紧机盖；重新开启打印机电源，打印一张测试页。",
+      "unanswerable": false,
+      "expected_terms": [
+        "取下保护罩",
+        "沿导轨放入打印机",
+        "盖紧机盖",
+        "重新开启打印机电源",
+        "打印一张测试页"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_7ebb2c3441135db59503aec30d2ac717"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_e6c9e049993ea8736d7962342d57bc57984648bd",
+          "chunk_id": "chk_7ebb2c3441135db59503aec30d2ac717",
+          "page": 76,
+          "text": "标题路径：前言 > 9.2.2. 更换激光碳粉盒\n\n![图片](images/d6f33939760b9c12663f1a39cb274fce3fa4224bb60710bb37e357fd0b9e08c0.jpg)\n\n![图片](images/ae991d51715ff84fc7badccbf878655e04bc26d9323111064355eb48ae1d421d.jpg)\n\n4. 取下保护罩，将激光碳粉盒沿导轨放入打印机，盖紧机盖。\n\n![图片](images/71eb3d39669d8babe92a13ad51c9d8a12f7b2e6dd50c88b03ff347c40f3304b7.jpg)\n\n注： • 碳粉盒放入打印机前请检查是否有封条，如果有请先撕下封条再安装。\n\n![图片](images/e9c5719613e988d290100911e6962c76c2503a594a3d4b4dda4b0b18443aabb0.jpg)\n\n5. 重新开启打印机电源，打印一张测试页。\n\n![图片](images/79ca68653628c569f78a175e02c5baa67ca8eb3817ad0a213f4fc57fbef30572.jpg)\n\n5-6  \n一个手握着一个长条形部件，该部件有灰色底座和浅色主体，上方有虚线轮廓表示移动轨迹；红色双向箭头标注“5-6”，指向左上方。  \n左下角有一个圆形图标，内含垃圾桶图案及三个小方块。  \n中间左侧是一个拆解的长条形部件，下方是其分离出的深灰色托盘状组件，由红色向下箭头连接；右侧是一台打开前盖的打印机，内部可见一个粉橙色部件被红色箭头指向并插入到打印机内部对应位置。  \n底部左侧是一个带齿轮结构的长条形部件，右侧有一条灰色细长矩形条；右下角是一台打印机正面图，其右侧控制面板区域有一个方形按钮，被红色圆圈圈出，内有手指按压图标，一条红线从按钮延伸至圆圈内。",
+          "match_terms": [
+            "取下保护罩",
+            "沿导轨放入打印机",
+            "盖紧机盖",
+            "重新开启打印机电源",
+            "打印一张测试页"
+          ],
+          "content_hash": "sha256:158f1aa8c9b501ab2a85498547a84734cbcda071bdb40cd63a7522c19209a77d"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "procedure",
+        "post-installation"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "procedure",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-039",
+      "query": "在处理打印故障前，应检查哪些关键项目？请列出全部内容。",
+      "conversation": [],
+      "reference_answer": "电源线是否连接正确，并且打印机电源开关是否已打开；所有的保护零件是否已拆除；激光碳粉盒是否已正确安装；出纸槽是否已完全合上；纸张是否已正确放入纸盒中；接口电缆线是否已正确连接打印机和计算机；是否已选择并安装了正确的打印机驱动程序；计算机端口是否已安装并连接到正确的打印机端口。",
+      "unanswerable": false,
+      "expected_terms": [
+        "电源线",
+        "打印机电源开关",
+        "保护零件",
+        "激光碳粉盒",
+        "正确安装"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_908c5b75d61c914464464002167aecdf"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_ee696de1bd6dcdeb9c673828918e142287d5df1e",
+          "chunk_id": "chk_908c5b75d61c914464464002167aecdf",
+          "page": 79,
+          "text": "标题路径：前言 > 10. 故障排除\n\n请仔细阅读本章节，可以帮您解决打印过程中常见的故障。若还未能解决出现的问题，请及时联系奔图售后服务中心。\n\n在处理常见故障之前，首先请检查以下情况：\n\n• 电源线是否连接正确，并且打印机电源开关是否已打开。\n\n• 所有的保护零件是否已拆除。\n\n• 激光碳粉盒是否已正确安装。\n\n• 出纸槽是否已完全合上。\n\n• 纸张是否已正确放入纸盒中。\n\n• 接口电缆线是否已正确连接打印机和计算机。\n\n• 是否已选择并安装了正确的打印机驱动程序。\n\n• 计算机端口是否已安装并连接到正确的打印机端口。",
+          "match_terms": [
+            "电源线",
+            "打印机电源开关",
+            "保护零件",
+            "激光碳粉盒",
+            "正确安装"
+          ],
+          "content_hash": "sha256:535a78f8ef5e4086711db60668de34acd2e3b8fecb4edeeecc8c6a316805cfc1"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "direct_fact",
+        "checklist"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "direct_fact",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-040",
+      "query": "当标准纸盒发生卡纸时，应如何处理？请按顺序说明操作步骤。",
+      "conversation": [],
+      "reference_answer": "打开纸盒；将卡住的纸张轻轻地向外拉出；取出卡纸后，请将纸盒重新装入打印机，打印机将自动恢复打印。",
+      "unanswerable": false,
+      "expected_terms": [
+        "打开纸盒",
+        "卡住的纸张",
+        "轻轻地向外拉出",
+        "重新装入打印机",
+        "自动恢复打印"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_e3b8ae6346310899c78b23a4f6b0584b"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_14aadf31c771df1e8362bfc0ff68d37529621d5f",
+          "chunk_id": "chk_e3b8ae6346310899c78b23a4f6b0584b",
+          "page": 79,
+          "text": "标题路径：前言 > 10.1.1. 标准纸盒卡纸\n\n1. 打开纸盒。\n\n![图片](images/13bcdaf57503ba1420ae780699611134910d6034a77e71c9f6bec20b04aba62a.jpg)\n\n2. 将卡住的纸张轻轻地向外拉出。\n\n![图片](images/0dbd1b269bcd07ae342909663c84dabb51333e7935a821c4f8c3394050b0be57.jpg)\n\n3. 取出卡纸后，请将纸盒重新装入打印机，打印机将自动恢复打印。\n\n![图片](images/064d6ab5441714a4e0c59abb689dff98a3cbaf2c5e5f708f15bdc2178bf10636.jpg)\n\n视觉类型：流程图（三步操作示意图）  \n标题：无  \n轴/图例/标签：无  \n数据点：无  \n标题/注释：无  \n\n一台打印机设备，其前部抽屉被向左拉出，红色箭头指向左方；接着一只手从打印机前部抽出一叠纸张，纸张呈浅橙色，手部动作由两个红色箭头指示方向；最后抽屉被推回原位，红色箭头再次指向左方。抽屉内部可见多层平行的导轨结构，打印机正面设有控制面板区域，包含圆形旋钮、方形按钮及若干小圆孔；机身侧面有竖向散热格栅；顶部进纸口内有折叠纸张的示意图形。所有部件均以黑白线稿呈现，仅抽屉和纸张部分填充浅橙色。",
+          "match_terms": [
+            "打开纸盒",
+            "卡住的纸张",
+            "轻轻地向外拉出",
+            "重新装入打印机",
+            "自动恢复打印"
+          ],
+          "content_hash": "sha256:3e9c2e09981a50ac8b155e2c6dd4384cee38387d7029e2a349d955ab0a931ea4"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "procedure",
+        "troubleshooting"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "procedure",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": true
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-041",
+      "query": "当打印机选配纸盒出现卡纸时，若在该区域看不到纸张，应执行哪些操作步骤？请按顺序说明。",
+      "conversation": [],
+      "reference_answer": "打开标准纸盒，从标准纸盒中取出卡纸，取出卡纸后重新将纸盒放入打印机。",
+      "unanswerable": false,
+      "expected_terms": [
+        "打开标准纸盒",
+        "从标准纸盒中取出卡纸",
+        "重新将纸盒放入打印机",
+        "取出卡纸后重新将纸盒放入",
+        "出卡纸后重新将纸盒放入打"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_99448009b5547debd4fada47d16876ea"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_6787a18a9e3438dfd763cd4cd26517464b5e675a",
+          "chunk_id": "chk_99448009b5547debd4fada47d16876ea",
+          "page": 81,
+          "text": "标题路径：前言 > 10.1.3. 选配纸盒卡纸\n\n如出现选配纸盒卡纸，请根据控制面板 LCD 显示屏提示，并按照如下步骤进行操作，排除卡纸。\n\n1. 打开选配纸盒。\n\n![图片](images/9323c52a6144ff2d7e640bfc0f395c20e9727e2d4167f0d3a2dbba9cebb2aa2b.jpg)\n\n2. 将卡住的纸张轻轻地向外拉出。\n\n![图片](images/f155a8b91c9d82bcc2b677e452f70886b6a8291e528731ccdd62a41b1bde2800.jpg)\n\n3. 取出卡纸后，请将纸盒重新装入打印机，打印机将自动恢复打印。\n\n![图片](images/a2420dd9d5ee90ccbbf7eac3f83aaedba559aed923cbc09456f96bb75acaf3ed.jpg)\n\n如果在该区域看不到纸张，请停止并转至下一步：\n\n1. 打开标准纸盒。\n\n![图片](images/35755facc7391b4b14ec4ba936913390ee5df2442e7afe11721f3a38f1c88bfd.jpg)\n\n2. 从标准纸盒中取出卡纸。\n\n![图片](images/09335c381ab12f9659285cabbd12175c8e378bfe1be3e06f149fe3703efc401b.jpg)\n\n3. 取出卡纸后，重新将纸盒放入打印机。\n\n![图片](images/ad710faf319ae9239ce36111a26eeccea4c001717817d93adb68d143160e853c.jpg)\n\n视觉类型：流程图  \n标题：打印机纸盒操作步骤  \n轴/图例/标签：无  \n数据点：  \n1. 顶部图像：打印机主体，下方抽屉式纸盒部分拉出，红色箭头指向左方。  \n2. 第二张图像：双手从纸盒中抽出一叠纸张，红色箭头指向左方。  \n3. 第三张图像：空纸盒被推入打印机，红色箭头指向右方。  \n4. 第四张图像：纸盒内装有纸张，红色箭头指向左方。  \n5. 第五张图像：双手将纸张放入纸盒，红色箭头指向左方。  \n6. 底部图像：纸盒部分拉出，内部可见纸张，红色箭头指向左方。  \n标题/注释：无",
+          "match_terms": [
+            "打开标准纸盒",
+            "从标准纸盒中取出卡纸",
+            "重新将纸盒放入打印机",
+            "取出卡纸后重新将纸盒放入",
+            "出卡纸后重新将纸盒放入打"
+          ],
+          "content_hash": "sha256:0cf0dc03cf5741c493addebcdc1a5f693f7ac89a3e3bb30d656a9e06221275b5"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "procedure"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "procedure",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-042",
+      "query": "处理中部卡纸时，为避免感光鼓曝光影响打印质量，在取出激光碳粉盒后应采取什么措施？取出卡纸后又需完成哪些操作才能恢复打印？",
+      "conversation": [],
+      "reference_answer": "用黑色胶袋将激光碳粉盒装好，或用纸张盖住激光碳粉盒；重新装入激光碳粉盒，合上前盖，打印机将自动恢复打印。",
+      "unanswerable": false,
+      "expected_terms": [
+        "用黑色胶袋将激光碳粉盒装好",
+        "或用纸张盖住激光碳粉盒",
+        "重新装入激光碳粉盒",
+        "合上前盖",
+        "打印机将自动恢复打印"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_d031b6b897fad5457187e1177739ea99"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_256ac76fff3c937659f089bb733d895e39573392",
+          "chunk_id": "chk_d031b6b897fad5457187e1177739ea99",
+          "page": 82,
+          "text": "标题路径：前言 > 10.1.4. 中部卡纸\n\n![图片](images/dadbd16e2b16e89b67d451a8c5b27ce1552a5e1a52dc9d17cda9f57008dd7957.jpg)\n\n注： • 在取中间卡纸与定影单元卡纸时，请注意切勿触摸如下阴影部分区域，避免灼伤。\n\n![图片](images/85e2a74538e0cdaed020e3e0df23b70bdd00c94a363e1527d987bc28e9316b66.jpg)\n\n1. 打开前盖。\n\n![图片](images/4d55a08ed4ecdf37222419786b298b7679137aca29e25c537c3aed9df9d8cd12.jpg)\n\n2. 取出激光碳粉盒。（为避免感光鼓曝光影响打印质量，请用黑色胶袋将激光碳粉盒装好，或用纸张盖住激光碳粉盒。）\n\n![图片](images/70b2007db1e925fa36e1f5af3e11df3914fe515f44ef8c1aae096bbedaf3ee46.jpg)\n\n3. 将卡住的纸张轻轻地向外拉出。\n\n![图片](images/ce7d25cbcfe0fd9ec5fa8cafbb0debcd37ebcf96ae0317ec4dcce4518be923ee.jpg)\n\n4. 取出卡纸后，重新装入激光碳粉盒，合上前盖，打印机将自动恢复打印。\n\n一般图形内容  \n图像顶部左侧有一个小图标，显示一张纸和一支笔。下方是四组打印机示意图，自上而下排列。第一组包含两个并列的打印机图示，左侧图示中一只手伸入打印机内部，右侧图示中一只手伸入打印机后部部件，两个图示上方均覆盖一个红色叉号。第二组为一个打印机正面打开前盖的图示，其前部托盘被拉出，托盘内有滚轮结构，一个红色箭头指向托盘内部组件。第三组为同一型号打印机，其底部抽屉被向左拉出，抽屉内可见一长条状墨粉盒或硒鼓组件，一个红色箭头指向该组件。第四组为打印机前部打开状态，一只手正从下方将一长条状组件（疑似墨粉盒）插入打印机内部，红色箭头指向该插入动作方向。所有图示均为黑白线条绘制，部分区域用浅橙色填充以突出部件，红色箭头用于指示操作方向。图像右侧有大面积黑色竖直区域，占据画面约三分之一宽度。",
+          "match_terms": [
+            "用黑色胶袋将激光碳粉盒装好",
+            "或用纸张盖住激光碳粉盒",
+            "重新装入激光碳粉盒",
+            "合上前盖",
+            "打印机将自动恢复打印"
+          ],
+          "content_hash": "sha256:28a65d7943f0e983d83d33ab2c86c440b7b374e4deefef8c2409b2267f00635b"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "procedure"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "procedure",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-043",
+      "query": "如果双面打印单元卡纸且纸张未随其一起出来，应如何操作？取出卡纸后还需进行哪些检查和操作？",
+      "conversation": [],
+      "reference_answer": "打开纸盒直接从底部取出卡纸；取出卡纸后装回双面打印单元，检查产品其他部位，确保无卡纸后，合上后盖，打印机将自动恢复打印。",
+      "unanswerable": false,
+      "expected_terms": [
+        "打开纸盒直接从底部取出卡纸",
+        "装回双面打印单元",
+        "检查产品其他部位",
+        "合上后盖",
+        "打印机将自动恢复打印"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_dc0f9c40d87afe27b41f8e858489e2f8"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_3bad8f1532160bdc8aac7c72d03c0b5d1d28b212",
+          "chunk_id": "chk_dc0f9c40d87afe27b41f8e858489e2f8",
+          "page": 84,
+          "text": "标题路径：前言 > 10.1.6. 双面打印单元卡纸\n\n1. 从打印机后面取出双面打印单元。\n\n![图片](images/31f0ebab0e251f1985b6551bae06d3b619368bd596f819d3722ad729ef635299.jpg)\n\n2. 从双面打印单元中取出卡纸。\n\n![图片](images/741ce365c7111b3c4fd8c6c0e3e0c6f717148e87d4e4a6bf2d35167a8642acd3.jpg)\n\n3. 如果纸张未随双面打印单元一起出来，请打开纸盒直接从底部取出卡纸。\n\n![图片](images/71832c8f1d412d140a61fd5acf0f427ee492a5c7889e19f33db1c5ff0ef85b1a.jpg)\n\n4. 取出卡纸后，装回双面打印单元，检查产品其他部位，确保无卡纸后，合上后盖，打印机将自动恢复打印。\n\n一般图形内容  \n图像由三个垂直排列的线稿图组成，每个图展示一台打印机的不同状态。顶部图显示一台白色打印机，其正面下方有一个浅棕色抽屉式部件，一个红色箭头指向该部件并朝右下方；打印机左侧有竖向散热格栅和两个方形按钮，顶部有进纸口及控制面板区域。中间图显示该抽屉式部件被完全拉出，呈水平展开状态，内部可见浅棕色纸张（边缘不规则），部件内部有多个机械结构件、导轨和卡扣；该部件右侧有凹槽与凸起结构，左端有带螺钉的金属支架。底部图显示打印机主体，一只手从右下方伸入画面，正将一张浅棕色纸张从打印机底部输出口抽出，输出口处有红色箭头指示纸张向外移动方向；手部穿着袖口有褶皱的长袖衣物；打印机正面中部有横向散热格栅，左侧同样有竖向散热格栅与两个方形按钮，顶部结构与顶部图一致。所有图中均无文字标注，背景为纯白，右侧各图对应区域有黑色矩形块遮挡。",
+          "match_terms": [
+            "打开纸盒直接从底部取出卡纸",
+            "装回双面打印单元",
+            "检查产品其他部位",
+            "合上后盖",
+            "打印机将自动恢复打印"
+          ],
+          "content_hash": "sha256:d63b57f1c3376806692de03a52eed05c3c2b033c3a63977764bc098433b29b75"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "procedure"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "procedure",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-044",
+      "query": "根据故障表，导致卡纸的可能原因有哪些？对应的解决办法包括哪些具体操作？",
+      "conversation": [],
+      "reference_answer": "纸盘中的纸张过多；打印介质超出了使用规格范围；进纸通道有异物；给纸辊脏污；内部部件故障；从纸盘中取出多余的纸张；如果在特殊打印介质上打印，请使用多功能纸盒；确保使用符合规格的纸张；清洁进纸通道；清洁给纸辊。",
+      "unanswerable": false,
+      "expected_terms": [
+        "纸盘中的纸张过多",
+        "打印介质超出了使用规格范围",
+        "进纸通道有异物",
+        "给纸辊脏污",
+        "内部部件故障"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_79970a3b5415a3f904f436232b9f2ff3"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_c9895eb1d2eb948d42cb6b092ab0031d3cc40919",
+          "chunk_id": "chk_79970a3b5415a3f904f436232b9f2ff3",
+          "page": 85,
+          "text": "标题路径：前言 > 10.3.1. 一般故障\n\n表注：注: • 如果问题依旧，请联系奔图客服。\n| 故障现象 | 原因 | 解决办法 |\n| --- | --- | --- |\n| 卡纸 | 纸盘中的纸张过多。打印介质超出了使用规格范围。进纸通道有异物。给纸辊脏污。内部部件故障。 | 从纸盘中取出多余的纸张,如果在特殊打印介质上打印,请使用多功能纸盒。确保使用符合规格的纸张。如果在特殊打印介质上打印,请使用多功能纸盒。清洁进纸通道。清洁给纸辊。 |\n| 打印多页进纸 | 打印介质含静电量过大。打印介质受潮或粘合在一起。内部部件故障。 | 将打印介质重新分离,可以消除部分静电。建议使用推荐打印介质。请重新将打印介质分离或使用更好的干燥打印介质。 |",
+          "match_terms": [
+            "纸盘中的纸张过多",
+            "打印介质超出了使用规格范围",
+            "进纸通道有异物",
+            "给纸辊脏污",
+            "内部部件故障"
+          ],
+          "content_hash": "sha256:2221a726ee4d6c9c5e6a877c22d5a4490d43c3cafcd8b4d62b5c0f63fe4994da"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "table"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "table",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-045",
+      "query": "打印全黑版的故障原因是什么？解决办法中建议采取哪两项措施？",
+      "conversation": [],
+      "reference_answer": "未正确安装激光碳粉盒；激光碳粉盒内部损坏；机器内部充电异常，未给激光碳粉盒充电；确保正确安装激光碳粉盒；建议更换原装激光碳粉盒。",
+      "unanswerable": false,
+      "expected_terms": [
+        "未正确安装激光碳粉盒",
+        "激光碳粉盒内部损坏",
+        "机器内部充电异常",
+        "确保正确安装激光碳粉盒",
+        "建议更换原装激光碳粉盒"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_6797eff3eb945110a8503c2dbb8b73cb"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_8d8365de60e04f7a3a57d428ea3e13c6f0da7e2f",
+          "chunk_id": "chk_6797eff3eb945110a8503c2dbb8b73cb",
+          "page": 86,
+          "text": "标题路径：前言 > 10.3.1. 一般故障\n\n表题：10.3.2. 图像缺陷\n| 故障现象 | 故障原因 | 解决办法 |\n| --- | --- | --- |\n| 打印全黑版 | 未正确安装激光碳粉盒。激光碳粉盒内部损坏。机器内部充电异常,未给激光碳粉盒充电。 | 确保正确安装激光碳粉盒。建议更换原装激光碳粉盒。 |\n| 碳粉晕开 | 使用了不符合使用规格的打印介质,例如介质受潮或太粗糙。机器内部脏污。激光碳粉盒损坏。机器内部部件损坏。 | 请使用规格范围内的打印介质。清洁机器内部。 |\n| 水平条纹 | 激光碳粉盒未正确安装。激光碳粉盒可能损坏。机器内部部件损坏。 | 确保正确安装激光碳粉盒。 |",
+          "match_terms": [
+            "未正确安装激光碳粉盒",
+            "激光碳粉盒内部损坏",
+            "机器内部充电异常",
+            "确保正确安装激光碳粉盒",
+            "建议更换原装激光碳粉盒"
+          ],
+          "content_hash": "sha256:8769514e80613bcbdad1219478de56d587105fb65271f18fb9f626e8d89ba472"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "table"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "table",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-046",
+      "query": "打印发白或偏淡的故障原因有哪些？解决办法中提到需要调整哪些打印设置？",
+      "conversation": [],
+      "reference_answer": "碳粉不足；打印介质不符合使用规格，例如介质受潮或太粗糙；打印程序中分辨率设置过低，浓度设置过低，或勾选了省墨模式；激光碳粉盒损坏；请正确使用规格范围内的介质；设置程序中的打印分辨率、浓度设置，或取消勾选省墨模式。",
+      "unanswerable": false,
+      "expected_terms": [
+        "碳粉不足",
+        "打印介质不符合使用规格",
+        "分辨率设置过低",
+        "浓度设置过低",
+        "勾选了省墨模式"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_72fb99900edc57182064979d5590c891"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_d39e725413ed40b23244ae2dd374bd5b6dc12f19",
+          "chunk_id": "chk_72fb99900edc57182064979d5590c891",
+          "page": 86,
+          "text": "标题路径：前言 > 10.3.1. 一般故障\n\n表题：10.3.2. 图像缺陷\n| 故障现象 | 故障原因 | 解决办法 |\n| --- | --- | --- |\n| 打印发白或偏淡 | 碳粉不足。打印介质不符合使用规格,例如介质受潮或太粗糙。打印程序中分辨率设置过低,浓度设置过低,或勾选了省墨模式。激光碳粉盒损坏。 | 请正确使用规格范围内的介质。设置程序中的打印分辨率,浓度设置,或取消勾选省墨模式。 |\n| 粉墨斑点 | 激光碳粉盒脏污或漏粉。激光碳粉盒损坏。使用了不符合使用规格的打印介质,例如介质受潮或太粗糙。进纸通道脏污。 | 请使用规格范围内的打印介质。清洁进纸通道。建议更换原装激光碳粉盒。 |\n| 白点 | 使用了不符合使用规格的打印介质,例如介质受潮或太粗糙。进纸通道脏污。激光碳粉盒内部鼓损坏。机器内部激光器反光玻璃脏污。 | 请使用规格范围内的打印介质。清洁进纸通道。清洁激光器反光玻璃。 |",
+          "match_terms": [
+            "碳粉不足",
+            "打印介质不符合使用规格",
+            "分辨率设置过低",
+            "浓度设置过低",
+            "勾选了省墨模式"
+          ],
+          "content_hash": "sha256:e6aaf9a7de4b153c04f6bae16ec727857ac58facdef3e133326a9f881fc3fcb7"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "table"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "table",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-047",
+      "query": "在打印机菜单结构中，网络信息下的无线网络信息包含哪些三级菜单项？其中哪个菜单项用于查看当前连接状态？",
+      "conversation": [],
+      "reference_answer": "连接状态、IP地址、子网掩码、网关、信道、SSID；连接状态用于查看当前连接状态。",
+      "unanswerable": false,
+      "expected_terms": [
+        "连接状态",
+        "IP地址",
+        "子网掩码",
+        "网关",
+        "信道"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_4d6cb1cd23b433853d4835a0048f0042"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_c00e6d132e49e09877b5b035a2d9efc4dd1c76ea",
+          "chunk_id": "chk_4d6cb1cd23b433853d4835a0048f0042",
+          "page": 90,
+          "text": "标题路径：前言 > 11. 菜单结构\n\n表头：总菜单结构 |  | \n表头：一级菜单 | 二级菜单 | 三级菜单\n| 1.系统设置 | 1.语言设置 | 1.中文* |\n| --- | --- | --- |\n| 4.网络信息 | 1.有线网络信息 | 2.子网掩码 |\n| 4.网络信息 | 1.有线网络信息 | 3.网关 |\n| 4.网络信息 | 2.无线网络信息 | 1.连接状态 |\n| 4.网络信息 | 2.无线网络信息 | 2.IP 地址 |\n| 4.网络信息 | 2.无线网络信息 | 3.子网掩码 |\n| 4.网络信息 | 2.无线网络信息 | 4.网关 |\n| 4.网络信息 | 2.无线网络信息 | 5.信道 |\n| 4.网络信息 | 2.无线网络信息 | 6.SSID |\n| 4.网络信息 | 3.WiFi 热点信息 | 1.状态 |\n| 4.网络信息 | 3.WiFi 热点信息 | 2.设备名称 |\n| 4.网络信息 | 3.WiFi 热点信息 | 3.IP 地址 |\n| 4.网络信息 | 3.WiFi 热点信息 | 4.密码 |\n| 4.网络信息 | 3.WiFi 热点信息 | 5.已连接设备数 |\n| 5.打印信息报告 | 1.演示页 |  |\n| 5.打印信息报告 | 2.信息页 |  |\n| 5.打印信息报告 | 3.菜单结构页 |  |\n| 5.打印信息报告 | 4.网络配置页 |  |\n| 5.打印信息报告 | 5.WiFi 热点列表页 |  |\n| 5.打印信息报告 | 6.PCL 字体列表页 |  |",
+          "match_terms": [
+            "连接状态",
+            "IP地址",
+            "子网掩码",
+            "网关",
+            "信道"
+          ],
+          "content_hash": "sha256:6419380d5fd2b81b970cb4d5c5b911837b6f9e7ce0118b4812b6e8899c547fb3"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "table"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "table",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-048",
+      "query": "打印机的工作环境温度要求是多少？电源电压在220V型号下支持的电压范围和电流是多少？",
+      "conversation": [],
+      "reference_answer": "工作环境温度：5~35°C；AC220~240V(±10%),50HZ/60HZ(±2%),4A。",
+      "unanswerable": false,
+      "expected_terms": [
+        "工作环境温度：5~35°C",
+        "AC220~240V(±10%",
+        "50HZ/60HZ(±2%",
+        "4A"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_cc8f88ba1cecee1ba21956bee861e840"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_3c9f56da5f7bfd9acff9d56ff44620774769b868",
+          "chunk_id": "chk_cc8f88ba1cecee1ba21956bee861e840",
+          "page": 93,
+          "text": "标题路径：前言 > 规格总述\n\n| 产品尺寸(长×宽×高) | 370mm*370mm*286mm |\n| --- | --- |\n| 产品重量 | 9.4Kg(不包含包装及粉盒) |\n| 工作环境 | 工作环境温度:5~35°C,最佳工作温度:10~32°C |\n| 工作环境 | 工作环境湿度:20%RH~80%RH |\n| 电源电压 | 110V Model: |\n| 电源电压 | AC100~127V(±10%),50HZ/60HZ(±2%),8A |\n| 电源电压 | 220V Model: |\n| 电源电压 | AC220~240V(±10%),50HZ/60HZ(±2%),4A |\n| 噪音 | 打印:≤55dB(A) |\n| 噪音 | 待机:≤30dB(A) |\n| 功耗 | TEC:符合EnergyStarV2.0要求及中国能效 |\n| 操作系统 | Microsoft Windows Server2003/Server2008/Server2012/XP/Vista/Windows7/Windows 8/Windows 8.1/Windows10 (32/64 Bit) |\n| 操作系统 | Mac OS 10.7/10.8/10.9/10.10/10.11 |\n| 操作系统 | Linux(有版本限制) |\n| 操作系统 | IOS/Android(有版本限制) |\n| 操作系统 | 中标麒麟(龙芯/飞腾)(有版本限制) |\n| 通信接口 | Hi-Speed USB 2.0 |\n| 通信接口 | 10Base-T/100Base-TX/1000Base-T(除USB型号) |\n| 通信接口 | Wi-Fi IEEE802.11b/g/n(仅Wi-Fi型号) |\n| 处理器 | 600MHZ |\n| 内存 | 标配256MB |",
+          "match_terms": [
+            "工作环境温度：5~35°C",
+            "AC220~240V(±10%",
+            "50HZ/60HZ(±2%",
+            "4A"
+          ],
+          "content_hash": "sha256:67c56fb5ecdb4a8828dfc4b4bb90adcc85385f61e33a6bc1990fcb0b1e8f5ff8"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "table"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "table",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-049",
+      "query": "Pantum 和 Pantum 标识是哪家公司注册的商标？Mopria Alliance, Inc. 注册的商标包括哪些？",
+      "conversation": [],
+      "reference_answer": "珠海奔图电子有限公司；Mopria®、Mopria® Logo、Mopria® Alliance logo。",
+      "unanswerable": false,
+      "expected_terms": [
+        "珠海奔图电子有限公司",
+        "Mopria®",
+        "Logo",
+        "Alliance"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_9dcf3a61e5e5650793ca10340dc0be32"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_458a9cf8b7d36cf1a4ad1673751c55aeba3be9cb",
+          "chunk_id": "chk_9dcf3a61e5e5650793ca10340dc0be32",
+          "page": 2,
+          "text": "标题路径：前言 > 法律说明\n\n商标\n\nPantum 和 Pantum 标识是珠海奔图电子有限公司注册的商标。\n\nMicrosoft<sup>®</sup>、Windows<sup>®</sup>、Windows server<sup>®</sup> 和 Windows Vista<sup>®</sup> 是微软公司在美国和其他国家注册的商标和注册商标。\n\nMopria<sup>®</sup>, the Mopria<sup>®</sup> Logo and the Mopria<sup>®</sup> Alliance logo are registered trademarks and service marks of Mopria Alliance, Inc. in the United States and other countries. Unauthorized use is strictly prohibited.\n\nAirPrint和AirPrint标识是苹果公司在美国和其他国家注册的商标。\n\nWi-Fi<sup>®</sup>, Wi-Fi Alliance<sup>®</sup>,Wi-Fi Protected Access<sup>®</sup>(WPA),the Wi-Fi CERTIFIED logo, the Wi-Fi logo and the Wi-Fi Protected Setup logo are registered trademarks of Wi-Fi Alliance.\n\n对于本用户指南涉及的软件名称，其所有权根据相应的许可协议由所属公司拥有，引用仅供说明。\n\n本用户指南涉及的其他产品和品牌名称为其相应所有者的注册商标、商标或服务标志，引用仅供说明。",
+          "match_terms": [
+            "珠海奔图电子有限公司",
+            "Mopria®",
+            "Logo",
+            "Alliance"
+          ],
+          "content_hash": "sha256:6195a3e8515bbd71c96b7616ad9675702ecdf6cf04edd45f56916d6d1213c59c"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "direct_fact"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "direct_fact",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": false
+      }
+    },
+    {
+      "case_id": "P3500-MEDIUM-050",
+      "query": "在打印机警告中，关于电源插拔和高温定影单元分别提出了哪些安全提示？",
+      "conversation": [],
+      "reference_answer": "请勿用湿手插拔电源线插头，以免导致电击；打印机打印时和打印后，定影组件会处于高温状态，请勿触摸定影单元（图示阴影部分），以免造成烫伤！",
+      "unanswerable": false,
+      "expected_terms": [
+        "请勿用湿手插拔电源线插头",
+        "以免导致电击",
+        "定影组件会处于高温状态",
+        "请勿触摸定影单元",
+        "以免造成烫伤"
+      ],
+      "forbidden_terms": [],
+      "relevant_document_ids": [
+        "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+      ],
+      "relevant_document_names": [
+        "source.pdf"
+      ],
+      "relevant_chunk_ids": [
+        "chk_bc6e6d2e8f53c55e804b2a8084a79036"
+      ],
+      "relevant_evidence": [
+        {
+          "evidence_id": "ev_e87c56375625dedd786468635fa532e7add79b7f",
+          "chunk_id": "chk_bc6e6d2e8f53c55e804b2a8084a79036",
+          "page": 5,
+          "text": "标题路径：前言 > 警告\n\n![图片](images/44dccb55b2f274e8e736579c9cd86edbd04973f2497bb0d3545b97d665fba434.jpg)\n\n打印机内部有高压电极。在清洁打印机之前，请确保已切断电源！\n\n![图片](images/58305e5b37bb355cc511604bbce38178fb05793a8f7ef9d2545f95ab720a5322.jpg)\n\n![图片](images/a45d2dc2086ff44f2920801812b37d546b93d0b8582b733e227a09ba4ea6d05f.jpg)\n\n请勿用湿手插拔电源线插头，以免导致电击。\n\n![图片](images/28317baab3d6cbcf525e40dd6e347c5326c6684df4b8331159d9f3342b489fd4.jpg)\n\n![图片](images/c686840fb66cafa23759f4341cced5f84cc48d62c3175f0568c7150a0004257b.jpg)\n\n打印机打印时和打印后，定影组件会处于高温状态，请勿触摸定影单元（图示阴影部分），以免造成烫伤！\n\n![图片](images/cd8db7d00e46d87a0ce93e482c78a7957a855a3c2e57cb5cfc07f9bc937eedcd.jpg)\n\n![图片](images/6c3d03d97cfdbdb591bb7008e41aef67c48cb3fce4f7a0257afee240397784fc.jpg)\n\n![图片](images/612605b672f025f1463fb830875f33c980db9e91d24b0d7f1dc4f50b63da97a8.jpg)\n\n定影单元有高温警示标签，请勿移动或损坏该标签。\n\n一个带有闪电符号的三角形警告图标位于图像最上方，其下方是一条红色横线。红色横线下方是第一个插图：一个电源插座（含两个三孔插口）与一个带插头的电线，插头正被插入插座，旁边有红色箭头指向插头插入方向。再下方是一个相同的闪电警告图标，其后是第二个插图：一个电源插座旁有一只手正将插头插入插座，插头周围有表示电火花或短路的线条，该插图右侧有一个红色的“X”标记。第三个闪电警告图标下方是第三个插图：一台顶部有开口、前部抽屉拉出的设备（类似烤面包机或小型厨房电器），设备内部可见一只手伸入，该插图上覆盖一个红色的“X”标记。第四个闪电警告图标下方是第四个插图：同一台设备被打开外壳，内部结构暴露，一只手伸入设备内部，该插图同样被一个红色的“X”标记覆盖。所有插图之间由黑色背景区域分隔。",
+          "match_terms": [
+            "请勿用湿手插拔电源线插头",
+            "以免导致电击",
+            "定影组件会处于高温状态",
+            "请勿触摸定影单元",
+            "以免造成烫伤"
+          ],
+          "content_hash": "sha256:e49fed4600840a4d1595bdec6a76b3e2ddb9662cad094841899b91656164216c"
+        }
+      ],
+      "tags": [
+        "manual",
+        "printer",
+        "zh-CN",
+        "live-baseline",
+        "difficulty-medium",
+        "multi-constraint",
+        "direct_fact"
+      ],
+      "sensitivity": "internal",
+      "metadata": {
+        "type": "direct_fact",
+        "difficulty": "medium",
+        "suite_key": "three-difficulty-live-2026-08-10",
+        "evidence_count": 1,
+        "critical": true
+      }
+    }
+  ]
+}

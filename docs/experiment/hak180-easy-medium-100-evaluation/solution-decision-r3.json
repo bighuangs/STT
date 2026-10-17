@@ -1,0 +1,262 @@
+{
+  "$schema": "C:/Users/黄珏桥/.agents/skills/select-minimum-sufficient-solutions/assets/schemas/solution-decision.schema.json",
+  "schema_version": "1.0.0",
+  "decision_id": "hak180-easy-badcase-r3-20260826",
+  "created_at": "2026-08-26T17:00:00+08:00",
+  "scope": {
+    "target": "HAK180 EASY badcase 的检索、问题契约与 proof closure",
+    "goal": "在不降低 proof guardrail 的前提下，将 EASY final 提升到 0.95、strict 提升到 0.90",
+    "constraints": [
+      "只处理 EASY，不继续 MEDIUM",
+      "不得为已知 case id 或参考答案增加专有逻辑",
+      "受限 case 只能读取首字段 case_id 并立即跳过",
+      "修复与离线验证完成后只运行一次 EASY 50 + MEDIUM 50 正式测评",
+      "所有 strict closure 必须由生产校验器和独立 evaluator 同步重放"
+    ],
+    "out_of_scope": [
+      "MEDIUM 和 HARD badcase",
+      "模型微调",
+      "新的外部模型或检索服务部署",
+      "不可安全证明的表格列标记反向推导"
+    ]
+  },
+  "strategy": {
+    "strategy_module_id": "agent-capability-ladder",
+    "current_rung_id": "fixed_workflow_prompt_chain",
+    "primary_method_family": "fixed_workflow_prompt_chain",
+    "method_family": "fixed_workflow_proof_rag",
+    "method_id": "easy_badcase_r3",
+    "axis_selections": [
+      {
+        "axis_id": "knowledge_grounding",
+        "option_id": "retrieval_augmented_generation",
+        "rationale": "目标事实来自版本化私有手册，并要求可追溯 Evidence。"
+      },
+      {
+        "axis_id": "evaluation_harness",
+        "option_id": "repeatable_evaluation_harness",
+        "rationale": "概率性 planning/review 需要版本化数据集与独立 proof evaluator。"
+      },
+      {
+        "axis_id": "agent_runtime_harness",
+        "option_id": "no_agent_runtime_harness",
+        "rationale": "生产路径是固定工作流，不由模型动态选择工具或步骤。"
+      },
+      {
+        "axis_id": "advanced_execution",
+        "option_id": "bounded_evaluator_replan_loop",
+        "rationale": "现有 answer plan 最多执行两次有界 repair，并有固定终止与复审。"
+      },
+      {
+        "axis_id": "human_governance",
+        "option_id": "policy_only",
+        "rationale": "proof fail-closed、授权 scope 与确定性 commit guard 足以控制本功能风险。"
+      },
+      {
+        "axis_id": "model_adaptation",
+        "option_id": "no_model_adaptation",
+        "rationale": "错误已归因到契约、召回和结构证明，不支持模型微调。"
+      }
+    ],
+    "selection_rationale": "保留现有固定 RAG 工作流，只修复已证实的通用契约、召回和结构证明缺口，是当前全生命周期复杂度最低的候选。"
+  },
+  "authorizations": {
+    "method_selection": {
+      "mode": "auto",
+      "status": "authorized",
+      "decision_ref": "conversation://2026-08-26#analyze-badcases-and-iterate"
+    },
+    "implementation": {
+      "mode": "user_gate",
+      "status": "authorized",
+      "decision_ref": "conversation://2026-08-26#approved-large-refactor"
+    },
+    "evaluation_execution": {
+      "mode": "user_gate",
+      "status": "authorized",
+      "decision_ref": "conversation://2026-08-26#run-one-100-case-evaluation-after-completion"
+    },
+    "iteration": {
+      "mode": "auto",
+      "status": "authorized",
+      "decision_ref": "conversation://2026-08-26#focus-easy-badcase-iteration"
+    }
+  },
+  "complexity_control": {
+    "approved_complexity_ceiling": {
+      "primary_rung_id": "fixed_workflow_prompt_chain",
+      "axis_limits": [
+        {
+          "axis_id": "knowledge_grounding",
+          "option_id": "retrieval_augmented_generation"
+        },
+        {
+          "axis_id": "evaluation_harness",
+          "option_id": "repeatable_evaluation_harness"
+        },
+        {
+          "axis_id": "agent_runtime_harness",
+          "option_id": "no_agent_runtime_harness"
+        },
+        {
+          "axis_id": "advanced_execution",
+          "option_id": "bounded_evaluator_replan_loop"
+        },
+        {
+          "axis_id": "human_governance",
+          "option_id": "policy_only"
+        },
+        {
+          "axis_id": "model_adaptation",
+          "option_id": "no_model_adaptation"
+        }
+      ],
+      "source": "current_implementation",
+      "decision_ref": null,
+      "evidence_ref": "docs/experiment/hak180-easy-medium-100-evaluation/evaluation-retest-r2.yaml"
+    },
+    "candidate_profiles": []
+  },
+  "evaluation": {
+    "metrics": [
+      {
+        "metric_id": "easy_final_accuracy",
+        "role": "required",
+        "target_definition": "正式 EASY 50 题 final accuracy 不低于 0.95",
+        "observed_value": null,
+        "verdict": "not_evaluated",
+        "evidence_refs": [
+          "docs/experiment/hak180-easy-medium-100-evaluation/formal-evaluation-r3.md"
+        ]
+      },
+      {
+        "metric_id": "easy_strict_accuracy",
+        "role": "required",
+        "target_definition": "正式 EASY 50 题 strict accuracy 不低于 0.90",
+        "observed_value": null,
+        "verdict": "not_evaluated",
+        "evidence_refs": [
+          "docs/experiment/hak180-easy-medium-100-evaluation/formal-evaluation-r3.md"
+        ]
+      }
+    ],
+    "hard_gates": [
+      {
+        "gate_id": "proof_fail_closed",
+        "definition": "所有新 closure 在生产 commit 与独立 evaluator 中对缺失、乱序和篡改同步 fail-closed",
+        "verdict": "pass",
+        "evidence_refs": [
+          "docs/experiment/hak180-easy-medium-100-evaluation/easy-badcase-iteration-r3.md",
+          "tests/unit/test_proof_carrying_answer_v2.py",
+          "tests/unit/test_evaluation_error_safety.py",
+          "tests/eval/test_evaluation_execution_boundary.py"
+        ]
+      }
+    ],
+    "aggregate": {
+      "aggregation_rule": "两项 required 指标均达到目标且 proof fail-closed 硬门通过时才判定达标。",
+      "metric_verdict_counts": {
+        "met": 0,
+        "not_met": 0,
+        "not_evaluated": 2
+      },
+      "hard_gate_verdict": "pass",
+      "target_verdict": "indeterminate"
+    },
+    "near_target_rule": {
+      "status": "not_defined",
+      "definition": null,
+      "metric_ids": []
+    },
+    "near_target_assessment": {
+      "verdict": "not_assessed",
+      "rationale": "没有预注册 near-target 规则；R3 EASY 的完整 50 题受 Milvus 启动故障污染，恢复后 21 题切片不能替代正式分母。",
+      "evidence_refs": [
+        "docs/experiment/hak180-easy-medium-100-evaluation/formal-evaluation-r3.md"
+      ]
+    }
+  },
+  "iteration_history": {
+    "active_method_family_id": "fixed_workflow_proof_rag",
+    "method_family_histories": [
+      {
+        "method_family_id": "fixed_workflow_proof_rag",
+        "mechanism_definition": {
+          "control_flow": "fixed_query_understanding_retrieval_plan_review_repair_render",
+          "model_usage": "fixed_structured_answer_plan_and_semantic_review_calls",
+          "knowledge_access": "frozen_scope_hybrid_rag_with_exact_heading_metadata_route",
+          "runtime_behavior": "bounded_fixed_workflow_with_two_repairs_and_no_dynamic_tool_selection",
+          "adaptation": "offline_versioned_prompt_and_deterministic_contract_iteration"
+        },
+        "mechanism_signature": "sha256:8ec0ce913e478a1291a14abd4fe295ce925039e45e2c20d6498179e80b5622c9",
+        "supersedes_family_id": null,
+        "switch_classification": "initial",
+        "switch_reason": "以当前固定 proof-carrying RAG 工作流建立本次 EASY-only 决策范围。",
+        "switch_evidence_refs": [
+          "docs/experiment/hak180-easy-medium-100-evaluation/evaluation-retest-r2.yaml"
+        ],
+        "baseline_round0": {
+          "round_number": 0,
+          "baseline_id": "easy-r2-provider-contaminated-baseline",
+          "method_id": "easy_before_r3",
+          "evaluation": {
+            "evaluation_ref": "docs/experiment/hak180-easy-medium-100-evaluation/evaluation-retest-r2.yaml",
+            "target_verdict": "indeterminate",
+            "near_rule_status": "not_defined",
+            "near_verdict": "not_assessed"
+          },
+          "evidence_refs": [
+            "docs/experiment/hak180-easy-medium-100-evaluation/evaluation-retest-r2.yaml"
+          ]
+        },
+        "maximum_valid_rounds": 3,
+        "valid_round_count": 0,
+        "invalid_run_count": 2,
+        "additional_valid_rounds_allowed": true,
+        "stop_state": "active",
+        "stop_reason": null,
+        "valid_rounds": [],
+        "invalid_runs": [
+          {
+            "run_id": "erun_9c322543e81b4bcf9edc1908e55d275e",
+            "occurred_at": "2026-08-26T15:36:10+08:00",
+            "reason": "14 条记录在 node_answer_plan 遭遇同构外部 BadRequestError，正式 50 题指标不可解释。",
+            "evidence_refs": [
+              "docs/experiment/hak180-easy-medium-100-evaluation/evaluation-retest-r2.yaml"
+            ]
+          },
+          {
+            "run_id": "erun_5bfea63b6c654fc483f9bafb7763947c",
+            "occurred_at": "2026-08-26T19:01:46+08:00",
+            "reason": "Milvus 在正式运行开始时未启动并于运行中恢复，导致 001–029 共 29 条 RequiredRoute 执行错误；完整 EASY 50 题效果不可解释。",
+            "evidence_refs": [
+              "docs/experiment/hak180-easy-medium-100-evaluation/formal-evaluation-r3.md"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "decision": {
+    "stop_current_method": false,
+    "next_action": "complete_with_current_method",
+    "rationale": "在现有复杂度上界内已完成通用修复、离线验证与一次 100 题运行；EASY 效果受 Milvus 事故污染，继续保持当前方法且不以受污染全量或恢复后切片宣称达标。",
+    "user_gate": {
+      "required": false,
+      "reason": "none",
+      "status": "not_required",
+      "options_presented": [
+        "retain_current",
+        "collect_more_evidence"
+      ],
+      "selected_option": "undecided",
+      "selected_candidate_id": null,
+      "decision_ref": null
+    }
+  },
+  "evidence_refs": [
+    "docs/experiment/hak180-easy-medium-100-evaluation/evaluation-retest-r2.yaml",
+    "docs/experiment/hak180-easy-medium-100-evaluation/easy-badcase-iteration-r3.md",
+    "docs/experiment/hak180-easy-medium-100-evaluation/formal-evaluation-r3.md"
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "schema_version": "stt.eval.suite-v2-blocker-remediation-validation.v2-no-index-refresh",
+  "status": "passed",
+  "target_case_count": 13,
+  "target_case_ids": [
+    "P3500-EASY-004",
+    "P3500-EASY-049",
+    "P3500-HARD-003",
+    "P3500-HARD-007",
+    "P3500-HARD-008",
+    "P3500-HARD-009",
+    "P3500-HARD-011",
+    "P3500-HARD-015",
+    "P3500-HARD-021",
+    "P3500-HARD-037",
+    "P3500-HARD-040",
+    "P3500-HARD-041",
+    "P3500-HARD-042"
+  ],
+  "disposition_counts": {
+    "corrected": 3,
+    "replacement": 6,
+    "semantic_replacement": 4
+  },
+  "difficulty_counts": {
+    "easy": 2,
+    "hard": 11
+  },
+  "full_suite_case_counts_preserved": {
+    "easy": 50,
+    "medium": 50,
+    "hard": 50
+  },
+  "full_suite_total_preserved": 150,
+  "case_ids_preserved": true,
+  "difficulty_preserved": true,
+  "evidence_ids_resolve_to_immutable_inputs": true,
+  "evidence_match_terms_present_in_source_text": true,
+  "selected_chunks_resolve_to_frozen_active_index": true,
+  "no_index_replacement_case_ids": [
+    "P3500-EASY-004",
+    "P3500-HARD-003",
+    "P3500-HARD-007",
+    "P3500-HARD-009",
+    "P3500-HARD-011",
+    "P3500-HARD-037",
+    "P3500-HARD-040"
+  ],
+  "active_index": {
+    "index_version_id": "idx_fb5eeac133f540f4af31004dbde23151",
+    "frozen_chunk_count": 218,
+    "index_rebuild_required": false,
+    "evidence_refresh_required": false
+  },
+  "concept_groups_schema_valid": true,
+  "project_manifest_validator_passed": true,
+  "all_concepts_assigned_to_branches": true,
+  "semantic_replacement_case_ids": [
+    "P3500-HARD-003",
+    "P3500-HARD-007",
+    "P3500-HARD-009",
+    "P3500-HARD-011"
+  ],
+  "semantic_replacement_query_and_reference_changed": true,
+  "semantic_replacement_payload_hashes_present": true,
+  "same_prompt_independent_rereview_required": true,
+  "superseded_review_reuse_forbidden": true,
+  "input_hashes_verified_before_and_after": {
+    "datasets/easy.json": "1a3cacbb59b3aa7f354a569f828ad6214351f07cd3d0923a798e98cc33c41b2a",
+    "datasets/medium.json": "89c570d10282342fd7facec9bd7d20af61337b5ecaef0038157ed824c25c0369",
+    "datasets/hard.json": "e5be4d2495618e819b9758fa753bb10d553037ca10b26dc6ccd8521404600a04",
+    "pdf-visual-review/cases.json": "9d4e1ae706093173a13c47d063c64e9b0b24fb5314b23b662a2b86226b07f76a",
+    "source.pdf": "c4c7b2a434f3f86c4988d3961ac7304970029e71b0201fb6c10ca722b63bce2b"
+  },
+  "write_scope": [
+    "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/suite-v2-blocker-remediation"
+  ],
+  "network_or_llm_calls": false,
+  "production_answers_read": false,
+  "suite_v2_request_pack_modified": false,
+  "application_or_evaluator_code_modified": false,
+  "import_readiness": {
+    "ready_after_suite_v2_review": 13,
+    "requires_index_evidence_refresh": 0
+  },
+  "proposal_file_sha256": "830e8b8599caadf06fa27d3a6bb23702d7cfe8b2d221c85f2fd98ac7df1bd683"
+}

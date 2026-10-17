@@ -1,0 +1,160 @@
+schema_version: "1.0.0"
+dataset:
+  dataset_id: "stt-ragas-full-system-pilot"
+  version: "2026-08-28.2"
+  name: "STT 当前系统 RAGAS 全链路分层评测集"
+  owner: "STT evaluation"
+  status: "pilot_frozen"
+  purpose: "在当前候选 RAG 配置上评估检索、生成、端到端、安全、时延和成本。"
+  decision_supported: "定位当前系统失效模式；不得单独作为生产发布结论。"
+  created_at: "2026-08-28T00:00:00+08:00"
+  frozen_at: "2026-08-28T11:00:00+08:00"
+scope:
+  target_users:
+    - "中文设备手册问答用户"
+  domains:
+    - "打印机用户手册"
+    - "产品安全手册"
+  tasks:
+    - "直接事实问答"
+    - "多约束问答"
+    - "表格与步骤问答"
+    - "不可回答识别"
+    - "安全与提示注入防护"
+  languages:
+    - "zh-CN"
+  time_range:
+    start: null
+    end: "2026-08-28"
+  exclusions:
+    - "P3500-EASY-002 仅保留历史分母占位，禁止解析、转换、Judge 或外发。"
+    - "restricted 数据禁止发送给外部 RAGAS Judge。"
+knowledge_base:
+  corpus_id: "kb_2fad25538aab42d19baf79fba782a06c"
+  corpus_version: "p3500-c4c7b2a4-plus-hak180-dff3aaa8"
+  index_version: "idx_fb5eeac133f540f4af31004dbde23151"
+  source_bindings:
+    pantum-p3500:
+      corpus_id: "kb_2fad25538aab42d19baf79fba782a06c"
+      index_version: "idx_fb5eeac133f540f4af31004dbde23151"
+    brother-hak180:
+      corpus_id: "kb_5b90254dd5a24565b347c63ba56ce69d"
+      index_version: "idx_08abedf9eecc4f488528f57b318eeeed"
+  chunker_version: "stt-chunks-v2@2"
+  effective_at: "2026-08-28"
+  snapshot_uri: "local://stt/evaluation-sources/2026-08-28"
+sources:
+  - source_id: "pantum-p3500"
+    source_type: "manual"
+    source_ref: "doc/PantumP3500用户手册zh_CNV1.2_1644316283788.pdf"
+    license: "internal-evaluation"
+    sampling_policy: "已有三难度金标全量纳入；一个受保护 Case 仅占位。"
+    proportion: 0.8427
+    privacy_class: "internal"
+    reviewed: true
+  - source_id: "brother-hak180"
+    source_type: "manual"
+    source_ref: "doc/hak180产品安全手册.pdf"
+    license: "internal-evaluation"
+    sampling_policy: "v1.4.0 全量纳入确定性评测；restricted Case 不进入外部 Judge。"
+    proportion: 0.1573
+    privacy_class: "internal_and_restricted"
+    reviewed: true
+tables:
+  cases:
+    path: "data/cases.csv"
+    primary_key: "case_id"
+  relevance_judgments:
+    path: "data/relevance-judgments.csv"
+    foreign_key: "case_id"
+  claims:
+    path: "data/claims.csv"
+    foreign_key: "case_id"
+  nested_evidence:
+    path: "data/samples.jsonl"
+    format: "jsonl"
+splits:
+  development: []
+  calibration: []
+  test:
+    - "all_eligible_cases"
+  hidden: []
+slices:
+  definitions:
+    - "source"
+    - "difficulty"
+    - "answerable"
+    - "task_type"
+    - "safety"
+    - "sensitivity"
+    - "multi_evidence"
+  traffic_weights: {}
+difficulty_policy:
+  axes:
+    - "answerability"
+    - "lexical_gap"
+    - "multi_hop"
+    - "noise_conflict"
+    - "evidence_position"
+    - "citation_requirement"
+    - "safety"
+  derivation_rule: "沿用冻结数据集 difficulty，并以元数据派生正交切片；不把历史运行重复计为新 Case。"
+sample_size_plan:
+  population_mode: "census_of_available_executable_pilot_cases"
+  executable_cases: 177
+  external_judge_eligible_cases: 176
+  pilot_size: 177
+  decision_risk: "现有 Case 已参与多轮迭代，存在开发集泄漏；文档和领域多样性不足。"
+  target_interval_width: "若把 177 题视为独立样本，p=0.5 时正态近似 95% CI 半宽约 7.36 个百分点；本轮实际是可用 Pilot Case 全量普查，不据此宣称总体功效。"
+  minimum_detectable_effect: "仅报告探索性 paired effect；不宣称已满足发布功效。"
+  expected_variance: null
+  critical_slices:
+    - "hard"
+    - "unanswerable"
+    - "safety"
+    - "restricted"
+  budget_limit: "外部模型费用硬上限 CNY 10；全量确定性评测不消耗 Judge，语义 Judge 分层抽取 16 个 Case。"
+  stopping_rule: "完成全部可执行 Case 的确定性评测；语义 Judge 在 16 个 Case、144 次 LLM 请求、32 次 Embedding 请求、Judge 合计 176 次外部请求或被测模型与 Judge 累计估算/实际费用 CNY 10 任一上限触发时停止；被测模型请求次数当前不持久化，改以实际 Token 计费；任何缺失和错误均 fail-visible。"
+  weighting_policy: "宏观总体与 source/difficulty 分层并列报告，不按历史运行次数加权。"
+annotation:
+  guideline_version: "legacy-dataset-contracts-plus-ragas-normalization-v1"
+  reviewer_roles:
+    - "legacy dataset author"
+    - "evaluation adapter reviewer"
+  independent_review_count: 0
+  adjudication_policy: "既有争议保留 Unknown；RAGAS Judge 不能替代人工仲裁。"
+  agreement_measure: "not_available"
+  agreement_by_slice: {}
+quality_controls:
+  deduplication: "178 个最新 Case 的标准化精确 Query 重复为 0；版本重复不累计。"
+  leakage_check: "三难度与 HAK180 均已用于历史迭代，因此只能作为回归/Pilot。"
+  provenance_validation: "P3500 Evidence 绑定 chunk/page/hash；HAK180 仅绑定 page/text，缺 chunk/span。"
+  id_integrity_check: "case_id 全局唯一；转换时写 SHA256SUMS。"
+  temporal_validity_check: "手册静态事实；知识与索引版本随运行冻结。"
+  synthetic_review_policy: "本轮不把未经人工复核的 RAGAS 合成题纳入正式金标。"
+privacy:
+  classification: "internal_with_restricted_subset"
+  redaction_policy: "受保护和 restricted 样本不进入外部 Judge；Judge 输出不保存原文。"
+  access_policy: "仅本地评测工作区。"
+  retention_policy: "耐久目录只存规范化金标与脱敏指标；原始大轨迹保留在 var/evals。"
+artifacts:
+  durable_manifest_path: "docs/experiment/ragas-full-system-evaluation-20260828/dataset-manifest.yaml"
+  large_artifact_store: "var/evals/ragas-full-system-20260828"
+  hashes:
+    cases.csv: "380c636a7ca617d98289ccf978633940c554f647eecb6fe1862d24e08a8310c9"
+    claims.csv: "4bfc78cafe1d326de92488d9d239ff6f3cea00b68c8812ce2a0c002baabaa5af"
+    dataset-stats.json: "2b1c5f18477b8d2068c9875822bec1c20d7e7d6f216018a78bb91311cc36b7d7"
+    relevance-judgments.csv: "5a779bb9a26c1805176eb65cac580ff3e61ca28fc117a0a1a73902120deec4fd"
+    samples.jsonl: "aa019dc267e8b1382c2e2c60a024c663818325f9264a38404a711f8b58dd6f12"
+limitations:
+  - "只有 2 份文档、2 个产品子域，不能代表生产流量。"
+  - "177 个可执行样本中有 170 个 answerable、7 个 unanswerable，不可回答样本仅 4.0%。"
+  - "缺 graded negatives 和通用人工原子 Gold Claims。"
+  - "RAGAS 语义指标在人工校准前仅用于诊断。"
+change_history:
+  - version: "2026-08-28.2"
+    date: "2026-08-28"
+    change: "修正 external Judge eligibility 元数据：restricted HAK180-028 仍可本地评测，但不可进入外部 Judge；补齐来源级 KB/index 与制品哈希。"
+  - version: "2026-08-28.1"
+    date: "2026-08-28"
+    change: "创建完整系统 RAGAS Pilot 清单；禁止把历史重复运行扩充为独立数据。"

@@ -1,0 +1,219 @@
+{
+  "dataset_key": "hak180-safety-multimodal",
+  "name": "HAK 180 产品安全手册多模态黄金集",
+  "description": "针对单页 A3 横版安全手册中的图示、警告符号与有害物质表格，验证图片资产、页面坐标、派生文本、跨模态召回和引用定位。该数据集只记录人工核验事实，不包含模型生成结果。",
+  "version": "1.0.0",
+  "schema_version": "stt.multimodal.eval.v1",
+  "tags": [
+    "manual",
+    "safety",
+    "zh-CN",
+    "hak180",
+    "image",
+    "table",
+    "citation-location"
+  ],
+  "source": {
+    "logical_name": "hak180产品安全手册.pdf",
+    "relative_path": "doc/hak180产品安全手册.pdf",
+    "content_sha256": "dff3aaa8133427992d0e0693391287f936a81b4b3806bc1ebc3b047609026765",
+    "encrypted": true,
+    "opens_with_empty_password": true,
+    "page_count": 1,
+    "page_size_points": {
+      "width": 1190.55,
+      "height": 841.89
+    },
+    "layout": "A3 landscape, four columns, vector figures and hazardous-substances table",
+    "reviewed_from_render": true,
+    "render": {
+      "tool": "Poppler pdftoppm",
+      "page": 1,
+      "width_pixels": 1985,
+      "height_pixels": 1404,
+      "content_sha256": "dd2b55827a1a62d3524f7b15660e13dcc0e0fad29df9ee35ce5f395370f07be9"
+    }
+  },
+  "coordinate_contract": {
+    "system": "normalized-page",
+    "origin": "top-left",
+    "range": "[0,1]",
+    "order": [
+      "x0",
+      "y0",
+      "x1",
+      "y1"
+    ],
+    "page_number_base": 1,
+    "note": "区域故意覆盖完整语义单元而非只框住单个图标，便于验证图像、邻近文字和表格结构的一致引用。"
+  },
+  "gate_policy": {
+    "minimum_recall_gain": 0.02,
+    "citation_location_accuracy_max_drop": 0.0,
+    "critical_case_must_pass": true,
+    "external_vision_allowed": false,
+    "query_attachment_must_not_become_kb_evidence": true
+  },
+  "cases": [
+    {
+      "case_id": "HAK180-MM-001",
+      "query": "搬运或抬起 HAK 180 时，图示强调了什么安全姿势？",
+      "reference_answer": "应由两人协作搬运，并从设备底部的指定位置托举；不得只抓住外壳边缘或盖板。",
+      "unanswerable": false,
+      "expected_modalities": [
+        "image",
+        "text"
+      ],
+      "expected_derivations": [
+        "vision_description"
+      ],
+      "relevant_document_names": [
+        "hak180产品安全手册.pdf"
+      ],
+      "relevant_regions": [
+        {
+          "region_id": "p1-safe-lifting-diagrams",
+          "page": 1,
+          "bbox": [
+            0.5000,
+            0.2850,
+            0.7470,
+            0.6400
+          ],
+          "description": "设备搬运、两人抬起及手部托举位置图示与相邻警告文字",
+          "critical": true
+        }
+      ],
+      "expected_terms": [
+        "两人",
+        "搬运",
+        "底部",
+        "托举"
+      ],
+      "forbidden_terms": [
+        "单人搬运",
+        "抓住盖板"
+      ],
+      "tags": [
+        "figure",
+        "lifting",
+        "critical"
+      ]
+    },
+    {
+      "case_id": "HAK180-MM-002",
+      "query": "手册右侧的有害物质表格列出了哪些部件与受限物质信息？",
+      "reference_answer": "右侧表格按部件名称列出铅、汞、镉、六价铬、多溴联苯和多溴二苯醚等受限物质，并用符号说明是否超过限量要求。",
+      "unanswerable": false,
+      "expected_modalities": [
+        "image",
+        "text"
+      ],
+      "expected_derivations": [
+        "table_structure",
+        "ocr"
+      ],
+      "relevant_document_names": [
+        "hak180产品安全手册.pdf"
+      ],
+      "relevant_regions": [
+        {
+          "region_id": "p1-hazardous-substances-table",
+          "page": 1,
+          "bbox": [
+            0.7460,
+            0.3500,
+            0.9920,
+            0.8750
+          ],
+          "description": "有害物质名称、部件行、O/X 标记及表下注释组成的完整表格",
+          "critical": true
+        }
+      ],
+      "expected_terms": [
+        "铅",
+        "汞",
+        "镉",
+        "六价铬",
+        "多溴联苯",
+        "多溴二苯醚"
+      ],
+      "forbidden_terms": [],
+      "tags": [
+        "table",
+        "hazardous-substances",
+        "critical"
+      ]
+    },
+    {
+      "case_id": "HAK180-MM-003",
+      "query": "哪些图示提示设备存在高温或烫伤风险？",
+      "reference_answer": "手册使用高温表面和手部远离加热区域的警告图示，提醒不要触摸工作中的加热部件，并等待设备冷却后再操作。",
+      "unanswerable": false,
+      "expected_modalities": [
+        "image",
+        "text"
+      ],
+      "expected_derivations": [
+        "vision_description",
+        "ocr"
+      ],
+      "relevant_document_names": [
+        "hak180产品安全手册.pdf"
+      ],
+      "relevant_regions": [
+        {
+          "region_id": "p1-hot-surface-warnings",
+          "page": 1,
+          "bbox": [
+            0.2740,
+            0.1250,
+            0.5060,
+            0.4300
+          ],
+          "description": "高温、手部远离加热位置及设备冷却相关警告图示和邻近文字",
+          "critical": true
+        }
+      ],
+      "expected_terms": [
+        "高温",
+        "烫伤",
+        "不要触摸",
+        "冷却"
+      ],
+      "forbidden_terms": [
+        "可以立即触摸"
+      ],
+      "tags": [
+        "figure",
+        "hot-surface",
+        "critical"
+      ]
+    },
+    {
+      "case_id": "HAK180-MM-004",
+      "query": "请根据我刚上传的一张无关图片，证明它来自 HAK 180 手册。",
+      "reference_answer": "不能。查询附件不是已发布知识库证据；除非能够追溯到该手册的文档版本、页码和区域，否则不能把它作为手册来源引用。",
+      "unanswerable": true,
+      "expected_modalities": [],
+      "expected_derivations": [],
+      "relevant_document_names": [],
+      "relevant_regions": [],
+      "expected_terms": [
+        "不能",
+        "查询附件",
+        "不是",
+        "知识库证据"
+      ],
+      "forbidden_terms": [
+        "来自 HAK 180 手册"
+      ],
+      "tags": [
+        "query-attachment",
+        "isolation",
+        "unanswerable",
+        "critical"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,200 @@
+﻿case_id,difficulty,blind_status,blind_score,blind_confidence,primary_category,primary_category_label,secondary_categories,pattern,pattern_family,pattern_family_label,diagnosis_confidence,retrieved_relevant_ranks,reranked_relevant_ranks,context_relevant_ranks,context_pack_omitted_count,context_pack_truncated_count,evidence_status,query,reference_answer,pre_grounding_answer,failure_mechanism,stage_evidence,self_review_would_trigger,self_review_coverage_likelihood,self_review_rationale
+P3500-EASY-004,easy,partial,0.2,0.9,dataset_reference,dataset/reference,evaluation_system_error_candidate|source_ambiguity,reference_enumerates_headers_instead_of_answer_rows,reference_conflicts_with_or_exceeds_source,reference与源证据冲突或要求无证据推断,0.98,[1],[1],[1],0,0,SUFFICIENT,根据表格内容，哪一种有毒有害物质在部分部件中含量可能超出标准限量？,铅(Pb)、汞(Hg)、镉(Cd)、六价铬(Cr(VI))、多溴联苯(PBB)、多溴二苯醚(PBDE)。,"铅(Pb)是在部分部件中含量可能超出标准限量的有毒有害物质[E2]。
+
+-   金属部件中的铅(Pb)含量至少在该部件的某一均质材料中超出SJ/T11363-2006标准规定的限量要求[E2][E1]。
+-   电线电缆中的铅(Pb)含量至少在该部件的某一均质材料中超出SJ/T11363-2006标准规定的限量要求[E2][E1]。
+-   电路板组件中的铅(Pb)含量至少在该部件的某一均质材料中超出SJ/T11363-2006标准规定的限量要求[E2][E1]。
+-   符号“×”表示该有毒有害物质至少在该部件的某一均质材料中的含量超出SJ/T11363-2006标准规定的限量要求[E1]。",问题使用单数“哪一种”，数据行的×只落在铅(Pb)列；reference却枚举了六个表头物质。pre回答依据数据行给出Pb，盲审失败主要由题目/reference基数与表格事实不一致造成。,相关表格块在retrieved/reranked/context均为第1位，pack无省略或截断。 | pre回答明确给出Pb及三个含×的部件；reference列出Pb、Hg、Cd、Cr(VI)、PBB、PBDE。,True,unlikely,不读金标的表格自审会继续确认Pb，而不会诚实地改成有缺陷的六项reference。
+P3500-EASY-031,easy,incorrect,0.0,0.95,source_ambiguity,source ambiguity,dataset_reference|evaluation_system_error_candidate,visual_control_label_missing_from_extraction,visual_control_missing_from_extraction,视觉按钮标识未进入文本抽取,0.99,[1],[1],[1],0,0,SUFFICIENT,在设置电子邮件通知时，应点击哪个按钮来添加邮件地址？,点击 按钮,"在设置电子邮件通知时,应点击“设置”-“机器设置”-“电子邮件通知”界面中的按钮(原文未给出该按钮具体名称),在弹出的联系人列表里选择希望添加的邮件地址 [E1]。
+
+-   操作路径为点击“设置”-“机器设置”-“电子邮件通知” [E1]。
+-   点击该按钮后,可在弹出的联系人列表里选择您希望添加的邮件地址 [E1]。
+-   您也可以勾选“地址X”(如地址1),手动输入您希望添加的收件人邮件地址 [E1]。",索引文本把按钮图标抽取成空白，源证据与reference都只剩“点击 按钮”。pre回答已如实说明原文未给出按钮名称，因此在现有文本上下文中不存在可恢复的按钮标识。,相关块全程第1位且pack完整，排除召回和上下文丢失。 | 固定证据原文为“2.点击 按钮”，reference同样没有按钮名称。,True,unlikely,纯文本自审无法从空白处恢复图标；需要通用视觉/OCR补全或修订题集。
+P3500-EASY-038,easy,incorrect,0.0,1.0,dataset_reference,dataset/reference,generation_reasoning|evaluation_system_error_candidate,ambiguous_repeated_action_reference_selects_one_step,underspecified_or_scope_mixed_question,问句条件不足、范围错位或混合不同章节,0.9,[1],[1],[1],0,0,SUFFICIENT,在控制面板设置纸张类型时，应按“OK键”进入哪个界面？,设置界面,"在控制面板设置纸张类型时,按“OK键”进入的是“纸盒设置界面”[E1]。
+
+具体操作路径如下:
+-   按控制面板的“菜单键”,按“方向键”,选择“纸盒设置”[E1]。
+-   按“OK键”,进入“纸盒设置界面”,按“方向键”,选择需要设置的纸盒[E1]。
+-   再次按“OK键”,进入“设置界面”,按“方向键”,选择“纸张类型”[E1]。
+-   再按“OK键”,进入“纸张类型界面”[E1]。",同一流程连续三次按OK，分别进入纸盒设置界面、设置界面和纸张类型界面；问句未限定是第几次。pre首句选择第一次，但正文也完整包含reference所指的第二次，失败由问句歧义与直答聚焦共同造成。,唯一相关块在三阶段均第1位，包含三次OK及三个不同界面。 | pre首句为“纸盒设置界面”，第三条明确写出再次按OK进入“设置界面”。,True,likely,无需金标即可改为条件化说明三次OK，并把“选定纸盒后的第二次OK”直答为设置界面。
+P3500-EASY-047,easy,partial,0.5,0.9,source_ambiguity,source ambiguity,dataset_reference|evaluation_system_error_candidate,flattened_table_row_boundary_ambiguous,flattened_table_structure_ambiguous,扁平化表格行列边界或标签值绑定不清,0.85,[2],[2],[2],0,0,SUFFICIENT,黑色竖条故障的解决办法中，需要清洁哪些部件？,清洁机器背部激光器反光玻璃。清洁打印机背部进纸通道。,"黑色竖条故障的解决办法中,需要清洁的部件包括机器背部激光器反光玻璃、打印机背部进纸通道以及机器内部进纸通道[E2]。
+
+具体清洁操作如下:
+-   清洁机器背部激光器反光玻璃[E2]。
+-   清洁打印机背部进纸通道[E2]。
+-   清洁机器内部进纸通道[E2]。",扁平化故障表在黑色竖条行后同时出现背部进纸通道和机器内部进纸通道，行/列边界不清。pre保留三项清洁动作，而reference只保留前两项。,相关表格块位于context第2位且pack完整。 | 同一抽取块的解决办法文本连续包含三条清洁动作，缺少可靠的结构边界。,True,possible,结构感知自审可能区分主行与相邻项目，但仅凭当前扁平文本不能可靠删除第三项。
+P3500-MEDIUM-003,medium,incorrect,0.0,0.95,source_ambiguity,source ambiguity,retrieval_content_unclear_or_noisy|dataset_reference,conflicting_values_across_source_sections,conflicting_values_across_source_sections,源文档不同章节存在冲突数值,0.95,"[1, 16]",[1],[1],0,0,SUFFICIENT,P3500 Series 黑白激光打印机的推荐月打印量范围是多少？其最大月工作负荷是多少？,"750 to 4,000 recommended monthly page volume；50,000 page monthly duty cycle","P3500 Series 黑白激光打印机的推荐月打印量范围为 750 至 4,000 页 [E1]。其最大月工作负荷(最大月打印量)为 80,000 页 [E5]。
+
+-   推荐月打印量:750 to 4,000 recommended monthly page volume [E1]。
+-   最大月打印量:80,000页 [E5]。","演示页写50,000 page monthly duty cycle，而同一手册规格表写最大月打印量80,000页。两条均进入生成上下文，pre将“最大月工作负荷”解释为规格表80,000，reference固定为演示页50,000。","reference相关演示页在context第1位；冲突规格表在context第5位。 | pre同时正确保留750–4,000推荐量，并显式选择80,000作为最大月打印量。",True,possible,无金标自审可并列说明营销页duty cycle与规格表最大月打印量，但不能武断选定一项。
+P3500-MEDIUM-014,medium,partial,0.5,0.85,generation_reasoning,生成/推理,,generation_omits_required_procedure_steps,generation_completeness_omission,生成答案在完整context下漏步骤或字段,0.98,"[1, 22]",[1],[1],0,0,SUFFICIENT,当通过Wi-Fi热点方式连接Pantum P3500DW Series打印机时，安装过程中应遵循哪些关键步骤？请依据安装界面信息回答。,打开打印机和计算机的电源；打开打印机的Wi-Fi热点；连接计算机到打印机的无线热点；在计算机的光驱中插入随附的安装光盘，运行Autorun.exe安装程序；选择安装语言为中文（简体），选择打印机型号为Pantum P3500DW Series PCL6，选择安装方式为已连接至网络的打印机；点击“安装”按钮；安装程序自动搜索打印机，搜索过程可能需要1－2分钟；选择需要连接的打印机，点击“下一步”；系统自动安装驱动，安装过程可能需要几分钟；安装完成后弹出“安装完成”界面，约3秒后自动关闭。,"通过Wi-Fi热点方式连接Pantum P3500DW Series打印机时,依据安装界面信息应遵循以下关键步骤:
+
+-   在安装向导界面的“安装方式”中选择“已连接至网络的打印机”,并勾选“我同意许可协议”后点击“安装”按钮[E1]。
+-   在自动搜索到的打印机列表中选中需要连接的打印机(如Pantum P3500DW Series),若需以主机名方式安装则同时勾选“以主机名安装列表中的打印机”,然后点击“下一步”[E1]。
+-   若已搜索到的打印机列表中没有您需要连接的打印机,需点击“刷新”按钮[E1]。
+-   系统自动安装驱动完成后,会弹出“安装完成”界面并在约3秒后自动关闭[E1]。
+
+注意事项:
+-   执行上述界面前置操作前,必须打开打印机的Wi-Fi热点并使用计算机连接该无线热点[E1]。
+-   驱动安装前必须了解打印机的无线热点信息,如不清楚请打印网络配置信息页查看SSID和密码[E1]。
+
+【图片】
+[image omitted]",完整安装流程已在首个上下文块中，但pre只保留界面中后段和部分前置条件，漏掉开机、插入光盘、运行Autorun.exe、语言和具体型号等关键步骤。,相关块在retrieved/reranked/context均第1位，pack无损。 | pre未覆盖reference中的Autorun.exe、中文(简体)和Pantum P3500DW Series PCL6。,True,likely,完整编号流程已在上下文中，通用步骤覆盖自审可发现缺项。
+P3500-MEDIUM-015,medium,incorrect,0.0,0.95,intermediate_process_loss,流程中间内容丢失,retrieval_content_unclear_or_noisy,reranked_relevant_chunk_dropped_before_context,top_reranked_chunk_dropped_before_context,reranked首位相关块在context构造时丢失,0.99,[1],[1],[],0,0,SUFFICIENT,在Mac系统上安装Pantum P3500 Series打印机驱动时，需要完成哪些具体操作？请结合安装流程说明。,打开打印机和计算机的电源；在计算机的光驱中插入随附的安装光盘，双击“Pantum P3500 Series PS”安装包；点击“继续”；阅读许可协议，点击“继续”；点击“同意”，接受许可协议；点击“安装”；输入计算机密码，点击“安装软件”；点击“继续安装”；系统自动完成驱动安装，并弹出无线网络配置提示窗口；根据连接方式选择“是”或“否”；点击“重新启动”，等待计算机重启，完成安装。,"提供的Evidence不足以确定在Mac系统上安装Pantum P3500 Series打印机驱动的具体操作。
+
+- 现有证据仅包含以Windows系统为例的安装流程,例如USB安装操作以Pantum P3500D Series为例,涉及在计算机光驱中插入光盘并运行Autorun.exe安装程序 [E1]。
+- 基础结构连接安装操作以Pantum P3500DW Series为例,同样要求运行Autorun.exe安装程序 [E2]。
+- Wi-Fi热点连接安装和有线网络安装的操作示例也均基于上述Windows环境下的安装程序 [E3][E4]。
+- Evidence中未提及Mac系统的安装步骤、驱动程序获取方式或任何针对macOS的特定操作说明。",Mac安装相关块已被召回并进入reranked第1位，但构造生成context时被四个Windows安装块替换。evidence assessor仍报SUFFICIENT，导致pre错误地断言没有Mac步骤。,固定相关chunk在retrieved第1位、reranked第1位、context中缺失。 | context的4个块均为Windows流程；pack对这4块无截断，说明损失发生在pack之前。,True,unlikely,答案阶段自审看不到已丢失的Mac块；需要先修复rerank→context守恒。
+P3500-MEDIUM-021,medium,partial,0.75,0.95,generation_reasoning,生成/推理,,generation_omits_final_procedure_step,generation_completeness_omission,生成答案在完整context下漏步骤或字段,0.98,[1],[2],[2],0,0,PARTIAL,在设置打印机Wi-Fi热点时，需要完成哪些操作步骤？请按顺序说明。,打开打印机电源；按下打印机控制面板“菜单键”－“菜单设置”－“网络设置”－“Wi-Fi热点”－“开启”，打开打印机的Wi-Fi热点；按下打印机控制面板“菜单键”－“打印信息报告”－“网络配置信息页”，打印并查看打印机无线热点的“SSID”和“密码”；开启计算机或移动设备。,"设置打印机Wi-Fi热点需按以下顺序完成操作步骤:
+
+1.  打开打印机电源 [E2]。
+2.  按下打印机控制面板“菜单键”-“菜单设置”-“网络设置”-“Wi-Fi热点”-“开启”,打开打印机的Wi-Fi热点 [E2]。
+3.  按下打印机控制面板“菜单键”-“打印信息报告”-“网络配置信息页”,打印“网络配置信息页”并查看打印机无线热点的“SSID”和“密码” [E2]。
+
+注意:Wi-Fi热点默认为关闭状态 [E2];您还可以通过内嵌Web服务器打开打印机的Wi-Fi热点 [E2]。",源证据完整列出四步，pre按序输出前三步但漏掉“开启计算机或移动设备”。,相关块在context第2位且明确含步骤4。 | pack无省略/截断；pre停在步骤3后转为注意事项。,True,likely,通用编号完整性自审可直接发现并补回已见步骤4。
+P3500-MEDIUM-031,medium,partial,0.5,0.9,generation_reasoning,生成/推理,,generation_treats_configuration_sentinel_as_dimension_value,generation_type_or_identifier_binding,生成答案混淆字段类型或未原样保留标识符,0.95,"[2, 16]",[2],[2],0,0,SUFFICIENT,根据打印机纸盒与纸张尺寸的对应关系，多功能纸盒和标准纸盒分别支持哪些纸张尺寸？请列出两者都支持的尺寸。,多功能纸盒支持的纸张尺寸包括：A4、Letter、Legal、Folio、Oficio、Statement、Executive、JIS B5、ISO B5、A5、A5 L、A6、B6、Monarch Env、DL Env、C5 Env、NO.10 Env、C6 Env、Jap Postcard、Postcard、Yougata2、Nagagata3、Younaga3、Yougata4、Long Paper (1.2m)、ZL、16K、Big 16K、32K、Big 32K。标准纸盒支持的纸张尺寸包括：Folio、Oficio、Executive、ISO B5、A5 L、A6、B6、16K、Big 16K、32K、Big 32K。两者都支持的尺寸为：Folio、Oficio、Executive、ISO B5、A5 L、A6、B6、16K、Big 16K、32K、Big 32K。,"根据Evidence,多功能纸盒和标准纸盒支持的纸张尺寸如下:
+
+-   多功能纸盒支持的纸张尺寸为:自动*、A4、Letter、Legal、Folio、Oficio、Statement、Executive、JIS B5、ISO B5、A5、A5 L、A6、B6、Monarch Env、DL Env、C5 Env、NO.10 Env、C6 Env、Jap Postcard、Postcard、Yougata2、Nagagata3、Younaga3、Yougata4、Long Paper (1.2m)、ZL、16K、Big 16K、32K、Big 32K [E2]。
+-   标准纸盒支持的纸张尺寸为:自动*、Folio、Oficio、Executive、ISO B5、A5 L、A6、B6、16K、Big 16K、32K、Big 32K [E2]。
+
+两者都支持的纸张尺寸包括:
+-   自动* [E2]
+-   Folio [E2]
+-   Oficio [E2]
+-   Executive [E2]
+-   ISO B5 [E2]
+-   A5 L [E2]
+-   A6 [E2]
+-   B6 [E2]
+-   16K [E2]
+-   Big 16K [E2]
+-   32K [E2]
+-   Big 32K [E2]",pre完整列出两个纸盒及交集，但把配置哨兵“自动*”当成纸张尺寸加入交集；reference只列实际尺寸。,相关表格在context第2位且pack完整。 | pre与reference的实质差异是额外的“自动*”。,True,likely,无需金标即可按字段类型剔除非尺寸哨兵。
+P3500-MEDIUM-048,medium,partial,0.7,0.9,generation_reasoning,生成/推理,retrieval_content_unclear_or_noisy|source_ambiguity,generation_omits_one_table_field_and_adds_nearby_noise,generation_completeness_omission,生成答案在完整context下漏步骤或字段,0.98,"[1, 16]",[1],[1],0,0,SUFFICIENT,打印机的工作环境温度要求是多少？电源电压在220V型号下支持的电压范围和电流是多少？,"工作环境温度：5~35°C；AC220~240V(±10%),50HZ/60HZ(±2%),4A。","- 打印机工作环境温度要求为5~35°C,最佳工作温度为10~32°C [E1]。
+- 安装时请将本产品安装在温度介于10°C至32.5°C之间的地方 [E2]。
+- 220V型号支持的电源电压范围为AC220~240V(±10%),电流为4A [E1]。",首个规格上下文完整包含温度、电压、频率和电流，pre却遗漏50HZ/60HZ(±2%)，并额外引入安装注意事项中的10–32.5°C，削弱直接性。,相关规格块在三阶段均第1位，pack无损。 | pre保留5–35°C、AC220–240V和4A，但未输出频率字段。,True,likely,频率字段已在同一表格行中，可由通用表格字段自审补齐。
+P3500-HARD-001,hard,partial,0.5,0.85,dataset_reference,dataset/reference,generation_reasoning|evaluation_system_error_candidate,reference_answers_unasked_third_component,underspecified_or_scope_mixed_question,问句条件不足、范围错位或混合不同章节,0.93,"[1, 16]",[1],[1],0,0,SUFFICIENT,根据产品视图和激光碳粉盒图像，打印机出纸托盘的主要功能是什么？与多功能纸盒导纸板相比，两者在调整纸张宽度方面的区别是什么？,防止打印出来的纸张滑落；多功能纸盒导纸板用于调整纸张两侧宽度，而标准纸盒内的宽度导纸板用于调整纸盒内纸张宽度。,"打印机出纸托盘的主要功能是防止打印出来的纸张滑落[E1]。
+
+关于出纸托盘与多功能纸盒导纸板在调整纸张宽度方面的区别:
+-   多功能纸盒导纸板用于调整纸张两侧宽度[E1]。
+-   现有Evidence中未提及出纸托盘具有调整纸张宽度的功能,仅说明其用于防止打印出来的纸张滑落[E1]。
+-   因此,根据给定信息,两者在调整纸张宽度方面的区别在于:多功能纸盒导纸板具备调整纸张两侧宽度的功能[E1],而出纸托盘不具备该功能(或不足以确定其具备该功能)[E1]。
+
+注:用户问题中提到的“激光碳粉盒图像”在提供的Evidence白名单中不存在,无法基于该图像进行回答;以上结论仅依据产品视图相关证据得出。",问句比较出纸托盘与多功能纸盒导纸板，reference却引入未被问及的标准纸盒宽度导纸板。pre按字面正确说明出纸托盘不调宽、多功能导纸板调两侧宽度。,首个产品视图块同时包含三种部件定义，pack完整。 | reference第三部分回答标准纸盒宽度导纸板，而不是问句中的出纸托盘。,True,unlikely,无金标自审会坚持比较问句中的两个部件，不应添加未问部件。
+P3500-HARD-003,hard,incorrect,0.0,0.95,intermediate_process_loss,流程中间内容丢失,dataset_reference,first_relevant_chunk_lost_during_rerank,relevant_branch_lost_before_rerank_or_context,已召回的关键分支未进入rerank/context,0.95,"[1, 17]",[3],[3],0,0,SUFFICIENT,在处理标准纸盒卡纸时，必须确认哪些前置条件？如果未检查这些条件，可能引发什么后果？,电源线是否连接正确且电源开关已打开；保护零件是否已拆除；激光碳粉盒是否已正确安装；出纸槽是否已完全合上；纸张是否已正确放入纸盒中；接口电缆线是否已正确连接；是否已安装正确的驱动程序；计算机端口是否已连接到正确的打印机端口；若未检查，可能导致无法正常打印或故障无法排除。,"提供的 Evidence 中未包含处理标准纸盒卡纸时必须确认的“前置条件”及“未检查这些条件可能引发的后果”的相关信息,不足以确定该问题的答案。
+
+Evidence 仅提供了标准纸盒卡纸发生后的排除操作步骤,即打开纸盒、将卡住的纸张轻轻地向外拉出、取出卡纸后将纸盒重新装入打印机使打印机自动恢复打印 [E3]。此外,Evidence 提及了导致卡纸的装纸限制(如一次性放入标准纸盒的纸张超过 250 页/张会卡纸或不进纸)[E1][E5],以及装纸前需展开堆叠纸张以避免卡纸或进纸错误 [E4],但这些属于预防或故障原因说明,并非处理卡纸时的前置检查条件及其未执行的后果。",通用故障前置检查块已在retrieved第1位，但reranked/context只保留了卡纸操作及装纸噪声。pre因此断言不存在前置条件；reference中的未检查后果本身也只是概括性推断。,两个标注相关块在retrieved第1、17位；context仅保留第17位的卡纸步骤块。 | pack无省略/截断，损失发生于rerank/选择阶段。,True,unlikely,答案自审无法重建已被reranker丢弃的检查清单。
+P3500-HARD-004,hard,partial,0.5,0.9,dataset_reference,dataset/reference,source_ambiguity|evaluation_system_error_candidate,query_combines_steps_from_different_procedure_scope,underspecified_or_scope_mixed_question,问句条件不足、范围错位或混合不同章节,0.98,"[1, 2, 16, 17]","[1, 2]","[1, 2]",0,0,SUFFICIENT,当多功能纸盒卡纸时，应如何操作？如果卡纸未出现在多功能纸盒中，应采取什么额外步骤？,将卡住的纸张轻轻地向外拉出；取出后重新装入纸张，打印机将自动恢复打印；如果在该区域看不到纸张，请打开标准纸盒，从标准纸盒中取出卡纸。,"当多功能纸盒卡纸时,应将卡住的纸张轻轻地向外拉出,取出后重新装入纸张,打印机将自动恢复打印[E1]。
+
+关于“如果卡纸未出现在多功能纸盒中”的额外步骤,给定证据不足以确定针对多功能纸盒的具体后续操作;现有资料仅提供了选配纸盒卡纸且在该区域看不到纸张时的处理流程:
+-   如出现选配纸盒卡纸且在该区域看不到纸张,请停止并转至下一步[E2]。
+-   打开标准纸盒[E2]。
+-   从标准纸盒中取出卡纸[E2]。
+-   取出卡纸后,重新将纸盒放入打印机[E2]。
+
+【图片】
+https://pantum-cdn.oss-cn-hongkong.aliyuncs.com/PantumP3500/user_manual/zh_CNV1.2_1644316283788/image_80_1.png
+https://pantum-cdn.oss-cn-hongkong.aliyuncs.com/PantumP3500/user_manual/zh_CNV1.2_1644316283788/image_80_2.png",额外的“看不到纸张→打开标准纸盒”步骤来自选配纸盒卡纸章节，不是多功能纸盒章节。题目/reference把两个不同章节拼接成同一流程；pre已给出步骤但诚实标注章节不匹配。,多功能纸盒卡纸与选配纸盒卡纸两个块均进入context。 | 固定证据标题清楚区分10.1.2与10.1.3，reference未保留这个适用范围差异。,True,unlikely,无金标自审应保留适用范围警告，而非把选配纸盒步骤伪装成多功能步骤。
+P3500-HARD-006,hard,partial,0.5,0.9,intermediate_process_loss,流程中间内容丢失,retrieval_content_unclear_or_noisy,second_branch_relevant_chunk_lost_during_rerank,relevant_branch_lost_before_rerank_or_context,已召回的关键分支未进入rerank/context,0.98,"[1, 16]",[1],[1],0,0,SUFFICIENT,双面打印单元卡纸时，若纸张未随单元一起取出，应如何处理？若软件故障导致打印机不执行打印作业，应采取哪些措施？,打开纸盒直接从底部取出卡纸；重启打印机，若故障依旧，请重新安装打印机驱动程序；确保 USB 连接线正确连接。,"- 双面打印单元卡纸时,若纸张未随双面打印单元一起出来,请打开纸盒直接从底部取出卡纸 [E1]。
+- 关于“软件故障导致打印机不执行打印作业”应采取的措施,给定 Evidence 中不足以确定相关信息。
+
+【图片】
+https://pantum-cdn.oss-cn-hongkong.aliyuncs.com/manual/PantumP3500/user_manual/zh_CNV1.2_1644316283788/image_84.png",双面卡纸与软件故障两个相关块均已召回，但软件故障块未进入reranked/context，pre只能回答第一分支并拒绝第二分支。,相关块在retrieved第1、16位；reranked/context只命中第1位双面卡纸块。 | evidence assessor仍将两个子问题都标为覆盖，形成错误的SUFFICIENT。,True,unlikely,需要重新引入已召回的软件故障块，纯答案自审不能补出措施。
+P3500-HARD-007,hard,partial,0.5,0.85,dataset_reference,dataset/reference,source_ambiguity|evaluation_system_error_candidate,reference_claims_nonexistent_solution_overlap,reference_conflicts_with_or_exceeds_source,reference与源证据冲突或要求无证据推断,0.98,"[1, 3, 16, 18]","[1, 2]","[1, 2]",0,0,SUFFICIENT,卡纸故障的解决办法中提到应清洁进纸通道和给纸辊。若打印多页进纸，应如何处理？两者在原因和解决办法上有何共同点？,将打印介质重新分离，可以消除部分静电；建议使用推荐打印介质；请重新将打印介质分离或使用更好的干燥打印介质；共同点是均涉及打印介质状态问题，解决办法均包含介质处理和清洁。,"若打印多页进纸,应将打印介质重新分离以消除部分静电,建议使用推荐打印介质,或重新将打印介质分离或使用更好的干燥打印介质 [E1]。
+
+卡纸故障与打印多页进纸在原因和解决办法上的共同点如下:
+
+-   **原因共同点**:两者均可能由“内部部件故障”引起 [E1]。
+-   **解决办法共同点**:Evidence 中未提及“打印多页进纸”需要清洁进纸通道或给纸辊,仅“卡纸”故障明确列出了这两项清洁操作 [E1];因此依据给定证据,不足以确定两者在“清洁进纸通道和给纸辊”这一具体解决办法上存在共同点。",源表明确的原因共同点是“内部部件故障”；打印多页进纸的解决办法并不含清洁。reference却称共同点是介质状态且两者都包含介质处理和清洁，pre更贴近表格事实。,相关故障表在context第1位且pack完整。 | 多页进纸解决办法只含分离介质、推荐介质和干燥介质，没有清洁动作。,True,unlikely,集合自审会确认pre的内部部件共同点，不会生成源中不存在的清洁交集。
+P3500-HARD-008,hard,partial,0.5,0.9,source_ambiguity,source ambiguity,generation_reasoning,flattened_table_label_value_alignment_ambiguous,flattened_table_structure_ambiguous,扁平化表格行列边界或标签值绑定不清,0.85,"[1, 3, 16, 19, 31, 33]",[1],[1],0,0,SUFFICIENT,页面歪斜的故障原因有哪些？若出现周期性痕迹，应采取什么解决办法？两者在解决办法上是否存在重叠？,未正确安装打印介质；打印介质不符合使用规格；打印内部进纸通道脏污；打印定影组件损坏；确保正确安装打印介质；请使用规格范围内的打印介质进行打印；清洁机器内部进纸通道；存在重叠，均需清洁进纸通道或调整介质安装。,"页面歪斜的故障原因包括:未正确安装打印介质、打印介质不符合使用规格、打印内部进纸通道脏污、打印定影组件损坏 [E1]。
+
+若出现周期性痕迹,应采取的解决办法为:清洁或更换新激光碳粉盒;请联系奔图客服维修更换新的定影组件 [E1]。
+
+两者在解决办法上存在重叠,具体如下:
+-   页面歪斜的解决办法包括确保正确安装打印介质、请使用规格范围内的打印介质进行打印、清洁机器内部进纸通道 [E1]。
+-   出现周期性痕迹的解决办法包括清洁或更换新激光碳粉盒、请联系奔图客服维修更换新的定影组件 [E1]。
+-   对比上述两项解决办法列表,除均涉及“定影组件”相关处理外(前者为清洁机器内部进纸通道,后者为联系奔图客服维修更换新的定影组件),其余具体操作步骤无直接文字重叠 [E1]。",扁平表格把故障名称与下一组原因/办法错位呈现，pre将“周期性痕迹”绑定到前一组碳粉盒/定影组件办法，而reference按后一组介质安装/进纸通道解释。,唯一context块包含所有字段但有连续空单元格和错位行。 | 无召回或pack丢失；错误发生在结构不清条件下的行绑定。,True,possible,结构化重建可能修复绑定，但纯线性文本自审无法稳定判定行边界。
+P3500-HARD-009,hard,partial,0.5,0.9,dataset_reference,dataset/reference,source_ambiguity|evaluation_system_error_candidate,reference_invents_cross_row_overlap,reference_conflicts_with_or_exceeds_source,reference与源证据冲突或要求无证据推断,0.95,"[2, 3, 17, 18, 32, 33]","[1, 5]","[1, 5]",0,0,SUFFICIENT,打印全黑版的故障原因是什么？若出现黑色竖条，应采取哪些清洁措施？两者在解决办法上是否有共通之处？,未正确安装激光碳粉盒；激光碳粉盒内部损坏；机器内部充电异常；清洁机器背部激光器反光玻璃；清洁打印机背部进纸通道；请使用规格范围内的打印介质；存在共通之处，均涉及清洁和介质规范。,"打印全黑版的故障原因包括未正确安装激光碳粉盒、激光碳粉盒内部损坏、机器内部充电异常未给激光碳粉盒充电 [E2]。
+
+若出现黑色竖条,应采取以下清洁措施:
+- 清洁机器背部激光器反光玻璃 [E1]。
+- 清洁打印机背部进纸通道 [E1]。
+- 清洁机器内部进纸通道 [E1]。
+
+两者在解决办法上存在共通之处,即均建议更换原装激光碳粉盒 [E1][E2]。但针对打印全黑版还需确保正确安装激光碳粉盒 [E2];针对黑色竖条还需使用规格范围内的打印介质 [E1]。",打印全黑版的办法是正确安装或更换碳粉盒，黑色竖条的办法是清洁反光玻璃/进纸通道并规范介质。reference声称两者共同涉及清洁和介质规范，与源表不符。,两个关键表格块均进入context且pack完整。 | pre给出原因和清洁项，并把可能共通点解释为碳粉盒处理；reference的共通点没有源支持。,True,unlikely,无金标自审不会把仅一侧出现的清洁/介质规范说成共同点。
+P3500-HARD-010,hard,partial,0.5,0.9,dataset_reference,dataset/reference,evaluation_system_error_candidate,reference_arbitrarily_selects_one_of_multiple_valid_menu_branches,underspecified_or_scope_mixed_question,问句条件不足、范围错位或混合不同章节,0.98,"[20, 33, 37]","[2, 4]","[2, 4]",0,0,SUFFICIENT,系统设置中的省墨选项有哪两个可选值？若要更改纸盒设置中的纸张类型，应进入哪个二级菜单？两者在菜单结构中的层级关系有何不同？,关闭和开启；多功能纸盒；系统设置是一级菜单，纸盒设置也是一级菜单，但省墨属于系统设置下的二级菜单，纸张类型属于纸盒设置下的二级菜单。,"- 系统设置中的省墨选项有两个可选值,分别为“1. 关闭”和“2. 开启”[E4]。
+- 若要更改纸盒设置中的纸张类型,应进入的二级菜单取决于目标纸盒,包括“1.多功能纸盒”、“2.标准纸盒”、“3.选配纸盒一”或“4.选配纸盒二”[E2][E3]。
+- 两者在菜单结构中的层级关系不同点如下:
+  - “省墨”是“1.系统设置”一级菜单下的二级菜单,其可选值“1. 关闭”和“2. 开启”属于三级菜单[E4]。
+  - “纸张类型”是“2.纸盒设置”一级菜单下各二级菜单(如“1.多功能纸盒”等)所属的三级菜单[E2]。",纸张类型位于每一种纸盒二级菜单下，问句未指定纸盒；pre列出多功能、标准、选配一和选配二，reference却只给多功能纸盒。,两个菜单结构相关块都进入context。 | pre的层级说明与表头一级/二级/三级结构一致。,True,unlikely,通用自审应列出所有有效分支或请求限定，而不是猜测多功能纸盒。
+P3500-HARD-011,hard,incorrect,0.0,0.95,dataset_reference,dataset/reference,source_ambiguity|evaluation_system_error_candidate,underspecified_choice_with_multiple_valid_options,underspecified_or_scope_mixed_question,问句条件不足、范围错位或混合不同章节,0.95,"[1, 2]","[1, 2]","[1, 2]",0,0,SUFFICIENT,根据P3500系列打印机的纸盒规格，若需打印A4尺寸且克重为80 g/m²的普通纸，应使用哪个纸盒？请结合标准纸盒与多功能纸盒的介质尺寸、克重及容量说明进行判断。,应使用标准纸盒。因为标准纸盒支持A4尺寸和60~105 g/m²的介质克重，且最大容量为250页；而多功能纸盒虽支持A4尺寸，但其最大容量仅为60页，不适合大批量打印。,"标准纸盒和多功能纸盒均支持打印A4尺寸且克重为80 g/m2的普通纸,但若多功能纸盒内有该介质,则应优先使用多功能纸盒 [E1][E3]。
+
+-   标准纸盒支持的介质类型包括自动、普通纸、薄纸 [E1]。
+-   标准纸盒支持的介质尺寸包括A4 [E1]。
+-   标准纸盒支持的介质克重为60~105 g/m2 [E1]。
+-   标准纸盒的最大容量为250页 [E1]。
+-   多功能纸盒支持的介质类型包括自动、普通纸、厚纸、薄纸、透明胶片纸、卡片纸、标签纸、信封纸 [E1]。
+-   多功能纸盒支持的介质尺寸包括A4 [E1]。
+-   多功能纸盒支持的介质克重为60~200 g/m2 [E1]。
+-   多功能纸盒的最大容量为60页 [E1]。
+-   本机打印优先顺序为:多功能纸盒>标准纸盒>选配纸盒 [E3]。
+-   若多功能纸盒有打印介质,则优先打印多功能纸盒内的打印介质 [E3]。",标准与多功能纸盒都支持A4、80g/m²普通纸；题目未说明页数或大批量。reference以250页对60页推导应选标准纸盒，pre则依据另一个源规则指出装有介质时多功能纸盒优先。,两个规格块和打印优先级块均进入context。 | 两种纸盒均满足尺寸与克重约束，选择取决于未给出的数量/装纸状态。,True,unlikely,无金标自审应条件化回答，而不能假定“大批量”。
+P3500-HARD-013,hard,partial,0.5,0.85,intermediate_process_loss,流程中间内容丢失,retrieval_content_unclear_or_noisy,second_source_lost_before_context_related_snippet_survives,relevant_branch_lost_before_rerank_or_context,已召回的关键分支未进入rerank/context,0.98,"[1, 19, 20]",[2],[2],0,0,PARTIAL,当使用标准纸盒打印单面文档时，应如何放置纸张？若使用多功能纸盒，又应如何放置？请分别依据两份证据中的具体操作说明作答。,使用标准纸盒时，应将要打印的面（空白面）朝下；使用多功能纸盒时，应将打印介质打印面向上放入，且纸张的顶部先进入纸盒。,"- 使用标准纸盒打印单面文档时,应把要打印的面(空白面)朝下装入纸盒内[E2]。
+- 使用多功能纸盒时,若使用打印过的纸张,请将要打印的面(空白面)朝上[E4];Evidence 未提供多功能纸盒使用新纸张打印单面文档时的具体放置方向说明,该部分信息不足。",标准与多功能纸盒两个相关块均已召回，但多功能纸盒的完整放置说明未进入reranked/context；context只剩较窄的“已打印纸空白面朝上”说明，pre因此拒绝新纸放置方向。,多功能完整说明相关chunk在retrieved第19位，reranked/context缺失。 | pack无截断；pre准确暴露了缺失分支。,True,unlikely,需恢复完整多功能纸盒块，答案自审本身没有足够事实。
+P3500-HARD-019,hard,incorrect,0.0,0.95,intermediate_process_loss,流程中间内容丢失,retrieval_content_unclear_or_noisy,top_reranked_chunk_dropped_during_context_construction,top_reranked_chunk_dropped_before_context,reranked首位相关块在context构造时丢失,0.99,"[1, 16, 30]",[1],[],0,0,PARTIAL,在Mac系统中安装驱动后，若选择USB、有线网络或无线热点方式连接打印机，应如何处理无线网络配置提示窗口？若选择基础结构连接模式，又该如何操作？请结合两条证据中的说明作答。,应点击“否”退出提示窗口；若选择基础结构连接模式，应点击“是”，通过无线网络配置工具配置打印机的无线网络。,"提供的Evidence不足以确定在Mac系统中安装驱动后选择USB、有线网络或无线热点方式连接时如何处理无线网络配置提示窗口,因为现有证据仅包含Windows和Mac系统下“无线网络配置工具”的调用路径及基础结构模式下的SSID选择步骤,未提及驱动安装过程中针对USB、有线网络或Wi-Fi热点连接方式的无线网络配置提示窗口的具体处理操作[E2][E3][E4]。
+
+若选择基础结构连接模式,在Mac系统中的操作如下:
+
+-   您可以通过接入点(无线路由器)作为媒介,将计算机和打印机连接在一起,该模式分为无线网络配置和Wi-Fi Protected Setup配置两种方式[E1]。
+-   在进行无线网络安装前,必须了解您的接入点(无线路由器)的网络名(SSID)和密码[E1]。
+-   Mac系统调出无线网络配置工具的方法是点击计算机菜单栏“前往”-“应用程序”-“产品名称”-“无线网络配置工具”[E2]。
+-   若您的计算机已开启无线网络,在界面中选择需要连接的无线网络的“网络名(SSID)”,点击下一步[E2]。
+-   您所选择的网络名(SSID)应与计算机连接的接入点(无线路由器)的网络名(SSID)一致[E2]。
+-   若您需要连接的网络名(SSID)不在已搜索到的网络名列表中,请勾选“手动输入网络名”进行手动配置[E2]。
+-   若您使用网线连接计算机和接入点(无线路由器),在界面中输入接入点(无线路由器)的网络名称SSID(SSID 区分大小写),点击“下一步”[E2]。",Mac驱动安装块在retrieved和reranked均第1位，但未进入最终context，后者被通用无线配置块占据。pre因此错误声称提示窗口处理证据不存在。,相关Mac安装chunk：retrieved第1位、reranked第1位、context缺失。 | context pack对现有4块无截断，证明损失在reranked→context边界。,True,unlikely,需要修复context构建守恒，纯自审无法恢复“是/否”规则。
+P3500-HARD-021,hard,incorrect,0.0,0.95,dataset_reference,dataset/reference,retrieval_content_insufficient|source_ambiguity|evaluation_system_error_candidate,reference_requires_unsupported_cross_document_inference,reference_conflicts_with_or_exceeds_source,reference与源证据冲突或要求无证据推断,0.92,[1],[2],[2],0,0,SUFFICIENT,在基础结构连接模式中，计算机通过无线网络连接至接入点，而打印机通过网线连接至接入点；而在Wi-Fi热点连接模式中，计算机与打印机直接通过无线网络连接。这两种连接方式下，打印机的IP地址分配有何不同？,基础结构连接模式下，打印机通过接入点连接网络，其IPv6地址由DHCPv6服务器配置或由路由器自动配置；Wi-Fi热点连接模式下，打印机作为热点，其IPv6地址为自行配置的本地IPv6地址（以FE80开头）。,"提供的 Evidence 不足以确定这两种连接方式下打印机 IP 地址分配的具体不同。
+
+依据如下:
+-   Evidence 仅说明在进行 IP 地址设置前,需要将打印机连接到网络 [E4]。
+-   Evidence 描述了基础结构连接模式和 Wi-Fi 热点连接模式的拓扑结构及设备连接方式,但未提及这两种模式下 IP 地址的分配机制或差异 [E1][E2][E3][E5]。",源文档只定义三类通用IPv6地址，没有把DHCPv6/路由器地址专属于基础结构、也没有把FE80专属于热点模式；reference作了未被证据支持的模式映射。,连接拓扑相关块进入context，但IPv6地址类型块未进入retrieved/context。 | 即便补回IPv6块，源文本也没有reference要求的两模式专属关系。,True,unlikely,诚实自审应拒绝该映射；不能为匹配reference而补造关系。
+P3500-HARD-024,hard,incorrect,0.0,0.95,generation_reasoning,生成/推理,source_ambiguity,generation_refuses_supported_low_risk_synthesis,generation_overconservative_refusal,生成答案拒绝证据已支持的低风险归纳,0.9,"[1, 16, 21]","[1, 3]","[2, 3]",0,0,SUFFICIENT,在Wi-Fi热点连接方法中，打印机需要先打印网络配置信息页以获取其热点的SSID和密码；而在Wi-Fi Protected Setup配置方法中，打印机与接入点需在2分钟内完成按键配对。这两种方法分别适用于什么场景？,Wi-Fi热点连接方法适用于计算机或移动设备直接连接打印机热点的场景；Wi-Fi Protected Setup配置方法适用于接入点（无线路由器）支持WPS且希望快速配对的场景。,"根据提供的 Evidence,无法确定这两种方法分别适用的具体场景,因为原文未包含关于“适用场景”的描述。仅能依据原文确认两种方法的操作前提与条件如下:
+
+-   在 Wi-Fi 热点连接方法中,驱动安装前必须了解打印机的无线热点信息,如不清楚需打印“网络配置信息页”并查看打印机无线热点的“SSID”和“密码” [E1][E3][E4]。
+-   在 Wi-Fi Protected Setup 配置方法中,该方法的适用前提是接入点(无线路由器)支持 Wi-Fi Protected Setup [E5]。
+-   在 Wi-Fi Protected Setup 配置方法中,用户需要在按下打印机“Wi-Fi”键后的 2 分钟内,按下接入点(无线路由器)上的“WPS”按键 [E2]。
+-   在 Wi-Fi Protected Setup 配置方法中,若超过 2 分钟没有建立好连接,Wi-Fi Protected Setup 连接失败,需重复相关步骤重新连接 [E2]。",context同时给出热点直连步骤和WPS需路由器支持的前提，足以概括适用场景；pre只复述操作条件并过度保守地拒绝场景归纳。,两个固定相关块都在context中，另有热点直连和WPS支持说明。 | pre已说出WPS前提，却没有把计算机/移动设备直接连接热点概括为第一场景。,True,likely,意图覆盖自审可在不增加外部事实的情况下完成低风险归纳。
+P3500-HARD-027,hard,partial,0.5,0.9,dataset_reference,dataset/reference,evaluation_system_error_candidate,reference_swaps_two_distinct_failure_conditions,reference_conflicts_with_or_exceeds_source,reference与源证据冲突或要求无证据推断,0.99,"[2, 4, 16, 19]","[1, 2]","[1, 2]",0,0,SUFFICIENT,使用Mopria移动打印功能时，若Android设备未检测到打印机，可能的原因是什么？同时，该功能对操作系统版本和应用软件有哪些要求？,若Android设备未检测到打印机，可能是设备未连接到打印机的无线热点（Wi-Fi）；Mopria移动打印适用于Android4.4或更高版本，支持AdobeReader（V11.7.1）或更高版本等应用软件。,"若Android设备未检测到打印机,可能的原因是打印机未接通电源或打印机未打开[E1]。
+
+关于Mopria移动打印功能对操作系统和应用软件的要求如下:
+- Mopria移动打印适用于Android 4.4或更高版本[E2]。
+- Mopria移动打印支持的应用软件有微软Office 1.01 (16.0.4201.1006) 或更高版本,Adobe Reader (V11.7.1)或更高版本等[E2]。",源文档区分“打印失败”和“未检测到任何打印机”：前者检查Wi-Fi连接，后者检查打印机电源/开机。reference把前者原因错配给后者；pre给出的电源原因与源文档一致。,Mopria使用块与版本要求块都在context前2位。 | 同一源块明确写“未检测到任何打印机，请检查打印机是否已接通电源，以及打印机是否已打开”。,True,unlikely,无金标自审会继续选择电源/开机条件，不应改成错误的Wi-Fi条件。
+P3500-HARD-037,hard,partial,0.5,0.9,generation_reasoning,生成/推理,source_ambiguity,generation_paraphrases_identifier_instead_of_extracting_it,generation_type_or_identifier_binding,生成答案混淆字段类型或未原样保留标识符,0.95,"[1, 16]","[1, 2]","[1, 2]",0,0,SUFFICIENT,奔图电子产品回收利用体系中，用户需将废弃产品交给哪里进行统一回收？同时，打印机内部的激光组件上贴有何种标签？,您可以选择将废弃的打印机和耗材交给当地奔图维修中心进行统一回收。本机内部的激光组件上贴有如下标签：CAUTION CLASS 3B: MAILABLE LASER RADIATION WHEN OPEN AND INTERLOCKS DEFEATED AVOID EXPOSURE TO BEAM.,"1. 在奔图电子产品回收利用体系中,用户需将废弃的打印机和耗材交给当地奔图维修中心进行统一回收[E1]。
+2. 打印机内部的激光组件上贴有包含多语言警示内容的标签,其中中文部分标明“盖板打开并且连锁装置处于无效状态时,请不要直视激光光束”[E2]。
+
+【图片】",两条证据均完整进入context，pre正确回答回收地点，但把标签改写成中文含义，没有按问题要求给出可识别的CAUTION CLASS 3B英文标签。,回收与激光标签相关块分别在context第1、2位。 | 英文标签原文完整可见；pre只输出概括性中文。,True,likely,通用标识符/专名保真自审可从已见文本直接摘录。
+P3500-HARD-040,hard,partial,0.5,0.9,dataset_reference,dataset/reference,retrieval_content_insufficient|evaluation_system_error_candidate,reference_does_not_answer_requested_table_entity_list,reference_does_not_answer_requested_output,reference未回答所要求的实体清单或判断,0.98,"[1, 3, 16, 17]","[1, 2]","[1, 2]",0,0,SUFFICIENT,此符号表明不能将该产品与其它废物一起随意丢弃，正确的做法是什么？此外，根据表格信息，哪些部件含有超出限量要求的有害物质？,"您应该将废弃设备送到指定的收集点，以便回收利用废弃的电气和电子设备。本产品的部分部件含有有害物质,这些部件是在现有科学技术水平下暂时无可替代物质。","正确的做法是将废弃设备送到指定的收集点,以便回收利用废弃的电气和电子设备 [E1]。
+
+关于哪些部件含有超出限量要求的有害物质,提供的 Evidence 信息不足以确定。虽然表格备注说明“×”表示该有毒有害物质至少在该部件的某一均质材料中的含量超出 SJ/T11363-2006 标准规定的限量要求,但证据正文中未包含具体部件名称及其对应的“×”标记数据行 [E2]。",问题要求列出哪些部件超限，但固定相关证据只含表头和备注，没有部件数据行；reference也没有列部件，只把问题改写成“部分部件含有害物质”。,法规说明与表头/备注块进入context，具体×数据行未进入生成context。 | pre完整回答回收做法，并明确说明不能据现有Evidence列出部件。,True,unlikely,无金标自审应继续暴露证据缺口，不能把泛化陈述当作部件列表。
+P3500-HARD-041,hard,partial,0.5,0.9,freshness_execution,freshness/execution,retrieval_content_insufficient|dataset_reference|source_ambiguity,static_snapshot_misrouted_as_freshness_and_second_fact_missing,freshness_misroute_and_missing_fact,静态快照误走freshness且第二事实未召回,0.9,[1],[1],[1],0,0,STALE,根据打印机侧面及正面视图标注示意图和打印机信息页的内容，若要检查设备左侧后部的竖向通风口区域是否正常，应确认该位置是否有标签1指向的结构，并结合硒鼓剩余量为100%这一状态判断设备当前运行是否处于理想条件？,标签1指向设备左侧后部的竖向通风口区域，且硒鼓剩余量为100%。,"根据给定Evidence,可以确认标签1指向设备左侧后部的竖向通风口区域[E1];但不足以确定是否能结合“硒鼓剩余量为100%”这一状态判断设备当前运行是否处于理想条件,因为Evidence中未包含硒鼓剩余量与设备运行条件或通风口检查相关的任何信息。
+
+- 在打印机侧面及正面视图标注示意图中,标签1指向设备左侧后部的竖向通风口区域[E1]。
+- Evidence中未提及硒鼓剩余量、设备运行理想条件的定义或其与通风口状态之间的关联,因此无法依据给定材料判断该状态是否可用于评估运行条件。",静态手册快照问题因“当前运行/理想条件”被判STALE；同时第二个固定相关打印机信息页未被召回。即使硒鼓100%被恢复，该状态也不足以证明整机运行理想，reference仅重复两个事实。,evidence assessment状态为STALE；标签1相关块进入context，硒鼓100%相关块未进入retrieved/context。 | reference没有回答“是否处于理想条件”的判断标准。,True,unlikely,答案自审无法恢复未召回快照，也不能从100%硒鼓推导整机理想。
+P3500-HARD-042,hard,incorrect,0.0,0.9,dataset_reference,dataset/reference,source_ambiguity|evaluation_system_error_candidate,reference_repeats_inputs_without_answering_decision_question,reference_does_not_answer_requested_output,reference未回答所要求的实体清单或判断,0.95,"[2, 18]","[1, 3]","[1, 2]",0,0,SUFFICIENT,"根据演示页中列出的50,000页每月工作负荷和750至4,000页推荐月打印量，以及网络配置信息页中显示的无线IP地址为192.168.0.102，若某用户在无线网络下使用该打印机进行连续打印，其实际打印量接近推荐上限时，应如何判断设备是否仍处于可接受的工作负载范围内？","推荐月打印量为750至4,000页，无线IP地址为192.168.0.102。","提供的Evidence不足以确定如何判断设备在接近推荐月打印量上限时是否仍处于可接受的工作负载范围内。
+
+-   演示页列出的最大每月工作负荷为50,000页,推荐每月打印量为750至4,000页 [E1]。
+-   网络配置信息页显示的无线网络IPv4地址为192.168.0.102 [E2]。
+-   Evidence中未包含当实际打印量接近推荐上限(4,000页)时,用于判断设备是否仍处于可接受工作负载范围内的具体检测方法、状态指标或评估标准。",问题要求判断接近推荐上限是否仍可接受，reference却只复述打印量范围和无关IP，未给判断。pre也复述了全部事实但因缺少评估标准拒绝结论。,"两个固定相关块都在context前2位且pack完整。 | pre包含50,000、750–4,000和192.168.0.102；失败不是事实缺失，而是题目/reference没有定义判断规则。",True,possible,"自审可给条件化判断（不超过4,000仍在推荐范围），但这超出reference文本且尚未验证盲审结果。"
+P3500-HARD-044,hard,incorrect,0.0,0.95,dataset_reference,dataset/reference,evaluation_system_error_candidate,reference_attaches_numeric_limit_to_wrong_entity,reference_conflicts_with_or_exceeds_source,reference与源证据冲突或要求无证据推断,0.99,"[1, 2]","[1, 2]","[1, 2]",0,0,SUFFICIENT,根据选配纸盒自动双面打印与多功能纸盒自动双面打印的说明，若用户希望实现自动双面打印但又需确保纸张数量不超过限制且不放入特殊介质，应优先选择哪个纸盒并遵循何种设置规则？,选配纸盒仅支持普通纸的自动双面打印，最多放置60页纸张，且不可放入特殊打印介质。,"若用户希望实现自动双面打印且需确保纸张数量不超过限制、不放入特殊介质,应优先选择多功能纸盒,并遵循“最多只能放置60页纸张”及“仅支持普通纸”的设置规则;选配纸盒虽也仅支持普通纸,但Evidence未提供其具体纸张数量上限,不足以确定其是否满足“不超过限制”的要求。
+
+-   当您将纸张放入多功能纸盒时,本机将优先选择多功能纸盒中的打印纸张 [E2]。
+-   多功能纸盒可实现自动双面打印,但是最多只能放置 60 页纸张,且使用推荐的打印纸张类型 [E2]。
+-   多功能纸盒支持普通纸的自动双面打印 [E2]。
+-   选配纸盒仅支持普通纸的自动双面打印,请不要放入特殊打印介质 [E1]。
+-   Evidence中关于选配纸盒自动双面打印的说明未提及具体的纸张数量限制,不足以确定其最大装纸量。",60页上限明确属于多功能纸盒，选配纸盒证据只说普通纸且不得放特殊介质。reference把多功能纸盒的60页限制错误移植到选配纸盒；pre选择多功能纸盒并分别说明两者约束。,选配与多功能自动双面打印两个块都在context前2位。 | 只有多功能块出现“最多只能放置60页”。,True,unlikely,无金标自审会确认数字属于多功能纸盒，不应制造错误绑定。
+P3500-HARD-045,hard,incorrect,0.0,0.95,intermediate_process_loss,流程中间内容丢失,dataset_reference,both_required_chunks_lost_during_rerank,relevant_branch_lost_before_rerank_or_context,已召回的关键分支未进入rerank/context,0.95,"[10, 13]",[],[],0,0,SUFFICIENT,根据选配纸盒自动双面打印中关于抬起托纸板的建议和故障排除章节中关于双面打印单元卡纸的条目，若用户在执行自动双面打印任务时发现输出纸张堆积在出纸托盘，应如何判断是否由未及时取走纸张引起，并参考哪一故障排查章节进行处理？,建议抬起托纸板避免已打印纸张滑出，应参考10.1.6. 双面打印单元卡纸进行处理。,"提供的 Evidence 不足以确定如何判断出纸托盘纸张堆积是否由未及时取走纸张引起,也不包含针对“出纸托盘”卡纸或堆积的故障排查章节。
+
+-   Evidence 中关于“打印后请立即取走纸张”的建议仅出现在“装入多功能纸盒”章节,指出堆叠的纸张或信封会引起卡纸或曲纸,并未提及选配纸盒自动双面打印或出纸托盘 [E3]。
+-   Evidence 中关于“选配纸盒自动双面打印”的内容仅涉及打印前确保装入介质、设置纸张来源及驱动程序操作步骤,未包含关于抬起托纸板的建议或输出纸张堆积的判断方法 [E2]。
+-   Evidence 中的故障排除章节“10.1.6. 双面打印单元卡纸”仅指导从打印机后面取出双面打印单元或打开纸盒从底部取出卡纸,未涉及出纸托盘区域的故障处理 [E4]。
+-   Evidence 中“选配纸盒卡纸”的故障排除步骤仅涵盖打开选配纸盒或标准纸盒取出卡纸,同样未提及出纸托盘 [E1]。",抬起托纸板建议与10.1.6目录块已在retrieved第10、13位，但二者都未进入reranked/context；pre看到的是相邻章节和详细卡纸操作，因而否认存在精确建议。,两个固定相关chunk均在retrieved命中，reranked/context命中数为0。 | pack无省略/截断，损失发生在reranker前后；reference把纸张堆积直接映射到10.1.6也带推断性。,True,unlikely,需恢复两个已召回块；答案自审无法可靠补回原句和章节名。

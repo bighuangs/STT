@@ -1,0 +1,165 @@
+{
+  "$schema": "C:/Users/黄珏桥/.agents/skills/select-minimum-sufficient-solutions/assets/schemas/solution-decision.schema.json",
+  "schema_version": "1.0.0",
+  "decision_id": "hak180-medium-badcase-r4-20260826",
+  "created_at": "2026-08-26T19:52:58+08:00",
+  "scope": {
+    "target": "HAK180 frozen Medium 50 proof-carrying query answering badcases",
+    "goal": "final accuracy at least 43/50 and strict correctness at least 41/50",
+    "constraints": [
+      "Only Medium is in scope",
+      "No case-id, reference-answer or expected-term product branches",
+      "Do not weaken strict, grounding, citation, faithfulness or safety guards",
+      "A new paid formal run requires fresh user authorization",
+      "Every new closure must replay from raw authority in production and the independent evaluator"
+    ],
+    "out_of_scope": [
+      "EASY and HARD badcases",
+      "New agents or external services",
+      "Model/provider changes and fine-tuning",
+      "Evaluator threshold changes"
+    ]
+  },
+  "strategy": {
+    "strategy_module_id": "agent-capability-ladder",
+    "current_rung_id": "fixed_workflow_prompt_chain",
+    "primary_method_family": "fixed_workflow_prompt_chain",
+    "method_family": "fixed_workflow_scoped_source_closure_rag",
+    "method_id": "contract_normalization_and_scoped_source_closure_r1",
+    "axis_selections": [
+      {"axis_id": "knowledge_grounding", "option_id": "retrieval_augmented_generation", "rationale": "Answers depend on a frozen private manual and must remain bound to Evidence and Witness authority."},
+      {"axis_id": "evaluation_harness", "option_id": "repeatable_evaluation_harness", "rationale": "Probabilistic plans require a frozen denominator and independent typed-proof replay."},
+      {"axis_id": "agent_runtime_harness", "option_id": "no_agent_runtime_harness", "rationale": "The product uses a fixed graph and does not let the model select tools or steps dynamically."},
+      {"axis_id": "advanced_execution", "option_id": "bounded_evaluator_replan_loop", "rationale": "The existing workflow has bounded repair and deterministic termination; no new loop is needed."},
+      {"axis_id": "human_governance", "option_id": "policy_only", "rationale": "Authorization, egress, budget and proof commits are governed by deterministic policy."},
+      {"axis_id": "model_adaptation", "option_id": "no_model_adaptation", "rationale": "The dominant failure is a deterministic source-closure contract gap, not a training deficit."}
+    ],
+    "selection_rationale": "Versioned QueryContract normalization fixes the earliest refusal divergence, and schema-gated scoped typed closure across all authority representations fixes the subsequent partial-proof divergence without extra model calls, services or autonomy."
+  },
+  "authorizations": {
+    "method_selection": {"mode": "auto", "status": "authorized", "decision_ref": "conversation:analyze-badcases-and-iterate-within-current-method"},
+    "implementation": {"mode": "user_gate", "status": "authorized", "decision_ref": "conversation:focus-medium-badcase-fix"},
+    "evaluation_execution": {"mode": "user_gate", "status": "pending", "decision_ref": null},
+    "iteration": {"mode": "user_gate", "status": "pending", "decision_ref": null}
+  },
+  "complexity_control": {
+    "approved_complexity_ceiling": {
+      "primary_rung_id": "fixed_workflow_prompt_chain",
+      "axis_limits": [
+        {"axis_id": "knowledge_grounding", "option_id": "retrieval_augmented_generation"},
+        {"axis_id": "evaluation_harness", "option_id": "repeatable_evaluation_harness"},
+        {"axis_id": "agent_runtime_harness", "option_id": "no_agent_runtime_harness"},
+        {"axis_id": "advanced_execution", "option_id": "bounded_evaluator_replan_loop"},
+        {"axis_id": "human_governance", "option_id": "policy_only"},
+        {"axis_id": "model_adaptation", "option_id": "no_model_adaptation"}
+      ],
+      "source": "current_implementation",
+      "decision_ref": null,
+      "evidence_ref": "docs/experiment/hak180-medium-badcase-r4/solution-selection.md"
+    },
+    "candidate_profiles": [
+      {
+        "candidate_id": "agentic_proof_rag",
+        "primary_rung_id": "single_agent",
+        "axis_selections": [
+          {"axis_id": "knowledge_grounding", "option_id": "retrieval_augmented_generation"},
+          {"axis_id": "evaluation_harness", "option_id": "repeatable_evaluation_harness"},
+          {"axis_id": "agent_runtime_harness", "option_id": "durable_agent_runtime_harness"},
+          {"axis_id": "advanced_execution", "option_id": "bounded_evaluator_replan_loop"},
+          {"axis_id": "human_governance", "option_id": "policy_only"},
+          {"axis_id": "model_adaptation", "option_id": "no_model_adaptation"}
+        ],
+        "candidate_purpose": "read_only_comparison",
+        "ceiling_relation": "exceeds",
+        "rationale": "Dynamic agency adds action, termination and recovery complexity while the observed root cause is deterministic and local.",
+        "evidence_refs": ["docs/experiment/hak180-medium-badcase-r4/solution-selection.md"]
+      }
+    ]
+  },
+  "evaluation": {
+    "metrics": [
+      {"metric_id": "final_answer_accuracy", "role": "required", "target_definition": "Frozen Medium n=50 final accuracy at least 43/50", "observed_value": {"count": 33, "denominator": 50, "rate": 0.66}, "verdict": "not_met", "evidence_refs": ["var/evals/erun_3d9f4e215f8f4cca87246cd25850c53b/generation-404a12b0ce0605de5288d78ae4c3f157/results.jsonl"]},
+      {"metric_id": "strict_correctness", "role": "required", "target_definition": "Frozen Medium n=50 strict correctness at least 41/50", "observed_value": {"count": 26, "denominator": 50, "rate": 0.52}, "verdict": "not_met", "evidence_refs": ["var/evals/erun_3d9f4e215f8f4cca87246cd25850c53b/generation-404a12b0ce0605de5288d78ae4c3f157/results.jsonl"]},
+      {"metric_id": "retrieval_support", "role": "guardrail", "target_definition": "Frozen Medium retrieval support at least 47/50", "observed_value": {"count": 49, "denominator": 50, "rate": 0.98}, "verdict": "met", "evidence_refs": ["var/evals/erun_3d9f4e215f8f4cca87246cd25850c53b/generation-404a12b0ce0605de5288d78ae4c3f157/results.jsonl"]},
+      {"metric_id": "answered_faithfulness", "role": "guardrail", "target_definition": "No regression from 1.0 baseline level", "observed_value": {"count": 39, "denominator": 39, "rate": 1.0}, "verdict": "met", "evidence_refs": ["docs/experiment/hak180-easy-medium-100-evaluation/results/formal-evaluation-r4-summary.json"]},
+      {"metric_id": "answered_citation_correctness", "role": "guardrail", "target_definition": "No regression from 1.0 baseline level", "observed_value": {"count": 39, "denominator": 39, "rate": 1.0}, "verdict": "met", "evidence_refs": ["docs/experiment/hak180-easy-medium-100-evaluation/results/formal-evaluation-r4-summary.json"]},
+      {"metric_id": "unsupported_factual_claim_count", "role": "guardrail", "target_definition": "Maximum and mean equal zero", "observed_value": {"maximum": 0, "mean": 0.0}, "verdict": "met", "evidence_refs": ["docs/experiment/hak180-easy-medium-100-evaluation/results/formal-evaluation-r4-summary.json"]},
+      {"metric_id": "execution_error_count", "role": "guardrail", "target_definition": "No execution errors in the frozen Medium n=50 run", "observed_value": {"count": 0, "denominator": 50}, "verdict": "met", "evidence_refs": ["docs/experiment/hak180-easy-medium-100-evaluation/results/formal-evaluation-r4-summary.json"]},
+      {"metric_id": "offline_receipt_complete_required_open", "role": "diagnostic", "target_definition": "Every required-open obligation in a replay case with a signed receipt is structurally receipt-complete", "observed_value": {"complete_case_count": 30, "receipt_case_count": 30, "receipt_count": 33, "replay_succeeded": 49, "replay_failed": 0, "missing_context": 1}, "verdict": "met", "evidence_refs": ["docs/experiment/hak180-medium-badcase-r4/offline-structural-replay.json"]},
+      {"metric_id": "diagnostic_structural_strict_candidate", "role": "diagnostic", "target_definition": "Report-only structural projection that must not be promoted to formal strict correctness", "observed_value": {"count": 41, "denominator": 50, "rate": 0.82, "baseline_strict": 10, "receipt_complete": 30, "closed_count_projected_cell": 1, "components_mutually_disjoint": true, "margin_cases": 0}, "verdict": "not_evaluated", "evidence_refs": ["docs/experiment/hak180-medium-badcase-r4/offline-structural-replay.json", "app/domain/answering/proof.py", "app/domain/evaluation_proof.py"]},
+      {"metric_id": "diagnostic_final_counterfactual_potential", "role": "diagnostic", "target_definition": "Report-only counterfactual projection that must not be promoted to formal final-answer accuracy", "observed_value": {"count": 44, "denominator": 50, "rate": 0.88, "baseline_final": 29, "incremental_receipt_complete": 15, "incremental_case_ids": ["P3500-MEDIUM-005", "P3500-MEDIUM-011", "P3500-MEDIUM-012", "P3500-MEDIUM-013", "P3500-MEDIUM-016", "P3500-MEDIUM-022", "P3500-MEDIUM-023", "P3500-MEDIUM-024", "P3500-MEDIUM-028", "P3500-MEDIUM-030", "P3500-MEDIUM-032", "P3500-MEDIUM-033", "P3500-MEDIUM-037", "P3500-MEDIUM-039", "P3500-MEDIUM-041"]}, "verdict": "not_evaluated", "evidence_refs": ["docs/experiment/hak180-medium-badcase-r4/offline-structural-replay.json", "var/evals/erun_d1b179e0579e407cbe19cfe2aef11258/generation-fe83c80cb960443e18a8152b4353bec6/results.jsonl"]}
+    ],
+    "hard_gates": [
+      {"gate_id": "production_evaluator_replay", "definition": "New typed receipts and projected-cell items replay consistently from raw authority and fail closed on drift or downgrade bypass", "verdict": "pass", "evidence_refs": ["app/domain/answering/enumeration_closure.py", "app/domain/answering/fact_set_closure.py", "app/domain/answering/proof.py", "app/domain/evaluation_proof.py", "tests/unit/test_proof_carrying_answer_v2.py"]},
+      {"gate_id": "no_case_or_gold_branch", "definition": "Product changes contain no case-id, reference-answer or expected-term branches", "verdict": "pass", "evidence_refs": ["app/application/query_understanding_service.py", "app/application/query_answering/builders.py", "app/domain/answering/enumeration_closure.py", "app/domain/answering/fact_set_closure.py", "app/domain/answering/proof.py", "app/domain/evaluation_proof.py"]}
+    ],
+    "aggregate": {
+      "aggregation_rule": "Both required metrics must meet target, all guardrails must pass and no hard gate may fail.",
+      "metric_verdict_counts": {"met": 6, "not_met": 2, "not_evaluated": 2},
+      "hard_gate_verdict": "pass",
+      "target_verdict": "target_not_met"
+    },
+    "near_target_rule": {"status": "not_defined", "definition": null, "metric_ids": []},
+    "near_target_assessment": {"verdict": "not_assessed", "rationale": "No near-target interval was preregistered.", "evidence_refs": ["docs/experiment/hak180-medium-badcase-r4/solution-selection.md"]}
+  },
+  "iteration_history": {
+    "active_method_family_id": "fixed_workflow_scoped_source_closure_rag",
+    "method_family_histories": [
+      {
+        "method_family_id": "fixed_workflow_scoped_source_closure_rag",
+        "mechanism_definition": {
+          "control_flow": "fixed_query_understanding_retrieval_plan_review_repair_render",
+          "model_usage": "fixed_structured_answer_plan_and_semantic_review_calls",
+          "knowledge_access": "frozen_scope_hybrid_rag_with_typed_source_closure",
+          "runtime_behavior": "bounded_fixed_workflow_with_two_repairs_and_no_dynamic_tool_selection",
+          "adaptation": "offline_versioned_prompt_and_deterministic_contract_iteration"
+        },
+        "mechanism_signature": "sha256:dee8a665a40e1c77b26944f1d08979d685361fff48f33226ba1678d05464eafc",
+        "supersedes_family_id": null,
+        "switch_classification": "initial",
+        "switch_reason": "The first complete formal Medium run under the current proof workflow establishes this target-scope round-zero baseline without reinterpreting EASY results.",
+        "switch_evidence_refs": ["var/evals/erun_d1b179e0579e407cbe19cfe2aef11258/generation-fe83c80cb960443e18a8152b4353bec6/results.jsonl"],
+        "baseline_round0": {
+          "round_number": 0,
+          "baseline_id": "erun_d1b179e0579e407cbe19cfe2aef11258",
+          "method_id": "medium_proof_r0",
+          "evaluation": {"evaluation_ref": "var/evals/erun_d1b179e0579e407cbe19cfe2aef11258/generation-fe83c80cb960443e18a8152b4353bec6/results.jsonl", "target_verdict": "target_not_met", "near_rule_status": "not_defined", "near_verdict": "not_assessed"},
+          "evidence_refs": ["docs/experiment/hak180-medium-badcase-r4/evaluation-manifest.yaml", "var/evals/erun_d1b179e0579e407cbe19cfe2aef11258/generation-fe83c80cb960443e18a8152b4353bec6/results.jsonl"]
+        },
+        "maximum_valid_rounds": 3,
+        "valid_round_count": 1,
+        "invalid_run_count": 0,
+        "additional_valid_rounds_allowed": true,
+        "stop_state": "active",
+        "stop_reason": null,
+        "valid_rounds": [
+          {
+            "round_number": 1,
+            "method_family": "fixed_workflow_scoped_source_closure_rag",
+            "method_id": "contract_normalization_and_scoped_source_closure_r1",
+            "change_summary": "Normalize query contracts and add schema-gated scoped typed source-closure receipts with independent raw-authority replay.",
+            "evaluation": {"evaluation_ref": "var/evals/erun_3d9f4e215f8f4cca87246cd25850c53b/generation-404a12b0ce0605de5288d78ae4c3f157", "target_verdict": "target_not_met", "near_rule_status": "not_defined", "near_verdict": "not_assessed"},
+            "evidence_refs": ["docs/experiment/hak180-easy-medium-100-evaluation/formal-evaluation-r4.md", "docs/experiment/hak180-easy-medium-100-evaluation/results/formal-evaluation-r4-summary.json"]
+          }
+        ],
+        "invalid_runs": []
+      }
+    ]
+  },
+  "decision": {
+    "stop_current_method": false,
+    "next_action": "continue_current_method",
+    "rationale": "The valid same-family R1 formal run improved final from 29/50 to 33/50 and strict from 10/50 to 26/50 while all guardrails passed, but it remained 10 final cases and 15 strict cases below target. Keep the current method family for any future root-cause-driven round; this completed evaluation does not itself authorize product changes or another paid run.",
+    "user_gate": {"required": false, "reason": "none", "status": "not_required", "options_presented": ["retain_current", "collect_more_evidence", "stop"], "selected_option": "undecided", "selected_candidate_id": null, "decision_ref": null}
+  },
+  "evidence_refs": [
+    "docs/experiment/hak180-medium-badcase-r4/experiment.md",
+    "docs/experiment/hak180-medium-badcase-r4/evaluation-manifest.yaml",
+    "docs/experiment/hak180-medium-badcase-r4/solution-selection.md",
+    "docs/experiment/hak180-medium-badcase-r4/offline-structural-replay.json",
+    "var/evals/erun_d1b179e0579e407cbe19cfe2aef11258/generation-fe83c80cb960443e18a8152b4353bec6/results.jsonl",
+    "docs/experiment/hak180-easy-medium-100-evaluation/formal-evaluation-r4.md",
+    "docs/experiment/hak180-easy-medium-100-evaluation/results/formal-evaluation-r4-summary.json",
+    "var/evals/erun_3d9f4e215f8f4cca87246cd25850c53b/generation-404a12b0ce0605de5288d78ae4c3f157/results.jsonl"
+  ]
+}

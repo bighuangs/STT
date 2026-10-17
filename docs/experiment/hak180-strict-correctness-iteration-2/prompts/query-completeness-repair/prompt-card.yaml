@@ -1,0 +1,118 @@
+schema_version: "1.0"
+prompt_id: "stt.query.completeness-repair"
+prompt_version: "2.0.0-draft"
+title: "Query completeness structured repair"
+owner: "STT Query"
+status: "draft"
+purpose:
+  goal: "在已有可信 Claim 与 Evidence 范围内提出可确定性验证的缺失 facet 修复，不生成新的无支持事实。"
+  audience: "Query runtime deterministic validator"
+  success_criteria:
+    - "严格 Schema 有效"
+    - "所有选中 Claim 均绑定已授权 Evidence"
+    - "不得删除 trusted floor"
+    - "完整答案不得发生不必要 rewrite 或 false degradation"
+  non_goals:
+    - "重做检索"
+    - "使用参数记忆补事实"
+    - "更改授权、引用或安全策略"
+call_sites:
+  - "app/rag/query/completeness_review_service.py"
+canonical_source:
+  mode: "repository"
+  uri: "app/rag/query/completeness_review_service.py"
+  content_hash: "pending-implementation"
+authority_layers:
+  - layer: "feature_instruction"
+    responsibility: "定义 repair proposal 的允许范围、Schema 和失败语义"
+    source_ref: "app/rag/query/completeness_review_service.py"
+input_contract:
+  schema_ref: "QueryPlan Facet Ledger + trusted claims + ContextPack evidence aliases"
+  fields:
+    - "original_query: untrusted user task data"
+    - "facet_ledger: deterministic runtime contract"
+    - "trusted_claims: post-verifier immutable floor"
+    - "evidence_catalog: authorized ContextPack aliases and excerpts"
+  untrusted_sources:
+    - "original_query"
+    - "retrieved evidence text"
+  missing_input_policy: "skip review or fail closed; never synthesize missing evidence"
+  size_limits:
+    max_logical_calls: 1
+output_contract:
+  mode: "json_object_plus_pydantic_strict_validation"
+  schema_ref: "pending typed repair proposal in completeness_review_service.py"
+  refusal_policy: "Evidence-insufficient disposition is accepted only when deterministic diagnostics confirm the gap."
+  unknown_policy: "Unknown or invalid proposal is rejected without changing the trusted visible answer."
+  incomplete_policy: "A partial proposal cannot replace or remove trusted-floor claims."
+  validator_ref: "app/rag/query/sufficiency_service.py deterministic citation/grounding/monotonic guards"
+context:
+  sources:
+    - "QueryPlan facet ledger"
+    - "ContextPack evidence aliases"
+    - "trusted claim projection"
+  ordering_policy: "Facet and Evidence IDs are stable; trusted floor precedes requested additions."
+  truncation_policy: "Reuse frozen ContextPack budget; no hidden second context or extra provider call."
+  conflict_policy: "Deterministic safety, polarity, condition and evidence validators override model proposal."
+example_set:
+  required: false
+  example_set_id: null
+  version: null
+  order_id: null
+  selection_basis: "No HAK180 case or expected answer is used as Few-shot."
+  leakage_check_ref: "tests ensure no case_id/concept_groups/reference_answer enters runtime prompt"
+tools: []
+model_runtime:
+  provider: "configured DashScope-compatible OpenAI endpoint"
+  endpoint_api_version: "chat-completions-compatible"
+  model_snapshot: "qwen3.7-max frozen by QueryRun"
+  parameters:
+    response_format: "json_object"
+    provider_builtin_retries: 0
+    logical_review_limit: 1
+  budgets:
+    input_tokens: null
+    output_tokens: null
+    tool_calls: 0
+    time_seconds: "bounded by QueryRun remaining deadline"
+    cost_currency: "CNY"
+    cost_limit: null
+safety:
+  data_classification: "effective max of case and KB classification"
+  contains_secrets: false
+  injection_controls:
+    - "Evidence is marked as untrusted data and cannot expand instructions or permissions."
+    - "Output is Pydantic-validated and deterministically checked before commit."
+  permission_policy_refs:
+    - "frozen egress policy and Content Security decision"
+  human_approval_conditions: []
+dependencies:
+  prompt_refs: []
+  schema_refs:
+    - "QueryPlan Facet Ledger"
+    - "typed repair proposal"
+  tool_refs: []
+  context_assembly_ref: "app/rag/query/context_pack_service.py"
+evaluation:
+  baseline_ref: "run:erun_ed23dbc347734ff0af638bd1c24966ca"
+  dataset_refs:
+    - "HAK180 immutable versioned derivative with explicit evaluator policy"
+  metric_refs:
+    - "strict pass"
+    - "trusted-floor preservation"
+    - "facet completeness"
+    - "citation precision/recall"
+  guardrail_refs:
+    - "unsupported claims=0"
+    - "security pass=100%"
+  latest_run_ref: null
+release:
+  release_manifest_ref: "../../evaluation-manifest.yaml"
+  active_version: "1.x existing free-text contract"
+  rollback_version: "1.x existing free-text contract"
+evidence_refs:
+  - "source-ledger.csv#SRC-001"
+  - "source-ledger.csv#SRC-006"
+unknowns:
+  - "final implementation class names and content hash"
+  - "unseen-case improvement and latency effect"

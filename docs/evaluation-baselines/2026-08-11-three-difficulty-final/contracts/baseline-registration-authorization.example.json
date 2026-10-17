@@ -1,0 +1,87 @@
+{
+  "schema_version": "stt.eval.baseline-registration-authorization.v1",
+  "approved": true,
+  "baseline_registration_allowed": true,
+  "label": "<candidate-label>",
+  "suite_key": "three-difficulty-live-2026-08-11-reviewed-v2",
+  "activation": {
+    "path": "activation.json",
+    "sha256": "<64-lowercase-hex>"
+  },
+  "candidate_run_index": {
+    "path": "runs/<candidate-label>/run-index.json",
+    "sha256": "<64-lowercase-hex>"
+  },
+  "candidate_roots": {
+    "path": "runs/<candidate-label>/candidate-roots.json",
+    "sha256": "<64-lowercase-hex>"
+  },
+  "results": {
+    "easy": {
+      "path": "runs/<candidate-label>/artifacts/easy/<run-id>/results.jsonl",
+      "sha256": "<64-lowercase-hex>",
+      "run_id": "<run-id>",
+      "correct_count": 48,
+      "case_count": 50
+    },
+    "medium": {
+      "path": "runs/<candidate-label>/artifacts/medium/<run-id>/results.jsonl",
+      "sha256": "<64-lowercase-hex>",
+      "run_id": "<run-id>",
+      "correct_count": 43,
+      "case_count": 50
+    },
+    "hard": {
+      "path": "runs/<candidate-label>/artifacts/hard/<run-id>/results.jsonl",
+      "sha256": "<64-lowercase-hex>",
+      "run_id": "<run-id>",
+      "correct_count": 0,
+      "case_count": 50
+    }
+  },
+  "failure_analysis": {
+    "approved": true,
+    "records_path": "runs/<candidate-label>/failure-analysis.jsonl",
+    "records_sha256": "<64-lowercase-hex>",
+    "summary_path": "runs/<candidate-label>/failure-summary.json",
+    "summary_sha256": "<64-lowercase-hex>",
+    "record_count": 10,
+    "case_keys_sha256": "<64-lowercase-hex>",
+    "primary_cause_counts": {
+      "retrieval_insufficient": 2,
+      "retrieval_noisy_or_unclear": 1,
+      "context_loss": 2,
+      "intermediate_process_loss": 3,
+      "evaluator_error": 0,
+      "other": 2
+    },
+    "evaluator_error_count": 0,
+    "promotion_allowed": true
+  },
+  "target_counts": {
+    "easy": {
+      "correct_count": 48,
+      "case_count": 50
+    },
+    "medium": {
+      "correct_count": 43,
+      "case_count": 50
+    },
+    "hard": {
+      "correct_count": null,
+      "case_count": 50
+    }
+  },
+  "final_blind_audit": {
+    "approved": true,
+    "summary_path": "semantic-reviews/<candidate-label>/direct-answer-v3-qwen3.7-max/final/summary.json",
+    "summary_sha256": "<64-lowercase-hex>",
+    "records_path": "semantic-reviews/<candidate-label>/direct-answer-v3-qwen3.7-max/final/semantic-correctness-review.jsonl",
+    "records_sha256": "<64-lowercase-hex>"
+  },
+  "evaluator_calibration": {
+    "approved": true,
+    "path": "certification/evaluator-calibration-approval.json",
+    "sha256": "<64-lowercase-hex>"
+  }
+}

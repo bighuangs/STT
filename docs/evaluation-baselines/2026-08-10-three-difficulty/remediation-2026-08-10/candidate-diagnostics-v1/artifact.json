@@ -1,0 +1,326 @@
+{
+  "manifest": {
+    "blocks": [
+      {
+        "body": "# qwen-plus 候选运行：生成前后语义损失诊断\n\n审计对象：`live-candidate-v2-qwen-plus-01`，简单与中等各 50 题。",
+        "id": "title",
+        "type": "markdown"
+      },
+      {
+        "body": "## 技术摘要\n\n主导缺陷发生在 LLM 已生成答案之后：80/100 个 pre-grounding 答案达到正确阈值，但 final 仅 36/100；其中 45/100（45.0%）由正确 pre 变成部分命中或错误 final，而且 45 个全部记录了 grounding 变更。中等集的阶段损失为 27/50（54.0%），显著高于简单集的 18/50（36.0%）。",
+        "id": "summary",
+        "sourceId": "candidate_diagnostics",
+        "type": "markdown"
+      },
+      {
+        "cardIds": [
+          "stage_loss",
+          "final_correct",
+          "recall5",
+          "citation_issue"
+        ],
+        "id": "kpis",
+        "type": "metric-strip"
+      },
+      {
+        "body": "## 关键发现\n\n互斥主归因把每题只计一次：45 题归入生成后 grounding/repair 损坏，17 题归入生成或推理错误，2 题存在较强的低排名检索噪声迹象，36 题未观察到语义失败。官方相关证据在 99/100 题进入 top-5，且上下文截断为 0/100，因此“召回不足”不能解释大多数错误。",
+        "id": "findings",
+        "sourceId": "candidate_diagnostics",
+        "type": "markdown"
+      },
+      {
+        "chartId": "primary_attribution",
+        "id": "attribution_chart_block",
+        "type": "chart"
+      },
+      {
+        "body": "## 难度分层\n\n中等集从 pre 正确率 70% 降到 final 正确率 16%，下降 54 个百分点；简单集从 90% 降到 56%，下降 34 个百分点。这说明候选模型本身在多数题上已经生成了足够答案，但后处理对中等、多约束回答破坏更严重。",
+        "id": "stage_breakdown",
+        "sourceId": "candidate_diagnostics",
+        "type": "markdown"
+      },
+      {
+        "body": "## 高频模式\n\nCitation 校验/归一化在 64/100 题出现非 valid 状态或 issue code，并与 34/45 个阶段损失重叠；但仍有 11/45 个阶段损失在 citation 显示 valid 且无 issue 时发生。有 43/100 题在 pre 已覆盖全部 expected terms、final 却丢失至少一项：其中 39 题归入生成后损坏、3 题归入生成/推理错误，1 题虽丢词项但仍达到语义正确阈值。此外 reranker 在 100/100 题均未成功并回退保持原顺序，这是系统性噪声风险，但不能直接视为 100 个因果失败。",
+        "id": "patterns_text",
+        "sourceId": "candidate_diagnostics",
+        "type": "markdown"
+      },
+      {
+        "body": "## 可审计示例\n\n按 final-minus-pre 正确性差值升序自动选取的严重样本包括：P3500-MEDIUM-031、P3500-MEDIUM-017、P3500-MEDIUM-033、P3500-MEDIUM-047、P3500-EASY-010、P3500-MEDIUM-050、P3500-MEDIUM-044、P3500-MEDIUM-004。选取不按题号特判；完整 pre/final 文本、字段级判据和证据哈希见 `cases.json` / `cases.csv`。",
+        "id": "examples_text",
+        "sourceId": "candidate_diagnostics",
+        "type": "markdown"
+      },
+      {
+        "body": "## 范围、数据与定义\n\n范围仅含本次归档的简单 50 题和中等 50 题，模型均为 qwen-plus。“正确”沿用项目确定性 correctness 指标并使用 0.8 阈值；“阶段损失”指 pre 达标而 final 未达标。“检索不足”要求官方 recall@5 不满或必需子查询上下文未覆盖；“噪声风险”使用首个标注相关块排名作为保守代理。",
+        "id": "scope",
+        "sourceId": "candidate_diagnostics",
+        "type": "markdown"
+      },
+      {
+        "body": "## 方法与可复现性\n\n脚本逐题连接数据集 reference 与归档 observation，分别对 pre-grounding 与最终可见答案重算项目原生 generation correctness，并验证结果行、数据集、归档 manifest、pre/final 文本和诊断字段哈希。主归因为互斥层级；citation、truncation、reranker 与 retrieval 风险作为可重叠标记。分析不调用网络或 LLM。",
+        "id": "methodology",
+        "sourceId": "candidate_diagnostics",
+        "type": "markdown"
+      },
+      {
+        "body": "## 限制与稳健性\n\n正确性是 expected terms/reference 驱动的确定性代理，不等同于人工或 LLM 语义裁决；partial 与 incorrect 的边界可能受参考答案粒度影响。相关块标注可能不完备，因此未标注块不能直接称为无关噪声。这里的“损坏候选”由阶段顺序与哈希变化支持，但 observation 仍不足以证明 citation normalization、grounding verifier 或 extractive repair 中哪一个内部函数单独造成损失。HTML 包完成结构校验；安装的 Windows Chromium 对共享全宽顶栏报告触发 8px 滚动条兼容性告警，因此未宣称完整浏览器 QA 通过。",
+        "id": "limitations",
+        "sourceId": "candidate_diagnostics",
+        "type": "markdown"
+      },
+      {
+        "body": "## Freshness 误判审计\n\nEASY-011 与 MEDIUM-047 都因词面“当前”被理解为 external-current，进而要求 30 日内 web 证据；虽然本地手册证据 query coverage=1、无 missing aspects/conflicts，仍被唯一原因 `FRESH_EVIDENCE_REQUIRED` 判为 STALE 并拒答。触发链位于 `query_understanding_service.py` 的 `_CURRENT_TIME` / `_detect_temporal` / `need_freshness`，以及 `sufficiency_service.py` 的 `_freshness_required` / `assess_evidence`。最小通用修复应区分 external freshness 与 authorized-KB-current：前者仍要求新鲜 web，后者由 active document version 满足，避免把产品能力或“用于查看当前连接状态”的菜单语义误当实时事实。",
+        "id": "freshness",
+        "sourceId": "candidate_diagnostics",
+        "type": "markdown"
+      },
+      {
+        "body": "## 建议的下一步\n\n1. 把 pre→final correctness 单调性纳入回归门禁，发生显著下降时回滚或保留 pre。\n2. 将 citation 标记归一化与答案内容重写解耦，并记录 removed claims 与选择依据。\n3. 修复 reranker 可用性后重放同一归档方案，比较首相关排名与阶段损失，而不是只看 final accuracy。\n4. 对 45 个阶段损失样本做盲法语义复核，确认确定性指标未把等价表达误判为损坏。",
+        "id": "next_steps",
+        "sourceId": "candidate_diagnostics",
+        "type": "markdown"
+      },
+      {
+        "body": "## 进一步问题\n\nGrounding repair 能否在改写前后做 reference-free claim coverage 守恒检查？Citation valid 但内容损失的 11 题是否来自相同分支？Reranker 恢复后，低排名相关证据的 7 题是否仍出现相同损失？这些问题需要下一次可控重放回答。",
+        "id": "questions",
+        "type": "markdown"
+      }
+    ],
+    "cards": [
+      {
+        "dataset": "headline",
+        "description": "正确 pre 变为非正确 final",
+        "id": "stage_loss",
+        "metrics": [
+          {
+            "field": "stage_loss_percent",
+            "format": "percent",
+            "label": "阶段损失率"
+          }
+        ],
+        "sourceId": "candidate_diagnostics"
+      },
+      {
+        "dataset": "headline",
+        "description": "最终可见答案达到 0.8 阈值",
+        "id": "final_correct",
+        "metrics": [
+          {
+            "field": "final_correct_percent",
+            "format": "percent",
+            "label": "Final 正确率"
+          }
+        ],
+        "sourceId": "candidate_diagnostics"
+      },
+      {
+        "dataset": "headline",
+        "description": "官方标注相关证据进入 top-5",
+        "id": "recall5",
+        "metrics": [
+          {
+            "field": "retrieval_recall5_percent",
+            "format": "percent",
+            "label": "Recall@5 完整率"
+          }
+        ],
+        "sourceId": "candidate_diagnostics"
+      },
+      {
+        "dataset": "headline",
+        "description": "非 valid 或含 citation issue",
+        "id": "citation_issue",
+        "metrics": [
+          {
+            "field": "citation_issue_percent",
+            "format": "percent",
+            "label": "Citation issue 率"
+          }
+        ],
+        "sourceId": "candidate_diagnostics"
+      }
+    ],
+    "charts": [
+      {
+        "compatibleTypes": [
+          "bar"
+        ],
+        "dataset": "attribution",
+        "encodings": {
+          "tooltip": [
+            {
+              "field": "case_count",
+              "format": "number",
+              "label": "题数",
+              "type": "quantitative"
+            },
+            {
+              "field": "rate_percent",
+              "format": "number",
+              "label": "比例（%）",
+              "type": "quantitative"
+            },
+            {
+              "field": "denominator",
+              "format": "number",
+              "label": "分母",
+              "type": "quantitative"
+            }
+          ],
+          "x": {
+            "field": "attribution",
+            "label": "主归因",
+            "type": "nominal"
+          },
+          "y": {
+            "aggregate": "none",
+            "field": "case_count",
+            "format": "number",
+            "label": "题数",
+            "type": "quantitative"
+          }
+        },
+        "id": "primary_attribution",
+        "intent": "comparison",
+        "labels": {
+          "values": "all"
+        },
+        "maxRows": 10,
+        "question": "最终语义失败最常发生在哪个阶段？",
+        "rationale": "互斥类别适合使用从零开始的单序列横向条形图比较题数。",
+        "settings": {
+          "groupMode": "single",
+          "orientation": "horizontal",
+          "showValues": true,
+          "sort": "descending"
+        },
+        "sourceId": "candidate_diagnostics",
+        "subtitle": "每题仅计入一个主类别；条形长度为题数",
+        "surface": {
+          "interactiveLegend": false,
+          "showControls": false,
+          "viewMode": "visualization"
+        },
+        "title": "100 题互斥主归因",
+        "type": "bar",
+        "valueFormat": "number"
+      }
+    ],
+    "description": "对 qwen-plus 候选运行进行 pre-grounding 与 final 可见答案的逐题确定性诊断。",
+    "generatedAt": "2026-08-10T07:55:56.532340+00:00",
+    "sources": [
+      {
+        "id": "candidate_diagnostics",
+        "label": "live-candidate-v2-qwen-plus-01 deterministic stage audit",
+        "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/candidate-diagnostics-v1/summary.json",
+        "query": {
+          "description": "The Python audit joins archived easy/medium results to their datasets and writes cases.csv; this bounded SQL query exposes the exact reviewed case-level source table used for report aggregation and independent reproduction.",
+          "engine": "duckdb reproduction query over the Python-generated audited CSV",
+          "filters": [
+            "difficulty in {easy, medium}",
+            "50 archived cases per difficulty",
+            "correctness threshold >= 0.8",
+            "no LLM or network calls"
+          ],
+          "language": "sql",
+          "metric_definitions": [
+            "Stage loss: pre-grounding correctness >= 0.8 and final correctness < 0.8.",
+            "Generation/reasoning error flag: both pre-grounding and final correctness < 0.8.",
+            "Citation normalization issue: citation status is not valid or issue codes are present.",
+            "Retrieval insufficiency: official recall@5 < 1 or required sub-query context is uncovered."
+          ],
+          "sql": "SELECT * FROM read_csv_auto('docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/candidate-diagnostics-v1/cases.csv', header=true);",
+          "tables_used": [
+            "runs/live-candidate-v2-qwen-plus-01/artifacts/easy/*/results.jsonl",
+            "runs/live-candidate-v2-qwen-plus-01/artifacts/medium/*/results.jsonl",
+            "datasets/easy.json",
+            "datasets/medium.json"
+          ]
+        }
+      }
+    ],
+    "surface": "report",
+    "tables": [],
+    "title": "qwen-plus 候选运行：生成前后语义损失诊断",
+    "version": 1
+  },
+  "snapshot": {
+    "accessIssues": [],
+    "datasets": {
+      "attribution": [
+        {
+          "attribution": "生成后 grounding/repair 损坏",
+          "case_count": 45,
+          "code": "post_generation_grounding_damage",
+          "denominator": 100,
+          "rate_percent": 45.0
+        },
+        {
+          "attribution": "未观察到语义失败",
+          "case_count": 36,
+          "code": "no_observed_semantic_failure",
+          "denominator": 100,
+          "rate_percent": 36.0
+        },
+        {
+          "attribution": "生成或推理错误",
+          "case_count": 17,
+          "code": "generation_or_reasoning_error",
+          "denominator": 100,
+          "rate_percent": 17.0
+        },
+        {
+          "attribution": "检索噪声可能主导",
+          "case_count": 2,
+          "code": "retrieval_noise_likely",
+          "denominator": 100,
+          "rate_percent": 2.0
+        }
+      ],
+      "headline": [
+        {
+          "citation_issue_percent": 0.64,
+          "final_correct_percent": 0.36,
+          "retrieval_recall5_percent": 0.99,
+          "stage_loss_percent": 0.45
+        }
+      ]
+    },
+    "generatedAt": "2026-08-10T07:55:56.532340+00:00",
+    "status": "ready",
+    "version": 1
+  },
+  "sources": [
+    {
+      "id": "candidate_diagnostics",
+      "label": "live-candidate-v2-qwen-plus-01 deterministic stage audit",
+      "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/candidate-diagnostics-v1/summary.json",
+      "query": {
+        "description": "The Python audit joins archived easy/medium results to their datasets and writes cases.csv; this bounded SQL query exposes the exact reviewed case-level source table used for report aggregation and independent reproduction.",
+        "engine": "duckdb reproduction query over the Python-generated audited CSV",
+        "filters": [
+          "difficulty in {easy, medium}",
+          "50 archived cases per difficulty",
+          "correctness threshold >= 0.8",
+          "no LLM or network calls"
+        ],
+        "language": "sql",
+        "metric_definitions": [
+          "Stage loss: pre-grounding correctness >= 0.8 and final correctness < 0.8.",
+          "Generation/reasoning error flag: both pre-grounding and final correctness < 0.8.",
+          "Citation normalization issue: citation status is not valid or issue codes are present.",
+          "Retrieval insufficiency: official recall@5 < 1 or required sub-query context is uncovered."
+        ],
+        "sql": "SELECT * FROM read_csv_auto('docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/candidate-diagnostics-v1/cases.csv', header=true);",
+        "tables_used": [
+          "runs/live-candidate-v2-qwen-plus-01/artifacts/easy/*/results.jsonl",
+          "runs/live-candidate-v2-qwen-plus-01/artifacts/medium/*/results.jsonl",
+          "datasets/easy.json",
+          "datasets/medium.json"
+        ]
+      }
+    }
+  ],
+  "surface": "report"
+}

@@ -1,0 +1,245 @@
+schema_version: "1.0"
+evaluation_id: "hak180-easy-proof-carrying-answer-acceptance"
+evaluation_version: "iteration-v5-round2-v1.6-source-closure-v4-draft"
+feature_id: "hak180-easy-correctness"
+execution_status: "round2_candidate_unmeasured_no_current_paid_authority"
+question: "所选通用修复能否在冻结简单集上达到 correctness >= 0.95 且 strict correctness >= 0.90，并保持引用与接地安全门不退化？"
+hypotheses:
+  - "统一 QuestionContract、ClaimPlan 与 Evidence witness 可消除 citation、query relevance 和 completeness 三套不一致语义契约。"
+  - "把完整性判定前移到渲染之前，可避免答案先被 grounding 破坏、再对残缺文本做无法证明的 set-cover。"
+  - "版本化 qrel/index identity preflight 与统一 claim-support scorer 可隔离当前两类 RAG-F08。"
+  - "显式章节/小节标题问题的 RETRIEVAL-only 标题路径投影可提高标题块可达性，同时保持原始与综合查询语义不变。"
+  - "来源有界的表格行闭合回执可让少量 OPEN_ENUM 安全闭合；任何缺失、重复或结构不一致都继续 fail-closed 为 partial。"
+  - "Evaluator 对 catalog 权威回执、canonical/packed 长度与 SHA-256 摘要及外层 AnswerProof 身份进行独立重放，并从权威正文重建 source-table-authority-summary.v1，可拒绝局部或协同重哈希的闭合伪造。"
+comparison_axis: "vertical"
+historical_system_baseline:
+  variant_id: "strict-correctness-20260824-approved-v1-full-04/easy"
+  version_refs:
+    - "run_id=erun_ea0f239a4b574befa5f1c1e68457881f"
+    - "retrieval_profile=rpf_default@4"
+    - "profile_sha256=cf4c295a62f18e884cc26839a589188993b1d4e32d148e0574878f4bec107b14"
+invalid_attempt:
+  run_id: "erun_5e08787d8cda4dee92e466df55510c93"
+  terminal_status: "failed"
+  gate_status: "interrupted"
+  error_code: "EVALUATION_RUN_INTERRUPTED"
+  completed_cases: 5
+  total_cases: 50
+  result_eligibility: "terminal_invalid_no_metrics_no_baseline_use"
+  failure_class: "formal security snapshot omitted the configured LLM target domain"
+  answer_plan_provider_calls: 0
+  query_rewrite_provider_call_range: "5..6"
+method_family_baseline_round0:
+  run_id: "erun_47d0b8f621714a77b92cc25c7e7ddd4d"
+  terminal_status: "succeeded"
+  completed_cases: 50
+  total_cases: 50
+  gate_status: "baseline_recorded_with_failures"
+  final_answer_accuracy: "11/50"
+  strict_supported_case_pass_rate: "0/50"
+  retrieval_support: "41/50"
+  false_positive_abstentions: 38
+  artifact_ref: "var/evals/erun_47d0b8f621714a77b92cc25c7e7ddd4d/generation-d228c0adefaaa5a62f23e5ba018ef56b"
+valid_round_1:
+  run_id: "erun_db77ab5661ba4d9690c6e49340121dbe"
+  generation_id: "generation-602023bb832882bf2b7fb8a1df0ae444"
+  terminal_status: "succeeded"
+  completed_cases: 50
+  total_cases: 50
+  valid_round_number: 1
+  final_answer_accuracy: "38/50"
+  strict_supported_case_pass_rate: "35/50"
+  retrieval_support: "45/50"
+  false_positive_abstentions: 11
+  answered_citation_correctness: "39/39=1.0"
+  answered_faithfulness: "39/39=1.0"
+  aggregate_target_verdict: "target_not_met"
+  near_target_rule: "not_defined"
+  near_target_assessment: "not_assessed (Unknown)"
+  artifact_ref: "var/evals/erun_db77ab5661ba4d9690c6e49340121dbe/generation-602023bb832882bf2b7fb8a1df0ae444"
+round1_offline_verification:
+  status: "passed"
+  root_causes:
+    safe_mapping: "active-data replay: 137/137 unique Evidence and 1715/1715 Witness; source_mapping_unproven=0"
+    required_facet: "nonempty answerable contracts require at least one required obligation; 75/75 focused tests"
+    structured_wire: "minimal mutually-exclusive wire, exact plan-relative closure and terminal receipts; 167/167 focused tests"
+    formal_authority: "actual provider output cap 2048 is frozen in answering_contract and run authority; independent audit PASS"
+  regression_gates:
+    - "core query/security/proof: 236/236"
+    - "evaluation authority/metrics/reports plus prompt budget: 386/386"
+    - "runtime entrypoints: 40/40"
+    - "checkpoint recovery/migration: 19/19"
+  preflight: "config/scenario/dataset assets validated without writes or paid calls"
+round2_offline_verification:
+  status: "v1.6_deterministic_offline_only_effectiveness_unmeasured"
+  contract_versions:
+    query_planner: "query-planner-rules/1.4.0"
+    witness_catalog_builder: "witness-catalog-builder.v7"
+    plan_prompt: "1.6.0-draft"
+    review_prompt: "1.6.0-draft"
+    source_enumeration_closure: "query-anchored-table-row-closure-receipt.v4"
+    source_key_normalization: "nfkc-default-ignorable-markup-aware-token.v3"
+    obligation_proof: "obligation-proof.v3"
+    answer_proof: "answer-proof.v3"
+    coverage_decision: "answer-coverage-decision.v4"
+    coverage_verifier: "answer-coverage.v4"
+    evaluation_source_table_authority: "source-table-authority-summary.v1"
+  open_enumeration_full_atom:
+    evidence_ref: "tests/unit/test_proof_carrying_answer_v2.py:test_open_enumeration_with_multiple_items_renders_as_committable_partial"
+    result: "open_enumeration_witness_atom.v1; accepted_partial; strict_eligible=false; citations retained; PARTIAL_ANSWER; committable"
+  chapter_title_retrieval:
+    evidence_ref: "tests/unit/test_todo27_query_planning.py"
+    result: "Only title/heading intent with an explicit chapter/section reference receives a bounded idempotent 标题路径 suffix on RETRIEVAL subqueries; display/original/synthesis paths and non-title queries are unchanged."
+  source_bounded_open_enumeration:
+    evidence_ref: "tests/unit/test_enumeration_closure.py; tests/unit/test_proof_carrying_answer_v2.py"
+    result: "query-anchored-table-row-closure-receipt.v4, built by witness-catalog-builder.v7, requires exactly one complete non-empty safe ContextPack representation; the simple Markdown table must cover the full canonical and packed representations; the query-selected column must have an explicit identifier-semantic header; and every row in that column must carry an explicit unique primary key. A query match in an ordinary value/function column, continuation/ditto rows, cross-representation references or supplements, default-ignorable characters, Markdown-formatted duplicates and selected cross-script visual confusables cannot establish identity or uniqueness."
+  proof_and_coverage_replay:
+    evidence_ref: "app/domain/answering/proof.py; app/application/query_answering/rendering.py; app/domain/evaluation_proof.py"
+    result: "obligation-proof.v3 nests the source receipt; answer-proof.v3 and coverage v4 replay the same binding before commit. The evaluator requires an exact match in the authoritative WitnessCatalog receipt list, cross-checks full canonical/packed lengths and SHA-256 summaries, and recomputes the outer AnswerProof plus nested claim/obligation/item identities. Independently of the receipt, it parses canonical Evidence and packed ContextPack text into source-table-authority-summary.v1; canonical and packed table start/end, header line index, column count, data-row count, witness-row index, structure hash, and table/header/separator/witness-row hashes must each match v4 before acceptance."
+  coordinated_tamper_guard:
+    evidence_ref: "tests/unit/test_proof_carrying_answer_v2.py:test_query_anchored_table_row_closes_open_enumeration_with_replayable_proof"
+    result: "Changing table_data_row_count in both the nested v4 receipt and authoritative catalog receipt, then recomputing nested obligation and outer AnswerProof identities, still fails source closure validation because the independently parsed source-table-authority-summary.v1 retains the authoritative row count and structure."
+  closure_unproven_terminal:
+    evidence_ref: "tests/unit/test_proof_carrying_answer_v2.py:test_incomplete_accept_closure_converges_without_synthetic_repair"
+    result: "OBLIGATION_CLOSURE_UNPROVEN; semantic-review-terminal.v1; no repair request/feedback; refusal plan; accepted_abstention; committable"
+  effectiveness_status: "not_evaluated"
+candidates:
+  - variant_id: "complex-proof-carrying-answer-graph"
+    version_refs:
+      - "proof_carrying_workflow_v1_6_draft"
+      - "planned valid round 2; formal evaluation not executed"
+changed_variables:
+  - "reviewer no longer self-asserts closed_obligation_ids; server derives canonical closure"
+  - "first-review REPAIR becomes a deterministic full replacement plan, followed by one final semantic review"
+  - "SINGLE requires exactly one strongest sufficient witness; CLOSED_COUNT requires exact count; OPEN_ENUM defaults to partial and closes only through an exact runtime-validated source table-row pair under a complete catalog"
+  - "OPEN_ENUMERATION uses the complete non-empty Witness atom as a partial proven item when list/table segmentation is unavailable; only query-anchored-table-row-closure-receipt.v4 from witness-catalog-builder.v7 may upgrade one exact table-row pairing after the single-representation, full-table, identifier-semantic-header and explicit-primary-key gates pass"
+  - "A query hit in a normal value/function column cannot sign a source-closure receipt; only a selected column whose header explicitly denotes identifier semantics may act as the key column"
+  - "The source identity scan rejects implicit continuation, cross-representation reference/supplement, default-ignorable and Markdown-decorated duplicate keys, and selected Greek/Cyrillic-to-ASCII visual confusables; the cross-script skeleton is rejection-only and never creates a positive query anchor"
+  - "Explicit chapter/section title intent adds a bounded 标题路径 expression only to RETRIEVAL subqueries under query-planner-rules/1.4.0"
+  - "Source closure is nested in obligation-proof.v3 and replayed by answer-proof.v3 plus answer-coverage-decision.v4/answer-coverage.v4"
+  - "Evaluation projection carries the authoritative catalog source-receipt set plus per-representation/per-Evidence length and SHA-256 summaries, then replays the outer AnswerProof and nested proof identities without exposing source text"
+  - "Evaluation independently parses canonical Evidence and packed ContextPack authority text into source-table-authority-summary.v1 and compares every table boundary/shape/hash field to v4, so coordinated nested+catalog receipt drift survives neither identity rehashing nor catalog-copy replacement"
+  - "Synthetic closure repair is removed; accepted-plan/server-closure mismatch converges directly to OBLIGATION_CLOSURE_UNPROVEN"
+  - "WitnessCatalog cap increases within the frozen context budget"
+  - "structured provider failures retain bounded safe scene/stage/reason/attempt diagnostics"
+held_constants:
+  - "冻结简单集 50 例及其 checksum"
+  - "知识库与 active index 版本；若 provenance preflight 不一致则 fail-fast，不静默替换"
+  - "评测 profile、模型配置、并发、温度和超时策略"
+  - "不加入 case ID 特判、金标内容或 expected terms 到生产路径"
+dataset:
+  required: true
+  decision_reason: "用户目标仍只能由完整冻结简单集 n=50 正式运行判定；当前没有新的付费运行授权，因此本清单只记录 v1.6 的离线确定性验证并预注册计划第 2 轮，不执行模型评测。"
+  dataset_id: "hak180-easy-frozen-50"
+  version: "sha256:c5e28b1d04aa31403795d796984d7ddd52bfa6faa0abc4b6300c4b61c648b5ac"
+  source_refs:
+    - "frozen easy dataset referenced by full-04 manifest"
+  slices:
+    - "all-easy"
+    - "post-context-grounding-refusal"
+    - "semantic-relevance-escape"
+    - "coverage-loss"
+    - "strict-policy-only"
+    - "qrel-index-identity"
+    - "online-offline-support-disagreement"
+  sample_size: 50
+  hidden_set_policy: "P3500-EASY-002 stays in the final denominator but is excluded from content-level diagnosis and targeted iteration"
+  data_classification: "internal-restricted"
+protocol:
+  environment_ref: "same environment class and frozen retrieval profile as baseline"
+  dependency_versions:
+    - "langgraph==1.2.9"
+    - "langchain-openai==1.2.2"
+    - "openai==2.38.0"
+    - "pydantic==2.13.4"
+  random_seed: null
+  repetitions: 1
+  concurrency: 1
+  cache_policy: "frozen inputs; no cross-variant answer reuse"
+  execution_authorization:
+    run_count: 0
+    paid_model_calls: false
+    renewal_required: true
+    authorization_evidence_ref: "conversation:prior single-run authorization consumed by erun_db77ab5661ba4d9690c6e49340121dbe"
+    earliest_start: "only after new explicit evaluation authorization and frozen round2 engineering gates"
+    allowed_dataset: "hak180-easy-frozen-50"
+    disallowed_datasets:
+      - "medium"
+      - "hard"
+  preflight:
+    - "dataset qrel IDs resolve against the active index or an audited provenance alias map"
+    - "effective reranker readiness matches the declared profile; otherwise reject strict comparison or label a degraded cohort"
+    - "provider/model/config checksums are recorded"
+metrics:
+  - id: "final_answer_accuracy"
+    role: "primary"
+    threshold: ">=0.95"
+    discrete_acceptance: ">=48/50"
+  - id: "strict_supported_case_pass_rate"
+    role: "primary"
+    threshold: ">=0.90"
+    discrete_acceptance: ">=45/50"
+  - id: "citation_correctness"
+    role: "guardrail"
+    threshold: "no regression from comparable baseline"
+  - id: "faithfulness"
+    role: "guardrail"
+    threshold: "no regression after scorer version alignment"
+  - id: "incorrect_refusal_rate"
+    role: "guardrail"
+    threshold: "decrease"
+guardrails:
+  - "不降低 strict grounding eligibility 的标准"
+  - "不删除有效 grader 断言或把 indeterminate 强制投影为 pass"
+  - "评测契约若升级，必须以同一版本重放 baseline 与 candidate，避免 evaluator-version confound"
+  - "日志与报告不得暴露 raw query、gold、answer、Evidence 或 expected terms"
+trajectory_fields:
+  - "question_contract_version/hash/obligation_count"
+  - "evidence_witness_version/counts/identity_receipt"
+  - "witness_catalog_builder_version/source_closure_receipt_version/authoritative_receipt_count"
+  - "context_representation_count/packed_and_canonical_length_hash_summaries"
+  - "source_table_authority_summary_version/canonical_and_packed_table_span_line_shape_hashes"
+  - "answer_plan_version/hash/claim_count"
+  - "claim_to_obligation_and_evidence_binding_counts"
+  - "verification_decision/reason_codes"
+  - "coverage_decision/complete_incomplete_indeterminate"
+  - "answer_proof_version/hash/outer_and_nested_identity_replay"
+grader:
+  grader_refs:
+    - "stt.eval.case.v2 for frozen comparability"
+    - "versioned successor only after 038 scorer-alignment audit"
+  judge_model_ref: null
+  rubric_version: "strict-supported-case frozen policy plus versioned claim-support receipt"
+  human_calibration_ref: null
+statistics:
+  method: "exact counts and paired per-case transition table"
+  uncertainty_reporting: "report achieved counts; do not infer target achievement from slice projections"
+decision_rule: "Only a full, authorized easy-only run may declare success: accuracy >= 48/50, strict >= 45/50, and all guardrails pass."
+near_target_rule:
+  status: "not_defined"
+  definition: null
+  metric_ids: []
+near_target_assessment:
+  verdict: "not_assessed"
+  user_facing_status: "Unknown"
+  rationale: "No distance/guardrail aggregation rule was preregistered before round-1 results were observed."
+stop_conditions:
+  - "preflight identity or effective runtime profile is not reproducible"
+  - "raw evaluation data would be exposed"
+  - "the authorized single-run scope, provider credentials, or runtime budget cannot be honored safely"
+  - "no new explicit paid/model evaluation authorization exists"
+budgets:
+  time_seconds: null
+  token_count: null
+  tool_calls: null
+  cost_currency: "CNY"
+  cost_limit: null
+  paid_model_calls_authorized: false
+  paid_run_count_limit: 0
+  paid_run_dataset: null
+limitations:
+  - "The first paid attempt was interrupted after 5/50 and is terminal-invalid; it provides no accuracy or strict result."
+  - "erun_47d0b8f621714a77b92cc25c7e7ddd4d is the immutable method-family round-0 baseline at accuracy 11/50 and strict 0/50."
+  - "erun_db77ab5661ba4d9690c6e49340121dbe is valid round 1 and failed the target at accuracy 38/50 and strict 35/50."
+  - "The v1.6 candidate is planned round 2 and has deterministic offline evidence only. No new paid easy-50 run was executed, it has no formal effectiveness result, and no additional paid/model run is currently authorized."
+  - "Medium and hard datasets are out of scope."

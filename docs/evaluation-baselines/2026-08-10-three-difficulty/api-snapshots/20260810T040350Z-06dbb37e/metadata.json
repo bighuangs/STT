@@ -1,0 +1,10 @@
+{
+  "ended_at": "2026-08-10T04:04:11.756284+00:00",
+  "error_type": "ConnectionError",
+  "invocation_id": "20260810T040350Z-06dbb37e",
+  "log_path": "api-snapshots/20260810T040350Z-06dbb37e/requests.jsonl",
+  "request_count": 8,
+  "schema_version": "stt.eval.api-snapshots.v1",
+  "started_at": "2026-08-10T04:03:51.002616+00:00",
+  "status": "failed"
+}

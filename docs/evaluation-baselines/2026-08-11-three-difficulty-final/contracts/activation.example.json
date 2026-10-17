@@ -1,0 +1,105 @@
+{
+  "schema_version": "stt.eval.final-suite-activation.v1",
+  "suite_key": "three-difficulty-live-2026-08-11-reviewed-v2",
+  "import_allowed": true,
+  "candidate_run_allowed": true,
+  "baseline_registration_allowed": false,
+  "evaluation_contract": {
+    "case_schema_version": "stt.eval.case.v3",
+    "authoritative_metric": "metrics.case_outcome.final_answer_correct",
+    "target_counts": {
+      "easy": {"correct_count": 48, "case_count": 50},
+      "medium": {"correct_count": 43, "case_count": 50},
+      "hard": {"correct_count": null, "case_count": 50}
+    },
+    "case_pass_policy": {
+      "policy_version": "stt.eval.case.v3",
+      "quality_score_minimum": 0.75,
+      "answer_correctness_minimum": 0.75,
+      "faithfulness_minimum": 0.8,
+      "citation_coverage_minimum": 0.8,
+      "answer_correctness_weight": 0.7,
+      "faithfulness_weight": 0.15,
+      "citation_coverage_weight": 0.1,
+      "retrieval_support_weight": 0.05,
+      "required_branch_coverage_minimum": 1.0,
+      "concept_group_coverage_minimum": 1.0,
+      "unsupported_factual_claim_maximum": 0,
+      "contradictory_factual_claim_maximum": 0,
+      "abstention_factual_claim_maximum": 0
+    }
+  },
+  "quality_targets": {
+    "path": "quality-targets.json",
+    "sha256": "<64-lowercase-hex>",
+    "schema_version": "stt.eval.quality-targets.v1"
+  },
+  "source_and_index_integrity": {
+    "source": {
+      "path": "doc/PantumP3500用户手册zh_CNV1.2_1644316283788.pdf",
+      "sha256": "c4c7b2a434f3f86c4988d3961ac7304970029e71b0201fb6c10ca722b63bce2b",
+      "page_count": 95
+    },
+    "active_index": {
+      "kb_id": "kb_2fad25538aab42d19baf79fba782a06c",
+      "document_id": "doc_9353bf25fcfa4991a8a0425713a3c9f1",
+      "document_version_id": "dv_8d7fe6750ff5445e8dfbfd80b913b216",
+      "index_version_id": "idx_fb5eeac133f540f4af31004dbde23151",
+      "frozen_chunk_count": 218,
+      "source_qa_summary_path": "docs/evaluation-baselines/<source-qa-summary>.json",
+      "source_qa_summary_sha256": "<64-lowercase-hex>",
+      "blocker_validation_path": "docs/evaluation-baselines/<blocker-validation>.json",
+      "blocker_validation_sha256": "<64-lowercase-hex>"
+    },
+    "review": {
+      "unresolved_data_block_count": 0,
+      "unresolved_weak_contract_count": 0,
+      "unresolved_visual_block_count": 0,
+      "concept_groups_materialized_case_count": 150
+    }
+  },
+  "datasets": {
+    "easy": {
+      "path": "datasets/easy.json",
+      "sha256": "<new-active-file-sha256>",
+      "manifest_sha256": "<canonical-active-manifest-sha256>",
+      "case_count": 50,
+      "dataset_key": "pantum-p3500-easy-live-reviewed-v2-2026-08-11",
+      "version": "2.0.0-reviewed-v2.20260811",
+      "input": {
+        "path": "docs/evaluation-baselines/<reviewed-easy-manifest>.json",
+        "file_sha256": "<reviewed-input-file-sha256>",
+        "manifest_sha256": "<reviewed-input-canonical-sha256>"
+      },
+      "derivation_receipt_sha256": "<candidate-active-derivation-receipt-sha256>"
+    },
+    "medium": {
+      "path": "datasets/medium.json",
+      "sha256": "<new-active-file-sha256>",
+      "manifest_sha256": "<canonical-active-manifest-sha256>",
+      "case_count": 50,
+      "dataset_key": "pantum-p3500-medium-live-reviewed-v2-2026-08-11",
+      "version": "2.0.0-reviewed-v2.20260811",
+      "input": {
+        "path": "docs/evaluation-baselines/<reviewed-medium-manifest>.json",
+        "file_sha256": "<reviewed-input-file-sha256>",
+        "manifest_sha256": "<reviewed-input-canonical-sha256>"
+      },
+      "derivation_receipt_sha256": "<candidate-active-derivation-receipt-sha256>"
+    },
+    "hard": {
+      "path": "datasets/hard.json",
+      "sha256": "<new-active-file-sha256>",
+      "manifest_sha256": "<canonical-active-manifest-sha256>",
+      "case_count": 50,
+      "dataset_key": "pantum-p3500-hard-live-reviewed-v2-2026-08-11",
+      "version": "2.0.0-reviewed-v2.20260811",
+      "input": {
+        "path": "docs/evaluation-baselines/<reviewed-hard-manifest>.json",
+        "file_sha256": "<reviewed-input-file-sha256>",
+        "manifest_sha256": "<reviewed-input-canonical-sha256>"
+      },
+      "derivation_receipt_sha256": "<candidate-active-derivation-receipt-sha256>"
+    }
+  }
+}

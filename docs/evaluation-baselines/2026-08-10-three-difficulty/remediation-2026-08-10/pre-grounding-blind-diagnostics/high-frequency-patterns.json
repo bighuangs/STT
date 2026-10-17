@@ -1,0 +1,627 @@
+{
+  "all_pattern_families": [
+    {
+      "case_ids": [
+        "P3500-EASY-004",
+        "P3500-HARD-007",
+        "P3500-HARD-009",
+        "P3500-HARD-021",
+        "P3500-HARD-027",
+        "P3500-HARD-044"
+      ],
+      "count": 6,
+      "label": "reference与源证据冲突或要求无证据推断",
+      "pattern_family": "reference_conflicts_with_or_exceeds_source",
+      "rate": 0.2
+    },
+    {
+      "case_ids": [
+        "P3500-EASY-038",
+        "P3500-HARD-001",
+        "P3500-HARD-004",
+        "P3500-HARD-010",
+        "P3500-HARD-011"
+      ],
+      "count": 5,
+      "label": "问句条件不足、范围错位或混合不同章节",
+      "pattern_family": "underspecified_or_scope_mixed_question",
+      "rate": 0.16666666666666666
+    },
+    {
+      "case_ids": [
+        "P3500-HARD-003",
+        "P3500-HARD-006",
+        "P3500-HARD-013",
+        "P3500-HARD-045"
+      ],
+      "count": 4,
+      "label": "已召回的关键分支未进入rerank/context",
+      "pattern_family": "relevant_branch_lost_before_rerank_or_context",
+      "rate": 0.13333333333333333
+    },
+    {
+      "case_ids": [
+        "P3500-MEDIUM-014",
+        "P3500-MEDIUM-021",
+        "P3500-MEDIUM-048"
+      ],
+      "count": 3,
+      "label": "生成答案在完整context下漏步骤或字段",
+      "pattern_family": "generation_completeness_omission",
+      "rate": 0.1
+    },
+    {
+      "case_ids": [
+        "P3500-EASY-047",
+        "P3500-HARD-008"
+      ],
+      "count": 2,
+      "label": "扁平化表格行列边界或标签值绑定不清",
+      "pattern_family": "flattened_table_structure_ambiguous",
+      "rate": 0.06666666666666667
+    },
+    {
+      "case_ids": [
+        "P3500-HARD-037",
+        "P3500-MEDIUM-031"
+      ],
+      "count": 2,
+      "label": "生成答案混淆字段类型或未原样保留标识符",
+      "pattern_family": "generation_type_or_identifier_binding",
+      "rate": 0.06666666666666667
+    },
+    {
+      "case_ids": [
+        "P3500-HARD-040",
+        "P3500-HARD-042"
+      ],
+      "count": 2,
+      "label": "reference未回答所要求的实体清单或判断",
+      "pattern_family": "reference_does_not_answer_requested_output",
+      "rate": 0.06666666666666667
+    },
+    {
+      "case_ids": [
+        "P3500-HARD-019",
+        "P3500-MEDIUM-015"
+      ],
+      "count": 2,
+      "label": "reranked首位相关块在context构造时丢失",
+      "pattern_family": "top_reranked_chunk_dropped_before_context",
+      "rate": 0.06666666666666667
+    },
+    {
+      "case_ids": [
+        "P3500-MEDIUM-003"
+      ],
+      "count": 1,
+      "label": "源文档不同章节存在冲突数值",
+      "pattern_family": "conflicting_values_across_source_sections",
+      "rate": 0.03333333333333333
+    },
+    {
+      "case_ids": [
+        "P3500-HARD-041"
+      ],
+      "count": 1,
+      "label": "静态快照误走freshness且第二事实未召回",
+      "pattern_family": "freshness_misroute_and_missing_fact",
+      "rate": 0.03333333333333333
+    },
+    {
+      "case_ids": [
+        "P3500-HARD-024"
+      ],
+      "count": 1,
+      "label": "生成答案拒绝证据已支持的低风险归纳",
+      "pattern_family": "generation_overconservative_refusal",
+      "rate": 0.03333333333333333
+    },
+    {
+      "case_ids": [
+        "P3500-EASY-031"
+      ],
+      "count": 1,
+      "label": "视觉按钮标识未进入文本抽取",
+      "pattern_family": "visual_control_missing_from_extraction",
+      "rate": 0.03333333333333333
+    }
+  ],
+  "blind_accuracy": {
+    "overall": {
+      "binary_accuracy": 0.8,
+      "case_count": 150,
+      "correct_count": 120
+    },
+    "per_difficulty": {
+      "easy": {
+        "binary_accuracy": 0.92,
+        "case_count": 50,
+        "correct_count": 46,
+        "incorrect_count": 4
+      },
+      "hard": {
+        "binary_accuracy": 0.6,
+        "case_count": 50,
+        "correct_count": 30,
+        "incorrect_count": 20
+      },
+      "medium": {
+        "binary_accuracy": 0.88,
+        "case_count": 50,
+        "correct_count": 44,
+        "incorrect_count": 6
+      }
+    }
+  },
+  "case_level_patterns": [
+    {
+      "count": 1,
+      "pattern": "reference_enumerates_headers_instead_of_answer_rows",
+      "rate": 0.03333333333333333
+    },
+    {
+      "count": 1,
+      "pattern": "visual_control_label_missing_from_extraction",
+      "rate": 0.03333333333333333
+    },
+    {
+      "count": 1,
+      "pattern": "ambiguous_repeated_action_reference_selects_one_step",
+      "rate": 0.03333333333333333
+    },
+    {
+      "count": 1,
+      "pattern": "flattened_table_row_boundary_ambiguous",
+      "rate": 0.03333333333333333
+    },
+    {
+      "count": 1,
+      "pattern": "conflicting_values_across_source_sections",
+      "rate": 0.03333333333333333
+    },
+    {
+      "count": 1,
+      "pattern": "generation_omits_required_procedure_steps",
+      "rate": 0.03333333333333333
+    },
+    {
+      "count": 1,
+      "pattern": "reranked_relevant_chunk_dropped_before_context",
+      "rate": 0.03333333333333333
+    },
+    {
+      "count": 1,
+      "pattern": "generation_omits_final_procedure_step",
+      "rate": 0.03333333333333333
+    },
+    {
+      "count": 1,
+      "pattern": "generation_treats_configuration_sentinel_as_dimension_value",
+      "rate": 0.03333333333333333
+    },
+    {
+      "count": 1,
+      "pattern": "generation_omits_one_table_field_and_adds_nearby_noise",
+      "rate": 0.03333333333333333
+    },
+    {
+      "count": 1,
+      "pattern": "reference_answers_unasked_third_component",
+      "rate": 0.03333333333333333
+    },
+    {
+      "count": 1,
+      "pattern": "first_relevant_chunk_lost_during_rerank",
+      "rate": 0.03333333333333333
+    },
+    {
+      "count": 1,
+      "pattern": "query_combines_steps_from_different_procedure_scope",
+      "rate": 0.03333333333333333
+    },
+    {
+      "count": 1,
+      "pattern": "second_branch_relevant_chunk_lost_during_rerank",
+      "rate": 0.03333333333333333
+    },
+    {
+      "count": 1,
+      "pattern": "reference_claims_nonexistent_solution_overlap",
+      "rate": 0.03333333333333333
+    },
+    {
+      "count": 1,
+      "pattern": "flattened_table_label_value_alignment_ambiguous",
+      "rate": 0.03333333333333333
+    },
+    {
+      "count": 1,
+      "pattern": "reference_invents_cross_row_overlap",
+      "rate": 0.03333333333333333
+    },
+    {
+      "count": 1,
+      "pattern": "reference_arbitrarily_selects_one_of_multiple_valid_menu_branches",
+      "rate": 0.03333333333333333
+    },
+    {
+      "count": 1,
+      "pattern": "underspecified_choice_with_multiple_valid_options",
+      "rate": 0.03333333333333333
+    },
+    {
+      "count": 1,
+      "pattern": "second_source_lost_before_context_related_snippet_survives",
+      "rate": 0.03333333333333333
+    },
+    {
+      "count": 1,
+      "pattern": "top_reranked_chunk_dropped_during_context_construction",
+      "rate": 0.03333333333333333
+    },
+    {
+      "count": 1,
+      "pattern": "reference_requires_unsupported_cross_document_inference",
+      "rate": 0.03333333333333333
+    },
+    {
+      "count": 1,
+      "pattern": "generation_refuses_supported_low_risk_synthesis",
+      "rate": 0.03333333333333333
+    },
+    {
+      "count": 1,
+      "pattern": "reference_swaps_two_distinct_failure_conditions",
+      "rate": 0.03333333333333333
+    },
+    {
+      "count": 1,
+      "pattern": "generation_paraphrases_identifier_instead_of_extracting_it",
+      "rate": 0.03333333333333333
+    },
+    {
+      "count": 1,
+      "pattern": "reference_does_not_answer_requested_table_entity_list",
+      "rate": 0.03333333333333333
+    },
+    {
+      "count": 1,
+      "pattern": "static_snapshot_misrouted_as_freshness_and_second_fact_missing",
+      "rate": 0.03333333333333333
+    },
+    {
+      "count": 1,
+      "pattern": "reference_repeats_inputs_without_answering_decision_question",
+      "rate": 0.03333333333333333
+    },
+    {
+      "count": 1,
+      "pattern": "reference_attaches_numeric_limit_to_wrong_entity",
+      "rate": 0.03333333333333333
+    },
+    {
+      "count": 1,
+      "pattern": "both_required_chunks_lost_during_rerank",
+      "rate": 0.03333333333333333
+    }
+  ],
+  "data_quality_checks": {
+    "actual_difficulty_counts": {
+      "easy": 4,
+      "hard": 20,
+      "medium": 6
+    },
+    "application_or_dataset_files_modified": false,
+    "blind_incorrect_joined": 30,
+    "expected_difficulty_counts": {
+      "easy": 4,
+      "hard": 20,
+      "medium": 6
+    },
+    "network_or_llm_calls_made": false,
+    "production_pass_fail_used_for_semantic_label_or_diagnosis": false,
+    "unique_case_ids": 30
+  },
+  "easy_target_gap": {
+    "additional_correct_needed": 2,
+    "blind_pre_grounding_accuracy": 0.92,
+    "blind_pre_grounding_correct_count": 46,
+    "case_count": 50,
+    "conclusion": "四个easy盲审错误由2个dataset/reference与2个source ambiguity组成；关闭目标差距需净恢复2题。无金标自审明确likely覆盖1题、possible覆盖1题，但没有任何修复重跑证据，因此不得声称已达到48/50。",
+    "gold_independent_self_review_coverage": {
+      "likely": 1,
+      "possible": 1,
+      "unlikely": 2
+    },
+    "incorrect_cases": [
+      {
+        "case_id": "P3500-EASY-004",
+        "pattern": "reference_enumerates_headers_instead_of_answer_rows",
+        "primary_category": "dataset_reference",
+        "self_review_coverage_likelihood": "unlikely"
+      },
+      {
+        "case_id": "P3500-EASY-031",
+        "pattern": "visual_control_label_missing_from_extraction",
+        "primary_category": "source_ambiguity",
+        "self_review_coverage_likelihood": "unlikely"
+      },
+      {
+        "case_id": "P3500-EASY-038",
+        "pattern": "ambiguous_repeated_action_reference_selects_one_step",
+        "primary_category": "dataset_reference",
+        "self_review_coverage_likelihood": "likely"
+      },
+      {
+        "case_id": "P3500-EASY-047",
+        "pattern": "flattened_table_row_boundary_ambiguous",
+        "primary_category": "source_ambiguity",
+        "self_review_coverage_likelihood": "possible"
+      }
+    ],
+    "incorrect_pool_primary_categories": {
+      "dataset_reference": 2,
+      "source_ambiguity": 2
+    },
+    "likely_recoverable_count": 1,
+    "minimum_correct_count": 48,
+    "possible_but_unverified_count": 1,
+    "target_rule": ">95%",
+    "verified_recoverable_count": 0
+  },
+  "high_frequency_patterns": [
+    {
+      "case_ids": [
+        "P3500-EASY-004",
+        "P3500-HARD-007",
+        "P3500-HARD-009",
+        "P3500-HARD-021",
+        "P3500-HARD-027",
+        "P3500-HARD-044"
+      ],
+      "count": 6,
+      "label": "reference与源证据冲突或要求无证据推断",
+      "pattern_family": "reference_conflicts_with_or_exceeds_source",
+      "rate": 0.2
+    },
+    {
+      "case_ids": [
+        "P3500-EASY-038",
+        "P3500-HARD-001",
+        "P3500-HARD-004",
+        "P3500-HARD-010",
+        "P3500-HARD-011"
+      ],
+      "count": 5,
+      "label": "问句条件不足、范围错位或混合不同章节",
+      "pattern_family": "underspecified_or_scope_mixed_question",
+      "rate": 0.16666666666666666
+    },
+    {
+      "case_ids": [
+        "P3500-HARD-003",
+        "P3500-HARD-006",
+        "P3500-HARD-013",
+        "P3500-HARD-045"
+      ],
+      "count": 4,
+      "label": "已召回的关键分支未进入rerank/context",
+      "pattern_family": "relevant_branch_lost_before_rerank_or_context",
+      "rate": 0.13333333333333333
+    },
+    {
+      "case_ids": [
+        "P3500-MEDIUM-014",
+        "P3500-MEDIUM-021",
+        "P3500-MEDIUM-048"
+      ],
+      "count": 3,
+      "label": "生成答案在完整context下漏步骤或字段",
+      "pattern_family": "generation_completeness_omission",
+      "rate": 0.1
+    },
+    {
+      "case_ids": [
+        "P3500-EASY-047",
+        "P3500-HARD-008"
+      ],
+      "count": 2,
+      "label": "扁平化表格行列边界或标签值绑定不清",
+      "pattern_family": "flattened_table_structure_ambiguous",
+      "rate": 0.06666666666666667
+    },
+    {
+      "case_ids": [
+        "P3500-HARD-037",
+        "P3500-MEDIUM-031"
+      ],
+      "count": 2,
+      "label": "生成答案混淆字段类型或未原样保留标识符",
+      "pattern_family": "generation_type_or_identifier_binding",
+      "rate": 0.06666666666666667
+    },
+    {
+      "case_ids": [
+        "P3500-HARD-040",
+        "P3500-HARD-042"
+      ],
+      "count": 2,
+      "label": "reference未回答所要求的实体清单或判断",
+      "pattern_family": "reference_does_not_answer_requested_output",
+      "rate": 0.06666666666666667
+    },
+    {
+      "case_ids": [
+        "P3500-HARD-019",
+        "P3500-MEDIUM-015"
+      ],
+      "count": 2,
+      "label": "reranked首位相关块在context构造时丢失",
+      "pattern_family": "top_reranked_chunk_dropped_before_context",
+      "rate": 0.06666666666666667
+    }
+  ],
+  "per_difficulty_diagnostics": {
+    "easy": {
+      "blind_incorrect_count": 4,
+      "context_pack_loss_count": 0,
+      "primary_categories": {
+        "dataset_reference": 2,
+        "source_ambiguity": 2
+      },
+      "relevant_all_retrieved_count": 4
+    },
+    "hard": {
+      "blind_incorrect_count": 20,
+      "context_pack_loss_count": 0,
+      "primary_categories": {
+        "dataset_reference": 11,
+        "freshness_execution": 1,
+        "generation_reasoning": 2,
+        "intermediate_process_loss": 5,
+        "source_ambiguity": 1
+      },
+      "relevant_all_retrieved_count": 15
+    },
+    "medium": {
+      "blind_incorrect_count": 6,
+      "context_pack_loss_count": 0,
+      "primary_categories": {
+        "generation_reasoning": 4,
+        "intermediate_process_loss": 1,
+        "source_ambiguity": 1
+      },
+      "relevant_all_retrieved_count": 6
+    }
+  },
+  "primary_categories": {
+    "context_loss": {
+      "count": 0,
+      "denominator": 30,
+      "label": "上下文丢失",
+      "rate": 0.0
+    },
+    "dataset_reference": {
+      "count": 13,
+      "denominator": 30,
+      "label": "dataset/reference",
+      "rate": 0.43333333333333335
+    },
+    "evaluation_system_error_candidate": {
+      "count": 0,
+      "denominator": 30,
+      "label": "评测系统错误候选",
+      "rate": 0.0
+    },
+    "freshness_execution": {
+      "count": 1,
+      "denominator": 30,
+      "label": "freshness/execution",
+      "rate": 0.03333333333333333
+    },
+    "generation_reasoning": {
+      "count": 6,
+      "denominator": 30,
+      "label": "生成/推理",
+      "rate": 0.2
+    },
+    "intermediate_process_loss": {
+      "count": 6,
+      "denominator": 30,
+      "label": "流程中间内容丢失",
+      "rate": 0.2
+    },
+    "other": {
+      "count": 0,
+      "denominator": 30,
+      "label": "other",
+      "rate": 0.0
+    },
+    "retrieval_content_insufficient": {
+      "count": 0,
+      "denominator": 30,
+      "label": "召回内容不足",
+      "rate": 0.0
+    },
+    "retrieval_content_unclear_or_noisy": {
+      "count": 0,
+      "denominator": 30,
+      "label": "召回内容噪声/不清晰",
+      "rate": 0.0
+    },
+    "source_ambiguity": {
+      "count": 4,
+      "denominator": 30,
+      "label": "source ambiguity",
+      "rate": 0.13333333333333333
+    }
+  },
+  "schema_version": "stt.eval.pre-grounding-blind-diagnostics-summary.v1",
+  "secondary_categories": {
+    "context_loss": {
+      "count": 0,
+      "label": "上下文丢失"
+    },
+    "dataset_reference": {
+      "count": 6,
+      "label": "dataset/reference"
+    },
+    "evaluation_system_error_candidate": {
+      "count": 15,
+      "label": "评测系统错误候选"
+    },
+    "freshness_execution": {
+      "count": 0,
+      "label": "freshness/execution"
+    },
+    "generation_reasoning": {
+      "count": 3,
+      "label": "生成/推理"
+    },
+    "intermediate_process_loss": {
+      "count": 0,
+      "label": "流程中间内容丢失"
+    },
+    "other": {
+      "count": 0,
+      "label": "other"
+    },
+    "retrieval_content_insufficient": {
+      "count": 3,
+      "label": "召回内容不足"
+    },
+    "retrieval_content_unclear_or_noisy": {
+      "count": 6,
+      "label": "召回内容噪声/不清晰"
+    },
+    "source_ambiguity": {
+      "count": 11,
+      "label": "source ambiguity"
+    }
+  },
+  "source_snapshot": {
+    "answer_stage": "pre_grounding",
+    "blind_incorrect_count": 30,
+    "evaluation_case_count": 150,
+    "free_text_judgment_recorded": false,
+    "judge_model": "qwen3.7-max",
+    "production_metrics_supplied": false,
+    "review_iteration": "direct-answer-v3-qwen3.7-max",
+    "review_record_count": 153,
+    "review_status": "succeeded",
+    "run_label": "live-cand-max-mono-01",
+    "visible_answer_only": true
+  },
+  "stage_checks": {
+    "all_30_context_packs_have_zero_omitted_and_truncated": true,
+    "context_pack_loss_count": 0,
+    "evidence_assessment_status": {
+      "PARTIAL": 3,
+      "STALE": 1,
+      "SUFFICIENT": 26
+    },
+    "intermediate_process_loss_count": 6,
+    "post_pre_grounding_loss_used_as_cause": false
+  }
+}

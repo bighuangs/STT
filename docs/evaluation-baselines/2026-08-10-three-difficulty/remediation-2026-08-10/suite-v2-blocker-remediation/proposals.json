@@ -1,0 +1,2766 @@
+{
+  "schema_version": "stt.eval.suite-v2-blocker-remediation-proposal.v2-no-index-refresh",
+  "suite_key": "three-difficulty-live-2026-08-10",
+  "source": {
+    "relative_path": "doc/PantumP3500用户手册zh_CNV1.2_1644316283788.pdf",
+    "sha256": "c4c7b2a434f3f86c4988d3961ac7304970029e71b0201fb6c10ca722b63bce2b",
+    "page_count": 95
+  },
+  "authoring_policy": {
+    "production_answers_read": false,
+    "production_run_labels_read": false,
+    "network_or_llm_calls": false,
+    "case_specific_program_rules": false,
+    "replacement_only_when_contract_invalid_or_active_index_incomplete": true,
+    "active_index_rebuild_required": false,
+    "semantic_replacement_requires_new_query_and_reference": true,
+    "superseded_review_must_not_be_reused": true,
+    "same_prompt_independent_rereview_required": true
+  },
+  "proposals": [
+    {
+      "case_id": "P3500-EASY-004",
+      "difficulty": "easy",
+      "suite_v2_target_selector": {
+        "parent_case_id": "P3500-EASY-004"
+      },
+      "disposition": "replacement",
+      "blocker_reason": "旧参考与PDF表格冲突，而当前活动chunk又缺失矩阵数据行；为避免重建索引，改用同一手册中已完整入索引的直接事实。",
+      "trigger": "pdf_visual_audit_block",
+      "source_review_verdict": null,
+      "source_review_reason": null,
+      "visual_audit_disposition": "confirmed_source_conflict",
+      "original_visual_pages_checked": [
+        8
+      ],
+      "source_facts": [
+        {
+          "statement": "产品视图编号1为出纸槽，用于存放打印出来的纸张。",
+          "pdf_pages": [
+            13
+          ],
+          "evidence_ids": [
+            "ev_cdb645f23ba94eaf3de759176aea0bc17c8986b6"
+          ]
+        }
+      ],
+      "source_bindings": [
+        {
+          "evidence_id": "ev_cdb645f23ba94eaf3de759176aea0bc17c8986b6",
+          "chunk_id": "chk_c12052057917a859ebb97a37e880796f",
+          "declared_page": 13,
+          "visual_pages": [
+            13
+          ],
+          "content_hash": "sha256:bb711b73d7bdebd6a53a599528ce333357830b435c8d08fa96a5cbb6557e5332",
+          "integrity": "active_index_complete",
+          "note": "活动chunk完整包含编号1、出纸槽名称及其用途，无需视觉补写或重建索引。"
+        }
+      ],
+      "difficulty_equivalence": "原题属于单证据直接事实；替换题同样只需从一个完整表格行读取一个部件功能，信息量与推理深度均保持easy。",
+      "proposed_case": {
+        "case_id": "P3500-EASY-004",
+        "query": "产品视图中编号1的出纸槽用于什么？",
+        "conversation": [],
+        "reference_answer": "用于存放打印出来的纸张。",
+        "unanswerable": false,
+        "expected_terms": [
+          "存放打印出来的纸张"
+        ],
+        "forbidden_terms": [],
+        "relevant_document_ids": [
+          "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+        ],
+        "relevant_document_names": [
+          "source.pdf"
+        ],
+        "relevant_chunk_ids": [
+          "chk_c12052057917a859ebb97a37e880796f"
+        ],
+        "relevant_evidence": [
+          {
+            "evidence_id": "ev_cdb645f23ba94eaf3de759176aea0bc17c8986b6",
+            "chunk_id": "chk_c12052057917a859ebb97a37e880796f",
+            "page": 13,
+            "text": "标题路径：前言 > 1.2. 产品视图\n\n| 1 | 出纸槽 | 用于存放打印出来的纸张 |\n| --- | --- | --- |\n| 2 | 控制面板 | 指示打印机状态,进行打印设置操作 |\n| 3 | 出纸托盘 | 防止打印出来的纸张滑落 |\n| 4 | 前盖 | 打开前盖,可取出激光碳粉盒 |\n| 5 | 多功能纸盒 | 打开多功能纸盒前盖,放入打印介质 |\n| 6 | 多功能纸盒导纸板 | 调整纸张两侧宽度 |\n| 7 | 电源总开关 | 打开或关闭电源 |\n| 8 | 标准纸盒 | 放置打印纸张 |\n| 9 | 宽度导纸板 | 在标准纸盒内,用于调整纸盒内纸张宽度 |",
+            "match_terms": [
+              "出纸槽",
+              "用于存放打印出来的纸张"
+            ],
+            "content_hash": "sha256:bb711b73d7bdebd6a53a599528ce333357830b435c8d08fa96a5cbb6557e5332"
+          }
+        ],
+        "tags": [
+          "manual",
+          "printer",
+          "zh-CN",
+          "live-baseline",
+          "difficulty-easy",
+          "single-evidence",
+          "direct_fact",
+          "suite-v2",
+          "blocker-remediation-proposal"
+        ],
+        "sensitivity": "internal",
+        "metadata": {
+          "type": "direct_fact",
+          "difficulty": "easy",
+          "suite_key": "three-difficulty-live-2026-08-10",
+          "evidence_count": 1,
+          "critical": true,
+          "blocker_remediation_disposition": "replacement",
+          "parent_case_id": "P3500-EASY-004",
+          "proposal_schema_version": "stt.eval.suite-v2-blocker-remediation-proposal.v2-no-index-refresh"
+        },
+        "concept_groups": {
+          "all_of": [
+            {
+              "concept_key": "output_slot_function",
+              "any_of": [
+                "用于存放打印出来的纸张",
+                "存放打印出的纸张"
+              ]
+            }
+          ]
+        }
+      },
+      "contract_draft": {
+        "required_branches": [
+          {
+            "branch_id": "b01",
+            "concept_keys": [
+              "output_slot_function"
+            ]
+          }
+        ],
+        "critical_constraints": {}
+      },
+      "import_gate": {
+        "status": "ready_after_suite_v2_review",
+        "requires_full_suite_same_prompt_review": true,
+        "requires_live_result_review": true,
+        "must_not_use_production_answers_for_authoring": true
+      },
+      "audit": {
+        "original_case_sha256": "1f4c06f66a7b4947fb3affbc0b66054f137fbe3e06b389db9f15725f17d24228",
+        "proposed_case_sha256": "d202493c1b0605c405b42751b70b07fc2bc5b9533c9daddcb0b3326d214a0313",
+        "semantic_replacement_payload_sha256": null,
+        "authoring_inputs": [
+          "source PDF pages",
+          "immutable dataset manifests",
+          "PDF visual audit sidecar"
+        ],
+        "excluded_inputs": [
+          "production model answers",
+          "run pass/fail labels",
+          "per-case production metrics"
+        ]
+      }
+    },
+    {
+      "case_id": "P3500-EASY-049",
+      "difficulty": "easy",
+      "suite_v2_target_selector": {
+        "parent_case_id": "P3500-EASY-049"
+      },
+      "disposition": "replacement",
+      "blocker_reason": "“四条水平横线代表文本行”来自自动图像描述，源页没有该图例或定义，原题不可确定评分。",
+      "trigger": "pdf_visual_audit_block",
+      "source_review_verdict": null,
+      "source_review_reason": null,
+      "visual_audit_disposition": "not_explicit_in_source",
+      "original_visual_pages_checked": [
+        90,
+        91
+      ],
+      "source_facts": [
+        {
+          "statement": "本章展示的是最全的菜单结构。",
+          "pdf_pages": [
+            90
+          ],
+          "evidence_ids": [
+            "ev_a15a520f37b5352b1aa0265c875cfca852ce6e0d"
+          ]
+        },
+        {
+          "statement": "实际使用机型的菜单结构可能与手册所列结构存在差异。",
+          "pdf_pages": [
+            90
+          ],
+          "evidence_ids": [
+            "ev_a15a520f37b5352b1aa0265c875cfca852ce6e0d"
+          ]
+        }
+      ],
+      "source_bindings": [
+        {
+          "evidence_id": "ev_a15a520f37b5352b1aa0265c875cfca852ce6e0d",
+          "chunk_id": "chk_e154227232ba798f3d78cecc51b4040b",
+          "declared_page": 90,
+          "visual_pages": [
+            90
+          ],
+          "content_hash": "sha256:b3f66a75821428c85f28f0075d98f59f0a9af3a70443a2a4d822116ee3e60920",
+          "integrity": "usable_text_scope_only",
+          "note": "只使用chunk中的正文注释；不使用其自动生成的图标语义描述。"
+        }
+      ],
+      "difficulty_equivalence": null,
+      "proposed_case": {
+        "case_id": "P3500-EASY-049",
+        "query": "手册对本章菜单结构与实际使用机型的菜单结构差异作了什么说明？",
+        "conversation": [],
+        "reference_answer": "本章展示的是最全的菜单结构；实际使用机型的菜单结构可能与手册所列结构存在差异。",
+        "unanswerable": false,
+        "expected_terms": [
+          "最全的菜单结构",
+          "实际使用机型可能存在差异"
+        ],
+        "forbidden_terms": [],
+        "relevant_document_ids": [
+          "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+        ],
+        "relevant_document_names": [
+          "source.pdf"
+        ],
+        "relevant_chunk_ids": [
+          "chk_e154227232ba798f3d78cecc51b4040b"
+        ],
+        "relevant_evidence": [
+          {
+            "evidence_id": "ev_a15a520f37b5352b1aa0265c875cfca852ce6e0d",
+            "chunk_id": "chk_e154227232ba798f3d78cecc51b4040b",
+            "page": 90,
+            "text": "标题路径：前言 > 11. 菜单结构\n\n此章节主要介绍控制面板整体的菜单结构，用户可以通过查看菜单结构，了解可以设置的菜单选项。\n\n![图片](images/2d5123caa7556ccb0f60aa15ec6f676cfe433f7039b7d18a459d93e1746e9880.jpg)\n\n注： • 本章中的菜单结构为最全的菜单结构，您实际使用机型的菜单结构可能与以下的菜单结构存在差异。\n\n一般图形内容  \n图像为一个像素风格的图标，主体是一个竖直矩形纸张轮廓，内部有四条水平横线，代表文本行；纸张右下角有卷曲的页角；纸张右侧上方有一支斜向插入的笔，笔尖朝左下方，笔身呈灰度渐变，笔帽部分可见。整体为单色灰度像素图，无文字、无坐标轴、无标签、无数据点，仅包含纸张、横线、笔和卷页角四个视觉组件，按从左到右、从上到下的空间顺序排列：纸张在左侧及中部，笔位于纸张右侧并部分覆盖纸张边缘，卷页角在纸张右下角。",
+            "match_terms": [
+              "最全的菜单结构",
+              "实际使用机型的菜单结构可能与以下的菜单结构存在差异"
+            ],
+            "content_hash": "sha256:b3f66a75821428c85f28f0075d98f59f0a9af3a70443a2a4d822116ee3e60920"
+          }
+        ],
+        "tags": [
+          "manual",
+          "printer",
+          "zh-CN",
+          "live-baseline",
+          "difficulty-easy",
+          "single-evidence",
+          "direct_fact",
+          "suite-v2",
+          "blocker-remediation-proposal"
+        ],
+        "sensitivity": "internal",
+        "metadata": {
+          "type": "direct_fact",
+          "difficulty": "easy",
+          "suite_key": "three-difficulty-live-2026-08-10",
+          "evidence_count": 1,
+          "critical": false,
+          "blocker_remediation_disposition": "replacement",
+          "parent_case_id": "P3500-EASY-049",
+          "proposal_schema_version": "stt.eval.suite-v2-blocker-remediation-proposal.v2-no-index-refresh"
+        },
+        "concept_groups": {
+          "all_of": [
+            {
+              "concept_key": "chapter_scope",
+              "any_of": [
+                "最全的菜单结构",
+                "完整菜单结构"
+              ]
+            },
+            {
+              "concept_key": "model_variance",
+              "any_of": [
+                "实际使用机型的菜单结构可能存在差异",
+                "实际机型菜单可能与所列结构不同"
+              ]
+            }
+          ]
+        }
+      },
+      "contract_draft": {
+        "required_branches": [
+          {
+            "branch_id": "b01",
+            "concept_keys": [
+              "chapter_scope",
+              "model_variance"
+            ]
+          }
+        ],
+        "critical_constraints": {}
+      },
+      "import_gate": {
+        "status": "ready_after_suite_v2_review",
+        "requires_full_suite_same_prompt_review": true,
+        "requires_live_result_review": true,
+        "must_not_use_production_answers_for_authoring": true
+      },
+      "audit": {
+        "original_case_sha256": "7a7e3d9c34f84af1439bb0c79437faa196e01ac1865c46eb9c8b63221120c957",
+        "proposed_case_sha256": "2fd03a7ce7f1bdead1a5e1f9a5b0d6424c621fb8f4979478eac2c2cbc11e1183",
+        "semantic_replacement_payload_sha256": null,
+        "authoring_inputs": [
+          "source PDF pages",
+          "immutable dataset manifests",
+          "PDF visual audit sidecar"
+        ],
+        "excluded_inputs": [
+          "production model answers",
+          "run pass/fail labels",
+          "per-case production metrics"
+        ]
+      }
+    },
+    {
+      "case_id": "P3500-HARD-003",
+      "difficulty": "hard",
+      "suite_v2_target_selector": {
+        "parent_case_id": "P3500-HARD-003"
+      },
+      "disposition": "semantic_replacement",
+      "blocker_reason": "旧题把通用故障排除前检查误写成标准纸盒卡纸专属条件，并要求证据未直接说明的漏检后果。",
+      "trigger": "full_suite_reviewer_block",
+      "source_review_verdict": "block",
+      "source_review_reason": "后果分支缺乏直接证据；活动证据只完整支持处理常见故障前的八项通用检查。",
+      "visual_audit_disposition": "not_applicable_reviewer_block",
+      "original_visual_pages_checked": [],
+      "source_facts": [
+        {
+          "statement": "处理常见故障前应检查电源和开关、保护零件、激光碳粉盒、出纸槽、纸张、接口电缆、驱动程序和计算机端口。",
+          "pdf_pages": [
+            79
+          ],
+          "evidence_ids": [
+            "ev_ee696de1bd6dcdeb9c673828918e142287d5df1e"
+          ]
+        }
+      ],
+      "source_bindings": [
+        {
+          "evidence_id": "ev_ee696de1bd6dcdeb9c673828918e142287d5df1e",
+          "chunk_id": "chk_908c5b75d61c914464464002167aecdf",
+          "declared_page": 79,
+          "visual_pages": [
+            79
+          ],
+          "content_hash": "sha256:535a78f8ef5e4086711db60668de34acd2e3b8fecb4edeeecc8c6a316805cfc1",
+          "integrity": "active_index_complete",
+          "note": "活动chunk直接、完整列出八项通用检查；替换题不再要求无源后果，也不再把它们限定为标准纸盒卡纸专属条件。"
+        }
+      ],
+      "difficulty_equivalence": "替换题仍要求从同一故障排除段落完整汇总八项检查，保留多要点完整性要求，但删除无源推断。",
+      "proposed_case": {
+        "case_id": "P3500-HARD-003",
+        "query": "在处理常见故障之前，首先应检查哪些情况？",
+        "conversation": [],
+        "reference_answer": "检查电源线是否连接正确且打印机电源开关是否已打开；所有保护零件是否已拆除；激光碳粉盒是否已正确安装；出纸槽是否已完全合上；纸张是否已正确放入纸盒；接口电缆线是否已正确连接打印机和计算机；是否已选择并安装正确的打印机驱动程序；计算机端口是否已安装并连接到正确的打印机端口。",
+        "unanswerable": false,
+        "expected_terms": [
+          "电源线是否连接正确",
+          "打印机电源开关是否已打开",
+          "保护零件是否已拆除",
+          "激光碳粉盒是否已正确安装",
+          "出纸槽是否已完全合上",
+          "纸张是否已正确放入纸盒",
+          "接口电缆线是否已正确连接打印机和计算机",
+          "正确的打印机驱动程序",
+          "计算机端口是否已安装并连接到正确的打印机端口"
+        ],
+        "forbidden_terms": [],
+        "relevant_document_ids": [
+          "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+        ],
+        "relevant_document_names": [
+          "source.pdf"
+        ],
+        "relevant_chunk_ids": [
+          "chk_908c5b75d61c914464464002167aecdf"
+        ],
+        "relevant_evidence": [
+          {
+            "evidence_id": "ev_ee696de1bd6dcdeb9c673828918e142287d5df1e",
+            "chunk_id": "chk_908c5b75d61c914464464002167aecdf",
+            "page": 79,
+            "text": "标题路径：前言 > 10. 故障排除\n\n请仔细阅读本章节，可以帮您解决打印过程中常见的故障。若还未能解决出现的问题，请及时联系奔图售后服务中心。\n\n在处理常见故障之前，首先请检查以下情况：\n\n• 电源线是否连接正确，并且打印机电源开关是否已打开。\n\n• 所有的保护零件是否已拆除。\n\n• 激光碳粉盒是否已正确安装。\n\n• 出纸槽是否已完全合上。\n\n• 纸张是否已正确放入纸盒中。\n\n• 接口电缆线是否已正确连接打印机和计算机。\n\n• 是否已选择并安装了正确的打印机驱动程序。\n\n• 计算机端口是否已安装并连接到正确的打印机端口。",
+            "match_terms": [
+              "在处理常见故障之前",
+              "电源线是否连接正确",
+              "正确的打印机驱动程序",
+              "计算机端口是否已安装并连接到正确的打印机端口"
+            ],
+            "content_hash": "sha256:535a78f8ef5e4086711db60668de34acd2e3b8fecb4edeeecc8c6a316805cfc1"
+          }
+        ],
+        "tags": [
+          "manual",
+          "printer",
+          "zh-CN",
+          "live-baseline",
+          "difficulty-hard",
+          "multi-evidence",
+          "synthesis",
+          "procedure",
+          "condition",
+          "troubleshooting",
+          "suite-v2",
+          "blocker-remediation-proposal"
+        ],
+        "sensitivity": "internal",
+        "metadata": {
+          "type": "synthesis",
+          "difficulty": "hard",
+          "suite_key": "three-difficulty-live-2026-08-10",
+          "evidence_count": 2,
+          "critical": true,
+          "blocker_remediation_disposition": "semantic_replacement",
+          "parent_case_id": "P3500-HARD-003",
+          "proposal_schema_version": "stt.eval.suite-v2-blocker-remediation-proposal.v2-no-index-refresh",
+          "lineage_semantic_replacement": true
+        },
+        "concept_groups": {
+          "all_of": [
+            {
+              "concept_key": "power_and_switch",
+              "any_of": [
+                "电源线连接正确且电源开关已打开",
+                "检查电源线和打印机电源开关"
+              ]
+            },
+            {
+              "concept_key": "protective_parts_removed",
+              "any_of": [
+                "所有保护零件已拆除",
+                "检查保护零件是否已拆除"
+              ]
+            },
+            {
+              "concept_key": "toner_cartridge_installed",
+              "any_of": [
+                "激光碳粉盒已正确安装",
+                "检查激光碳粉盒安装"
+              ]
+            },
+            {
+              "concept_key": "output_slot_closed",
+              "any_of": [
+                "出纸槽已完全合上",
+                "检查出纸槽是否完全合上"
+              ]
+            },
+            {
+              "concept_key": "paper_loaded",
+              "any_of": [
+                "纸张已正确放入纸盒",
+                "检查纸张是否正确装入纸盒"
+              ]
+            },
+            {
+              "concept_key": "interface_cable_connected",
+              "any_of": [
+                "接口电缆线已正确连接打印机和计算机",
+                "检查打印机与计算机的接口电缆"
+              ]
+            },
+            {
+              "concept_key": "correct_driver_installed",
+              "any_of": [
+                "已选择并安装正确的打印机驱动程序",
+                "检查正确驱动程序是否已安装"
+              ]
+            },
+            {
+              "concept_key": "computer_port_connected",
+              "any_of": [
+                "计算机端口已安装并连接到正确的打印机端口",
+                "检查计算机端口与正确打印机端口的连接"
+              ]
+            }
+          ]
+        }
+      },
+      "contract_draft": {
+        "required_branches": [
+          {
+            "branch_id": "b01",
+            "concept_keys": [
+              "power_and_switch",
+              "protective_parts_removed",
+              "toner_cartridge_installed",
+              "output_slot_closed",
+              "paper_loaded",
+              "interface_cable_connected",
+              "correct_driver_installed",
+              "computer_port_connected"
+            ]
+          }
+        ],
+        "critical_constraints": {}
+      },
+      "import_gate": {
+        "status": "ready_after_suite_v2_review",
+        "requires_full_suite_same_prompt_review": true,
+        "requires_live_result_review": true,
+        "must_not_use_production_answers_for_authoring": true
+      },
+      "audit": {
+        "original_case_sha256": "c2bc41c7a38e06de8a0a4c264beca6d536b34aeaa0756d89d7eab1d344068317",
+        "proposed_case_sha256": "724309d3eb91eb32d46cfe4b42db4069c68d58041c4060fb4546b217d7c23dd3",
+        "semantic_replacement_payload_sha256": "d0d8d7fe0594072a653d1e9c7371c0b6f46c89814334d1b1123545e5d5a6bcd3",
+        "authoring_inputs": [
+          "source PDF pages",
+          "immutable dataset manifests",
+          "full-suite reviewer block reason"
+        ],
+        "excluded_inputs": [
+          "production model answers",
+          "run pass/fail labels",
+          "per-case production metrics"
+        ]
+      }
+    },
+    {
+      "case_id": "P3500-HARD-007",
+      "difficulty": "hard",
+      "suite_v2_target_selector": {
+        "parent_case_id": "P3500-HARD-007"
+      },
+      "disposition": "semantic_replacement",
+      "blocker_reason": "旧参考声称卡纸与打印多页进纸的解决办法均包含清洁，但打印多页进纸行没有清洁措施，比较结论失实。",
+      "trigger": "full_suite_reviewer_block",
+      "source_review_verdict": "block",
+      "source_review_reason": "共同解决办法中的“清洁”不受证据支持；打印多页进纸自身的原因和处理措施均有完整直接证据。",
+      "visual_audit_disposition": "not_applicable_reviewer_block",
+      "original_visual_pages_checked": [],
+      "source_facts": [
+        {
+          "statement": "打印多页进纸的原因是静电量过大、介质受潮或粘合、内部部件故障；处理包括重新分离介质、使用推荐介质或更好的干燥介质。",
+          "pdf_pages": [
+            85
+          ],
+          "evidence_ids": [
+            "ev_c9895eb1d2eb948d42cb6b092ab0031d3cc40919"
+          ]
+        }
+      ],
+      "source_bindings": [
+        {
+          "evidence_id": "ev_c9895eb1d2eb948d42cb6b092ab0031d3cc40919",
+          "chunk_id": "chk_79970a3b5415a3f904f436232b9f2ff3",
+          "declared_page": 85,
+          "visual_pages": [
+            85
+          ],
+          "content_hash": "sha256:2221a726ee4d6c9c5e6a877c22d5a4490d43c3cafcd8b4d62b5c0f63fe4994da",
+          "integrity": "active_index_complete",
+          "note": "活动chunk完整保留打印多页进纸行的原因与解决办法；替换题不再要求无效的跨行共同点。"
+        }
+      ],
+      "difficulty_equivalence": "替换题仍需跨故障表的原因列和解决办法列完整汇总六个语义要点，保留hard级多分支完整性要求。",
+      "proposed_case": {
+        "case_id": "P3500-HARD-007",
+        "query": "打印多页进纸的故障原因有哪些，应如何处理？",
+        "conversation": [],
+        "reference_answer": "原因包括打印介质含静电量过大、打印介质受潮或粘合在一起、内部部件故障。处理时可将打印介质重新分离以消除部分静电，使用推荐打印介质；还可重新分离打印介质或使用更好的干燥打印介质。",
+        "unanswerable": false,
+        "expected_terms": [
+          "打印介质含静电量过大",
+          "打印介质受潮或粘合在一起",
+          "内部部件故障",
+          "将打印介质重新分离",
+          "消除部分静电",
+          "使用推荐打印介质",
+          "使用更好的干燥打印介质"
+        ],
+        "forbidden_terms": [],
+        "relevant_document_ids": [
+          "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+        ],
+        "relevant_document_names": [
+          "source.pdf"
+        ],
+        "relevant_chunk_ids": [
+          "chk_79970a3b5415a3f904f436232b9f2ff3"
+        ],
+        "relevant_evidence": [
+          {
+            "evidence_id": "ev_c9895eb1d2eb948d42cb6b092ab0031d3cc40919",
+            "chunk_id": "chk_79970a3b5415a3f904f436232b9f2ff3",
+            "page": 85,
+            "text": "标题路径：前言 > 10.3.1. 一般故障\n\n表注：注: • 如果问题依旧，请联系奔图客服。\n| 故障现象 | 原因 | 解决办法 |\n| --- | --- | --- |\n| 卡纸 | 纸盘中的纸张过多。打印介质超出了使用规格范围。进纸通道有异物。给纸辊脏污。内部部件故障。 | 从纸盘中取出多余的纸张,如果在特殊打印介质上打印,请使用多功能纸盒。确保使用符合规格的纸张。如果在特殊打印介质上打印,请使用多功能纸盒。清洁进纸通道。清洁给纸辊。 |\n| 打印多页进纸 | 打印介质含静电量过大。打印介质受潮或粘合在一起。内部部件故障。 | 将打印介质重新分离,可以消除部分静电。建议使用推荐打印介质。请重新将打印介质分离或使用更好的干燥打印介质。 |",
+            "match_terms": [
+              "打印多页进纸",
+              "打印介质含静电量过大",
+              "将打印介质重新分离,可以消除部分静电",
+              "使用更好的干燥打印介质"
+            ],
+            "content_hash": "sha256:2221a726ee4d6c9c5e6a877c22d5a4490d43c3cafcd8b4d62b5c0f63fe4994da"
+          }
+        ],
+        "tags": [
+          "manual",
+          "printer",
+          "zh-CN",
+          "live-baseline",
+          "difficulty-hard",
+          "multi-evidence",
+          "synthesis",
+          "troubleshooting",
+          "comparison",
+          "cause",
+          "suite-v2",
+          "blocker-remediation-proposal"
+        ],
+        "sensitivity": "internal",
+        "metadata": {
+          "type": "synthesis",
+          "difficulty": "hard",
+          "suite_key": "three-difficulty-live-2026-08-10",
+          "evidence_count": 2,
+          "critical": false,
+          "blocker_remediation_disposition": "semantic_replacement",
+          "parent_case_id": "P3500-HARD-007",
+          "proposal_schema_version": "stt.eval.suite-v2-blocker-remediation-proposal.v2-no-index-refresh",
+          "lineage_semantic_replacement": true
+        },
+        "concept_groups": {
+          "all_of": [
+            {
+              "concept_key": "multi_feed_static",
+              "any_of": [
+                "打印介质含静电量过大",
+                "介质静电过大"
+              ]
+            },
+            {
+              "concept_key": "multi_feed_damp_or_stuck",
+              "any_of": [
+                "打印介质受潮或粘合在一起",
+                "介质受潮或粘合"
+              ]
+            },
+            {
+              "concept_key": "multi_feed_internal_fault",
+              "any_of": [
+                "内部部件故障",
+                "打印机内部部件故障"
+              ]
+            },
+            {
+              "concept_key": "separate_media_for_static",
+              "any_of": [
+                "将打印介质重新分离，可以消除部分静电",
+                "重新分离介质以消除静电"
+              ]
+            },
+            {
+              "concept_key": "recommended_media",
+              "any_of": [
+                "建议使用推荐打印介质",
+                "使用推荐的打印介质"
+              ]
+            },
+            {
+              "concept_key": "dry_media_or_reseparate",
+              "any_of": [
+                "重新将打印介质分离或使用更好的干燥打印介质",
+                "重新分离介质或改用更干燥的介质"
+              ]
+            }
+          ]
+        }
+      },
+      "contract_draft": {
+        "required_branches": [
+          {
+            "branch_id": "b01",
+            "concept_keys": [
+              "multi_feed_static",
+              "multi_feed_damp_or_stuck",
+              "multi_feed_internal_fault"
+            ]
+          },
+          {
+            "branch_id": "b02",
+            "concept_keys": [
+              "separate_media_for_static",
+              "recommended_media",
+              "dry_media_or_reseparate"
+            ]
+          }
+        ],
+        "critical_constraints": {}
+      },
+      "import_gate": {
+        "status": "ready_after_suite_v2_review",
+        "requires_full_suite_same_prompt_review": true,
+        "requires_live_result_review": true,
+        "must_not_use_production_answers_for_authoring": true
+      },
+      "audit": {
+        "original_case_sha256": "a15e94d09606f4e078bac96497e1dc9f8ca317ad1aa39fac25621cc72c9bc73b",
+        "proposed_case_sha256": "18dbad6972dc99741a3be9d0e9e117449c4097b82e4450a0bcac5ffd623d1776",
+        "semantic_replacement_payload_sha256": "afad7df7c52cba502c5402c0e05a87f1531fabaec27191cdb00d94c55d4ecf1a",
+        "authoring_inputs": [
+          "source PDF pages",
+          "immutable dataset manifests",
+          "full-suite reviewer block reason"
+        ],
+        "excluded_inputs": [
+          "production model answers",
+          "run pass/fail labels",
+          "per-case production metrics"
+        ]
+      }
+    },
+    {
+      "case_id": "P3500-HARD-008",
+      "difficulty": "hard",
+      "suite_v2_target_selector": {
+        "parent_case_id": "P3500-HARD-008"
+      },
+      "disposition": "corrected",
+      "blocker_reason": "旧参考发生跨行错配，并虚构页面歪斜与周期性痕迹共享解决办法。",
+      "trigger": "pdf_visual_audit_block",
+      "source_review_verdict": null,
+      "source_review_reason": null,
+      "visual_audit_disposition": "confirmed_source_conflict",
+      "original_visual_pages_checked": [
+        86,
+        87,
+        88
+      ],
+      "source_facts": [
+        {
+          "statement": "页面歪斜的原因是打印介质未正确安装、机器进纸通道脏污。",
+          "pdf_pages": [
+            87
+          ],
+          "evidence_ids": [
+            "ev_7aa7ff92a8f1f7536c5bcd7560f48d004672babd"
+          ]
+        },
+        {
+          "statement": "周期性痕迹应清洁或更换激光碳粉盒，并联系奔图客服更换定影组件。",
+          "pdf_pages": [
+            87
+          ],
+          "evidence_ids": [
+            "ev_7aa7ff92a8f1f7536c5bcd7560f48d004672babd"
+          ]
+        },
+        {
+          "statement": "两类故障的源解决办法没有重叠，处理对象分别是介质/进纸通道与碳粉盒/定影组件。",
+          "pdf_pages": [
+            87
+          ],
+          "evidence_ids": [
+            "ev_7aa7ff92a8f1f7536c5bcd7560f48d004672babd"
+          ]
+        }
+      ],
+      "source_bindings": [
+        {
+          "evidence_id": "ev_7aa7ff92a8f1f7536c5bcd7560f48d004672babd",
+          "chunk_id": "chk_1d0023b481e831a407c5970b5518f523",
+          "declared_page": 86,
+          "visual_pages": [
+            87
+          ],
+          "content_hash": "sha256:3a9f0f870bf29861c17e4e269f0a35aa145a2ae4bf1bc2f12e1cbcd6e7a8fca8",
+          "integrity": "usable_merged_chunk",
+          "note": "chunk声明页为86，目标表格行实际位于PDF第87页；旧第二chunk不含本题事实，已从提案中移除。"
+        }
+      ],
+      "difficulty_equivalence": null,
+      "proposed_case": {
+        "case_id": "P3500-HARD-008",
+        "query": "页面歪斜的故障原因有哪些？若出现周期性痕迹，应采取什么解决办法？两者在解决办法上是否存在重叠？",
+        "conversation": [],
+        "reference_answer": "页面歪斜的原因是未正确安装打印介质、机器进纸通道脏污。周期性痕迹应清洁或更换新激光碳粉盒，并联系奔图客服维修更换新的定影组件。两者的解决办法没有重叠：前者针对介质安装和进纸通道，后者针对碳粉盒和定影组件。",
+        "unanswerable": false,
+        "expected_terms": [
+          "未正确安装打印介质",
+          "机器进纸通道脏污",
+          "清洁或更换新激光碳粉盒",
+          "更换新的定影组件",
+          "没有重叠"
+        ],
+        "forbidden_terms": [],
+        "relevant_document_ids": [
+          "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+        ],
+        "relevant_document_names": [
+          "source.pdf"
+        ],
+        "relevant_chunk_ids": [
+          "chk_1d0023b481e831a407c5970b5518f523"
+        ],
+        "relevant_evidence": [
+          {
+            "evidence_id": "ev_7aa7ff92a8f1f7536c5bcd7560f48d004672babd",
+            "chunk_id": "chk_1d0023b481e831a407c5970b5518f523",
+            "page": 86,
+            "text": "标题路径：前言 > 10.3.1. 一般故障\n\n表题：10.3.2. 图像缺陷\n| 故障现象 | 故障原因 | 解决办法 |\n| --- | --- | --- |\n|  | ·激光碳粉盒脏污。·激光碳粉盒内部部件损坏。·定影组件损坏。 | ·清洁或更换新激光碳粉盒。·请联系奔图客服维修更换新的定影组件。 |\n| 出现周期性痕迹 |  |  |\n|  | ·未正确安装打印介质。·机器进纸通道脏污。 | ·确保正确安装打印介质。·清洁机器内部进纸通道。 |\n| 页面歪斜 |  |  |\n|  | ·未正确安装打印介质。·打印介质不符合使用规格。·打印内部进纸通道脏污。·打印定影组件损坏。 | ·确保正确安装打印介质。·请使用规格范围内的打印介质进行打印。·清洁机器内部进纸通道。 |\n| 皱纸 |  |  |\n|  | ·激光碳粉盒脏污。·机器内部转印辊脏污。·机器内部转印电压异常。 | ·清洁或更换新激光碳粉盒。·清洁机器内部转印部件。 |\n| 背面脏污 |  |  |",
+            "match_terms": [
+              "未正确安装打印介质",
+              "机器进纸通道脏污",
+              "清洁或更换新激光碳粉盒",
+              "更换新的定影组件"
+            ],
+            "content_hash": "sha256:3a9f0f870bf29861c17e4e269f0a35aa145a2ae4bf1bc2f12e1cbcd6e7a8fca8"
+          }
+        ],
+        "tags": [
+          "manual",
+          "printer",
+          "zh-CN",
+          "live-baseline",
+          "difficulty-hard",
+          "multi-evidence",
+          "synthesis",
+          "troubleshooting",
+          "comparison",
+          "solution",
+          "suite-v2",
+          "blocker-remediation-proposal"
+        ],
+        "sensitivity": "internal",
+        "metadata": {
+          "type": "synthesis",
+          "difficulty": "hard",
+          "suite_key": "three-difficulty-live-2026-08-10",
+          "evidence_count": 2,
+          "critical": false,
+          "blocker_remediation_disposition": "corrected",
+          "parent_case_id": "P3500-HARD-008",
+          "proposal_schema_version": "stt.eval.suite-v2-blocker-remediation-proposal.v2-no-index-refresh"
+        },
+        "concept_groups": {
+          "all_of": [
+            {
+              "concept_key": "skew_media_install",
+              "any_of": [
+                "未正确安装打印介质",
+                "打印介质安装不正确"
+              ]
+            },
+            {
+              "concept_key": "skew_feed_path",
+              "any_of": [
+                "机器进纸通道脏污",
+                "进纸通道脏污"
+              ]
+            },
+            {
+              "concept_key": "periodic_toner_action",
+              "any_of": [
+                "清洁或更换新激光碳粉盒",
+                "清洁或更换碳粉盒"
+              ]
+            },
+            {
+              "concept_key": "periodic_fuser_action",
+              "any_of": [
+                "联系奔图客服维修更换新的定影组件",
+                "联系奔图客服更换定影组件"
+              ]
+            },
+            {
+              "concept_key": "solution_overlap",
+              "any_of": [
+                "没有重叠",
+                "解决办法不重叠",
+                "两者处理对象不同"
+              ]
+            }
+          ]
+        }
+      },
+      "contract_draft": {
+        "required_branches": [
+          {
+            "branch_id": "b01",
+            "concept_keys": [
+              "skew_media_install",
+              "skew_feed_path"
+            ]
+          },
+          {
+            "branch_id": "b02",
+            "concept_keys": [
+              "periodic_toner_action",
+              "periodic_fuser_action"
+            ]
+          },
+          {
+            "branch_id": "b03",
+            "concept_keys": [
+              "solution_overlap"
+            ]
+          }
+        ],
+        "critical_constraints": {
+          "required_polarity": [
+            "不存在重叠"
+          ]
+        }
+      },
+      "import_gate": {
+        "status": "ready_after_suite_v2_review",
+        "requires_full_suite_same_prompt_review": true,
+        "requires_live_result_review": true,
+        "must_not_use_production_answers_for_authoring": true
+      },
+      "audit": {
+        "original_case_sha256": "db5789fd574a1e7a7332ba1be4c441d727c9d1c484a9b411399f5bf3ef9daa77",
+        "proposed_case_sha256": "23364bbec7f57d481433a06eba3df5f7662e8e231ca0814dbc090ecf71379868",
+        "semantic_replacement_payload_sha256": null,
+        "authoring_inputs": [
+          "source PDF pages",
+          "immutable dataset manifests",
+          "PDF visual audit sidecar"
+        ],
+        "excluded_inputs": [
+          "production model answers",
+          "run pass/fail labels",
+          "per-case production metrics"
+        ]
+      }
+    },
+    {
+      "case_id": "P3500-HARD-009",
+      "difficulty": "hard",
+      "suite_v2_target_selector": {
+        "parent_case_id": "P3500-HARD-009"
+      },
+      "disposition": "semantic_replacement",
+      "blocker_reason": "旧题要求活动证据中不存在的“打印全黑版”原因，并据此继续比较；reference混入无源原因和共通性结论。",
+      "trigger": "full_suite_reviewer_block",
+      "source_review_verdict": "block",
+      "source_review_reason": "“全黑版”分支完全无证据；黑色竖条行的原因与解决办法在活动chunk中直接可答。",
+      "visual_audit_disposition": "not_applicable_reviewer_block",
+      "original_visual_pages_checked": [],
+      "source_facts": [
+        {
+          "statement": "黑色竖条行直接列出碳粉盒、反光玻璃、进纸通道、介质规格和转印电压方面的原因，以及四项处理措施。",
+          "pdf_pages": [
+            86
+          ],
+          "evidence_ids": [
+            "ev_f0e6029144c83f20f961249e2fdc5c60e757470b"
+          ]
+        }
+      ],
+      "source_bindings": [
+        {
+          "evidence_id": "ev_f0e6029144c83f20f961249e2fdc5c60e757470b",
+          "chunk_id": "chk_b79bc4aa06b76864828b4a2589fb8f13",
+          "declared_page": 86,
+          "visual_pages": [
+            86
+          ],
+          "content_hash": "sha256:6c71f4911e75802c5cf4e4ae00ba2b1375d8a5dc79c463cbd37300f2682494e7",
+          "integrity": "active_index_complete",
+          "note": "活动chunk直接包含黑色竖条行的全部目标原因和解决办法；替换题彻底移除无源的全黑版分支。"
+        }
+      ],
+      "difficulty_equivalence": "替换题仍需在噪声较多的图像缺陷表行中区分原因与解决办法并完整汇总十个要点，保留hard级表格解析负担。",
+      "proposed_case": {
+        "case_id": "P3500-HARD-009",
+        "query": "出现黑色竖条时，手册列出的故障原因和解决办法分别有哪些？",
+        "conversation": [],
+        "reference_answer": "原因包括激光碳粉盒脏污、激光碳粉盒内部部件损坏、机器内部激光器反光玻璃脏污、进纸通道脏污、使用了不符合规格（如受潮或太粗糙）的打印介质，以及打印内部转印电压异常。解决办法是清洁机器背部激光器反光玻璃、清洁打印机背部进纸通道、使用规格范围内的打印介质，并清洁机器内部进纸通道。",
+        "unanswerable": false,
+        "expected_terms": [
+          "激光碳粉盒脏污",
+          "激光碳粉盒内部部件损坏",
+          "机器内部激光器反光玻璃脏污",
+          "进纸通道脏污",
+          "不符合使用规格的打印介质",
+          "打印内部转印电压异常",
+          "清洁机器背部激光器反光玻璃",
+          "清洁打印机背部进纸通道",
+          "使用规格范围内的打印介质",
+          "清洁机器内部进纸通道"
+        ],
+        "forbidden_terms": [],
+        "relevant_document_ids": [
+          "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+        ],
+        "relevant_document_names": [
+          "source.pdf"
+        ],
+        "relevant_chunk_ids": [
+          "chk_b79bc4aa06b76864828b4a2589fb8f13"
+        ],
+        "relevant_evidence": [
+          {
+            "evidence_id": "ev_f0e6029144c83f20f961249e2fdc5c60e757470b",
+            "chunk_id": "chk_b79bc4aa06b76864828b4a2589fb8f13",
+            "page": 86,
+            "text": "标题路径：前言 > 10.3.1. 一般故障\n\n表题：10.3.2. 图像缺陷\n| 故障现象 | 故障原因 | 解决办法 |\n| --- | --- | --- |\n| 碳粉脱落 | 使用了不符合使用规格的打印介质,例如介质受潮或太粗糙。机器内部脏污。激光碳粉盒损坏。机器内部部件损坏。 | 请使用规格范围内的打印介质。清洁机器内部。建议更换原装激光碳粉盒。 |\n| 黑色竖条 | 激光碳粉盒脏污。激光碳粉盒内部部件损坏。机器内部激光器反光玻璃脏污。进纸通道脏污。·使用了不符合使用规格的打印介质,例如介质受潮或太粗糙。·激光碳粉盒脏污。·激光碳粉盒内部部件损坏。·进纸通道脏污。·打印内部转印电压异常。 | 清洁机器背部激光器反光玻璃。清洁打印机背部进纸通道。·请使用规格范围内的打印介质。·清洁机器内部进纸通道。 |\n| 黑色背景(底灰) |  |  |",
+            "match_terms": [
+              "黑色竖条",
+              "机器内部激光器反光玻璃脏污",
+              "打印内部转印电压异常",
+              "清洁机器背部激光器反光玻璃",
+              "清洁机器内部进纸通道"
+            ],
+            "content_hash": "sha256:6c71f4911e75802c5cf4e4ae00ba2b1375d8a5dc79c463cbd37300f2682494e7"
+          }
+        ],
+        "tags": [
+          "manual",
+          "printer",
+          "zh-CN",
+          "live-baseline",
+          "difficulty-hard",
+          "multi-evidence",
+          "synthesis",
+          "troubleshooting",
+          "comparison",
+          "solution",
+          "suite-v2",
+          "blocker-remediation-proposal"
+        ],
+        "sensitivity": "internal",
+        "metadata": {
+          "type": "synthesis",
+          "difficulty": "hard",
+          "suite_key": "three-difficulty-live-2026-08-10",
+          "evidence_count": 2,
+          "critical": false,
+          "blocker_remediation_disposition": "semantic_replacement",
+          "parent_case_id": "P3500-HARD-009",
+          "proposal_schema_version": "stt.eval.suite-v2-blocker-remediation-proposal.v2-no-index-refresh",
+          "lineage_semantic_replacement": true
+        },
+        "concept_groups": {
+          "all_of": [
+            {
+              "concept_key": "black_stripe_toner_dirty",
+              "any_of": [
+                "激光碳粉盒脏污",
+                "碳粉盒脏污"
+              ]
+            },
+            {
+              "concept_key": "black_stripe_toner_damage",
+              "any_of": [
+                "激光碳粉盒内部部件损坏",
+                "碳粉盒内部部件损坏"
+              ]
+            },
+            {
+              "concept_key": "black_stripe_reflector_dirty",
+              "any_of": [
+                "机器内部激光器反光玻璃脏污",
+                "激光器反光玻璃脏污"
+              ]
+            },
+            {
+              "concept_key": "black_stripe_feed_path_dirty",
+              "any_of": [
+                "进纸通道脏污",
+                "机器进纸通道脏污"
+              ]
+            },
+            {
+              "concept_key": "black_stripe_media_out_of_spec",
+              "any_of": [
+                "使用了不符合使用规格的打印介质",
+                "打印介质不符合规格"
+              ]
+            },
+            {
+              "concept_key": "black_stripe_transfer_voltage",
+              "any_of": [
+                "打印内部转印电压异常",
+                "内部转印电压异常"
+              ]
+            },
+            {
+              "concept_key": "clean_rear_reflector",
+              "any_of": [
+                "清洁机器背部激光器反光玻璃",
+                "清洁背部激光器反光玻璃"
+              ]
+            },
+            {
+              "concept_key": "clean_rear_feed_path",
+              "any_of": [
+                "清洁打印机背部进纸通道",
+                "清洁背部进纸通道"
+              ]
+            },
+            {
+              "concept_key": "use_in_spec_media",
+              "any_of": [
+                "请使用规格范围内的打印介质",
+                "使用符合规格的打印介质"
+              ]
+            },
+            {
+              "concept_key": "clean_internal_feed_path",
+              "any_of": [
+                "清洁机器内部进纸通道",
+                "清洁内部进纸通道"
+              ]
+            }
+          ]
+        }
+      },
+      "contract_draft": {
+        "required_branches": [
+          {
+            "branch_id": "b01",
+            "concept_keys": [
+              "black_stripe_toner_dirty",
+              "black_stripe_toner_damage",
+              "black_stripe_reflector_dirty",
+              "black_stripe_feed_path_dirty",
+              "black_stripe_media_out_of_spec",
+              "black_stripe_transfer_voltage"
+            ]
+          },
+          {
+            "branch_id": "b02",
+            "concept_keys": [
+              "clean_rear_reflector",
+              "clean_rear_feed_path",
+              "use_in_spec_media",
+              "clean_internal_feed_path"
+            ]
+          }
+        ],
+        "critical_constraints": {}
+      },
+      "import_gate": {
+        "status": "ready_after_suite_v2_review",
+        "requires_full_suite_same_prompt_review": true,
+        "requires_live_result_review": true,
+        "must_not_use_production_answers_for_authoring": true
+      },
+      "audit": {
+        "original_case_sha256": "5513aabae6d5a0e7605ca96f2f2c8e87f5fe17ffbc06e22c411c87447c1aa1bb",
+        "proposed_case_sha256": "db3d3eb62958b2fb2470154507b2030099f17acd88569e8d8d16bfc40e1b72bc",
+        "semantic_replacement_payload_sha256": "144169ac359cf6871e4b08dd246b697f685dd8f80e03b0ce29d42d7da7b851d8",
+        "authoring_inputs": [
+          "source PDF pages",
+          "immutable dataset manifests",
+          "full-suite reviewer block reason"
+        ],
+        "excluded_inputs": [
+          "production model answers",
+          "run pass/fail labels",
+          "per-case production metrics"
+        ]
+      }
+    },
+    {
+      "case_id": "P3500-HARD-011",
+      "difficulty": "hard",
+      "suite_v2_target_selector": {
+        "parent_case_id": "P3500-HARD-011"
+      },
+      "disposition": "semantic_replacement",
+      "blocker_reason": "A4、80 g/m²普通纸同时满足标准纸盒和多功能纸盒规格；旧题未给打印量却要求唯一选盒，并把容量差推断为“不适合大批量”。",
+      "trigger": "full_suite_reviewer_block",
+      "source_review_verdict": "block",
+      "source_review_reason": "证据只提供介质规格和容量数值，没有“大批量”阈值；可直接比较两纸盒的适配性与容量。",
+      "visual_audit_disposition": "not_applicable_reviewer_block",
+      "original_visual_pages_checked": [],
+      "source_facts": [
+        {
+          "statement": "标准纸盒和多功能纸盒均支持A4普通纸，80 g/m²落在两者克重范围内。",
+          "pdf_pages": [
+            22
+          ],
+          "evidence_ids": [
+            "ev_a4337cb04380459fd3ae4238ec0cfa8cde6acb85"
+          ]
+        },
+        {
+          "statement": "标准纸盒克重范围60至105 g/m²、容量250页；多功能纸盒克重范围60至200 g/m²、容量60页，因此标准纸盒容量更大。",
+          "pdf_pages": [
+            22
+          ],
+          "evidence_ids": [
+            "ev_a4337cb04380459fd3ae4238ec0cfa8cde6acb85"
+          ]
+        }
+      ],
+      "source_bindings": [
+        {
+          "evidence_id": "ev_a4337cb04380459fd3ae4238ec0cfa8cde6acb85",
+          "chunk_id": "chk_624fb1bb7a2b7c3a746806e858aac16b",
+          "declared_page": 22,
+          "visual_pages": [
+            22
+          ],
+          "content_hash": "sha256:0bc2983ca8513d07f263f87f7ea3ae553379700efb3e0bab2dd460acf9e35062",
+          "integrity": "active_index_complete",
+          "note": "活动chunk完整包含两纸盒的介质类型、A4尺寸、克重范围和容量；替换题只要求直接适配判断及数值比较。"
+        }
+      ],
+      "difficulty_equivalence": "替换题仍要求跨同一规格表的类型、尺寸、克重和容量列完成四分支比较，保留hard级多字段综合。",
+      "proposed_case": {
+        "case_id": "P3500-HARD-011",
+        "query": "标准纸盒和多功能纸盒是否都支持A4、80 g/m²普通纸？两者的介质克重范围和最大容量分别是多少，哪个纸盒容量更大？",
+        "conversation": [],
+        "reference_answer": "两种纸盒都支持A4、80 g/m²普通纸。标准纸盒的介质克重范围为60~105 g/m²，最大容量250页；多功能纸盒的介质克重范围为60~200 g/m²，最大容量60页。标准纸盒容量更大。",
+        "unanswerable": false,
+        "expected_terms": [
+          "两种纸盒都支持",
+          "60~105 g/m²",
+          "250页",
+          "60~200 g/m²",
+          "60页",
+          "标准纸盒容量更大"
+        ],
+        "forbidden_terms": [],
+        "relevant_document_ids": [
+          "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+        ],
+        "relevant_document_names": [
+          "source.pdf"
+        ],
+        "relevant_chunk_ids": [
+          "chk_624fb1bb7a2b7c3a746806e858aac16b"
+        ],
+        "relevant_evidence": [
+          {
+            "evidence_id": "ev_a4337cb04380459fd3ae4238ec0cfa8cde6acb85",
+            "chunk_id": "chk_624fb1bb7a2b7c3a746806e858aac16b",
+            "page": 22,
+            "text": "标题路径：前言 > 2.1. 纸张规格\n\n表头：P3500系列 | 标准纸盒 | 介质类型 | 自动*、普通纸、薄纸\n表头：P3500系列 | 标准纸盒 | 介质尺寸 | 自动*、A4、Letter、A5、Legal、Statement、B5、Folio、Oficio、Executive、ISO B5、A5 L、A6、B6、16K、Big 16K、32K、Big 32K。\n| P3500系列 | 标准纸盒 | 介质克重 | 60~105 g/m2 |\n| --- | --- | --- | --- |\n| P3500系列 | 标准纸盒 | 纸盒最大容量 | 250页 |\n| P3500系列 | 多功能纸盒 | 介质类型 | 自动*、普通纸、厚纸、薄纸、透明胶片纸、卡片纸、标签纸、信封纸 |\n| P3500系列 | 多功能纸盒 | 介质尺寸 | 自动*、A4、Letter、Legal、Folio、Oficio、Statement、Executive、JIS B5、ISO B5、A5、A5 L、A6、B6、Monarch Env、DL Env、C5 Env、NO.10 Env、C6 Env、Jap Postcard、Postcard、Yougata2、Nagagata3、Younaga3、Yougata4、Long Paper (1.2m)、ZL、16K、Big 16K、32K、Big 32K。 |\n| P3500系列 | 多功能纸盒 | 介质克重 | 60~200 g/m2 |\n| P3500系列 | 多功能纸盒 | 纸盒最大容量 | 60页 |",
+            "match_terms": [
+              "标准纸盒 | 介质尺寸 | 自动*、A4",
+              "标准纸盒 | 介质克重 | 60~105 g/m2",
+              "标准纸盒 | 纸盒最大容量 | 250页",
+              "多功能纸盒 | 介质克重 | 60~200 g/m2",
+              "多功能纸盒 | 纸盒最大容量 | 60页"
+            ],
+            "content_hash": "sha256:0bc2983ca8513d07f263f87f7ea3ae553379700efb3e0bab2dd460acf9e35062"
+          }
+        ],
+        "tags": [
+          "manual",
+          "printer",
+          "zh-CN",
+          "live-baseline",
+          "difficulty-hard",
+          "multi-evidence",
+          "synthesis",
+          "paper_handling",
+          "capacity_comparison",
+          "suite-v2",
+          "blocker-remediation-proposal"
+        ],
+        "sensitivity": "internal",
+        "metadata": {
+          "type": "synthesis",
+          "difficulty": "hard",
+          "suite_key": "three-difficulty-live-2026-08-10",
+          "evidence_count": 2,
+          "critical": false,
+          "blocker_remediation_disposition": "semantic_replacement",
+          "parent_case_id": "P3500-HARD-011",
+          "proposal_schema_version": "stt.eval.suite-v2-blocker-remediation-proposal.v2-no-index-refresh",
+          "lineage_semantic_replacement": true
+        },
+        "concept_groups": {
+          "all_of": [
+            {
+              "concept_key": "both_trays_support_a4_80_plain",
+              "any_of": [
+                "两种纸盒都支持A4、80 g/m²普通纸",
+                "标准纸盒和多功能纸盒均支持A4 80克普通纸"
+              ]
+            },
+            {
+              "concept_key": "standard_tray_weight",
+              "any_of": [
+                "标准纸盒介质克重60~105 g/m²",
+                "标准纸盒支持60至105克每平方米"
+              ]
+            },
+            {
+              "concept_key": "standard_tray_capacity",
+              "any_of": [
+                "标准纸盒最大容量250页",
+                "标准纸盒可装250页"
+              ]
+            },
+            {
+              "concept_key": "multipurpose_tray_weight",
+              "any_of": [
+                "多功能纸盒介质克重60~200 g/m²",
+                "多功能纸盒支持60至200克每平方米"
+              ]
+            },
+            {
+              "concept_key": "multipurpose_tray_capacity",
+              "any_of": [
+                "多功能纸盒最大容量60页",
+                "多功能纸盒可装60页"
+              ]
+            },
+            {
+              "concept_key": "standard_capacity_larger",
+              "any_of": [
+                "标准纸盒容量更大",
+                "标准纸盒的最大容量高于多功能纸盒"
+              ]
+            }
+          ]
+        }
+      },
+      "contract_draft": {
+        "required_branches": [
+          {
+            "branch_id": "b01",
+            "concept_keys": [
+              "both_trays_support_a4_80_plain"
+            ]
+          },
+          {
+            "branch_id": "b02",
+            "concept_keys": [
+              "standard_tray_weight",
+              "standard_tray_capacity"
+            ]
+          },
+          {
+            "branch_id": "b03",
+            "concept_keys": [
+              "multipurpose_tray_weight",
+              "multipurpose_tray_capacity"
+            ]
+          },
+          {
+            "branch_id": "b04",
+            "concept_keys": [
+              "standard_capacity_larger"
+            ]
+          }
+        ],
+        "critical_constraints": {
+          "required_numerics": [
+            60,
+            105,
+            200,
+            250
+          ]
+        }
+      },
+      "import_gate": {
+        "status": "ready_after_suite_v2_review",
+        "requires_full_suite_same_prompt_review": true,
+        "requires_live_result_review": true,
+        "must_not_use_production_answers_for_authoring": true
+      },
+      "audit": {
+        "original_case_sha256": "afba895271f43863768eb1be00b25b18e962d8c59cf9b5e31e9eddb714ae1ae6",
+        "proposed_case_sha256": "ec9c5e7968cb9a10aa98c0f3de74255c1a688131eb977321362cb7bd65319cc0",
+        "semantic_replacement_payload_sha256": "603edc6e4cbddb3b14c36662ba4c7c7b01725dce64a4199a47e0d87b7cf19557",
+        "authoring_inputs": [
+          "source PDF pages",
+          "immutable dataset manifests",
+          "full-suite reviewer block reason"
+        ],
+        "excluded_inputs": [
+          "production model answers",
+          "run pass/fail labels",
+          "per-case production metrics"
+        ]
+      }
+    },
+    {
+      "case_id": "P3500-HARD-015",
+      "difficulty": "hard",
+      "suite_v2_target_selector": {
+        "parent_case_id": "P3500-HARD-015"
+      },
+      "disposition": "corrected",
+      "blocker_reason": "源文明确阴影部分为非打印区域，旧参考却把白色空白区域判为非打印区域。",
+      "trigger": "pdf_visual_audit_block",
+      "source_review_verdict": null,
+      "source_review_reason": null,
+      "visual_audit_disposition": "confirmed_source_conflict",
+      "original_visual_pages_checked": [
+        28,
+        59
+      ],
+      "source_facts": [
+        {
+          "statement": "图中阴影部分表示非打印区域，位于内外矩形边界之间的边缘带。",
+          "pdf_pages": [
+            28
+          ],
+          "evidence_ids": [
+            "ev_c53f37b3138ccaf59c675c3df8719977e4efd1f3"
+          ]
+        },
+        {
+          "statement": "打印首选项选择省墨模式时，输出颜色为较淡。",
+          "pdf_pages": [
+            59
+          ],
+          "evidence_ids": [
+            "ev_30a38253df74711824964334f75ba970ae2c5a21"
+          ]
+        }
+      ],
+      "source_bindings": [
+        {
+          "evidence_id": "ev_c53f37b3138ccaf59c675c3df8719977e4efd1f3",
+          "chunk_id": "chk_d5663e18e84e4805f9f3f9e256b20b62",
+          "declared_page": 28,
+          "visual_pages": [
+            28
+          ],
+          "content_hash": "sha256:a9abaa20055d1ff279ec3dbb613c38710b365c9eaf262242bf25a3693e2fc85f",
+          "integrity": "text_authoritative_visual_caption_conflict",
+          "note": "chunk正文的‘阴影部分表示非打印区域’正确；自动图像描述误称中间区域为白色空白，不得用该描述反转正文。"
+        },
+        {
+          "evidence_id": "ev_30a38253df74711824964334f75ba970ae2c5a21",
+          "chunk_id": "chk_ae4387a75e0acbb552f305d79ff3dc76",
+          "declared_page": 59,
+          "visual_pages": [
+            59
+          ],
+          "content_hash": "sha256:408d8b223b28e1c6486e6eb584565a171ee655464c0a3ca43760d00d07b550da",
+          "integrity": "usable",
+          "note": "正文和界面均明确省墨模式与较淡输出。"
+        }
+      ],
+      "difficulty_equivalence": null,
+      "proposed_case": {
+        "case_id": "P3500-HARD-015",
+        "query": "在打印文档时，非打印区域位于何处？若希望输出颜色较淡，应在打印首选项中选择何种模式？请结合图示与界面设置说明作答。",
+        "conversation": [],
+        "reference_answer": "非打印区域是图中内外矩形边界之间的阴影部分；若希望输出颜色较淡，应在打印首选项中选择“省墨”模式。",
+        "unanswerable": false,
+        "expected_terms": [
+          "阴影部分",
+          "省墨",
+          "较淡"
+        ],
+        "forbidden_terms": [
+          "白色空白区域是非打印区域"
+        ],
+        "relevant_document_ids": [
+          "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+        ],
+        "relevant_document_names": [
+          "source.pdf"
+        ],
+        "relevant_chunk_ids": [
+          "chk_d5663e18e84e4805f9f3f9e256b20b62",
+          "chk_ae4387a75e0acbb552f305d79ff3dc76"
+        ],
+        "relevant_evidence": [
+          {
+            "evidence_id": "ev_c53f37b3138ccaf59c675c3df8719977e4efd1f3",
+            "chunk_id": "chk_d5663e18e84e4805f9f3f9e256b20b62",
+            "page": 28,
+            "text": "标题路径：前言 > 2.3. 非打印区域\n\n阴影部分表示非打印区域。\n\n![图片](images/afb3e492aa738b455e90bde570e734633143a39ede31e33d13ac805ae49239b9.jpg)\n\n视觉类型：框架结构示意图  \n标题：无  \n轴/图例/标签：A I（左侧上下各一）、B（底部左右各一）  \n数据点：无  \n标题/注释：无  \n\n一个由内外两层矩形边框构成的同心矩形框架，外层边框为黑色粗线，内层边框为灰色中等粗细线，中间区域为白色空白；左侧外边缘标注两个红色大写字母“A”和“I”，垂直排列，上方“A”在上、下方“I”在下，下方“A”与上方“I”对齐；底部外边缘左右两端各有一个黑色水平短横线标记，分别对应左右两侧边框的宽度，每个标记下方标注红色大写字母“B”；所有标注文字均为红色，除“B”外其余为黑色。",
+            "match_terms": [
+              "阴影部分表示非打印区域"
+            ],
+            "content_hash": "sha256:a9abaa20055d1ff279ec3dbb613c38710b365c9eaf262242bf25a3693e2fc85f"
+          },
+          {
+            "evidence_id": "ev_30a38253df74711824964334f75ba970ae2c5a21",
+            "chunk_id": "chk_ae4387a75e0acbb552f305d79ff3dc76",
+            "page": 59,
+            "text": "标题路径：前言 > 2.通过打印首选项设置：\n\n点击打印首选项，点击左上方“版面”按钮，进入如下界面，选择“省墨”模式，“省墨”模式下打印输出颜色为“较淡”。\n\n![图片](images/3489d070d22b8820f5ecf174f01fb8b40d34a764d7fe017d6af7922f34c13a54.jpg)\n\n一般图形内容  \n窗口标题为“打印首选项”，右上角有关闭按钮（红色背景带白色“X”）。顶部有三个选项卡：“基本”“纸张”“版面”，其中“版面”选项卡被选中并以红色方框标出。下方分为多个区域：左侧“多页”区域包含标签“多页”“边框”“排序”“缩放”，对应下拉框或输入框，其中“多页”值为“1页”，“边框”为“无边框”，“排序”为“向右再向下”，“缩放”显示“原始尺寸的 100 %”，右侧有缩放范围“25-400%”及一个示意图（含字母“P”和数行横线）。中间偏左“省墨”区域，包含已勾选的复选框“省墨”，其下方为“浓度”下拉框，当前值为“较淡”。中间偏右“图像方向”区域，包含三个单选按钮：“横向”“纵向”（已选中）“旋转180度”，其中“纵向”旁有实心圆点，“横向”与“旋转180度”为空心圆点。底部左侧为“PANTUM”品牌标志，右侧为“恢复默认设置”按钮。最下方从左至右依次为蓝色“确定”按钮、灰色“取消”按钮、“帮助”按钮。所有文字均为简体中文，字体清晰可辨，界面整体为浅灰白背景，元素布局呈左右分栏与上下分组结构。",
+            "match_terms": [
+              "打印首选项",
+              "省墨",
+              "较淡"
+            ],
+            "content_hash": "sha256:408d8b223b28e1c6486e6eb584565a171ee655464c0a3ca43760d00d07b550da"
+          }
+        ],
+        "tags": [
+          "manual",
+          "printer",
+          "zh-CN",
+          "live-baseline",
+          "difficulty-hard",
+          "multi-evidence",
+          "synthesis",
+          "print_area",
+          "output_settings",
+          "suite-v2",
+          "blocker-remediation-proposal"
+        ],
+        "sensitivity": "internal",
+        "metadata": {
+          "type": "synthesis",
+          "difficulty": "hard",
+          "suite_key": "three-difficulty-live-2026-08-10",
+          "evidence_count": 2,
+          "critical": false,
+          "blocker_remediation_disposition": "corrected",
+          "parent_case_id": "P3500-HARD-015",
+          "proposal_schema_version": "stt.eval.suite-v2-blocker-remediation-proposal.v2-no-index-refresh"
+        },
+        "concept_groups": {
+          "all_of": [
+            {
+              "concept_key": "non_print_area",
+              "any_of": [
+                "阴影部分",
+                "内外矩形边界之间的阴影区域"
+              ]
+            },
+            {
+              "concept_key": "toner_save_mode",
+              "any_of": [
+                "省墨模式",
+                "省墨"
+              ]
+            },
+            {
+              "concept_key": "lighter_output",
+              "any_of": [
+                "输出颜色较淡",
+                "颜色较淡"
+              ]
+            }
+          ]
+        }
+      },
+      "contract_draft": {
+        "required_branches": [
+          {
+            "branch_id": "b01",
+            "concept_keys": [
+              "non_print_area"
+            ]
+          },
+          {
+            "branch_id": "b02",
+            "concept_keys": [
+              "toner_save_mode",
+              "lighter_output"
+            ]
+          }
+        ],
+        "critical_constraints": {
+          "required_polarity": [
+            "阴影区域是非打印区域"
+          ],
+          "forbidden_claims": [
+            "白色空白区域是非打印区域"
+          ]
+        }
+      },
+      "import_gate": {
+        "status": "ready_after_suite_v2_review",
+        "requires_full_suite_same_prompt_review": true,
+        "requires_live_result_review": true,
+        "must_not_use_production_answers_for_authoring": true
+      },
+      "audit": {
+        "original_case_sha256": "570caab49dfc41d1718e08be143c6634d02cbe4f2f6a2604625d5dc950487565",
+        "proposed_case_sha256": "890b9ef11939b220d894622953521b21225e141b876bdc2d8b21fef3249b4895",
+        "semantic_replacement_payload_sha256": null,
+        "authoring_inputs": [
+          "source PDF pages",
+          "immutable dataset manifests",
+          "PDF visual audit sidecar"
+        ],
+        "excluded_inputs": [
+          "production model answers",
+          "run pass/fail labels",
+          "per-case production metrics"
+        ]
+      }
+    },
+    {
+      "case_id": "P3500-HARD-021",
+      "difficulty": "hard",
+      "suite_v2_target_selector": {
+        "parent_case_id": "P3500-HARD-021"
+      },
+      "disposition": "replacement",
+      "blocker_reason": "源文分别说明IPv6地址类型和无线拓扑，但没有建立原题要求的一一模式映射。",
+      "trigger": "pdf_visual_audit_block",
+      "source_review_verdict": null,
+      "source_review_reason": null,
+      "visual_audit_disposition": "source_scope_not_explicit",
+      "original_visual_pages_checked": [
+        40,
+        41
+      ],
+      "source_facts": [
+        {
+          "statement": "IPv6本地链路地址自行配置并以FE80开头；有状态地址由DHCPv6服务器配置；无状态地址由路由器自动配置。",
+          "pdf_pages": [
+            40
+          ],
+          "evidence_ids": [
+            "ev_fe59ce7fd78c8da261d5c26ad45f82e91651d528"
+          ]
+        },
+        {
+          "statement": "基础结构模式通过接入点连接设备；Wi-Fi热点模式由计算机直接无线连接打印机热点。",
+          "pdf_pages": [
+            41
+          ],
+          "evidence_ids": [
+            "ev_2d9e4f1c45df7a19098ae3cf12e7c8ef1ed1df12"
+          ]
+        },
+        {
+          "statement": "手册没有把任一IPv6地址类型排他地绑定到某一种无线连接模式。",
+          "pdf_pages": [
+            40,
+            41
+          ],
+          "evidence_ids": [
+            "ev_fe59ce7fd78c8da261d5c26ad45f82e91651d528",
+            "ev_2d9e4f1c45df7a19098ae3cf12e7c8ef1ed1df12"
+          ]
+        }
+      ],
+      "source_bindings": [
+        {
+          "evidence_id": "ev_fe59ce7fd78c8da261d5c26ad45f82e91651d528",
+          "chunk_id": "chk_d4edecec9b4e48497692ff399206a09d",
+          "declared_page": 40,
+          "visual_pages": [
+            40
+          ],
+          "content_hash": "sha256:972ce801f19861af3dd336e9e9cdba60d5bde8c8ebc0d3769255692ebf91a7f2",
+          "integrity": "usable",
+          "note": "IPv6三类地址定义为正文。"
+        },
+        {
+          "evidence_id": "ev_2d9e4f1c45df7a19098ae3cf12e7c8ef1ed1df12",
+          "chunk_id": "chk_1de2216a4acc7de824ca6001e5ea16eb",
+          "declared_page": 40,
+          "visual_pages": [
+            41
+          ],
+          "content_hash": "sha256:ad92c7743c2101827b20e6fa7f61f8b351c1ca586929069e1afc0574ddfd9655",
+          "integrity": "usable_merged_chunk",
+          "note": "chunk声明页为40，拓扑图和标签实际位于PDF第41页。"
+        }
+      ],
+      "difficulty_equivalence": null,
+      "proposed_case": {
+        "case_id": "P3500-HARD-021",
+        "query": "手册分别列出三种IPv6地址类型和两种无线连接模式。请说明三种IPv6地址的获得方式或识别特征，并概括基础结构与Wi-Fi热点模式的连接拓扑；手册是否明确规定某一种地址类型只属于某一种无线模式？",
+        "conversation": [],
+        "reference_answer": "IPv6本地链路地址由设备自行配置，以FE80开头；有状态地址由DHCPv6服务器配置，网络中没有DHCPv6服务器时不能分配；无状态地址由网络路由器自动配置。基础结构模式通过接入点（无线路由器）连接无线网络打印机和计算机；Wi-Fi热点模式由计算机直接通过无线网络连接打印机热点。手册没有把某一种IPv6地址类型排他地绑定到某一种无线模式，因此不能作一一映射。",
+        "unanswerable": false,
+        "expected_terms": [
+          "FE80",
+          "DHCPv6服务器",
+          "网络路由器自动配置",
+          "接入点",
+          "打印机热点",
+          "不能作一一映射"
+        ],
+        "forbidden_terms": [],
+        "relevant_document_ids": [
+          "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+        ],
+        "relevant_document_names": [
+          "source.pdf"
+        ],
+        "relevant_chunk_ids": [
+          "chk_d4edecec9b4e48497692ff399206a09d",
+          "chk_1de2216a4acc7de824ca6001e5ea16eb"
+        ],
+        "relevant_evidence": [
+          {
+            "evidence_id": "ev_fe59ce7fd78c8da261d5c26ad45f82e91651d528",
+            "chunk_id": "chk_d4edecec9b4e48497692ff399206a09d",
+            "page": 40,
+            "text": "标题路径：前言 > 4.1.2.2. 通过内嵌Web服务器启用IPv6协议\n\n1.打开打印机电源，将打印机连接到网络。\n\n2.登录内嵌Web服务器（如何登录，参阅第5.2.1章）。\n\n3.点击“设置”－“网络设置”－“协议设置”－“IPv6”。\n\n4.勾选“启用IPv6协议”和 “启用DHCPv6”（默认为勾选），点击“应用”。\n\n您可刷新浏览器，在“有线IP配置”界面，查看“IPv6本地链路地址”和“有状态地址”。\n\n注： 打印机支持使用下列 IPv6 地址进行网络打印和管理；\n\n• IPv6本地链路地址：自行配置的本地 IPv6 地址（以 FE80 开头的地址）。\n\n• 有状态地址：DHCPv6 服务器配置的 IPv6 地址（若网络中无DHCPv6服务器，“有状态地址”不能分配）；\n\n• 无状态地址：网络路由器自动配置的 IPv6 地址（参阅第1.5章，在“网络配置信息页”中查看）。",
+            "match_terms": [
+              "IPv6本地链路地址",
+              "FE80",
+              "有状态地址",
+              "DHCPv6服务器",
+              "无状态地址",
+              "网络路由器自动配置"
+            ],
+            "content_hash": "sha256:972ce801f19861af3dd336e9e9cdba60d5bde8c8ebc0d3769255692ebf91a7f2"
+          },
+          {
+            "evidence_id": "ev_2d9e4f1c45df7a19098ae3cf12e7c8ef1ed1df12",
+            "chunk_id": "chk_1de2216a4acc7de824ca6001e5ea16eb",
+            "page": 40,
+            "text": "标题路径：前言 > 4.2. 无线网络类型\n\n无线网络连接类型，分为基础结构连接和Wi-Fi热点连接两种模式。若您在无线网络设置过程中遇到问题，请参阅第4.4章。\n\n![图片](images/d9e7c33c82142d4fd04cbe1526573770260a08957cb94e35101d71dae315b18b.jpg)\n\n![图片](images/8c73820b7cea17ac51e49cecaaa1c94a58f00c567e7e78b5ac31d5ba2d75414a.jpg)\n\n基础结构连接模式：通过路由器与无线设备连接\n\n1.接入点（无线路由器）\n\n2.无线网络打印机\n\n3.通过无线网络连接至接入点的计算机\n\n4.通过网线连接至接入点的计算机\n\nWi-Fi热点连接模式：计算机与带Wi-Fi功能的打印机连接\n\n1.无线网络打印机\n\n2.通过无线网络连接打印机热点的计算机\n\n视觉类型：示意图  \n标题：  \n轴/图例/标签：  \n数据点：  \n标题/注释：  \n\n4 位于图像顶部，由一台立式主机和一台显示器组成，二者通过一条水平线连接至下方的分支结构；1 位于中央偏下位置，为一个带两根天线的无线路由器，其左侧有从 3（一台笔记本电脑）发出的三道弧形无线信号波纹，右侧有指向 2（一台打印机）的三道弧形无线信号波纹；3 位于左上区域，是一台闭合状态的笔记本电脑，屏幕为深色，键盘区域可见；2 位于右上区域，是一台打印机，外形方正，顶部有纸张输出托盘；在图像下半部分，左侧并列放置两台相同的笔记本电脑，均标记为 2，每台电脑右侧均有不同数量的弧形无线信号波纹（上方一组为五道，下方一组为四道），右侧各对应一台标记为 1 的打印机，两台打印机外观一致；所有数字标签均为阿拉伯数字，以黑色印刷体标注于对应设备附近。",
+            "match_terms": [
+              "基础结构连接模式",
+              "Wi-Fi热点连接模式",
+              "接入点",
+              "打印机热点"
+            ],
+            "content_hash": "sha256:ad92c7743c2101827b20e6fa7f61f8b351c1ca586929069e1afc0574ddfd9655"
+          }
+        ],
+        "tags": [
+          "manual",
+          "printer",
+          "zh-CN",
+          "live-baseline",
+          "difficulty-hard",
+          "multi-evidence",
+          "synthesis",
+          "network_mode",
+          "ipv6_address_assignment",
+          "suite-v2",
+          "blocker-remediation-proposal"
+        ],
+        "sensitivity": "internal",
+        "metadata": {
+          "type": "synthesis",
+          "difficulty": "hard",
+          "suite_key": "three-difficulty-live-2026-08-10",
+          "evidence_count": 2,
+          "critical": false,
+          "blocker_remediation_disposition": "replacement",
+          "parent_case_id": "P3500-HARD-021",
+          "proposal_schema_version": "stt.eval.suite-v2-blocker-remediation-proposal.v2-no-index-refresh"
+        },
+        "concept_groups": {
+          "all_of": [
+            {
+              "concept_key": "local_link",
+              "any_of": [
+                "自行配置的本地IPv6地址，以FE80开头",
+                "本地链路地址以FE80开头"
+              ]
+            },
+            {
+              "concept_key": "stateful",
+              "any_of": [
+                "有状态地址由DHCPv6服务器配置",
+                "DHCPv6服务器配置有状态地址"
+              ]
+            },
+            {
+              "concept_key": "stateless",
+              "any_of": [
+                "无状态地址由网络路由器自动配置",
+                "路由器自动配置无状态地址"
+              ]
+            },
+            {
+              "concept_key": "infrastructure_topology",
+              "any_of": [
+                "基础结构模式通过接入点连接设备",
+                "通过无线路由器连接打印机和计算机"
+              ]
+            },
+            {
+              "concept_key": "hotspot_topology",
+              "any_of": [
+                "计算机直接无线连接打印机热点",
+                "Wi-Fi热点模式直接连接打印机"
+              ]
+            },
+            {
+              "concept_key": "no_exclusive_mapping",
+              "any_of": [
+                "不能作一一映射",
+                "手册未规定地址类型只属于某一种无线模式"
+              ]
+            }
+          ]
+        }
+      },
+      "contract_draft": {
+        "required_branches": [
+          {
+            "branch_id": "b01",
+            "concept_keys": [
+              "local_link",
+              "stateful",
+              "stateless"
+            ]
+          },
+          {
+            "branch_id": "b02",
+            "concept_keys": [
+              "infrastructure_topology",
+              "hotspot_topology"
+            ]
+          },
+          {
+            "branch_id": "b03",
+            "concept_keys": [
+              "no_exclusive_mapping"
+            ]
+          }
+        ],
+        "critical_constraints": {
+          "required_identifiers": [
+            "FE80",
+            "DHCPv6"
+          ],
+          "required_polarity": [
+            "没有排他一一映射"
+          ]
+        }
+      },
+      "import_gate": {
+        "status": "ready_after_suite_v2_review",
+        "requires_full_suite_same_prompt_review": true,
+        "requires_live_result_review": true,
+        "must_not_use_production_answers_for_authoring": true
+      },
+      "audit": {
+        "original_case_sha256": "715cbde713bafb485f1d8cd48d93fdd12d0a104607d1655c5cbeb8d1693cfb23",
+        "proposed_case_sha256": "9dd6e90eb29f60b22b78ab9e0b0d8fac8838b4955be333999664f17855019710",
+        "semantic_replacement_payload_sha256": null,
+        "authoring_inputs": [
+          "source PDF pages",
+          "immutable dataset manifests",
+          "PDF visual audit sidecar"
+        ],
+        "excluded_inputs": [
+          "production model answers",
+          "run pass/fail labels",
+          "per-case production metrics"
+        ]
+      }
+    },
+    {
+      "case_id": "P3500-HARD-037",
+      "difficulty": "hard",
+      "suite_v2_target_selector": {
+        "parent_case_id": "P3500-HARD-037"
+      },
+      "disposition": "replacement",
+      "blocker_reason": "激光标签关键标识符在当前活动chunk中被误OCR，无法仅修参考而保持索引可回答；替换为两个现有完整环保正文chunk的路径比较题。",
+      "trigger": "pdf_visual_audit_block",
+      "source_review_verdict": null,
+      "source_review_reason": null,
+      "visual_audit_disposition": "confirmed_source_conflict",
+      "original_visual_pages_checked": [
+        4
+      ],
+      "source_facts": [
+        {
+          "statement": "法规信息要求把废弃设备送到指定收集点，以回收利用废弃的电气和电子设备。",
+          "pdf_pages": [
+            7
+          ],
+          "evidence_ids": [
+            "ev_70e1da742ddd8d2b506890422625113c71836783"
+          ]
+        },
+        {
+          "statement": "奔图回收体系允许把废弃打印机和耗材交给当地奔图维修中心统一回收。",
+          "pdf_pages": [
+            4
+          ],
+          "evidence_ids": [
+            "ev_82c71a223525922e9158416347c996f49c5f6a94"
+          ]
+        },
+        {
+          "statement": "维修中心之后把废弃产品交由国家认定、具备废弃物处理资质的机构正确回收和再利用。",
+          "pdf_pages": [
+            4
+          ],
+          "evidence_ids": [
+            "ev_82c71a223525922e9158416347c996f49c5f6a94"
+          ]
+        }
+      ],
+      "source_bindings": [
+        {
+          "evidence_id": "ev_70e1da742ddd8d2b506890422625113c71836783",
+          "chunk_id": "chk_e1b0b7ed3aca12e0199e2a74e4dce671",
+          "declared_page": 7,
+          "visual_pages": [
+            7
+          ],
+          "content_hash": "sha256:0486f425d0398b460502c504eb59f41a2b83e8ad9b675a944a55a3833ad4fa4b",
+          "integrity": "active_index_complete",
+          "note": "活动chunk完整包含不得随意丢弃、指定收集点和回收目的。"
+        },
+        {
+          "evidence_id": "ev_82c71a223525922e9158416347c996f49c5f6a94",
+          "chunk_id": "chk_33cf34ea443dc65bbe5c2d5b76110f35",
+          "declared_page": 4,
+          "visual_pages": [
+            4
+          ],
+          "content_hash": "sha256:2a22861a2ffd746c2b5b4731d83f50ce7b9f4f574db80c7c43b6472ae3e783e2",
+          "integrity": "active_index_complete",
+          "note": "活动chunk完整包含维修中心、具资质处理机构及回收再利用路径。"
+        }
+      ],
+      "difficulty_equivalence": "原题是跨两类证据的双分支综合题；替换题仍需联合两个不同页面/chunk，重建两段处理路径并抽象共同原则，分支数和综合推理负荷保持hard。",
+      "proposed_case": {
+        "case_id": "P3500-HARD-037",
+        "query": "手册给出两条废弃物处理路径：法规信息对一般废弃设备要求送往哪里、目的是什么？奔图回收体系中，废弃打印机和耗材先交给哪里，之后由何类机构处理？两条路径体现的共同处理原则是什么？",
+        "conversation": [],
+        "reference_answer": "法规信息要求将废弃设备送到指定的收集点，以回收利用废弃的电气和电子设备。奔图回收体系中，废弃打印机和耗材先交给当地奔图维修中心统一回收，再由国家认定、具备废弃物处理资质的机构进行正确回收和再利用。两条路径都要求避免随意混同丢弃，将废弃物交给指定或具资质的渠道集中回收利用。",
+        "unanswerable": false,
+        "expected_terms": [
+          "指定的收集点",
+          "回收利用废弃的电气和电子设备",
+          "当地奔图维修中心",
+          "具备废弃物处理资质的机构",
+          "集中回收利用"
+        ],
+        "forbidden_terms": [],
+        "relevant_document_ids": [
+          "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+        ],
+        "relevant_document_names": [
+          "source.pdf"
+        ],
+        "relevant_chunk_ids": [
+          "chk_e1b0b7ed3aca12e0199e2a74e4dce671",
+          "chk_33cf34ea443dc65bbe5c2d5b76110f35"
+        ],
+        "relevant_evidence": [
+          {
+            "evidence_id": "ev_70e1da742ddd8d2b506890422625113c71836783",
+            "chunk_id": "chk_e1b0b7ed3aca12e0199e2a74e4dce671",
+            "page": 7,
+            "text": "标题路径：前言 > 法规信息\n\n![图片](images/e5aa3457fac79116ef6f52d5a030402c054f29f1e11b032ed42742d2a0f98501.jpg)\n\n此符号表明不能将该产品与其它废物一起随意丢弃。更妥善的做法，您应该将废弃设备送到指定的收集点，以便回收利用废弃的电气和电子设备。\n\n![图片](images/1a3fa668bda4d22861945754be5484e761009b9fde181c6550616f578a35ba0e.jpg)\n\n本产品适合室内使用，不适合室外使用。\n\n一个被红色斜线划掉的垃圾桶图标，位于图像上部；其下方是一个深灰色水平矩形条；再下方左侧是一个白色房屋轮廓图标，右侧为一个黑色实心矩形块，二者并列排布。",
+            "match_terms": [
+              "送到指定的收集点",
+              "回收利用废弃的电气和电子设备"
+            ],
+            "content_hash": "sha256:0486f425d0398b460502c504eb59f41a2b83e8ad9b675a944a55a3833ad4fa4b"
+          },
+          {
+            "evidence_id": "ev_82c71a223525922e9158416347c996f49c5f6a94",
+            "chunk_id": "chk_33cf34ea443dc65bbe5c2d5b76110f35",
+            "page": 4,
+            "text": "标题路径：前言 > 奔图电子产品回收利用体系\n\n为保护环境，奔图电子公司建立废弃产品的回收再利用体系，您可以选择将废弃的打印机和耗材交给当地奔图维修中心进行统一回收，再由国家认定的具备废弃物处理资质的处理机构对废弃产品进行正确的回收、再利用处理，以确保节约资源，降低环境污染，解除用户对废弃产品污染环境的担忧。\n\n![图片](images/ee844f174faf02eaeeb92d8921d6014be65ee38b0c3be4767f815f6e97063d05.jpg)\n\n1. 用户负担费用：用户—维修中心。\n\n2. 奔图电子负担费用：奔图维修中心—具备资质的废弃物处理机构。\n\n用户  \n奔图指定维修中心  \n具备资质的废弃物处理机构  \n（分检）  \n可再生  \n不可再生  \n循环利用  \n综合处理",
+            "match_terms": [
+              "当地奔图维修中心",
+              "具备废弃物处理资质的处理机构",
+              "回收、再利用处理"
+            ],
+            "content_hash": "sha256:2a22861a2ffd746c2b5b4731d83f50ce7b9f4f574db80c7c43b6472ae3e783e2"
+          }
+        ],
+        "tags": [
+          "manual",
+          "printer",
+          "zh-CN",
+          "live-baseline",
+          "difficulty-hard",
+          "multi-evidence",
+          "synthesis",
+          "环保回收",
+          "安全标识",
+          "suite-v2",
+          "blocker-remediation-proposal"
+        ],
+        "sensitivity": "internal",
+        "metadata": {
+          "type": "synthesis",
+          "difficulty": "hard",
+          "suite_key": "three-difficulty-live-2026-08-10",
+          "evidence_count": 2,
+          "critical": false,
+          "blocker_remediation_disposition": "replacement",
+          "parent_case_id": "P3500-HARD-037",
+          "proposal_schema_version": "stt.eval.suite-v2-blocker-remediation-proposal.v2-no-index-refresh"
+        },
+        "concept_groups": {
+          "all_of": [
+            {
+              "concept_key": "general_collection_point",
+              "any_of": [
+                "送到指定的收集点",
+                "交给指定收集点"
+              ]
+            },
+            {
+              "concept_key": "general_recycling_purpose",
+              "any_of": [
+                "回收利用废弃的电气和电子设备",
+                "回收废弃电气电子设备"
+              ]
+            },
+            {
+              "concept_key": "pantum_first_hop",
+              "any_of": [
+                "当地奔图维修中心",
+                "奔图维修中心"
+              ]
+            },
+            {
+              "concept_key": "pantum_second_hop",
+              "any_of": [
+                "国家认定、具备废弃物处理资质的机构",
+                "具备废弃物处理资质的处理机构"
+              ]
+            },
+            {
+              "concept_key": "shared_principle",
+              "any_of": [
+                "交给指定或具资质的渠道集中回收利用",
+                "不得随意丢弃，应通过指定渠道回收"
+              ]
+            }
+          ]
+        }
+      },
+      "contract_draft": {
+        "required_branches": [
+          {
+            "branch_id": "b01",
+            "concept_keys": [
+              "general_collection_point",
+              "general_recycling_purpose"
+            ]
+          },
+          {
+            "branch_id": "b02",
+            "concept_keys": [
+              "pantum_first_hop",
+              "pantum_second_hop"
+            ]
+          },
+          {
+            "branch_id": "b03",
+            "concept_keys": [
+              "shared_principle"
+            ]
+          }
+        ],
+        "critical_constraints": {}
+      },
+      "import_gate": {
+        "status": "ready_after_suite_v2_review",
+        "requires_full_suite_same_prompt_review": true,
+        "requires_live_result_review": true,
+        "must_not_use_production_answers_for_authoring": true
+      },
+      "audit": {
+        "original_case_sha256": "ed0433c6c6b0c32bc21438a813a97e7bdbf290dcebc8eff9fe2a94ba0849cd7f",
+        "proposed_case_sha256": "8ab22b7e29cc98e1bfae593b8605acfbdf8cff9ca3d42da25ed8c1c3dd42a597",
+        "semantic_replacement_payload_sha256": null,
+        "authoring_inputs": [
+          "source PDF pages",
+          "immutable dataset manifests",
+          "PDF visual audit sidecar"
+        ],
+        "excluded_inputs": [
+          "production model answers",
+          "run pass/fail labels",
+          "per-case production metrics"
+        ]
+      }
+    },
+    {
+      "case_id": "P3500-HARD-040",
+      "difficulty": "hard",
+      "suite_v2_target_selector": {
+        "parent_case_id": "P3500-HARD-040"
+      },
+      "disposition": "replacement",
+      "blocker_reason": "原题所需RoHS矩阵数据行未进入当前活动chunk；为避免重建索引，改用两个现有完整正文/表格chunk的标准适用范围综合题。",
+      "trigger": "pdf_visual_audit_block",
+      "source_review_verdict": null,
+      "source_review_reason": null,
+      "visual_audit_disposition": "confirmed_source_conflict",
+      "original_visual_pages_checked": [
+        7,
+        8
+      ],
+      "source_facts": [
+        {
+          "statement": "法规信息说明产品符合EN 55022的B级范围和EN 60950的安全要求。",
+          "pdf_pages": [
+            7
+          ],
+          "evidence_ids": [
+            "ev_1b3eb2878fb886a49d96992d9063ab2a5f185fe3"
+          ]
+        },
+        {
+          "statement": "激光碳粉盒寿命表的平均打印量基于ISO/IEC 19752：标准容量约3000页、高容量约6000页、超大容量约10000页。",
+          "pdf_pages": [
+            15
+          ],
+          "evidence_ids": [
+            "ev_9afc450d3fbb7fc5a1ec87df11e33dc94a275233"
+          ]
+        }
+      ],
+      "source_bindings": [
+        {
+          "evidence_id": "ev_1b3eb2878fb886a49d96992d9063ab2a5f185fe3",
+          "chunk_id": "chk_863cd5259f047d9628e8b9d2ce5f4430",
+          "declared_page": 7,
+          "visual_pages": [
+            7
+          ],
+          "content_hash": "sha256:dd4ba9208c03a13002989662090e8631c6f81c392d2ec42f7042409b99c2643a",
+          "integrity": "active_index_complete",
+          "note": "活动chunk完整包含EN 55022 B级范围和EN 60950安全要求。"
+        },
+        {
+          "evidence_id": "ev_9afc450d3fbb7fc5a1ec87df11e33dc94a275233",
+          "chunk_id": "chk_343b0bf4ac852321eac60b464057cf87",
+          "declared_page": 15,
+          "visual_pages": [
+            15
+          ],
+          "content_hash": "sha256:af49a65e27871d6a119b90827f97f7624fd2c4e1c13880c02c9c926e1d18da93",
+          "integrity": "active_index_complete",
+          "note": "活动chunk完整包含ISO/IEC 19752依据及三种容量的平均打印量。"
+        }
+      ],
+      "difficulty_equivalence": "原题是双证据多分支综合；替换题仍需联合两个不同页面/chunk，保持三个标准标识符、三个关键数值、范围映射和否定性比较结论，约束密度不低于原hard题。",
+      "proposed_case": {
+        "case_id": "P3500-HARD-040",
+        "query": "手册在法规信息和激光碳粉盒寿命表中分别引用EN 55022、EN 60950和ISO/IEC 19752。请说明前两个标准在手册中支持什么结论，ISO/IEC 19752用于什么数据并列出三种容量的平均打印量；这些标准能否相互替代？",
+        "conversation": [],
+        "reference_answer": "EN 55022支持本产品符合B级范围的结论，EN 60950支持产品安全要求。ISO/IEC 19752是激光碳粉盒平均打印量的数据依据：标准容量约3000页、高容量约6000页、超大容量约10000页。它们不能相互替代，因为前两项用于产品范围/安全合规，ISO/IEC 19752用于耗材打印量测定，适用对象不同。",
+        "unanswerable": false,
+        "expected_terms": [
+          "EN 55022的B级范围",
+          "EN 60950的安全要求",
+          "ISO/IEC 19752",
+          "约3000页",
+          "约6000页",
+          "约10000页",
+          "不能相互替代"
+        ],
+        "forbidden_terms": [],
+        "relevant_document_ids": [
+          "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+        ],
+        "relevant_document_names": [
+          "source.pdf"
+        ],
+        "relevant_chunk_ids": [
+          "chk_863cd5259f047d9628e8b9d2ce5f4430",
+          "chk_343b0bf4ac852321eac60b464057cf87"
+        ],
+        "relevant_evidence": [
+          {
+            "evidence_id": "ev_1b3eb2878fb886a49d96992d9063ab2a5f185fe3",
+            "chunk_id": "chk_863cd5259f047d9628e8b9d2ce5f4430",
+            "page": 7,
+            "text": "标题路径：前言 > CE\n\n欧共体 (EC) 指令合规性\n\n本产品符合欧共体理事会 2004/108/EC 和 2006/95/EC 指令的成员国近似和协调法规中涉及电磁兼容性和电气设备安全性（为在特定电压范围内使用）的保护要求。本产品制造商为：中华人民共和国广东省珠海市香洲区珠海大道 3883 号珠海奔图电子有限公司。有关这些指令要求的合规声明，可向授权代表索取。本产品符合 EN 55022 的 B 级范围和 EN 60950 的安全要求。\n\n![图片](images/d6452c59cacbb937e852427948fcbf5f6a5b6c7301fd7b4c14fcf45084d89384.jpg)\n\n本产品完全符合 ROHS 指令 2009/95/EC 及重订指令 2011/65/EU 对有毒有害物质的管理要求。\n\n![图片](images/a40ba8b9d71fc5ba2ca1a750f805b0c0a76558c8d0e57f74cd725f16c28b3c6e.jpg)\n\n本产品仅适用于非热带地区安全使用。\n\n![图片](images/718941182e183d5fdaf99cbcbeaf8cc8f7314147bb0628b9f99ab8457d5d945c.jpg)\n\n本产品仅适用于海拔 2000 米及以下地区安全使用。\n\n三个垂直排列的圆形图标。\n\n最上方图标：黑色圆环内有数字“10”，圆环左右两侧各有一个指向内侧的箭头，形成循环符号。\n\n中间图标：黑色圆环内有一条斜线从左上至右下穿过三道波浪形上升线条，下方为水平波浪线代表水面或液体表面。\n\n最下方图标：黑色圆环内有三个山峰形状（左侧和右侧山峰较矮、中间山峰较高），下方有模糊可辨的英文文字“CAMPING”字样。",
+            "match_terms": [
+              "EN 55022",
+              "B 级范围",
+              "EN 60950",
+              "安全要求"
+            ],
+            "content_hash": "sha256:dd4ba9208c03a13002989662090e8631c6f81c392d2ec42f7042409b99c2643a"
+          },
+          {
+            "evidence_id": "ev_9afc450d3fbb7fc5a1ec87df11e33dc94a275233",
+            "chunk_id": "chk_343b0bf4ac852321eac60b464057cf87",
+            "page": 15,
+            "text": "标题路径：前言 > 1.3. 激光碳粉盒\n\n| 类型 | 平均打印量 |\n| --- | --- |\n| 标准容量激光碳粉盒 | 约 3000 页(以上数据基于 ISO/IEC 19752 标准) |\n| 高容量激光碳粉盒 | 约 6000 页(以上数据基于 ISO/IEC 19752 标准) |\n| 超大容量激光碳粉盒 | 约 10000 页(以上数据基于 ISO/IEC 19752 标准) |",
+            "match_terms": [
+              "ISO/IEC 19752",
+              "约 3000 页",
+              "约 6000 页",
+              "约 10000 页"
+            ],
+            "content_hash": "sha256:af49a65e27871d6a119b90827f97f7624fd2c4e1c13880c02c9c926e1d18da93"
+          }
+        ],
+        "tags": [
+          "manual",
+          "printer",
+          "zh-CN",
+          "live-baseline",
+          "difficulty-hard",
+          "multi-evidence",
+          "synthesis",
+          "环保处理",
+          "合规信息",
+          "suite-v2",
+          "blocker-remediation-proposal"
+        ],
+        "sensitivity": "internal",
+        "metadata": {
+          "type": "synthesis",
+          "difficulty": "hard",
+          "suite_key": "three-difficulty-live-2026-08-10",
+          "evidence_count": 2,
+          "critical": true,
+          "blocker_remediation_disposition": "replacement",
+          "parent_case_id": "P3500-HARD-040",
+          "proposal_schema_version": "stt.eval.suite-v2-blocker-remediation-proposal.v2-no-index-refresh"
+        },
+        "concept_groups": {
+          "all_of": [
+            {
+              "concept_key": "en_55022_scope",
+              "any_of": [
+                "符合EN 55022的B级范围",
+                "EN 55022 B级范围"
+              ]
+            },
+            {
+              "concept_key": "en_60950_safety",
+              "any_of": [
+                "符合EN 60950的安全要求",
+                "EN 60950安全要求"
+              ]
+            },
+            {
+              "concept_key": "iso_yield_basis",
+              "any_of": [
+                "ISO/IEC 19752是平均打印量的数据依据",
+                "打印量基于ISO/IEC 19752"
+              ]
+            },
+            {
+              "concept_key": "three_capacity_yields",
+              "any_of": [
+                "标准容量约3000页、高容量约6000页、超大容量约10000页",
+                "3000页、6000页、10000页"
+              ]
+            },
+            {
+              "concept_key": "standards_not_interchangeable",
+              "any_of": [
+                "不能相互替代，适用对象不同",
+                "产品合规标准与耗材打印量标准不能替代"
+              ]
+            }
+          ]
+        }
+      },
+      "contract_draft": {
+        "required_branches": [
+          {
+            "branch_id": "b01",
+            "concept_keys": [
+              "en_55022_scope",
+              "en_60950_safety"
+            ]
+          },
+          {
+            "branch_id": "b02",
+            "concept_keys": [
+              "iso_yield_basis",
+              "three_capacity_yields"
+            ]
+          },
+          {
+            "branch_id": "b03",
+            "concept_keys": [
+              "standards_not_interchangeable"
+            ]
+          }
+        ],
+        "critical_constraints": {
+          "required_numerics": [
+            3000,
+            6000,
+            10000
+          ],
+          "required_identifiers": [
+            "EN 55022",
+            "EN 60950",
+            "ISO/IEC 19752"
+          ],
+          "required_polarity": [
+            "不能相互替代"
+          ]
+        }
+      },
+      "import_gate": {
+        "status": "ready_after_suite_v2_review",
+        "requires_full_suite_same_prompt_review": true,
+        "requires_live_result_review": true,
+        "must_not_use_production_answers_for_authoring": true
+      },
+      "audit": {
+        "original_case_sha256": "f06acfac30fcd99157a247136872bf2a0d9989c3df85ef5f98a6f5b0611d4534",
+        "proposed_case_sha256": "40690a3795e0025a019b7bb7530e172fb736f661c846d39a26e797f53818c8e0",
+        "semantic_replacement_payload_sha256": null,
+        "authoring_inputs": [
+          "source PDF pages",
+          "immutable dataset manifests",
+          "PDF visual audit sidecar"
+        ],
+        "excluded_inputs": [
+          "production model answers",
+          "run pass/fail labels",
+          "per-case production metrics"
+        ]
+      }
+    },
+    {
+      "case_id": "P3500-HARD-041",
+      "difficulty": "hard",
+      "suite_v2_target_selector": {
+        "parent_case_id": "P3500-HARD-041"
+      },
+      "disposition": "replacement",
+      "blocker_reason": "原题把后视图编号1预设为通风口，但源表明确编号1是USB接口；原题的‘理想条件’也无判定合同。",
+      "trigger": "pdf_visual_audit_block",
+      "source_review_verdict": null,
+      "source_review_reason": null,
+      "visual_audit_disposition": "confirmed_source_conflict",
+      "original_visual_pages_checked": [
+        14,
+        18
+      ],
+      "source_facts": [
+        {
+          "statement": "产品视图编号4是前盖，打开前盖可取出激光碳粉盒。",
+          "pdf_pages": [
+            13
+          ],
+          "evidence_ids": [
+            "ev_cdb645f23ba94eaf3de759176aea0bc17c8986b6"
+          ]
+        },
+        {
+          "statement": "高容量激光碳粉盒平均打印量约6000页。",
+          "pdf_pages": [
+            15
+          ],
+          "evidence_ids": [
+            "ev_9afc450d3fbb7fc5a1ec87df11e33dc94a275233"
+          ]
+        },
+        {
+          "statement": "超大容量激光碳粉盒平均打印量约10000页；打印量数据基于ISO/IEC 19752。",
+          "pdf_pages": [
+            15
+          ],
+          "evidence_ids": [
+            "ev_9afc450d3fbb7fc5a1ec87df11e33dc94a275233"
+          ]
+        }
+      ],
+      "source_bindings": [
+        {
+          "evidence_id": "ev_cdb645f23ba94eaf3de759176aea0bc17c8986b6",
+          "chunk_id": "chk_c12052057917a859ebb97a37e880796f",
+          "declared_page": 13,
+          "visual_pages": [
+            13
+          ],
+          "content_hash": "sha256:bb711b73d7bdebd6a53a599528ce333357830b435c8d08fa96a5cbb6557e5332",
+          "integrity": "usable",
+          "note": "产品视图编号、部件名称和用途表完整。"
+        },
+        {
+          "evidence_id": "ev_9afc450d3fbb7fc5a1ec87df11e33dc94a275233",
+          "chunk_id": "chk_343b0bf4ac852321eac60b464057cf87",
+          "declared_page": 15,
+          "visual_pages": [
+            15
+          ],
+          "content_hash": "sha256:af49a65e27871d6a119b90827f97f7624fd2c4e1c13880c02c9c926e1d18da93",
+          "integrity": "usable",
+          "note": "三种容量及平均打印量表完整；提案仅使用高容量和超大容量两行。"
+        }
+      ],
+      "difficulty_equivalence": null,
+      "proposed_case": {
+        "case_id": "P3500-HARD-041",
+        "query": "若维修人员需要从机身取出激光碳粉盒，并比较高容量与超大容量碳粉盒的平均打印量，应操作产品视图中的哪个部件、该部件有什么用途？两种容量的平均打印量各是多少，数据依据什么标准？",
+        "conversation": [],
+        "reference_answer": "应操作产品视图中的编号4前盖；打开前盖可取出激光碳粉盒。高容量激光碳粉盒平均打印量约6000页，超大容量激光碳粉盒约10000页，以上数据基于ISO/IEC 19752标准。",
+        "unanswerable": false,
+        "expected_terms": [
+          "编号4前盖",
+          "取出激光碳粉盒",
+          "约6000页",
+          "约10000页",
+          "ISO/IEC 19752"
+        ],
+        "forbidden_terms": [],
+        "relevant_document_ids": [
+          "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+        ],
+        "relevant_document_names": [
+          "source.pdf"
+        ],
+        "relevant_chunk_ids": [
+          "chk_c12052057917a859ebb97a37e880796f",
+          "chk_343b0bf4ac852321eac60b464057cf87"
+        ],
+        "relevant_evidence": [
+          {
+            "evidence_id": "ev_cdb645f23ba94eaf3de759176aea0bc17c8986b6",
+            "chunk_id": "chk_c12052057917a859ebb97a37e880796f",
+            "page": 13,
+            "text": "标题路径：前言 > 1.2. 产品视图\n\n| 1 | 出纸槽 | 用于存放打印出来的纸张 |\n| --- | --- | --- |\n| 2 | 控制面板 | 指示打印机状态,进行打印设置操作 |\n| 3 | 出纸托盘 | 防止打印出来的纸张滑落 |\n| 4 | 前盖 | 打开前盖,可取出激光碳粉盒 |\n| 5 | 多功能纸盒 | 打开多功能纸盒前盖,放入打印介质 |\n| 6 | 多功能纸盒导纸板 | 调整纸张两侧宽度 |\n| 7 | 电源总开关 | 打开或关闭电源 |\n| 8 | 标准纸盒 | 放置打印纸张 |\n| 9 | 宽度导纸板 | 在标准纸盒内,用于调整纸盒内纸张宽度 |",
+            "match_terms": [
+              "前盖",
+              "可取出激光碳粉盒"
+            ],
+            "content_hash": "sha256:bb711b73d7bdebd6a53a599528ce333357830b435c8d08fa96a5cbb6557e5332"
+          },
+          {
+            "evidence_id": "ev_9afc450d3fbb7fc5a1ec87df11e33dc94a275233",
+            "chunk_id": "chk_343b0bf4ac852321eac60b464057cf87",
+            "page": 15,
+            "text": "标题路径：前言 > 1.3. 激光碳粉盒\n\n| 类型 | 平均打印量 |\n| --- | --- |\n| 标准容量激光碳粉盒 | 约 3000 页(以上数据基于 ISO/IEC 19752 标准) |\n| 高容量激光碳粉盒 | 约 6000 页(以上数据基于 ISO/IEC 19752 标准) |\n| 超大容量激光碳粉盒 | 约 10000 页(以上数据基于 ISO/IEC 19752 标准) |",
+            "match_terms": [
+              "高容量激光碳粉盒",
+              "约 6000 页",
+              "超大容量激光碳粉盒",
+              "约 10000 页",
+              "ISO/IEC 19752"
+            ],
+            "content_hash": "sha256:af49a65e27871d6a119b90827f97f7624fd2c4e1c13880c02c9c926e1d18da93"
+          }
+        ],
+        "tags": [
+          "manual",
+          "printer",
+          "zh-CN",
+          "live-baseline",
+          "difficulty-hard",
+          "multi-evidence",
+          "synthesis",
+          "hardware_location",
+          "status_check",
+          "suite-v2",
+          "blocker-remediation-proposal"
+        ],
+        "sensitivity": "internal",
+        "metadata": {
+          "type": "synthesis",
+          "difficulty": "hard",
+          "suite_key": "three-difficulty-live-2026-08-10",
+          "evidence_count": 2,
+          "critical": false,
+          "blocker_remediation_disposition": "replacement",
+          "parent_case_id": "P3500-HARD-041",
+          "proposal_schema_version": "stt.eval.suite-v2-blocker-remediation-proposal.v2-no-index-refresh"
+        },
+        "concept_groups": {
+          "all_of": [
+            {
+              "concept_key": "access_component",
+              "any_of": [
+                "编号4前盖",
+                "前盖"
+              ]
+            },
+            {
+              "concept_key": "access_function",
+              "any_of": [
+                "打开前盖可取出激光碳粉盒",
+                "取出激光碳粉盒"
+              ]
+            },
+            {
+              "concept_key": "high_capacity",
+              "any_of": [
+                "高容量约6000页",
+                "高容量激光碳粉盒平均打印量约6000页"
+              ]
+            },
+            {
+              "concept_key": "ultra_capacity",
+              "any_of": [
+                "超大容量约10000页",
+                "超大容量激光碳粉盒平均打印量约10000页"
+              ]
+            },
+            {
+              "concept_key": "yield_standard",
+              "any_of": [
+                "ISO/IEC 19752",
+                "ISO IEC 19752"
+              ]
+            }
+          ]
+        }
+      },
+      "contract_draft": {
+        "required_branches": [
+          {
+            "branch_id": "b01",
+            "concept_keys": [
+              "access_component",
+              "access_function"
+            ]
+          },
+          {
+            "branch_id": "b02",
+            "concept_keys": [
+              "high_capacity",
+              "ultra_capacity",
+              "yield_standard"
+            ]
+          }
+        ],
+        "critical_constraints": {
+          "required_numerics": [
+            6000,
+            10000
+          ],
+          "required_identifiers": [
+            "4",
+            "ISO/IEC 19752"
+          ]
+        }
+      },
+      "import_gate": {
+        "status": "ready_after_suite_v2_review",
+        "requires_full_suite_same_prompt_review": true,
+        "requires_live_result_review": true,
+        "must_not_use_production_answers_for_authoring": true
+      },
+      "audit": {
+        "original_case_sha256": "3d6e48551baccc70c219f62318e3e796602e4a78ffeaabbb2bd705cfbaedfa8f",
+        "proposed_case_sha256": "ea893ba705ae94129f017ecfd0b6d2b83475b577302c7c50630554a563357621",
+        "semantic_replacement_payload_sha256": null,
+        "authoring_inputs": [
+          "source PDF pages",
+          "immutable dataset manifests",
+          "PDF visual audit sidecar"
+        ],
+        "excluded_inputs": [
+          "production model answers",
+          "run pass/fail labels",
+          "per-case production metrics"
+        ]
+      }
+    },
+    {
+      "case_id": "P3500-HARD-042",
+      "difficulty": "hard",
+      "suite_v2_target_selector": {
+        "parent_case_id": "P3500-HARD-042"
+      },
+      "disposition": "corrected",
+      "blocker_reason": "旧参考只复述打印量和IP，没有回答是否处于可接受工作负载范围。",
+      "trigger": "pdf_visual_audit_block",
+      "source_review_verdict": null,
+      "source_review_reason": null,
+      "visual_audit_disposition": "reference_does_not_answer_query",
+      "original_visual_pages_checked": [
+        18,
+        19
+      ],
+      "source_facts": [
+        {
+          "statement": "推荐月打印量为750至4000页，每月工作负荷为50000页。",
+          "pdf_pages": [
+            18
+          ],
+          "evidence_ids": [
+            "ev_1b5a1b1cccfcbe046898717ba0b26b5960f4f7e6"
+          ]
+        },
+        {
+          "statement": "网络配置页的无线IPv4地址为192.168.0.102。",
+          "pdf_pages": [
+            19
+          ],
+          "evidence_ids": [
+            "ev_1cd266d7d173f9d3fa0218dc1ecad2d25bb48a8a"
+          ]
+        },
+        {
+          "statement": "手册没有给出IP地址影响工作负载阈值的规则；工作负载判断使用的是页数指标。",
+          "pdf_pages": [
+            18,
+            19
+          ],
+          "evidence_ids": [
+            "ev_1b5a1b1cccfcbe046898717ba0b26b5960f4f7e6",
+            "ev_1cd266d7d173f9d3fa0218dc1ecad2d25bb48a8a"
+          ]
+        }
+      ],
+      "source_bindings": [
+        {
+          "evidence_id": "ev_1b5a1b1cccfcbe046898717ba0b26b5960f4f7e6",
+          "chunk_id": "chk_d85fedec9a00e558b6d9163b0f425f3f",
+          "declared_page": 18,
+          "visual_pages": [
+            18
+          ],
+          "content_hash": "sha256:e6565742401f2dace4f7265e68e677e32bf18497dbeb04c98ec8716df9105b91",
+          "integrity": "usable",
+          "note": "月工作负荷和推荐月打印量位于演示页。"
+        },
+        {
+          "evidence_id": "ev_1cd266d7d173f9d3fa0218dc1ecad2d25bb48a8a",
+          "chunk_id": "chk_e85e43211c7b0b6a6aa4ab6c1d752d00",
+          "declared_page": 19,
+          "visual_pages": [
+            19
+          ],
+          "content_hash": "sha256:7382210373738ed28bfc558c29f9d01f866c43ef3c2f4e16b725ebb0263d7d69",
+          "integrity": "usable",
+          "note": "无线IPv4地址位于网络配置信息页；它是题干干扰信息，不是工作负载阈值。"
+        }
+      ],
+      "difficulty_equivalence": null,
+      "proposed_case": {
+        "case_id": "P3500-HARD-042",
+        "query": "根据演示页中列出的50,000页每月工作负荷和750至4,000页推荐月打印量，以及网络配置信息页中显示的无线IP地址为192.168.0.102，若某用户在无线网络下使用该打印机进行连续打印，其实际打印量接近推荐上限时，应如何判断设备是否仍处于可接受的工作负载范围内？",
+        "conversation": [],
+        "reference_answer": "实际月打印量接近但不超过4000页时，仍在750至4000页的推荐月打印量范围内，并且远低于50000页的每月工作负荷，因此仍处于可接受范围。无线IP地址192.168.0.102只说明网络配置，与工作负载判断无关。",
+        "unanswerable": false,
+        "expected_terms": [
+          "仍在推荐范围内",
+          "远低于50000页",
+          "IP地址与工作负载判断无关"
+        ],
+        "forbidden_terms": [],
+        "relevant_document_ids": [
+          "doc_9353bf25fcfa4991a8a0425713a3c9f1"
+        ],
+        "relevant_document_names": [
+          "source.pdf"
+        ],
+        "relevant_chunk_ids": [
+          "chk_d85fedec9a00e558b6d9163b0f425f3f",
+          "chk_e85e43211c7b0b6a6aa4ab6c1d752d00"
+        ],
+        "relevant_evidence": [
+          {
+            "evidence_id": "ev_1b5a1b1cccfcbe046898717ba0b26b5960f4f7e6",
+            "chunk_id": "chk_d85fedec9a00e558b6d9163b0f425f3f",
+            "page": 18,
+            "text": "标题路径：前言 > 1．演示页\n\n![图片](images/dcbcacdb8415dfeac40be3f1aca9c54996b9d268392f59873525204a029a3ab8.jpg)\n\nP3500 Series  \nMonochrome Laser Printer  \n\nAutomatic 2-sided printing  \n50,000 page monthly duty cycle  \n750 to 4,000 recommended monthly page volume  \nEasy USB connection  \n250 sheet input tray  \nEnvironmentally friendly  \nSpace saving design  \nSleep mode to reduce energy consumption  \n\n[ Sample Test ]  \nABCDEFGHIJKLMNOPQRSTUVWXYZ  \nABCDEFGHIJKLMNOPQRSTUVWXYZ  \nABCDEFGHIJKLMNOPQRSTUVWXYZ  \nABCDEFGHIJKLMNOPQRSTUVWXYZ  \nABCDEFGHIJKLMNOPQRSTUVWXYZ  \nABCDEFGHIJKLMNOPQRSTUVWXYZ  \nABCDEFGHIJKLMNOPQRSTUVWXYZ  \nABCDEFGHIJKLMNOPQRSTUVWXYZ  \nABCDEFGHIJKLMNOPQRSTUVWXYZ  \nABCDEFGHIJKLMNOPQRSTUVWXYZ  \n\nA square pattern composed of nested concentric squares in grayscale, positioned to the right of the sample test text. Adjacent to it, a 2×2 grid of squares: top-left gray, top-right black, bottom-left gray, bottom-right white.",
+            "match_terms": [
+              "50,000 page monthly duty cycle",
+              "750 to 4,000 recommended monthly page volume"
+            ],
+            "content_hash": "sha256:e6565742401f2dace4f7265e68e677e32bf18497dbeb04c98ec8716df9105b91"
+          },
+          {
+            "evidence_id": "ev_1cd266d7d173f9d3fa0218dc1ecad2d25bb48a8a",
+            "chunk_id": "chk_e85e43211c7b0b6a6aa4ab6c1d752d00",
+            "page": 19,
+            "text": "标题路径：前言 > 4．网络配置信息页\n\n可以查看打印机的有线/无线网络信息、无线热点信息。\n\n![图片](images/07c8d4d22ecf12fef656422b7b69949e8a8c05418eef7ce8216cd9809a0d133e.jpg)\n\nP3500 Series  \nPANTUM  \n[ 网络配置信息页 ]  \n[ Page 1 ]  \n有线网络配置  \n连接状态 ：已连接  \n有线硬件地址 ：A0:EF:B4:01:15:04  \n主机名称 ：Pantum-011504  \n设备位置 ：  \n有线网络 IPv4 信息  \n状态 ：开启  \n配置方式 ：自动  \nIP 地址 ：10.10.148.147  \n子网掩码 ：255.255.255.0  \n默认网关 ：10.10.148.254  \nBonjour 名称 ：Pantum P3500DW SERIES 011504  \n邮件通知  \n缺纸 ：关闭  \n墨量低 ：关闭  \n卡纸 ：关闭  \n堵塞/停尽 ：关闭  \n\n无线网络配置  \n连接状态 ：已连接  \n无线硬件地址 ：00:11:F6:AC:BC:F3  \n通信模式 ：基础连接模式  \n网络名称（SSID） ：e8h9  \nBSSID ：e8:3a:35:33:75:40  \n身份验证方式 ：WPA/WPA2  \n无线网络 IPv4 信息  \n状态 ：开启  \n配置方式 ：自动  \nIP 地址 ：192.168.0.102  \n子网掩码 ：255.255.255.0  \n默认网关 ：192.168.0.1  \nBonjour 名称 ：Pantum P3500DW SERIES 011504  \n无线热点信息  \n状态 ：开启  \nSSID ：Pantum-AP-ACBCF3  \nIP 地址 ：192.168.223.1  \n密码 ：12345678  \n已连接设备数 ：0  \n\nP3500 Series  \nPANTUM  \n[ 网络配置信息页 ]  \n[ Page 2 ]  \n网络服务状态信息  \nIPv4 状态 ：开启  \nIPv6 状态 ：开启  \nDHCPv4 状态 ：开启  \nDHCPv6 状态 ：开启  \nRAW 状态 ：开启  \nLPD 状态 ：开启  \nWSD 状态 ：关闭  \nSNMP 状态 ：开启  \nEmail Alert 状态 ：开启  \nBonjour 状态 ：开启  \nMopria 状态 ：开启  \nSLP 状态 ：开启  \nLLMNR 状态 ：关闭",
+            "match_terms": [
+              "无线网络 IPv4 信息",
+              "192.168.0.102"
+            ],
+            "content_hash": "sha256:7382210373738ed28bfc558c29f9d01f866c43ef3c2f4e16b725ebb0263d7d69"
+          }
+        ],
+        "tags": [
+          "manual",
+          "printer",
+          "zh-CN",
+          "live-baseline",
+          "difficulty-hard",
+          "multi-evidence",
+          "synthesis",
+          "workload_assessment",
+          "network_configuration",
+          "suite-v2",
+          "blocker-remediation-proposal"
+        ],
+        "sensitivity": "internal",
+        "metadata": {
+          "type": "synthesis",
+          "difficulty": "hard",
+          "suite_key": "three-difficulty-live-2026-08-10",
+          "evidence_count": 2,
+          "critical": false,
+          "blocker_remediation_disposition": "corrected",
+          "parent_case_id": "P3500-HARD-042",
+          "proposal_schema_version": "stt.eval.suite-v2-blocker-remediation-proposal.v2-no-index-refresh"
+        },
+        "concept_groups": {
+          "all_of": [
+            {
+              "concept_key": "recommended_range",
+              "any_of": [
+                "接近但不超过4000页仍在750至4000页推荐范围内",
+                "仍在推荐月打印量范围内"
+              ]
+            },
+            {
+              "concept_key": "duty_cycle_margin",
+              "any_of": [
+                "远低于50000页每月工作负荷",
+                "未超过50000页月工作负荷"
+              ]
+            },
+            {
+              "concept_key": "ip_irrelevance",
+              "any_of": [
+                "IP地址与工作负载判断无关",
+                "无线IP不影响打印量阈值判断"
+              ]
+            }
+          ]
+        }
+      },
+      "contract_draft": {
+        "required_branches": [
+          {
+            "branch_id": "b01",
+            "concept_keys": [
+              "recommended_range",
+              "duty_cycle_margin"
+            ]
+          },
+          {
+            "branch_id": "b02",
+            "concept_keys": [
+              "ip_irrelevance"
+            ]
+          }
+        ],
+        "critical_constraints": {
+          "required_numerics": [
+            750,
+            4000,
+            50000
+          ],
+          "required_polarity": [
+            "仍在可接受范围"
+          ]
+        }
+      },
+      "import_gate": {
+        "status": "ready_after_suite_v2_review",
+        "requires_full_suite_same_prompt_review": true,
+        "requires_live_result_review": true,
+        "must_not_use_production_answers_for_authoring": true
+      },
+      "audit": {
+        "original_case_sha256": "dca74460e669c6303abe6e0f8a5ff1b3cd3492749cf909b4fb29be535ce3bc08",
+        "proposed_case_sha256": "30b71905fbbadcda75d8c82542f87f3400122663c3bc1deb7002c9d68c543a0b",
+        "semantic_replacement_payload_sha256": null,
+        "authoring_inputs": [
+          "source PDF pages",
+          "immutable dataset manifests",
+          "PDF visual audit sidecar"
+        ],
+        "excluded_inputs": [
+          "production model answers",
+          "run pass/fail labels",
+          "per-case production metrics"
+        ]
+      }
+    }
+  ]
+}

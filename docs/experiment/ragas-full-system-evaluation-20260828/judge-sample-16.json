@@ -1,0 +1,38 @@
+{
+  "schema_version": "stt.ragas.judge-sample.v1",
+  "seed": 20260828,
+  "selection_policy": "四层各 4 题；先纳入已确认检索 badcase，再按 SHA256(seed|case_id) 覆盖 table、cross-span、unanswerable、multiturn 等关键切片；排除 protected 与 restricted。该目的性样本只作诊断，不代表总体。",
+  "case_ids": [
+    "P3500-EASY-018",
+    "P3500-EASY-020",
+    "P3500-EASY-022",
+    "P3500-EASY-050",
+    "P3500-MEDIUM-004",
+    "P3500-MEDIUM-047",
+    "P3500-MEDIUM-035",
+    "P3500-MEDIUM-010",
+    "P3500-HARD-016",
+    "P3500-HARD-045",
+    "P3500-HARD-047",
+    "P3500-HARD-041",
+    "HAK180-016",
+    "HAK180-021",
+    "HAK180-025",
+    "HAK180-027"
+  ],
+  "strata": {
+    "easy": 4,
+    "medium": 4,
+    "hard": 4,
+    "safety": 4
+  },
+  "request_budget": {
+    "target_cases": 16,
+    "target_model_requests": null,
+    "target_model_request_count_status": "unavailable_in_current_formal_harness",
+    "judge_llm_requests": 144,
+    "judge_embedding_requests": 32,
+    "judge_external_requests": 176,
+    "hard_cost_limit_cny": 10.0
+  }
+}

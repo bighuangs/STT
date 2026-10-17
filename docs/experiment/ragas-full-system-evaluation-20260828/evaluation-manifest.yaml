@@ -1,0 +1,253 @@
+schema_version: "1.0.0"
+evaluation:
+  evaluation_id: "ragas-full-system-20260828"
+  version: "1.0.0"
+  owner: "STT evaluation"
+  status: "completed_with_partial_judge_coverage"
+  question: "当前 P3500 rpf_default@4 与 HAK180 rpf_hak180_min5@1 两个 domain-scoped 候选 RAG 在检索、生成、端到端、安全、时延与成本上表现如何，最早失效点在哪里？"
+  hypothesis: "结构化 proof 路径可保持高引用可信度，但多约束完整性、拒答和检索噪声仍是主要风险。"
+  decision_rule: "不计算单一总分；确定性主指标与 Guardrail 决定有效性，未经人工校准的 RAGAS Judge 指标只作诊断。"
+  created_at: "2026-08-28T00:00:00+08:00"
+target:
+  application_version: "query-workflow.v4"
+  git_commit: "d1a4192dd5eb9da9a8601644521c6876a7bec959"
+  environment: "local Windows; dirty worktree; effective source hash frozen per run"
+  knowledge_base_version: "P3500 kb_2fad25538aab42d19baf79fba782a06c；HAK180 kb_5b90254dd5a24565b347c63ba56ce69d"
+  index_version: "P3500 idx_fb5eeac133f540f4af31004dbde23151；HAK180 idx_08abedf9eecc4f488528f57b318eeeed"
+dataset:
+  dataset_id: "stt-ragas-full-system-pilot"
+  dataset_version: "2026-08-28.2"
+  splits:
+    - "test"
+  slices:
+    - "source"
+    - "difficulty"
+    - "answerable"
+    - "task_type"
+    - "safety"
+    - "sensitivity"
+systems:
+  baseline:
+    system_id: "latest-compatible-historical-runs"
+    config_version: "mixed snapshots; compatibility only"
+  candidates:
+    - system_id: "stt-query-workflow-v4-rpf-default-v4"
+      config_version: "rpf_default@4"
+      scope: "P3500"
+    - system_id: "stt-query-workflow-v4-rpf-hak180-min5-v1"
+      config_version: "rpf_hak180_min5@1"
+      scope: "HAK180"
+  interventions:
+    - name: "retrieval_only"
+      status: "executed"
+    - name: "no_retrieval"
+      status: "planned_not_executed"
+    - name: "oracle_evidence"
+      status: "planned_not_executed"
+    - name: "noise_conflict_injection"
+      status: "planned_not_executed"
+experimental_control:
+  changed_variables:
+    - "evaluation metric layer"
+  held_constants:
+    - "knowledge-base source versions"
+    - "index version"
+    - "P3500 retrieval profile rpf_default@4"
+    - "HAK180 retrieval profile rpf_hak180_min5@1"
+    - "generator qwen3.7-max"
+  seeds:
+    - 20260828
+  repetitions: 1
+  concurrency: 1
+  cache_policy: "target cache disabled or run-scoped; RAGAS persistent plaintext cache disabled"
+  timeout_seconds: 180
+  judge_timeout_seconds: 120
+  timeout_scope: "timeout_seconds 适用于 target case；judge_timeout_seconds 适用于单次 Judge 请求。"
+  retry_policy: "SDK implicit retry disabled for Judge；case-level bounded retry recorded separately"
+metrics:
+  retrieval:
+    primary:
+      - "recall_at_1"
+      - "recall_at_3"
+      - "recall_at_5"
+      - "recall_at_10"
+      - "mrr"
+      - "ndcg_at_10"
+      - "id_based_context_precision"
+      - "id_based_context_recall"
+    diagnostic:
+      - "route_coverage"
+      - "first_relevant_rank"
+      - "context_pack_loss"
+    guardrail:
+      - "vector_read_set_match"
+      - "retrieval_error_rate"
+  generation:
+    primary:
+      - "final_answer_accuracy"
+      - "strict_supported_case_pass_rate"
+      - "citation_precision"
+      - "citation_recall"
+      - "citation_coverage"
+    diagnostic:
+      - "ragas_faithfulness"
+      - "ragas_answer_relevancy"
+      - "ragas_factual_correctness"
+    guardrail:
+      - "unsupported_claim_rate"
+      - "unanswerable_false_answer_rate"
+  end_to_end:
+    primary:
+      - "case_pass_rate"
+      - "execution_success_rate"
+    diagnostic:
+      - "failure_mode_distribution"
+      - "oracle_retrieval_gap"
+      - "no_retrieval_delta"
+      - "noise_sensitivity"
+    guardrail:
+      - "missing_metric_rate"
+      - "protected_case_policy_violations"
+  cost_safety:
+    primary:
+      - "total_tokens"
+      - "e2e_latency_ms"
+      - "safety_pass_rate"
+    diagnostic:
+      - "target_model_cost_cny"
+      - "judge_model_cost_cny"
+      - "judge_calls"
+    guardrail:
+      - "restricted_egress_violations"
+      - "prompt_injection_failures"
+      - "secret_leakage_failures"
+scoring:
+  composite_score_enabled: false
+  composite_utility_function: null
+  thresholds_source: "existing dataset gate policies plus explicit fail-visible integrity rules"
+  missing_result_policy: "fail_visible"
+  guardrail_override_forbidden: true
+judge:
+  enabled: true
+  provider: "DashScope OpenAI-compatible"
+  model: "qwen3.7-plus"
+  model_version: "floating alias; exact resolved model must be captured"
+  prompt_version: "ragas-0.4.3-default-collections"
+  rubric_version: "ragas-0.4.3"
+  temperature: 0
+  calibration_dataset_version: "not_available"
+  order_swap_test: false
+  repeatability_test: false
+  cross_version_test: false
+  human_calibration_slices: []
+  multimodal_metrics_enabled: false
+  sample_policy: "固定 seed=20260828，按 easy/medium/hard/safety 分层各 4 题；优先已确认 badcase 并覆盖关键切片；排除 protected 与 restricted。"
+  max_cases: 16
+  enabled_metrics:
+    - "ragas_faithfulness"
+    - "ragas_answer_relevancy"
+    - "ragas_factual_correctness"
+  metric_parameters:
+    factual_correctness_mode: "f1"
+  persisted_key_mapping:
+    Faithfulness: "ragas/faithfulness"
+    AnswerRelevancy: "ragas/answer_relevancy"
+    FactualCorrectnessF1: "ragas/factual_correctness"
+  maximum_estimated_llm_calls: 144
+  maximum_estimated_embedding_calls: 32
+  maximum_estimated_external_requests: 176
+  acceptance_rule: "无人工分层校准，所有 Judge 指标均 exploratory，不作为发布门。"
+  results:
+    output_path: "var/evals/ragas-full-system-20260828/judge-16-ragas-metrics.jsonl"
+    output_records: 2781
+    output_sha256: "25a413d425719b684a86c6731d300fd163ba5fb626211c4bccb4d0f0ddce3835"
+    metric_error_records: 2
+    metrics:
+      faithfulness:
+        mean: 0.7238095238
+        ci95_low: 0.5142857143
+        ci95_high: 0.9333333333
+        n_valid: 15
+        n_total: 16
+        coverage: 0.9375
+      answer_relevancy:
+        mean: 0.4528468312
+        ci95_low: 0.2849550887
+        ci95_high: 0.6241902123
+        n_valid: 16
+        n_total: 16
+        coverage: 1.0
+      factual_correctness:
+        mode: "f1"
+        mean: 0.6793333333
+        ci95_low: 0.4879833333
+        ci95_high: 0.8547
+        n_valid: 15
+        n_total: 16
+        coverage: 0.9375
+    errors:
+      - case_id: "P3500-EASY-022"
+        metric: "ragas/factual_correctness"
+        error: "judge_failed:InstructorRetryException"
+      - case_id: "P3500-HARD-045"
+        metric: "ragas/faithfulness"
+        error: "judge_failed:InstructorRetryException"
+budgets:
+  token: null
+  time_seconds: 21600
+  cost:
+    currency: "CNY"
+    hard_limit: 10.0
+  tool_calls:
+    target_model_cases: 16
+    target_model_requests_actual: null
+    target_model_request_count_status: "unavailable_in_current_formal_harness"
+    judge_llm_maximum: 144
+    judge_embedding_maximum: 32
+    judge_external_request_maximum: 176
+    combined_external_request_maximum: null
+  deterministic_execution_error_cases: 0
+  deterministic_gate_failed_cases: 6
+  target_strict_failed_cases: 8
+  judge_metric_error_records: 2
+  judge_cost:
+    currency: "CNY"
+    hard_limit: 7.17
+    conservative_estimate: 4.624
+    provider_actual: null
+  target_model_cost:
+    currency: "CNY"
+    conservative_estimate_from_measured_tokens: 2.829228
+    provider_actual: null
+  combined_cost:
+    currency: "CNY"
+    conservative_estimate: 7.453228
+    hard_limit: 10.0
+    provider_actual: null
+artifacts:
+  durable_directory: "docs/experiment/ragas-full-system-evaluation-20260828/"
+  runtime_directory: "var/evals/ragas-full-system-20260828/"
+  external_store_uri: null
+  trajectory_format: "jsonl"
+  large_table_format: "jsonl/csv"
+privacy:
+  redaction_policy: "不持久化 Judge 原始 Prompt/输出；P3500-EASY-002 与 restricted Case 禁止进入外部 Judge。"
+  external_data_policy: "用户已将本轮模型费用授权调整为 CNY 10；仅 internal 且非 protected/restricted 的分层样本允许发送至既有 DashScope Judge。"
+  retention_policy: "本限制只约束 Judge runtime：检索正文曾临时物化，已在 Judge 输出核验后永久删除（deleted_after_validation）；Judge runtime 长期只保留 case_id、哈希、指标、错误、usage、时延和费用。规范化 Gold 仍按 dataset manifest 保留。"
+versions:
+  corpus: "p3500 sha256:c4c7b2a4...; hak180 sha256:dff3aaa8..."
+  chunker: "stt-chunks-v2@2"
+  embedding: "BAAI/bge-m3@local"
+  retriever: "local_hybrid@query-workflow.v4"
+  fusion: "P3500 RRF/weighted frozen by rpf_default@4；HAK180 frozen by rpf_hak180_min5@1"
+  reranker: "BAAI/bge-reranker-large@local"
+  generator: "qwen3.7-max"
+  prompt: "captured per formal run"
+  evaluator: "deterministic STT evaluator + isolated ragas==0.4.3"
+  dependencies_lock: "uv.lock plus ephemeral isolated ragas 0.4.3 environment"
+limitations:
+  - "评测对象是 draft 状态的 rpf_default@4 候选，不等同于 published 线上 Profile。"
+  - "现有 178 个 Case 是泄漏风险较高的回归集，不支持无偏生产发布结论。"
+  - "RAGAS 0.4.3 多模态 SSRF 风险要求禁用全部多模态指标并隔离运行。"
+  - "qwen3.7-plus Judge 与 qwen3.7-max generator 均使用浮动别名，本轮未解析到可冻结的精确模型版本。"
+  - "没有人类 Judge 校准，语义指标只能诊断，不能作为发布门。"

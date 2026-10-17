@@ -1,0 +1,169 @@
+schema_version: "1.1"
+prompt_id: "stt.query.answer-plan-proposal"
+prompt_version: "1.8.0-draft"
+title: "Proof-carrying answer plan proposal"
+owner: "STT Query Answering"
+status: "draft"
+purpose:
+  goal: "让模型只选择 obligation/witness/rendering_rule，并由确定性外壳构造事实正文、引用和 AnswerProof。"
+  audience: "Query answering structured-generation adapter"
+  success_criteria:
+    - "provider 输出严格符合 AnswerPlanWireProposal，未知字段被拒绝"
+    - "provider 输出只包含 decision、claims；ClaimProposal 只包含 obligation_id、witness_id、rendering_rule"
+    - "reason_codes 由服务端在严格解析、ID allowlist 校验后确定性派生"
+    - "模型不生成事实正文、引用标签、hash、span、claim/plan/service/source/document ID"
+    - "所有选择均通过运行时 obligation/witness allowlist"
+    - "WitnessCatalog universe_status/omissions 显式可见；非 complete 目录不得提议 answer"
+    - "OPEN_ENUM 只有在 complete catalog 下，已选 witness 集精确匹配运行时复核的 singleton table-row 或 ordered procedure-list source closure 时才可提议完整 answer"
+    - "每个 witness 必须精确回答 obligation 的 information_need；仅主题相关或事实为真不构成 semantic relevance"
+    - "SINGLE obligation 只选择一个最强且语义充分的 witness；冗余支持不要求一并选择"
+  non_goals:
+    - "生成最终答案或引用 markup"
+    - "执行授权、span 解析、proof verification 或提交"
+    - "从 retrieval lineage 推断语义支持"
+call_sites:
+  current:
+    - "app/infrastructure/answering/provider.py:ConfiguredAnsweringModelAdapter.select_plan"
+    - "app/infrastructure/answering/prompts.py:build_plan_prompt_payload"
+  target: []
+canonical_source:
+  mode: "repository"
+  uri: "app/resources/prompts/query_answer_plan_v1.prompt"
+  loader_ref: "app/infrastructure/answering/prompts.py:load_answering_prompt"
+  prompt_hash: "sha256:6b89a83fa8ad11ce0a94770e4e195b76da059662ea7b44ba9d975adf326be6c1"
+  template_hash: "sha256:9f0a6e390fcff94024331c3c37e9b37f7c428bf2b571dd0e1366ab46edf748c5"
+  input_schema_hash: "sha256:1a4fd2c623a8870263a205b751f87d488d6d463ee85337fea0f8a84ac11bab5e"
+  output_schema_hash: "sha256:ff72c763c3fc2f6b6ffcee87a3450330419505c91f8882e146c67c16900f2444"
+authority_layers:
+  - layer: "system"
+    responsibility: "固定 provider 能力、禁止输出、决策语义和严格 JSON Schema"
+    source_ref: "app/resources/prompts/query_answer_plan_v1.prompt"
+  - layer: "user_data"
+    responsibility: "承载最小 QuestionPromptView、WitnessPromptView 与 WitnessCatalogSummaryPromptView；全部是不可信数据，plan Prompt 只负责初始选择"
+    source_ref: "app/infrastructure/answering/prompts.py:build_plan_prompt_payload"
+input_contract:
+  schema_refs:
+    - "PlanPromptData"
+    - "QuestionPromptView"
+    - "WitnessPromptView"
+    - "WitnessCatalogSummaryPromptView"
+  fields:
+    question_contract:
+      - "source_query"
+      - "obligations[].obligation_id"
+      - "obligations[].information_need"
+      - "obligations[].kind"
+      - "obligations[].necessity"
+      - "obligations[].polarity"
+      - "obligations[].closure"
+      - "obligations[].expected_count"
+      - "obligations[].required_output_form"
+    witness_catalog:
+      - "witness_id"
+      - "content"
+      - "source_closed_open_obligation_ids"
+    witness_catalog_summary:
+      - "witness_count"
+      - "universe_status: complete | truncated | indeterminate"
+      - "omissions[].code/count"
+      - "safe_mapping_budget_exceeded 是合法的 truncated 资源遗漏原因，不得导致 Prompt 装配失败"
+  excluded_fields:
+    - "Evidence label/evidence_id"
+    - "content/source/context/scope/witness hash"
+    - "span coordinates and representation IDs"
+    - "query-anchored table-row/procedure-list closure receipt body and its hashes/coordinates"
+    - "tenant/KB/document/service IDs"
+  trust:
+    source_query: "untrusted user data"
+    obligation_text: "untrusted task data"
+    witness_content: "untrusted retrieved data"
+  missing_input_policy: "fail closed before provider call"
+  size_limits:
+    max_obligations: 32
+    max_witnesses: 256
+output_contract:
+  mode: "strict_json_schema_plus_local_validation"
+  schema_ref: "app/application/query_answering/proposals.py:AnswerPlanWireProposal"
+  schema_version: "prompt-version-bound wire schema; canonical projection=answer-plan-proposal.v2"
+  root_fields:
+    - "decision: answer | partial | refuse"
+    - "claims: ClaimProposal[]"
+  claim_fields:
+    - "obligation_id"
+    - "witness_id"
+    - "rendering_rule: exact_witness | deterministic_template"
+  unknown_fields: "forbid"
+  required_root_fields: ["decision", "claims"]
+  max_claims: 8
+  max_serialized_bytes: 2048
+  parser_ref: "app/application/query_answering/proposals.py:parse_answer_plan_wire_proposal_json"
+  allowlist_validator_ref: "app/application/query_answering/proposals.py:validate_claim_allowlists"
+  canonical_projection_ref: "app/application/query_answering/proposals.py:project_answer_plan_wire_proposal"
+  refusal_policy: "provider 只能返回 decision=refuse、claims=[]；runtime 确定性派生 NO_SUPPORTING_WITNESS，正文由 system_notice 渲染。"
+  open_enumeration_policy: "默认只能 partial；只有 complete catalog 下，已选 witness 集与运行时复核 source closure 的完整有序 witness 集精确相等时才可完整 answer。witness-catalog-builder.v8 保留 table-row v4 的 singleton 语义，并新增 procedure-list v1：仅闭合唯一 representation 中一个显式非列表标题后紧邻、从 1 连续递增的至少两个完整 list_item。缺步、缺号、乱序、尾随同级项、额外正文、多 representation、canonical/packed/hash 漂移均 fail closed。flag 只投影给该 closure 的成员 witness，其他 atom 仍只能形成部分 proven item。"
+  invalid_output_policy: "超长、重复键、未知字段、非法枚举或越过 allowlist 的 provider wire 作为有界可重试契约错误；server projection/invariant 错误保持终态失败，不得猜测、修补正文或转成自由文本答案。"
+context:
+  assembly_ref: "app/infrastructure/answering/prompts.py:_plan_inputs"
+  projection_policy: "只投影 obligation/query/kind/closure/output form、witness_id/content、经运行时复核的 source_closed_open_obligation_ids 与 catalog 闭合摘要；query-anchored table-row/procedure-list receipt 本体不进入模型视图，catalog receipt 的完整有序 witness_ids/count 必须与 Prompt witness 精确一致。"
+  instruction_policy: "所有动态字符串均放在 user message 的 UNTRUSTED_TASK_DATA_JSON 中。"
+  truncation_policy: "调用方必须在 provider 前完成确定性预算；loader 不截断 obligation 或 witness 正文。"
+example_set:
+  required: false
+  example_set_id: "query-answer-plan-opaque-ids-v1"
+  version: "1"
+  count: 1
+  content_policy: "仅 synthetic opaque IDs 与枚举，不含事实、评测 case、答案或 Evidence 正文。"
+repair:
+  selector_repair_calls: 0
+  workflow_max_repair_transitions: 2
+  policy: "plan Prompt 只调用一次产生 initial proposal；两次 reviewer 的 REPAIR 均由服务端确定性投影为完整替换 plan，不再回调 selector，且每份 replacement 必须进入下一轮 review。"
+  enforcement_refs:
+    - "app/application/query_answering/planning.py:project_review_repair_proposal"
+    - "app/application/query_answering/pipeline.py:plan_answer"
+tools: []
+model_runtime:
+  provider: "configured structured-generation adapter"
+  model_snapshot: "resolved and frozen by QueryRun; not selected by this Prompt"
+  model_limit_binding:
+    qwen3_7_max: "context=1000000, max_input=991808, snapshot=2026-07-24"
+    official_source: "https://www.alibabacloud.com/help/en/model-studio/qwen3-7-max"
+    unknown_model: "使用冻结 profile 窗口与 UTF-8 byte/token 上界，禁止未验证 tokenizer"
+  required_capability: "JSON object or native JSON Schema output plus deterministic local validation"
+  parameters:
+    tool_calls: 0
+    hidden_reasoning_requested: false
+  budgets:
+    workflow_repair_transitions: 2
+    selector_repair_calls: 0
+    provider_calls_for_initial_plan: 1
+    max_logical_calls_for_answer: 4
+    max_provider_attempts_for_answer: 12
+    default_answer_run_token_budget: 12000000
+    monetary_cost_budget: "unavailable；没有版本化模型价格快照或显式 cost_limit 时不伪造货币 reserve。"
+    output_token_cap: 2048
+    output_cap_rationale: "max plan/review wire UTF-8 分别为 1297/1296 bytes，1024 无法证明承载；2048 保留确定性安全余量。"
+    worst_output_reservation_cost: "4 logical calls * 3 attempts * 2048 = 24576 tokens。"
+    max_wire_output_utf8_bytes: 1297
+    token_estimator_ref: "app/infrastructure/answering/prompts.py:estimate_answering_prompt_path_budget"
+    pre_call_gate_ref: "app/infrastructure/answering/model_gateway.py:enforce_answer_prompt_budget"
+safety:
+  data_classification: "effective maximum of query and authorized ContextPack"
+  contains_secrets: false
+  injection_controls:
+    - "system instruction and untrusted task data are separate messages"
+    - "dynamic inputs are deterministically projected and canonically serialized"
+    - "provider output cannot carry prose, labels, hashes, spans or service IDs"
+    - "unknown/duplicate JSON keys and out-of-allowlist IDs fail closed"
+  permission_policy: "Prompt cannot expand authorization; runtime owns egress, scope, proof and commit."
+  provider_host_binding: "实际 OPENAI_BASE_URL host 必须与 QueryRun 冻结的 llm_generation.allowed_domains 单值精确一致，并在 SDK invoke 前复核 client endpoint。"
+release:
+  active_version: null
+  rollback_version: null
+  gate: "Not eligible for activation until v1.8 deterministic tests pass and a newly authorized frozen effectiveness run meets release criteria."
+evaluation:
+  executed_for_this_version: false
+  latest_comparable_run: "The completed EASY prefix predates v1.8; its scores must not be attributed to this version。"
+  leakage_policy: "No HAK180 query, gold, expected term, answer or Evidence content is used as Few-shot."
+unknowns:
+  - "Production provider's native JSON Schema compatibility; local strict validation remains mandatory."
+  - "v1.8 unseen-case semantic-selection quality and token/latency cost; one 100-case paid effectiveness run is authorized after offline gates pass but has not yet executed."

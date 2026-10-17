@@ -1,0 +1,139 @@
+{
+  "status": "incomplete_stopped_on_failure",
+  "runner_version": "2.32.0-v229-formal-ledger-strict-scalars",
+  "prompt_sha256": "d5af42cbcf5385c408583c4ed36b110ac89740be24d83248fafb58681d04a78b",
+  "prepared_case_calls": 15,
+  "already_completed_case_calls": 10,
+  "remaining_case_calls": 5,
+  "original_150_review_complete": true,
+  "superseded_review_reused": false,
+  "execution_contract_sha256": "60694067e286a704a7644e70c63786c0c062e44be27373b8b79927dfc9ba9414",
+  "materialization_adoption": {
+    "policy": "post150-formal-materialization-adoption-v1",
+    "materializer_fresh_retry_quota": 1,
+    "global_fresh_retry_quota": 1,
+    "global_fresh_retry_consumed_count": 1,
+    "global_fresh_retry_episode_ids": [
+      "post150-materialization-a03d8138b7570bc067a084c6"
+    ],
+    "stream_receipt_authority": {
+      "policy": "post150-formal-stream-content-diagnostics-non-authoritative-v1",
+      "content_sha256_authoritative": false,
+      "content_chars_authoritative": false,
+      "event_counts_authoritative": false,
+      "semantic_authority": "response_sha256_recomputed_from_review_plus_exact_core_payload_canonicalization_materializer_and_reducer_replay"
+    },
+    "adopted_episode_count": 1,
+    "adopted_custom_ids": [
+      "concept-review-8f4066c9d919364718f5"
+    ],
+    "adopted_episodes": {
+      "concept-review-8f4066c9d919364718f5": {
+        "episode_id": "post150-materialization-a03d8138b7570bc067a084c6",
+        "source_success_sha256": "dce89bf86f221bdc42e59da40f6bcf440294691a22d49e85328d1bd61befd46d",
+        "invalidation_sha256": "87c8450e1844c7f947c9b2ebc6dd4662fcb76fe8231820773d8ff769dcbaa0a2",
+        "retry_started_sha256": "840986b9c4c8b6f7484d76308ca07184b420f8d89f87aa8c1f31fe4ed7759470",
+        "fresh_success_sha256": "8ffe11306314a85d829d7be6e771cdfc7a8963fea3be0865e81fa2dd4fc5b158",
+        "fresh_retry_quota": 1,
+        "global_fresh_retry_quota": 1,
+        "stream_receipt_policy": "post150-formal-stream-content-diagnostics-non-authoritative-v1",
+        "stream_content_sha256_authoritative": false,
+        "policy": "post150-formal-materialization-adoption-v1"
+      }
+    },
+    "retry_eligible_count": 0,
+    "retry_eligible_custom_ids": [],
+    "invalidated_pending_count": 0,
+    "invalidated_pending_receipt_sha256_by_id": {},
+    "retry_started_in_doubt_count": 0,
+    "retry_started_receipt_sha256_by_id": {},
+    "terminal_episode_count": 0,
+    "terminal_outcome_sha256_by_id": {}
+  },
+  "schema_version": "stt.eval.easy-medium-evaluation-scope.v1",
+  "scope_name": "easy-medium-evaluation",
+  "scope_id": "easy-medium-evaluation-2026-08-13-v1",
+  "difficulties": [
+    "easy",
+    "medium"
+  ],
+  "quality_targets": {
+    "easy": 48,
+    "medium": 43
+  },
+  "hard_reference_only": true,
+  "candidate_run_allowed": true,
+  "canonical_promotion_allowed": false,
+  "promotable": false,
+  "baseline_registration_allowed": false,
+  "scope_profile_sha256": "280679e1ddc69a83652eb695eefb2515ff8e37a92f9a0138ff480a3a2fb58f2c",
+  "scope_target_custom_ids": [
+    "concept-review-fab8e25046f1abee7504",
+    "concept-review-400efe7f277bc31e30d5",
+    "concept-review-ee66a612947841d5d8e7",
+    "concept-review-ce6d2953f3ce301c27ea"
+  ],
+  "scope_target_custom_ids_sha256": "46112a024555ec0847c0fb20478b0e4258df133398cf6f4e2b426d00b4ce1e41",
+  "scope_target_parent_case_ids": [
+    "P3500-EASY-004",
+    "P3500-EASY-049",
+    "P3500-EASY-031",
+    "P3500-EASY-046"
+  ],
+  "scope_target_parent_case_ids_sha256": "ef193d8708d0c2ac206dbca81dc2e6ee48ed49d72099ee432c00cd1bc4985f72",
+  "scope_target_case_ids": [
+    "P3500-EASY-V2-004",
+    "P3500-EASY-V2-049",
+    "P3500-EASY-V2-031",
+    "P3500-EASY-V2-046"
+  ],
+  "scope_target_case_ids_sha256": "977c71310efea28f32a6934e5737471f64b317b2f5a41d32041af6c6f84b4f68",
+  "scope_target_difficulty_counts": {
+    "easy": 4,
+    "medium": 0
+  },
+  "scope_case_expected_count": 4,
+  "full_case_expected_count": 15,
+  "full_request_pack_sha256": "da10af5e1918d2d8e7021df556c8b824bfdd0d458d8794298e32e224654ce98f",
+  "scope_target_request_pack_sha256": "8c7e3c85704320e446085b75f787363ab8fbfdc90d080009b77ea13334979468",
+  "request_map_sha256": "bbf9ce4872b197d98c97e3bb0c4b7f7be8035f47cb67eb0447851ae259a00961",
+  "scope_case_success_count": 2,
+  "scope_remaining_case_calls": 2,
+  "scope_completed_custom_ids": [
+    "concept-review-fab8e25046f1abee7504",
+    "concept-review-400efe7f277bc31e30d5"
+  ],
+  "scope_remaining_custom_ids": [
+    "concept-review-ee66a612947841d5d8e7",
+    "concept-review-ce6d2953f3ce301c27ea"
+  ],
+  "full_case_success_count": 10,
+  "full_remaining_case_calls": 5,
+  "scope_physical_response_row_count": 4,
+  "scope_usage": {
+    "prompt_tokens": 2295,
+    "completion_tokens": 3986,
+    "total_tokens": 6281
+  },
+  "scope_api_attempts_recorded": 8,
+  "scope_usage_is_lower_bound": true,
+  "full_physical_response_row_count": 18,
+  "full_usage": {
+    "prompt_tokens": 45848,
+    "completion_tokens": 69233,
+    "total_tokens": 115081
+  },
+  "full_api_attempts_recorded": 28,
+  "full_usage_is_lower_bound": true,
+  "usage": {
+    "prompt_tokens": 45848,
+    "completion_tokens": 69233,
+    "total_tokens": 115081
+  },
+  "api_attempts_recorded": 28,
+  "usage_is_lower_bound": true,
+  "failed_custom_ids": [
+    "concept-review-ee66a612947841d5d8e7"
+  ],
+  "completed_at": "2026-08-13T04:21:23.189763+00:00"
+}

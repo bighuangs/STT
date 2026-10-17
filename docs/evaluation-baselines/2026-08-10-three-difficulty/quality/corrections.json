@@ -1,0 +1,38 @@
+{
+  "schema_version": "stt.eval.dataset-corrections.v1",
+  "suite_key": "three-difficulty-live-2026-08-10",
+  "publication_state": "pre-import",
+  "corrections": [
+    {
+      "difficulty": "hard",
+      "case_id": "P3500-HARD-049",
+      "severity": "high",
+      "detected_by": "deterministic expected-term validation",
+      "field": "expected_terms[0]",
+      "before": "没有提供",
+      "after": "没有给出",
+      "reason": "The original scoring label was not a literal span of the refusal reference answer."
+    },
+    {
+      "difficulty": "hard",
+      "case_id": "P3500-HARD-026",
+      "severity": "high",
+      "detected_by": "independent batched LLM audit and three-round qwen-plus adjudication",
+      "fields": [
+        "query",
+        "reference_answer",
+        "expected_terms",
+        "relevant_evidence[*].match_terms"
+      ],
+      "before": {
+        "query": "在基础结构连接模式中，移动设备与打印机均需连接到接入点（无线路由器），但若使用的是Android设备，还需满足什么条件才能实现移动打印？",
+        "reference_answer": "在基础结构连接模式中，若使用Android移动设备，必须将Mopria print service设置为打开，并确保“Cloud Print”或“HP Print Service Plugin”设置为关闭。"
+      },
+      "after": {
+        "query": "比较基础结构连接与 Wi-Fi 热点连接：基础结构模式如何把移动设备和打印机连接在一起，Android 设备可用哪种移动打印；热点模式下移动设备又连接到什么？",
+        "reference_answer": "基础结构连接模式以接入点（无线路由器）为媒介，把移动设备和无线网络打印机连接在一起，Android移动设备可以使用Mopria移动打印；在Wi-Fi热点连接模式下，移动设备连接带Wi-Fi功能的打印机热点。"
+      },
+      "reason": "The original answer introduced Mopria service and third-party plug-in settings absent from both frozen evidence records. The replacement is a two-evidence comparison whose claims and scoring terms are literal evidence spans."
+    }
+  ]
+}

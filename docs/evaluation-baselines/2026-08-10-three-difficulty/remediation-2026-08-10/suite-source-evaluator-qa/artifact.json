@@ -1,0 +1,537 @@
+{
+  "surface": "report",
+  "manifest": {
+    "surface": "report",
+    "version": "1.0",
+    "title": "固定 150 题：数据集、源证据与评测器一致性 QA",
+    "description": "Case-grain QA of dataset references, indexed/PDF evidence, archived production outcomes, and evaluator behavior.",
+    "generatedAt": "2026-08-10T12:43:19.186075+00:00",
+    "blocks": [
+      {
+        "id": "title",
+        "type": "markdown",
+        "body": "# 固定 150 题：数据集、源证据与评测器一致性 QA"
+      },
+      {
+        "id": "summary",
+        "type": "markdown",
+        "sourceId": "suite_qa",
+        "body": "## 技术摘要\n\n**新基线登记应保持 blocked。** 150/150 case_id 连接、manifest/run hash、源 PDF 和索引证据完整性均通过；但 easy=40/50、medium=35/50，各距严格目标 8 题。更关键的是，当前 final correctness 会接受完整参考答案后的明确无源虚假断言，也会接受夹带伪造事实的拒答，因此二元正确率还不是最终事实正确性的充分度量。"
+      },
+      {
+        "id": "headline",
+        "type": "metric-strip",
+        "cardIds": [
+          "join",
+          "easy_accuracy",
+          "medium_accuracy",
+          "false_addition"
+        ]
+      },
+      {
+        "id": "targets_text",
+        "type": "markdown",
+        "sourceId": "suite_qa",
+        "body": "## 当前结果离目标各差 8 题\n\n简单和中等的 stored production binary 分别是 40/50 与 35/50；目标严格使用 `>`，所以最低门槛是 48/50 与 43/50。困难集无强制准确率要求，但仍纳入相同的数据/源/评测合同 QA。"
+      },
+      {
+        "id": "targets_table_block",
+        "type": "table",
+        "tableId": "targets",
+        "layout": "full"
+      },
+      {
+        "id": "findings_text",
+        "type": "markdown",
+        "sourceId": "suite_qa",
+        "body": "## 阻塞来自评测合同而非输入连接\n\n反事实规则不使用题号：明确虚假附加断言可通过 145 个可回答题；多分支删尾仍可通过 28 个题。扁平 expected terms 还会重复加权同一概念。下面按 evaluator error、dataset/reference candidate 与 source ambiguity 分列覆盖量；source ambiguity 仅是待页面视觉复核候选。"
+      },
+      {
+        "id": "findings_table_block",
+        "type": "table",
+        "tableId": "findings",
+        "layout": "full"
+      },
+      {
+        "id": "scope",
+        "type": "markdown",
+        "sourceId": "suite_qa",
+        "body": "## 范围、数据与定义\n\n粒度为一行一个 immutable `case_id`：dataset=150、archive=150、join=150，两侧孤儿均为 0。三份 canonical manifest hash 与 suite 和归档 run manifest 一致；源 PDF SHA-256 与 95 页页数一致；当前 index `idx_fb5eeac133f540f4af31004dbde23151` 的 evidence id/chunk/hash/page 逐题连接通过。"
+      },
+      {
+        "id": "methodology",
+        "type": "markdown",
+        "sourceId": "suite_qa",
+        "body": "## 方法与可复现性\n\n脚本全量核对唯一性、难度结构、reference/expected/forbidden、否定极性、标识符/数值、表格/多分支与 evidence→PDF/索引一致性；再用项目原生 evaluator 重算归档答案，并运行删末分支、改首数值、expected-only、虚假附加断言与拒答夹带事实反例。完整 150 行在 cases.csv/json；companion notebook 只调用同一模块。"
+      },
+      {
+        "id": "limitations",
+        "type": "markdown",
+        "sourceId": "suite_qa",
+        "body": "## 限制与稳健性\n\n反事实证明评测器可接受集合过宽，不证明每个当前通过答案实际错误。PDF 可提取文本无法完全覆盖图像与复杂表格，相关 gap 只标 source ambiguity candidate。near-threshold false-negative candidate 必须经独立盲审后才能改判。固定快照没有趋势维度，因此使用精确表而不画趋势图。"
+      },
+      {
+        "id": "next_steps",
+        "type": "markdown",
+        "sourceId": "suite_qa",
+        "body": "## 全套、版本化修复建议\n\n1. evaluator v3 将所有 query-derived 必答分支、关键数值/标识符和无矛盾有据性纳入 final-correct 判定；拒答也检查夹带事实。\n2. suite v2 把 expected terms 迁移为 `all_of` concept groups，每组内部 `any_of` 表达变体；全 150 题统一迁移、双审和换 hash，禁止原地改单题。\n3. 困难题建立 evidence→concept 覆盖矩阵；每条证据至少支持一个独立必答概念。\n4. 用归档 observation shadow replay evaluator v3，并与独立盲审做冲突矩阵；仅在 easy≥48、medium≥43 且假阳性风险解除后登记新 baseline。"
+      },
+      {
+        "id": "questions",
+        "type": "markdown",
+        "body": "## 未决问题\n\nevaluator v3 与盲审的一致率是多少？concept-group 迁移会让多少旧结果换判？页面视觉复核后真正的 source ambiguity 还有多少？在回答这些问题前，当前输入完整性可以信任，但 final-accuracy 解释需要修订。"
+      }
+    ],
+    "cards": [
+      {
+        "id": "join",
+        "dataset": "headline",
+        "description": "manifest 与归档结果一对一",
+        "sourceId": "suite_qa",
+        "metrics": [
+          {
+            "field": "join_rate",
+            "label": "Case join",
+            "format": "percent"
+          }
+        ]
+      },
+      {
+        "id": "easy_accuracy",
+        "dataset": "headline",
+        "description": "目标 >95%，至少 48/50",
+        "sourceId": "suite_qa",
+        "metrics": [
+          {
+            "field": "easy_accuracy",
+            "label": "Easy final",
+            "format": "percent"
+          }
+        ]
+      },
+      {
+        "id": "medium_accuracy",
+        "dataset": "headline",
+        "description": "目标 >85%，至少 43/50",
+        "sourceId": "suite_qa",
+        "metrics": [
+          {
+            "field": "medium_accuracy",
+            "label": "Medium final",
+            "format": "percent"
+          }
+        ]
+      },
+      {
+        "id": "false_addition",
+        "dataset": "headline",
+        "description": "可回答题追加明确虚假断言仍通过",
+        "sourceId": "suite_qa",
+        "metrics": [
+          {
+            "field": "false_addition_rate",
+            "label": "Evaluator blind spot",
+            "format": "percent"
+          }
+        ]
+      }
+    ],
+    "charts": [],
+    "tables": [
+      {
+        "id": "targets",
+        "title": "三档当前正确率与门槛",
+        "subtitle": "每档固定 50 题；hard 无强制准确率目标。",
+        "dataset": "coverage",
+        "density": "spacious",
+        "layout": "full",
+        "sourceId": "suite_qa",
+        "defaultSort": {
+          "field": "order",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "order",
+            "label": "顺序",
+            "type": "number"
+          },
+          {
+            "field": "difficulty",
+            "label": "难度",
+            "type": "text"
+          },
+          {
+            "field": "cases",
+            "label": "题数",
+            "type": "number"
+          },
+          {
+            "field": "correct",
+            "label": "答对",
+            "type": "number"
+          },
+          {
+            "field": "accuracy",
+            "label": "最终正确率",
+            "format": "percent"
+          },
+          {
+            "field": "minimum_correct",
+            "label": "最低答对",
+            "type": "number"
+          },
+          {
+            "field": "shortfall",
+            "label": "差额",
+            "type": "number"
+          },
+          {
+            "field": "strict_pass",
+            "label": "严格通过",
+            "type": "number"
+          }
+        ]
+      },
+      {
+        "id": "findings",
+        "title": "阻塞性规则覆盖",
+        "subtitle": "全 150 题统一规则；source ambiguity 是候选，非自动定错。",
+        "dataset": "findings",
+        "density": "dense",
+        "layout": "full",
+        "sourceId": "suite_qa",
+        "defaultSort": {
+          "field": "severity_order",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "severity_order",
+            "label": "级别序",
+            "type": "number"
+          },
+          {
+            "field": "severity",
+            "label": "严重度",
+            "type": "text"
+          },
+          {
+            "field": "category",
+            "label": "类别",
+            "type": "text"
+          },
+          {
+            "field": "issue",
+            "label": "规则",
+            "type": "text"
+          },
+          {
+            "field": "cases",
+            "label": "覆盖题数",
+            "type": "number"
+          },
+          {
+            "field": "rate",
+            "label": "覆盖率",
+            "format": "percent"
+          },
+          {
+            "field": "easy",
+            "label": "Easy",
+            "type": "number"
+          },
+          {
+            "field": "medium",
+            "label": "Medium",
+            "type": "number"
+          },
+          {
+            "field": "hard",
+            "label": "Hard",
+            "type": "number"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "suite_qa",
+        "label": "Frozen suite + max-mono archive + indexed source evidence",
+        "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/suite-source-evaluator-qa/summary.json",
+        "query": {
+          "description": "The deterministic Python audit performs a 150/150 case-id join, verifies hashes and indexed evidence, recomputes the native evaluator, and applies suite-wide counterfactual rules without case-id branches.",
+          "engine": "Python 3 over immutable JSON/JSONL, read-only SQLite evidence, and source PDF",
+          "language": "python",
+          "filters": [
+            "suite_key = three-difficulty-live-2026-08-10",
+            "run_label = live-cand-max-mono-01",
+            "grain = case_id",
+            "150 manifest cases joined 1:1 to 150 archived results"
+          ],
+          "metric_definitions": [
+            "Final accuracy: stored metrics.case_outcome.final_answer_accuracy.",
+            "Target: easy >95% means at least 48/50; medium >85% means at least 43/50.",
+            "Counterfactual pass: the current native evaluator still returns final_correct after a deterministic answer mutation.",
+            "Source ambiguity flags are candidates until PDF page visual review; they are not automatic source errors."
+          ],
+          "tables_used": [
+            "datasets/easy.json",
+            "datasets/medium.json",
+            "datasets/hard.json",
+            "runs/live-cand-max-mono-01/artifacts/*/*/results.jsonl",
+            "volumes/control/stt-control.db:evidence_records",
+            "doc/PantumP3500用户手册zh_CNV1.2_1644316283788.pdf"
+          ]
+        }
+      }
+    ]
+  },
+  "snapshot": {
+    "version": "1.0",
+    "status": "ready",
+    "generatedAt": "2026-08-10T12:43:19.186075+00:00",
+    "accessIssues": [],
+    "datasets": {
+      "headline": [
+        {
+          "join_rate": 1.0,
+          "easy_accuracy": 0.8,
+          "medium_accuracy": 0.7,
+          "false_addition_rate": 1.0
+        }
+      ],
+      "coverage": [
+        {
+          "order": 1,
+          "difficulty": "简单",
+          "cases": 50,
+          "correct": 40,
+          "accuracy": 0.8,
+          "minimum_correct": 48,
+          "shortfall": 8,
+          "strict_pass": 35
+        },
+        {
+          "order": 2,
+          "difficulty": "中等",
+          "cases": 50,
+          "correct": 35,
+          "accuracy": 0.7,
+          "minimum_correct": 43,
+          "shortfall": 8,
+          "strict_pass": 33
+        },
+        {
+          "order": 3,
+          "difficulty": "困难",
+          "cases": 50,
+          "correct": 23,
+          "accuracy": 0.46,
+          "minimum_correct": null,
+          "shortfall": null,
+          "strict_pass": 23
+        }
+      ],
+      "findings": [
+        {
+          "severity_order": 1,
+          "severity": "critical",
+          "category": "evaluator_error",
+          "issue": "UNSUPPORTED_FALSE_ADDITION_CAN_PASS",
+          "cases": 145,
+          "rate": 0.9666666666666667,
+          "easy": 50,
+          "medium": 50,
+          "hard": 45
+        },
+        {
+          "severity_order": 1,
+          "severity": "critical",
+          "category": "evaluator_error",
+          "issue": "FABRICATED_FACT_WITH_REFUSAL_CAN_PASS",
+          "cases": 5,
+          "rate": 0.03333333333333333,
+          "easy": 0,
+          "medium": 0,
+          "hard": 5
+        },
+        {
+          "severity_order": 2,
+          "severity": "high",
+          "category": "evaluator_error",
+          "issue": "EXPECTED_TERMS_ONLY_CAN_PASS",
+          "cases": 49,
+          "rate": 0.32666666666666666,
+          "easy": 5,
+          "medium": 21,
+          "hard": 23
+        },
+        {
+          "severity_order": 2,
+          "severity": "high",
+          "category": "evaluator_error",
+          "issue": "MULTI_BRANCH_TRUNCATION_CAN_PASS",
+          "cases": 28,
+          "rate": 0.18666666666666668,
+          "easy": 0,
+          "medium": 22,
+          "hard": 6
+        },
+        {
+          "severity_order": 2,
+          "severity": "high",
+          "category": "evaluator_error",
+          "issue": "NUMERIC_MUTATION_CAN_PASS",
+          "cases": 14,
+          "rate": 0.09333333333333334,
+          "easy": 3,
+          "medium": 4,
+          "hard": 7
+        },
+        {
+          "severity_order": 2,
+          "severity": "high",
+          "category": "dataset_reference_candidate",
+          "issue": "QUERY_REFERENCE_POLARITY_CANDIDATE",
+          "cases": 12,
+          "rate": 0.08,
+          "easy": 2,
+          "medium": 2,
+          "hard": 8
+        },
+        {
+          "severity_order": 2,
+          "severity": "high",
+          "category": "evaluator_error",
+          "issue": "ACTUAL_PASS_DEPENDS_ON_EXPECTED_TERMS",
+          "cases": 8,
+          "rate": 0.05333333333333334,
+          "easy": 2,
+          "medium": 1,
+          "hard": 5
+        },
+        {
+          "severity_order": 2,
+          "severity": "high",
+          "category": "evaluator_error",
+          "issue": "ACTUAL_FINAL_CORRECT_WITH_LOW_FAITHFULNESS",
+          "cases": 7,
+          "rate": 0.04666666666666667,
+          "easy": 5,
+          "medium": 2,
+          "hard": 0
+        },
+        {
+          "severity_order": 2,
+          "severity": "high",
+          "category": "source_ambiguity",
+          "issue": "TABLE_QUERY_WITHOUT_PARSED_DATA_ROW",
+          "cases": 2,
+          "rate": 0.013333333333333334,
+          "easy": 1,
+          "medium": 0,
+          "hard": 1
+        },
+        {
+          "severity_order": 2,
+          "severity": "high",
+          "category": "dataset_reference_candidate+evaluator_error",
+          "issue": "EXPECTED_TERM_DUPLICATE_WEIGHT_CAN_DOMINATE",
+          "cases": 1,
+          "rate": 0.006666666666666667,
+          "easy": 0,
+          "medium": 0,
+          "hard": 1
+        },
+        {
+          "severity_order": 3,
+          "severity": "medium",
+          "category": "source_ambiguity",
+          "issue": "PDF_TEXT_EXTRACTION_TERM_GAP",
+          "cases": 37,
+          "rate": 0.24666666666666667,
+          "easy": 5,
+          "medium": 15,
+          "hard": 17
+        },
+        {
+          "severity_order": 3,
+          "severity": "medium",
+          "category": "dataset_reference_candidate",
+          "issue": "EXPECTED_TERM_VARIANTS_OVERLAP",
+          "cases": 13,
+          "rate": 0.08666666666666667,
+          "easy": 1,
+          "medium": 4,
+          "hard": 8
+        },
+        {
+          "severity_order": 3,
+          "severity": "medium",
+          "category": "dataset_reference_candidate",
+          "issue": "HARD_EVIDENCE_WITHOUT_SCORING_CONCEPT",
+          "cases": 13,
+          "rate": 0.08666666666666667,
+          "easy": 0,
+          "medium": 0,
+          "hard": 13
+        },
+        {
+          "severity_order": 3,
+          "severity": "medium",
+          "category": "dataset_reference_candidate",
+          "issue": "QUERY_SINGULAR_REFERENCE_ENUMERATION",
+          "cases": 5,
+          "rate": 0.03333333333333333,
+          "easy": 1,
+          "medium": 3,
+          "hard": 1
+        },
+        {
+          "severity_order": 3,
+          "severity": "medium",
+          "category": "evaluator_error_candidate",
+          "issue": "ACTUAL_NEAR_THRESHOLD_FALSE_NEGATIVE_CANDIDATE",
+          "cases": 4,
+          "rate": 0.02666666666666667,
+          "easy": 1,
+          "medium": 1,
+          "hard": 2
+        }
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": "suite_qa",
+      "label": "Frozen suite + max-mono archive + indexed source evidence",
+      "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/suite-source-evaluator-qa/summary.json",
+      "query": {
+        "description": "The deterministic Python audit performs a 150/150 case-id join, verifies hashes and indexed evidence, recomputes the native evaluator, and applies suite-wide counterfactual rules without case-id branches.",
+        "engine": "Python 3 over immutable JSON/JSONL, read-only SQLite evidence, and source PDF",
+        "language": "python",
+        "filters": [
+          "suite_key = three-difficulty-live-2026-08-10",
+          "run_label = live-cand-max-mono-01",
+          "grain = case_id",
+          "150 manifest cases joined 1:1 to 150 archived results"
+        ],
+        "metric_definitions": [
+          "Final accuracy: stored metrics.case_outcome.final_answer_accuracy.",
+          "Target: easy >95% means at least 48/50; medium >85% means at least 43/50.",
+          "Counterfactual pass: the current native evaluator still returns final_correct after a deterministic answer mutation.",
+          "Source ambiguity flags are candidates until PDF page visual review; they are not automatic source errors."
+        ],
+        "tables_used": [
+          "datasets/easy.json",
+          "datasets/medium.json",
+          "datasets/hard.json",
+          "runs/live-cand-max-mono-01/artifacts/*/*/results.jsonl",
+          "volumes/control/stt-control.db:evidence_records",
+          "doc/PantumP3500用户手册zh_CNV1.2_1644316283788.pdf"
+        ]
+      }
+    }
+  ]
+}

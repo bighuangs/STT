@@ -1,0 +1,59 @@
+{
+  "schema_version": "stt.eval.dataset-registry.v1",
+  "datasets": {
+    "hak180-safety@1.0.0": {
+      "path": "app/evaluation/datasets/hak180_safety_v1.json",
+      "sha256": "2294cc2a1f01a5bec991ca5bfdb16fba396b99ad2bffb0757139f91b9bc6fe9a",
+      "status": "frozen",
+      "migration_status": "legacy_location"
+    },
+    "hak180-safety@1.1.0": {
+      "path": "app/evaluation/datasets/hak180_safety_v1_1.json",
+      "sha256": "fb54b8c8704f3606669b7d5ea88fcb73cce83666131201eaf79dee8f6e5c0a70",
+      "status": "candidate",
+      "migration_status": "legacy_location"
+    },
+    "hak180-safety@1.2.0": {
+      "path": "evals/datasets/hak180_safety_v1_2.json",
+      "sha256": "3288e1cfff85e754c07a509711a176970e2b8bf2be2afda0bc20cb603a735d8a",
+      "status": "candidate",
+      "migration_status": "canonical_location"
+    },
+    "hak180-safety@1.3.0": {
+      "path": "evals/datasets/hak180_safety_v1_3.json",
+      "sha256": "cd374fc01754f1e463f605608e0cdce484ac0e398ec6b5542b08ebc3ea30f851",
+      "status": "candidate",
+      "migration_status": "canonical_location"
+    },
+    "hak180-safety@1.4.0": {
+      "path": "evals/datasets/hak180_safety_v1_4.json",
+      "sha256": "62c2646e9e9ea18c20d26dde2f9634d1db699e6ecf7c631dd3e7cba8b1653f20",
+      "status": "candidate",
+      "migration_status": "canonical_location"
+    },
+    "hak180-safety-multimodal@1.0.0": {
+      "path": "app/evaluation/datasets/hak180_multimodal_v1.json",
+      "sha256": "a4c78432eaed553078e5aaee2cf53900ae7ac9b6bd3045cf6a43f238de6e3c51",
+      "status": "frozen",
+      "migration_status": "legacy_location"
+    },
+    "three-difficulty-easy@2026-08-10": {
+      "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/easy.json",
+      "sha256": "1a3cacbb59b3aa7f354a569f828ad6214351f07cd3d0923a798e98cc33c41b2a",
+      "status": "approved",
+      "migration_status": "legacy_location"
+    },
+    "three-difficulty-medium@2026-08-10": {
+      "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/medium.json",
+      "sha256": "89c570d10282342fd7facec9bd7d20af61337b5ecaef0038157ed824c25c0369",
+      "status": "approved",
+      "migration_status": "legacy_location"
+    },
+    "three-difficulty-hard@2026-08-10": {
+      "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/hard.json",
+      "sha256": "e5be4d2495618e819b9758fa753bb10d553037ca10b26dc6ccd8521404600a04",
+      "status": "approved",
+      "migration_status": "legacy_location"
+    }
+  }
+}

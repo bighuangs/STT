@@ -1,0 +1,47 @@
+{
+  "by_difficulty": {
+    "easy": {
+      "answer_decision_reason_counts": {
+        "EVIDENCE_SUFFICIENT": 10,
+        "POST_GENERATION_EXTRACTIVE_REPAIR": 5,
+        "POST_GENERATION_PARTIAL_GROUNDING": 6,
+        "POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED": 11,
+        "UNSUPPORTED_GENERATION": 18
+      },
+      "case_count": 50,
+      "changed_from_old_final_count": 47,
+      "marker_normalized_case_count": 34,
+      "preserved_pre_grounding_count": 5,
+      "trusted_citation_case_count": 36
+    },
+    "medium": {
+      "answer_decision_reason_counts": {
+        "EVIDENCE_SUFFICIENT": 1,
+        "POST_GENERATION_STRONG_COMPOSITE_PROJECTION": 10,
+        "POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED": 23,
+        "UNSUPPORTED_GENERATION": 16
+      },
+      "case_count": 50,
+      "changed_from_old_final_count": 48,
+      "marker_normalized_case_count": 35,
+      "preserved_pre_grounding_count": 3,
+      "trusted_citation_case_count": 38
+    }
+  },
+  "current_code_files": {
+    "citation_service_sha256": "fd07c5d246aedc406c8b27b4c2a295f5d396405da7a9cd473aaa74043305b93a",
+    "claim_binding_sha256": "ed6fd35b19dccc287f7de0319705d1243f4271aa589c919e4b19fad9be6b0fed",
+    "sufficiency_service_sha256": "a7bae624b02409105ebf1617310d2dc9798f2996b1a30b288b3f72075886caae"
+  },
+  "generated_at": "2026-08-10T08:09:11.425707+00:00",
+  "input_sha256": {
+    "artifacts/easy/erun_7f43e81f07a441fe996c2297f7b897c3/results.jsonl": "630b52934ad55bf8cc0d3ace8d0ce633a84a4b3b22cb3101c070201ae0ab92c3",
+    "artifacts/medium/erun_6954a0e895a74f4eb7052416996a4a2b/results.jsonl": "80c447e8aad99a51fda79d23fb39a4aa63d28e770b402bd8b8bcde83615bf2e1"
+  },
+  "limitations": [
+    "Deterministic replay reuses archived model output and ContextPack; it does not rerun retrieval or the LLM.",
+    "Replay preservation is a pipeline diagnostic, not a semantic-correctness judgment."
+  ],
+  "run_root": "D:\\Learning\\agent\\STT\\docs\\evaluation-baselines\\2026-08-10-three-difficulty\\remediation-2026-08-10\\runs\\live-candidate-v2-qwen-plus-01",
+  "schema_version": "stt.grounding-replay.v1"
+}

@@ -1,0 +1,102 @@
+schema_version: "1.0.0"
+dataset:
+  dataset_id: "eds_cff7b6f0f1cfc994a5731543a1c00e33"
+  version: "1.0.0"
+  name: "HAK180 产品安全手册黄金集"
+  owner: "STT evaluation"
+  status: "frozen"
+  purpose: "当前在线 RAG 全链路回归"
+  decision_supported: "判断当前 Query Graph 是否在冻结 HAK180 语料上完成可追溯 live 运行"
+  created_at: "2026-08-14"
+  frozen_at: "2026-08-14"
+scope:
+  target_users: ["中文产品手册问答用户"]
+  domains: ["产品安全", "使用与维护"]
+  tasks: ["事实问答", "多事实综合", "多轮指代", "无答案拒答"]
+  languages: ["zh-CN"]
+  time_range: {start: null, end: "2026-08-14"}
+  exclusions: ["Web 时效问题", "多模态图像问答"]
+knowledge_base:
+  corpus_id: "kb_5b90254dd5a24565b347c63ba56ce69d"
+  corpus_version: "dv_96c2404854b64e9497cee18bca109b97"
+  index_version: "idx_08abedf9eecc4f488528f57b318eeeed"
+  chunker_version: "manual@1.1.0;config-sha256:0801d1acc523d7a6282057f88128bc2a891f1758e829d9421d80ba539d38aac6"
+  effective_at: "2026-08-07T07:10:23+08:00"
+  snapshot_uri: "control-db://tenant_default/kb_5b90254dd5a24565b347c63ba56ce69d"
+sources:
+  - source_id: "src-manual"
+    source_type: "manual"
+    source_ref: "doc/hak180产品安全手册.pdf"
+    license: "project-provided evaluation copy"
+    sampling_policy: "人工冻结 28 Case 全量"
+    proportion: 1.0
+    privacy_class: "internal"
+    reviewed: true
+tables:
+  cases:
+    path: "app/evaluation/datasets/hak180_safety_v1.json"
+    primary_key: "case_id"
+  relevance_judgments:
+    path: "app/evaluation/datasets/hak180_safety_v1.json#cases[*].relevant_evidence"
+    foreign_key: "case_id"
+  claims:
+    path: "app/evaluation/datasets/hak180_safety_v1.json#cases[*].expected_terms"
+    foreign_key: "case_id"
+  nested_evidence:
+    path: "app/evaluation/datasets/hak180_safety_v1.json"
+    format: "json"
+splits:
+  development: []
+  calibration: []
+  test: ["HAK180-001..HAK180-028"]
+  hidden: []
+slices:
+  definitions: ["direct_fact", "multi_fact", "multi_turn", "unanswerable", "critical"]
+  traffic_weights: {}
+difficulty_policy:
+  axes: ["answerability", "lexical_gap", "multi_hop", "citation_requirement"]
+  derivation_rule: "沿用冻结 manifest 的 tags、unanswerable 和 metadata.type；未重新标注。"
+sample_size_plan:
+  fixed_global_minimum: null
+  pilot_size: 1
+  decision_risk: "单次本地发布回归；安全手册 critical Case 不允许静默丢失。"
+  target_interval_width: null
+  minimum_detectable_effect: null
+  expected_variance: null
+  critical_slices: ["critical", "unanswerable"]
+  budget_limit: "28 cases, one repetition"
+  stopping_rule: "记录所有 28 Case；基础设施失败也保留结果行。"
+  weighting_policy: "未加权；同时按 tag/answerability 切片。"
+annotation:
+  guideline_version: "stt.eval.v1"
+  reviewer_roles: ["project dataset author"]
+  independent_review_count: null
+  adjudication_policy: "Unknown"
+  agreement_measure: "Unknown"
+  agreement_by_slice: {}
+quality_controls:
+  deduplication: "项目测试检查 case_id 唯一和固定数量。"
+  leakage_check: "live target 不接收 reference_answer；metrics 在目标完成后使用金标。"
+  provenance_validation: "源文件 Hash、active document/index 和向量读集由 preflight 验证。"
+  id_integrity_check: "tests/eval/test_hak180_dataset.py"
+  temporal_validity_check: "手册为冻结静态事实；Web 被禁用。"
+  synthetic_review_policy: "无合成 Case 声明。"
+privacy:
+  classification: "internal"
+  redaction_policy: "不在耐久报告复制完整模型 Prompt 或凭据。"
+  access_policy: "本地项目工作区"
+  retention_policy: "按项目评测制品保留策略"
+artifacts:
+  durable_manifest_path: "docs/experiment/hak180-online-e2e/dataset-manifest.yaml"
+  large_artifact_store: "var/evals/<run_id>/"
+  hashes:
+    source_pdf: "sha256:dff3aaa8133427992d0e0693391287f936a81b4b3806bc1ebc3b047609026765"
+    dataset_manifest: "sha256:7ea4edf3b981b8497191bcdd8e7e5ee0b871bad222ec29e27915a9ba662ca172"
+    vector_read_set: "sha256:c72facd7755c8638d68951449e5c0fa6f33cb2268e3359fb11be6220154fe931"
+limitations:
+  - "缺少独立双人标注一致性统计。"
+  - "28 Case 只能描述该手册和当前切片，不能代表所有生产流量。"
+change_history:
+  - date: "2026-08-14"
+    change: "为本次在线运行冻结现有数据与 KB/索引身份。"
+

@@ -1,0 +1,31 @@
+{
+  "schema_version": "stt.eval.suite.v1",
+  "suite_key": "three-difficulty-live-2026-08-10",
+  "evaluation_mode": "live",
+  "knowledge_base_id": "kb_2fad25538aab42d19baf79fba782a06c",
+  "source_sha256": "c4c7b2a434f3f86c4988d3961ac7304970029e71b0201fb6c10ca722b63bce2b",
+  "index_version_id": "idx_fb5eeac133f540f4af31004dbde23151",
+  "datasets": {
+    "easy": {
+      "path": "datasets/easy.json",
+      "dataset_key": "pantum-p3500-easy-live-baseline",
+      "version": "1.0.0",
+      "case_count": 50,
+      "checksum": "c5e28b1d04aa31403795d796984d7ddd52bfa6faa0abc4b6300c4b61c648b5ac"
+    },
+    "medium": {
+      "path": "datasets/medium.json",
+      "dataset_key": "pantum-p3500-medium-live-baseline",
+      "version": "1.0.0",
+      "case_count": 50,
+      "checksum": "4924a812732614a5da729c088d2d269a38e67393cc2afa6ba3addcf450c7b4ae"
+    },
+    "hard": {
+      "path": "datasets/hard.json",
+      "dataset_key": "pantum-p3500-hard-live-baseline",
+      "version": "1.0.0",
+      "case_count": 50,
+      "checksum": "57099f7dbdb789fae887447b1bcb3666af3f5f8b45f1f9675b0b36a7d6274bad"
+    }
+  }
+}

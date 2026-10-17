@@ -1,0 +1,86 @@
+schema_version: "1.0"
+experiment_id: "hak180-strict-correctness-iteration-2"
+feature_id: "hak180-strict-correctness"
+title: "HAK180 最终严格正确率迭代 2"
+owner: "STT Query / Evaluation"
+status: "active"
+phase: "implementing"
+created_at: "2026-08-15T13:45:49+08:00"
+updated_at: "2026-08-15T13:45:49+08:00"
+scope:
+  repository_root: "D:/Learning/agent/STT"
+  code_refs:
+    - "app/domain/query_planning.py"
+    - "app/application/query_understanding_service.py"
+    - "app/rag/query/context_pack_service.py"
+    - "app/rag/query/completeness_review_service.py"
+    - "app/rag/query/sufficiency_service.py"
+    - "app/evaluation/metrics.py"
+  non_goals:
+    - "索引、chunking 或 embedding 重建"
+    - "按 HAK180 case 特判或注入评测金标"
+    - "本轮引入新模型供应商或额外 LLM review"
+authorization:
+  method_selection:
+    value: "user_selected"
+    evidence_ref: "conversation:user-selected-option-2"
+    scope: "medium-facet-ledger-and-structured-repair"
+  implementation:
+    value: true
+    evidence_ref: "conversation:functional-fix-and-iteration"
+    scope: "current-feature"
+  evaluation_execution:
+    value: true
+    evidence_ref: "conversation:approved-online-evaluation-and-model-cost"
+    scope: "one-frozen-hak180-formal-run-after-preflight"
+  iteration:
+    value: true
+    evidence_ref: "conversation:approved-iteration-fixes"
+    scope: "selected-method-current-iteration"
+project_snapshot:
+  code_version: "d1a4192dd5eb9da9a8601644521c6876a7bec959+dirty"
+  config_version: "pyproject-sha256:ab33a31565fc10ccfcda3e8f77a8b24e05497bb3a1239e0e66ab57d95d42a924"
+  dependency_lock_hash: "sha256:7d4c3b82e9fd2cc7385d9528507f6a20ee190a60eb85c38160ffcbdc6ec4c926"
+  runtime_versions:
+    langgraph: "1.2.9"
+    langchain_openai: "1.2.2"
+    openai: "2.38.0"
+    pydantic: "2.13.4"
+research:
+  source_ledger: "source-ledger.csv"
+  coverage_status: "sufficient_for_selected_method"
+  accessed_at: "2026-08-15"
+decision:
+  method_comparison: "method-comparison.csv"
+  selected_method_id: "medium-facet-structured-repair"
+  decision_status: "user_selected"
+  decision_evidence_ref: "conversation:user-selected-option-2"
+evaluation:
+  manifest_ref: "evaluation-manifest.yaml"
+  dataset_refs:
+    - "evals/datasets/hak180_safety_v1_1.json"
+  result_refs:
+    - "var/evals/erun_ed23dbc347734ff0af638bd1c24966ca"
+  error_cases_ref: "error-cases.csv"
+artifacts:
+  - uri: "var/evals/erun_ed23dbc347734ff0af638bd1c24966ca/results.jsonl"
+    sha256: "b471befb6554825b9df1c69cd4e7bc945445876293edd0fc42ef868924c87832"
+    classification: "internal"
+    retention: "project-evaluation-policy"
+budgets:
+  time_seconds: null
+  token_count: null
+  tool_calls: null
+  cost_currency: "CNY"
+  cost_limit: null
+  paid_model_calls_authorized: true
+data_governance:
+  classification: "internal"
+  contains_personal_data: false
+  contains_secrets: false
+  retention_policy: "project-evaluation-policy"
+open_questions:
+  - "Facet Ledger 在未见复合问题上的过拆率"
+  - "结构化 repair 对最终严格正确率的实际效应"
+  - "reranker min_top_k=5 的噪声、时延与成本代价"
+supersedes: "docs/experiment/hak180-online-e2e-iteration-1"

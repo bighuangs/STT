@@ -1,0 +1,12 @@
+{
+  "schema_version": "stt.eval.baseline-registry.v1",
+  "baselines": {
+    "three-difficulty-live@2026-08-10": {
+      "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/quality/quality-summary.json",
+      "sha256": "f6cc6f6abd0d8afe69d04f7d261eb433901c32a7bfb5145431d5cf604c0e01df",
+      "status": "approved",
+      "promotion_evidence": "deterministic and online audit statuses are passed"
+    }
+  }
+}
+

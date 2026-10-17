@@ -1,0 +1,3662 @@
+<!-- 业务化知识库查询工作台：授权知识库选择、持久 QueryRun、可信引用与管理员诊断。 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>知识库查询工作台 · 掌柜智库</title>
+  <link rel="stylesheet" href="/ui-assets/stt-console.css?v=20260807.1">
+  <style>
+    body.stt-workbench { overflow-x: hidden; }
+    .query-main { min-width: 0; }
+    .query-heading { display: grid; gap: 14px; }
+    .context-copy { max-width: 720px; }
+    .context-copy h1 { font-size: clamp(24px, 3vw, 30px); }
+    .context-toolbar {
+      display: grid;
+      grid-template-columns: minmax(260px, 1fr) auto;
+      align-items: end;
+      gap: 12px;
+    }
+    .kb-summary {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .kb-summary-item {
+      min-width: 0;
+      border-left: 3px solid #d8e7f8;
+      padding: 5px 10px;
+    }
+    .kb-summary-item span,
+    .kb-summary-item strong { display: block; }
+    .kb-summary-item span { color: var(--stt-muted); font-size: 11px; }
+    .kb-summary-item strong {
+      margin-top: 3px;
+      overflow: hidden;
+      font-size: 13px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .chat-layout { min-width: 0; }
+    .query-workspace {
+      display: grid;
+      grid-template-columns: minmax(220px, 250px) minmax(0, 1fr);
+      align-items: stretch;
+      gap: 14px;
+      min-width: 0;
+    }
+    .conversation-history {
+      display: flex;
+      min-width: 0;
+      min-height: min(720px, calc(100vh - 245px));
+      overflow: hidden;
+      flex-direction: column;
+    }
+    .conversation-history-header {
+      display: grid;
+      gap: 5px;
+      padding: 17px 16px 12px;
+      border-bottom: 1px solid var(--stt-border);
+    }
+    .conversation-history-header h2 { margin: 0; font-size: 16px; }
+    .conversation-history-header p {
+      margin: 0;
+      color: var(--stt-muted);
+      font-size: 11px;
+      line-height: 1.55;
+    }
+    .conversation-history-controls {
+      display: grid;
+      gap: 9px;
+      padding: 12px 13px;
+      border-bottom: 1px solid var(--stt-border);
+      background: #fbfdff;
+    }
+    .conversation-history-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7px;
+    }
+    .conversation-history-filters { display: grid; grid-template-columns: 1fr auto; gap: 7px; }
+    .conversation-lifecycle-actions { display: flex; gap: 7px; flex-wrap: wrap; }
+    .conversation-history-status {
+      min-height: 18px;
+      color: var(--stt-muted);
+      font-size: 11px;
+      line-height: 1.45;
+    }
+    .conversation-history-list {
+      display: grid;
+      align-content: start;
+      gap: 7px;
+      min-height: 0;
+      padding: 10px;
+      overflow-y: auto;
+    }
+    .conversation-history-empty {
+      border: 1px dashed #cbd9e8;
+      border-radius: 10px;
+      color: var(--stt-muted);
+      font-size: 12px;
+      line-height: 1.65;
+      padding: 14px;
+      text-align: center;
+    }
+    .conversation-history-item {
+      display: grid;
+      gap: 6px;
+      width: 100%;
+      border: 1px solid #dce6f2;
+      border-radius: 11px;
+      background: #fff;
+      color: var(--stt-text);
+      cursor: pointer;
+      padding: 10px;
+      text-align: left;
+      transition: border-color 140ms ease, box-shadow 140ms ease, transform 140ms ease;
+    }
+    .conversation-history-item:hover:not(:disabled) {
+      border-color: #a9c9ee;
+      box-shadow: 0 5px 14px rgba(31, 111, 235, 0.08);
+      transform: translateY(-1px);
+    }
+    .conversation-history-item.is-selected {
+      border-color: var(--stt-primary);
+      background: #f2f7ff;
+      box-shadow: inset 3px 0 0 var(--stt-primary);
+    }
+    .conversation-history-item:disabled { cursor: wait; opacity: .66; }
+    .conversation-history-title {
+      overflow: hidden;
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.45;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .conversation-history-meta,
+    .conversation-history-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      color: var(--stt-muted);
+      font-size: 10px;
+    }
+    .conversation-history-meta span:first-child {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .conversation-history-state {
+      flex: 0 0 auto;
+      border-radius: 999px;
+      background: #e7f7ef;
+      color: #16794e;
+      padding: 2px 6px;
+      font-weight: 750;
+    }
+    .conversation-history-state.archived { background: #eef1f5; color: #667487; }
+    .conversation-card {
+      min-height: min(720px, calc(100vh - 245px));
+      overflow: hidden;
+    }
+    .conversation-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 20px 14px;
+      border-bottom: 1px solid var(--stt-border);
+    }
+    .conversation-header h2 { margin: 0; font-size: 18px; }
+    .conversation-header p { margin: 5px 0 0; color: var(--stt-muted); font-size: 12px; }
+    .run-strip {
+      display: grid;
+      grid-template-columns: auto minmax(140px, 1fr) auto;
+      align-items: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 8px 20px;
+      border-bottom: 1px solid var(--stt-border);
+      background: #f8fbff;
+    }
+    .run-progress {
+      height: 7px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #dce6f2;
+    }
+    .run-progress > span {
+      display: block;
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--stt-primary);
+      transition: width 180ms ease;
+    }
+    .run-stage {
+      color: var(--stt-muted);
+      font-size: 11px;
+      text-align: right;
+      white-space: nowrap;
+    }
+    .chat {
+      height: clamp(340px, 48vh, 570px);
+      overflow-y: auto;
+      padding: 18px 20px;
+      background:
+        linear-gradient(180deg, rgba(222, 238, 255, 0.34), transparent 22%),
+        #fbfdff;
+      scroll-behavior: smooth;
+    }
+    .dayline { margin: 0 0 14px; color: var(--stt-muted); font-size: 11px; text-align: center; }
+    .msg { display: flex; align-items: flex-start; gap: 10px; margin: 14px 0; }
+    .msg.user { justify-content: flex-end; }
+    .msg > .message-content { min-width: 0; max-width: min(780px, 84%); }
+    .avatar {
+      display: grid;
+      flex: 0 0 36px;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border: 1px solid #cad9ea;
+      border-radius: 11px;
+      background: #edf4fd;
+      color: #2a527d;
+      font-size: 11px;
+      font-weight: 800;
+    }
+    .msg.user .avatar { border-color: #1f6feb; background: #1f6feb; color: #fff; }
+    .bubble {
+      border: 1px solid var(--stt-border);
+      border-radius: 5px 15px 15px 15px;
+      background: #fff;
+      box-shadow: 0 5px 16px rgba(41, 70, 106, 0.06);
+      color: var(--stt-text);
+      font-size: 14px;
+      line-height: 1.72;
+      overflow-wrap: anywhere;
+      padding: 12px 14px;
+      white-space: pre-wrap;
+    }
+    .msg.user .bubble {
+      border-color: var(--stt-primary);
+      border-radius: 15px 5px 15px 15px;
+      background: var(--stt-primary);
+      color: #fff;
+    }
+    .meta { margin-top: 5px; color: var(--stt-muted); font-size: 11px; }
+    .msg.user .meta { text-align: right; }
+    .typing { display: inline-flex; align-items: center; gap: 5px; }
+    .typing span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      animation: typing-pulse 1.2s infinite ease-in-out;
+      background: #73859a;
+    }
+    .typing span:nth-child(2) { animation-delay: 120ms; }
+    .typing span:nth-child(3) { animation-delay: 240ms; }
+    @keyframes typing-pulse {
+      0%, 70%, 100% { opacity: 0.35; transform: translateY(0); }
+      35% { opacity: 1; transform: translateY(-3px); }
+    }
+    details.progress,
+    .citation-panel,
+    .answer-contract { margin-top: 11px; border-top: 1px solid #e2eaf4; padding-top: 9px; }
+    details.progress summary,
+    .citation-panel summary,
+    .answer-contract summary { cursor: pointer; color: #315a86; font-size: 12px; font-weight: 750; }
+    .progress ul { margin: 8px 0 0; padding-left: 18px; }
+    .progress li { margin: 4px 0; color: var(--stt-muted); font-size: 12px; }
+    .answer-text { white-space: pre-wrap; }
+    .answer-images {
+      display: grid;
+      gap: 9px;
+      margin-top: 12px;
+      border: 1px solid #d9e5f2;
+      border-radius: 12px;
+      background: #f8fbff;
+      padding: 11px;
+    }
+    .answer-images-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .answer-images-heading strong { color: #173d66; font-size: 12px; }
+    .answer-images-heading span { color: var(--stt-muted); font-size: 10px; }
+    .answer-image-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
+      gap: 10px;
+    }
+    .answer-image-card {
+      display: grid;
+      align-content: start;
+      gap: 8px;
+      min-width: 0;
+      overflow: hidden;
+      border: 1px solid var(--stt-border);
+      border-radius: 11px;
+      background: #fff;
+      padding: 8px;
+    }
+    .answer-image-frame {
+      display: grid;
+      position: relative;
+      place-items: center;
+      min-height: 132px;
+      overflow: hidden;
+      border-radius: 8px;
+      background: linear-gradient(110deg, #edf3f9 8%, #f7faff 18%, #edf3f9 33%);
+      background-size: 220% 100%;
+      animation: image-loading 1.4s linear infinite;
+    }
+    .answer-image-frame.is-loaded { min-height: 0; animation: none; background: #f6f8fb; }
+    .answer-image-frame.is-failed { min-height: 132px; animation: none; background: #fff6f5; }
+    @keyframes image-loading { to { background-position-x: -220%; } }
+    .answer-image-card img {
+      display: block;
+      width: 100%;
+      min-height: 132px;
+      max-height: 440px;
+      object-fit: contain;
+      opacity: 0;
+      border-radius: 7px;
+      background: #fff;
+      transition: opacity 160ms ease;
+    }
+    .answer-image-frame.is-loaded img { min-height: 0; opacity: 1; }
+    .answer-image-status {
+      position: absolute;
+      z-index: 1;
+      max-width: calc(100% - 24px);
+      color: var(--stt-muted);
+      font-size: 11px;
+      line-height: 1.5;
+      text-align: center;
+    }
+    .answer-image-status.failed { color: #a23c32; }
+    .answer-image-caption { color: #31465e; font-size: 11px; line-height: 1.45; }
+    .answer-image-actions { display: flex; align-items: center; gap: 10px; }
+    .answer-image-actions a,
+    .answer-image-actions button {
+      border: 0;
+      background: transparent;
+      color: var(--stt-primary-strong);
+      cursor: pointer;
+      font-size: 11px;
+      padding: 0;
+      text-decoration: none;
+    }
+    .citation-ref {
+      margin: 0 2px;
+      border: 1px solid #b8d0ef;
+      border-radius: 999px;
+      background: #eef5ff;
+      color: #1559bd;
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 1px 6px;
+    }
+    .citation-ref.degraded { border-color: #ead19a; background: #fff8e5; color: #806008; }
+    .citation-ref.invalid { border-color: #efb5b0; background: #fff1ef; color: #9e2d24; }
+    .citation-card {
+      margin-top: 9px;
+      border: 1px solid #d9e5f2;
+      border-radius: 11px;
+      background: #f8fbff;
+      padding: 11px;
+    }
+    .citation-card.invalid { border-color: #efb5b0; background: #fff8f7; }
+    .source-title { color: #173d66; font-size: 12px; font-weight: 800; }
+    .source-meta { margin-top: 3px; color: var(--stt-muted); font-size: 11px; }
+    .citation-card blockquote {
+      margin: 9px 0;
+      border-left: 3px solid #77a8df;
+      background: #fff;
+      color: #31465e;
+      padding: 8px 10px;
+      white-space: pre-wrap;
+    }
+    .citation-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .citation-actions button,
+    .citation-actions a {
+      border: 0;
+      background: transparent;
+      color: var(--stt-primary-strong);
+      cursor: pointer;
+      font-size: 12px;
+      padding: 0;
+      text-decoration: none;
+    }
+    .feedback-panel {
+      display: grid;
+      gap: 8px;
+      margin-top: 12px;
+      border-top: 1px solid #e2eaf4;
+      padding-top: 10px;
+    }
+    .feedback-actions { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+    .feedback-form { display: grid; gap: 8px; }
+    .feedback-form textarea { min-height: 70px; }
+    .feedback-status { color: var(--stt-muted); font-size: 11px; }
+    .turn-placeholder {
+      margin: 10px 0;
+      border: 1px dashed #c8d8ea;
+      border-radius: 10px;
+      background: #f8fbff;
+      color: #40566f;
+      padding: 10px 12px;
+    }
+    .turn-placeholder[data-tone="danger"] { border-color: #e9b5b0; background: #fff7f6; }
+    .evidence-preview,
+    .answer-contract pre {
+      max-height: 260px;
+      overflow: auto;
+      margin-top: 8px;
+      border-radius: 8px;
+      background: #142033;
+      color: #e7eef8;
+      font: 11px/1.55 ui-monospace, SFMono-Regular, Consolas, monospace;
+      padding: 10px;
+      white-space: pre-wrap;
+    }
+    .composer {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: end;
+      gap: 10px;
+      padding: 14px 20px 10px;
+      border-top: 1px solid var(--stt-border);
+      background: #fff;
+    }
+    .composer .stt-textarea { min-height: 52px; max-height: 150px; }
+    .composer-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 0 20px 14px;
+      color: var(--stt-muted);
+      font-size: 11px;
+    }
+    .composer-reason { min-width: 0; }
+    .kbd {
+      border: 1px solid var(--stt-border);
+      border-radius: 5px;
+      background: #f5f8fc;
+      color: #41566f;
+      font: 10px ui-monospace, SFMono-Regular, Consolas, monospace;
+      padding: 1px 5px;
+    }
+    .admin-sidebar { display: grid; gap: 12px; }
+    .stt-context-panel-header h2 { margin: 0; font-size: 17px; }
+    .stt-context-panel-header p { margin: 5px 0 0; color: var(--stt-muted); font-size: 12px; line-height: 1.55; }
+    .admin-sidebar .stt-context-panel-body { padding-top: 12px; }
+    .retrieval-grid { display: grid; gap: 10px; }
+    .retrieval-actions { display: flex; gap: 7px; flex-wrap: wrap; }
+    .retrieval-json { min-height: 130px; font: 11px/1.5 ui-monospace, SFMono-Regular, Consolas, monospace; }
+    .retrieval-workbench { display: none; overflow: hidden; }
+    .retrieval-workbench-header { padding: 18px 20px; border-bottom: 1px solid var(--stt-border); }
+    .retrieval-workbench-header h2 { margin: 0; font-size: 19px; }
+    .retrieval-workbench-header p { margin: 6px 0 0; color: var(--stt-muted); font-size: 12px; }
+    .retrieval-workbench-body { display: grid; gap: 14px; padding: 18px 20px; }
+    .retrieval-profile-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .retrieval-query-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 10px; }
+    .retrieval-results-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .retrieval-result-panel { min-width: 0; border: 1px solid var(--stt-border); border-radius: 12px; overflow: hidden; }
+    .retrieval-result-heading { display: flex; justify-content: space-between; gap: 8px; padding: 10px 12px; background: #f5f9fe; }
+    .retrieval-result-body { display: grid; gap: 9px; padding: 10px; }
+    .retrieval-route-list { display: flex; gap: 6px; flex-wrap: wrap; }
+    .retrieval-route-chip { border-radius: 999px; background: #edf4fd; color: #315a86; font-size: 10px; padding: 3px 7px; }
+    .retrieval-hit { border: 1px solid #dce6f2; border-radius: 10px; background: #fff; padding: 10px; }
+    .retrieval-hit h4 { margin: 0 0 5px; font-size: 12px; }
+    .retrieval-hit p { margin: 6px 0; color: #40566f; font-size: 11px; line-height: 1.55; }
+    .retrieval-score-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 5px; }
+    .retrieval-score-grid span { border-radius: 6px; background: #f1f5fa; color: #53677e; font-size: 9px; padding: 4px; }
+    .retrieval-empty { border: 1px dashed #cad8e8; border-radius: 9px; color: var(--stt-muted); padding: 14px; text-align: center; }
+    .retrieval-compare-summary { border-left: 4px solid var(--stt-primary); background: #f2f7ff; padding: 10px 12px; font-size: 12px; }
+    body[data-workbench-view="retrieval"] .query-workspace { display: none; }
+    body[data-workbench-view="retrieval"] .retrieval-workbench { display: block; }
+    body[data-workbench-view="retrieval"] #streamToggleLabel { display: none; }
+    body[data-workbench-view="retrieval"] #adminSidebar { display: none !important; }
+    .evidence-dialog { width: min(1100px, calc(100vw - 32px)); height: min(820px, calc(100vh - 32px)); border: 0; border-radius: 16px; padding: 0; box-shadow: 0 24px 80px rgba(18, 42, 70, .28); }
+    .evidence-dialog::backdrop { background: rgba(15, 30, 48, .56); }
+    .evidence-dialog-shell { display: grid; grid-template-rows: auto auto minmax(0, 1fr); height: 100%; }
+    .evidence-dialog-header { display: flex; justify-content: space-between; gap: 16px; border-bottom: 1px solid var(--stt-border); padding: 14px 16px; }
+    .evidence-dialog-header h2 { margin: 0; font-size: 17px; }
+    .evidence-dialog-meta { color: var(--stt-muted); font-size: 11px; padding: 9px 16px; }
+    .evidence-dialog-frame { width: 100%; height: 100%; border: 0; background: #eef3f8; }
+    .runtime-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .runtime-facts div { min-width: 0; border: 1px solid var(--stt-border); border-radius: 8px; padding: 8px; }
+    .runtime-facts span,
+    .runtime-facts strong { display: block; }
+    .runtime-facts span { color: var(--stt-muted); font-size: 10px; }
+    .runtime-facts strong { margin-top: 3px; overflow: hidden; font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+    .event-list { display: grid; gap: 6px; max-height: 220px; overflow: auto; margin-top: 10px; }
+    .event-row { border-left: 3px solid #c8daed; background: #f7faff; color: #52667e; font-size: 11px; padding: 7px 9px; }
+    .auth-controls { display: grid; gap: 14px; }
+    .login-support { margin: 0; color: var(--stt-muted); font-size: 12px; line-height: 1.6; }
+    @media (max-width: 1050px) {
+      .admin-sidebar { position: static; }
+    }
+    @media (max-width: 1179px) {
+      .query-workspace { grid-template-columns: minmax(220px, 270px) minmax(0, 1fr); }
+    }
+    @media (max-width: 760px) {
+      .context-toolbar { grid-template-columns: 1fr; }
+      .kb-summary { grid-template-columns: 1fr 1fr; }
+      .query-workspace { grid-template-columns: minmax(0, 1fr); }
+      .conversation-history { min-height: 0; }
+      .conversation-history-header { padding: 14px 14px 10px; }
+      .conversation-history-controls { padding: 10px 12px 12px; }
+      .conversation-history-list { display: none; }
+      .conversation-card { min-height: 0; }
+      .conversation-header { display: grid; }
+      .run-strip { grid-template-columns: auto minmax(80px, 1fr); }
+      .run-stage { grid-column: 1 / -1; text-align: left; }
+      .chat { height: 50vh; padding: 14px 12px; }
+      .msg > .message-content { max-width: 88%; }
+      .composer { padding: 12px 12px 8px; }
+      .composer-footer { align-items: flex-start; flex-direction: column; padding: 0 12px 12px; }
+      .conversation-history-filters,
+      .retrieval-profile-grid,
+      .retrieval-query-grid,
+      .retrieval-results-grid { grid-template-columns: 1fr; }
+      .retrieval-score-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 480px) {
+      .kb-summary { grid-template-columns: 1fr; }
+      .composer { grid-template-columns: 1fr; }
+      .composer .stt-button { width: 100%; }
+      .avatar { display: none; }
+      .msg > .message-content { max-width: 94%; }
+    }
+  </style>
+</head>
+<body class="stt-workbench">
+  <a class="stt-skip-link" href="#mainContent">跳到主要内容</a>
+
+  <section class="stt-login-gate" id="loginGate" aria-labelledby="loginTitle">
+    <div class="stt-card">
+      <div class="stt-card-header">
+        <div>
+          <span class="stt-eyebrow">STT KNOWLEDGE</span>
+          <h1 id="loginTitle">登录知识库工作台</h1>
+          <p>登录后只会显示当前账号已获授权的知识库与查询能力。</p>
+        </div>
+      </div>
+      <div class="stt-card-body">
+        <form class="stt-login-form auth-controls" id="loginForm">
+          <div class="stt-field">
+            <label for="authEmail">邮箱</label>
+            <input class="stt-input" id="authEmail" name="email" type="email" autocomplete="username" placeholder="请输入登录邮箱" required>
+          </div>
+          <div class="stt-field">
+            <label for="authPassword">密码</label>
+            <input class="stt-input" id="authPassword" name="password" type="password" autocomplete="current-password" placeholder="请输入密码" required>
+          </div>
+          <div class="stt-field">
+            <label for="authTenant">租户（可选）</label>
+            <input class="stt-input" id="authTenant" name="tenant" autocomplete="organization" placeholder="仅在账号属于多个租户时填写">
+          </div>
+          <p class="stt-login-error" id="loginError" role="alert" aria-live="assertive"></p>
+          <div class="stt-login-actions">
+            <button class="stt-button primary" id="btnLogin" type="submit">登录</button>
+          </div>
+        </form>
+        <p class="login-support">账号或租户信息由部署管理员提供；页面不会展示、保存或预填默认密码。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="stt-shell" id="appShell" hidden>
+    <header class="stt-topbar topbar-main">
+      <div class="stt-brand">
+        <strong>掌柜智库</strong>
+        <span>可信查询与块级证据工作台</span>
+      </div>
+      <nav class="stt-nav" aria-label="工作台导航">
+        <div class="stt-nav-section">
+          <a id="navChat" href="/workbench/chat" aria-current="page"><svg class="stt-nav-icon" aria-hidden="true" focusable="false"><use href="/ui-assets/lucide-nav.svg#message-circle"></use></svg><span>知识问答</span></a>
+          <div class="stt-subnav" aria-label="知识问答功能">
+            <a id="navChatView" href="/workbench/chat">提问与回答</a>
+            <a id="navRetrievalView" href="/workbench/retrieval">检索测试台</a>
+            <a href="#kbContextTitle">知识库上下文</a>
+          </div>
+        </div>
+        <a id="navImport" href="http://127.0.0.1:8000/html"><svg class="stt-nav-icon" aria-hidden="true" focusable="false"><use href="/ui-assets/lucide-nav.svg#database"></use></svg><span>知识库运维</span></a>
+        <a href="/eval/html"><svg class="stt-nav-icon" aria-hidden="true" focusable="false"><use href="/ui-assets/lucide-nav.svg#chart-no-axes-combined"></use></svg><span>能力评测</span></a>
+        <a href="/p3/html" id="navDiagnostics"><svg class="stt-nav-icon" aria-hidden="true" focusable="false"><use href="/ui-assets/lucide-nav.svg#shield-check"></use></svg><span>系统验证</span></a>
+      </nav>
+      <div class="stt-account">
+        <span class="stt-status" id="apiPill" data-tone="info">服务检查中</span>
+        <div class="stt-account-copy">
+          <strong id="accountName">已登录</strong>
+          <span id="accountTenant">—</span>
+        </div>
+        <button class="stt-button quiet small" id="btnLogout" type="button">退出</button>
+        <span class="stt-sr-only" id="authPill">未登录</span>
+      </div>
+    </header>
+
+    <main class="query-main" id="mainContent">
+      <div class="stt-page-grid chat-layout" id="chatLayout">
+        <div class="stt-primary-column">
+          <section class="stt-page-heading query-heading" aria-labelledby="pageTitle">
+          <div class="context-copy">
+            <span class="stt-eyebrow">KNOWLEDGE QUERY</span>
+            <h1 id="pageTitle">向已发布知识库提问</h1>
+            <p>回答以当前授权知识库的已发布索引为边界；页码、原文片段与引用校验会随答案一并呈现。</p>
+          </div>
+            <div class="context-toolbar query-controls control-grid">
+            <div class="stt-field">
+              <label for="kbIdInput">当前知识库</label>
+              <select class="stt-select" id="kbIdInput" aria-describedby="kbReadinessText"></select>
+            </div>
+            <label class="stt-status" id="streamToggleLabel" for="streamToggle">
+              <input id="streamToggle" type="checkbox" checked>
+              实时展示处理过程
+            </label>
+          </div>
+          <div class="stt-banner" id="kbReadinessBanner" data-tone="warning" role="status" aria-live="polite">
+            <div>
+              <strong id="kbReadinessTitle">正在读取可用知识库</strong>
+              <p id="kbReadinessText">请稍候。</p>
+            </div>
+          </div>
+          </section>
+
+          <div class="query-workspace">
+          <aside class="stt-card conversation-history" aria-labelledby="conversationHistoryTitle">
+            <header class="conversation-history-header">
+              <span class="stt-eyebrow">YOUR HISTORY</span>
+              <h2 id="conversationHistoryTitle">我的全部对话</h2>
+              <p>只显示当前登录用户仍获授权的持久会话；切换后可继续原对话。</p>
+            </header>
+            <div class="conversation-history-controls">
+              <div class="conversation-history-filters">
+                <div class="stt-field">
+                  <label for="conversationSearch">搜索对话</label>
+                  <input class="stt-input" id="conversationSearch" maxlength="200" placeholder="标题、会话 ID 或知识库 ID">
+                </div>
+                <div class="stt-field">
+                  <label for="conversationStatusFilter">状态</label>
+                  <select class="stt-select" id="conversationStatusFilter">
+                    <option value="active">进行中</option>
+                    <option value="archived">已归档</option>
+                    <option value="all">全部</option>
+                  </select>
+                </div>
+              </div>
+              <div class="stt-field">
+                <label for="conversationHistorySelect">选择历史对话</label>
+                <select class="stt-select" id="conversationHistorySelect">
+                  <option value="">新建会话（不加载历史）</option>
+                </select>
+              </div>
+              <div class="conversation-history-actions">
+                <button class="stt-button small" id="btnRefreshHistory" type="button">刷新历史</button>
+                <button class="stt-button small" id="btnHistoryNew" type="button">新建会话</button>
+              </div>
+              <div class="conversation-history-status" id="conversationHistoryStatus" role="status" aria-live="polite">正在读取会话目录。</div>
+            </div>
+            <div class="conversation-history-list" id="conversationHistoryList" aria-label="当前用户全部历史对话"></div>
+          </aside>
+
+          <article class="stt-card conversation-card" aria-labelledby="conversationTitle">
+          <header class="conversation-header">
+            <div>
+              <h2 id="conversationTitle">当前对话</h2>
+              <p id="conversationSubtitle">选择一个可查询知识库后即可开始。</p>
+            </div>
+            <div class="stt-actions">
+              <button class="stt-button small" id="btnClear" type="button">新建会话</button>
+              <button class="stt-button small" id="btnArchiveConversation" type="button" hidden>归档</button>
+              <button class="stt-button small" id="btnRestoreConversation" type="button" hidden>恢复</button>
+              <button class="stt-button danger small" id="btnDeleteConversation" type="button" hidden>永久删除</button>
+              <button class="stt-button small" id="btnRetryResult" type="button" hidden>重新获取结果</button>
+              <button class="stt-button danger small" id="btnCancelRun" type="button" hidden>取消本次查询</button>
+            </div>
+          </header>
+          <div class="run-strip" id="runStrip" hidden aria-live="polite">
+            <span class="stt-status" id="runStatusBadge" data-tone="info">等待处理</span>
+            <div class="run-progress" aria-label="查询进度"><span id="runProgressBar"></span></div>
+            <span class="run-stage" id="runStageText">等待任务</span>
+          </div>
+          <div class="chat" id="chat" role="log" aria-label="问答记录" aria-live="off">
+            <div class="dayline">今天</div>
+            <div class="msg bot" data-persistent="welcome">
+              <div class="avatar" aria-hidden="true">智库</div>
+              <div class="message-content">
+                <div class="bubble">你好。选择可用知识库后直接提问，我会把回答、引用原文和页码位置放在一起，方便你核验。</div>
+                <div class="meta">示例：使用 HAK180 之前需要做什么？</div>
+              </div>
+            </div>
+          </div>
+          <div class="composer">
+            <div class="stt-field">
+              <label class="stt-sr-only" for="input">问题</label>
+              <textarea class="stt-textarea" id="input" placeholder="请输入要从当前知识库核验的问题" aria-describedby="composerReason"></textarea>
+            </div>
+            <button class="stt-button primary" id="send" type="button">发送问题</button>
+          </div>
+          <div class="composer-footer">
+            <span class="composer-reason" id="composerReason" aria-live="polite">正在检查查询条件。</span>
+            <span><span class="kbd">Enter</span> 发送，<span class="kbd">Shift + Enter</span> 换行</span>
+          </div>
+          </article>
+          </div>
+
+          <section class="stt-card retrieval-workbench" id="retrievalWorkbench" aria-labelledby="retrievalWorkbenchTitle">
+            <header class="retrieval-workbench-header">
+              <span class="stt-eyebrow">RETRIEVAL LAB</span>
+              <h2 id="retrievalWorkbenchTitle">可解释检索测试台</h2>
+              <p>对同一问题运行 Profile A/B，逐 route 查看原始分数、页面归一化、RRF、重排与阈值结果。预览只读，不改变已发布配置。</p>
+            </header>
+            <div class="retrieval-workbench-body">
+              <div class="retrieval-profile-grid">
+                <div class="stt-field">
+                  <label for="retrievalProfileSelect">Profile A</label>
+                  <select class="stt-select" id="retrievalProfileSelect"></select>
+                </div>
+                <div class="stt-field">
+                  <label for="retrievalProfileBSelect">Profile B</label>
+                  <select class="stt-select" id="retrievalProfileBSelect"></select>
+                </div>
+              </div>
+              <div class="retrieval-query-grid">
+                <div class="stt-field">
+                  <label for="retrievalQueryInput">测试问题</label>
+                  <textarea class="stt-textarea" id="retrievalQueryInput" maxlength="100000" placeholder="例如：使用 HAK180 之前需要做什么？"></textarea>
+                </div>
+                <div class="stt-field">
+                  <label for="retrievalFilterJson">Filter AST（可空）</label>
+                  <textarea class="stt-textarea retrieval-json" id="retrievalFilterJson" spellcheck="false" placeholder='{"kind":"predicate","field":"metadata.产品型号","operator":"eq","value":"HAK180"}'></textarea>
+                </div>
+              </div>
+              <div class="retrieval-actions">
+                <button class="stt-button primary small" id="btnCompareProfiles" type="button">运行 A/B 对比</button>
+                <button class="stt-button small" id="btnPreviewProfile" type="button">仅运行 A</button>
+                <button class="stt-button small" id="btnRefreshProfiles" type="button">刷新配置</button>
+                <button class="stt-button small" id="btnCreateProfile" type="button">新建草稿</button>
+                <button class="stt-button small" id="btnPublishProfile" type="button">发布 A</button>
+                <button class="stt-button small" id="btnRollbackProfile" type="button">回滚</button>
+                <span class="stt-status" id="retrievalProfilePill" data-tone="info">尚未读取</span>
+              </div>
+              <div class="retrieval-compare-summary" id="retrievalCompareSummary" role="status" aria-live="polite">选择配置并运行真实预览。</div>
+              <div class="retrieval-results-grid">
+                <section class="retrieval-result-panel" aria-labelledby="retrievalResultATitle">
+                  <div class="retrieval-result-heading"><strong id="retrievalResultATitle">Profile A</strong><span id="retrievalResultAMeta">未运行</span></div>
+                  <div class="retrieval-result-body" id="retrievalResultA"><div class="retrieval-empty">等待运行。</div></div>
+                </section>
+                <section class="retrieval-result-panel" aria-labelledby="retrievalResultBTitle">
+                  <div class="retrieval-result-heading"><strong id="retrievalResultBTitle">Profile B</strong><span id="retrievalResultBMeta">未运行</span></div>
+                  <div class="retrieval-result-body" id="retrievalResultB"><div class="retrieval-empty">等待运行。</div></div>
+                </section>
+              </div>
+              <details class="stt-disclosure">
+                <summary>Profile A 配置编辑与安全原始响应</summary>
+                <div class="retrieval-grid">
+                  <div class="stt-field">
+                    <label for="retrievalProfileName">新草稿名称</label>
+                    <input class="stt-input" id="retrievalProfileName" placeholder="例如：产品手册混合检索实验">
+                  </div>
+                  <div class="stt-field">
+                    <label for="retrievalProfileJson">Profile A JSON</label>
+                    <textarea class="stt-textarea retrieval-json" id="retrievalProfileJson" spellcheck="false"></textarea>
+                  </div>
+                  <pre class="stt-json" id="retrievalDiagnostics">等待检索或预览。</pre>
+                </div>
+              </details>
+            </div>
+          </section>
+        </div>
+
+        <aside class="stt-context-rail" aria-label="当前知识库与运行上下文">
+          <section class="stt-context-panel" aria-labelledby="kbContextTitle">
+            <div class="stt-context-panel-header">
+              <div>
+                <span class="stt-eyebrow">CURRENT CONTEXT</span>
+                <h2 id="kbContextTitle">当前知识库</h2>
+                <p>切换知识库时，这里的查询边界与授权事实会同步更新。</p>
+              </div>
+            </div>
+            <div class="stt-context-panel-body">
+              <div class="kb-summary" aria-label="知识库查询上下文">
+                <div class="kb-summary-item"><span>查询状态</span><strong id="kbReadinessValue">等待选择</strong></div>
+                <div class="kb-summary-item"><span>可用文档</span><strong id="kbDocumentsValue">—</strong></div>
+                <div class="kb-summary-item"><span>数据分级</span><strong id="kbClassificationValue">—</strong></div>
+                <div class="kb-summary-item"><span>联网策略</span><strong id="kbWebPolicyValue">—</strong></div>
+              </div>
+            </div>
+          </section>
+
+          <div class="admin-sidebar" id="adminSidebar" aria-label="管理员检索与运行诊断" hidden>
+          <section class="stt-context-panel">
+            <div class="stt-context-panel-header">
+              <div>
+                <h2>可靠运行事实</h2>
+                <p>刷新页面后可依据持久 QueryRun 继续恢复。</p>
+              </div>
+            </div>
+            <div class="stt-context-panel-body">
+              <div class="runtime-facts">
+                <div><span>运行</span><strong id="runtimeRunId">—</strong></div>
+                <div><span>会话</span><strong id="runtimeConversationId">—</strong></div>
+                <div><span>修订</span><strong id="runtimeRevision">—</strong></div>
+                <div><span>事件游标</span><strong id="runtimeCursor">—</strong></div>
+              </div>
+              <details class="stt-disclosure" style="margin-top:10px">
+                <summary>事件时间线</summary>
+                <div class="event-list" id="runtimeEvents">
+                  <div class="event-row">尚无运行事件。</div>
+                </div>
+              </details>
+            </div>
+          </section>
+          </div>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <dialog class="evidence-dialog" id="evidenceDialog" aria-labelledby="evidenceDialogTitle">
+    <div class="evidence-dialog-shell">
+      <header class="evidence-dialog-header">
+        <div><span class="stt-eyebrow">AUTHORIZED SOURCE</span><h2 id="evidenceDialogTitle">引用原文</h2></div>
+        <button class="stt-button small" id="btnCloseEvidenceDialog" type="button">关闭</button>
+      </header>
+      <div class="evidence-dialog-meta" id="evidenceDialogMeta" role="status">正在读取授权证据。</div>
+      <iframe class="evidence-dialog-frame" id="evidenceDialogFrame" title="授权来源原文件"></iframe>
+    </div>
+  </dialog>
+
+  <script src="/ui-assets/stt-console.js?v=20260807.1"></script>
+  <script>
+    'use strict';
+
+    // 保留旧版前端合同的类名：topbar-main / control-grid / auth-controls /
+    // query-controls / apiPill。新页面的默认路径使用持久 QueryRun。
+    const API_BASE = location.origin.startsWith('http') ? location.origin : 'http://127.0.0.1:8001';
+    const byId = id => document.getElementById(id);
+    const workbenchView = location.pathname.endsWith('/retrieval') ? 'retrieval' : 'chat';
+    document.body.dataset.workbenchView = workbenchView;
+    byId('navChat').setAttribute('aria-current', 'page');
+    byId(workbenchView === 'retrieval' ? 'navRetrievalView' : 'navChatView').classList.add('is-active');
+    if (workbenchView === 'retrieval') {
+      byId('pageTitle').textContent = '检索配置与 A/B 测试';
+      document.querySelector('.context-copy p').textContent = '在相同知识库与问题上对照两个配置版本，结构化核验每一阶段的排序依据。';
+    }
+    const chatEl = byId('chat');
+    const inputEl = byId('input');
+    const sendBtn = byId('send');
+    const apiPill = byId('apiPill');
+    const btnClear = byId('btnClear');
+    const streamToggle = byId('streamToggle');
+    const kbIdInput = byId('kbIdInput');
+    const conversationHistorySelect = byId('conversationHistorySelect');
+    const conversationHistoryList = byId('conversationHistoryList');
+    const conversationHistoryStatus = byId('conversationHistoryStatus');
+    const btnRefreshHistory = byId('btnRefreshHistory');
+    const btnHistoryNew = byId('btnHistoryNew');
+    const conversationSearch = byId('conversationSearch');
+    const conversationStatusFilter = byId('conversationStatusFilter');
+    const btnArchiveConversation = byId('btnArchiveConversation');
+    const btnRestoreConversation = byId('btnRestoreConversation');
+    const btnDeleteConversation = byId('btnDeleteConversation');
+    const authPill = byId('authPill');
+    const retrievalProfileSelect = byId('retrievalProfileSelect');
+    const retrievalProfileBSelect = byId('retrievalProfileBSelect');
+    const retrievalQueryInput = byId('retrievalQueryInput');
+    const retrievalProfileJson = byId('retrievalProfileJson');
+    const retrievalFilterJson = byId('retrievalFilterJson');
+    const retrievalProfilePill = byId('retrievalProfilePill');
+    const retrievalDiagnostics = byId('retrievalDiagnostics');
+    const evidenceDialog = byId('evidenceDialog');
+    let evidenceDialogReturnFocus = null;
+
+    const QUERY_KB_KEY = 'stt.query.kbId';
+    const QUERY_SESSION_MAP_KEY = 'stt.query.sessions.v1';
+    const QUERY_RUN_MAP_KEY = 'stt.query.runs.v1';
+    const QUERY_PENDING_MAP_KEY = 'stt.query.pending.v1';
+    const QUERY_SELECTED_CONVERSATION_KEY = 'stt.query.selected-conversation.v1';
+    const LEGACY_QUERY_SESSION_KEY = 'kb_session_id';
+    const LEGACY_QUERY_SESSION_KB_KEY = 'stt.query.sessionKbId';
+    const terminalStatuses = new Set(['completed', 'failed', 'timed_out', 'cancelled']);
+    const RESULT_RETRY_DELAYS_MS = [400, 900, 1800, 3200, 5000];
+    const progressByStatus = {
+      accepted: 4,
+      planning: 14,
+      retrieving: 36,
+      packing: 58,
+      generating: 76,
+      validating: 92,
+      cancel_requested: 96,
+      completed: 100,
+      failed: 100,
+      timed_out: 100,
+      cancelled: 100,
+    };
+    const stageLabels = {
+      accepted: '已受理',
+      planning: '理解问题',
+      retrieving: '检索知识库',
+      packing: '整理证据',
+      generating: '生成回答',
+      validating: '校验引用',
+      cancel_requested: '正在取消',
+      completed: '已完成',
+      failed: '失败',
+      timed_out: '已超时',
+      cancelled: '已取消',
+      pending: '等待处理',
+      processing: '处理中',
+    };
+    const classificationLabels = {
+      public: '公开',
+      internal: '内部',
+      confidential: '机密',
+      restricted: '受限',
+    };
+
+    let currentBootstrap = null;
+    let currentPrincipal = null;
+    let selectedKb = null;
+    let retrievalProfiles = [];
+    let sessionId = '';
+    let apiReady = false;
+    let queryBusy = false;
+    const runtime = {
+      currentRun: null,
+      conversationId: '',
+      question: '',
+      botMessage: null,
+      eventSource: null,
+      pollTimer: null,
+      lastSeq: 0,
+      lastEventId: '',
+      answerDraft: '',
+      resultRendered: false,
+      resultPending: false,
+      resultRecoveryAvailable: false,
+      resultRetryTimer: null,
+      resultRequest: null,
+      eventReplayDisabled: false,
+      eventBuffer: new Map(),
+      requestControllers: new Set(),
+      generation: 0,
+      readOnlyConversation: false,
+    };
+    const conversationHistory = {
+      items: [],
+      selectedId: '',
+      loading: false,
+      generation: 0,
+      requestControllers: new Set(),
+      search: '',
+      status: 'active',
+      searchTimer: null,
+    };
+
+    function createElement(tag, className = '', text = '') {
+      const node = document.createElement(tag);
+      if (className) node.className = className;
+      if (text !== '') node.textContent = text;
+      return node;
+    }
+
+    function normalizedKbId() {
+      return String(kbIdInput.value || '').trim();
+    }
+
+    function nowTime() {
+      return new Date().toLocaleTimeString('zh-CN', {hour: '2-digit', minute: '2-digit'});
+    }
+
+    function parsedDate(ts) {
+      if (!ts) return null;
+      const numeric = Number(ts);
+      const value = Number.isFinite(numeric)
+        ? (numeric < 10_000_000_000 ? numeric * 1000 : numeric)
+        : ts;
+      const date = new Date(value);
+      return Number.isNaN(date.getTime()) ? null : date;
+    }
+
+    function formatTime(ts) {
+      const date = parsedDate(ts);
+      return date
+        ? date.toLocaleTimeString('zh-CN', {hour: '2-digit', minute: '2-digit'})
+        : nowTime();
+    }
+
+    function formatHistoryTime(ts) {
+      const date = parsedDate(ts);
+      if (!date) return '时间未知';
+      return date.toLocaleString('zh-CN', {
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+      });
+    }
+
+    function newBrowserSessionId() {
+      const randomPart = globalThis.crypto?.randomUUID
+        ? globalThis.crypto.randomUUID().replaceAll('-', '')
+        : Math.random().toString(36).slice(2) + Date.now().toString(36);
+      return `sess-${randomPart}`;
+    }
+
+    function newKey(prefix) {
+      const randomPart = globalThis.crypto?.randomUUID?.() || `${Date.now()}-${Math.random()}`;
+      return `${prefix}-${randomPart}`;
+    }
+
+    function readObject(key) {
+      try {
+        const parsed = JSON.parse(localStorage.getItem(key) || '{}');
+        return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : {};
+      } catch (_) {
+        return {};
+      }
+    }
+
+    function writeTrimmedObject(key, value, limit = 50) {
+      const entries = Object.entries(value)
+        .sort((a, b) => Number(b[1]?.last_used_at || 0) - Number(a[1]?.last_used_at || 0))
+        .slice(0, limit);
+      localStorage.setItem(key, JSON.stringify(Object.fromEntries(entries)));
+    }
+
+    function conversationSelectionStorageKey() {
+      if (!currentPrincipal?.tenant_id || !currentPrincipal?.user_id) return '';
+      return JSON.stringify([currentPrincipal.tenant_id, currentPrincipal.user_id]);
+    }
+
+    function rememberedConversationId() {
+      const key = conversationSelectionStorageKey();
+      if (!key) return '';
+      return String(readObject(QUERY_SELECTED_CONVERSATION_KEY)[key]?.conversation_id || '');
+    }
+
+    function rememberSelectedConversation(conversationId) {
+      const key = conversationSelectionStorageKey();
+      if (!key) return;
+      const map = readObject(QUERY_SELECTED_CONVERSATION_KEY);
+      const normalized = String(conversationId || '');
+      if (normalized) {
+        // 这里只保留租户/用户绑定的服务端会话 ID，不缓存标题、消息正文或回答。
+        map[key] = {conversation_id: normalized, last_used_at: Date.now()};
+      } else {
+        delete map[key];
+      }
+      writeTrimmedObject(QUERY_SELECTED_CONVERSATION_KEY, map);
+    }
+
+    function updateWorkbenchDeepLink(conversationId = '', kbId = normalizedKbId()) {
+      const url = new URL(window.location.href);
+      if (kbId) url.searchParams.set('kb', kbId);
+      else url.searchParams.delete('kb');
+      if (conversationId) url.searchParams.set('conversation', conversationId);
+      else url.searchParams.delete('conversation');
+      history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`);
+    }
+
+    function abortConversationHistoryRequests() {
+      for (const controller of conversationHistory.requestControllers) controller.abort();
+      conversationHistory.requestControllers.clear();
+    }
+
+    function beginConversationHistoryGeneration(selectedId = conversationHistory.selectedId) {
+      abortConversationHistoryRequests();
+      conversationHistory.generation += 1;
+      return {
+        generation: conversationHistory.generation,
+        tenantId: String(currentPrincipal?.tenant_id || ''),
+        userId: String(currentPrincipal?.user_id || ''),
+        selectedId: String(selectedId || ''),
+      };
+    }
+
+    function isConversationHistoryContextCurrent(context) {
+      return Boolean(context)
+        && context.generation === conversationHistory.generation
+        && context.tenantId === String(currentPrincipal?.tenant_id || '')
+        && context.userId === String(currentPrincipal?.user_id || '')
+        && context.selectedId === String(conversationHistory.selectedId || '');
+    }
+
+    async function conversationHistoryApiJson(path, context, options = {}) {
+      if (!isConversationHistoryContextCurrent(context)) throw staleRuntimeError();
+      const controller = new AbortController();
+      conversationHistory.requestControllers.add(controller);
+      try {
+        const response = await apiJson(path, {...options, signal: controller.signal});
+        if (!isConversationHistoryContextCurrent(context)) throw staleRuntimeError();
+        return response;
+      } finally {
+        conversationHistory.requestControllers.delete(controller);
+      }
+    }
+
+    function readSessionMap() {
+      return readObject(QUERY_SESSION_MAP_KEY);
+    }
+
+    function writeSessionMap(sessionMap) {
+      writeTrimmedObject(QUERY_SESSION_MAP_KEY, sessionMap);
+    }
+
+    function activeSessionStorageKey(kbId = normalizedKbId()) {
+      if (!currentPrincipal?.tenant_id || !currentPrincipal?.user_id || !kbId) return '';
+      return JSON.stringify([currentPrincipal.tenant_id, currentPrincipal.user_id, kbId]);
+    }
+
+    function activateSessionForCurrentKb({forceNew = false} = {}) {
+      const storageKey = activeSessionStorageKey();
+      if (!storageKey) {
+        const changed = Boolean(sessionId);
+        sessionId = '';
+        return changed;
+      }
+      const sessionMap = readSessionMap();
+      const previous = sessionId;
+      const stored = sessionMap[storageKey]?.session_id;
+      sessionId = !forceNew && stored ? stored : newBrowserSessionId();
+      sessionMap[storageKey] = {session_id: sessionId, last_used_at: Date.now()};
+      writeSessionMap(sessionMap);
+      return previous !== sessionId;
+    }
+
+    function runtimeStorageKey() {
+      return activeSessionStorageKey();
+    }
+
+    function rememberRuntime() {
+      const key = runtimeStorageKey();
+      if (!key || !runtime.currentRun?.query_run_id) return;
+      const map = readObject(QUERY_RUN_MAP_KEY);
+      map[key] = {
+        query_run_id: runtime.currentRun.query_run_id,
+        conversation_id: runtime.conversationId,
+        last_used_at: Date.now(),
+      };
+      writeTrimmedObject(QUERY_RUN_MAP_KEY, map);
+    }
+
+    function forgetRuntime() {
+      const key = runtimeStorageKey();
+      if (!key) return;
+      const map = readObject(QUERY_RUN_MAP_KEY);
+      delete map[key];
+      writeTrimmedObject(QUERY_RUN_MAP_KEY, map);
+    }
+
+    function pendingSubmission(text) {
+      const storageKey = runtimeStorageKey();
+      if (!storageKey) {
+        return {storageKey: '', idempotencyKey: newKey('query')};
+      }
+      const map = readObject(QUERY_PENDING_MAP_KEY);
+      const existing = map[storageKey];
+      const fresh = existing
+        && existing.query === text
+        && String(existing.conversation_id || '') === String(runtime.conversationId || '')
+        && Date.now() - Number(existing.last_used_at || 0) < 15 * 60 * 1000;
+      const idempotencyKey = fresh ? existing.idempotency_key : newKey('query');
+      map[storageKey] = {
+        idempotency_key: idempotencyKey,
+        query: text,
+        conversation_id: runtime.conversationId,
+        last_used_at: Date.now(),
+      };
+      writeTrimmedObject(QUERY_PENDING_MAP_KEY, map);
+      return {storageKey, idempotencyKey};
+    }
+
+    function clearPendingSubmission(storageKey, idempotencyKey) {
+      if (!storageKey) return;
+      const map = readObject(QUERY_PENDING_MAP_KEY);
+      if (map[storageKey]?.idempotency_key !== idempotencyKey) return;
+      delete map[storageKey];
+      writeTrimmedObject(QUERY_PENDING_MAP_KEY, map);
+    }
+
+    function forgetPendingSubmission() {
+      const storageKey = runtimeStorageKey();
+      if (!storageKey) return;
+      const map = readObject(QUERY_PENDING_MAP_KEY);
+      delete map[storageKey];
+      writeTrimmedObject(QUERY_PENDING_MAP_KEY, map);
+    }
+
+    function runtimeContext(runId = runtime.currentRun?.query_run_id || '') {
+      return {
+        generation: runtime.generation,
+        tenantId: String(currentPrincipal?.tenant_id || ''),
+        userId: String(currentPrincipal?.user_id || ''),
+        kbId: normalizedKbId(),
+        runId: String(runId || ''),
+      };
+    }
+
+    function isRuntimeContextCurrent(context) {
+      if (!context || context.generation !== runtime.generation) return false;
+      if (
+        context.tenantId !== String(currentPrincipal?.tenant_id || '')
+        || context.userId !== String(currentPrincipal?.user_id || '')
+        || context.kbId !== normalizedKbId()
+      ) {
+        return false;
+      }
+      return !context.runId || runtime.currentRun?.query_run_id === context.runId;
+    }
+
+    function staleRuntimeError() {
+      const error = new Error('查询上下文已经变化，旧响应已忽略。');
+      error.name = 'AbortError';
+      error.staleContext = true;
+      return error;
+    }
+
+    function abortRuntimeRequests() {
+      for (const controller of runtime.requestControllers) controller.abort();
+      runtime.requestControllers.clear();
+    }
+
+    async function runtimeApiJson(path, options = {}, context = runtimeContext()) {
+      if (!isRuntimeContextCurrent(context)) throw staleRuntimeError();
+      const controller = new AbortController();
+      runtime.requestControllers.add(controller);
+      try {
+        const response = await apiJson(path, {...options, signal: controller.signal});
+        if (!isRuntimeContextCurrent(context)) throw staleRuntimeError();
+        return response;
+      } finally {
+        runtime.requestControllers.delete(controller);
+      }
+    }
+
+    // 旧版键没有 tenant/user/KB 绑定信息，不能安全迁移；首次加载即作废。
+    localStorage.removeItem(LEGACY_QUERY_SESSION_KEY);
+    localStorage.removeItem(LEGACY_QUERY_SESSION_KB_KEY);
+
+    function authHeaders(extra = {}) {
+      return {...extra};
+    }
+
+    async function apiJson(path, options = {}) {
+      return STTUI.apiJson(`${API_BASE}${path}`, {
+        ...options,
+        headers: authHeaders(options.headers || {}),
+      });
+    }
+
+    function isAdmin() {
+      const roles = new Set(currentBootstrap?.identity?.roles || []);
+      return roles.has('TenantAdmin') || roles.has('KBAdmin');
+    }
+
+    function setAuthenticatedView(authenticated) {
+      byId('loginGate').hidden = authenticated;
+      byId('appShell').hidden = !authenticated;
+      if (!authenticated) {
+        byId('authEmail').focus();
+      }
+    }
+
+    function populateKnowledgeBases() {
+      const rows = Array.isArray(currentBootstrap?.knowledge_bases)
+        ? currentBootstrap.knowledge_bases
+        : [];
+      const principalKey = STTUI.knowledgeBaseStorageKey(currentBootstrap, 'query');
+      const deepLinkedKb = new URLSearchParams(location.search).get('kb') || '';
+      const preferred = deepLinkedKb
+        || localStorage.getItem(principalKey)
+        || localStorage.getItem(QUERY_KB_KEY)
+        || '';
+      kbIdInput.replaceChildren();
+      if (rows.length === 0) {
+        const option = createElement('option', '', '当前账号没有可见知识库');
+        option.value = '';
+        kbIdInput.appendChild(option);
+        kbIdInput.disabled = true;
+        selectedKb = null;
+        return;
+      }
+      for (const item of rows) {
+        const option = createElement(
+          'option',
+          '',
+          `${item.name} · ${item.readiness_message} · ${classificationLabels[item.data_classification] || item.data_classification}`,
+        );
+        option.value = item.id;
+        kbIdInput.appendChild(option);
+      }
+      if (rows.some(item => item.id === preferred)) kbIdInput.value = preferred;
+      kbIdInput.disabled = false;
+      selectedKb = rows.find(item => item.id === kbIdInput.value) || rows[0];
+      if (selectedKb) {
+        kbIdInput.value = selectedKb.id;
+        localStorage.setItem(principalKey, selectedKb.id);
+        localStorage.setItem(QUERY_KB_KEY, selectedKb.id);
+      }
+    }
+
+    function knowledgeBaseById(kbId) {
+      return (currentBootstrap?.knowledge_bases || [])
+        .find(item => String(item.id) === String(kbId)) || null;
+    }
+
+    function conversationRoundCount(item) {
+      return Math.max(
+        0,
+        Number(item?.resolved_turn_seq || 0),
+        Number(item?.next_turn_seq || 1) - 1,
+        Math.ceil(Number(item?.history_version || 0) / 2),
+      );
+    }
+
+    function conversationDisplayTitle(item) {
+      const title = String(item?.title || '').trim();
+      return title || '未命名知识库对话';
+    }
+
+    function setConversationHistoryLoading(loading, message = '') {
+      conversationHistory.loading = Boolean(loading);
+      if (message) conversationHistoryStatus.textContent = message;
+      updateConversationHistoryInteraction();
+    }
+
+    function updateConversationHistoryInteraction() {
+      const disabled = !currentPrincipal || queryBusy || conversationHistory.loading;
+      conversationHistorySelect.disabled = disabled;
+      btnRefreshHistory.disabled = disabled;
+      btnHistoryNew.disabled = disabled;
+      conversationSearch.disabled = !currentPrincipal || conversationHistory.loading;
+      conversationStatusFilter.disabled = !currentPrincipal || conversationHistory.loading;
+      for (const button of conversationHistoryList.querySelectorAll('button')) {
+        button.disabled = disabled;
+      }
+      updateConversationLifecycleActions();
+    }
+
+    function canManageHistory() {
+      const permissions = new Set(currentBootstrap?.permissions || []);
+      return permissions.has('*') || permissions.has('history:delete');
+    }
+
+    function selectedConversationRecord() {
+      return conversationHistory.items.find(
+        item => String(item.conversation_id) === String(conversationHistory.selectedId || ''),
+      ) || null;
+    }
+
+    function updateConversationLifecycleActions() {
+      const item = selectedConversationRecord();
+      const manageable = canManageHistory() && item && !queryBusy && !conversationHistory.loading;
+      const archived = String(item?.status || '') === 'archived';
+      btnArchiveConversation.hidden = !item || archived || !canManageHistory();
+      btnRestoreConversation.hidden = !item || !archived || !canManageHistory();
+      btnDeleteConversation.hidden = !item || !archived || !canManageHistory();
+      btnArchiveConversation.disabled = !manageable;
+      btnRestoreConversation.disabled = !manageable;
+      btnDeleteConversation.disabled = !manageable;
+    }
+
+    function renderConversationDirectory() {
+      const kbMap = new Map(
+        (currentBootstrap?.knowledge_bases || []).map(item => [String(item.id), item]),
+      );
+      const visibleItems = conversationHistory.items.filter(item => kbMap.has(String(item.kb_id)));
+      const options = [createElement('option', '', '新建会话（不加载历史）')];
+      options[0].value = '';
+      const cards = [];
+      for (const item of visibleItems) {
+        const id = String(item.conversation_id || '');
+        if (!id) continue;
+        const kb = kbMap.get(String(item.kb_id));
+        const archived = String(item.status) === 'archived';
+        const selected = id === conversationHistory.selectedId;
+        const rounds = conversationRoundCount(item);
+        const title = conversationDisplayTitle(item);
+        const time = formatHistoryTime(item.updated_at || item.created_at);
+
+        const option = createElement(
+          'option',
+          '',
+          `${archived ? '[已归档] ' : ''}${title} · ${kb?.name || item.kb_id} · ${rounds} 轮 · ${time}`,
+        );
+        option.value = id;
+        option.selected = selected;
+        options.push(option);
+
+        const button = createElement(
+          'button',
+          `conversation-history-item${selected ? ' is-selected' : ''}`,
+        );
+        button.type = 'button';
+        button.dataset.conversationId = id;
+        button.setAttribute('aria-current', selected ? 'true' : 'false');
+        const titleEl = createElement('span', 'conversation-history-title', title);
+        titleEl.title = title;
+        const meta = createElement('span', 'conversation-history-meta');
+        const kbEl = createElement('span', '', kb?.name || String(item.kb_id));
+        const stateEl = createElement(
+          'span',
+          `conversation-history-state${archived ? ' archived' : ''}`,
+          archived ? '已归档' : '可继续',
+        );
+        meta.append(kbEl, stateEl);
+        const foot = createElement('span', 'conversation-history-foot');
+        foot.append(
+          createElement('span', '', `${rounds} 轮`),
+          createElement('span', '', time),
+        );
+        button.append(titleEl, meta, foot);
+        button.addEventListener('click', () => selectConversation(id));
+        cards.push(button);
+      }
+      conversationHistorySelect.replaceChildren(...options);
+      conversationHistorySelect.value = visibleItems.some(
+        item => String(item.conversation_id) === conversationHistory.selectedId,
+      ) ? conversationHistory.selectedId : '';
+      if (cards.length) {
+        conversationHistoryList.replaceChildren(...cards);
+      } else {
+        conversationHistoryList.replaceChildren(
+          createElement(
+            'div',
+            'conversation-history-empty',
+            '当前账号还没有可显示的持久对话。发送第一个问题后，会话会出现在这里。',
+          ),
+        );
+      }
+      const hiddenCount = conversationHistory.items.length - visibleItems.length;
+      const filterLabel = ({active: '进行中', archived: '已归档', all: '全部'})[conversationHistory.status] || '全部';
+      conversationHistoryStatus.textContent = hiddenCount > 0
+        ? `${filterLabel}中共 ${visibleItems.length} 个可访问会话；${hiddenCount} 个会话因知识库授权变化未显示。`
+        : `${filterLabel}中共 ${visibleItems.length} 个会话，按最近更新时间排序。`;
+      updateConversationHistoryInteraction();
+    }
+
+    async function fetchAllConversations(context) {
+      const result = [];
+      const seen = new Set();
+      let offset = 0;
+      while (true) {
+        const compatibilityUrl = `/api/v1/conversations?limit=200&offset=${offset}&include_archived=true`;
+        const page = await conversationHistoryApiJson(
+          `${compatibilityUrl}&status=${encodeURIComponent(conversationHistory.status)}&search=${encodeURIComponent(conversationHistory.search)}`,
+          context,
+        );
+        const items = Array.isArray(page?.items) ? page.items : [];
+        for (const item of items) {
+          const id = String(item?.conversation_id || '');
+          if (id && !seen.has(id)) {
+            seen.add(id);
+            result.push(item);
+          }
+        }
+        if (items.length < 200) break;
+        offset += items.length;
+        if (offset > 100_000) throw new Error('会话数量异常，已停止继续翻页。');
+      }
+      return result;
+    }
+
+    async function refreshConversationHistory({
+      restoreSelection = false,
+      preferredConversationId = null,
+    } = {}) {
+      if (!currentPrincipal) return false;
+      conversationHistory.search = conversationSearch.value.trim();
+      conversationHistory.status = conversationStatusFilter.value || 'active';
+      const requested = preferredConversationId === null
+        ? (conversationHistory.selectedId || runtime.conversationId || (restoreSelection ? rememberedConversationId() : ''))
+        : String(preferredConversationId || '');
+      conversationHistory.selectedId = requested;
+      const context = beginConversationHistoryGeneration(requested);
+      setConversationHistoryLoading(true, '正在按搜索与状态条件读取会话。');
+      try {
+        const items = await fetchAllConversations(context);
+        if (!isConversationHistoryContextCurrent(context)) throw staleRuntimeError();
+        conversationHistory.items = items;
+        const selected = items.find(item => String(item.conversation_id) === requested);
+        if (!selected && restoreSelection && requested) {
+          conversationHistory.selectedId = '';
+          rememberSelectedConversation('');
+        }
+        setConversationHistoryLoading(false);
+        renderConversationDirectory();
+        if (restoreSelection && selected) {
+          await selectConversation(requested, {force: true});
+          return true;
+        }
+        return false;
+      } catch (error) {
+        if (error.name === 'AbortError') return false;
+        setConversationHistoryLoading(false, `历史会话读取失败：${error.message}`);
+        STTUI.toast(`历史会话读取失败：${error.message}`, 'warning', 6500);
+        return false;
+      }
+    }
+
+    async function restoreWorkbenchConversation() {
+      const params = new URLSearchParams(location.search);
+      const deepLink = String(params.get('conversation') || '');
+      const explicitKb = String(params.get('kb') || '');
+      const validDeepLink = /^conv_[0-9a-f]{32}$/.test(deepLink) ? deepLink : '';
+      if (validDeepLink) {
+        conversationStatusFilter.value = 'all';
+        conversationHistory.status = 'all';
+      }
+      // `?kb=` 是用户可分享的明确导航意图。没有同时指定 conversation 时，
+      // 不能用另一个 KB 的“最近会话”覆盖它，否则地址栏与实际授权读集不一致。
+      if (explicitKb && !validDeepLink) {
+        return refreshConversationHistory({
+          restoreSelection: false,
+          preferredConversationId: '',
+        });
+      }
+      return refreshConversationHistory({
+        restoreSelection: true,
+        preferredConversationId: validDeepLink || null,
+      });
+    }
+
+    function selectKnowledgeBaseForConversation(conversation) {
+      const kb = knowledgeBaseById(conversation.kb_id);
+      if (!kb) throw new Error('该会话所属知识库已不在当前账号授权范围内。');
+      kbIdInput.value = kb.id;
+      selectedKb = kb;
+      const principalKey = STTUI.knowledgeBaseStorageKey(currentBootstrap, 'query');
+      localStorage.setItem(principalKey, kb.id);
+      localStorage.setItem(QUERY_KB_KEY, kb.id);
+      activateSessionForCurrentKb();
+      renderKnowledgeBaseContext();
+      return kb;
+    }
+
+    function renderConversationTranscript(messages) {
+      clearRenderedConversation({showWelcome: false});
+      for (const item of Array.isArray(messages) ? messages : []) {
+        if (item?.status !== 'committed') continue;
+        if (item.role === 'user') {
+          addUserMsgWithTime(item.content || '', item.committed_at || item.created_at);
+          continue;
+        }
+        if (item.role !== 'assistant') continue;
+        const metadata = item.metadata && typeof item.metadata === 'object' ? item.metadata : {};
+        addBotMsgWithTime(
+          item.content || '',
+          item.committed_at || item.created_at,
+          metadata.image_urls || [],
+          metadata.citations || [],
+          metadata.sources || [],
+          metadata.citation_validation || {},
+          metadata.answer_envelope || null,
+          {
+            answerId: metadata.answer_id || metadata.answer_envelope?.answer_id || '',
+            queryRunId: item.query_run_id || '',
+            conversationId: item.conversation_id || runtime.conversationId || '',
+            kbId: normalizedKbId(),
+          },
+        );
+      }
+      if (!chatEl.querySelector('.msg:not([data-persistent="welcome"])')) {
+        const empty = createMessage('bot', '该会话目前没有已提交的问答记录。');
+        empty.dataset.emptyConversation = 'true';
+      }
+    }
+
+    function renderConversationTurns(turns) {
+      for (const turn of Array.isArray(turns) ? turns : []) {
+        addUserMsgWithTime(turn.user_content || '问题内容不可用', turn.created_at);
+        const status = String(turn.query_run_status || turn.status || 'pending');
+        const terminalFailure = ['failed', 'timed_out', 'cancelled'].includes(status);
+        const row = createMessage(
+          'bot',
+          terminalFailure
+            ? (turn.safe_error_message || `该轮次${stageLabels[status] || status}，未发布不完整答案。`)
+            : `该轮次仍在${stageLabels[turn.current_stage] || stageLabels[status] || '处理中'}；刷新后可继续恢复。`,
+          formatTime(turn.resolved_at || turn.created_at),
+        );
+        row.dataset.queryRunId = String(turn.query_run_id || '');
+        row.querySelector('.bubble')?.classList.add('turn-placeholder');
+        if (terminalFailure) row.querySelector('.bubble')?.setAttribute('data-tone', 'danger');
+      }
+    }
+
+    function showHistoricalRun(runs) {
+      const latest = Array.isArray(runs) && runs.length ? runs[runs.length - 1] : null;
+      if (!latest) return;
+      runtime.currentRun = latest;
+      runtime.resultRendered = terminalStatuses.has(latest.status);
+      if (!terminalStatuses.has(latest.status) && !runtime.readOnlyConversation) {
+        runtime.botMessage = addBotMsgSkeleton();
+      }
+      const context = runtimeContext(latest.query_run_id);
+      updateRun(latest, context);
+      if (!terminalStatuses.has(latest.status) && !runtime.readOnlyConversation) {
+        readReliableEvents(context).catch(() => {});
+        startReliablePolling(context);
+        connectReliableStream(context);
+      } else {
+        queryBusy = false;
+        updateQueryAvailability();
+      }
+    }
+
+    async function selectConversation(conversationId, {force = false} = {}) {
+      const id = String(conversationId || '');
+      if (!id) {
+        await startNewConversation({confirm: false});
+        return;
+      }
+      if (queryBusy && !force) {
+        STTUI.toast('当前查询尚未结束，请先取消或等待完成后再切换历史会话。', 'warning');
+        renderConversationDirectory();
+        return;
+      }
+      const conversation = conversationHistory.items.find(
+        item => String(item.conversation_id) === id,
+      );
+      if (!conversation) {
+        STTUI.toast('该会话不在当前用户的服务端会话目录中，请刷新历史。', 'warning');
+        return;
+      }
+      if (!knowledgeBaseById(conversation.kb_id)) {
+        STTUI.toast('该会话所属知识库已不在当前账号授权范围内。', 'danger');
+        return;
+      }
+
+      conversationHistory.selectedId = id;
+      const historyContext = beginConversationHistoryGeneration(id);
+      setConversationHistoryLoading(true, '正在加载完整会话记录。');
+      resetRuntimeState();
+      try {
+        const kb = selectKnowledgeBaseForConversation(conversation);
+        runtime.conversationId = id;
+        runtime.readOnlyConversation = String(conversation.status) === 'archived';
+        rememberSelectedConversation(id);
+        updateWorkbenchDeepLink(id, conversation.kb_id);
+        renderConversationDirectory();
+        if (isAdmin()) {
+          refreshProfiles(runtimeContext('')).catch(error => {
+            if (error.name !== 'AbortError') {
+              retrievalDiagnostics.textContent = `读取检索配置失败：${error.message}`;
+            }
+          });
+        }
+        const [transcript, runs] = await Promise.all([
+          conversationHistoryApiJson(
+            `/api/v1/conversations/${encodeURIComponent(id)}/messages`,
+            historyContext,
+          ),
+          conversationHistoryApiJson(
+            `/api/v1/conversations/${encodeURIComponent(id)}/query-runs`,
+            historyContext,
+          ),
+        ]);
+        if (!isConversationHistoryContextCurrent(historyContext)) throw staleRuntimeError();
+        if (String(transcript?.conversation?.conversation_id || '') !== id) {
+          throw new Error('服务端返回了不匹配的会话记录。');
+        }
+        runtime.readOnlyConversation = String(transcript.conversation.status) === 'archived';
+        renderConversationTranscript(transcript.items || []);
+        renderConversationTurns(transcript.turns || []);
+        showHistoricalRun(runs?.items || []);
+        byId('runtimeConversationId').textContent = STTUI.shortId(id);
+        byId('runtimeConversationId').title = id;
+        byId('conversationTitle').textContent = conversationDisplayTitle(transcript.conversation);
+        byId('conversationSubtitle').textContent = runtime.readOnlyConversation
+          ? `${kb.name} · 已归档，只读查看完整历史`
+          : `${kb.name} · 已加载 ${Math.floor((transcript.items || []).length / 2)} 轮持久问答，可继续提问`;
+        const dayline = chatEl.querySelector('.dayline');
+        if (dayline) dayline.textContent = `${formatHistoryTime(transcript.conversation.updated_at)} · 完整历史`;
+        setConversationHistoryLoading(false);
+        renderConversationDirectory();
+        updateQueryAvailability();
+        inputEl.focus();
+        STTUI.announce(`已加载会话 ${conversationDisplayTitle(conversation)} 的完整历史。`);
+      } catch (error) {
+        if (error.name === 'AbortError') return;
+        setConversationHistoryLoading(false, `会话加载失败：${error.message}`);
+        STTUI.toast(`会话加载失败：${error.message}`, 'danger', 6500);
+      }
+    }
+
+    function renderKnowledgeBaseContext() {
+      selectedKb = (currentBootstrap?.knowledge_bases || [])
+        .find(item => item.id === normalizedKbId()) || null;
+      byId('kbDocumentsValue').textContent = selectedKb
+        ? `${selectedKb.ready_document_count} / ${selectedKb.document_count} 可用`
+        : '—';
+      byId('kbClassificationValue').textContent = selectedKb
+        ? (classificationLabels[selectedKb.data_classification] || selectedKb.data_classification)
+        : '—';
+      byId('kbWebPolicyValue').textContent = selectedKb
+        ? (selectedKb.web_search_allowed ? '允许联网补充' : '仅知识库')
+        : '—';
+      byId('kbReadinessValue').textContent = selectedKb?.readiness_message || '未选择';
+      const title = byId('kbReadinessTitle');
+      const text = byId('kbReadinessText');
+      const banner = byId('kbReadinessBanner');
+      if (!selectedKb) {
+        title.textContent = '没有可查询知识库';
+        text.textContent = '请联系租户管理员授予知识库权限，或先创建并发布知识库。';
+        banner.dataset.tone = 'warning';
+      } else if (selectedKb.readiness !== 'ready') {
+        title.textContent = `${selectedKb.name} 暂不可查询`;
+        text.textContent = `${selectedKb.readiness_message}。请前往“知识库与导入”完成文档处理和索引发布。`;
+        banner.dataset.tone = 'warning';
+      } else if (!apiReady) {
+        title.textContent = '查询服务尚未就绪';
+        text.textContent = '知识库已准备好，但查询服务或必需依赖当前不可用。请稍后重试服务检查。';
+        banner.dataset.tone = 'danger';
+      } else {
+        title.textContent = `${selectedKb.name} 已可查询`;
+        text.textContent = `本次查询限定在 ${selectedKb.ready_document_count} 份已就绪文档及其已发布索引中。`;
+        banner.dataset.tone = 'info';
+      }
+      const activeConversation = conversationHistory.items.find(
+        item => String(item.conversation_id) === String(runtime.conversationId || ''),
+      );
+      byId('conversationSubtitle').textContent = selectedKb
+        ? (activeConversation?.status === 'archived'
+          ? `${selectedKb.name} · 已归档，只读查看完整历史`
+          : `${selectedKb.name} · 会话与运行按租户、用户和知识库隔离`)
+        : '选择一个可查询知识库后即可开始。';
+      updateQueryAvailability();
+    }
+
+    function updateQueryAvailability() {
+      let reason = '';
+      if (!currentPrincipal) reason = '请先登录。';
+      else if (!apiReady) reason = '查询服务或必需依赖尚未就绪。';
+      else if (!selectedKb) reason = '当前账号没有可查询知识库。';
+      else if (selectedKb.readiness !== 'ready') reason = `${selectedKb.name}：${selectedKb.readiness_message}。`;
+      else if (runtime.readOnlyConversation) reason = '该历史会话已归档，只能查看；请新建会话后提问。';
+      else if (queryBusy && runtime.currentRun?.status === 'completed') reason = '运行已完成，正在读取持久结果与引用。';
+      else if (queryBusy) reason = '正在处理当前问题，可取消后再提交新问题。';
+      const disabled = Boolean(reason);
+      sendBtn.disabled = disabled;
+      inputEl.disabled = !currentPrincipal
+        || !apiReady
+        || !selectedKb
+        || selectedKb.readiness !== 'ready'
+        || runtime.readOnlyConversation;
+      byId('composerReason').textContent = reason || '已就绪；回答将附带可核验的来源与页码证据。';
+      const runStatus = runtime.currentRun?.status;
+      byId('btnCancelRun').hidden = !runStatus || terminalStatuses.has(runStatus);
+      byId('btnRetryResult').hidden = !runtime.resultRecoveryAvailable;
+      updateConversationHistoryInteraction();
+    }
+
+    async function refreshPrincipal() {
+      try {
+        const nextBootstrap = await STTUI.bootstrap();
+        const nextPrincipal = nextBootstrap.identity;
+        const identityChanged = (
+          String(currentPrincipal?.tenant_id || '') !== String(nextPrincipal?.tenant_id || '')
+          || String(currentPrincipal?.user_id || '') !== String(nextPrincipal?.user_id || '')
+        );
+        if (identityChanged) {
+          abortConversationHistoryRequests();
+          conversationHistory.generation += 1;
+          conversationHistory.items = [];
+          conversationHistory.selectedId = '';
+          resetRuntimeState();
+          clearRenderedConversation();
+        }
+        currentBootstrap = nextBootstrap;
+        currentPrincipal = nextPrincipal;
+        authPill.textContent = `${currentPrincipal.roles.join(',')} · ${currentPrincipal.tenant_id}`;
+        byId('accountName').textContent = currentPrincipal.display_name || currentPrincipal.email || '已登录';
+        byId('accountTenant').textContent = `${currentPrincipal.tenant_name} · ${currentPrincipal.roles.join(' / ')}`;
+        const admin = isAdmin();
+        byId('adminSidebar').hidden = !admin;
+        byId('navDiagnostics').hidden = !admin;
+        byId('navRetrievalView').hidden = !admin;
+        byId('chatLayout').classList.toggle('no-admin', !admin);
+        if (workbenchView === 'retrieval' && !admin) {
+          byId('retrievalCompareSummary').textContent = '当前角色没有管理/预览检索配置的权限；请使用 KBAdmin 或 TenantAdmin。';
+          for (const control of byId('retrievalWorkbench').querySelectorAll('button, select, textarea, input')) {
+            control.disabled = true;
+          }
+        }
+        populateKnowledgeBases();
+        activateSessionForCurrentKb();
+        setAuthenticatedView(true);
+        renderKnowledgeBaseContext();
+        return true;
+      } catch (_) {
+        abortConversationHistoryRequests();
+        conversationHistory.generation += 1;
+        conversationHistory.items = [];
+        conversationHistory.selectedId = '';
+        renderConversationDirectory();
+        resetRuntimeState();
+        clearRenderedConversation();
+        currentBootstrap = null;
+        currentPrincipal = null;
+        selectedKb = null;
+        sessionId = '';
+        authPill.textContent = '未登录';
+        setAuthenticatedView(false);
+        updateQueryAvailability();
+        return false;
+      }
+    }
+
+    byId('loginForm').addEventListener('submit', async event => {
+      event.preventDefault();
+      const button = byId('btnLogin');
+      const password = byId('authPassword');
+      byId('loginError').textContent = '';
+      STTUI.setBusy(button, true, '正在登录');
+      try {
+        await STTUI.login({
+          email: byId('authEmail').value,
+          password: password.value,
+          tenantId: byId('authTenant').value,
+        });
+        password.value = '';
+        const ok = await refreshPrincipal();
+        if (!ok) throw new Error('登录会话未能建立，请重试。');
+        await apiHealth();
+        const conversationRestored = await restoreWorkbenchConversation();
+        if (!conversationRestored) await restoreReliableRun();
+        if (isAdmin() && selectedKb) {
+          await refreshProfiles().catch(error => {
+            if (error.name !== 'AbortError') {
+              retrievalDiagnostics.textContent = `读取检索配置失败：${error.message}`;
+            }
+          });
+        }
+        (workbenchView === 'retrieval' ? retrievalQueryInput : inputEl).focus();
+      } catch (error) {
+        byId('loginError').textContent = error.message || '登录失败，请检查账号信息。';
+        password.focus();
+      } finally {
+        password.value = '';
+        STTUI.setBusy(button, false);
+      }
+    });
+
+    byId('btnLogout').addEventListener('click', async () => {
+      abortConversationHistoryRequests();
+      conversationHistory.generation += 1;
+      conversationHistory.items = [];
+      conversationHistory.selectedId = '';
+      resetRuntimeState();
+      clearRenderedConversation();
+      currentBootstrap = null;
+      currentPrincipal = null;
+      selectedKb = null;
+      sessionId = '';
+      authPill.textContent = '已退出';
+      setAuthenticatedView(false);
+      updateQueryAvailability();
+      let serverLogoutSucceeded = false;
+      try {
+        await STTUI.logout();
+        serverLogoutSucceeded = true;
+      } catch (error) {
+        STTUI.toast(`本地会话已清除，但服务端退出请求失败：${error.message}`, 'warning', 6500);
+      }
+      STTUI.announce(
+        serverLogoutSucceeded
+          ? '已安全退出知识库工作台。'
+          : '当前页面已退出；服务端会话撤销失败，请在网络恢复后再次退出。',
+      );
+    });
+    window.addEventListener('stt:auth-expired', () => {
+      abortConversationHistoryRequests();
+      conversationHistory.generation += 1;
+      conversationHistory.items = [];
+      conversationHistory.selectedId = '';
+      resetRuntimeState();
+      clearRenderedConversation();
+      currentBootstrap = null;
+      currentPrincipal = null;
+      selectedKb = null;
+      sessionId = '';
+      authPill.textContent = '登录已失效';
+      byId('loginError').textContent = '登录已失效，请重新登录。';
+      setAuthenticatedView(false);
+      updateQueryAvailability();
+    });
+
+    function resetRuntimeState({forget = false} = {}) {
+      stopReliableTracking();
+      abortRuntimeRequests();
+      if (runtime.resultRetryTimer) window.clearTimeout(runtime.resultRetryTimer);
+      runtime.resultRetryTimer = null;
+      runtime.generation += 1;
+      if (forget) forgetRuntime();
+      runtime.currentRun = null;
+      runtime.conversationId = '';
+      runtime.question = '';
+      runtime.botMessage = null;
+      runtime.lastSeq = 0;
+      runtime.lastEventId = '';
+      runtime.answerDraft = '';
+      runtime.resultRendered = false;
+      runtime.resultPending = false;
+      runtime.resultRecoveryAvailable = false;
+      runtime.resultRequest = null;
+      runtime.eventReplayDisabled = false;
+      runtime.eventBuffer.clear();
+      runtime.readOnlyConversation = false;
+      queryBusy = false;
+      byId('runStrip').hidden = true;
+      byId('runtimeRunId').textContent = '—';
+      byId('runtimeConversationId').textContent = '—';
+      byId('runtimeRevision').textContent = '—';
+      byId('runtimeCursor').textContent = '—';
+      const empty = createElement('div', 'event-row', '尚无运行事件。');
+      byId('runtimeEvents').replaceChildren(empty);
+      updateQueryAvailability();
+    }
+
+    kbIdInput.addEventListener('change', async () => {
+      const principalKey = STTUI.knowledgeBaseStorageKey(currentBootstrap, 'query');
+      localStorage.setItem(principalKey, normalizedKbId());
+      localStorage.setItem(QUERY_KB_KEY, normalizedKbId());
+      // 切换知识库必须创建独立新会话，不能复用前一知识库的上下文。
+      activateSessionForCurrentKb({forceNew: true});
+      resetRuntimeState({forget: true});
+      conversationHistory.selectedId = '';
+      rememberSelectedConversation('');
+      updateWorkbenchDeepLink('', normalizedKbId());
+      beginConversationHistoryGeneration('');
+      renderConversationDirectory();
+      clearRenderedConversation();
+      renderKnowledgeBaseContext();
+      if (isAdmin() && selectedKb) {
+        await refreshProfiles().catch(error => {
+          if (error.name !== 'AbortError') {
+            retrievalDiagnostics.textContent = `读取检索配置失败：${error.message}`;
+          }
+        });
+      }
+      STTUI.announce(selectedKb ? `已切换到知识库 ${selectedKb.name}，并创建新会话。` : '当前没有可用知识库。');
+    });
+
+    function clearRenderedConversation({showWelcome = true} = {}) {
+      for (const node of Array.from(chatEl.querySelectorAll('.msg:not([data-persistent="welcome"])'))) {
+        node.remove();
+      }
+      const welcome = chatEl.querySelector('[data-persistent="welcome"]');
+      if (welcome) welcome.hidden = !showWelcome;
+      const dayline = chatEl.querySelector('.dayline');
+      if (dayline) dayline.textContent = '今天';
+      scrollToBottom();
+    }
+
+    function scrollToBottom() {
+      chatEl.scrollTop = chatEl.scrollHeight;
+    }
+
+    function createMessage(role, text, time = nowTime()) {
+      const row = createElement('div', `msg ${role}`);
+      const avatar = createElement('div', 'avatar', role === 'user' ? '我' : '智库');
+      avatar.setAttribute('aria-hidden', 'true');
+      const content = createElement('div', 'message-content');
+      const bubble = createElement('div', 'bubble');
+      if (text !== '') bubble.textContent = text;
+      const meta = createElement('div', 'meta', time);
+      content.append(bubble, meta);
+      if (role === 'user') row.append(content, avatar);
+      else row.append(avatar, content);
+      chatEl.appendChild(row);
+      scrollToBottom();
+      return row;
+    }
+
+    function addUserMsg(text) {
+      return createMessage('user', text);
+    }
+
+    function addUserMsgWithTime(text, ts) {
+      return createMessage('user', text, formatTime(ts));
+    }
+
+    function addBotMsgWithTime(text, ts, imageUrls, citations, sources, citationValidation, answerEnvelope, feedbackContext = {}) {
+      const row = createMessage('bot', '', formatTime(ts));
+      const bubble = row.querySelector('.bubble');
+      const answer = createElement('div', 'answer');
+      bubble.appendChild(answer);
+      renderAnswerWithImages(
+        answer,
+        text || '',
+        imageUrls || [],
+        citations || [],
+        sources || [],
+        citationValidation || {},
+        answerEnvelope || null,
+        feedbackContext,
+      );
+      return row;
+    }
+
+    function addBotMsgSkeleton() {
+      const row = createMessage('bot', '');
+      const bubble = row.querySelector('.bubble');
+      const typing = createElement('span', 'typing');
+      typing.setAttribute('aria-label', '正在处理');
+      typing.append(createElement('span'), createElement('span'), createElement('span'));
+      const details = createElement('details', 'progress');
+      details.open = true;
+      const summary = createElement('summary', '', '阶段进度：等待任务受理');
+      const list = createElement('ul');
+      details.append(summary, list);
+      bubble.append(typing, details);
+      return row;
+    }
+
+    function renderProgress(botMsgEl, doneList, runningList, status) {
+      if (!botMsgEl) return;
+      const details = botMsgEl.querySelector('details.progress');
+      if (!details) return;
+      const summary = details.querySelector('summary');
+      const list = details.querySelector('ul');
+      const done = Array.isArray(doneList) ? doneList : [];
+      const running = Array.isArray(runningList) ? runningList : [];
+      summary.textContent = `阶段进度：${stageLabels[status] || status || '等待处理'}`;
+      const rows = [];
+      for (const item of done) rows.push(createElement('li', '', `已完成 · ${item}`));
+      for (const item of running) rows.push(createElement('li', '', `进行中 · ${item}`));
+      if (rows.length === 0) rows.push(createElement('li', '', '等待下一阶段更新'));
+      list.replaceChildren(...rows);
+    }
+
+    function friendlyStageList(status) {
+      const ordered = ['planning', 'retrieving', 'packing', 'generating', 'validating'];
+      const current = ordered.indexOf(status);
+      if (status === 'completed') return {done: ordered.map(item => stageLabels[item]), running: []};
+      if (current < 0) return {done: [], running: [stageLabels[status] || status]};
+      return {
+        done: ordered.slice(0, current).map(item => stageLabels[item]),
+        running: [stageLabels[status]],
+      };
+    }
+
+    function updateRun(run, context = null) {
+      if (context && !isRuntimeContextCurrent(context)) return false;
+      const currentRevision = Number(runtime.currentRun?.revision);
+      const incomingRevision = Number(run?.revision);
+      if (
+        Number.isInteger(currentRevision)
+        && Number.isInteger(incomingRevision)
+        && incomingRevision < currentRevision
+      ) {
+        return false;
+      }
+      if (
+        terminalStatuses.has(runtime.currentRun?.status)
+        && !terminalStatuses.has(run?.status)
+      ) {
+        return false;
+      }
+      runtime.currentRun = {...(runtime.currentRun || {}), ...run};
+      if (run.conversation_id) runtime.conversationId = run.conversation_id;
+      const status = runtime.currentRun.status || 'accepted';
+      const progress = progressByStatus[status] ?? 0;
+      const meta = STTUI.statusMeta(status);
+      byId('runStrip').hidden = false;
+      byId('runStatusBadge').textContent = stageLabels[status] || meta.label;
+      byId('runStatusBadge').dataset.tone = meta.tone;
+      byId('runProgressBar').style.width = `${progress}%`;
+      byId('runStageText').textContent = `${stageLabels[runtime.currentRun.current_stage] || stageLabels[status] || status} · ${progress}%`;
+      byId('runtimeRunId').textContent = STTUI.shortId(runtime.currentRun.query_run_id);
+      byId('runtimeRunId').title = runtime.currentRun.query_run_id || '';
+      byId('runtimeConversationId').textContent = STTUI.shortId(runtime.conversationId);
+      byId('runtimeConversationId').title = runtime.conversationId || '';
+      byId('runtimeRevision').textContent = String(runtime.currentRun.revision ?? '—');
+      const stages = friendlyStageList(runtime.currentRun.current_stage || status);
+      renderProgress(runtime.botMessage, stages.done, stages.running, status);
+      queryBusy = !terminalStatuses.has(status)
+        || (status === 'completed' && !runtime.resultRendered && !runtime.resultRecoveryAvailable);
+      if (terminalStatuses.has(status)) stopReliableTracking();
+      rememberRuntime();
+      updateQueryAvailability();
+      return true;
+    }
+
+    function applyRuntimeEvent(event) {
+      const container = byId('runtimeEvents');
+      if (container.children.length === 1 && container.firstElementChild?.textContent === '尚无运行事件。') {
+        container.replaceChildren();
+      }
+      const type = String(event.type || 'event');
+      const labelMap = {
+        'run.accepted': '运行已受理',
+        'run.cancel_requested': '已请求取消',
+        'stage.started': '阶段开始',
+        'retrieval.summary': '检索完成',
+        'route.degraded': '查询路线降级',
+        'answer.delta': '回答生成中',
+        'citation.update': '引用已更新',
+        'usage.update': '用量已更新',
+        'run.completed': '运行已完成',
+        'run.failed': '运行失败',
+        'run.cancelled': '运行已取消',
+        'run.timed_out': '运行超时',
+      };
+      const row = createElement(
+        'div',
+        'event-row',
+        `#${event.seq ?? '?'} · ${labelMap[type] || type} · ${stageLabels[event.stage] || event.stage || '—'}`,
+      );
+      container.appendChild(row);
+      container.scrollTop = container.scrollHeight;
+      runtime.lastSeq = event.seq;
+      if (event.event_id) runtime.lastEventId = event.event_id;
+      byId('runtimeCursor').textContent = `#${runtime.lastSeq}`;
+
+      if (type === 'answer.delta') {
+        const data = event.data || {};
+        const delta = String(data.text || data.delta || '');
+        runtime.answerDraft = data.operation === 'replace' ? delta : runtime.answerDraft + delta;
+        renderDraftAnswer(runtime.answerDraft);
+      }
+    }
+
+    function appendRuntimeEvent(event, context = null) {
+      if (context && !isRuntimeContextCurrent(context)) return false;
+      const sequence = Number(event?.seq);
+      if (!Number.isInteger(sequence) || sequence < 1) return false;
+      if (sequence <= runtime.lastSeq || runtime.eventBuffer.has(sequence)) return false;
+      runtime.eventBuffer.set(sequence, {...event, seq: sequence});
+      let applied = false;
+      while (runtime.eventBuffer.has(runtime.lastSeq + 1)) {
+        const nextSequence = runtime.lastSeq + 1;
+        const nextEvent = runtime.eventBuffer.get(nextSequence);
+        runtime.eventBuffer.delete(nextSequence);
+        applyRuntimeEvent(nextEvent);
+        applied = true;
+      }
+      return applied;
+    }
+
+    function renderDraftAnswer(text) {
+      if (!runtime.botMessage || !text) return;
+      const bubble = runtime.botMessage.querySelector('.bubble');
+      let answer = bubble.querySelector('.answer');
+      if (!answer) {
+        answer = createElement('div', 'answer');
+        bubble.prepend(answer);
+      }
+      answer.textContent = text;
+      runtime.botMessage.querySelector('.typing')?.remove();
+      scrollToBottom();
+    }
+
+    function stopReliableTracking() {
+      if (runtime.eventSource) runtime.eventSource.close();
+      runtime.eventSource = null;
+      if (runtime.pollTimer) window.clearInterval(runtime.pollTimer);
+      runtime.pollTimer = null;
+    }
+
+    function connectReliableStream(context = runtimeContext()) {
+      if (
+        !isRuntimeContextCurrent(context)
+        || !runtime.currentRun?.query_run_id
+        || !streamToggle.checked
+        || runtime.eventReplayDisabled
+        || terminalStatuses.has(runtime.currentRun.status)
+      ) return;
+      if (runtime.eventSource) runtime.eventSource.close();
+      const runId = runtime.currentRun.query_run_id;
+      const resume = runtime.lastSeq > 0 ? `?after_seq=${runtime.lastSeq}` : '';
+      const source = new EventSource(
+        `${API_BASE}/api/v1/query-runs/${encodeURIComponent(runId)}/events/stream${resume}`,
+        {withCredentials: true},
+      );
+      runtime.eventSource = source;
+      const names = [
+        'run.accepted', 'run.cancel_requested', 'stage.started',
+        'retrieval.summary', 'route.degraded', 'answer.delta',
+        'citation.update', 'usage.update', 'run.completed',
+        'run.failed', 'run.cancelled', 'run.timed_out',
+      ];
+      for (const name of names) {
+        source.addEventListener(name, event => {
+          if (!isRuntimeContextCurrent(context) || runtime.eventSource !== source) {
+            source.close();
+            return;
+          }
+          try {
+            const payload = JSON.parse(event.data || '{}');
+            appendRuntimeEvent(payload, context);
+            if (name.startsWith('run.')) pollReliableRun(true, context);
+            if (['run.completed', 'run.failed', 'run.cancelled', 'run.timed_out'].includes(name)) {
+              source.close();
+              if (runtime.eventSource === source) runtime.eventSource = null;
+            }
+          } catch (_) {
+            STTUI.toast('收到无法识别的进度事件，状态轮询仍会继续。', 'warning');
+          }
+        });
+      }
+      source.addEventListener('stream.reset', event => {
+        if (!isRuntimeContextCurrent(context) || runtime.eventSource !== source) {
+          source.close();
+          return;
+        }
+        source.close();
+        runtime.eventSource = null;
+        runtime.eventReplayDisabled = true;
+        runtime.eventBuffer.clear();
+        let message = '事件续传窗口已变化，正在通过运行快照恢复。';
+        try {
+          const payload = JSON.parse(event.data || '{}');
+          if (payload.message) message = payload.message;
+        } catch (_) {}
+        byId('runStageText').textContent = message;
+        pollReliableRun(true, context);
+      });
+      source.onerror = () => {
+        if (isRuntimeContextCurrent(context) && runtime.eventSource === source) {
+          byId('runStageText').textContent = '实时连接暂时中断，正在通过状态刷新恢复';
+        }
+      };
+    }
+
+    async function readReliableEvents(context = runtimeContext()) {
+      const runId = runtime.currentRun?.query_run_id;
+      if (!runId || runtime.eventReplayDisabled || !isRuntimeContextCurrent(context)) return;
+      const headers = runtime.lastEventId ? {'Last-Event-ID': runtime.lastEventId} : {};
+      try {
+        const response = await runtimeApiJson(
+          `/api/v1/query-runs/${encodeURIComponent(runId)}/events?after_seq=${runtime.lastSeq}&limit=100`,
+          {headers},
+          context,
+        );
+        for (const event of response.page?.events || []) appendRuntimeEvent(event, context);
+      } catch (error) {
+        if (error.name === 'AbortError') return;
+        if (['EVENT_CURSOR_EXPIRED', 'EVENT_CURSOR_INVALID'].includes(error.code)) {
+          runtime.eventReplayDisabled = true;
+          runtime.eventBuffer.clear();
+          byId('runStageText').textContent = '事件窗口已更新，运行结果仍会从持久状态恢复';
+          return;
+        }
+        throw error;
+      }
+    }
+
+    function startReliablePolling(context = runtimeContext()) {
+      if (
+        !isRuntimeContextCurrent(context)
+        || !runtime.currentRun?.query_run_id
+        || terminalStatuses.has(runtime.currentRun.status)
+      ) return;
+      if (runtime.pollTimer) window.clearInterval(runtime.pollTimer);
+      runtime.pollTimer = window.setInterval(() => pollReliableRun(true, context), 1400);
+      pollReliableRun(true, context);
+    }
+
+    async function pollReliableRun(silent = false, context = runtimeContext()) {
+      const runId = runtime.currentRun?.query_run_id;
+      if (!runId || !isRuntimeContextCurrent(context)) return;
+      try {
+        const run = await runtimeApiJson(
+          `/api/v1/query-runs/${encodeURIComponent(runId)}`,
+          {},
+          context,
+        );
+        if (!updateRun(run, context)) return;
+        await readReliableEvents(context).catch(() => {});
+        if (run.status === 'completed') await readReliableResult({context});
+        else if (terminalStatuses.has(run.status)) renderRunFailure(run);
+      } catch (error) {
+        if (error.name === 'AbortError') return;
+        if (!silent) STTUI.toast(error.message, 'danger');
+      }
+    }
+
+    function renderRunFailure(run) {
+      if (!runtime.botMessage || runtime.resultRendered) return;
+      runtime.resultRendered = true;
+      const message = run.status === 'cancelled'
+        ? '本次查询已取消。你可以修改问题后重新发送。'
+        : run.status === 'timed_out'
+          ? '本次查询超时，未发布不完整答案。请稍后重试。'
+          : (run.safe_error_message || '本次查询未能完成，请稍后重试。');
+      finalizeBotAnswer(runtime.botMessage, '', message);
+      queryBusy = false;
+      updateQueryAvailability();
+    }
+
+    async function readReliableResult({
+      context = runtimeContext(),
+      attempt = 0,
+      manual = false,
+    } = {}) {
+      if (
+        runtime.resultRendered
+        || !runtime.currentRun?.query_run_id
+        || !isRuntimeContextCurrent(context)
+      ) return;
+      if (runtime.resultRequest) return runtime.resultRequest;
+
+      const runId = runtime.currentRun.query_run_id;
+      const botMessage = runtime.botMessage;
+      runtime.resultPending = true;
+      runtime.resultRecoveryAvailable = false;
+      queryBusy = true;
+      updateQueryAvailability();
+      if (manual) byId('runStageText').textContent = '正在重新读取持久查询结果';
+
+      const request = (async () => {
+        try {
+          const response = await runtimeApiJson(
+            `/api/v1/query-runs/${encodeURIComponent(runId)}/result`,
+            {},
+            context,
+          );
+          if (
+            !isRuntimeContextCurrent(context)
+            || runtime.currentRun?.query_run_id !== runId
+            || runtime.botMessage !== botMessage
+          ) {
+            throw staleRuntimeError();
+          }
+          const result = response.result || {};
+          runtime.resultRendered = true;
+          runtime.resultPending = false;
+          runtime.resultRecoveryAvailable = false;
+          if (runtime.resultRetryTimer) window.clearTimeout(runtime.resultRetryTimer);
+          runtime.resultRetryTimer = null;
+          finalizeBotAnswer(
+            botMessage,
+            result.answer || '',
+            '',
+            result.image_urls || [],
+            result.citations || [],
+            result.sources || [],
+            result.citation_validation || {},
+            result.answer_envelope || null,
+            {
+              answerId: result.answer_id || result.answer_envelope?.answer_id || '',
+              queryRunId: runId,
+              conversationId: runtime.conversationId,
+              kbId: context.kbId,
+            },
+          );
+          showRetrievalDiagnostics(
+            {
+              profile_id: result.retrieval_profile_id,
+              version: result.retrieval_profile_version,
+              config_hash: result.retrieval_profile_hash,
+            },
+            result.retrieval_diagnostics || {},
+            result,
+          );
+          queryBusy = false;
+          updateQueryAvailability();
+          refreshConversationHistory({preferredConversationId: runtime.conversationId}).catch(() => {});
+          STTUI.announce('回答与引用已完成。');
+        } catch (error) {
+          if (error.name === 'AbortError' || !isRuntimeContextCurrent(context)) return;
+          const retryable = (
+            error.code === 'QUERY_RESULT_NOT_READY'
+            || error.status === 0
+            || error.status >= 500
+          );
+          if (retryable && attempt < RESULT_RETRY_DELAYS_MS.length) {
+            const delay = RESULT_RETRY_DELAYS_MS[attempt];
+            byId('runStageText').textContent = `结果暂未可读，${Math.ceil(delay / 100) / 10} 秒后自动重试`;
+            runtime.resultRetryTimer = window.setTimeout(() => {
+              runtime.resultRetryTimer = null;
+              readReliableResult({context, attempt: attempt + 1});
+            }, delay);
+            return;
+          }
+          runtime.resultPending = false;
+          runtime.resultRecoveryAvailable = true;
+          queryBusy = false;
+          byId('runStageText').textContent = '运行已完成，但结果读取失败；可手动重新获取';
+          renderDraftAnswer('运行已完成，但持久结果暂时无法读取。请点击“重新获取结果”继续恢复。');
+          updateQueryAvailability();
+          STTUI.toast(`结果读取失败：${error.message}`, 'danger', 6500);
+        }
+      })();
+      runtime.resultRequest = request;
+      try {
+        await request;
+      } finally {
+        if (runtime.resultRequest === request) runtime.resultRequest = null;
+      }
+    }
+
+    async function createReliableRun(text, allowConversationRecovery = true) {
+      const existingConversationId = runtime.conversationId;
+      resetRuntimeState();
+      runtime.conversationId = existingConversationId;
+      runtime.question = text;
+      runtime.botMessage = addBotMsgSkeleton();
+      queryBusy = true;
+      updateQueryAvailability();
+      const context = runtimeContext();
+      const pending = pendingSubmission(text);
+      const key = pending.idempotencyKey;
+      const body = {
+        query: text,
+        kb_ids: [normalizedKbId()],
+        client_turn_id: key,
+        web_search_requested: false,
+        deadline_seconds: 120,
+      };
+      if (runtime.conversationId) {
+        body.conversation_id = runtime.conversationId;
+      } else {
+        const summary = String(text || '').replace(/\s+/g, ' ').trim();
+        body.conversation_title = summary.length > 72 ? `${summary.slice(0, 72)}…` : summary;
+      }
+      const filter = parseOptionalFilter();
+      if (filter) body.business_filter = filter;
+      let accepted;
+      try {
+        accepted = await runtimeApiJson('/api/v1/query-runs', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json', 'Idempotency-Key': key},
+          body: JSON.stringify(body),
+        }, context);
+      } catch (error) {
+        if (error.code === 'SESSION_KB_CONFLICT' && allowConversationRecovery) {
+          clearPendingSubmission(pending.storageKey, key);
+          runtime.botMessage?.remove();
+          runtime.botMessage = null;
+          runtime.conversationId = '';
+          conversationHistory.selectedId = '';
+          rememberSelectedConversation('');
+          activateSessionForCurrentKb({forceNew: true});
+          return createReliableRun(text, false);
+        }
+        if (error.name !== 'AbortError' && error.status > 0 && error.status < 500) {
+          clearPendingSubmission(pending.storageKey, key);
+        }
+        throw error;
+      }
+      clearPendingSubmission(pending.storageKey, key);
+      runtime.currentRun = accepted;
+      runtime.conversationId = accepted.conversation_id;
+      conversationHistory.selectedId = accepted.conversation_id;
+      rememberSelectedConversation(accepted.conversation_id);
+      if (body.conversation_title) byId('conversationTitle').textContent = body.conversation_title;
+      const runContext = runtimeContext(accepted.query_run_id);
+      updateRun(accepted, runContext);
+      refreshConversationHistory({preferredConversationId: accepted.conversation_id}).catch(() => {});
+      await readReliableEvents(runContext).catch(() => {});
+      if (!isRuntimeContextCurrent(runContext)) return;
+      startReliablePolling(runContext);
+      connectReliableStream(runContext);
+    }
+
+    async function restoreReliableRun() {
+      resetRuntimeState();
+      const key = runtimeStorageKey();
+      const saved = key ? readObject(QUERY_RUN_MAP_KEY)[key] : null;
+      if (!saved?.query_run_id) return;
+      runtime.conversationId = String(saved.conversation_id || '');
+      runtime.currentRun = {query_run_id: saved.query_run_id, status: 'accepted'};
+      conversationHistory.selectedId = runtime.conversationId;
+      runtime.botMessage = addBotMsgSkeleton();
+      const context = runtimeContext(saved.query_run_id);
+      try {
+        const run = await runtimeApiJson(
+          `/api/v1/query-runs/${encodeURIComponent(saved.query_run_id)}`,
+          {},
+          context,
+        );
+        updateRun(run, context);
+        await readReliableEvents(context).catch(() => {});
+        if (run.status === 'completed') await readReliableResult({context});
+        else if (terminalStatuses.has(run.status)) renderRunFailure(run);
+        else {
+          startReliablePolling(context);
+          connectReliableStream(context);
+        }
+      } catch (error) {
+        if (error.name === 'AbortError') return;
+        forgetRuntime();
+        resetRuntimeState();
+        clearRenderedConversation();
+        STTUI.toast('上次运行已不可恢复，已为当前知识库准备新会话。', 'warning');
+      }
+    }
+
+    async function cancelReliableRun() {
+      const run = runtime.currentRun;
+      if (!run?.query_run_id || terminalStatuses.has(run.status)) return;
+      const confirmed = await STTUI.confirmAction({
+        title: '取消本次查询？',
+        message: '取消请求会被持久化；已完成的安全阶段不会回滚，也不会发布不完整答案。',
+        confirmLabel: '确认取消',
+        danger: true,
+      });
+      if (!confirmed) return;
+      const context = runtimeContext(run.query_run_id);
+      if (!isRuntimeContextCurrent(context)) return;
+      try {
+        const response = await runtimeApiJson(`/api/v1/query-runs/${encodeURIComponent(run.query_run_id)}:cancel`, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({expected_revision: run.revision ?? null, reason_code: 'USER_REQUESTED'}),
+        }, context);
+        updateRun(response, context);
+        STTUI.toast(response.accepted ? '取消请求已受理。' : '本次查询已经结束。');
+      } catch (error) {
+        if (error.name === 'AbortError') return;
+        STTUI.toast(error.message, 'danger');
+      }
+    }
+
+    byId('btnCancelRun').addEventListener('click', cancelReliableRun);
+
+    function profileForSelect(selectEl) {
+      const [profileId, version] = String(selectEl.value || '').split('|');
+      return retrievalProfiles.find(item => item.profile_id === profileId && String(item.version) === version);
+    }
+
+    function selectedRetrievalProfile() {
+      return profileForSelect(retrievalProfileSelect);
+    }
+
+    function parseOptionalFilter() {
+      if (!isAdmin()) return null;
+      const raw = retrievalFilterJson.value.trim();
+      if (!raw) return null;
+      try {
+        return JSON.parse(raw);
+      } catch (_) {
+        throw new Error('查询过滤条件不是有效 JSON。');
+      }
+    }
+
+    function showRetrievalDiagnostics(profile, diagnostics, capability = {}) {
+      if (!isAdmin()) return;
+      if (profile?.profile_id) {
+        retrievalProfilePill.textContent = `${profile.profile_id} v${profile.version} · ${String(profile.config_hash || '').slice(0, 10)}`;
+      }
+      const combined = {
+        retrieval: diagnostics || {},
+        query_plan: capability.query_plan || {},
+        fusion: capability.fusion_diagnostics || {},
+        context_pack: capability.context_pack_summary || {},
+        evidence_assessment: capability.evidence_assessment || {},
+        answer_decision: capability.answer_decision || {},
+      };
+      if (Object.values(combined).some(item => item && Object.keys(item).length)) {
+        retrievalDiagnostics.textContent = JSON.stringify(combined, null, 2);
+      }
+    }
+
+    function scoreText(value, digits = 4) {
+      const number = Number(value);
+      return Number.isFinite(number) ? number.toFixed(digits) : '—';
+    }
+
+    function normalizedRouteScores(results) {
+      const ranges = new Map();
+      for (const hit of results) {
+        for (const score of Array.isArray(hit.scores) ? hit.scores : []) {
+          const raw = Number(score.raw_score);
+          if (!Number.isFinite(raw)) continue;
+          const range = ranges.get(score.route) || {min: raw, max: raw};
+          range.min = Math.min(range.min, raw);
+          range.max = Math.max(range.max, raw);
+          ranges.set(score.route, range);
+        }
+      }
+      return ranges;
+    }
+
+    function renderRetrievalResult(slot, profile, data, error = null) {
+      const body = byId(`retrievalResult${slot}`);
+      const meta = byId(`retrievalResult${slot}Meta`);
+      const title = byId(`retrievalResult${slot}Title`);
+      title.textContent = `Profile ${slot} · ${profile?.name || profile?.profile_id || '未选择'} v${profile?.version || '—'}`;
+      if (error) {
+        meta.textContent = error.code === 'INDEX_NOT_READY' ? '索引未就绪' : '失败';
+        body.replaceChildren(createElement('div', 'retrieval-empty', `真实预览失败：${error.message}`));
+        return;
+      }
+      const routes = Array.isArray(data?.routes) ? data.routes : [];
+      const results = Array.isArray(data?.results) ? data.results : [];
+      meta.textContent = `${results.length} 块 · ${Number(data?.elapsed_ms || 0)} ms`;
+      const routeList = createElement('div', 'retrieval-route-list');
+      if (routes.length) {
+        for (const route of routes) {
+          routeList.appendChild(createElement(
+            'span',
+            'retrieval-route-chip',
+            `${route.route} · ${route.status} · ${route.candidate_count || 0} 条 · ${route.latency_ms || 0} ms`,
+          ));
+        }
+      } else {
+        routeList.appendChild(createElement('span', 'retrieval-route-chip', 'route 诊断未返回'));
+      }
+      const nodes = [routeList];
+      const ranges = normalizedRouteScores(results);
+      const threshold = Number(profile?.config?.score_threshold);
+      for (const [index, hit] of results.entries()) {
+        const card = createElement('article', 'retrieval-hit');
+        const heading = createElement('h4', '', `#${index + 1} · ${hit.title || hit.document_id || hit.chunk_id || '未命名块'}`);
+        const preview = createElement('p', '', hit.content_preview || '无内容预览');
+        const routeScores = Array.isArray(hit.scores) ? hit.scores : [];
+        const primary = routeScores.find(item => item.route !== 'reranker') || {};
+        const reranker = routeScores.find(item => item.route === 'reranker');
+        const range = ranges.get(primary.route);
+        const raw = Number(primary.raw_score);
+        const normalized = Number.isFinite(raw) && range
+          ? (range.max === range.min ? 1 : (raw - range.min) / (range.max - range.min))
+          : null;
+        const cutoff = Number.isFinite(threshold)
+          ? (Number(hit.final_score) >= threshold ? `通过 ≥ ${scoreText(threshold)}` : `截断 < ${scoreText(threshold)}`)
+          : '未配置阈值';
+        const scores = createElement('div', 'retrieval-score-grid');
+        scores.append(
+          createElement('span', '', `route/raw\n${primary.route || '—'} / ${scoreText(primary.raw_score)}`),
+          createElement('span', '', `normalized*\n${scoreText(normalized)}`),
+          createElement('span', '', `RRF\n${scoreText(primary.rrf_score)}`),
+          createElement('span', '', `rerank\n${reranker ? scoreText(reranker.raw_score) : '未执行'}`),
+          createElement('span', '', `cutoff\n${cutoff}`),
+        );
+        scores.title = '* normalized 为本页面对当前返回集、同 route 原始分数做的 min-max 可视化，不是后端排序事实。';
+        card.append(heading, preview, scores);
+        nodes.push(card);
+      }
+      if (!results.length) nodes.push(createElement('div', 'retrieval-empty', '真实检索已完成，但没有命中可展示的块。'));
+      body.replaceChildren(...nodes);
+    }
+
+    async function runRetrievalPreview(profile, slot, context) {
+      if (!profile) throw new Error(`Profile ${slot} 未选择`);
+      const query = retrievalQueryInput.value.trim() || inputEl.value.trim();
+      if (!query) throw new Error('请填写测试问题');
+      byId(`retrievalResult${slot}`).replaceChildren(createElement('div', 'retrieval-empty', '正在调用真实检索引擎。'));
+      const envelope = await runtimeApiJson(`/api/v1/retrieval-profiles/${encodeURIComponent(profile.profile_id)}/versions/${profile.version}:preview`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          kb_id: context.kbId,
+          query,
+          retrieval_filter: parseOptionalFilter(),
+        }),
+      }, context);
+      const data = envelope.data || {};
+      renderRetrievalResult(slot, profile, data);
+      return data;
+    }
+
+    async function refreshProfiles(context = runtimeContext()) {
+      const kbId = context.kbId;
+      if (!kbId || !isAdmin() || !isRuntimeContextCurrent(context)) return;
+      const envelope = await runtimeApiJson(
+        `/api/v1/knowledge-bases/${encodeURIComponent(kbId)}/retrieval-profiles`,
+        {},
+        context,
+      );
+      retrievalProfiles = envelope?.data?.items || [];
+      const current = envelope?.data?.current || {};
+      const previousA = retrievalProfileSelect.value;
+      const previousB = retrievalProfileBSelect.value;
+      retrievalProfileSelect.replaceChildren();
+      retrievalProfileBSelect.replaceChildren();
+      for (const item of retrievalProfiles) {
+        const label =
+          `${item.status === 'published' ? '已发布' : item.status === 'draft' ? '草稿' : '历史版本'} · ${item.name} · v${item.version}`;
+        const option = createElement(
+          'option',
+          '',
+          label,
+        );
+        option.value = `${item.profile_id}|${item.version}`;
+        if (item.id === current.id) option.selected = true;
+        retrievalProfileSelect.appendChild(option);
+        const optionB = createElement('option', '', label);
+        optionB.value = option.value;
+        retrievalProfileBSelect.appendChild(optionB);
+      }
+      if (retrievalProfiles.some(item => `${item.profile_id}|${item.version}` === previousA)) {
+        retrievalProfileSelect.value = previousA;
+      }
+      const fallbackB = retrievalProfiles.find(item => item.id !== (selectedRetrievalProfile() || current).id);
+      retrievalProfileBSelect.value = retrievalProfiles.some(
+        item => `${item.profile_id}|${item.version}` === previousB,
+      ) ? previousB : (fallbackB ? `${fallbackB.profile_id}|${fallbackB.version}` : retrievalProfileSelect.value);
+      retrievalProfileJson.value = JSON.stringify((selectedRetrievalProfile() || current).config || {}, null, 2);
+      showRetrievalDiagnostics(current, null);
+    }
+
+    retrievalProfileSelect.addEventListener('change', () => {
+      retrievalProfileJson.value = JSON.stringify(selectedRetrievalProfile()?.config || {}, null, 2);
+    });
+
+    byId('btnRefreshProfiles').addEventListener('click', () => {
+      refreshProfiles().catch(error => {
+        if (error.name !== 'AbortError') STTUI.toast(error.message, 'danger');
+      });
+    });
+
+    byId('btnCreateProfile').addEventListener('click', async () => {
+      const name = byId('retrievalProfileName').value.trim();
+      if (!name) {
+        STTUI.toast('请先填写新草稿名称。', 'warning');
+        return;
+      }
+      const context = runtimeContext();
+      try {
+        await runtimeApiJson(`/api/v1/knowledge-bases/${encodeURIComponent(context.kbId)}/retrieval-profiles`, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            name,
+            description: '由知识库查询工作台创建',
+            config: JSON.parse(retrievalProfileJson.value),
+          }),
+        }, context);
+        byId('retrievalProfileName').value = '';
+        await refreshProfiles(context);
+        STTUI.toast('检索配置草稿已创建。');
+      } catch (error) {
+        if (error.name === 'AbortError') return;
+        STTUI.toast(`创建失败：${error.message}`, 'danger');
+      }
+    });
+
+    byId('btnPublishProfile').addEventListener('click', async () => {
+      const item = selectedRetrievalProfile();
+      if (!item) return;
+      const context = runtimeContext();
+      const confirmed = await STTUI.confirmAction({
+        title: '发布检索配置？',
+        message: `发布后，${selectedKb?.name || '当前知识库'} 的新查询将使用版本 v${item.version}。`,
+        confirmLabel: '确认发布',
+      });
+      if (!confirmed) return;
+      if (
+        !isRuntimeContextCurrent(context)
+        || selectedRetrievalProfile()?.id !== item.id
+      ) return;
+      try {
+        await runtimeApiJson(`/api/v1/retrieval-profiles/${encodeURIComponent(item.profile_id)}/versions/${item.version}:publish`, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({kb_id: context.kbId}),
+        }, context);
+        await refreshProfiles(context);
+        STTUI.toast('检索配置已发布。');
+      } catch (error) {
+        if (error.name === 'AbortError') return;
+        STTUI.toast(`发布失败：${error.message}`, 'danger');
+      }
+    });
+
+    byId('btnRollbackProfile').addEventListener('click', async () => {
+      const item = selectedRetrievalProfile();
+      if (!item) return;
+      const context = runtimeContext();
+      const confirmed = await STTUI.confirmAction({
+        title: '回滚检索配置？',
+        message: `当前知识库将重新指向 ${item.name} v${item.version}，已有 QueryRun 的冻结快照不受影响。`,
+        confirmLabel: '确认回滚',
+        danger: true,
+      });
+      if (!confirmed) return;
+      if (
+        !isRuntimeContextCurrent(context)
+        || selectedRetrievalProfile()?.id !== item.id
+      ) return;
+      try {
+        await runtimeApiJson(`/api/v1/knowledge-bases/${encodeURIComponent(context.kbId)}:rollback-retrieval-profile`, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({profile_id: item.profile_id, version: item.version}),
+        }, context);
+        await refreshProfiles(context);
+        STTUI.toast('检索配置已回滚。');
+      } catch (error) {
+        if (error.name === 'AbortError') return;
+        STTUI.toast(`回滚失败：${error.message}`, 'danger');
+      }
+    });
+
+    byId('btnPreviewProfile').addEventListener('click', async () => {
+      const item = selectedRetrievalProfile();
+      const query = retrievalQueryInput.value.trim() || inputEl.value.trim();
+      if (!item || !query) {
+        STTUI.toast('请先选择 Profile A，并填写测试问题。', 'warning');
+        return;
+      }
+      retrievalDiagnostics.textContent = '正在调用真实检索引擎预览。';
+      const context = runtimeContext();
+      try {
+        const data = await runRetrievalPreview(item, 'A', context);
+        showRetrievalDiagnostics(item, data);
+        byId('retrievalCompareSummary').textContent = `Profile A 返回 ${data.results?.length || 0} 个块，用时 ${data.elapsed_ms || 0} ms。`;
+      } catch (error) {
+        if (error.name === 'AbortError') return;
+        renderRetrievalResult('A', item, null, error);
+        retrievalDiagnostics.textContent = `预览失败：${error.message}`;
+      }
+    });
+
+    byId('btnCompareProfiles').addEventListener('click', async () => {
+      const profileA = selectedRetrievalProfile();
+      const profileB = profileForSelect(retrievalProfileBSelect);
+      const query = retrievalQueryInput.value.trim() || inputEl.value.trim();
+      if (!profileA || !profileB || !query) {
+        STTUI.toast('请选择 Profile A/B，并填写同一个测试问题。', 'warning');
+        return;
+      }
+      const context = runtimeContext();
+      byId('retrievalCompareSummary').textContent = '正在并行执行 A/B 真实预览；两个请求使用相同知识库、问题与 Filter。';
+      const [resultA, resultB] = await Promise.allSettled([
+        runRetrievalPreview(profileA, 'A', context),
+        runRetrievalPreview(profileB, 'B', context),
+      ]);
+      if (resultA.status === 'rejected' && resultA.reason?.name !== 'AbortError') {
+        renderRetrievalResult('A', profileA, null, resultA.reason);
+      }
+      if (resultB.status === 'rejected' && resultB.reason?.name !== 'AbortError') {
+        renderRetrievalResult('B', profileB, null, resultB.reason);
+      }
+      if (resultA.status === 'fulfilled' && resultB.status === 'fulfilled') {
+        const a = resultA.value;
+        const b = resultB.value;
+        const aTop = a.results?.[0];
+        const bTop = b.results?.[0];
+        const sameTop = aTop?.chunk_id && aTop.chunk_id === bTop?.chunk_id;
+        byId('retrievalCompareSummary').textContent =
+          `A：${a.results?.length || 0} 块 / ${a.elapsed_ms || 0} ms；B：${b.results?.length || 0} 块 / ${b.elapsed_ms || 0} ms；Top-1 ${sameTop ? '一致' : '不同'}。`;
+        retrievalDiagnostics.textContent = JSON.stringify({profile_a: a, profile_b: b}, null, 2);
+      } else {
+        byId('retrievalCompareSummary').textContent = 'A/B 至少一侧失败；失败原因已在对应面板展示，成功侧结果仍保留。';
+      }
+    });
+
+    function sameOriginEvidenceImageUrl(rawUrl) {
+      const text = String(rawUrl || '').trim();
+      if (!text) return '';
+      try {
+        const url = new URL(text, window.location.origin);
+        if (
+          url.origin !== window.location.origin
+          || url.username
+          || url.password
+          || !/^\/api\/v1\/evidence\/[a-zA-Z0-9_-]+\/images\/[a-zA-Z0-9_-]+$/.test(url.pathname)
+        ) return '';
+        return `${url.pathname}${url.search}`;
+      } catch (_) {
+        return '';
+      }
+    }
+
+    function sameOriginEvidencePreviewPath(rawPath) {
+      const text = String(rawPath || '').trim();
+      if (!text) return '';
+      try {
+        const url = new URL(text, window.location.origin);
+        if (
+          url.origin !== window.location.origin
+          || url.username
+          || url.password
+          || !/^\/api\/v1\/evidence\/[a-zA-Z0-9_-]+$/.test(url.pathname)
+        ) return '';
+        return url.pathname;
+      } catch (_) {
+        return '';
+      }
+    }
+
+    function sameOriginEvidenceSourcePath(rawPath) {
+      const text = String(rawPath || '').trim();
+      if (!text) return '';
+      try {
+        const url = new URL(text, window.location.origin);
+        if (
+          url.origin !== window.location.origin
+          || url.username
+          || url.password
+          || !/^\/api\/v1\/evidence\/[a-zA-Z0-9_-]+\/(?:source|source-inline)$/.test(url.pathname)
+        ) return '';
+        return url.pathname;
+      } catch (_) {
+        return '';
+      }
+    }
+
+    function closeEvidenceDialog() {
+      if (evidenceDialog.open) evidenceDialog.close();
+    }
+
+    async function openCitationEvidence(citation, source, opener) {
+      const previewPath = sameOriginEvidencePreviewPath(
+        source?.preview_url || citation?.preview_url,
+      );
+      if (!previewPath) {
+        STTUI.toast('该引用没有可用的站内授权证据地址。', 'warning');
+        return;
+      }
+      evidenceDialogReturnFocus = opener || document.activeElement;
+      byId('evidenceDialogTitle').textContent =
+        `[${citation?.label || '引用'}] ${source?.source_label || citation?.source_label || '知识库原文'}`;
+      byId('evidenceDialogMeta').textContent = '正在读取当前账号仍有权访问的固定版本证据。';
+      byId('evidenceDialogFrame').removeAttribute('src');
+      if (!evidenceDialog.open) evidenceDialog.showModal();
+      byId('btnCloseEvidenceDialog').focus();
+      try {
+        const evidence = await apiJson(previewPath);
+        if (!evidenceDialog.open) return;
+        const spans = Array.isArray(evidence.provenance_spans) ? evidence.provenance_spans : [];
+        const span = evidence.primary_location || spans.find(item => item?.page_no) || spans[0] || {};
+        const page = Number(span.page_no);
+        const bbox = Array.isArray(span.bbox) ? span.bbox.map(value => Number(value).toFixed(2)).join(', ') : '不可用';
+        const coordinate = span.coordinate_space || 'none';
+        byId('evidenceDialogMeta').textContent =
+          `${source?.location_label || ''}${Number.isInteger(page) ? ` · 第 ${page} 页` : ''} · bbox [${bbox}] · ${coordinate}。原文件由服务端重新鉴权，坐标用于人工核对。`;
+        const inlinePath = evidence.source?.source_type === 'local'
+          ? `${previewPath}/source-inline`
+          : '';
+        const sourcePath = sameOriginEvidenceSourcePath(
+          evidence.source_inline_url || inlinePath || evidence.source_download_url,
+        );
+        if (!sourcePath) {
+          byId('evidenceDialogMeta').textContent += ' 该证据没有可内嵌的本地原文件。';
+          return;
+        }
+        const fragment = Number.isInteger(page) ? `#page=${page}&view=FitH` : '';
+        byId('evidenceDialogFrame').src = `${sourcePath}${fragment}`;
+      } catch (error) {
+        if (evidenceDialog.open) {
+          byId('evidenceDialogMeta').textContent = `来源暂不可用：${error.message}`;
+        }
+      }
+    }
+
+    byId('btnCloseEvidenceDialog').addEventListener('click', closeEvidenceDialog);
+    evidenceDialog.addEventListener('close', () => {
+      byId('evidenceDialogFrame').removeAttribute('src');
+      const target = evidenceDialogReturnFocus;
+      evidenceDialogReturnFocus = null;
+      if (target?.isConnected && typeof target.focus === 'function') target.focus();
+    });
+    evidenceDialog.addEventListener('click', event => {
+      if (event.target === evidenceDialog) closeEvidenceDialog();
+    });
+
+    function parseAnswerAndImages(text) {
+      const raw = String(text || '');
+      const markers = Array.from(raw.matchAll(/【\s*图片\s*】|\[\s*图片\s*\]/g));
+      if (!markers.length) return {text: raw, images: []};
+      const marker = markers[markers.length - 1];
+      const before = raw.slice(0, marker.index).trimEnd();
+      const after = raw.slice((marker.index || 0) + marker[0].length);
+      const urls = (after.match(/(?:https?:\/\/[^\s]+|\/api\/v1\/evidence\/[a-zA-Z0-9_-]+\/images\/[a-zA-Z0-9_-]+)/g) || [])
+        .map(value => value.replace(/[)\]}'">，。,;；】）]+$/g, ''))
+        .map(sameOriginEvidenceImageUrl)
+        .filter(Boolean);
+      return {text: before, images: [...new Set(urls)]};
+    }
+
+    function sourceImageCandidates(candidateImageUrls, citations, sources) {
+      const citationsByEvidence = new Map();
+      for (const citation of Array.isArray(citations) ? citations : []) {
+        const evidenceId = String(citation?.evidence_id || '');
+        if (evidenceId && !citationsByEvidence.has(evidenceId)) {
+          citationsByEvidence.set(evidenceId, String(citation.label || ''));
+        }
+      }
+      const output = [];
+      const byUrl = new Map();
+      for (const source of Array.isArray(sources) ? sources : []) {
+        const evidenceId = String(source?.evidence_id || '');
+        for (const image of Array.isArray(source?.images) ? source.images : []) {
+          const url = sameOriginEvidenceImageUrl(image?.url);
+          if (!url || byUrl.has(url)) continue;
+          const item = {
+            url,
+            evidenceId,
+            imageId: String(image?.image_id || ''),
+            citationLabel: citationsByEvidence.get(evidenceId) || String(source?.label || ''),
+            sourceLabel: String(source?.source_label || '知识库证据图片'),
+            locationLabel: String(source?.location_label || '位置不可用'),
+          };
+          byUrl.set(url, item);
+          output.push(item);
+        }
+      }
+      for (const rawUrl of Array.isArray(candidateImageUrls) ? candidateImageUrls : []) {
+        const url = sameOriginEvidenceImageUrl(rawUrl);
+        if (!url || byUrl.has(url)) continue;
+        const item = {
+          url,
+          evidenceId: '',
+          imageId: '',
+          citationLabel: '',
+          sourceLabel: '本次回答召回的证据图片',
+          locationLabel: '可在下方引用中核验位置',
+        };
+        byUrl.set(url, item);
+        output.push(item);
+      }
+      return output;
+    }
+
+    function previewImageSources(citations, sources) {
+      const output = [];
+      const seen = new Set();
+      const citationsByEvidence = new Map(
+        (Array.isArray(citations) ? citations : []).map(item => [String(item.evidence_id || ''), item]),
+      );
+      for (const source of Array.isArray(sources) ? sources : []) {
+        const path = sameOriginEvidencePreviewPath(source?.preview_url);
+        if (!path || seen.has(path)) continue;
+        seen.add(path);
+        const citation = citationsByEvidence.get(String(source.evidence_id || '')) || {};
+        output.push({
+          path,
+          evidenceId: String(source.evidence_id || ''),
+          citationLabel: String(citation.label || source.label || ''),
+          sourceLabel: String(source.source_label || '知识库证据图片'),
+          locationLabel: String(source.location_label || '位置不可用'),
+        });
+      }
+      for (const citation of Array.isArray(citations) ? citations : []) {
+        const path = sameOriginEvidencePreviewPath(citation?.preview_url);
+        if (!path || seen.has(path)) continue;
+        seen.add(path);
+        output.push({
+          path,
+          evidenceId: String(citation.evidence_id || ''),
+          citationLabel: String(citation.label || ''),
+          sourceLabel: String(citation.source_label || '知识库证据图片'),
+          locationLabel: '可在引用详情中核验位置',
+        });
+      }
+      return output;
+    }
+
+    function citationStatusText(status) {
+      return ({
+        valid: '原文强匹配',
+        degraded: '降级待核验',
+        invalid: '未通过校验',
+        unverified: '无可信引用',
+        not_applicable: '该终态无需引用',
+      })[status] || status || '未校验';
+    }
+
+    function renderAnswerTextWithCitations(textEl, text, citations) {
+      const byLabel = new Map((Array.isArray(citations) ? citations : []).map(item => [item.label, item]));
+      const pattern = /\[(E[1-9][0-9]*)\]/g;
+      let cursor = 0;
+      for (const match of String(text || '').matchAll(pattern)) {
+        textEl.appendChild(document.createTextNode(String(text).slice(cursor, match.index)));
+        const citation = byLabel.get(match[1]);
+        if (citation) {
+          const button = createElement('button', `citation-ref ${citation.validation_status || 'invalid'}`, match[1]);
+          button.type = 'button';
+          button.title = citationStatusText(citation.validation_status);
+          button.setAttribute('aria-label', `打开引用 ${citation.label} 的授权原文定位`);
+          button.addEventListener('click', () => {
+            const safeId = String(citation.citation_id || '').replace(/[^a-zA-Z0-9_-]/g, '');
+            const card = safeId ? byId(`citation-${safeId}`) : null;
+            card?.scrollIntoView({behavior: 'smooth', block: 'center'});
+            openCitationEvidence(citation, {}, button);
+          });
+          textEl.appendChild(button);
+        } else {
+          textEl.appendChild(document.createTextNode(match[0]));
+        }
+        cursor = (match.index || 0) + match[0].length;
+      }
+      textEl.appendChild(document.createTextNode(String(text || '').slice(cursor)));
+    }
+
+    function renderCitationPanel(containerEl, citations, sources, validation, answerEnvelope) {
+      const list = Array.isArray(citations) ? citations : [];
+      const sourceMap = new Map((Array.isArray(sources) ? sources : []).map(item => [item.evidence_id, item]));
+      const details = createElement('details', 'citation-panel');
+      details.open = list.length > 0;
+      const summary = createElement(
+        'summary',
+        '',
+        `来源与引用：${citationStatusText(validation?.status)} · ${list.length} 条 · 覆盖率 ${Math.round(Number(validation?.coverage || 0) * 100)}%`,
+      );
+      details.appendChild(summary);
+      if (list.length === 0) {
+        const notApplicable = validation?.status === 'not_applicable';
+        const empty = createElement(
+          'div',
+          `citation-card ${notApplicable ? '' : 'invalid'}`,
+          notApplicable
+            ? `本次为 ${answerEnvelope?.decision || '受控终态'}，按策略不要求知识库引用。`
+            : '本回答没有通过服务端校验的块级引用，不能作为已核验来源使用。',
+        );
+        details.appendChild(empty);
+      }
+      for (const citation of list) {
+        const source = sourceMap.get(citation.evidence_id) || {};
+        const card = createElement(
+          'section',
+          `citation-card ${citation.validation_status === 'invalid' ? 'invalid' : ''}`,
+        );
+        const safeId = String(citation.citation_id || '').replace(/[^a-zA-Z0-9_-]/g, '');
+        if (safeId) card.id = `citation-${safeId}`;
+        card.tabIndex = -1;
+        const title = createElement(
+          'div',
+          'source-title',
+          `[${citation.label}] ${source.source_label || citation.source_label || '知识库原文'} · ${citationStatusText(citation.validation_status)}`,
+        );
+        const meta = createElement(
+          'div',
+          'source-meta',
+          `${source.location_label || '位置不可用'} · 支持度 ${citation.support_score ?? '—'}`,
+        );
+        const quote = createElement('blockquote', '', citation.source_quote || '原文片段不可用');
+        const actions = createElement('div', 'citation-actions');
+        const previewButton = createElement('button', '', '打开原文并定位页码 / bbox');
+        previewButton.type = 'button';
+        previewButton.addEventListener('click', () => {
+          openCitationEvidence(citation, source, previewButton);
+        });
+        actions.appendChild(previewButton);
+        card.append(title, meta, quote, actions);
+        details.appendChild(card);
+      }
+      containerEl.appendChild(details);
+    }
+
+    function renderAnswerContract(containerEl, answerEnvelope) {
+      if (!isAdmin() || !answerEnvelope || typeof answerEnvelope !== 'object') return;
+      const details = createElement('details', 'answer-contract');
+      const summary = createElement(
+        'summary',
+        '',
+        `可信回答契约 · ${answerEnvelope.decision || '—'} · ${answerEnvelope.finish_reason || '—'} · 置信 ${answerEnvelope.confidence?.level || 'unknown'}`,
+      );
+      const pre = createElement('pre', '', JSON.stringify(answerEnvelope, null, 2));
+      details.append(summary, pre);
+      containerEl.appendChild(details);
+    }
+
+    function imageCaption(candidate) {
+      const reference = candidate.citationLabel ? `[${candidate.citationLabel}] ` : '';
+      return `${reference}${candidate.sourceLabel || '知识库证据图片'} · ${candidate.locationLabel || '位置不可用'}`;
+    }
+
+    function appendEvidenceImageCard(gallery, candidate, imageState) {
+      const url = sameOriginEvidenceImageUrl(candidate?.url);
+      if (!url || imageState.urls.has(url) || imageState.urls.size >= 12) return false;
+      imageState.urls.add(url);
+      const card = createElement('article', 'answer-image-card');
+      const frame = createElement('div', 'answer-image-frame');
+      const status = createElement('div', 'answer-image-status', '正在安全加载图片。');
+      status.setAttribute('role', 'status');
+      const image = document.createElement('img');
+      image.loading = 'lazy';
+      image.decoding = 'async';
+      image.alt = imageCaption(candidate);
+      image.referrerPolicy = 'same-origin';
+      const caption = createElement('div', 'answer-image-caption', imageCaption(candidate));
+      const actions = createElement('div', 'answer-image-actions');
+      const retry = createElement('button', '', '重试加载');
+      retry.type = 'button';
+      retry.hidden = true;
+      const open = createElement('a', '', '打开原图');
+      open.href = url;
+      open.target = '_blank';
+      open.rel = 'noopener noreferrer';
+      actions.append(open, retry);
+      frame.append(status, image);
+      card.append(frame, caption, actions);
+      gallery.appendChild(card);
+
+      const load = (cacheBust = false) => {
+        frame.classList.remove('is-loaded', 'is-failed');
+        status.classList.remove('failed');
+        status.textContent = cacheBust ? '正在重新加载图片。' : '正在安全加载图片。';
+        status.hidden = false;
+        retry.hidden = true;
+        const separator = url.includes('?') ? '&' : '?';
+        image.src = cacheBust ? `${url}${separator}_retry=${Date.now()}` : url;
+      };
+      image.addEventListener('load', () => {
+        frame.classList.add('is-loaded');
+        frame.classList.remove('is-failed');
+        status.textContent = '图片已加载。';
+        status.hidden = true;
+        retry.hidden = true;
+      });
+      image.addEventListener('error', () => {
+        frame.classList.add('is-failed');
+        frame.classList.remove('is-loaded');
+        status.hidden = false;
+        status.classList.add('failed');
+        status.textContent = '图片加载失败：资产可能已归档、当前授权已变化或网络暂不可用。';
+        retry.hidden = false;
+      });
+      retry.addEventListener('click', () => load(true));
+      load();
+      return true;
+    }
+
+    async function discoverEvidenceImages({
+      containerEl,
+      gallery,
+      headingStatus,
+      previews,
+      imageState,
+      renderToken,
+      context,
+    }) {
+      let failed = 0;
+      for (const preview of previews.slice(0, 16)) {
+        if (
+          !containerEl.isConnected
+          || containerEl.dataset.imageRenderToken !== renderToken
+          || !isRuntimeContextCurrent(context)
+        ) return;
+        try {
+          const response = await runtimeApiJson(preview.path, {}, context);
+          if (
+            !containerEl.isConnected
+            || containerEl.dataset.imageRenderToken !== renderToken
+            || !isRuntimeContextCurrent(context)
+          ) return;
+          const evidence = response?.data && typeof response.data === 'object'
+            ? response.data
+            : response;
+          const images = Array.isArray(evidence?.images)
+            ? evidence.images
+            : (Array.isArray(evidence?.image_urls)
+              ? evidence.image_urls.map(url => ({url}))
+              : []);
+          for (const image of images) {
+            appendEvidenceImageCard(gallery, {
+              ...preview,
+              url: image?.url,
+              imageId: String(image?.image_id || ''),
+            }, imageState);
+          }
+        } catch (error) {
+          if (error.name === 'AbortError') return;
+          failed += 1;
+        }
+      }
+      if (
+        !containerEl.isConnected
+        || containerEl.dataset.imageRenderToken !== renderToken
+        || !isRuntimeContextCurrent(context)
+      ) return;
+      if (imageState.urls.size) {
+        headingStatus.textContent = `${imageState.urls.size} 张 · 来自本次引用证据${failed ? ` · ${failed} 个来源暂不可读` : ''}`;
+      } else if (failed) {
+        headingStatus.textContent = `未能读取召回图片 · ${failed} 个证据来源暂不可用`;
+      } else {
+        headingStatus.textContent = '引用证据中没有可展示的图片';
+      }
+    }
+
+    function renderAnswerImageGallery(containerEl, candidateImageUrls, citations, sources, parsedImages) {
+      const candidates = sourceImageCandidates(candidateImageUrls, citations, sources);
+      const explicitlyAuthorized = new Set(candidates.map(item => item.url));
+      for (const url of parsedImages) {
+        if (!explicitlyAuthorized.has(url)) continue;
+        candidates.push({
+          url,
+          citationLabel: '',
+          sourceLabel: '回答中引用的证据图片',
+          locationLabel: '可在下方引用中核验位置',
+        });
+      }
+      const previews = previewImageSources(citations, sources);
+      if (!candidates.length && !previews.length) return;
+
+      const wrap = createElement('section', 'answer-images');
+      wrap.setAttribute('aria-label', '召回图片');
+      const heading = createElement('div', 'answer-images-heading');
+      const title = createElement('strong', '', '召回图片');
+      const headingStatus = createElement(
+        'span',
+        '',
+        candidates.length ? `${Math.min(candidates.length, 12)} 张 · 正在加载` : '正在检查引用证据',
+      );
+      headingStatus.setAttribute('role', 'status');
+      heading.append(title, headingStatus);
+      const gallery = createElement('div', 'answer-image-gallery');
+      wrap.append(heading, gallery);
+      containerEl.appendChild(wrap);
+      const imageState = {urls: new Set()};
+      for (const candidate of candidates) appendEvidenceImageCard(gallery, candidate, imageState);
+      const renderToken = newKey('image-render');
+      containerEl.dataset.imageRenderToken = renderToken;
+      if (previews.length) {
+        discoverEvidenceImages({
+          containerEl,
+          gallery,
+          headingStatus,
+          previews,
+          imageState,
+          renderToken,
+          context: runtimeContext(''),
+        });
+      } else {
+        headingStatus.textContent = `${imageState.urls.size} 张 · 来自本次回答证据`;
+      }
+    }
+
+    function renderFeedbackPanel(containerEl, citations, feedbackContext = {}) {
+      const permissions = new Set(currentBootstrap?.permissions || []);
+      if (!permissions.has('*') && !permissions.has('feedback:create')) return;
+      const answerId = String(feedbackContext.answerId || feedbackContext.queryRunId || '').trim();
+      const kbId = String(feedbackContext.kbId || normalizedKbId()).trim();
+      if (!answerId || !kbId) return;
+      const panel = createElement('section', 'feedback-panel');
+      panel.setAttribute('aria-label', '回答反馈');
+      const prompt = createElement('strong', '', '这个回答有帮助吗？');
+      const actions = createElement('div', 'feedback-actions');
+      const helpful = createElement('button', 'stt-button small', '有帮助');
+      const unhelpful = createElement('button', 'stt-button small', '需要改进');
+      helpful.type = unhelpful.type = 'button';
+      const form = createElement('form', 'feedback-form');
+      form.hidden = true;
+      const reason = document.createElement('select');
+      reason.className = 'stt-select';
+      for (const [value, label] of [
+        ['', '原因（可选）'],
+        ['incorrect', '内容不正确'],
+        ['incomplete', '内容不完整'],
+        ['citation_mismatch', '引用不匹配'],
+        ['hard_to_understand', '难以理解'],
+        ['other', '其他'],
+      ]) {
+        const option = createElement('option', '', label);
+        option.value = value;
+        reason.appendChild(option);
+      }
+      const citation = document.createElement('select');
+      citation.className = 'stt-select';
+      const emptyCitation = createElement('option', '', '关联引用（可选）');
+      emptyCitation.value = '';
+      citation.appendChild(emptyCitation);
+      for (const item of Array.isArray(citations) ? citations : []) {
+        const option = createElement('option', '', `[${item.label || '引用'}] ${item.source_label || item.evidence_id || ''}`);
+        option.value = String(item.citation_id || item.evidence_id || '');
+        option.dataset.evidenceId = String(item.evidence_id || '');
+        option.dataset.label = String(item.label || '');
+        citation.appendChild(option);
+      }
+      const comment = document.createElement('textarea');
+      comment.className = 'stt-textarea';
+      comment.maxLength = 4000;
+      comment.placeholder = '补充说明（可选，最多 4000 字）';
+      const submit = createElement('button', 'stt-button primary small', '提交反馈');
+      submit.type = 'submit';
+      const statusEl = createElement('div', 'feedback-status', '选择评价后可补充原因与引用。');
+      statusEl.setAttribute('role', 'status');
+      let rating = 0;
+      const choose = value => {
+        rating = value;
+        form.hidden = false;
+        helpful.setAttribute('aria-pressed', String(value === 1));
+        unhelpful.setAttribute('aria-pressed', String(value === -1));
+        comment.focus();
+      };
+      helpful.addEventListener('click', () => choose(1));
+      unhelpful.addEventListener('click', () => choose(-1));
+      form.addEventListener('submit', async event => {
+        event.preventDefault();
+        if (!rating) return;
+        const selectedOption = citation.selectedOptions[0];
+        const selectedCitation = citation.value ? {
+          citation_id: citation.value,
+          evidence_id: selectedOption?.dataset.evidenceId || '',
+          label: selectedOption?.dataset.label || '',
+        } : {};
+        submit.disabled = true;
+        statusEl.textContent = '正在提交反馈。';
+        try {
+          await apiJson('/api/v1/feedback', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+              kb_id: kbId,
+              answer_id: answerId,
+              session_id: String(feedbackContext.conversationId || runtime.conversationId || '') || null,
+              rating,
+              reason_codes: reason.value ? [reason.value] : [],
+              comment: comment.value.trim(),
+              selected_citation: selectedCitation,
+              corrected_answer: '',
+            }),
+          });
+          helpful.disabled = true;
+          unhelpful.disabled = true;
+          for (const control of form.elements) control.disabled = true;
+          statusEl.textContent = '反馈已提交，感谢帮助我们改进检索与回答。';
+        } catch (error) {
+          submit.disabled = false;
+          statusEl.textContent = `提交失败：${error.message}。可以直接重试。`;
+        }
+      });
+      form.append(reason, citation, comment, submit);
+      actions.append(helpful, unhelpful);
+      panel.append(prompt, actions, form, statusEl);
+      containerEl.appendChild(panel);
+    }
+
+    function renderAnswerWithImages(containerEl, answerText, candidateImageUrls, citations = [], sources = [], citationValidation = {}, answerEnvelope = null, feedbackContext = {}) {
+      const parsed = parseAnswerAndImages(answerText);
+      containerEl.replaceChildren();
+      const textEl = createElement('div', 'answer-text');
+      if (parsed.text.trim()) renderAnswerTextWithCitations(textEl, parsed.text, citations);
+      else textEl.textContent = '本次运行已完成，但没有返回可发布的答案。';
+      containerEl.appendChild(textEl);
+      renderAnswerImageGallery(containerEl, candidateImageUrls, citations, sources, parsed.images);
+      renderCitationPanel(containerEl, citations, sources, citationValidation, answerEnvelope);
+      renderAnswerContract(containerEl, answerEnvelope);
+      renderFeedbackPanel(containerEl, citations, feedbackContext);
+    }
+
+    function finalizeBotAnswer(botMsgEl, answer, error, imageUrls = [], citations = [], sources = [], citationValidation = {}, answerEnvelope = null, feedbackContext = {}) {
+      if (!botMsgEl) return;
+      const bubble = botMsgEl.querySelector('.bubble');
+      const progress = botMsgEl.querySelector('details.progress');
+      botMsgEl.querySelector('.typing')?.remove();
+      if (progress) progress.open = false;
+      let answerEl = bubble.querySelector('.answer');
+      if (!answerEl) {
+        answerEl = createElement('div', 'answer');
+        bubble.prepend(answerEl);
+      }
+      if (error) {
+        answerEl.textContent = `本次查询未完成：${error}`;
+      } else {
+        renderAnswerWithImages(answerEl, answer, imageUrls, citations, sources, citationValidation, answerEnvelope, feedbackContext);
+      }
+      scrollToBottom();
+    }
+
+    async function apiHealth() {
+      try {
+        const response = await fetch(`${API_BASE}/health/ready`, {credentials: 'same-origin'});
+        const payload = await response.json().catch(() => ({}));
+        apiReady = response.ok;
+        apiPill.textContent = response.ok
+          ? (payload.status === 'degraded' ? '服务部分可用' : '查询服务正常')
+          : '查询服务未就绪';
+        apiPill.dataset.tone = response.ok
+          ? (payload.status === 'degraded' ? 'warning' : 'success')
+          : 'danger';
+        apiPill.title = response.ok
+          ? '查询服务与必需依赖已通过检查'
+          : `未就绪依赖：${(payload.required_failed || []).join('、') || '未知'}`;
+      } catch (_) {
+        apiReady = false;
+        apiPill.textContent = '查询服务离线';
+        apiPill.dataset.tone = 'danger';
+        apiPill.title = '无法访问查询服务健康接口';
+      }
+      renderKnowledgeBaseContext();
+    }
+
+    async function onSend() {
+      const text = inputEl.value.trim();
+      if (!text || sendBtn.disabled) return;
+      try {
+        parseOptionalFilter();
+      } catch (error) {
+        STTUI.toast(error.message, 'danger');
+        return;
+      }
+      inputEl.value = '';
+      addUserMsg(text);
+      try {
+        await createReliableRun(text);
+      } catch (error) {
+        if (error.name === 'AbortError') return;
+        if (!runtime.botMessage) runtime.botMessage = addBotMsgSkeleton();
+        finalizeBotAnswer(runtime.botMessage, '', error.message || '请求失败，请稍后重试。');
+        queryBusy = false;
+        updateQueryAvailability();
+      }
+    }
+
+    sendBtn.addEventListener('click', onSend);
+    byId('btnRetryResult').addEventListener('click', () => {
+      if (!runtime.currentRun?.query_run_id || runtime.currentRun.status !== 'completed') return;
+      runtime.resultRecoveryAvailable = false;
+      readReliableResult({
+        context: runtimeContext(runtime.currentRun.query_run_id),
+        attempt: 0,
+        manual: true,
+      });
+    });
+    inputEl.addEventListener('keydown', event => {
+      if (event.key === 'Enter' && !event.shiftKey) {
+        event.preventDefault();
+        onSend();
+      }
+    });
+
+    async function startNewConversation({confirm = true} = {}) {
+      const hasConversation = Boolean(
+        runtime.currentRun
+        || runtime.conversationId
+        || chatEl.querySelectorAll('.msg:not([data-persistent="welcome"])').length,
+      );
+      if (confirm && hasConversation) {
+        const confirmed = await STTUI.confirmAction({
+          title: '开始新会话？',
+          message: '当前界面会清空并准备新会话；旧对话不会删除，仍可从左侧历史目录完整加载。',
+          confirmLabel: '开始新会话',
+        });
+        if (!confirmed) return false;
+      }
+      forgetPendingSubmission();
+      activateSessionForCurrentKb({forceNew: true});
+      resetRuntimeState({forget: true});
+      conversationHistory.selectedId = '';
+      rememberSelectedConversation('');
+      updateWorkbenchDeepLink('', normalizedKbId());
+      beginConversationHistoryGeneration('');
+      renderConversationDirectory();
+      clearRenderedConversation();
+      byId('conversationTitle').textContent = '当前对话';
+      renderKnowledgeBaseContext();
+      (workbenchView === 'retrieval' ? retrievalQueryInput : inputEl).focus();
+      STTUI.announce('已开始新的知识库会话。');
+      return true;
+    }
+
+    async function mutateSelectedConversation(action) {
+      const item = selectedConversationRecord();
+      if (!item || !canManageHistory()) return false;
+      const labels = {
+        archive: ['归档会话？', '归档后会话只读，历史与引用仍会保留。', '确认归档'],
+        restore: ['恢复会话？', '恢复后可以在原知识库授权仍有效时继续提问。', '确认恢复'],
+        delete: ['永久删除会话？', '该操作会永久删除会话、轮次、运行事件与消息，无法撤销。', '永久删除'],
+      };
+      const [title, message, confirmLabel] = labels[action];
+      const confirmed = await STTUI.confirmAction({
+        title,
+        message,
+        confirmLabel,
+        danger: action === 'delete',
+      });
+      if (!confirmed) return false;
+      const context = beginConversationHistoryGeneration(item.conversation_id);
+      setConversationHistoryLoading(true, `${confirmLabel}处理中。`);
+      try {
+        const path = action === 'delete'
+          ? `/api/v1/conversations/${encodeURIComponent(item.conversation_id)}`
+          : `/api/v1/conversations/${encodeURIComponent(item.conversation_id)}:${action}`;
+        await conversationHistoryApiJson(path, context, {
+          method: action === 'delete' ? 'DELETE' : 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({expected_revision: Number(item.revision)}),
+        });
+        if (action === 'delete') {
+          resetRuntimeState({forget: true});
+          conversationHistory.selectedId = '';
+          rememberSelectedConversation('');
+          updateWorkbenchDeepLink('', normalizedKbId());
+          clearRenderedConversation();
+        } else {
+          const nextStatus = action === 'archive' ? 'archived' : 'active';
+          conversationStatusFilter.value = nextStatus;
+          conversationHistory.status = nextStatus;
+        }
+        await refreshConversationHistory({
+          preferredConversationId: action === 'delete' ? '' : item.conversation_id,
+        });
+        if (action !== 'delete') await selectConversation(item.conversation_id, {force: true});
+        STTUI.toast(`${confirmLabel}已完成。`, 'success');
+        return true;
+      } catch (error) {
+        if (error.name === 'AbortError') return false;
+        setConversationHistoryLoading(false, `操作失败：${error.message}`);
+        if (error.code === 'CONVERSATION_REVISION_CONFLICT') {
+          await refreshConversationHistory({preferredConversationId: item.conversation_id});
+        }
+        STTUI.toast(`会话操作失败：${error.message}`, 'danger', 6500);
+        return false;
+      }
+    }
+
+    btnClear.addEventListener('click', () => startNewConversation());
+    btnHistoryNew.addEventListener('click', () => startNewConversation());
+    btnRefreshHistory.addEventListener('click', () => {
+      refreshConversationHistory({preferredConversationId: conversationHistory.selectedId});
+    });
+    btnArchiveConversation.addEventListener('click', () => mutateSelectedConversation('archive'));
+    btnRestoreConversation.addEventListener('click', () => mutateSelectedConversation('restore'));
+    btnDeleteConversation.addEventListener('click', () => mutateSelectedConversation('delete'));
+    conversationSearch.addEventListener('input', () => {
+      if (conversationHistory.searchTimer) window.clearTimeout(conversationHistory.searchTimer);
+      conversationHistory.searchTimer = window.setTimeout(() => {
+        conversationHistory.searchTimer = null;
+        refreshConversationHistory({preferredConversationId: conversationHistory.selectedId});
+      }, 280);
+    });
+    conversationStatusFilter.addEventListener('change', () => {
+      refreshConversationHistory({preferredConversationId: conversationHistory.selectedId});
+    });
+    conversationHistorySelect.addEventListener('change', async () => {
+      const requested = conversationHistorySelect.value;
+      if (requested) await selectConversation(requested);
+      else if (!await startNewConversation()) renderConversationDirectory();
+    });
+
+    streamToggle.addEventListener('change', () => {
+      if (!streamToggle.checked && runtime.eventSource) {
+        runtime.eventSource.close();
+        runtime.eventSource = null;
+      } else if (streamToggle.checked) {
+        connectReliableStream(runtimeContext());
+      }
+    });
+
+    byId('navImport').href = `${location.protocol}//${location.hostname}:8000/html`;
+
+    async function initialize() {
+      await apiHealth();
+      const authenticated = await refreshPrincipal();
+      if (!authenticated) return;
+      const conversationRestored = await restoreWorkbenchConversation();
+      if (!conversationRestored) await restoreReliableRun();
+      if (isAdmin() && selectedKb) {
+        await refreshProfiles().catch(error => {
+          if (error.name !== 'AbortError') {
+            retrievalDiagnostics.textContent = `读取检索配置失败：${error.message}`;
+          }
+        });
+      }
+      (workbenchView === 'retrieval' ? retrievalQueryInput : inputEl).focus();
+    }
+
+    initialize();
+    window.setInterval(apiHealth, 10_000);
+  </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{
+  "schema_version": "stt.eval.suite-v2-blocker-rereview-pack.v1",
+  "status": "prepared_pending_independent_same_prompt_review",
+  "case_count": 15,
+  "difficulty_counts": {
+    "easy": 4,
+    "medium": 0,
+    "hard": 11
+  },
+  "disposition_counts": {
+    "corrected": 3,
+    "replacement": 6,
+    "semantic_replacement": 6
+  },
+  "prompt_sha256": "d5af42cbcf5385c408583c4ed36b110ac89740be24d83248fafb58681d04a78b",
+  "request_pack_sha256": "da10af5e1918d2d8e7021df556c8b824bfdd0d458d8794298e32e224654ce98f",
+  "execution_contract_sha256": "60694067e286a704a7644e70c63786c0c062e44be27373b8b79927dfc9ba9414",
+  "proposal_document_sha256": "bfb86060c42f69d995611d298a1d06bdb4f8d844d254d8b8d7b27f2dfe389338",
+  "supplemental_proposal_document_sha256": "022873cd5677edbe1a9a3328c808f55c59bf8e2bea10420ec79a25c4694de2af",
+  "proposal_validation_sha256": "186734cc6c0420de21c87bbb1e248dd55a16c92d91dd772fa1063d2881a51ed2",
+  "validated_no_index_proposal_count": 13,
+  "supplemental_reviewer_block_proposal_count": 2,
+  "reviewer_block_union_visual_block": [
+    "P3500-EASY-004",
+    "P3500-EASY-031",
+    "P3500-EASY-046",
+    "P3500-EASY-049",
+    "P3500-HARD-003",
+    "P3500-HARD-007",
+    "P3500-HARD-008",
+    "P3500-HARD-009",
+    "P3500-HARD-011",
+    "P3500-HARD-015",
+    "P3500-HARD-021",
+    "P3500-HARD-037",
+    "P3500-HARD-040",
+    "P3500-HARD-041",
+    "P3500-HARD-042"
+  ],
+  "data_blocker_case_count": 15,
+  "review_block_union_audit_sha256": "9572605ca55b404d729204cda029ad3f3456493d2fe2f70e7ee2119ef08d265f",
+  "index_rebuild_required": false,
+  "evidence_refresh_required": false,
+  "superseded_review_reused": false,
+  "write_performed": true
+}

@@ -1,0 +1,285 @@
+{
+  "adopted_existing_draft": false,
+  "baseline_registry": {
+    "generated_at": "2026-08-10T04:56:24.295885+00:00",
+    "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/baselines/baselines.json",
+    "sha256": "0b292fe4a68507d9e720ac0a1c44c4ef8065695693289532f2768b2229a031df"
+  },
+  "changed_paths": [
+    "candidate_k",
+    "fusion.max_per_document"
+  ],
+  "created_at": "2026-08-10T07:33:22.112431+00:00",
+  "created_response_sha256": "fb5a0b38c9e857884adc8e0681f5719083d1b091a9d047387982258e5b8f7fd0",
+  "kb_id": "kb_2fad25538aab42d19baf79fba782a06c",
+  "last_validated_at": "2026-08-10T07:34:59.096154+00:00",
+  "schema_version": "stt.eval.retrieval-profile-remediation.v2",
+  "source": {
+    "canonical_config_sha256": "5679fb0a7723d50846f945c5e4269d5ed64393aae371810b9d9497351abd7185",
+    "config": {
+      "candidate_k": 5,
+      "context_pack": {
+        "evidence_character_budget": 80000,
+        "expansion_mode": "none",
+        "max_blocks": 20,
+        "max_blocks_per_document": 5,
+        "max_blocks_per_source": 8,
+        "model_context_limit": 8192,
+        "neighbor_window": 1,
+        "reserved_output_tokens": 1024,
+        "safety_margin_tokens": 256
+      },
+      "deduplicate_by": "chunk_id",
+      "dense": {
+        "dimension": 1024,
+        "field": "dense_vector",
+        "metric": "IP",
+        "weight": 0.9
+      },
+      "evidence_gate": {
+        "freshness_max_age_days": 30,
+        "max_repair_attempts": 1,
+        "min_query_coverage": 1.0,
+        "min_trusted_evidence": 1,
+        "minimum_claim_coverage": 0.5
+      },
+      "fusion": {
+        "default_calibration": {
+          "method": "rank",
+          "version": "rank.v1"
+        },
+        "max_per_document": 5,
+        "method": "rrf",
+        "mmr_lambda": 0.8,
+        "near_duplicate_threshold": null,
+        "route_calibrations": {},
+        "route_weights": {},
+        "source_quotas": {}
+      },
+      "hybrid": {
+        "fusion": "weighted",
+        "normalize_scores": true
+      },
+      "metadata_filter": {
+        "allow_document_id": true,
+        "allow_metadata": true,
+        "enabled": true,
+        "max_depth": 5,
+        "max_predicates": 32,
+        "max_values_per_predicate": 100
+      },
+      "parent_expansion_field": null,
+      "query_planning": {
+        "allow_hyde": true,
+        "cost_budget": 1.0,
+        "max_dependency_depth": 2,
+        "max_routes": 3,
+        "max_subqueries": 4,
+        "token_budget": 4096
+      },
+      "reranker": {
+        "enabled": true,
+        "gap_absolute": 2.0,
+        "gap_ratio": 0.5,
+        "long_text_strategy": "truncate",
+        "max_input_tokens": 512,
+        "max_top_k": 10,
+        "min_top_k": 1,
+        "model_id": "./models/bge-reranker-v2-m3",
+        "normalize_scores": true
+      },
+      "routes": [
+        "hybrid"
+      ],
+      "rrf": {
+        "default_weight": 1.0,
+        "enabled": true,
+        "k": 60,
+        "route_weights": [
+          {
+            "route": "base",
+            "weight": 1.0
+          },
+          {
+            "route": "hyde",
+            "weight": 1.0
+          }
+        ]
+      },
+      "schema_version": "retrieval-profile.v1",
+      "score_threshold": null,
+      "sparse": {
+        "field": "sparse_vector",
+        "metric": "IP",
+        "weight": 0.1
+      },
+      "timeout_ms": 90000,
+      "top_k": 5
+    },
+    "config_hash": "5679fb0a7723d50846f945c5e4269d5ed64393aae371810b9d9497351abd7185",
+    "profile_id": "rpf_default",
+    "published_at": "2026-08-09T07:41:04.305316",
+    "status": "published",
+    "version": 1
+  },
+  "status": "draft",
+  "target": {
+    "canonical_config_sha256": "14c97101feef81868625efe11380136ef39f8bc846269ba2cad577f4952c5639",
+    "config": {
+      "candidate_k": 15,
+      "context_pack": {
+        "evidence_character_budget": 80000,
+        "expansion_mode": "none",
+        "max_blocks": 20,
+        "max_blocks_per_document": 5,
+        "max_blocks_per_source": 8,
+        "model_context_limit": 8192,
+        "neighbor_window": 1,
+        "reserved_output_tokens": 1024,
+        "safety_margin_tokens": 256
+      },
+      "deduplicate_by": "chunk_id",
+      "dense": {
+        "dimension": 1024,
+        "field": "dense_vector",
+        "metric": "IP",
+        "weight": 0.9
+      },
+      "evidence_gate": {
+        "freshness_max_age_days": 30,
+        "max_repair_attempts": 1,
+        "min_query_coverage": 1.0,
+        "min_trusted_evidence": 1,
+        "minimum_claim_coverage": 0.5
+      },
+      "fusion": {
+        "default_calibration": {
+          "method": "rank",
+          "version": "rank.v1"
+        },
+        "max_per_document": 15,
+        "method": "rrf",
+        "mmr_lambda": 0.8,
+        "near_duplicate_threshold": null,
+        "route_calibrations": {},
+        "route_weights": {},
+        "source_quotas": {}
+      },
+      "hybrid": {
+        "fusion": "weighted",
+        "normalize_scores": true
+      },
+      "metadata_filter": {
+        "allow_document_id": true,
+        "allow_metadata": true,
+        "enabled": true,
+        "max_depth": 5,
+        "max_predicates": 32,
+        "max_values_per_predicate": 100
+      },
+      "parent_expansion_field": null,
+      "query_planning": {
+        "allow_hyde": true,
+        "cost_budget": 1.0,
+        "max_dependency_depth": 2,
+        "max_routes": 3,
+        "max_subqueries": 4,
+        "token_budget": 4096
+      },
+      "reranker": {
+        "enabled": true,
+        "gap_absolute": 2.0,
+        "gap_ratio": 0.5,
+        "long_text_strategy": "truncate",
+        "max_input_tokens": 512,
+        "max_top_k": 10,
+        "min_top_k": 1,
+        "model_id": "./models/bge-reranker-v2-m3",
+        "normalize_scores": true
+      },
+      "routes": [
+        "hybrid"
+      ],
+      "rrf": {
+        "default_weight": 1.0,
+        "enabled": true,
+        "k": 60,
+        "route_weights": [
+          {
+            "route": "base",
+            "weight": 1.0
+          },
+          {
+            "route": "hyde",
+            "weight": 1.0
+          }
+        ]
+      },
+      "schema_version": "retrieval-profile.v1",
+      "score_threshold": null,
+      "sparse": {
+        "field": "sparse_vector",
+        "metric": "IP",
+        "weight": 0.1
+      },
+      "timeout_ms": 90000,
+      "top_k": 5
+    },
+    "config_hash": "14c97101feef81868625efe11380136ef39f8bc846269ba2cad577f4952c5639",
+    "profile_id": "rpf_default",
+    "status": "draft",
+    "version": 2
+  },
+  "validations": {
+    "previews": [
+      {
+        "current_identity": [
+          "rpf_default",
+          1,
+          "published"
+        ],
+        "invocation_id": "20260810T073408Z-63c6ded6-preview",
+        "previewed_at": "2026-08-10T07:34:14.785700+00:00",
+        "query_length": 20,
+        "query_sha256": "ea696afef2ffd107b725618ea644b3b132654ac210cc8c238ebce3d5f7cef796",
+        "response_sha256": "8991d3fd7ef01d4c9047977e142f8672c3b28144840a0ca76b1ef8c8aa6859ad",
+        "result_count": 15,
+        "route_count": 1,
+        "status": "succeeded",
+        "target_config_hash": "14c97101feef81868625efe11380136ef39f8bc846269ba2cad577f4952c5639"
+      },
+      {
+        "current_identity": [
+          "rpf_default",
+          1,
+          "published"
+        ],
+        "invocation_id": "20260810T073442Z-2daa51ea-preview",
+        "previewed_at": "2026-08-10T07:34:44.061859+00:00",
+        "query_length": 43,
+        "query_sha256": "41b0eb7f33d5ac64c2fd1600b721fce6ff6a9184d07f05799a3cdd7480e6ea11",
+        "response_sha256": "ccbd05ca22d17f49a9154e62c9b0b9dabb5181499d09e1178cf74b84dd74c2b0",
+        "result_count": 15,
+        "route_count": 1,
+        "status": "succeeded",
+        "target_config_hash": "14c97101feef81868625efe11380136ef39f8bc846269ba2cad577f4952c5639"
+      },
+      {
+        "current_identity": [
+          "rpf_default",
+          1,
+          "published"
+        ],
+        "invocation_id": "20260810T073458Z-686fae05-preview",
+        "previewed_at": "2026-08-10T07:34:59.096154+00:00",
+        "query_length": 54,
+        "query_sha256": "1ac0b5e09c21078f7211116e96300c38063ff013fa02e7ee6b8af325ad4be2e3",
+        "response_sha256": "98dd1211de234dfadc27ec4626b5e8462296a711af9e4c94352c4e2e87c903ca",
+        "result_count": 15,
+        "route_count": 1,
+        "status": "succeeded",
+        "target_config_hash": "14c97101feef81868625efe11380136ef39f8bc846269ba2cad577f4952c5639"
+      }
+    ]
+  }
+}

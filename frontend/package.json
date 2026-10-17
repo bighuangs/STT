@@ -1,0 +1,15 @@
+{
+  "name": "stt-workbench-contracts",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "generate": "python ../scripts/generate_openapi_typescript.py",
+    "generate:from-snapshots": "python ../scripts/generate_openapi_typescript.py --from-snapshots",
+    "check:generated": "python ../scripts/generate_openapi_typescript.py --check",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3"
+  }
+}

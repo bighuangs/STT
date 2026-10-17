@@ -1,0 +1,179 @@
+schema_version: "1.1"
+experiment_id: "hak180-medium-badcase-r4"
+feature_id: "hak180-medium-proof-carrying-answer"
+title: "HAK180 Medium badcase 查询契约与来源闭合修复 R4"
+owner: "STT Query / Evaluation"
+status: "active"
+phase: "formal_evaluation_r1_completed_target_not_met"
+created_at: "2026-08-26T19:52:58+08:00"
+updated_at: "2026-08-27T16:03:27.113388+08:00"
+scope:
+  repository_root: "D:/Learning/agent/STT"
+  code_refs:
+    - "app/application/query_understanding_service.py"
+    - "app/domain/query_planning.py"
+    - "app/application/query_answering/atomizer.py"
+    - "app/application/query_answering/builders.py"
+    - "app/domain/answering/markdown_table.py"
+    - "app/domain/answering/fact_set_closure.py"
+    - "app/domain/answering/enumeration_closure.py"
+    - "app/domain/answering/item_boundary.py"
+    - "app/domain/answering/proof.py"
+    - "app/domain/evaluation_proof.py"
+    - "app/application/query_answering/pipeline.py"
+    - "app/infrastructure/answering/provider.py"
+    - "app/infrastructure/answering/prompts.py"
+  non_goals:
+    - "EASY 与 HARD badcase"
+    - "按 case_id、reference_answer 或评测金标添加产品分支"
+    - "放宽 strict、grounding、citation 或 safety 口径"
+    - "新增 Agent、模型供应商、外部检索服务或 Fine-tuning"
+authorization:
+  method_selection:
+    value: "auto"
+    evidence_ref: "conversation:analyze-badcases-and-iterate-within-current-method"
+    scope: "medium-badcase-current-complexity-ceiling"
+  implementation:
+    value: true
+    evidence_ref: "conversation:focus-medium-badcase-fix"
+    scope: "medium-generalized-product-fixes-and-offline-tests"
+  evaluation_execution:
+    value: true
+    status: "consumed"
+    evidence_ref: "conversation:user-authorized-one-easy-plus-medium-100-case-test-20260827"
+    scope: "R4 Easy+Medium campaign consumed; no retry, replacement or additional run authorized"
+  iteration:
+    value: "user_gate"
+    status: "pending"
+    evidence_ref: "docs/experiment/hak180-easy-medium-100-evaluation/evaluation-campaign-r4.yaml#/authorization/post_result_iteration_authorized"
+    scope: "post-R4 product changes require fresh user authorization"
+complexity_control:
+  decision_ref: "solution-decision.json"
+  strategy_module_id: "agent-capability-ladder"
+  strategy_module_version: "1.0.0"
+  current_rung_id: "fixed_workflow_prompt_chain"
+  approved_complexity_ceiling_ref: "solution-decision.json#/complexity_control/approved_complexity_ceiling"
+  research_horizon:
+    - "deterministic_software"
+    - "fixed_workflow_prompt_chain"
+  same_method_family_iteration_limit: 3
+  active_method_family_id: "fixed_workflow_scoped_source_closure_rag"
+  active_method_family_valid_rounds: 1
+  escalation_status: "active_within_ceiling"
+  user_decision_ref: "conversation:focus-medium-badcase-fix"
+project_snapshot:
+  code_version: "d1a4192dd5eb9da9a8601644521c6876a7bec959+dirty"
+  config_version: "sha256:b965d9d39e7407723aaa9e3a28ce7c08d4258f033725eb95e23d1819f6a170bf"
+  dependency_lock_hash: "sha256:7d4c3b82e9fd2cc7385d9528507f6a20ee190a60eb85c38160ffcbdc6ec4c926"
+research:
+  source_ledger: "source-ledger.csv"
+  coverage_status: "sufficient_for_selected_method"
+  accessed_at: "2026-08-26"
+decision:
+  method_comparison: "method-comparison.csv"
+  selected_method_id: "contract-normalization-and-scoped-source-closure"
+  decision_status: "auto_selected_within_ceiling"
+  decision_evidence_ref: "solution-selection.md"
+evaluation:
+  manifest_ref: "evaluation-manifest.yaml"
+  formal_status: "completed_valid"
+  target_status: "target_not_met"
+  valid_formal_rounds: 1
+  dataset_refs:
+    - "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/medium.json"
+  result_refs:
+    - "var/evals/erun_d1b179e0579e407cbe19cfe2aef11258/generation-fe83c80cb960443e18a8152b4353bec6/results.jsonl"
+    - "var/evals/erun_3d9f4e215f8f4cca87246cd25850c53b/generation-404a12b0ce0605de5288d78ae4c3f157/results.jsonl"
+    - "docs/experiment/hak180-easy-medium-100-evaluation/results/formal-evaluation-r4-summary.json"
+  formal_result:
+    run_id: "erun_3d9f4e215f8f4cca87246cd25850c53b"
+    generation_id: "404a12b0ce0605de5288d78ae4c3f157"
+    effect_validity: "valid"
+    final_answer_accuracy: {count: 33, denominator: 50, rate: 0.66}
+    strict_correctness: {count: 26, denominator: 50, rate: 0.52}
+    retrieval_support: {count: 49, denominator: 50, rate: 0.98}
+    answered_citation_correctness: {count: 39, denominator: 39, rate: 1.0}
+    answered_faithfulness: {count: 39, denominator: 39, rate: 1.0}
+    unsupported_factual_claim_count: {maximum: 0, mean: 0.0}
+    execution_error_count: 0
+    target_status: "target_not_met"
+  diagnostic_result_refs:
+    - "docs/experiment/hak180-medium-badcase-r4/offline-structural-replay.json"
+  diagnostic_summary:
+    replay_cases: 50
+    succeeded: 49
+    failed: 0
+    missing_archived_context: 1
+    missing_context_case_ids:
+      - "P3500-MEDIUM-014"
+    receipt_count: 33
+    receipt_case_count: 30
+    receipt_complete_required_open_case_count: 30
+    receipt_schema_counts:
+      query_anchored_inline_action_chain_closure_receipt_v1: 3
+      query_anchored_scoped_bullet_list_closure_receipt_v1: 2
+      query_anchored_scoped_fact_set_closure_receipt_v1: 7
+      query_anchored_scoped_procedure_list_closure_receipt_v4: 16
+      query_anchored_scoped_table_selection_closure_receipt_v2: 5
+    structural_strict_candidate:
+      count: 41
+      denominator: 50
+      rate: 0.82
+      composition: "baseline_strict_10 + disjoint_receipt_complete_30 + disjoint_closed_count_projected_cell_1"
+      margin_cases: 0
+    final_counterfactual_potential:
+      count: 44
+      denominator: 50
+      rate: 0.88
+      incremental_case_ids:
+        - "P3500-MEDIUM-005"
+        - "P3500-MEDIUM-011"
+        - "P3500-MEDIUM-012"
+        - "P3500-MEDIUM-013"
+        - "P3500-MEDIUM-016"
+        - "P3500-MEDIUM-022"
+        - "P3500-MEDIUM-023"
+        - "P3500-MEDIUM-024"
+        - "P3500-MEDIUM-028"
+        - "P3500-MEDIUM-030"
+        - "P3500-MEDIUM-032"
+        - "P3500-MEDIUM-033"
+        - "P3500-MEDIUM-037"
+        - "P3500-MEDIUM-039"
+        - "P3500-MEDIUM-041"
+    interpretation: "diagnostic_structural_projection_only; depends_on_no_runtime_regression_and_correct_model_plan; not_a_formal_result"
+  error_cases_ref: "error-cases.csv"
+artifacts:
+  - uri: "var/evals/erun_d1b179e0579e407cbe19cfe2aef11258/generation-fe83c80cb960443e18a8152b4353bec6/results.jsonl"
+    sha256: "d358ddd6dcf95a918625b91a986cdd421cc7a575c27ea8c65fad72bb806d8e7c"
+    classification: "internal"
+    retention: "project-evaluation-policy"
+  - uri: "docs/experiment/hak180-medium-badcase-r4/offline-structural-replay.json"
+    sha256: "07f790e444d80981fe821cb9d0988702b2872097af0f358ffb8ef68a0a42232d"
+    classification: "internal-diagnostic"
+    retention: "project-experiment-policy"
+  - uri: "var/evals/erun_3d9f4e215f8f4cca87246cd25850c53b/generation-404a12b0ce0605de5288d78ae4c3f157/results.jsonl"
+    sha256: "53efb70a8d7220819e988aaa5e0dfbd2c9cda0f54caf3c8e49317cb889bb43d2"
+    classification: "internal"
+    retention: "project-evaluation-policy"
+  - uri: "docs/experiment/hak180-easy-medium-100-evaluation/results/formal-evaluation-r4-summary.json"
+    sha256: "924cf83177979dd107d3dec7d2f21216d112624da642b9abfc24ff56deb00567"
+    classification: "internal-summary"
+    retention: "project-experiment-policy"
+budgets:
+  time_seconds: null
+  token_count: null
+  tool_calls: null
+  cost_currency: "CNY"
+  cost_limit: null
+data_governance:
+  classification: "internal"
+  contains_personal_data: false
+  contains_secrets: false
+  retention_policy: "project-evaluation-policy"
+open_questions:
+  - "为何 34 份 typed receipt 覆盖 31 题后仍只有 17 个原结构候选转化为 strict 增益"
+  - "如何通用化修复 receipt 到 plan/review 的未消费或错误拒绝，而不削弱 fail-closed proof"
+  - "如何为 007、015、017、019、026、034、038 补足可回放的 typed closure receipt"
+  - "005、032、037 的 grader/data false-negative 是否可由独立人工校准确认"
+supersedes: "docs/experiment/hak180-easy-medium-100-evaluation"

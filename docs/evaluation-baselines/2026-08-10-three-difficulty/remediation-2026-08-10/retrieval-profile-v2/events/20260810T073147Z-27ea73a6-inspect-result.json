@@ -1,0 +1,492 @@
+{
+  "action": "inspect",
+  "api_snapshots": {
+    "directory": "retrieval-profile-v2/api-snapshots/20260810T073147Z-27ea73a6-inspect",
+    "log_path": "retrieval-profile-v2/api-snapshots/20260810T073147Z-27ea73a6-inspect/requests.jsonl",
+    "log_sha256": "bda8407859dce98796c417ac61b9b29fcb9cec7f0f50395db2508a6c015fe334",
+    "metadata_path": "retrieval-profile-v2/api-snapshots/20260810T073147Z-27ea73a6-inspect/metadata.json",
+    "metadata_sha256": "01bfc3b80de459192029a597448ea1d6f26d61acd6295eea9ee6ae93a616245e",
+    "request_count": 3
+  },
+  "error_type": null,
+  "invocation_id": "20260810T073147Z-27ea73a6-inspect",
+  "kb_id": "kb_2fad25538aab42d19baf79fba782a06c",
+  "logout_error_type": null,
+  "phase": "result",
+  "recorded_at": "2026-08-10T07:31:48.193995+00:00",
+  "result": {
+    "current": {
+      "config": {
+        "candidate_k": 5,
+        "context_pack": {
+          "evidence_character_budget": 80000,
+          "expansion_mode": "none",
+          "max_blocks": 20,
+          "max_blocks_per_document": 5,
+          "max_blocks_per_source": 8,
+          "model_context_limit": 8192,
+          "neighbor_window": 1,
+          "reserved_output_tokens": 1024,
+          "safety_margin_tokens": 256
+        },
+        "deduplicate_by": "chunk_id",
+        "dense": {
+          "dimension": 1024,
+          "field": "dense_vector",
+          "metric": "IP",
+          "weight": 0.9
+        },
+        "evidence_gate": {
+          "freshness_max_age_days": 30,
+          "max_repair_attempts": 1,
+          "min_query_coverage": 1.0,
+          "min_trusted_evidence": 1,
+          "minimum_claim_coverage": 0.5
+        },
+        "fusion": {
+          "default_calibration": {
+            "method": "rank",
+            "version": "rank.v1"
+          },
+          "max_per_document": 5,
+          "method": "rrf",
+          "mmr_lambda": 0.8,
+          "near_duplicate_threshold": null,
+          "route_calibrations": {},
+          "route_weights": {},
+          "source_quotas": {}
+        },
+        "hybrid": {
+          "fusion": "weighted",
+          "normalize_scores": true
+        },
+        "metadata_filter": {
+          "allow_document_id": true,
+          "allow_metadata": true,
+          "enabled": true,
+          "max_depth": 5,
+          "max_predicates": 32,
+          "max_values_per_predicate": 100
+        },
+        "parent_expansion_field": null,
+        "query_planning": {
+          "allow_hyde": true,
+          "cost_budget": 1.0,
+          "max_dependency_depth": 2,
+          "max_routes": 3,
+          "max_subqueries": 4,
+          "token_budget": 4096
+        },
+        "reranker": {
+          "enabled": true,
+          "gap_absolute": 2.0,
+          "gap_ratio": 0.5,
+          "long_text_strategy": "truncate",
+          "max_input_tokens": 512,
+          "max_top_k": 10,
+          "min_top_k": 1,
+          "model_id": "./models/bge-reranker-v2-m3",
+          "normalize_scores": true
+        },
+        "routes": [
+          "hybrid"
+        ],
+        "rrf": {
+          "default_weight": 1.0,
+          "enabled": true,
+          "k": 60,
+          "route_weights": [
+            {
+              "route": "base",
+              "weight": 1.0
+            },
+            {
+              "route": "hyde",
+              "weight": 1.0
+            }
+          ]
+        },
+        "schema_version": "retrieval-profile.v1",
+        "score_threshold": null,
+        "sparse": {
+          "field": "sparse_vector",
+          "metric": "IP",
+          "weight": 0.1
+        },
+        "timeout_ms": 90000,
+        "top_k": 5
+      },
+      "config_hash": "5679fb0a7723d50846f945c5e4269d5ed64393aae371810b9d9497351abd7185",
+      "created_at": "2026-08-09T07:41:04",
+      "created_by": "system",
+      "description": "TODO-09 自动创建；保留既有 dense/sparse、RRF 与重排默认值。",
+      "id": "rpv_7a450469afa44875b71e97ade73b22d2",
+      "kb_id": "kb_2fad25538aab42d19baf79fba782a06c",
+      "name": "内建兼容检索配置",
+      "profile_id": "rpf_default",
+      "published_at": "2026-08-09T07:41:04.305316",
+      "retired_at": null,
+      "status": "published",
+      "tenant_id": "tenant_default",
+      "updated_at": "2026-08-09T07:41:04",
+      "version": 1
+    },
+    "inspected_at": "2026-08-10T07:31:48.146751+00:00",
+    "items": [
+      {
+        "config": {
+          "candidate_k": 10,
+          "context_pack": {
+            "evidence_character_budget": 80000,
+            "expansion_mode": "none",
+            "max_blocks": 20,
+            "max_blocks_per_document": 5,
+            "max_blocks_per_source": 8,
+            "model_context_limit": 8192,
+            "neighbor_window": 1,
+            "reserved_output_tokens": 1024,
+            "safety_margin_tokens": 256
+          },
+          "deduplicate_by": "chunk_id",
+          "dense": {
+            "dimension": 1024,
+            "field": "dense_vector",
+            "metric": "IP",
+            "weight": 0.7
+          },
+          "evidence_gate": {
+            "freshness_max_age_days": 30,
+            "max_repair_attempts": 1,
+            "min_query_coverage": 1,
+            "min_trusted_evidence": 1,
+            "minimum_claim_coverage": 0.5
+          },
+          "fusion": {
+            "default_calibration": {
+              "method": "rank",
+              "version": "rank.v1"
+            },
+            "max_per_document": 5,
+            "method": "rrf",
+            "mmr_lambda": 0.8,
+            "near_duplicate_threshold": null,
+            "route_calibrations": {},
+            "route_weights": {},
+            "source_quotas": {},
+            "subquery_coverage_bonus_cap": 0.25,
+            "subquery_coverage_bonus_weight": 0.1
+          },
+          "hybrid": {
+            "fusion": "weighted",
+            "normalize_scores": true
+          },
+          "metadata_filter": {
+            "allow_document_id": true,
+            "allow_metadata": true,
+            "enabled": true,
+            "max_depth": 5,
+            "max_predicates": 32,
+            "max_values_per_predicate": 100
+          },
+          "parent_expansion_field": null,
+          "query_planning": {
+            "allow_hyde": true,
+            "cost_budget": 1,
+            "max_dependency_depth": 2,
+            "max_routes": 3,
+            "max_subqueries": 4,
+            "token_budget": 4096
+          },
+          "reranker": {
+            "enabled": true,
+            "gap_absolute": 2,
+            "gap_ratio": 0.5,
+            "long_text_strategy": "truncate",
+            "max_input_tokens": 512,
+            "max_top_k": 10,
+            "min_top_k": 1,
+            "model_id": "./models/bge-reranker-v2-m3",
+            "normalize_scores": true
+          },
+          "routes": [
+            "hybrid"
+          ],
+          "rrf": {
+            "default_weight": 1,
+            "enabled": true,
+            "k": 60,
+            "route_weights": [
+              {
+                "route": "base",
+                "weight": 1
+              },
+              {
+                "route": "hyde",
+                "weight": 1
+              }
+            ]
+          },
+          "schema_version": "retrieval-profile.v1",
+          "score_threshold": null,
+          "sparse": {
+            "field": "sparse_vector",
+            "metric": "IP",
+            "weight": 0.3
+          },
+          "timeout_ms": 90000,
+          "top_k": 8
+        },
+        "config_hash": "a1b80ce2bfc94b0080b297604d7417c4f11d404a48e1401ee95bcd9a4a22ed49",
+        "created_at": "2026-08-10T01:28:05",
+        "created_by": "usr_f88fe37c7414489891723478f0102337",
+        "description": "显式启用有界子查询覆盖奖励；仅批准QueryPlan ID参与，并按规范化查询指纹去重。用于不可变paired A/B，不发布。",
+        "id": "rpv_faf6fa1f9f2a4bf88ddac0e8ded86a6d",
+        "kb_id": "kb_2fad25538aab42d19baf79fba782a06c",
+        "name": "Pantum P3500 稳定融合与批准子查询覆盖",
+        "profile_id": "rpf_71d2af2c30204641a68dbdd8f427b99f",
+        "published_at": null,
+        "retired_at": null,
+        "status": "draft",
+        "tenant_id": "tenant_default",
+        "updated_at": "2026-08-10T01:28:05",
+        "version": 2
+      },
+      {
+        "config": {
+          "candidate_k": 10,
+          "context_pack": {
+            "evidence_character_budget": 80000,
+            "expansion_mode": "none",
+            "max_blocks": 20,
+            "max_blocks_per_document": 5,
+            "max_blocks_per_source": 8,
+            "model_context_limit": 8192,
+            "neighbor_window": 1,
+            "reserved_output_tokens": 1024,
+            "safety_margin_tokens": 256
+          },
+          "deduplicate_by": "chunk_id",
+          "dense": {
+            "dimension": 1024,
+            "field": "dense_vector",
+            "metric": "IP",
+            "weight": 0.7
+          },
+          "evidence_gate": {
+            "freshness_max_age_days": 30,
+            "max_repair_attempts": 1,
+            "min_query_coverage": 1,
+            "min_trusted_evidence": 1,
+            "minimum_claim_coverage": 0.5
+          },
+          "fusion": {
+            "default_calibration": {
+              "method": "rank",
+              "version": "rank.v1"
+            },
+            "max_per_document": 5,
+            "method": "rrf",
+            "mmr_lambda": 0.8,
+            "near_duplicate_threshold": null,
+            "route_calibrations": {},
+            "route_weights": {},
+            "source_quotas": {}
+          },
+          "hybrid": {
+            "fusion": "weighted",
+            "normalize_scores": true
+          },
+          "metadata_filter": {
+            "allow_document_id": true,
+            "allow_metadata": true,
+            "enabled": true,
+            "max_depth": 5,
+            "max_predicates": 32,
+            "max_values_per_predicate": 100
+          },
+          "parent_expansion_field": null,
+          "query_planning": {
+            "allow_hyde": true,
+            "cost_budget": 1,
+            "max_dependency_depth": 2,
+            "max_routes": 3,
+            "max_subqueries": 4,
+            "token_budget": 4096
+          },
+          "reranker": {
+            "enabled": true,
+            "gap_absolute": 2,
+            "gap_ratio": 0.5,
+            "long_text_strategy": "truncate",
+            "max_input_tokens": 512,
+            "max_top_k": 10,
+            "min_top_k": 1,
+            "model_id": "./models/bge-reranker-v2-m3",
+            "normalize_scores": true
+          },
+          "routes": [
+            "hybrid"
+          ],
+          "rrf": {
+            "default_weight": 1,
+            "enabled": true,
+            "k": 60,
+            "route_weights": [
+              {
+                "route": "base",
+                "weight": 1
+              },
+              {
+                "route": "hyde",
+                "weight": 1
+              }
+            ]
+          },
+          "schema_version": "retrieval-profile.v1",
+          "score_threshold": null,
+          "sparse": {
+            "field": "sparse_vector",
+            "metric": "IP",
+            "weight": 0.3
+          },
+          "timeout_ms": 90000,
+          "top_k": 8
+        },
+        "config_hash": "48400800ef820581a6882807dee9cefda8fab2d979d771e615662b2e6a4e8388",
+        "created_at": "2026-08-09T07:48:29",
+        "created_by": "usr_f88fe37c7414489891723478f0102337",
+        "description": "由知识库查询工作台创建",
+        "id": "rpv_9f273cae8a1c426787f98000064ea95d",
+        "kb_id": "kb_2fad25538aab42d19baf79fba782a06c",
+        "name": "Pantum P3500 表格与图像混合检索",
+        "profile_id": "rpf_71d2af2c30204641a68dbdd8f427b99f",
+        "published_at": null,
+        "retired_at": null,
+        "status": "draft",
+        "tenant_id": "tenant_default",
+        "updated_at": "2026-08-09T07:48:29",
+        "version": 1
+      },
+      {
+        "config": {
+          "candidate_k": 5,
+          "context_pack": {
+            "evidence_character_budget": 80000,
+            "expansion_mode": "none",
+            "max_blocks": 20,
+            "max_blocks_per_document": 5,
+            "max_blocks_per_source": 8,
+            "model_context_limit": 8192,
+            "neighbor_window": 1,
+            "reserved_output_tokens": 1024,
+            "safety_margin_tokens": 256
+          },
+          "deduplicate_by": "chunk_id",
+          "dense": {
+            "dimension": 1024,
+            "field": "dense_vector",
+            "metric": "IP",
+            "weight": 0.9
+          },
+          "evidence_gate": {
+            "freshness_max_age_days": 30,
+            "max_repair_attempts": 1,
+            "min_query_coverage": 1.0,
+            "min_trusted_evidence": 1,
+            "minimum_claim_coverage": 0.5
+          },
+          "fusion": {
+            "default_calibration": {
+              "method": "rank",
+              "version": "rank.v1"
+            },
+            "max_per_document": 5,
+            "method": "rrf",
+            "mmr_lambda": 0.8,
+            "near_duplicate_threshold": null,
+            "route_calibrations": {},
+            "route_weights": {},
+            "source_quotas": {}
+          },
+          "hybrid": {
+            "fusion": "weighted",
+            "normalize_scores": true
+          },
+          "metadata_filter": {
+            "allow_document_id": true,
+            "allow_metadata": true,
+            "enabled": true,
+            "max_depth": 5,
+            "max_predicates": 32,
+            "max_values_per_predicate": 100
+          },
+          "parent_expansion_field": null,
+          "query_planning": {
+            "allow_hyde": true,
+            "cost_budget": 1.0,
+            "max_dependency_depth": 2,
+            "max_routes": 3,
+            "max_subqueries": 4,
+            "token_budget": 4096
+          },
+          "reranker": {
+            "enabled": true,
+            "gap_absolute": 2.0,
+            "gap_ratio": 0.5,
+            "long_text_strategy": "truncate",
+            "max_input_tokens": 512,
+            "max_top_k": 10,
+            "min_top_k": 1,
+            "model_id": "./models/bge-reranker-v2-m3",
+            "normalize_scores": true
+          },
+          "routes": [
+            "hybrid"
+          ],
+          "rrf": {
+            "default_weight": 1.0,
+            "enabled": true,
+            "k": 60,
+            "route_weights": [
+              {
+                "route": "base",
+                "weight": 1.0
+              },
+              {
+                "route": "hyde",
+                "weight": 1.0
+              }
+            ]
+          },
+          "schema_version": "retrieval-profile.v1",
+          "score_threshold": null,
+          "sparse": {
+            "field": "sparse_vector",
+            "metric": "IP",
+            "weight": 0.1
+          },
+          "timeout_ms": 90000,
+          "top_k": 5
+        },
+        "config_hash": "5679fb0a7723d50846f945c5e4269d5ed64393aae371810b9d9497351abd7185",
+        "created_at": "2026-08-09T07:41:04",
+        "created_by": "system",
+        "description": "TODO-09 自动创建；保留既有 dense/sparse、RRF 与重排默认值。",
+        "id": "rpv_7a450469afa44875b71e97ade73b22d2",
+        "kb_id": "kb_2fad25538aab42d19baf79fba782a06c",
+        "name": "内建兼容检索配置",
+        "profile_id": "rpf_default",
+        "published_at": "2026-08-09T07:41:04.305316",
+        "retired_at": null,
+        "status": "published",
+        "tenant_id": "tenant_default",
+        "updated_at": "2026-08-09T07:41:04",
+        "version": 1
+      }
+    ],
+    "kb_id": "kb_2fad25538aab42d19baf79fba782a06c",
+    "response_sha256": "ac0d7053a62f73eeff479822157c21e04cfb831e9b1f4de4a2d94a97a7c7725a"
+  },
+  "schema_version": "stt.eval.retrieval-profile-event.v1",
+  "status": "succeeded"
+}

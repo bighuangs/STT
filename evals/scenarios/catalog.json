@@ -1,0 +1,24 @@
+{
+  "schema_version": "stt.eval.scenario-catalog.v1",
+  "scenarios": {
+    "static-contract": {
+      "observation_scope": "contract_only",
+      "allowed_side_effects": [],
+      "external_model_allowed": false,
+      "formal_evaluation": false
+    },
+    "retrieval-only": {
+      "observation_scope": "retrieval_only",
+      "allowed_side_effects": ["vector_read"],
+      "external_model_allowed": false,
+      "formal_evaluation": true
+    },
+    "live-query": {
+      "observation_scope": "full",
+      "allowed_side_effects": ["vector_read", "external_llm"],
+      "external_model_allowed": true,
+      "formal_evaluation": true
+    }
+  }
+}
+

@@ -1,0 +1,109 @@
+{
+  "by_dataset": {
+    "hak180-safety": {
+      "evaluation_eligible_samples": 28,
+      "historical_denominator": 28,
+      "judge_eligible_samples": 27,
+      "protected_placeholders": 0,
+      "source_cases": 28
+    },
+    "pantum-p3500-easy-live-baseline": {
+      "evaluation_eligible_samples": 49,
+      "historical_denominator": 50,
+      "judge_eligible_samples": 49,
+      "protected_placeholders": 1,
+      "source_cases": 50
+    },
+    "pantum-p3500-hard-live-baseline": {
+      "evaluation_eligible_samples": 50,
+      "historical_denominator": 50,
+      "judge_eligible_samples": 50,
+      "protected_placeholders": 0,
+      "source_cases": 50
+    },
+    "pantum-p3500-medium-live-baseline": {
+      "evaluation_eligible_samples": 50,
+      "historical_denominator": 50,
+      "judge_eligible_samples": 50,
+      "protected_placeholders": 0,
+      "source_cases": 50
+    }
+  },
+  "by_difficulty": {
+    "easy": {
+      "evaluation_eligible_samples": 49,
+      "historical_denominator": 50,
+      "judge_eligible_samples": 49
+    },
+    "hard": {
+      "evaluation_eligible_samples": 50,
+      "historical_denominator": 50,
+      "judge_eligible_samples": 50
+    },
+    "medium": {
+      "evaluation_eligible_samples": 50,
+      "historical_denominator": 50,
+      "judge_eligible_samples": 50
+    },
+    "safety": {
+      "evaluation_eligible_samples": 28,
+      "historical_denominator": 28,
+      "judge_eligible_samples": 27
+    }
+  },
+  "claim_semantics": {
+    "complete_gold_claims": false,
+    "expected_terms": "lexical_requirement",
+    "note": "expected_terms 仅表示 lexical_requirement，不构成完整 Gold claim"
+  },
+  "inputs": [
+    {
+      "dataset_key": "pantum-p3500-easy-live-baseline",
+      "dataset_version": "1.0.0",
+      "difficulty": "easy",
+      "filename": "easy.json",
+      "sha256": "1a3cacbb59b3aa7f354a569f828ad6214351f07cd3d0923a798e98cc33c41b2a"
+    },
+    {
+      "dataset_key": "pantum-p3500-medium-live-baseline",
+      "dataset_version": "1.0.0",
+      "difficulty": "medium",
+      "filename": "medium.json",
+      "sha256": "89c570d10282342fd7facec9bd7d20af61337b5ecaef0038157ed824c25c0369"
+    },
+    {
+      "dataset_key": "pantum-p3500-hard-live-baseline",
+      "dataset_version": "1.0.0",
+      "difficulty": "hard",
+      "filename": "hard.json",
+      "sha256": "e5be4d2495618e819b9758fa753bb10d553037ca10b26dc6ccd8521404600a04"
+    },
+    {
+      "dataset_key": "hak180-safety",
+      "dataset_version": "1.4.0",
+      "difficulty": "safety",
+      "filename": "hak180_safety_v1_4.json",
+      "sha256": "62c2646e9e9ea18c20d26dde2f9634d1db699e6ecf7c631dd3e7cba8b1653f20"
+    }
+  ],
+  "protected_policy": {
+    "case_ids": [
+      "P3500-EASY-002"
+    ],
+    "content_parsed": false,
+    "historical_denominator_retained": true,
+    "samples_and_judge_excluded": true
+  },
+  "schema_version": "stt.ragas.dataset.v1",
+  "totals": {
+    "answerable_samples": 170,
+    "evaluation_eligible_samples": 177,
+    "historical_denominator": 178,
+    "judge_eligible_samples": 176,
+    "lexical_requirements": 667,
+    "protected_placeholders": 1,
+    "relevance_judgments": 215,
+    "source_cases": 178,
+    "unanswerable_samples": 7
+  }
+}

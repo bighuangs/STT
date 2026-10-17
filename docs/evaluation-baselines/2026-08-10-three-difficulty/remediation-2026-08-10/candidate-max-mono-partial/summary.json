@@ -1,0 +1,277 @@
+{
+  "authoritative_final_metric": "archived case_outcome.final_answer_correct",
+  "data_quality": {
+    "critical_dataset_hashes_verified": true,
+    "difficulty_counts": {
+      "easy": 50,
+      "medium": 50
+    },
+    "duplicate_case_id_count": 0,
+    "row_count": 100,
+    "stored_summary_accuracy_reconciled": true,
+    "unique_case_id_count": 100
+  },
+  "difficulties": {
+    "easy": {
+      "all_grounding_decision_reasons": {
+        "EVIDENCE_SUFFICIENT": 22,
+        "POST_GENERATION_COMPLETE_TRUSTED_PROJECTION": 2,
+        "POST_GENERATION_EXTRACTIVE_REPAIR": 2,
+        "POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED": 24
+      },
+      "case_count": 50,
+      "mean_pre_correctness_recomputed": 0.9054166666666668,
+      "mean_stored_final_correctness": 0.83,
+      "oracle_pre_or_final_scenario": {
+        "accuracy": 0.92,
+        "correct_count": 46,
+        "shortfall_cases": 2,
+        "target_correct_count": 48,
+        "target_met": false
+      },
+      "pre_correct_to_final_wrong": {
+        "count": 6,
+        "denominator": 50,
+        "percent": 12.0,
+        "rate": 0.12
+      },
+      "pre_grounding_correct_recomputed": {
+        "count": 45,
+        "denominator": 50,
+        "percent": 90.0,
+        "rate": 0.9
+      },
+      "pre_wrong_to_final_correct": {
+        "count": 1,
+        "denominator": 50,
+        "percent": 2.0,
+        "rate": 0.02
+      },
+      "preserve_pre_scenario": {
+        "accuracy": 0.9,
+        "correct_count": 45,
+        "delta_vs_stored_final_cases": 5,
+        "shortfall_cases": 3,
+        "target_correct_count": 48,
+        "target_met": false
+      },
+      "stored_final_correct": {
+        "count": 40,
+        "denominator": 50,
+        "percent": 80.0,
+        "rate": 0.8
+      },
+      "transition_counts": {
+        "pre_correct_to_final_correct": 39,
+        "pre_correct_to_final_wrong": 6,
+        "pre_wrong_to_final_correct": 1,
+        "pre_wrong_to_final_wrong": 4
+      },
+      "wrong_citation_issue_occurrences": {
+        "UNSUPPORTED_CLAIMS_PRUNED": 9,
+        "UNTRUSTED_CITATIONS_REMOVED": 8
+      },
+      "wrong_citation_status": {
+        "degraded": 9,
+        "valid": 1
+      },
+      "wrong_context_omitted": {
+        "count": 0,
+        "denominator": 10,
+        "percent": 0.0,
+        "rate": 0.0
+      },
+      "wrong_context_truncated": {
+        "count": 0,
+        "denominator": 10,
+        "percent": 0.0,
+        "rate": 0.0
+      },
+      "wrong_context_uncovered_subquery": {
+        "count": 0,
+        "denominator": 10,
+        "percent": 0.0,
+        "rate": 0.0
+      },
+      "wrong_first_relevant_rank": {
+        "1": 9,
+        "3": 1
+      },
+      "wrong_grounding_changed": {
+        "count": 10,
+        "denominator": 10,
+        "percent": 100.0,
+        "rate": 1.0
+      },
+      "wrong_grounding_decision_reasons": {
+        "POST_GENERATION_EXTRACTIVE_REPAIR": 1,
+        "POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED": 9
+      },
+      "wrong_grounding_reason_codes": {
+        "EXTRACTIVE_REPAIR_VALIDATED": 1,
+        "None": 9
+      },
+      "wrong_grounding_status": {
+        "degraded": 9,
+        "passed": 1
+      },
+      "wrong_recall_at_5_full": {
+        "count": 10,
+        "denominator": 10,
+        "percent": 100.0,
+        "rate": 1.0
+      }
+    },
+    "medium": {
+      "all_grounding_decision_reasons": {
+        "EVIDENCE_SUFFICIENT": 4,
+        "PARTIAL_EVIDENCE": 1,
+        "POST_GENERATION_COMPOSITE_CONSTRAINT_REPAIR": 1,
+        "POST_GENERATION_EXTRACTIVE_REPAIR": 1,
+        "POST_GENERATION_STRONG_COMPOSITE_PROJECTION": 2,
+        "POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED": 40,
+        "UNSUPPORTED_GENERATION": 1
+      },
+      "case_count": 50,
+      "mean_pre_correctness_recomputed": 0.8545023860021209,
+      "mean_stored_final_correctness": 0.7337270736448478,
+      "oracle_pre_or_final_scenario": {
+        "accuracy": 0.84,
+        "correct_count": 42,
+        "shortfall_cases": 1,
+        "target_correct_count": 43,
+        "target_met": false
+      },
+      "pre_correct_to_final_wrong": {
+        "count": 7,
+        "denominator": 50,
+        "percent": 14.0,
+        "rate": 0.14
+      },
+      "pre_grounding_correct_recomputed": {
+        "count": 42,
+        "denominator": 50,
+        "percent": 84.0,
+        "rate": 0.84
+      },
+      "pre_wrong_to_final_correct": {
+        "count": 0,
+        "denominator": 50,
+        "percent": 0.0,
+        "rate": 0.0
+      },
+      "preserve_pre_scenario": {
+        "accuracy": 0.84,
+        "correct_count": 42,
+        "delta_vs_stored_final_cases": 7,
+        "shortfall_cases": 1,
+        "target_correct_count": 43,
+        "target_met": false
+      },
+      "stored_final_correct": {
+        "count": 35,
+        "denominator": 50,
+        "percent": 70.0,
+        "rate": 0.7
+      },
+      "transition_counts": {
+        "pre_correct_to_final_correct": 35,
+        "pre_correct_to_final_wrong": 7,
+        "pre_wrong_to_final_wrong": 8
+      },
+      "wrong_citation_issue_occurrences": {
+        "GROUNDING_FAILED_AFTER_BOUNDED_REPAIR": 1,
+        "NON_TEXT_PLACEHOLDER_REMOVED": 1,
+        "REPAIR_QUESTION_COVERAGE_INCOMPLETE": 1,
+        "UNSUPPORTED_CLAIMS_PRUNED": 12,
+        "UNTRUSTED_CITATIONS_REMOVED": 10
+      },
+      "wrong_citation_status": {
+        "degraded": 12,
+        "invalid": 1,
+        "valid": 2
+      },
+      "wrong_context_omitted": {
+        "count": 0,
+        "denominator": 15,
+        "percent": 0.0,
+        "rate": 0.0
+      },
+      "wrong_context_truncated": {
+        "count": 0,
+        "denominator": 15,
+        "percent": 0.0,
+        "rate": 0.0
+      },
+      "wrong_context_uncovered_subquery": {
+        "count": 2,
+        "denominator": 15,
+        "percent": 13.3,
+        "rate": 0.13333333333333333
+      },
+      "wrong_first_relevant_rank": {
+        "1": 14,
+        "5": 1
+      },
+      "wrong_grounding_changed": {
+        "count": 15,
+        "denominator": 15,
+        "percent": 100.0,
+        "rate": 1.0
+      },
+      "wrong_grounding_decision_reasons": {
+        "POST_GENERATION_COMPOSITE_CONSTRAINT_REPAIR": 1,
+        "POST_GENERATION_EXTRACTIVE_REPAIR": 1,
+        "POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED": 12,
+        "UNSUPPORTED_GENERATION": 1
+      },
+      "wrong_grounding_reason_codes": {
+        "COMPOSITE_CONSTRAINT_REPAIR_VALIDATED": 1,
+        "EXTRACTIVE_REPAIR_VALIDATED": 1,
+        "None": 13
+      },
+      "wrong_grounding_status": {
+        "degraded": 13,
+        "failed": 1,
+        "passed": 1
+      },
+      "wrong_recall_at_5_full": {
+        "count": 15,
+        "denominator": 15,
+        "percent": 100.0,
+        "rate": 1.0
+      }
+    }
+  },
+  "excluded_difficulties": [
+    "hard"
+  ],
+  "included_difficulties": [
+    "easy",
+    "medium"
+  ],
+  "metrics_module_sha256": "e9e39842567810107e728a7751c7ef3eb7678e788a1dc6aafa0fe53cd503b1e4",
+  "partial_reason": "hard was not awaited; only archived easy/medium are included",
+  "pre_metric": "current _generation_metrics correctness >= 0.75",
+  "run_label": "live-cand-max-mono-01",
+  "schema_version": "stt.eval.max-mono-partial-summary.v1",
+  "sources": {
+    "easy": {
+      "archived_case_count": 50,
+      "dataset_path": "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/easy.json",
+      "dataset_sha256": "1a3cacbb59b3aa7f354a569f828ad6214351f07cd3d0923a798e98cc33c41b2a",
+      "results_path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/runs/live-cand-max-mono-01/artifacts/easy/erun_5943e3f1a8d24eb79ec1ad3897e40f63/results.jsonl",
+      "results_sha256": "3ab1b34b089639552e98d873c1440b7b6ad982d784780a304577482414efe88a",
+      "run_id": "erun_5943e3f1a8d24eb79ec1ad3897e40f63"
+    },
+    "medium": {
+      "archived_case_count": 50,
+      "dataset_path": "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/medium.json",
+      "dataset_sha256": "89c570d10282342fd7facec9bd7d20af61337b5ecaef0038157ed824c25c0369",
+      "results_path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/runs/live-cand-max-mono-01/artifacts/medium/erun_8faab68e39c1405b98202e0b195468dd/results.jsonl",
+      "results_sha256": "eee1ee51916f8c22edf351000707c50981021efd9852c1526aad390a9f3e2e9c",
+      "run_id": "erun_8faab68e39c1405b98202e0b195468dd"
+    }
+  },
+  "status": "partial"
+}

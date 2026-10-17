@@ -1,0 +1,172 @@
+{
+  "schema_version": "stt.eval.formal_summary.v1",
+  "campaign_id": "hak180-easy-medium-100-v1.9-20260827-r4",
+  "status": "completed_target_not_met",
+  "completed_at": "2026-08-27T16:03:27.113388+08:00",
+  "authorization": {
+    "campaign_count_limit": 1,
+    "consumed_campaign_count": 1,
+    "child_run_count_limit": 2,
+    "consumed_child_run_count": 2,
+    "retry_count": 0,
+    "replacement_count": 0,
+    "additional_run_authorized": false
+  },
+  "protocol": {
+    "total_unique_cases": 100,
+    "repetitions": 1,
+    "execution_order": [
+      "easy",
+      "medium"
+    ],
+    "concurrency": 1,
+    "model": "qwen3.7-max",
+    "retrieval_profile_id": "rpf_default",
+    "retrieval_profile_version": 4,
+    "retrieval_profile_hash": "cf4c295a62f18e884cc26839a589188993b1d4e32d148e0574878f4bec107b14",
+    "vector_read_set_digest": "sha256:f583155382b2537d0279ca7e5fb4fe2be89307585caee738727cadd89b41a399",
+    "code_head": "d1a4192dd5eb9da9a8601644521c6876a7bec959",
+    "effective_source_sha256": "442065b3f291b0d2439f93718a9418251860f05f10b98cf92b3019a368602864",
+    "hidden_easy_case": {
+      "case_id": "P3500-EASY-002",
+      "included_in_denominator": true,
+      "content_analyzed": false
+    }
+  },
+  "cohorts": {
+    "easy": {
+      "run_id": "erun_b46519eebd0c4ff0a1255d77463f6fb6",
+      "generation_id": "0ddc3e58c018d1697c42dd3dfb7b337e",
+      "run_status": "succeeded",
+      "effect_validity": "valid",
+      "started_at": "2026-08-27T15:01:36.523807+08:00",
+      "completed_at": "2026-08-27T15:26:11.097633+08:00",
+      "completed_cases": 50,
+      "execution_error_count": 0,
+      "config_canonical_sha256": "b0fafb75ad1ac917ecd2da27f8a424ab2c9a49a612c35056326cfb6a5b6fbfa0",
+      "dataset_asset_sha256": "1a3cacbb59b3aa7f354a569f828ad6214351f07cd3d0923a798e98cc33c41b2a",
+      "metrics": {
+        "final_answer_accuracy": {"count": 44, "denominator": 50, "rate": 0.88},
+        "strict_supported_case_pass_rate": {"count": 42, "denominator": 50, "rate": 0.84},
+        "retrieval_support": {"count": 48, "denominator": 50, "rate": 0.96},
+        "answered_citation_correctness": {"count": 45, "denominator": 45, "rate": 1.0},
+        "answered_faithfulness": {"count": 45, "denominator": 45, "rate": 1.0},
+        "unsupported_factual_claim_count": {"maximum": 0, "mean": 0.0},
+        "false_positive_refusal_count": 5,
+        "contract_false_positive_refusal_count": 6
+      },
+      "baseline": {
+        "run_id": "erun_a7b71d8508d748869fd41e6ebc981b92",
+        "final_answer_accuracy": 40,
+        "strict_supported_case_pass_rate": 37
+      },
+      "delta_from_baseline": {
+        "final_answer_accuracy_cases": 4,
+        "strict_supported_case_pass_cases": 5
+      },
+      "targets": {
+        "final_answer_accuracy": 48,
+        "strict_supported_case_pass_rate": 45
+      },
+      "target_verdict": "not_met",
+      "guardrail_status": "passed",
+      "usage": {
+        "total_tokens": 573779,
+        "observed_case_count": 50,
+        "unknown_case_count": 0,
+        "monetary_cost": "unavailable"
+      },
+      "latency_ms": {
+        "mean": 29426.52192,
+        "p95": 54726.72415,
+        "maximum": 73135.836
+      },
+      "artifacts": [
+        {"uri": "var/evals/erun_b46519eebd0c4ff0a1255d77463f6fb6/generation-0ddc3e58c018d1697c42dd3dfb7b337e/manifest.json", "size_bytes": 163654, "sha256": "c4890e73b7ec805e7fb366ccedbcea0870b5f2ede2a661517baa1b0c07416443", "db_record_match": true},
+        {"uri": "var/evals/erun_b46519eebd0c4ff0a1255d77463f6fb6/generation-0ddc3e58c018d1697c42dd3dfb7b337e/report.html", "size_bytes": 10813287, "sha256": "04ded32a6b9efa300e8edc6f3269bd9c1351e01aabb188c23e63b5fdef7102dd", "db_record_match": true},
+        {"uri": "var/evals/erun_b46519eebd0c4ff0a1255d77463f6fb6/generation-0ddc3e58c018d1697c42dd3dfb7b337e/report.json", "size_bytes": 8999760, "sha256": "611e359ed133d0d837c3066ac0115726328feb4affecf3d2a19609d00d4a9aaa", "db_record_match": true},
+        {"uri": "var/evals/erun_b46519eebd0c4ff0a1255d77463f6fb6/generation-0ddc3e58c018d1697c42dd3dfb7b337e/report.md", "size_bytes": 13833, "sha256": "f0f3097fa9b169815a859fc1bfbb7a8d90f94729227347cfec0ab49e8de90f94", "db_record_match": true},
+        {"uri": "var/evals/erun_b46519eebd0c4ff0a1255d77463f6fb6/generation-0ddc3e58c018d1697c42dd3dfb7b337e/results.jsonl", "size_bytes": 7260187, "sha256": "888a76563f0d678100a6c701f0e725e50d761c7def6db14838009c05fe270bfc", "db_record_match": true},
+        {"uri": "var/evals/erun_b46519eebd0c4ff0a1255d77463f6fb6/generation-0ddc3e58c018d1697c42dd3dfb7b337e/summary.json", "size_bytes": 103410, "sha256": "0ca5162f46b02cc010422eca067d29d94ea6553edfbf12536b5c04fd70236acd", "db_record_match": true}
+      ]
+    },
+    "medium": {
+      "run_id": "erun_3d9f4e215f8f4cca87246cd25850c53b",
+      "generation_id": "404a12b0ce0605de5288d78ae4c3f157",
+      "run_status": "succeeded",
+      "effect_validity": "valid",
+      "started_at": "2026-08-27T15:31:53.959341+08:00",
+      "completed_at": "2026-08-27T16:03:27.113388+08:00",
+      "completed_cases": 50,
+      "execution_error_count": 0,
+      "config_canonical_sha256": "76132b6d9c5332b281ae42cf5f8ea14d2fd3adf75b6a2fc4a2c75d50ac22455e",
+      "dataset_asset_sha256": "89c570d10282342fd7facec9bd7d20af61337b5ecaef0038157ed824c25c0369",
+      "metrics": {
+        "final_answer_accuracy": {"count": 33, "denominator": 50, "rate": 0.66},
+        "strict_supported_case_pass_rate": {"count": 26, "denominator": 50, "rate": 0.52},
+        "retrieval_support": {"count": 49, "denominator": 50, "rate": 0.98},
+        "answered_citation_correctness": {"count": 39, "denominator": 39, "rate": 1.0},
+        "answered_faithfulness": {"count": 39, "denominator": 39, "rate": 1.0},
+        "unsupported_factual_claim_count": {"maximum": 0, "mean": 0.0},
+        "false_positive_refusal_count": 11,
+        "contract_false_positive_refusal_count": 11
+      },
+      "baseline": {
+        "run_id": "erun_d1b179e0579e407cbe19cfe2aef11258",
+        "final_answer_accuracy": 29,
+        "strict_supported_case_pass_rate": 10
+      },
+      "delta_from_baseline": {
+        "final_answer_accuracy_cases": 4,
+        "strict_supported_case_pass_cases": 16
+      },
+      "targets": {
+        "final_answer_accuracy": 43,
+        "strict_supported_case_pass_rate": 41
+      },
+      "target_verdict": "not_met",
+      "guardrail_status": "passed",
+      "usage": {
+        "total_tokens": 850660,
+        "observed_case_count": 50,
+        "unknown_case_count": 0,
+        "monetary_cost": "unavailable"
+      },
+      "latency_ms": {
+        "mean": 37684.93808,
+        "p95": 63461.38915,
+        "maximum": 104120.858
+      },
+      "artifacts": [
+        {"uri": "var/evals/erun_3d9f4e215f8f4cca87246cd25850c53b/generation-404a12b0ce0605de5288d78ae4c3f157/manifest.json", "size_bytes": 641035, "sha256": "2af99a8ec94964fd459026d141487c4cdee12ea2368086c1326196177372e6aa", "db_record_match": true},
+        {"uri": "var/evals/erun_3d9f4e215f8f4cca87246cd25850c53b/generation-404a12b0ce0605de5288d78ae4c3f157/report.html", "size_bytes": 18525455, "sha256": "6968f627feb49649c5df1db110ba454f280d820db106197df2893de95e044089", "db_record_match": true},
+        {"uri": "var/evals/erun_3d9f4e215f8f4cca87246cd25850c53b/generation-404a12b0ce0605de5288d78ae4c3f157/report.json", "size_bytes": 15423871, "sha256": "437644f0687ac586209398c200807f5aa1f42dacba66607193bb46ca7877230d", "db_record_match": true},
+        {"uri": "var/evals/erun_3d9f4e215f8f4cca87246cd25850c53b/generation-404a12b0ce0605de5288d78ae4c3f157/report.md", "size_bytes": 17081, "sha256": "cf3920d8db0c7da89e3d27872ecdb2a1e68789a5cb072250b51cd788e533cb57", "db_record_match": true},
+        {"uri": "var/evals/erun_3d9f4e215f8f4cca87246cd25850c53b/generation-404a12b0ce0605de5288d78ae4c3f157/results.jsonl", "size_bytes": 11750770, "sha256": "53efb70a8d7220819e988aaa5e0dfbd2c9cda0f54caf3c8e49317cb889bb43d2", "db_record_match": true},
+        {"uri": "var/evals/erun_3d9f4e215f8f4cca87246cd25850c53b/generation-404a12b0ce0605de5288d78ae4c3f157/summary.json", "size_bytes": 545079, "sha256": "1cea21aaf6924dc95f661575b85544bdb1b83eee5812d10d0ceaae66da91d64a", "db_record_match": true}
+      ]
+    }
+  },
+  "overall": {
+    "descriptive_only": true,
+    "final_answer_accuracy": {"count": 77, "denominator": 100, "rate": 0.77},
+    "strict_supported_case_pass_rate": {"count": 68, "denominator": 100, "rate": 0.68},
+    "retrieval_support": {"count": 97, "denominator": 100, "rate": 0.97},
+    "execution_error_count": 0,
+    "total_tokens": 1424439,
+    "monetary_cost": "unavailable",
+    "campaign_target_verdict": "not_met"
+  },
+  "valid_round_accounting": {
+    "easy": {
+      "method_family": "fixed_workflow_proof_rag",
+      "round": 1,
+      "valid": true
+    },
+    "medium": {
+      "method_family": "fixed_workflow_scoped_source_closure_rag",
+      "round": 1,
+      "valid": true
+    }
+  }
+}

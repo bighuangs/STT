@@ -1,0 +1,1284 @@
+[
+  {
+    "case_id": "P3500-EASY-004",
+    "difficulty": "easy",
+    "query": "根据表格内容，哪一种有毒有害物质在部分部件中含量可能超出标准限量？",
+    "reference_answer": "铅(Pb)、汞(Hg)、镉(Cd)、六价铬(Cr(VI))、多溴联苯(PBB)、多溴二苯醚(PBDE)。",
+    "issue_codes": [
+      "EXPECTED_TERMS_ONLY_CAN_PASS",
+      "EXPECTED_TERM_TOO_SHORT",
+      "QUERY_SINGULAR_REFERENCE_ENUMERATION",
+      "TABLE_QUERY_WITHOUT_PARSED_DATA_ROW",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      8
+    ],
+    "visual_pages_checked": [
+      8
+    ],
+    "adjacent_page_material_required": false,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "confirmed_source_conflict",
+    "finding": "问题问哪一种物质，表格仅铅(Pb)在部分部件为×；旧参考列出全部六种物质。",
+    "recommended_action": "将答案合同修为铅(Pb)，并明确超限部件为金属、电线电缆、电路板。",
+    "page_observations": [
+      {
+        "page": 8,
+        "layout": "structured-table",
+        "note": "RoHS 部件×物质矩阵清晰可见；仅铅(Pb)列在金属、电线电缆、电路板行出现×。"
+      }
+    ]
+  },
+  {
+    "case_id": "P3500-EASY-009",
+    "difficulty": "easy",
+    "query": "打印机信息页中显示的硒鼓剩余量是多少？",
+    "reference_answer": "100%。",
+    "issue_codes": [
+      "EXPECTED_TERM_TOO_SHORT",
+      "PDF_TEXT_EXTRACTION_TERM_GAP",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      18
+    ],
+    "visual_pages_checked": [
+      18
+    ],
+    "adjacent_page_material_required": false,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "not_fully_adjudicated",
+    "finding": "视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。",
+    "recommended_action": "在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。",
+    "page_observations": [
+      {
+        "page": 18,
+        "layout": "embedded-report-screenshots",
+        "note": "演示页和打印机信息页为小字号嵌入图，含月打印量及硒鼓剩余量。"
+      }
+    ]
+  },
+  {
+    "case_id": "P3500-EASY-010",
+    "difficulty": "easy",
+    "query": "在“网络信息”一级菜单下，有哪些二级菜单？",
+    "reference_answer": "有线网络信息、无线网络信息、WIFI 热点信息。",
+    "issue_codes": [
+      "ACTUAL_NEAR_THRESHOLD_FALSE_NEGATIVE_CANDIDATE",
+      "PDF_TEXT_EXTRACTION_TERM_GAP",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      19
+    ],
+    "visual_pages_checked": [
+      19
+    ],
+    "adjacent_page_material_required": false,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "not_fully_adjudicated",
+    "finding": "视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。",
+    "recommended_action": "在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。",
+    "page_observations": [
+      {
+        "page": 19,
+        "layout": "embedded-report-screenshots",
+        "note": "菜单结构页和网络配置页为小字号嵌入图。"
+      }
+    ]
+  },
+  {
+    "case_id": "P3500-EASY-028",
+    "difficulty": "easy",
+    "query": "在浏览器中访问打印机内嵌Web服务器时，应输入什么内容？",
+    "reference_answer": "在地址栏中输入打印机的IP地址（例http://192.168.1.100）。",
+    "issue_codes": [
+      "ACTUAL_FINAL_CORRECT_WITH_LOW_FAITHFULNESS",
+      "NUMERIC_MUTATION_CAN_PASS",
+      "PDF_TEXT_EXTRACTION_TERM_GAP",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      48
+    ],
+    "visual_pages_checked": [
+      48
+    ],
+    "adjacent_page_material_required": false,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "not_fully_adjudicated",
+    "finding": "视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。",
+    "recommended_action": "在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。",
+    "page_observations": [
+      {
+        "page": 48,
+        "layout": "body-text+web-example",
+        "note": "内嵌 Web 服务器访问说明含 IP 地址示例。"
+      }
+    ]
+  },
+  {
+    "case_id": "P3500-EASY-046",
+    "difficulty": "easy",
+    "query": "页面歪斜的故障原因中，未正确安装打印介质属于哪一类原因？",
+    "reference_answer": "未正确安装打印介质",
+    "issue_codes": [
+      "PDF_TEXT_EXTRACTION_TERM_GAP",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      86
+    ],
+    "visual_pages_checked": [
+      86,
+      87
+    ],
+    "adjacent_page_material_required": true,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "not_fully_adjudicated",
+    "finding": "视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。",
+    "recommended_action": "在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。",
+    "page_observations": [
+      {
+        "page": 86,
+        "layout": "image-defect-table",
+        "note": "图像缺陷表从本页开始，跨相邻页连续排版。"
+      },
+      {
+        "page": 87,
+        "layout": "image-defect-table",
+        "note": "周期性痕迹、页面歪斜等原因和解决办法清晰。"
+      }
+    ]
+  },
+  {
+    "case_id": "P3500-EASY-049",
+    "difficulty": "easy",
+    "query": "控制面板菜单结构图中，代表文本行的视觉元素是什么？",
+    "reference_answer": "四条水平横线",
+    "issue_codes": [
+      "PDF_TEXT_EXTRACTION_TERM_GAP",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      90
+    ],
+    "visual_pages_checked": [
+      90,
+      91
+    ],
+    "adjacent_page_material_required": false,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "not_explicit_in_source",
+    "finding": "菜单表存在横向分隔线，但源页没有‘四条水平横线代表文本行’的图例或定义。",
+    "recommended_action": "人工重写为源文档可直接判定的问题，或移出确定性评分集。",
+    "page_observations": [
+      {
+        "page": 90,
+        "layout": "menu-hierarchy-table",
+        "note": "菜单结构表从本页开始。"
+      },
+      {
+        "page": 91,
+        "layout": "menu-hierarchy-table",
+        "note": "网络信息三级菜单位于相邻页；说明合并 chunk 的 page 字段可指向起始页。"
+      }
+    ]
+  },
+  {
+    "case_id": "P3500-HARD-004",
+    "difficulty": "hard",
+    "query": "当多功能纸盒卡纸时，应如何操作？如果卡纸未出现在多功能纸盒中，应采取什么额外步骤？",
+    "reference_answer": "将卡住的纸张轻轻地向外拉出；取出后重新装入纸张，打印机将自动恢复打印；如果在该区域看不到纸张，请打开标准纸盒，从标准纸盒中取出卡纸。",
+    "issue_codes": [
+      "PDF_TEXT_EXTRACTION_TERM_GAP",
+      "QUERY_REFERENCE_POLARITY_CANDIDATE",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      80,
+      81
+    ],
+    "visual_pages_checked": [
+      80,
+      81
+    ],
+    "adjacent_page_material_required": false,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "not_fully_adjudicated",
+    "finding": "视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。",
+    "recommended_action": "在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。",
+    "page_observations": [
+      {
+        "page": 80,
+        "layout": "jam-removal-diagrams",
+        "note": "多功能纸盒卡纸处理图示。"
+      },
+      {
+        "page": 81,
+        "layout": "jam-removal-diagrams",
+        "note": "选配纸盒卡纸处理图示。"
+      }
+    ]
+  },
+  {
+    "case_id": "P3500-HARD-005",
+    "difficulty": "hard",
+    "query": "在处理中部卡纸时，为何需要先取出激光碳粉盒并注意避免触摸某些区域？取出卡纸后应如何恢复打印？",
+    "reference_answer": "为避免感光鼓曝光影响打印质量；注意切勿触摸阴影部分区域，避免灼伤；取出卡纸后，重新装入激光碳粉盒，合上前盖，打印机将自动恢复打印。",
+    "issue_codes": [
+      "PDF_TEXT_EXTRACTION_TERM_GAP",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      82,
+      83
+    ],
+    "visual_pages_checked": [
+      82,
+      83
+    ],
+    "adjacent_page_material_required": false,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "not_fully_adjudicated",
+    "finding": "视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。",
+    "recommended_action": "在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。",
+    "page_observations": [
+      {
+        "page": 82,
+        "layout": "jam-removal-diagrams+warning",
+        "note": "中部卡纸及感光鼓遮盖提示。"
+      },
+      {
+        "page": 83,
+        "layout": "jam-removal-diagrams+warning",
+        "note": "中部卡纸后续操作及高温区域警示。"
+      }
+    ]
+  },
+  {
+    "case_id": "P3500-HARD-008",
+    "difficulty": "hard",
+    "query": "页面歪斜的故障原因有哪些？若出现周期性痕迹，应采取什么解决办法？两者在解决办法上是否存在重叠？",
+    "reference_answer": "未正确安装打印介质；打印介质不符合使用规格；打印内部进纸通道脏污；打印定影组件损坏；确保正确安装打印介质；请使用规格范围内的打印介质进行打印；清洁机器内部进纸通道；存在重叠，均需清洁进纸通道或调整介质安装。",
+    "issue_codes": [
+      "HARD_EVIDENCE_WITHOUT_SCORING_CONCEPT",
+      "MULTI_BRANCH_TRUNCATION_CAN_PASS",
+      "PDF_TEXT_EXTRACTION_TERM_GAP",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      86
+    ],
+    "visual_pages_checked": [
+      86,
+      87,
+      88
+    ],
+    "adjacent_page_material_required": true,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "confirmed_source_conflict",
+    "finding": "周期性痕迹的源解决办法是清洁/更换硒鼓或更换定影组件；旧参考声称与页面歪斜共享清洁进纸通道/调整介质。",
+    "recommended_action": "分开建立两类故障的 all-of 概念，删除无源的重叠结论。",
+    "page_observations": [
+      {
+        "page": 86,
+        "layout": "image-defect-table",
+        "note": "图像缺陷表从本页开始，跨相邻页连续排版。"
+      },
+      {
+        "page": 87,
+        "layout": "image-defect-table",
+        "note": "周期性痕迹、页面歪斜等原因和解决办法清晰。"
+      },
+      {
+        "page": 88,
+        "layout": "image-defect-table",
+        "note": "打印全黑版等原因和解决办法清晰。"
+      }
+    ]
+  },
+  {
+    "case_id": "P3500-HARD-012",
+    "difficulty": "hard",
+    "query": "在装入标准纸盒时，如果一次性放入超过250张80 g/m²的纸张，会引发什么问题？同时，为何建议在装入前展开纸张？请结合证据中的注释内容回答。",
+    "reference_answer": "一次性放入超过250张80 g/m²的纸张会导致卡纸或不进纸；建议在装入前展开纸张是为了避免卡纸或进纸错误。",
+    "issue_codes": [
+      "EXPECTED_TERM_TOO_SHORT",
+      "PDF_TEXT_EXTRACTION_TERM_GAP",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      23,
+      24
+    ],
+    "visual_pages_checked": [
+      23,
+      24,
+      25
+    ],
+    "adjacent_page_material_required": true,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "not_fully_adjudicated",
+    "finding": "视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。",
+    "recommended_action": "在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。",
+    "page_observations": [
+      {
+        "page": 23,
+        "layout": "body-text",
+        "note": "纸张与特殊介质说明为正文。"
+      },
+      {
+        "page": 24,
+        "layout": "table+procedure-diagram",
+        "note": "介质规则表和装纸示意图清晰。"
+      },
+      {
+        "page": 25,
+        "layout": "procedure-diagram+note",
+        "note": "展开纸张、250张上限与超量后卡纸/不进纸提示位于相邻页。"
+      }
+    ]
+  },
+  {
+    "case_id": "P3500-HARD-015",
+    "difficulty": "hard",
+    "query": "在打印文档时，非打印区域位于何处？若希望输出颜色较淡，应在打印首选项中选择何种模式？请结合图示与界面设置说明作答。",
+    "reference_answer": "非打印区域位于内外矩形边框之间的白色空白区域；若希望输出颜色较淡，应在打印首选项中选择“省墨”模式。",
+    "issue_codes": [
+      "ACTUAL_PASS_DEPENDS_ON_EXPECTED_TERMS",
+      "EXPECTED_TERMS_ONLY_CAN_PASS",
+      "EXPECTED_TERM_TOO_SHORT",
+      "PDF_TEXT_EXTRACTION_TERM_GAP",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      28,
+      59
+    ],
+    "visual_pages_checked": [
+      28,
+      59
+    ],
+    "adjacent_page_material_required": false,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "confirmed_source_conflict",
+    "finding": "源文明确‘阴影部分表示非打印区域’，旧参考称白色空白区域；省墨分支有明确支持。",
+    "recommended_action": "将第一分支修为图中阴影边缘区域，保留省墨分支。",
+    "page_observations": [
+      {
+        "page": 28,
+        "layout": "diagram+table",
+        "note": "非打印区域以阴影明确标识，并列出上下/左右边距。"
+      },
+      {
+        "page": 59,
+        "layout": "control-panel+ui-screenshot",
+        "note": "省墨开关和打印首选项界面清晰。"
+      }
+    ]
+  },
+  {
+    "case_id": "P3500-HARD-016",
+    "difficulty": "hard",
+    "query": "在有线网络安装过程中，若已搜索到的打印机列表中没有目标打印机，应采取什么措施？若要通过主机名方式安装驱动，需要勾选哪些选项？请结合两个证据中的提示回答。",
+    "reference_answer": "应点击“刷新”按钮；若要通过主机名方式安装驱动，需同时勾选“打印机名称”和“以主机名安装列表中的打印机”。",
+    "issue_codes": [
+      "EXPECTED_TERMS_ONLY_CAN_PASS",
+      "EXPECTED_TERM_TOO_SHORT",
+      "EXPECTED_TERM_VARIANTS_OVERLAP",
+      "HARD_EVIDENCE_WITHOUT_SCORING_CONCEPT",
+      "PDF_TEXT_EXTRACTION_TERM_GAP",
+      "QUERY_REFERENCE_POLARITY_CANDIDATE",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      19,
+      30
+    ],
+    "visual_pages_checked": [
+      19,
+      30
+    ],
+    "adjacent_page_material_required": false,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "not_fully_adjudicated",
+    "finding": "视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。",
+    "recommended_action": "在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。",
+    "page_observations": [
+      {
+        "page": 19,
+        "layout": "embedded-report-screenshots",
+        "note": "菜单结构页和网络配置页为小字号嵌入图。"
+      },
+      {
+        "page": 30,
+        "layout": "installer-screenshot+procedure",
+        "note": "USB/有线安装流程和安装器界面。"
+      }
+    ]
+  },
+  {
+    "case_id": "P3500-HARD-017",
+    "difficulty": "hard",
+    "query": "在USB安装过程中，系统自动安装驱动后，弹出的“安装完成”界面会在多久后自动关闭？若在有线网络安装中遇到相同情况，是否也适用此规则？请结合两条证据中的描述作答。",
+    "reference_answer": "约3秒后自动关闭；是，该规则同样适用于有线网络安装。",
+    "issue_codes": [
+      "ACTUAL_PASS_DEPENDS_ON_EXPECTED_TERMS",
+      "EXPECTED_TERMS_ONLY_CAN_PASS",
+      "EXPECTED_TERM_TOO_SHORT",
+      "NUMERIC_MUTATION_CAN_PASS",
+      "PDF_TEXT_EXTRACTION_TERM_GAP",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      30,
+      32
+    ],
+    "visual_pages_checked": [
+      30,
+      32
+    ],
+    "adjacent_page_material_required": false,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "not_fully_adjudicated",
+    "finding": "视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。",
+    "recommended_action": "在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。",
+    "page_observations": [
+      {
+        "page": 30,
+        "layout": "installer-screenshot+procedure",
+        "note": "USB/有线安装流程和安装器界面。"
+      },
+      {
+        "page": 32,
+        "layout": "installer-screenshot+procedure",
+        "note": "新无线网络安装流程和安装器界面。"
+      }
+    ]
+  },
+  {
+    "case_id": "P3500-HARD-018",
+    "difficulty": "hard",
+    "query": "在基础结构连接安装中，若选择“连接至新的网络的打印机”，安装程序会执行什么操作？若在Wi-Fi热点连接安装中未找到目标打印机，应如何处理？请结合两个证据中的流程说明回答。",
+    "reference_answer": "安装程序会配置打印机连接至新的无线网络；若未找到目标打印机，应点击“刷新”按钮。",
+    "issue_codes": [
+      "EXPECTED_TERM_TOO_SHORT",
+      "PDF_TEXT_EXTRACTION_TERM_GAP",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      32,
+      33
+    ],
+    "visual_pages_checked": [
+      32,
+      33
+    ],
+    "adjacent_page_material_required": false,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "not_fully_adjudicated",
+    "finding": "视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。",
+    "recommended_action": "在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。",
+    "page_observations": [
+      {
+        "page": 32,
+        "layout": "installer-screenshot+procedure",
+        "note": "新无线网络安装流程和安装器界面。"
+      },
+      {
+        "page": 33,
+        "layout": "installer-screenshot+procedure",
+        "note": "Wi-Fi 热点安装流程和安装器界面。"
+      }
+    ]
+  },
+  {
+    "case_id": "P3500-HARD-021",
+    "difficulty": "hard",
+    "query": "在基础结构连接模式中，计算机通过无线网络连接至接入点，而打印机通过网线连接至接入点；而在Wi-Fi热点连接模式中，计算机与打印机直接通过无线网络连接。这两种连接方式下，打印机的IP地址分配有何不同？",
+    "reference_answer": "基础结构连接模式下，打印机通过接入点连接网络，其IPv6地址由DHCPv6服务器配置或由路由器自动配置；Wi-Fi热点连接模式下，打印机作为热点，其IPv6地址为自行配置的本地IPv6地址（以FE80开头）。",
+    "issue_codes": [
+      "PDF_TEXT_EXTRACTION_TERM_GAP",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      40
+    ],
+    "visual_pages_checked": [
+      40,
+      41
+    ],
+    "adjacent_page_material_required": false,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "source_scope_not_explicit",
+    "finding": "源分别描述 IPv6 地址类型和两种无线拓扑，但没有把 DHCPv6/路由器地址与基础结构、FE80 与热点模式建立一一合同。",
+    "recommended_action": "避免要求无明确源绑定的推断；拆为地址类型题与连接拓扑题。",
+    "page_observations": [
+      {
+        "page": 40,
+        "layout": "body-text",
+        "note": "IPv6 地址类型说明为正文，但未直接绑定到两种无线连接模式。"
+      },
+      {
+        "page": 41,
+        "layout": "network-diagram+body-text",
+        "note": "基础结构与 Wi-Fi 热点连接拓扑图清晰。"
+      }
+    ]
+  },
+  {
+    "case_id": "P3500-HARD-022",
+    "difficulty": "hard",
+    "query": "在基础结构连接模式中，若使用无线网络配置工具进行设置，且计算机已开启无线网络，应如何选择并确认要连接的无线网络？如果该网络名不在列表中，又该如何处理？",
+    "reference_answer": "应选择与接入点（无线路由器）网络名（SSID）一致的无线网络，点击下一步；若网络名不在列表中，需勾选“手动输入网络名”进行配置。",
+    "issue_codes": [
+      "EXPECTED_TERMS_ONLY_CAN_PASS",
+      "MULTI_BRANCH_TRUNCATION_CAN_PASS",
+      "PDF_TEXT_EXTRACTION_TERM_GAP",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      41
+    ],
+    "visual_pages_checked": [
+      41
+    ],
+    "adjacent_page_material_required": false,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "not_fully_adjudicated",
+    "finding": "视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。",
+    "recommended_action": "在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。",
+    "page_observations": [
+      {
+        "page": 41,
+        "layout": "network-diagram+body-text",
+        "note": "基础结构与 Wi-Fi 热点连接拓扑图清晰。"
+      }
+    ]
+  },
+  {
+    "case_id": "P3500-HARD-023",
+    "difficulty": "hard",
+    "query": "在无线网络配置工具中，若打印机支持WPA/WPA2安全模式，其预共享密钥（PSK）的长度要求是什么？如果用户未勾选“显示密码”，输入的密码将如何显示？",
+    "reference_answer": "WPA/WPA2安全模式的预共享密钥（PSK）长度介于8-63个字符之间；未勾选“显示密码”时，所输入的密码将以星号“********”形式显示。",
+    "issue_codes": [
+      "EXPECTED_TERM_TOO_SHORT",
+      "HARD_EVIDENCE_WITHOUT_SCORING_CONCEPT",
+      "PDF_TEXT_EXTRACTION_TERM_GAP",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      43
+    ],
+    "visual_pages_checked": [
+      43
+    ],
+    "adjacent_page_material_required": false,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "not_fully_adjudicated",
+    "finding": "视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。",
+    "recommended_action": "在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。",
+    "page_observations": [
+      {
+        "page": 43,
+        "layout": "installer-screenshot+body-text",
+        "note": "WPA/WPA2 密钥长度及显示密码行为清晰。"
+      }
+    ]
+  },
+  {
+    "case_id": "P3500-HARD-024",
+    "difficulty": "hard",
+    "query": "在Wi-Fi热点连接方法中，打印机需要先打印网络配置信息页以获取其热点的SSID和密码；而在Wi-Fi Protected Setup配置方法中，打印机与接入点需在2分钟内完成按键配对。这两种方法分别适用于什么场景？",
+    "reference_answer": "Wi-Fi热点连接方法适用于计算机或移动设备直接连接打印机热点的场景；Wi-Fi Protected Setup配置方法适用于接入点（无线路由器）支持WPS且希望快速配对的场景。",
+    "issue_codes": [
+      "EXPECTED_TERMS_ONLY_CAN_PASS",
+      "EXPECTED_TERM_TOO_SHORT",
+      "PDF_TEXT_EXTRACTION_TERM_GAP",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      44
+    ],
+    "visual_pages_checked": [
+      44
+    ],
+    "adjacent_page_material_required": false,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "not_fully_adjudicated",
+    "finding": "视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。",
+    "recommended_action": "在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。",
+    "page_observations": [
+      {
+        "page": 44,
+        "layout": "procedure+icons",
+        "note": "WPS 和 Wi-Fi 热点连接步骤清晰。"
+      }
+    ]
+  },
+  {
+    "case_id": "P3500-HARD-029",
+    "difficulty": "hard",
+    "query": "在省墨设置中，若选择“开启”状态，打印输出的颜色会如何变化？若要恢复出厂设置，应在哪个菜单中操作？",
+    "reference_answer": "当省墨模式为“开启”时，打印输出的颜色将偏淡；恢复出厂设置需在“1.系统设置”菜单中选择“4.恢复出厂设置”选项。",
+    "issue_codes": [
+      "EXPECTED_TERM_TOO_SHORT",
+      "PDF_TEXT_EXTRACTION_TERM_GAP",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      58,
+      60
+    ],
+    "visual_pages_checked": [
+      58,
+      60
+    ],
+    "adjacent_page_material_required": false,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "not_fully_adjudicated",
+    "finding": "视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。",
+    "recommended_action": "在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。",
+    "page_observations": [
+      {
+        "page": 58,
+        "layout": "control-panel-diagram",
+        "note": "省墨菜单操作以控制面板示意图呈现。"
+      },
+      {
+        "page": 60,
+        "layout": "control-panel-diagram",
+        "note": "恢复出厂设置菜单操作清晰。"
+      }
+    ]
+  },
+  {
+    "case_id": "P3500-HARD-032",
+    "difficulty": "hard",
+    "query": "当打印机的多功能纸盒和标准纸盒无纸时，系统将如何选择进纸源？此外，在安装选配纸盒后，若用户在打印过程中抬起打印机本体，会发生什么情况？",
+    "reference_answer": "当打印机的多功能纸盒和标准纸盒无纸时，或者用户设置纸张来源为“选配置纸盒1/2”，打印机将会从选配纸盒进纸完成打印作业。选配纸盒安装完成后，打印过程中请勿抬起本体，否则将会造成选配纸盒通信失败。用户需要重新开机恢复错误。",
+    "issue_codes": [
+      "EXPECTED_TERM_VARIANTS_OVERLAP",
+      "HARD_EVIDENCE_WITHOUT_SCORING_CONCEPT",
+      "PDF_TEXT_EXTRACTION_TERM_GAP",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      66
+    ],
+    "visual_pages_checked": [
+      66,
+      67
+    ],
+    "adjacent_page_material_required": true,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "not_fully_adjudicated",
+    "finding": "视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。",
+    "recommended_action": "在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。",
+    "page_observations": [
+      {
+        "page": 66,
+        "layout": "tray-diagram",
+        "note": "多功能纸盒和选配纸盒安装示意。"
+      },
+      {
+        "page": 67,
+        "layout": "tray-diagram+ui-screenshot",
+        "note": "选配纸盒通信失败提示及进纸选择说明位于相邻页。"
+      }
+    ]
+  },
+  {
+    "case_id": "P3500-HARD-037",
+    "difficulty": "hard",
+    "query": "奔图电子产品回收利用体系中，用户需将废弃产品交给哪里进行统一回收？同时，打印机内部的激光组件上贴有何种标签？",
+    "reference_answer": "您可以选择将废弃的打印机和耗材交给当地奔图维修中心进行统一回收。本机内部的激光组件上贴有如下标签：CAUTION CLASS 3B: MAILABLE LASER RADIATION WHEN OPEN AND INTERLOCKS DEFEATED AVOID EXPOSURE TO BEAM.",
+    "issue_codes": [
+      "EXPECTED_TERMS_ONLY_CAN_PASS",
+      "PDF_TEXT_EXTRACTION_TERM_GAP",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      4
+    ],
+    "visual_pages_checked": [
+      4
+    ],
+    "adjacent_page_material_required": false,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "confirmed_source_conflict",
+    "finding": "激光标签可见文字为 INVISIBLE LASER RADIATION，旧参考误写为 MAILABLE LASER RADIATION。",
+    "recommended_action": "按标签原文修正标识符；评测合同要求关键标识符全保留。",
+    "page_observations": [
+      {
+        "page": 4,
+        "layout": "text+embedded-label+flowchart",
+        "note": "激光警示标签和回收流程为嵌入图像；标签可见文本为 INVISIBLE LASER RADIATION。"
+      }
+    ]
+  },
+  {
+    "case_id": "P3500-HARD-040",
+    "difficulty": "hard",
+    "query": "此符号表明不能将该产品与其它废物一起随意丢弃，正确的做法是什么？此外，根据表格信息，哪些部件含有超出限量要求的有害物质？",
+    "reference_answer": "您应该将废弃设备送到指定的收集点，以便回收利用废弃的电气和电子设备。本产品的部分部件含有有害物质,这些部件是在现有科学技术水平下暂时无可替代物质。",
+    "issue_codes": [
+      "ACTUAL_PASS_DEPENDS_ON_EXPECTED_TERMS",
+      "EXPECTED_TERMS_ONLY_CAN_PASS",
+      "EXPECTED_TERM_VARIANTS_OVERLAP",
+      "MULTI_BRANCH_TRUNCATION_CAN_PASS",
+      "QUERY_REFERENCE_POLARITY_CANDIDATE",
+      "TABLE_QUERY_WITHOUT_PARSED_DATA_ROW",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      7,
+      8
+    ],
+    "visual_pages_checked": [
+      7,
+      8
+    ],
+    "adjacent_page_material_required": false,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "confirmed_source_conflict",
+    "finding": "第二问要求列出超限部件；表格答案为金属、电线电缆、电路板（均为铅），旧参考只泛述‘部分部件’。",
+    "recommended_action": "补全第二分支的部件与物质绑定。",
+    "page_observations": [
+      {
+        "page": 7,
+        "layout": "symbol+text",
+        "note": "废弃电气设备符号旁有明确送往指定收集点的文字。"
+      },
+      {
+        "page": 8,
+        "layout": "structured-table",
+        "note": "RoHS 部件×物质矩阵清晰可见；仅铅(Pb)列在金属、电线电缆、电路板行出现×。"
+      }
+    ]
+  },
+  {
+    "case_id": "P3500-HARD-041",
+    "difficulty": "hard",
+    "query": "根据打印机侧面及正面视图标注示意图和打印机信息页的内容，若要检查设备左侧后部的竖向通风口区域是否正常，应确认该位置是否有标签1指向的结构，并结合硒鼓剩余量为100%这一状态判断设备当前运行是否处于理想条件？",
+    "reference_answer": "标签1指向设备左侧后部的竖向通风口区域，且硒鼓剩余量为100%。",
+    "issue_codes": [
+      "ACTUAL_NEAR_THRESHOLD_FALSE_NEGATIVE_CANDIDATE",
+      "EXPECTED_TERM_TOO_SHORT",
+      "PDF_TEXT_EXTRACTION_TERM_GAP",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      14,
+      18
+    ],
+    "visual_pages_checked": [
+      14,
+      18
+    ],
+    "adjacent_page_material_required": false,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "confirmed_source_conflict",
+    "finding": "后视图编号表明确标签1为 USB 接口，不是左侧后部竖向通风口；硒鼓100%分支有支持。",
+    "recommended_action": "删除错误图号绑定，或改问标签1对应的 USB 接口。",
+    "page_observations": [
+      {
+        "page": 14,
+        "layout": "numbered-diagram+table",
+        "note": "后视图编号及名称表清晰；编号1对应 USB 接口。"
+      },
+      {
+        "page": 18,
+        "layout": "embedded-report-screenshots",
+        "note": "演示页和打印机信息页为小字号嵌入图，含月打印量及硒鼓剩余量。"
+      }
+    ]
+  },
+  {
+    "case_id": "P3500-HARD-042",
+    "difficulty": "hard",
+    "query": "根据演示页中列出的50,000页每月工作负荷和750至4,000页推荐月打印量，以及网络配置信息页中显示的无线IP地址为192.168.0.102，若某用户在无线网络下使用该打印机进行连续打印，其实际打印量接近推荐上限时，应如何判断设备是否仍处于可接受的工作负载范围内？",
+    "reference_answer": "推荐月打印量为750至4,000页，无线IP地址为192.168.0.102。",
+    "issue_codes": [
+      "EXPECTED_TERM_TOO_SHORT",
+      "PDF_TEXT_EXTRACTION_TERM_GAP",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      18,
+      19
+    ],
+    "visual_pages_checked": [
+      18,
+      19
+    ],
+    "adjacent_page_material_required": false,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "reference_does_not_answer_query",
+    "finding": "源支持月负荷和 IP 数值，但问题要求判断是否仍在可接受工作负载；旧参考只复述数字和IP，没有给出判断。",
+    "recommended_action": "参考答案需明确：接近4,000页仍在推荐范围内且远低于50,000页最大月负荷；IP与负荷判断无关。",
+    "page_observations": [
+      {
+        "page": 18,
+        "layout": "embedded-report-screenshots",
+        "note": "演示页和打印机信息页为小字号嵌入图，含月打印量及硒鼓剩余量。"
+      },
+      {
+        "page": 19,
+        "layout": "embedded-report-screenshots",
+        "note": "菜单结构页和网络配置页为小字号嵌入图。"
+      }
+    ]
+  },
+  {
+    "case_id": "P3500-MEDIUM-003",
+    "difficulty": "medium",
+    "query": "P3500 Series 黑白激光打印机的推荐月打印量范围是多少？其最大月工作负荷是多少？",
+    "reference_answer": "750 to 4,000 recommended monthly page volume；50,000 page monthly duty cycle",
+    "issue_codes": [
+      "PDF_TEXT_EXTRACTION_TERM_GAP",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      18
+    ],
+    "visual_pages_checked": [
+      18
+    ],
+    "adjacent_page_material_required": false,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "not_fully_adjudicated",
+    "finding": "视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。",
+    "recommended_action": "在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。",
+    "page_observations": [
+      {
+        "page": 18,
+        "layout": "embedded-report-screenshots",
+        "note": "演示页和打印机信息页为小字号嵌入图，含月打印量及硒鼓剩余量。"
+      }
+    ]
+  },
+  {
+    "case_id": "P3500-MEDIUM-004",
+    "difficulty": "medium",
+    "query": "当打印机通过无线网络连接时，其IP地址、默认网关和身份验证方式分别是什么？",
+    "reference_answer": "IP 地址：192.168.0.102；默认网关：192.168.0.1；身份验证方式：WPA/WPA2",
+    "issue_codes": [
+      "EXPECTED_TERMS_ONLY_CAN_PASS",
+      "EXPECTED_TERM_TOO_SHORT",
+      "NUMERIC_MUTATION_CAN_PASS",
+      "PDF_TEXT_EXTRACTION_TERM_GAP",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      19
+    ],
+    "visual_pages_checked": [
+      19
+    ],
+    "adjacent_page_material_required": false,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "not_fully_adjudicated",
+    "finding": "视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。",
+    "recommended_action": "在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。",
+    "page_observations": [
+      {
+        "page": 19,
+        "layout": "embedded-report-screenshots",
+        "note": "菜单结构页和网络配置页为小字号嵌入图。"
+      }
+    ]
+  },
+  {
+    "case_id": "P3500-MEDIUM-005",
+    "difficulty": "medium",
+    "query": "在 Wi-Fi 热点列表页中，信号强度为 60% 的热点有哪些？它们的加密方式是什么？",
+    "reference_answer": "Test-AP2、Test-AP3；WPA/WPA2",
+    "issue_codes": [
+      "PDF_TEXT_EXTRACTION_TERM_GAP",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      20
+    ],
+    "visual_pages_checked": [
+      20
+    ],
+    "adjacent_page_material_required": false,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "not_fully_adjudicated",
+    "finding": "视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。",
+    "recommended_action": "在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。",
+    "page_observations": [
+      {
+        "page": 20,
+        "layout": "embedded-table-screenshot",
+        "note": "Wi-Fi 热点列表为嵌入表格图。"
+      }
+    ]
+  },
+  {
+    "case_id": "P3500-MEDIUM-011",
+    "difficulty": "medium",
+    "query": "在安装Pantum P3500DN Series打印机时，若选择通过网络连接，需要满足哪些条件并执行哪些步骤？请结合安装向导界面说明。",
+    "reference_answer": "计算机已连接到有线网络；打开打印机和计算机的电源；将网线连接到打印机的网络接口，确保打印机与计算机处于同一网络；在计算机的光驱中插入随附的安装光盘，运行Autorun.exe安装程序；选择安装语言为中文（简体），选择打印机型号为Pantum P3500DN Series PCL6，选择安装方式为已连接至网络的打印机；点击“安装”按钮；安装程序自动搜索打印机，搜索过程可能需要1－2分钟；搜索完成后，选择需要连接的打印机，点击“下一步”。",
+    "issue_codes": [
+      "PDF_TEXT_EXTRACTION_TERM_GAP",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      30
+    ],
+    "visual_pages_checked": [
+      30
+    ],
+    "adjacent_page_material_required": false,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "not_fully_adjudicated",
+    "finding": "视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。",
+    "recommended_action": "在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。",
+    "page_observations": [
+      {
+        "page": 30,
+        "layout": "installer-screenshot+procedure",
+        "note": "USB/有线安装流程和安装器界面。"
+      }
+    ]
+  },
+  {
+    "case_id": "P3500-MEDIUM-012",
+    "difficulty": "medium",
+    "query": "使用USB线连接Pantum P3500D Series打印机时，安装驱动前需完成哪些操作？请根据安装向导界面描述。",
+    "reference_answer": "使用USB线连接打印机和计算机，打开电源；在计算机的光驱中插入随附的安装光盘，运行Autorun.exe安装程序；阅读许可协议，选择安装语言为中文（简体），点击“安装”按钮。",
+    "issue_codes": [
+      "EXPECTED_TERMS_ONLY_CAN_PASS",
+      "EXPECTED_TERM_TOO_SHORT",
+      "MULTI_BRANCH_TRUNCATION_CAN_PASS",
+      "PDF_TEXT_EXTRACTION_TERM_GAP",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      30
+    ],
+    "visual_pages_checked": [
+      30
+    ],
+    "adjacent_page_material_required": false,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "not_fully_adjudicated",
+    "finding": "视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。",
+    "recommended_action": "在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。",
+    "page_observations": [
+      {
+        "page": 30,
+        "layout": "installer-screenshot+procedure",
+        "note": "USB/有线安装流程和安装器界面。"
+      }
+    ]
+  },
+  {
+    "case_id": "P3500-MEDIUM-013",
+    "difficulty": "medium",
+    "query": "在配置Pantum P3500DW Series打印机连接新无线网络时，必须满足什么前提条件，并在安装向导中如何操作？请结合证据说明。",
+    "reference_answer": "计算机已成功连接到接入点（无线路由器）；在安装光盘中运行Autorun.exe安装程序；选择安装语言为中文（简体），选择打印机型号为Pantum P3500DW Series PCL6，选择安装方式为连接至新的网络的打印机；点击“安装”按钮；按照提示将打印机配置到无线网络；安装程序自动搜索打印机，搜索过程可能需要1－2分钟；选择需要连接的打印机，点击“下一步”。",
+    "issue_codes": [
+      "PDF_TEXT_EXTRACTION_TERM_GAP",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      32
+    ],
+    "visual_pages_checked": [
+      32
+    ],
+    "adjacent_page_material_required": false,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "not_fully_adjudicated",
+    "finding": "视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。",
+    "recommended_action": "在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。",
+    "page_observations": [
+      {
+        "page": 32,
+        "layout": "installer-screenshot+procedure",
+        "note": "新无线网络安装流程和安装器界面。"
+      }
+    ]
+  },
+  {
+    "case_id": "P3500-MEDIUM-014",
+    "difficulty": "medium",
+    "query": "当通过Wi-Fi热点方式连接Pantum P3500DW Series打印机时，安装过程中应遵循哪些关键步骤？请依据安装界面信息回答。",
+    "reference_answer": "打开打印机和计算机的电源；打开打印机的Wi-Fi热点；连接计算机到打印机的无线热点；在计算机的光驱中插入随附的安装光盘，运行Autorun.exe安装程序；选择安装语言为中文（简体），选择打印机型号为Pantum P3500DW Series PCL6，选择安装方式为已连接至网络的打印机；点击“安装”按钮；安装程序自动搜索打印机，搜索过程可能需要1－2分钟；选择需要连接的打印机，点击“下一步”；系统自动安装驱动，安装过程可能需要几分钟；安装完成后弹出“安装完成”界面，约3秒后自动关闭。",
+    "issue_codes": [
+      "MULTI_BRANCH_TRUNCATION_CAN_PASS",
+      "PDF_TEXT_EXTRACTION_TERM_GAP",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      33
+    ],
+    "visual_pages_checked": [
+      33
+    ],
+    "adjacent_page_material_required": false,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "not_fully_adjudicated",
+    "finding": "视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。",
+    "recommended_action": "在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。",
+    "page_observations": [
+      {
+        "page": 33,
+        "layout": "installer-screenshot+procedure",
+        "note": "Wi-Fi 热点安装流程和安装器界面。"
+      }
+    ]
+  },
+  {
+    "case_id": "P3500-MEDIUM-021",
+    "difficulty": "medium",
+    "query": "在设置打印机Wi-Fi热点时，需要完成哪些操作步骤？请按顺序说明。",
+    "reference_answer": "打开打印机电源；按下打印机控制面板“菜单键”－“菜单设置”－“网络设置”－“Wi-Fi热点”－“开启”，打开打印机的Wi-Fi热点；按下打印机控制面板“菜单键”－“打印信息报告”－“网络配置信息页”，打印并查看打印机无线热点的“SSID”和“密码”；开启计算机或移动设备。",
+    "issue_codes": [
+      "EXPECTED_TERMS_ONLY_CAN_PASS",
+      "MULTI_BRANCH_TRUNCATION_CAN_PASS",
+      "PDF_TEXT_EXTRACTION_TERM_GAP",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      44
+    ],
+    "visual_pages_checked": [
+      44
+    ],
+    "adjacent_page_material_required": false,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "not_fully_adjudicated",
+    "finding": "视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。",
+    "recommended_action": "在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。",
+    "page_observations": [
+      {
+        "page": 44,
+        "layout": "procedure+icons",
+        "note": "WPS 和 Wi-Fi 热点连接步骤清晰。"
+      }
+    ]
+  },
+  {
+    "case_id": "P3500-MEDIUM-029",
+    "difficulty": "medium",
+    "query": "在省墨设置中，如何开启或关闭省墨模式？请说明具体操作流程。",
+    "reference_answer": "按“菜单”键进入菜单设置界面；按“OK”键选择“1.系统设置”选项；按方向键“▲”或“▼”选择“3. 省墨”选项，按“OK”键；选择“1. 关闭”或“2. 开启”，按“OK”键，“\\*”表示设置完成。",
+    "issue_codes": [
+      "EXPECTED_TERM_TOO_SHORT",
+      "PDF_TEXT_EXTRACTION_TERM_GAP",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      58
+    ],
+    "visual_pages_checked": [
+      58
+    ],
+    "adjacent_page_material_required": false,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "not_fully_adjudicated",
+    "finding": "视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。",
+    "recommended_action": "在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。",
+    "page_observations": [
+      {
+        "page": 58,
+        "layout": "control-panel-diagram",
+        "note": "省墨菜单操作以控制面板示意图呈现。"
+      }
+    ]
+  },
+  {
+    "case_id": "P3500-MEDIUM-038",
+    "difficulty": "medium",
+    "query": "更换激光碳粉盒后，需要完成哪些后续操作以确保打印正常？请按顺序说明。",
+    "reference_answer": "取下保护罩，将激光碳粉盒沿导轨放入打印机，盖紧机盖；重新开启打印机电源，打印一张测试页。",
+    "issue_codes": [
+      "EXPECTED_TERMS_ONLY_CAN_PASS",
+      "PDF_TEXT_EXTRACTION_TERM_GAP",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      76
+    ],
+    "visual_pages_checked": [
+      76
+    ],
+    "adjacent_page_material_required": false,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "not_fully_adjudicated",
+    "finding": "视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。",
+    "recommended_action": "在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。",
+    "page_observations": [
+      {
+        "page": 76,
+        "layout": "toner-replacement-diagrams",
+        "note": "碳粉盒更换步骤以连续图示呈现。"
+      }
+    ]
+  },
+  {
+    "case_id": "P3500-MEDIUM-040",
+    "difficulty": "medium",
+    "query": "当标准纸盒发生卡纸时，应如何处理？请按顺序说明操作步骤。",
+    "reference_answer": "打开纸盒；将卡住的纸张轻轻地向外拉出；取出卡纸后，请将纸盒重新装入打印机，打印机将自动恢复打印。",
+    "issue_codes": [
+      "PDF_TEXT_EXTRACTION_TERM_GAP",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      79
+    ],
+    "visual_pages_checked": [
+      79
+    ],
+    "adjacent_page_material_required": false,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "not_fully_adjudicated",
+    "finding": "视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。",
+    "recommended_action": "在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。",
+    "page_observations": [
+      {
+        "page": 79,
+        "layout": "jam-removal-diagrams",
+        "note": "标准纸盒卡纸处理图示。"
+      }
+    ]
+  },
+  {
+    "case_id": "P3500-MEDIUM-041",
+    "difficulty": "medium",
+    "query": "当打印机选配纸盒出现卡纸时，若在该区域看不到纸张，应执行哪些操作步骤？请按顺序说明。",
+    "reference_answer": "打开标准纸盒，从标准纸盒中取出卡纸，取出卡纸后重新将纸盒放入打印机。",
+    "issue_codes": [
+      "EXPECTED_TERM_VARIANTS_OVERLAP",
+      "PDF_TEXT_EXTRACTION_TERM_GAP",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      81
+    ],
+    "visual_pages_checked": [
+      81
+    ],
+    "adjacent_page_material_required": false,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "not_fully_adjudicated",
+    "finding": "视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。",
+    "recommended_action": "在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。",
+    "page_observations": [
+      {
+        "page": 81,
+        "layout": "jam-removal-diagrams",
+        "note": "选配纸盒卡纸处理图示。"
+      }
+    ]
+  },
+  {
+    "case_id": "P3500-MEDIUM-042",
+    "difficulty": "medium",
+    "query": "处理中部卡纸时，为避免感光鼓曝光影响打印质量，在取出激光碳粉盒后应采取什么措施？取出卡纸后又需完成哪些操作才能恢复打印？",
+    "reference_answer": "用黑色胶袋将激光碳粉盒装好，或用纸张盖住激光碳粉盒；重新装入激光碳粉盒，合上前盖，打印机将自动恢复打印。",
+    "issue_codes": [
+      "PDF_TEXT_EXTRACTION_TERM_GAP",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      82
+    ],
+    "visual_pages_checked": [
+      82
+    ],
+    "adjacent_page_material_required": false,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "not_fully_adjudicated",
+    "finding": "视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。",
+    "recommended_action": "在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。",
+    "page_observations": [
+      {
+        "page": 82,
+        "layout": "jam-removal-diagrams+warning",
+        "note": "中部卡纸及感光鼓遮盖提示。"
+      }
+    ]
+  },
+  {
+    "case_id": "P3500-MEDIUM-045",
+    "difficulty": "medium",
+    "query": "打印全黑版的故障原因是什么？解决办法中建议采取哪两项措施？",
+    "reference_answer": "未正确安装激光碳粉盒；激光碳粉盒内部损坏；机器内部充电异常，未给激光碳粉盒充电；确保正确安装激光碳粉盒；建议更换原装激光碳粉盒。",
+    "issue_codes": [
+      "EXPECTED_TERMS_ONLY_CAN_PASS",
+      "PDF_TEXT_EXTRACTION_TERM_GAP",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      86
+    ],
+    "visual_pages_checked": [
+      86,
+      88
+    ],
+    "adjacent_page_material_required": true,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "not_fully_adjudicated",
+    "finding": "视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。",
+    "recommended_action": "在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。",
+    "page_observations": [
+      {
+        "page": 86,
+        "layout": "image-defect-table",
+        "note": "图像缺陷表从本页开始，跨相邻页连续排版。"
+      },
+      {
+        "page": 88,
+        "layout": "image-defect-table",
+        "note": "打印全黑版等原因和解决办法清晰。"
+      }
+    ]
+  },
+  {
+    "case_id": "P3500-MEDIUM-047",
+    "difficulty": "medium",
+    "query": "在打印机菜单结构中，网络信息下的无线网络信息包含哪些三级菜单项？其中哪个菜单项用于查看当前连接状态？",
+    "reference_answer": "连接状态、IP地址、子网掩码、网关、信道、SSID；连接状态用于查看当前连接状态。",
+    "issue_codes": [
+      "EXPECTED_TERMS_ONLY_CAN_PASS",
+      "EXPECTED_TERM_TOO_SHORT",
+      "MULTI_BRANCH_TRUNCATION_CAN_PASS",
+      "PDF_TEXT_EXTRACTION_TERM_GAP",
+      "QUERY_SINGULAR_REFERENCE_ENUMERATION",
+      "UNSUPPORTED_FALSE_ADDITION_CAN_PASS"
+    ],
+    "declared_evidence_pages": [
+      90
+    ],
+    "visual_pages_checked": [
+      90,
+      91
+    ],
+    "adjacent_page_material_required": true,
+    "visual_source_disposition": "visual_material_present",
+    "reference_disposition": "not_fully_adjudicated",
+    "finding": "视觉材料存在；本审计只排除‘源文件缺失’，不把存在性当作参考答案已被完整验证。",
+    "recommended_action": "在 suite v2 概念合同中继续按分支、关键数值/标识符和证据绑定审阅。",
+    "page_observations": [
+      {
+        "page": 90,
+        "layout": "menu-hierarchy-table",
+        "note": "菜单结构表从本页开始。"
+      },
+      {
+        "page": 91,
+        "layout": "menu-hierarchy-table",
+        "note": "网络信息三级菜单位于相邻页；说明合并 chunk 的 page 字段可指向起始页。"
+      }
+    ]
+  }
+]

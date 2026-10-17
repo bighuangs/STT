@@ -1,0 +1,910 @@
+{
+  "schema_version": "stt.eval.suite-v2-review-block-union-audit.v1",
+  "status": "passed",
+  "policy": {
+    "case_rules_uniform": true,
+    "production_answers_read": false,
+    "production_pass_fail_read": false,
+    "visual_manual_review_requires_remediation": true,
+    "weak_only_concept_requires_remediation": true,
+    "proposal_coverage_required": true
+  },
+  "review": {
+    "expected_case_count": 150,
+    "successful_case_count": 150,
+    "missing_case_count": 0,
+    "missing_custom_ids": [],
+    "prompt_sha256": "d5af42cbcf5385c408583c4ed36b110ac89740be24d83248fafb58681d04a78b",
+    "request_pack_sha256": "4845a1fee2dbad4e23f7f638a3cadb59753a637cb09e52884f2927295833e32d",
+    "responses_sha256": "9118438fe4b87b0f622e6f65cf1d64448265c466928653b51e96400d9af3d7e1"
+  },
+  "reviewer_block_case_ids": [
+    "P3500-EASY-004",
+    "P3500-EASY-031",
+    "P3500-EASY-046",
+    "P3500-HARD-003",
+    "P3500-HARD-007",
+    "P3500-HARD-009",
+    "P3500-HARD-011",
+    "P3500-HARD-042"
+  ],
+  "visual_confirmed_block_case_ids": [
+    "P3500-EASY-004",
+    "P3500-HARD-008",
+    "P3500-HARD-015",
+    "P3500-HARD-021",
+    "P3500-HARD-037",
+    "P3500-HARD-040",
+    "P3500-HARD-041",
+    "P3500-HARD-042"
+  ],
+  "visual_manual_remediation_case_ids": [
+    "P3500-EASY-049"
+  ],
+  "reviewer_block_union_visual_block": [
+    "P3500-EASY-004",
+    "P3500-EASY-031",
+    "P3500-EASY-046",
+    "P3500-EASY-049",
+    "P3500-HARD-003",
+    "P3500-HARD-007",
+    "P3500-HARD-008",
+    "P3500-HARD-009",
+    "P3500-HARD-011",
+    "P3500-HARD-015",
+    "P3500-HARD-021",
+    "P3500-HARD-037",
+    "P3500-HARD-040",
+    "P3500-HARD-041",
+    "P3500-HARD-042"
+  ],
+  "materialization_block_case_ids": [
+    "P3500-EASY-004",
+    "P3500-EASY-007",
+    "P3500-EASY-008",
+    "P3500-EASY-010",
+    "P3500-EASY-021",
+    "P3500-EASY-030",
+    "P3500-EASY-031",
+    "P3500-EASY-036",
+    "P3500-EASY-038",
+    "P3500-EASY-045",
+    "P3500-EASY-046",
+    "P3500-HARD-003",
+    "P3500-HARD-007",
+    "P3500-HARD-009",
+    "P3500-HARD-011",
+    "P3500-HARD-015",
+    "P3500-HARD-021",
+    "P3500-HARD-022",
+    "P3500-HARD-023",
+    "P3500-HARD-025",
+    "P3500-HARD-042",
+    "P3500-HARD-046",
+    "P3500-HARD-047",
+    "P3500-HARD-048",
+    "P3500-MEDIUM-012",
+    "P3500-MEDIUM-013",
+    "P3500-MEDIUM-014",
+    "P3500-MEDIUM-015",
+    "P3500-MEDIUM-016",
+    "P3500-MEDIUM-017",
+    "P3500-MEDIUM-018",
+    "P3500-MEDIUM-019",
+    "P3500-MEDIUM-021",
+    "P3500-MEDIUM-024",
+    "P3500-MEDIUM-029",
+    "P3500-MEDIUM-030",
+    "P3500-MEDIUM-031",
+    "P3500-MEDIUM-032",
+    "P3500-MEDIUM-034",
+    "P3500-MEDIUM-038",
+    "P3500-MEDIUM-047",
+    "P3500-MEDIUM-049"
+  ],
+  "materialization_block_reasons": {
+    "P3500-EASY-004": "P3500-EASY-V2-004: abstain contract must express only an evidence-free absence/uncertainty boundary",
+    "P3500-EASY-007": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=[\"review contains schema-external fields: ['$.required_branches[0].返回键']\", 'branch query_span differs from payload for B1', 'required branch labels/query spans must exactly match payload']",
+    "P3500-EASY-008": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['persisted success required structural normalization; strict independent same-semantic rereview is required']",
+    "P3500-EASY-010": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['required_branches[0].required_concept_keys must be an array', 'branch query_span differs from payload for B1', 'required branch labels/query spans must exactly match payload', 'concept.branch_labels and required_branches edges must be symmetric']",
+    "P3500-EASY-021": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['concept[0].any_of entries must be unique']",
+    "P3500-EASY-030": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['concept[0].any_of entries must be unique']",
+    "P3500-EASY-031": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['concept.evidence_labels and evidence_concept_coverage edges must be symmetric']",
+    "P3500-EASY-036": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=[\"review contains schema-external fields: ['$.required_branches[0].省墨']\", 'branch query_span differs from payload for B1', 'required branch labels/query spans must exactly match payload']",
+    "P3500-EASY-038": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['required_branches[0].required_concept_keys must be an array', 'branch query_span differs from payload for B1', 'required branch labels/query spans must exactly match payload', 'concept.branch_labels and required_branches edges must be symmetric']",
+    "P3500-EASY-045": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['required_branches[0].required_concept_keys must be an array', 'branch query_span differs from payload for B1', 'required branch labels/query spans must exactly match payload', 'concept.branch_labels and required_branches edges must be symmetric']",
+    "P3500-EASY-046": "P3500-EASY-V2-046: abstain contract must express only an evidence-free absence/uncertainty boundary",
+    "P3500-HARD-003": "P3500-HARD-V2-003: evidence/concept/branch edge coverage is incomplete or asymmetric; unsupported=['c09']; invalid_coverage=[]; unknown_constraint_evidence=[]",
+    "P3500-HARD-007": "P3500-HARD-V2-007: evidence/concept/branch edge coverage is incomplete or asymmetric; unsupported=[]; invalid_coverage=[]; unknown_constraint_evidence=[]",
+    "P3500-HARD-009": "P3500-HARD-V2-009: evidence/concept/branch edge coverage is incomplete or asymmetric; unsupported=['c04']; invalid_coverage=[]; unknown_constraint_evidence=[]",
+    "P3500-HARD-011": "P3500-HARD-V2-011: evidence/concept/branch edge coverage is incomplete or asymmetric; unsupported=['c07']; invalid_coverage=[]; unknown_constraint_evidence=[]",
+    "P3500-HARD-015": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['saved-response source row/attempt is not present exactly once in the append-only response log']",
+    "P3500-HARD-021": "P3500-HARD-V2-021: DISCRIMINATIVE_VARIANT_GATE concept 'c01' has no production-discriminative variant",
+    "P3500-HARD-022": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['redundant-field coverage composition policy mismatch']",
+    "P3500-HARD-023": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['exact payload branch-span recovery policy mismatch']",
+    "P3500-HARD-025": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['coverage-status canonicalization policy mismatch']",
+    "P3500-HARD-042": "P3500-HARD-V2-042: abstain contract must express only an evidence-free absence/uncertainty boundary",
+    "P3500-HARD-046": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['abstain concept[0] variants must each express only an explicit absence/uncertainty rationale']",
+    "P3500-HARD-047": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['abstain concept[0] variants must each express only an explicit absence/uncertainty rationale']",
+    "P3500-HARD-048": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['abstain concept[0] variants must each express only an explicit absence/uncertainty rationale']",
+    "P3500-MEDIUM-012": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['concept[4].any_of entries must be unique']",
+    "P3500-MEDIUM-013": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=[\"review contains schema-external fields: ['$.required_concepts.all_of[5].安装', '$.required_concepts.all_of[8].下一步']\", 'concept[8].any_of entries must be non-blank strings', 'concept.branch_labels and required_branches edges must be symmetric']",
+    "P3500-MEDIUM-014": "P3500-MEDIUM-V2-014: DISCRIMINATIVE_VARIANT_GATE concept 'c11' has no discriminative canonical/variant",
+    "P3500-MEDIUM-015": "P3500-MEDIUM-V2-015: DISCRIMINATIVE_VARIANT_GATE concept 'c06' has no discriminative canonical/variant",
+    "P3500-MEDIUM-016": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['branch query_span differs from payload for B2', 'required branch labels/query spans must exactly match payload']",
+    "P3500-MEDIUM-017": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['concept.branch_labels and required_branches edges must be symmetric']",
+    "P3500-MEDIUM-018": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['persisted success required structural normalization; strict independent same-semantic rereview is required']",
+    "P3500-MEDIUM-019": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['required_branches[1].required_concept_keys must be non-empty']",
+    "P3500-MEDIUM-021": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=[\"review contains schema-external fields: ['$.required_concepts.all_of[1].开启', '$.required_concepts.all_of[1].网络设置', '$.required_concepts.all_of[1].菜单键', '$.required_concepts.all_of[2].SSID', '$.required_concepts.all_of[2].网络配置信息页', '$.required_concepts.all_of[2].菜单键']\", 'concept.branch_labels and required_branches edges must be symmetric']",
+    "P3500-MEDIUM-024": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['persisted success required structural normalization; strict independent same-semantic rereview is required']",
+    "P3500-MEDIUM-029": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=[\"review contains schema-external fields: ['$.required_concepts.all_of[0].菜单', '$.required_concepts.all_of[1].1.系统设置', '$.required_concepts.all_of[1].OK', '$.required_concepts.all_of[2].3. 省墨', '$.required_concepts.all_of[2].OK', '$.required_concepts.all_of[2].▲', '$.required_concepts.all_of[2].▼', '$.required_concepts.all_of[3].1. 关闭', '$.required_concepts.all_of[3].2. 开启', '$.required_concepts.all_of[3].OK', '$.required_concepts.all_of[4].*']\", 'concept[0].any_of entries must be unique', 'concept[4].canonical_text must be a non-blank string', 'concept[4].any_of entries must be non-blank strings']",
+    "P3500-MEDIUM-030": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['concept.branch_labels and required_branches edges must be symmetric']",
+    "P3500-MEDIUM-031": "P3500-MEDIUM-V2-031: DISCRIMINATIVE_VARIANT_GATE concept 'c02' has no production-discriminative variant",
+    "P3500-MEDIUM-032": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=[\"review contains schema-external fields: ['$.required_concepts.all_of[0].菜单键', '$.required_concepts.all_of[10].纸张尺寸', '$.required_concepts.all_of[11].OK键', '$.required_concepts.all_of[12].纸张尺寸界面', '$.required_concepts.all_of[13].方向键', '$.required_concepts.all_of[15].OK键', '$.required_concepts.all_of[1].方向键', '$.required_concepts.all_of[2].纸盒设置', '$.required_concepts.all_of[3].OK键', '$.required_concepts.all_of[4].纸盒设置界面', '$.required_concepts.all_of[5].方向键', '$.required_concepts.all_of[7].OK键', '$.required_concepts.all_of[8].设置界面', '$.required_concepts.all_of[9].方向键']\", 'concept[0].any_of entries must be unique', 'concept[1].any_of entries must be unique', 'concept[2].any_of entries must be unique', 'concept[3].any_of entries must be unique', 'concept[4].any_of entries must be unique', 'concept[5].any_of entries must be unique', 'concept[7].any_of entries must be unique', 'concept[8].any_of entries must be unique', 'concept[9].any_of entries must be unique', 'concept[10].any_of entries must be unique', 'concept[11].any_of entries must be unique', 'concept[12].any_of entries must be unique', 'concept[13].any_of entries must be unique', 'concept[15].any_of entries must be unique']",
+    "P3500-MEDIUM-034": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['concept.branch_labels and required_branches edges must be symmetric']",
+    "P3500-MEDIUM-038": "P3500-MEDIUM-V2-038: DISCRIMINATIVE_VARIANT_GATE concept 'c06' is a query meta-directive rather than an answer fact (query_meta_directive_without_answer_fact)",
+    "P3500-MEDIUM-047": "P3500-MEDIUM-V2-047: DISCRIMINATIVE_VARIANT_GATE concept 'c01' has no unique discriminative canonical/variant",
+    "P3500-MEDIUM-049": "P3500-MEDIUM-V2-049: DISCRIMINATIVE_VARIANT_GATE concept 'c02' has no production-discriminative variant"
+  },
+  "review_schema_extra_field_case_ids": [
+    "P3500-EASY-007",
+    "P3500-EASY-036",
+    "P3500-MEDIUM-013",
+    "P3500-MEDIUM-021",
+    "P3500-MEDIUM-029",
+    "P3500-MEDIUM-032"
+  ],
+  "review_schema_extra_paths_by_case": {
+    "P3500-EASY-007": [
+      "$.required_branches[0].返回键"
+    ],
+    "P3500-EASY-036": [
+      "$.required_branches[0].省墨"
+    ],
+    "P3500-MEDIUM-013": [
+      "$.required_concepts.all_of[5].安装",
+      "$.required_concepts.all_of[8].下一步"
+    ],
+    "P3500-MEDIUM-021": [
+      "$.required_concepts.all_of[1].开启",
+      "$.required_concepts.all_of[1].网络设置",
+      "$.required_concepts.all_of[1].菜单键",
+      "$.required_concepts.all_of[2].SSID",
+      "$.required_concepts.all_of[2].网络配置信息页",
+      "$.required_concepts.all_of[2].菜单键"
+    ],
+    "P3500-MEDIUM-029": [
+      "$.required_concepts.all_of[0].菜单",
+      "$.required_concepts.all_of[1].1.系统设置",
+      "$.required_concepts.all_of[1].OK",
+      "$.required_concepts.all_of[2].3. 省墨",
+      "$.required_concepts.all_of[2].OK",
+      "$.required_concepts.all_of[2].▲",
+      "$.required_concepts.all_of[2].▼",
+      "$.required_concepts.all_of[3].1. 关闭",
+      "$.required_concepts.all_of[3].2. 开启",
+      "$.required_concepts.all_of[3].OK",
+      "$.required_concepts.all_of[4].*"
+    ],
+    "P3500-MEDIUM-032": [
+      "$.required_concepts.all_of[0].菜单键",
+      "$.required_concepts.all_of[10].纸张尺寸",
+      "$.required_concepts.all_of[11].OK键",
+      "$.required_concepts.all_of[12].纸张尺寸界面",
+      "$.required_concepts.all_of[13].方向键",
+      "$.required_concepts.all_of[15].OK键",
+      "$.required_concepts.all_of[1].方向键",
+      "$.required_concepts.all_of[2].纸盒设置",
+      "$.required_concepts.all_of[3].OK键",
+      "$.required_concepts.all_of[4].纸盒设置界面",
+      "$.required_concepts.all_of[5].方向键",
+      "$.required_concepts.all_of[7].OK键",
+      "$.required_concepts.all_of[8].设置界面",
+      "$.required_concepts.all_of[9].方向键"
+    ]
+  },
+  "review_schema_extra_disposition": "same_semantic_rereview_required_no_projection_or_semantic_reuse",
+  "review_contract_validation_failure_case_ids": [
+    "P3500-EASY-007",
+    "P3500-EASY-008",
+    "P3500-EASY-010",
+    "P3500-EASY-021",
+    "P3500-EASY-030",
+    "P3500-EASY-031",
+    "P3500-EASY-036",
+    "P3500-EASY-038",
+    "P3500-EASY-045",
+    "P3500-HARD-015",
+    "P3500-HARD-022",
+    "P3500-HARD-023",
+    "P3500-HARD-025",
+    "P3500-HARD-046",
+    "P3500-HARD-047",
+    "P3500-HARD-048",
+    "P3500-MEDIUM-012",
+    "P3500-MEDIUM-013",
+    "P3500-MEDIUM-016",
+    "P3500-MEDIUM-017",
+    "P3500-MEDIUM-018",
+    "P3500-MEDIUM-019",
+    "P3500-MEDIUM-021",
+    "P3500-MEDIUM-024",
+    "P3500-MEDIUM-029",
+    "P3500-MEDIUM-030",
+    "P3500-MEDIUM-032",
+    "P3500-MEDIUM-034"
+  ],
+  "review_contract_validation_failure_reasons": {
+    "P3500-EASY-007": [
+      "review contains schema-external fields: ['$.required_branches[0].返回键']",
+      "branch query_span differs from payload for B1",
+      "required branch labels/query spans must exactly match payload"
+    ],
+    "P3500-EASY-008": [
+      "persisted success required structural normalization; strict independent same-semantic rereview is required"
+    ],
+    "P3500-EASY-010": [
+      "required_branches[0].required_concept_keys must be an array",
+      "branch query_span differs from payload for B1",
+      "required branch labels/query spans must exactly match payload",
+      "concept.branch_labels and required_branches edges must be symmetric"
+    ],
+    "P3500-EASY-021": [
+      "concept[0].any_of entries must be unique"
+    ],
+    "P3500-EASY-030": [
+      "concept[0].any_of entries must be unique"
+    ],
+    "P3500-EASY-031": [
+      "concept.evidence_labels and evidence_concept_coverage edges must be symmetric"
+    ],
+    "P3500-EASY-036": [
+      "review contains schema-external fields: ['$.required_branches[0].省墨']",
+      "branch query_span differs from payload for B1",
+      "required branch labels/query spans must exactly match payload"
+    ],
+    "P3500-EASY-038": [
+      "required_branches[0].required_concept_keys must be an array",
+      "branch query_span differs from payload for B1",
+      "required branch labels/query spans must exactly match payload",
+      "concept.branch_labels and required_branches edges must be symmetric"
+    ],
+    "P3500-EASY-045": [
+      "required_branches[0].required_concept_keys must be an array",
+      "branch query_span differs from payload for B1",
+      "required branch labels/query spans must exactly match payload",
+      "concept.branch_labels and required_branches edges must be symmetric"
+    ],
+    "P3500-HARD-015": [
+      "saved-response source row/attempt is not present exactly once in the append-only response log"
+    ],
+    "P3500-HARD-022": [
+      "redundant-field coverage composition policy mismatch"
+    ],
+    "P3500-HARD-023": [
+      "exact payload branch-span recovery policy mismatch"
+    ],
+    "P3500-HARD-025": [
+      "coverage-status canonicalization policy mismatch"
+    ],
+    "P3500-HARD-046": [
+      "abstain concept[0] variants must each express only an explicit absence/uncertainty rationale"
+    ],
+    "P3500-HARD-047": [
+      "abstain concept[0] variants must each express only an explicit absence/uncertainty rationale"
+    ],
+    "P3500-HARD-048": [
+      "abstain concept[0] variants must each express only an explicit absence/uncertainty rationale"
+    ],
+    "P3500-MEDIUM-012": [
+      "concept[4].any_of entries must be unique"
+    ],
+    "P3500-MEDIUM-013": [
+      "review contains schema-external fields: ['$.required_concepts.all_of[5].安装', '$.required_concepts.all_of[8].下一步']",
+      "concept[8].any_of entries must be non-blank strings",
+      "concept.branch_labels and required_branches edges must be symmetric"
+    ],
+    "P3500-MEDIUM-016": [
+      "branch query_span differs from payload for B2",
+      "required branch labels/query spans must exactly match payload"
+    ],
+    "P3500-MEDIUM-017": [
+      "concept.branch_labels and required_branches edges must be symmetric"
+    ],
+    "P3500-MEDIUM-018": [
+      "persisted success required structural normalization; strict independent same-semantic rereview is required"
+    ],
+    "P3500-MEDIUM-019": [
+      "required_branches[1].required_concept_keys must be non-empty"
+    ],
+    "P3500-MEDIUM-021": [
+      "review contains schema-external fields: ['$.required_concepts.all_of[1].开启', '$.required_concepts.all_of[1].网络设置', '$.required_concepts.all_of[1].菜单键', '$.required_concepts.all_of[2].SSID', '$.required_concepts.all_of[2].网络配置信息页', '$.required_concepts.all_of[2].菜单键']",
+      "concept.branch_labels and required_branches edges must be symmetric"
+    ],
+    "P3500-MEDIUM-024": [
+      "persisted success required structural normalization; strict independent same-semantic rereview is required"
+    ],
+    "P3500-MEDIUM-029": [
+      "review contains schema-external fields: ['$.required_concepts.all_of[0].菜单', '$.required_concepts.all_of[1].1.系统设置', '$.required_concepts.all_of[1].OK', '$.required_concepts.all_of[2].3. 省墨', '$.required_concepts.all_of[2].OK', '$.required_concepts.all_of[2].▲', '$.required_concepts.all_of[2].▼', '$.required_concepts.all_of[3].1. 关闭', '$.required_concepts.all_of[3].2. 开启', '$.required_concepts.all_of[3].OK', '$.required_concepts.all_of[4].*']",
+      "concept[0].any_of entries must be unique",
+      "concept[4].canonical_text must be a non-blank string",
+      "concept[4].any_of entries must be non-blank strings"
+    ],
+    "P3500-MEDIUM-030": [
+      "concept.branch_labels and required_branches edges must be symmetric"
+    ],
+    "P3500-MEDIUM-032": [
+      "review contains schema-external fields: ['$.required_concepts.all_of[0].菜单键', '$.required_concepts.all_of[10].纸张尺寸', '$.required_concepts.all_of[11].OK键', '$.required_concepts.all_of[12].纸张尺寸界面', '$.required_concepts.all_of[13].方向键', '$.required_concepts.all_of[15].OK键', '$.required_concepts.all_of[1].方向键', '$.required_concepts.all_of[2].纸盒设置', '$.required_concepts.all_of[3].OK键', '$.required_concepts.all_of[4].纸盒设置界面', '$.required_concepts.all_of[5].方向键', '$.required_concepts.all_of[7].OK键', '$.required_concepts.all_of[8].设置界面', '$.required_concepts.all_of[9].方向键']",
+      "concept[0].any_of entries must be unique",
+      "concept[1].any_of entries must be unique",
+      "concept[2].any_of entries must be unique",
+      "concept[3].any_of entries must be unique",
+      "concept[4].any_of entries must be unique",
+      "concept[5].any_of entries must be unique",
+      "concept[7].any_of entries must be unique",
+      "concept[8].any_of entries must be unique",
+      "concept[9].any_of entries must be unique",
+      "concept[10].any_of entries must be unique",
+      "concept[11].any_of entries must be unique",
+      "concept[12].any_of entries must be unique",
+      "concept[13].any_of entries must be unique",
+      "concept[15].any_of entries must be unique"
+    ],
+    "P3500-MEDIUM-034": [
+      "concept.branch_labels and required_branches edges must be symmetric"
+    ]
+  },
+  "structural_normalization_case_ids": [
+    "P3500-EASY-008",
+    "P3500-MEDIUM-018",
+    "P3500-MEDIUM-024"
+  ],
+  "structural_normalization_actions_by_case": {
+    "P3500-EASY-008": [
+      "restored_canonical_text:c01",
+      "restored_any_of:c01",
+      "restored_evidence_labels:c01",
+      "restored_branch_labels:c01",
+      "added_missing_concept:c02",
+      "restored_canonical_text:c02",
+      "restored_any_of:c02",
+      "restored_evidence_labels:c02",
+      "restored_branch_labels:c02",
+      "added_missing_concept:c03",
+      "restored_canonical_text:c03",
+      "restored_any_of:c03",
+      "restored_evidence_labels:c03",
+      "restored_branch_labels:c03"
+    ],
+    "P3500-MEDIUM-018": [
+      "self_filled_any_of:c3",
+      "crossref_filled_evidence_labels:c3",
+      "crossref_filled_branch_labels:c3",
+      "self_filled_any_of:c4",
+      "crossref_filled_evidence_labels:c4",
+      "crossref_filled_branch_labels:c4",
+      "self_filled_any_of:c5",
+      "crossref_filled_evidence_labels:c5",
+      "crossref_filled_branch_labels:c5",
+      "self_filled_any_of:c6",
+      "crossref_filled_evidence_labels:c6",
+      "crossref_filled_branch_labels:c6",
+      "self_filled_any_of:c7",
+      "crossref_filled_evidence_labels:c7",
+      "crossref_filled_branch_labels:c7",
+      "self_filled_any_of:c8",
+      "crossref_filled_evidence_labels:c8",
+      "crossref_filled_branch_labels:c8",
+      "self_filled_any_of:c9",
+      "crossref_filled_evidence_labels:c9",
+      "crossref_filled_branch_labels:c9"
+    ],
+    "P3500-MEDIUM-024": [
+      "self_filled_any_of:c2",
+      "crossref_filled_evidence_labels:c2",
+      "crossref_filled_branch_labels:c2",
+      "self_filled_any_of:c3",
+      "crossref_filled_evidence_labels:c3",
+      "crossref_filled_branch_labels:c3",
+      "self_filled_any_of:c4",
+      "crossref_filled_evidence_labels:c4",
+      "crossref_filled_branch_labels:c4",
+      "self_filled_any_of:c5",
+      "crossref_filled_evidence_labels:c5",
+      "crossref_filled_branch_labels:c5"
+    ]
+  },
+  "structural_normalization_disposition": "same_semantic_rereview_required_original_normalized_semantics_not_reused",
+  "inverse_edge_canonicalization_case_ids": [
+    "P3500-HARD-010",
+    "P3500-HARD-013",
+    "P3500-HARD-014",
+    "P3500-HARD-016",
+    "P3500-HARD-018",
+    "P3500-HARD-020",
+    "P3500-HARD-021",
+    "P3500-MEDIUM-041",
+    "P3500-MEDIUM-047"
+  ],
+  "inverse_edge_canonicalization_audits_by_case": {
+    "P3500-HARD-010": {
+      "policy": "same-response-authoritative-inverse-edge-canonicalization-v1",
+      "api_call_performed": true,
+      "raw_review_sha256": "47f7077008e5e772884381a16bd9bf89f3244e810b73a0a7025b1c45827c31a0",
+      "projected_review_sha256": "eeab9272c419ee72ea894c9995925d5066b9f81fab5f73bde7b5aea90f10f2a6",
+      "source_attempt": 1,
+      "action_count": 1
+    },
+    "P3500-HARD-013": {
+      "policy": "same-response-authoritative-inverse-edge-canonicalization-v1",
+      "api_call_performed": true,
+      "raw_review_sha256": "7c07a252286c2a13261a57450ab8bcb3418d597875fdb7b5bcd804e26ddd76d0",
+      "projected_review_sha256": "a434254ca88419cf592cd8e7f98d3272910e90bd2bcb586cae77b1a5808a68c5",
+      "source_attempt": 1,
+      "action_count": 3
+    },
+    "P3500-HARD-014": {
+      "policy": "same-response-authoritative-inverse-edge-canonicalization-v1",
+      "api_call_performed": true,
+      "raw_review_sha256": "16b87a68ac4eb197b20f07b4d187b543f7127520041c37d68ff11c1a7338d0e5",
+      "projected_review_sha256": "38ee252ffb41a7926ef0b1a96cb6f840fa972d1a51897a461b05bab0f60ebd48",
+      "source_attempt": 1,
+      "action_count": 6
+    },
+    "P3500-HARD-016": {
+      "policy": "same-response-authoritative-inverse-edge-canonicalization-v1",
+      "api_call_performed": true,
+      "raw_review_sha256": "3f1b41a4c7dbc219b1cb89d13b1bcaa3fcc1270136c1ca54fb606b20eb91411a",
+      "projected_review_sha256": "99bbb77adb4ad6d30e2cf4fb0f92fd6e91f4fc80597faa777990618d7146b794",
+      "source_attempt": 3,
+      "action_count": 3
+    },
+    "P3500-HARD-018": {
+      "policy": "same-response-authoritative-inverse-edge-canonicalization-v1",
+      "api_call_performed": true,
+      "raw_review_sha256": "572671593fdd3ac6cd2d81f9132b8d3813c773aaff47468a58559e4c3e5e40e1",
+      "projected_review_sha256": "797cd5be5cd94d986ee3c62f2d5a606fce0ad8ceeb09e27800ae0a1d0e835215",
+      "source_attempt": 3,
+      "action_count": 2
+    },
+    "P3500-HARD-020": {
+      "policy": "same-response-authoritative-inverse-edge-canonicalization-v1",
+      "api_call_performed": true,
+      "raw_review_sha256": "24db4b9f913c18df88a6b10d88654585b50a48fe08a741422e81e2c8aee99b3c",
+      "projected_review_sha256": "51ad7925ebf4fe9492aa231537b3ea7b2bb8fbb38bf4700c1aa2f5f39c1ca867",
+      "source_attempt": 1,
+      "action_count": 2
+    },
+    "P3500-HARD-021": {
+      "policy": "same-response-authoritative-inverse-edge-canonicalization-v1",
+      "api_call_performed": true,
+      "raw_review_sha256": "59c76f301cab0babe9fcdba8515784394e76471c73a9ad67b20d5c3d250df936",
+      "projected_review_sha256": "ec4cb34a36043aa073f29e769de42bd8dee493f7d15f6e20f015eaf6ea9da98a",
+      "source_attempt": 1,
+      "action_count": 6
+    },
+    "P3500-MEDIUM-041": {
+      "policy": "same-response-authoritative-inverse-edge-canonicalization-v1",
+      "api_call_performed": false,
+      "raw_review_sha256": "7e2ed5e6cca97dfb0b229db72ef0d62c40d35dc81715bed7be7012eee7fbaa77",
+      "projected_review_sha256": "29033c2c8cf7495977aebf258d9205755497714707068920f3b6d6dec70f79b8",
+      "source_attempt": 1,
+      "action_count": 3
+    },
+    "P3500-MEDIUM-047": {
+      "policy": "same-response-authoritative-inverse-edge-canonicalization-v1",
+      "api_call_performed": true,
+      "raw_review_sha256": "56e51ad5de5f4ffe3111547e9c3278d34e6b6c5fc1fb4deae2adf4051a46ef7c",
+      "projected_review_sha256": "252138b9a240fa36ac0388a3a6a3d1d71725153519b59c6c54c721e3ebe33cdb",
+      "source_attempt": 1,
+      "action_count": 1
+    }
+  },
+  "inverse_edge_canonicalization_disposition": "adoptable_only_when_same_response_projection_is_strictly_reproducible",
+  "exact_variant_deduplication_case_ids": [
+    "P3500-MEDIUM-048"
+  ],
+  "exact_variant_deduplication_audits_by_case": {
+    "P3500-MEDIUM-048": {
+      "policy": "same-response-normalized-exact-any-of-deduplication-v1",
+      "api_call_performed": false,
+      "raw_review_sha256": "216e816362e43249cd7c2ca48474c39ec9d084bf8717e7b8ca764616a01c5537",
+      "projected_review_sha256": "33f3eaacf8b0d6de4f747740a0e937b81170c609d56e5fb949ac51331165cb32",
+      "source_attempt": 1,
+      "action_count": 1
+    }
+  },
+  "exact_variant_deduplication_disposition": "adoptable_only_for_reproducible_normalized_exact_duplicates",
+  "coverage_status_canonicalization_case_ids": [
+    "P3500-HARD-002",
+    "P3500-HARD-005",
+    "P3500-HARD-008",
+    "P3500-HARD-009"
+  ],
+  "coverage_status_canonicalization_audits_by_case": {
+    "P3500-HARD-002": {
+      "policy": "same-response-zero-support-not-required-to-uncovered-v1",
+      "api_call_performed": false,
+      "raw_review_sha256": "dc96e1d23393904fcc4b26ef26ec10bb37e8a0363934aa7f2d6080790adb088a",
+      "projected_review_sha256": "83372f393da7ec28b178ccd9b12fdfb5312d2f4f8f3adf5e34999ab37ee87809",
+      "source_attempt": 1,
+      "action_count": 1
+    },
+    "P3500-HARD-005": {
+      "policy": "same-response-zero-support-not-required-to-uncovered-v1",
+      "api_call_performed": true,
+      "raw_review_sha256": "aee9289e519e9258e10b5be3bbef11d5016efe9a1e4e656041807bb156375aa1",
+      "projected_review_sha256": "e9a9fcc5b66355f5fe24deabd1c4a0b5277feb8d8e40efe6964f09a396f601eb",
+      "source_attempt": 3,
+      "action_count": 1
+    },
+    "P3500-HARD-008": {
+      "policy": "same-response-zero-support-status-alias-to-uncovered-v2",
+      "api_call_performed": false,
+      "raw_review_sha256": "78808844579dfd87395551f1e1becef58af98256b08d4d0f2f1633829919a16e",
+      "projected_review_sha256": "aa9014287464a0f51358d8b8d0434e3b366fff0a073a6dffa3a8bce443cb2b35",
+      "source_attempt": 1,
+      "action_count": 1
+    },
+    "P3500-HARD-009": {
+      "policy": "same-response-zero-support-status-alias-to-uncovered-v3",
+      "api_call_performed": false,
+      "raw_review_sha256": "7f9cde49f4ade93bec6e97d5172abfbe055426a3ed7d2f45979badeec8d06a5d",
+      "projected_review_sha256": "866e30459df66ef30165909e9606627a59defd7fcf34a572322e834a95ea8e48",
+      "source_attempt": 3,
+      "action_count": 1
+    }
+  },
+  "coverage_status_canonicalization_disposition": "adoptable_only_for_reproducible_finite_zero-support_status_aliases",
+  "nonsemantic_canonicalization_composition_case_ids": [
+    "P3500-HARD-012",
+    "P3500-HARD-019"
+  ],
+  "nonsemantic_canonicalization_composition_audits_by_case": {
+    "P3500-HARD-012": {
+      "policy": "saved-response-coverage-status-then-inverse-branch-labels-v1",
+      "api_call_performed": false,
+      "raw_review_sha256": "e1fdd52488640c5ef2d606d3f9254c556fb380709895f45a8adcb7e1cf48de9d",
+      "intermediate_review_sha256": "0dcfa7e5261442644c3754ea622839c21307d877254bdfdbb45af55e9a4dbc45",
+      "projected_review_sha256": "77d9f1de28e6abab8c0abbf1a9eb8b7d1f931528d869eed6e31a700c8f704165",
+      "source_attempt": 3,
+      "stage_count": 2
+    },
+    "P3500-HARD-019": {
+      "policy": "saved-response-coverage-status-then-inverse-branch-labels-v1",
+      "api_call_performed": false,
+      "raw_review_sha256": "27d0720f00c233740c906003b02c4b8a3aa84d38564a593deae0948cbc72d483",
+      "intermediate_review_sha256": "dfe7ed25d8c903de89a1bba2804ec23e64c4903e3078072661791423fd7e4f98",
+      "projected_review_sha256": "f622909e5985e738fd7e1d6ef08166dea0a0311835d69b0773d5a71770b050bb",
+      "source_attempt": 2,
+      "stage_count": 2
+    }
+  },
+  "nonsemantic_canonicalization_composition_disposition": "adoptable_only_for_fixed_order_disjoint_saved_response_projection",
+  "quote_fragment_inverse_composition_case_ids": [
+    "P3500-HARD-017"
+  ],
+  "quote_fragment_inverse_composition_audits_by_case": {
+    "P3500-HARD-017": {
+      "policy": "saved-response-quote-fragment-then-inverse-branch-labels-v1",
+      "api_call_performed": false,
+      "raw_review_sha256": "813729988353134608a09e0467e4b679040ec65ca60b3584e58a0593ce061ae0",
+      "intermediate_review_sha256": "4173a36b5cc6340f9b4b30f42c126665ea317ac69ca20f10896134571b27b0fa",
+      "projected_review_sha256": "30f2fa90067888b88ebe693119846ddb4d36d472ddfcbb019d0ab7ee943aec7c",
+      "source_attempt": 3,
+      "stage_count": 2
+    }
+  },
+  "quote_fragment_inverse_composition_disposition": "adoptable_only_for_unique_exact_payload_quote_reconstruction_and_inverse_branch_replay",
+  "exact_payload_branch_span_quote_prefix_recovery_case_ids": [],
+  "exact_payload_branch_span_quote_prefix_recovery_audits_by_case": {},
+  "exact_payload_branch_span_quote_prefix_recovery_disposition": "format_only_final_complete_attempt_exact_payload_span_replacement_audited_without_semantic_consensus_or_cross_attempt_merge",
+  "abstain_factual_constraint_recovery_case_ids": [
+    "P3500-HARD-046",
+    "P3500-HARD-047",
+    "P3500-HARD-048",
+    "P3500-HARD-049",
+    "P3500-HARD-050"
+  ],
+  "abstain_factual_constraint_recovery_audits_by_case": {
+    "P3500-HARD-046": {
+      "policy": "saved-final-complete-attempt-abstain-factual-constraint-removal-v1",
+      "api_call_performed": false,
+      "raw_review_sha256": "a94eadc0aac24f853ce129a2fda54215b284ee28e2db709bb1584fc6a12391ac",
+      "projected_review_sha256": "e412ab0739da4ab1b725dacd12ffa28dc92cef90a1529cb1c0850de6140e0055",
+      "source_attempt": 3,
+      "stage_count": 1,
+      "attempt_shape_count": 3,
+      "semantic_consensus_claimed": false,
+      "cross_attempt_merge": false
+    },
+    "P3500-HARD-047": {
+      "policy": "saved-final-complete-attempt-abstain-factual-constraint-removal-v1",
+      "api_call_performed": false,
+      "raw_review_sha256": "7a96fb0a8c1cef194015e6e4fcfbc060dc3707d56c8535724970c6260dba36df",
+      "projected_review_sha256": "c0dc01cadad61ac2be4ce06e8b1a591a3a0cab2618599004e01dd83473d5532c",
+      "source_attempt": 3,
+      "stage_count": 1,
+      "attempt_shape_count": 3,
+      "semantic_consensus_claimed": false,
+      "cross_attempt_merge": false
+    },
+    "P3500-HARD-048": {
+      "policy": "saved-final-complete-attempt-abstain-factual-constraint-removal-v1",
+      "api_call_performed": false,
+      "raw_review_sha256": "362ae0f93b45328d498fc6bf3656ddba6ae7c230950b020523287ab0bd5445cf",
+      "projected_review_sha256": "7b198269d505380e6b721283898780ebd826b6c464b547168ed46c310508b25d",
+      "source_attempt": 3,
+      "stage_count": 1,
+      "attempt_shape_count": 3,
+      "semantic_consensus_claimed": false,
+      "cross_attempt_merge": false
+    },
+    "P3500-HARD-049": {
+      "policy": "saved-final-complete-attempt-abstain-sentinel-and-constraint-projection-v2",
+      "api_call_performed": false,
+      "raw_review_sha256": "2190cbe15b8aabc766e912e9a7f2153e1819b1a04303ec713aad38d641bb3d21",
+      "projected_review_sha256": "a7d652befd6ac37107a1bb2813080263c3297ad92b51bca860b6abb22f1e2843",
+      "source_attempt": 3,
+      "stage_count": 1,
+      "attempt_shape_count": 3,
+      "semantic_consensus_claimed": false,
+      "cross_attempt_merge": false
+    },
+    "P3500-HARD-050": {
+      "policy": "saved-final-complete-attempt-abstain-sentinel-and-constraint-projection-v2",
+      "api_call_performed": false,
+      "raw_review_sha256": "88f4ea9417a47732846bd2badc77c3130a6c7973f383f1beed67a93305a50367",
+      "projected_review_sha256": "f2fc3d8791c114fd889d4f8a081817768e55d61a554ff4530c50df4f1219b4b0",
+      "source_attempt": 3,
+      "stage_count": 1,
+      "attempt_shape_count": 3,
+      "semantic_consensus_claimed": false,
+      "cross_attempt_merge": false
+    }
+  },
+  "abstain_factual_constraint_recovery_disposition": "format_only_final_complete_attempt_abstention_constraint_removal_audited_without_semantic_consensus_or_cross_attempt_merge",
+  "redundant_field_coverage_composition_case_ids": [],
+  "redundant_field_coverage_composition_audits_by_case": {},
+  "redundant_field_coverage_composition_disposition": "format_only_final_complete_attempt_recovery_audited_no_semantic_consensus_or_cross_attempt_merge",
+  "unsupported_required_concept_block_case_ids": [
+    "P3500-HARD-003",
+    "P3500-HARD-011"
+  ],
+  "unsupported_required_concept_block_audits_by_case": {
+    "P3500-HARD-003": {
+      "policy": "same-response-unsupported-required-concept-revise-to-block-v1",
+      "api_call_performed": false,
+      "raw_review_sha256": "a7a5b9ed21cde7d4380c6839bf828fc58875e8593429f02d2fe66dd87ecdb383",
+      "projected_review_sha256": "653bd07691104d60bf7e30b174915bc4dcab029060be0febc4e4d26eb1a5eede",
+      "source_attempt": 1,
+      "action_count": 1
+    },
+    "P3500-HARD-011": {
+      "policy": "multi-response-all-of-unsupported-required-concept-revise-to-block-v2",
+      "api_call_performed": false,
+      "raw_review_sha256": "72bb25dee6fb209852ed7dcc6bce1b8501feeaf7278150710102a841c517ef95",
+      "projected_review_sha256": "3182080646d3eaa488c3e89e4d3a3c024d357ee8457f6dca52b17128a5128668",
+      "source_attempt": 3,
+      "action_count": 1
+    }
+  },
+  "unsupported_required_concept_block_disposition": "data_remediation_required_never_adopt_as_runnable_contract",
+  "empty_required_branch_block_case_ids": [
+    "P3500-HARD-007"
+  ],
+  "empty_required_branch_block_audits_by_case": {
+    "P3500-HARD-007": {
+      "policy": "multi-response-context-preamble-empty-required-branch-revise-to-block-v1",
+      "api_call_performed": false,
+      "raw_review_sha256": "c6a6666d1b0c978bc3ed1a9824aa760582267926118dafecaf2ed9ebde0a63c0",
+      "projected_review_sha256": "a3b87ab65e80a7a73f8861fbc44d5dbf2082b6534c01037eb668593e9475f5d7",
+      "source_attempt": 3,
+      "consensus_response_count": 3,
+      "action_count": 1
+    }
+  },
+  "empty_required_branch_block_disposition": "branch_segmentation_data_remediation_and_new_payload_rereview_required_never_adopt_as_runnable_contract",
+  "saved_strict_revalidation_case_ids": [
+    "P3500-HARD-001"
+  ],
+  "saved_strict_revalidation_audits_by_case": {
+    "P3500-HARD-001": {
+      "policy": "single-saved-response-strict-revalidation-after-validator-policy-v1",
+      "api_call_performed": false,
+      "validator_runner_version": "2.11.0-partial-evidence-coverage",
+      "raw_review_sha256": "dd1812d41d867a153c6184ad651af09973d74d31e2ca0f86263d2c3678c1312f",
+      "projected_review_sha256": "dd1812d41d867a153c6184ad651af09973d74d31e2ca0f86263d2c3678c1312f",
+      "source_attempt": 1
+    }
+  },
+  "saved_strict_revalidation_disposition": "adoptable_only_as_unchanged_single_saved_response_after_strict_policy_fix",
+  "reviewer_contract_failure_case_ids": [
+    "P3500-EASY-004",
+    "P3500-EASY-007",
+    "P3500-EASY-008",
+    "P3500-EASY-010",
+    "P3500-EASY-021",
+    "P3500-EASY-030",
+    "P3500-EASY-031",
+    "P3500-EASY-036",
+    "P3500-EASY-038",
+    "P3500-EASY-045",
+    "P3500-EASY-046",
+    "P3500-HARD-003",
+    "P3500-HARD-007",
+    "P3500-HARD-009",
+    "P3500-HARD-011",
+    "P3500-HARD-015",
+    "P3500-HARD-021",
+    "P3500-HARD-022",
+    "P3500-HARD-023",
+    "P3500-HARD-025",
+    "P3500-HARD-042",
+    "P3500-HARD-046",
+    "P3500-HARD-047",
+    "P3500-HARD-048",
+    "P3500-MEDIUM-012",
+    "P3500-MEDIUM-013",
+    "P3500-MEDIUM-014",
+    "P3500-MEDIUM-015",
+    "P3500-MEDIUM-016",
+    "P3500-MEDIUM-017",
+    "P3500-MEDIUM-018",
+    "P3500-MEDIUM-019",
+    "P3500-MEDIUM-021",
+    "P3500-MEDIUM-024",
+    "P3500-MEDIUM-029",
+    "P3500-MEDIUM-030",
+    "P3500-MEDIUM-031",
+    "P3500-MEDIUM-032",
+    "P3500-MEDIUM-034",
+    "P3500-MEDIUM-038",
+    "P3500-MEDIUM-047",
+    "P3500-MEDIUM-049"
+  ],
+  "reviewer_contract_failure_reasons": {
+    "P3500-EASY-004": "P3500-EASY-V2-004: abstain contract must express only an evidence-free absence/uncertainty boundary",
+    "P3500-EASY-007": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=[\"review contains schema-external fields: ['$.required_branches[0].返回键']\", 'branch query_span differs from payload for B1', 'required branch labels/query spans must exactly match payload']",
+    "P3500-EASY-008": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['persisted success required structural normalization; strict independent same-semantic rereview is required']",
+    "P3500-EASY-010": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['required_branches[0].required_concept_keys must be an array', 'branch query_span differs from payload for B1', 'required branch labels/query spans must exactly match payload', 'concept.branch_labels and required_branches edges must be symmetric']",
+    "P3500-EASY-021": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['concept[0].any_of entries must be unique']",
+    "P3500-EASY-030": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['concept[0].any_of entries must be unique']",
+    "P3500-EASY-031": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['concept.evidence_labels and evidence_concept_coverage edges must be symmetric']",
+    "P3500-EASY-036": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=[\"review contains schema-external fields: ['$.required_branches[0].省墨']\", 'branch query_span differs from payload for B1', 'required branch labels/query spans must exactly match payload']",
+    "P3500-EASY-038": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['required_branches[0].required_concept_keys must be an array', 'branch query_span differs from payload for B1', 'required branch labels/query spans must exactly match payload', 'concept.branch_labels and required_branches edges must be symmetric']",
+    "P3500-EASY-045": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['required_branches[0].required_concept_keys must be an array', 'branch query_span differs from payload for B1', 'required branch labels/query spans must exactly match payload', 'concept.branch_labels and required_branches edges must be symmetric']",
+    "P3500-EASY-046": "P3500-EASY-V2-046: abstain contract must express only an evidence-free absence/uncertainty boundary",
+    "P3500-HARD-003": "P3500-HARD-V2-003: evidence/concept/branch edge coverage is incomplete or asymmetric; unsupported=['c09']; invalid_coverage=[]; unknown_constraint_evidence=[]",
+    "P3500-HARD-007": "P3500-HARD-V2-007: evidence/concept/branch edge coverage is incomplete or asymmetric; unsupported=[]; invalid_coverage=[]; unknown_constraint_evidence=[]",
+    "P3500-HARD-009": "P3500-HARD-V2-009: evidence/concept/branch edge coverage is incomplete or asymmetric; unsupported=['c04']; invalid_coverage=[]; unknown_constraint_evidence=[]",
+    "P3500-HARD-011": "P3500-HARD-V2-011: evidence/concept/branch edge coverage is incomplete or asymmetric; unsupported=['c07']; invalid_coverage=[]; unknown_constraint_evidence=[]",
+    "P3500-HARD-015": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['saved-response source row/attempt is not present exactly once in the append-only response log']",
+    "P3500-HARD-021": "P3500-HARD-V2-021: DISCRIMINATIVE_VARIANT_GATE concept 'c01' has no production-discriminative variant",
+    "P3500-HARD-022": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['redundant-field coverage composition policy mismatch']",
+    "P3500-HARD-023": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['exact payload branch-span recovery policy mismatch']",
+    "P3500-HARD-025": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['coverage-status canonicalization policy mismatch']",
+    "P3500-HARD-042": "P3500-HARD-V2-042: abstain contract must express only an evidence-free absence/uncertainty boundary",
+    "P3500-HARD-046": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['abstain concept[0] variants must each express only an explicit absence/uncertainty rationale']",
+    "P3500-HARD-047": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['abstain concept[0] variants must each express only an explicit absence/uncertainty rationale']",
+    "P3500-HARD-048": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['abstain concept[0] variants must each express only an explicit absence/uncertainty rationale']",
+    "P3500-MEDIUM-012": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['concept[4].any_of entries must be unique']",
+    "P3500-MEDIUM-013": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=[\"review contains schema-external fields: ['$.required_concepts.all_of[5].安装', '$.required_concepts.all_of[8].下一步']\", 'concept[8].any_of entries must be non-blank strings', 'concept.branch_labels and required_branches edges must be symmetric']",
+    "P3500-MEDIUM-014": "P3500-MEDIUM-V2-014: DISCRIMINATIVE_VARIANT_GATE concept 'c11' has no discriminative canonical/variant",
+    "P3500-MEDIUM-015": "P3500-MEDIUM-V2-015: DISCRIMINATIVE_VARIANT_GATE concept 'c06' has no discriminative canonical/variant",
+    "P3500-MEDIUM-016": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['branch query_span differs from payload for B2', 'required branch labels/query spans must exactly match payload']",
+    "P3500-MEDIUM-017": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['concept.branch_labels and required_branches edges must be symmetric']",
+    "P3500-MEDIUM-018": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['persisted success required structural normalization; strict independent same-semantic rereview is required']",
+    "P3500-MEDIUM-019": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['required_branches[1].required_concept_keys must be non-empty']",
+    "P3500-MEDIUM-021": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=[\"review contains schema-external fields: ['$.required_concepts.all_of[1].开启', '$.required_concepts.all_of[1].网络设置', '$.required_concepts.all_of[1].菜单键', '$.required_concepts.all_of[2].SSID', '$.required_concepts.all_of[2].网络配置信息页', '$.required_concepts.all_of[2].菜单键']\", 'concept.branch_labels and required_branches edges must be symmetric']",
+    "P3500-MEDIUM-024": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['persisted success required structural normalization; strict independent same-semantic rereview is required']",
+    "P3500-MEDIUM-029": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=[\"review contains schema-external fields: ['$.required_concepts.all_of[0].菜单', '$.required_concepts.all_of[1].1.系统设置', '$.required_concepts.all_of[1].OK', '$.required_concepts.all_of[2].3. 省墨', '$.required_concepts.all_of[2].OK', '$.required_concepts.all_of[2].▲', '$.required_concepts.all_of[2].▼', '$.required_concepts.all_of[3].1. 关闭', '$.required_concepts.all_of[3].2. 开启', '$.required_concepts.all_of[3].OK', '$.required_concepts.all_of[4].*']\", 'concept[0].any_of entries must be unique', 'concept[4].canonical_text must be a non-blank string', 'concept[4].any_of entries must be non-blank strings']",
+    "P3500-MEDIUM-030": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['concept.branch_labels and required_branches edges must be symmetric']",
+    "P3500-MEDIUM-031": "P3500-MEDIUM-V2-031: DISCRIMINATIVE_VARIANT_GATE concept 'c02' has no production-discriminative variant",
+    "P3500-MEDIUM-032": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=[\"review contains schema-external fields: ['$.required_concepts.all_of[0].菜单键', '$.required_concepts.all_of[10].纸张尺寸', '$.required_concepts.all_of[11].OK键', '$.required_concepts.all_of[12].纸张尺寸界面', '$.required_concepts.all_of[13].方向键', '$.required_concepts.all_of[15].OK键', '$.required_concepts.all_of[1].方向键', '$.required_concepts.all_of[2].纸盒设置', '$.required_concepts.all_of[3].OK键', '$.required_concepts.all_of[4].纸盒设置界面', '$.required_concepts.all_of[5].方向键', '$.required_concepts.all_of[7].OK键', '$.required_concepts.all_of[8].设置界面', '$.required_concepts.all_of[9].方向键']\", 'concept[0].any_of entries must be unique', 'concept[1].any_of entries must be unique', 'concept[2].any_of entries must be unique', 'concept[3].any_of entries must be unique', 'concept[4].any_of entries must be unique', 'concept[5].any_of entries must be unique', 'concept[7].any_of entries must be unique', 'concept[8].any_of entries must be unique', 'concept[9].any_of entries must be unique', 'concept[10].any_of entries must be unique', 'concept[11].any_of entries must be unique', 'concept[12].any_of entries must be unique', 'concept[13].any_of entries must be unique', 'concept[15].any_of entries must be unique']",
+    "P3500-MEDIUM-034": "REVIEW_CONTRACT_VALIDATION_FAILURE requires same-semantic rereview; errors=['concept.branch_labels and required_branches edges must be symmetric']",
+    "P3500-MEDIUM-038": "P3500-MEDIUM-V2-038: DISCRIMINATIVE_VARIANT_GATE concept 'c06' is a query meta-directive rather than an answer fact (query_meta_directive_without_answer_fact)",
+    "P3500-MEDIUM-047": "P3500-MEDIUM-V2-047: DISCRIMINATIVE_VARIANT_GATE concept 'c01' has no unique discriminative canonical/variant",
+    "P3500-MEDIUM-049": "P3500-MEDIUM-V2-049: DISCRIMINATIVE_VARIANT_GATE concept 'c02' has no production-discriminative variant"
+  },
+  "required_data_remediation_case_ids": [
+    "P3500-EASY-004",
+    "P3500-EASY-031",
+    "P3500-EASY-046",
+    "P3500-EASY-049",
+    "P3500-HARD-003",
+    "P3500-HARD-007",
+    "P3500-HARD-008",
+    "P3500-HARD-009",
+    "P3500-HARD-011",
+    "P3500-HARD-015",
+    "P3500-HARD-021",
+    "P3500-HARD-037",
+    "P3500-HARD-040",
+    "P3500-HARD-041",
+    "P3500-HARD-042"
+  ],
+  "contract_rereview_case_ids": [
+    "P3500-EASY-007",
+    "P3500-EASY-008",
+    "P3500-EASY-010",
+    "P3500-EASY-021",
+    "P3500-EASY-030",
+    "P3500-EASY-036",
+    "P3500-EASY-038",
+    "P3500-EASY-045",
+    "P3500-HARD-022",
+    "P3500-HARD-023",
+    "P3500-HARD-025",
+    "P3500-HARD-046",
+    "P3500-HARD-047",
+    "P3500-HARD-048",
+    "P3500-MEDIUM-012",
+    "P3500-MEDIUM-013",
+    "P3500-MEDIUM-014",
+    "P3500-MEDIUM-015",
+    "P3500-MEDIUM-016",
+    "P3500-MEDIUM-017",
+    "P3500-MEDIUM-018",
+    "P3500-MEDIUM-019",
+    "P3500-MEDIUM-021",
+    "P3500-MEDIUM-024",
+    "P3500-MEDIUM-029",
+    "P3500-MEDIUM-030",
+    "P3500-MEDIUM-031",
+    "P3500-MEDIUM-032",
+    "P3500-MEDIUM-034",
+    "P3500-MEDIUM-038",
+    "P3500-MEDIUM-047",
+    "P3500-MEDIUM-049"
+  ],
+  "contract_rereview_case_ids_sha256": "aae05c8f2311e9730f37ccf1b25ebadd272b30af366be42fd48d34e0ff17637f",
+  "contract_rereview_policy": {
+    "semantic_payload_must_remain_identical": true,
+    "new_custom_id_required": true,
+    "same_prompt_required": true,
+    "dataset_replacement_before_rereview_forbidden": true,
+    "same_discriminative_variant_gate_required": true
+  },
+  "proposal_case_ids": [
+    "P3500-EASY-004",
+    "P3500-EASY-031",
+    "P3500-EASY-046",
+    "P3500-EASY-049",
+    "P3500-HARD-003",
+    "P3500-HARD-007",
+    "P3500-HARD-008",
+    "P3500-HARD-009",
+    "P3500-HARD-011",
+    "P3500-HARD-015",
+    "P3500-HARD-021",
+    "P3500-HARD-037",
+    "P3500-HARD-040",
+    "P3500-HARD-041",
+    "P3500-HARD-042"
+  ],
+  "proposal_dispositions": {
+    "P3500-EASY-004": "replacement",
+    "P3500-EASY-031": "semantic_replacement",
+    "P3500-EASY-046": "semantic_replacement",
+    "P3500-EASY-049": "replacement",
+    "P3500-HARD-003": "semantic_replacement",
+    "P3500-HARD-007": "semantic_replacement",
+    "P3500-HARD-008": "corrected",
+    "P3500-HARD-009": "semantic_replacement",
+    "P3500-HARD-011": "semantic_replacement",
+    "P3500-HARD-015": "corrected",
+    "P3500-HARD-021": "replacement",
+    "P3500-HARD-037": "replacement",
+    "P3500-HARD-040": "replacement",
+    "P3500-HARD-041": "replacement",
+    "P3500-HARD-042": "corrected"
+  },
+  "uncovered_data_remediation_case_ids": [],
+  "proposal_without_current_trigger_case_ids": [],
+  "inputs": {
+    "visual_audit_sha256": "11319dc0fcecdcc1d090ade4d5de1b3e6a9d53c073712c9217070ad1791644b2",
+    "base_proposals_sha256": "830e8b8599caadf06fa27d3a6bb23702d7cfe8b2d221c85f2fd98ac7df1bd683",
+    "supplemental_proposals_sha256": "c312a9f07625ef563f0e4fe6626eba6369edc6848f72c121c726aa09d061f6f1"
+  }
+}

@@ -1,0 +1,3122 @@
+<!-- P0 评测控制台：数据集预检、持久运行、指标下钻、报告下载与回答反馈。 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>STT 知识库能力评测控制台</title>
+  <link rel="stylesheet" href="/ui-assets/stt-console.css?v=20260807.1">
+  <script src="/ui-assets/stt-console.js?v=20260807.1" defer></script>
+  <script src="/ui-assets/stt-diagnostics.js?v=20260807.1" defer></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --page: #f2f6fb;
+      --panel: #ffffff;
+      --panel-soft: #f8fbff;
+      --ink: #162335;
+      --muted: #65758b;
+      --border: #dbe4ef;
+      --primary: #1769e0;
+      --primary-dark: #0f4fad;
+      --primary-soft: #eaf3ff;
+      --success: #16784a;
+      --success-soft: #eaf8f1;
+      --warning: #a35f00;
+      --warning-soft: #fff7e5;
+      --danger: #b42318;
+      --danger-soft: #fff0ef;
+      --neutral-soft: #eef2f6;
+      --shadow: 0 1px 2px rgba(24, 36, 56, .06);
+      --radius: 10px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background: var(--page);
+      font-family: "Segoe UI", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+    }
+
+    button, input, select, textarea { font: inherit; }
+
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible,
+    a:focus-visible {
+      outline: 3px solid rgba(23, 105, 224, .28);
+      outline-offset: 2px;
+    }
+
+    .shell {
+      width: min(1480px, calc(100% - 32px));
+      margin: 22px auto 48px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 16px 20px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .94);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 280px;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+      color: #fff;
+      font-weight: 800;
+      background: linear-gradient(135deg, #2787ff, #1558cc);
+      box-shadow: 0 10px 24px rgba(23, 105, 224, .28);
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.25;
+    }
+
+    .brand p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .auth-bar {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex: 1;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .auth-bar input { width: 155px; }
+    .auth-bar input[type="password"] { width: 135px; }
+
+    .field,
+    .select,
+    textarea {
+      min-height: 38px;
+      padding: 8px 10px;
+      color: var(--ink);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: #fff;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 88px;
+      resize: vertical;
+    }
+
+    .button {
+      min-height: 38px;
+      padding: 8px 14px;
+      border: 1px solid transparent;
+      border-radius: 9px;
+      color: #fff;
+      background: var(--primary);
+      cursor: pointer;
+      transition: transform .12s ease, background .12s ease, opacity .12s ease;
+    }
+
+    .button:hover:not(:disabled) {
+      transform: translateY(-1px);
+      background: var(--primary-dark);
+    }
+
+    .button:disabled {
+      cursor: not-allowed;
+      opacity: .48;
+    }
+
+    .button.secondary {
+      color: var(--primary);
+      border-color: #bcd2f2;
+      background: var(--primary-soft);
+    }
+
+    .button.secondary:hover:not(:disabled) { background: #dcecff; }
+
+    .button.ghost {
+      color: var(--ink);
+      border-color: var(--border);
+      background: #fff;
+    }
+
+    .button.ghost:hover:not(:disabled) { background: var(--neutral-soft); }
+
+    .button.danger {
+      color: var(--danger);
+      border-color: #f0b9b4;
+      background: var(--danger-soft);
+    }
+
+    .button.small {
+      min-height: 31px;
+      padding: 5px 9px;
+      font-size: 12px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      min-height: 28px;
+      padding: 4px 9px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--muted);
+      background: #fff;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .pill.success { color: var(--success); border-color: #a8dcc1; background: var(--success-soft); }
+    .pill.warning { color: var(--warning); border-color: #f1ce8b; background: var(--warning-soft); }
+    .pill.danger { color: var(--danger); border-color: #f0b9b4; background: var(--danger-soft); }
+    .pill.primary { color: var(--primary); border-color: #bcd2f2; background: var(--primary-soft); }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: end;
+      padding: 30px 2px 18px;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .hero h2 {
+      margin: 0;
+      max-width: 840px;
+      font-size: clamp(25px, 3vw, 40px);
+      line-height: 1.18;
+      letter-spacing: -.03em;
+    }
+
+    .hero p {
+      max-width: 880px;
+      margin: 12px 0 0;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .hero-links a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .notice {
+      display: none;
+      margin: 0 0 16px;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      color: var(--ink);
+      background: #fff;
+      white-space: pre-wrap;
+    }
+
+    .notice.visible { display: block; }
+    .notice.info { border-color: #bcd2f2; background: var(--primary-soft); }
+    .notice.success { border-color: #a8dcc1; background: var(--success-soft); }
+    .notice.warning { border-color: #f1ce8b; background: var(--warning-soft); }
+    .notice.danger { border-color: #f0b9b4; background: var(--danger-soft); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .panel {
+      min-width: 0;
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .97);
+      box-shadow: none;
+    }
+
+    .setup-panel,
+    .preflight-panel,
+    .runs-panel,
+    .detail-panel { grid-column: auto; }
+
+    .panel-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .panel-head h3 {
+      margin: 0;
+      font-size: 17px;
+    }
+
+    .panel-head p {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .form-row {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      gap: 6px;
+    }
+
+    .form-row.full { grid-column: 1 / -1; }
+
+    .form-row label {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .inline-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .dataset-card {
+      margin-top: 16px;
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--panel-soft);
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin: 0;
+    }
+
+    .fact {
+      min-width: 0;
+      padding: 10px;
+      border-radius: 9px;
+      background: #fff;
+    }
+
+    .fact dt {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .fact dd {
+      margin: 5px 0 0;
+      font-size: 13px;
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+
+    .case-catalog {
+      margin-top: 12px;
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
+    }
+
+    .case-catalog summary {
+      color: var(--primary);
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .case-list {
+      display: grid;
+      gap: 7px;
+      max-height: 280px;
+      margin-top: 10px;
+      overflow: auto;
+    }
+
+    .case-line {
+      display: grid;
+      grid-template-columns: 105px minmax(0, 1fr) auto;
+      gap: 8px;
+      align-items: start;
+      padding: 8px 9px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #fff;
+      font-size: 12px;
+    }
+
+    .case-line strong { color: var(--primary); }
+
+    .tag-list {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 999px;
+      color: #42526a;
+      background: var(--neutral-soft);
+      font-size: 10px;
+    }
+
+    .preflight-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px;
+      margin-top: 12px;
+    }
+
+    .check {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      min-height: 64px;
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--panel-soft);
+    }
+
+    .check-icon {
+      display: grid;
+      place-items: center;
+      flex: 0 0 24px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      color: #fff;
+      background: #91a0b3;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .check.pass .check-icon { background: var(--success); }
+    .check.fail .check-icon { background: var(--danger); }
+
+    .check strong {
+      display: block;
+      font-size: 12px;
+    }
+
+    .check span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.4;
+    }
+
+    .preflight-evidence {
+      margin-top: 12px;
+      padding: 11px;
+      border: 1px dashed var(--border);
+      border-radius: 9px;
+      color: var(--muted);
+      background: #fff;
+      font-size: 12px;
+      line-height: 1.65;
+      white-space: pre-wrap;
+    }
+
+    .run-form {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+      gap: 9px;
+      align-items: end;
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid var(--border);
+    }
+
+    .table-wrap {
+      overflow: auto;
+      border: 1px solid var(--border);
+      border-radius: 11px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+
+    th, td {
+      padding: 10px 11px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      color: #53647b;
+      background: #f3f7fb;
+      white-space: nowrap;
+    }
+
+    tbody tr:last-child td { border-bottom: 0; }
+    tbody tr.selected { background: #edf5ff; }
+    tbody tr:hover { background: #f8fbff; }
+
+    .mono {
+      font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+      overflow-wrap: anywhere;
+    }
+
+    .progress-track {
+      width: 100%;
+      min-width: 120px;
+      height: 8px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #dce5ef;
+    }
+
+    .progress-bar {
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #2787ff, #16a06b);
+      transition: width .3s ease;
+    }
+
+    .progress-label {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .empty {
+      padding: 24px;
+      color: var(--muted);
+      text-align: center;
+      border: 1px dashed var(--border);
+      border-radius: 10px;
+      background: var(--panel-soft);
+    }
+
+    .run-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 440px);
+      gap: 18px;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: linear-gradient(120deg, #f7fbff, #f7fcfa);
+    }
+
+    .run-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .run-title h4 {
+      margin: 0;
+      font-size: 19px;
+    }
+
+    .run-meta {
+      display: flex;
+      gap: 12px;
+      margin-top: 9px;
+      color: var(--muted);
+      font-size: 12px;
+      flex-wrap: wrap;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .metric {
+      min-width: 0;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      background: #fff;
+    }
+
+    .metric .name {
+      min-height: 30px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.35;
+    }
+
+    .metric .value {
+      margin-top: 5px;
+      font-size: 21px;
+      font-weight: 800;
+      overflow-wrap: anywhere;
+    }
+
+    .metric .coverage {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .quality-target {
+      margin-top: 12px;
+      padding: 13px 14px;
+      border: 1px solid #bcd2f2;
+      border-radius: 11px;
+      background: var(--primary-soft);
+    }
+
+    .quality-target-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .quality-target-head strong { font-size: 13px; }
+
+    .quality-target-lines {
+      display: grid;
+      gap: 4px;
+      margin-top: 8px;
+      color: #354760;
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .subgrid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .subpanel {
+      min-width: 0;
+      padding: 15px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--panel-soft);
+    }
+
+    .subpanel.full { grid-column: 1 / -1; }
+
+    .subpanel h4 {
+      margin: 0 0 11px;
+      font-size: 14px;
+    }
+
+    .gate {
+      padding: 12px;
+      border-radius: 10px;
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+
+    .gate.success { color: var(--success); background: var(--success-soft); }
+    .gate.warning { color: var(--warning); background: var(--warning-soft); }
+    .gate.danger { color: var(--danger); background: var(--danger-soft); }
+    .gate.neutral { color: var(--muted); background: var(--neutral-soft); }
+
+    .downloads {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .download {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 6px 10px;
+      border: 1px solid #bcd2f2;
+      border-radius: 8px;
+      color: var(--primary);
+      background: var(--primary-soft);
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .failure-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .failure-columns {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .failure-column {
+      display: grid;
+      align-content: start;
+      gap: 10px;
+      min-width: 0;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--panel-soft);
+    }
+
+    .failure-column-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .failure-column-head p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.55;
+    }
+
+    .failure {
+      border: 1px solid #efc5c2;
+      border-radius: 10px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .failure summary {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 11px 12px;
+      cursor: pointer;
+      color: var(--danger);
+      background: var(--danger-soft);
+      font-size: 12px;
+      font-weight: 700;
+      list-style: none;
+    }
+
+    .failure summary::-webkit-details-marker { display: none; }
+
+    .failure.strict-diagnostic {
+      border-color: #ead39d;
+    }
+
+    .failure.strict-diagnostic summary {
+      color: #805c05;
+      background: var(--warning-soft);
+    }
+
+    .failure-body {
+      display: grid;
+      gap: 11px;
+      padding: 13px;
+    }
+
+    .text-block {
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--panel-soft);
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      line-height: 1.65;
+      font-size: 12px;
+    }
+
+    .text-block strong {
+      display: block;
+      margin-bottom: 5px;
+      color: #53647b;
+    }
+
+    .retrieved-list {
+      display: grid;
+      gap: 7px;
+      max-height: 270px;
+      overflow: auto;
+    }
+
+    .retrieved {
+      padding: 9px;
+      border-left: 3px solid #9ebce5;
+      color: #354760;
+      background: #f5f9fe;
+      font-size: 11px;
+      line-height: 1.55;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+
+    .result-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      max-height: 380px;
+      overflow: auto;
+    }
+
+    .result-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: #fff;
+    }
+
+    .result-row .result-main {
+      flex: 1;
+      min-width: 0;
+      font-size: 12px;
+    }
+
+    .result-row .result-main span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    dialog {
+      width: min(660px, calc(100% - 30px));
+      padding: 0;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      box-shadow: 0 24px 70px rgba(20, 37, 58, .28);
+    }
+
+    dialog::backdrop { background: rgba(18, 32, 49, .48); }
+
+    .dialog-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 17px 19px;
+      border-bottom: 1px solid var(--border);
+      background: var(--panel-soft);
+    }
+
+    .dialog-head h3 { margin: 0; font-size: 17px; }
+    .dialog-head p { margin: 5px 0 0; color: var(--muted); font-size: 12px; }
+
+    .dialog-body {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 13px;
+      padding: 19px;
+    }
+
+    .dialog-body .full { grid-column: 1 / -1; }
+
+    .reason-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 7px;
+      margin-top: 5px;
+    }
+
+    .reason {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 34px;
+      padding: 6px 8px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 12px;
+    }
+
+    .dialog-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      padding: 14px 19px 18px;
+      border-top: 1px solid var(--border);
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (max-width: 1180px) {
+      .topbar { align-items: flex-start; }
+      .metric-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .run-form { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 900px) {
+      .shell { width: min(100% - 20px, 1480px); margin-top: 10px; }
+      .topbar, .hero { display: block; }
+      .auth-bar { justify-content: flex-start; margin-top: 14px; }
+      .hero-links { margin-top: 14px; }
+      .setup-panel, .preflight-panel { grid-column: 1 / -1; }
+      .run-hero, .subgrid { grid-template-columns: 1fr; }
+      .failure-columns { grid-template-columns: 1fr; }
+      .subpanel.full { grid-column: auto; }
+      .metric-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 620px) {
+      .panel { padding: 15px; }
+      .auth-bar input, .auth-bar input[type="password"] { width: 100%; }
+      .form-grid, .run-form, .facts, .preflight-list, .result-list, .dialog-body {
+        grid-template-columns: 1fr;
+      }
+      .form-row.full, .dialog-body .full { grid-column: auto; }
+      .metric-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .case-line { grid-template-columns: 92px minmax(0, 1fr); }
+      .case-line .tag-list { grid-column: 1 / -1; }
+      .reason-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+  </style>
+</head>
+<body class="stt-workbench" data-stt-diagnostic="evaluation">
+  <a class="stt-skip-link" href="#evaluationMain">跳到主要内容</a>
+  <div class="stt-shell" data-stt-protected hidden>
+    <header class="stt-topbar">
+      <div class="stt-brand">
+        <strong>掌柜智库</strong>
+        <span>知识库能力与质量工作台</span>
+      </div>
+      <nav class="stt-nav" aria-label="工作台导航">
+        <a href="/html"><svg class="stt-nav-icon" aria-hidden="true" focusable="false"><use href="/ui-assets/lucide-nav.svg#message-circle"></use></svg><span>知识问答</span></a>
+        <a href="http://127.0.0.1:8000/html"><svg class="stt-nav-icon" aria-hidden="true" focusable="false"><use href="/ui-assets/lucide-nav.svg#database"></use></svg><span>知识库运维</span></a>
+        <div class="stt-nav-section">
+          <a href="/eval/html" aria-current="page"><svg class="stt-nav-icon" aria-hidden="true" focusable="false"><use href="/ui-assets/lucide-nav.svg#chart-no-axes-combined"></use></svg><span>能力评测</span></a>
+          <div class="stt-subnav" aria-label="能力评测功能">
+            <a class="is-active" href="#setupTitle">固定数据集</a>
+            <a href="#preflightTitle">能力预检</a>
+            <a href="#runsTitle">评测运行</a>
+            <a href="#detailTitle">结果下钻</a>
+          </div>
+        </div>
+        <a href="/p3/html"><svg class="stt-nav-icon" aria-hidden="true" focusable="false"><use href="/ui-assets/lucide-nav.svg#shield-check"></use></svg><span>系统验证</span></a>
+      </nav>
+      <div class="stt-account auth-bar" aria-label="认证区">
+        <span class="pill" id="authPill">未登录</span>
+        <span class="pill" id="apiPill">API 检查中</span>
+        <button class="button ghost small" id="logoutButton" type="button">退出</button>
+      </div>
+    </header>
+
+    <main class="stt-page-grid" id="evaluationMain">
+      <div class="stt-primary-column">
+      <section class="stt-page-heading" aria-labelledby="evaluationTitle">
+        <div>
+          <p class="eyebrow">P0 · Retrieval &amp; Generation Evaluation</p>
+          <h1 id="evaluationTitle">先证明知识库能力，再讨论界面体验</h1>
+          <p>本页用固定 PDF、不可变数据集和持久运行事实，分别核验检索、生成、引用、拒答、延迟以及基线回归。评测模式强制关闭联网和对话历史写入，避免把外部答案误判为知识库能力。</p>
+        </div>
+        <div class="stt-actions" aria-label="评测操作">
+          <button class="button ghost small" id="refreshAllButton" type="button">刷新全部事实</button>
+        </div>
+      </section>
+
+      <div class="notice" id="notice" role="status" aria-live="polite"></div>
+
+      <section class="panel setup-panel" aria-labelledby="setupTitle">
+        <div class="panel-head">
+          <div>
+            <h3 id="setupTitle">1. 固定评测输入</h3>
+            <p>选择知识库和已版本化的内置黄金集；页面刷新不会创建新数据集。</p>
+          </div>
+          <span class="pill primary" id="datasetCountPill">0 个数据集</span>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-row">
+            <label for="kbIdInput">授权知识库</label>
+            <select class="select" id="kbIdInput" aria-label="选择授权知识库"></select>
+          </div>
+          <div class="form-row">
+            <label for="datasetSelect">不可变评测数据集</label>
+            <select class="select" id="datasetSelect" aria-label="评测数据集">
+              <option value="">正在载入数据集…</option>
+            </select>
+          </div>
+          <div class="form-row full">
+            <div class="inline-actions">
+              <button class="button secondary" id="loadDatasetButton" type="button">读取数据集详情</button>
+              <span class="pill" id="sourcePill">尚未校验源文件</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="dataset-card" id="datasetDetail">
+          <div class="empty">登录后选择内置数据集，即可查看版本、校验和、固定 PDF 与全部案例。</div>
+        </div>
+      </section>
+
+      <section class="panel runs-panel" aria-labelledby="runsTitle">
+        <div class="panel-head">
+          <div>
+            <h3 id="runsTitle">3. 持久评测运行</h3>
+            <p>首次运行建立事实基线；候选运行必须选择基线，服务端按 case_id 做配对差异与质量门禁。</p>
+          </div>
+          <div class="inline-actions">
+            <span class="pill" id="runCountPill">0 条运行</span>
+            <button class="button ghost small" id="refreshRunsButton" type="button">刷新运行</button>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>运行 / 数据集</th>
+                <th>难度 / 范围</th>
+                <th>KB</th>
+                <th>状态</th>
+                <th>进度</th>
+                <th>基线 / 门禁</th>
+                <th>创建时间</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody id="runsBody"></tbody>
+          </table>
+        </div>
+        <div class="empty" id="runsEmpty">暂无持久运行。先完成预检，再建立第一条基线。</div>
+
+        <div class="run-form">
+          <div class="form-row">
+            <label for="runModeSelect">评测范围</label>
+            <select class="select" id="runModeSelect">
+              <option value="retrieval_only" selected>仅本地检索（推荐，不调用外部 LLM）</option>
+              <option value="live">完整链路（仅在数据外发/私有模型获批后）</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="runNameInput">运行名称（可选）</label>
+            <input class="field" id="runNameInput" placeholder="例如：hak180 首次能力基线">
+          </div>
+          <div class="form-row">
+            <label for="baselineSelect">候选对比基线</label>
+            <select class="select" id="baselineSelect">
+              <option value="">请选择成功的基线运行</option>
+            </select>
+          </div>
+          <button class="button secondary" id="runBaselineButton" type="button" disabled>运行新基线</button>
+          <button class="button" id="runCandidateButton" type="button" disabled>运行候选并比较</button>
+        </div>
+      </section>
+
+      <section class="panel detail-panel" id="runDetailPanel" aria-labelledby="detailTitle">
+        <div class="panel-head">
+          <div>
+            <h3 id="detailTitle">4. 运行事实、指标与失败下钻</h3>
+            <p>所有指标来自服务端持久结果；“未采集”不会伪装成 0。</p>
+          </div>
+          <button class="button ghost small" id="refreshSelectedButton" type="button" disabled>刷新当前运行</button>
+        </div>
+        <div class="empty" id="runDetailEmpty">从上方运行表选择一条记录。刷新浏览器后仍会恢复上次选中的运行。</div>
+        <div id="runDetail" hidden>
+          <div class="run-hero">
+            <div>
+              <div class="run-title">
+                <h4 id="selectedRunName">—</h4>
+                <span class="pill" id="selectedRunStatus">—</span>
+                <span class="pill" id="selectedRunGate">门禁待定</span>
+              </div>
+              <div class="run-meta" id="selectedRunMeta"></div>
+            </div>
+            <div>
+              <div class="progress-track" aria-label="运行进度">
+                <div class="progress-bar" id="selectedProgressBar"></div>
+              </div>
+              <span class="progress-label" id="selectedProgressLabel">0%</span>
+            </div>
+          </div>
+
+          <div class="metric-grid" id="metricGrid"></div>
+
+          <section class="quality-target" id="qualityTargetPanel" aria-live="polite" hidden>
+            <div class="quality-target-head">
+              <strong id="qualityTargetTitle">三难度套件最终答案目标</strong>
+              <span class="pill" id="qualityTargetStatus">待采集</span>
+            </div>
+            <div class="quality-target-lines">
+              <span id="qualityTargetRequirement"></span>
+              <span id="qualityTargetCurrent"></span>
+              <span>达标只依据 <code>metrics.case_outcome.final_answer_accuracy</code>；manifest 省略用例策略时使用 case.v2，仅显式启用的 case.v3 候选概念合同会拒绝无据/矛盾事实、拒答夹带事实、关键约束错误及明确漏答。严格有据通过率不参与目标判断并仍独立展示，引用降级本身不会替代最终正确性。</span>
+            </div>
+          </section>
+
+          <div class="subgrid">
+            <section class="subpanel">
+              <h4>质量门禁</h4>
+              <div class="gate neutral" id="gateDetail">运行完成后展示门禁事实。</div>
+            </section>
+            <section class="subpanel">
+              <h4>报告工件</h4>
+              <div class="downloads" id="reportDownloads"></div>
+              <div class="empty" id="reportEmpty">运行完成后可下载 JSON、Markdown、HTML、JSONL 与配对差异。</div>
+            </section>
+            <section class="subpanel full">
+              <h4>Tag 分层指标</h4>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Tag</th>
+                      <th>案例数</th>
+                      <th>Recall@10</th>
+                      <th>MRR</th>
+                      <th>正确性</th>
+                      <th>忠实度</th>
+                      <th>引用覆盖率</th>
+                      <th>P95 延迟</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tagMetricsBody"></tbody>
+                </table>
+              </div>
+              <div class="empty" id="tagMetricsEmpty">运行完成后展示分层指标。</div>
+            </section>
+            <section class="subpanel full" id="comparisonPanel" hidden>
+              <h4>基线与候选配对差异</h4>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>指标</th>
+                      <th>Baseline</th>
+                      <th>Candidate</th>
+                      <th>Delta</th>
+                      <th>改善案例</th>
+                      <th>退化案例</th>
+                    </tr>
+                  </thead>
+                  <tbody id="comparisonBody"></tbody>
+                </table>
+              </div>
+            </section>
+            <section class="subpanel full">
+              <div class="panel-head">
+                <div>
+                  <h4>最终错题与严格有据诊断</h4>
+                  <p>两栏独立计算：最终答案错题只依据 <code>final_answer_correct === false</code>；严格有据失败仅作诊断，不改变最终正确率。</p>
+                </div>
+              </div>
+              <div class="failure-columns">
+                <section class="failure-column" aria-labelledby="finalFailureTitle">
+                  <div class="failure-column-head">
+                    <div>
+                      <h4 id="finalFailureTitle">最终答案错题</h4>
+                      <p>权威目标集合；只展示最终答案明确判错的案例。</p>
+                    </div>
+                    <span class="pill danger" id="finalFailureCountPill">0 个错题</span>
+                  </div>
+                  <div class="failure-list" id="finalFailureList"></div>
+                  <div class="empty" id="finalFailureEmpty">当前没有最终答案错题。</div>
+                </section>
+                <section class="failure-column" aria-labelledby="strictFailureTitle">
+                  <div class="failure-column-head">
+                    <div>
+                      <h4 id="strictFailureTitle">严格有据诊断失败</h4>
+                      <p>诊断集合；可包含最终答案正确、但严格证据合同未通过的案例。</p>
+                    </div>
+                    <span class="pill warning" id="strictFailureCountPill">0 个诊断失败</span>
+                  </div>
+                  <div class="failure-list" id="strictFailureList"></div>
+                  <div class="empty" id="strictFailureEmpty">当前没有严格有据诊断失败。</div>
+                </section>
+              </div>
+            </section>
+            <section class="subpanel full">
+              <div class="panel-head">
+                <div>
+                  <h4>全部案例与回答反馈</h4>
+                  <p>每条真实回答都可提交好评、中立或差评；反馈只进入待审核池，不会直接污染黄金集。</p>
+                </div>
+                <span class="pill" id="resultCountPill">0 条结果</span>
+              </div>
+              <div class="result-list" id="resultList"></div>
+              <div class="empty" id="resultEmpty">运行产生案例结果后，可在此提交反馈。</div>
+            </section>
+          </div>
+        </div>
+      </section>
+      </div>
+
+      <aside class="stt-context-rail" aria-label="评测预检上下文">
+        <section class="panel preflight-panel stt-context-panel" aria-labelledby="preflightTitle">
+          <div class="panel-head">
+            <div>
+              <h3 id="preflightTitle">2. 数据、索引与隔离预检</h3>
+              <p>只有全部事实通过，才允许创建真实评测运行。</p>
+            </div>
+            <span class="pill" id="preflightPill">尚未预检</span>
+          </div>
+
+          <button class="button" id="preflightButton" type="button">执行完整预检</button>
+          <div class="preflight-list" id="preflightList">
+            <div class="empty" style="grid-column:1/-1">等待检查知识库状态、PDF 指纹、已发布文档版本、活动索引和联网禁用。</div>
+          </div>
+          <div class="preflight-evidence" id="preflightEvidence">尚无预检证据。</div>
+        </section>
+      </aside>
+    </main>
+  </div>
+
+  <dialog id="feedbackDialog" aria-labelledby="feedbackTitle">
+    <div class="dialog-head">
+      <div>
+        <h3 id="feedbackTitle">提交回答反馈</h3>
+        <p id="feedbackContext">反馈将进入人工审核与双人标注流程。</p>
+      </div>
+      <button class="button ghost small" id="closeFeedbackButton" type="button" aria-label="关闭反馈窗口">关闭</button>
+    </div>
+    <form id="feedbackForm">
+      <div class="dialog-body">
+        <input id="feedbackResultId" type="hidden">
+        <input id="feedbackAnswerId" type="hidden">
+        <input id="feedbackSessionId" type="hidden">
+        <div class="form-row">
+          <label for="feedbackRating">评价</label>
+          <select class="select" id="feedbackRating" required>
+            <option value="-1">差评：回答存在问题</option>
+            <option value="0">中立：需要人工确认</option>
+            <option value="1">好评：回答符合预期</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>绑定回答 ID</label>
+          <div class="text-block mono" id="feedbackAnswerDisplay">—</div>
+        </div>
+        <fieldset class="form-row full" style="border:0;padding:0;margin:0">
+          <legend style="color:var(--muted);font-size:12px;font-weight:700">问题原因（可多选）</legend>
+          <div class="reason-grid">
+            <label class="reason"><input type="checkbox" name="reasonCode" value="retrieval_miss">检索遗漏</label>
+            <label class="reason"><input type="checkbox" name="reasonCode" value="incorrect_answer">答案错误</label>
+            <label class="reason"><input type="checkbox" name="reasonCode" value="hallucination">内容幻觉</label>
+            <label class="reason"><input type="checkbox" name="reasonCode" value="citation_error">引用错误</label>
+            <label class="reason"><input type="checkbox" name="reasonCode" value="should_abstain">应当拒答</label>
+            <label class="reason"><input type="checkbox" name="reasonCode" value="other">其他</label>
+          </div>
+        </fieldset>
+        <div class="form-row full">
+          <label for="feedbackComment">说明</label>
+          <textarea id="feedbackComment" maxlength="4000" placeholder="说明哪里好、哪里不对，以及可复现条件。"></textarea>
+        </div>
+        <div class="form-row full">
+          <label for="feedbackCorrection">建议正确答案（可选）</label>
+          <textarea id="feedbackCorrection" maxlength="8000" placeholder="仅作为待审核候选，不会直接写入黄金集。"></textarea>
+        </div>
+      </div>
+      <div class="dialog-actions">
+        <button class="button ghost" id="cancelFeedbackButton" type="button">取消</button>
+        <button class="button" id="submitFeedbackButton" type="submit">提交到审核池</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script>
+    'use strict';
+
+    var API_BASE = location.origin.indexOf('http') === 0 ? location.origin : 'http://127.0.0.1:8001';
+    var STORAGE = {
+      kb: 'stt.eval.kbId',
+      dataset: 'stt.eval.datasetId',
+      run: 'stt.eval.runId',
+      tenant: 'stt.eval.tenantId'
+    };
+    var state = {
+      datasets: [],
+      dataset: null,
+      runs: [],
+      selectedRun: null,
+      results: [],
+      preflight: null,
+      pollTimer: null,
+      refreshTimer: null,
+      busy: false
+    };
+
+    var DIFFICULTY_META = {
+      easy: { label: '简单', order: 0, tone: 'success' },
+      medium: { label: '中等', order: 1, tone: 'warning' },
+      hard: { label: '困难', order: 2, tone: 'danger' }
+    };
+
+    var QUALITY_TARGETS = {
+      schema_version: 'stt.eval.quality-targets.v1',
+      suite_key: 'three-difficulty-live-2026-08-11-reviewed-v2',
+      primary_metric: {
+        name: 'final_visible_answer_binary_accuracy',
+        production_path: 'metrics.case_outcome.final_answer_accuracy',
+        description: '最终呈现给用户的答案按题二元判定正确或错误，再按难度汇总正确率。'
+      },
+      independent_blind_review: {
+        role: 'audit_only',
+        counts_toward_target: false,
+        description: '独立盲审仅用于审计生产评测结论，不替代或混入生产正确率。'
+      },
+      targets: {
+        easy: { required: true, operator: '>', threshold: 0.95, case_count: 50, minimum_correct_cases: 48 },
+        medium: { required: true, operator: '>', threshold: 0.85, case_count: 50, minimum_correct_cases: 43 },
+        hard: { required: false, operator: null, threshold: null, case_count: 50, minimum_correct_cases: null }
+      }
+    };
+
+    function datasetManifest(dataset) {
+      return dataset && dataset.manifest_json && typeof dataset.manifest_json === 'object'
+        ? dataset.manifest_json
+        : {};
+    }
+
+    function datasetField(dataset, name, fallback) {
+      if (dataset && dataset[name] !== undefined && dataset[name] !== null && dataset[name] !== '') {
+        return dataset[name];
+      }
+      var manifest = datasetManifest(dataset);
+      if (manifest[name] !== undefined && manifest[name] !== null && manifest[name] !== '') {
+        return manifest[name];
+      }
+      return fallback;
+    }
+
+    function normalizeDifficulty(value) {
+      var normalized = String(value || '').trim().toLowerCase();
+      var aliases = {
+        easy: 'easy', simple: 'easy', '简单': 'easy',
+        medium: 'medium', moderate: 'medium', '中等': 'medium', '中等难度': 'medium',
+        hard: 'hard', difficult: 'hard', '困难': 'hard'
+      };
+      return aliases[normalized] || '';
+    }
+
+    function difficultyMeta(dataset) {
+      var key = normalizeDifficulty(datasetField(dataset, 'difficulty', ''));
+      return key
+        ? Object.assign({ key: key }, DIFFICULTY_META[key])
+        : { key: '', label: '未分级', order: 99, tone: '' };
+    }
+
+    function datasetMinimumCaseCount(dataset) {
+      var value = Number(datasetField(dataset, 'minimum_case_count', NaN));
+      return Number.isFinite(value) && value > 0 ? Math.floor(value) : null;
+    }
+
+    function datasetCaseStatus(dataset) {
+      var count = Number(dataset && dataset.case_count);
+      count = Number.isFinite(count) && count >= 0 ? Math.floor(count) : 0;
+      var minimum = datasetMinimumCaseCount(dataset);
+      if (minimum === null) {
+        return { count: count, minimum: null, meets: null, label: count + ' 题', tone: '' };
+      }
+      var meets = count >= minimum;
+      return {
+        count: count,
+        minimum: minimum,
+        meets: meets,
+        label: (meets ? '题数达标 ' : '题数不足 ') + count + ' / ' + minimum,
+        tone: meets ? 'success' : 'danger'
+      };
+    }
+
+    function datasetDefaultMode(dataset) {
+      var value = String(datasetField(dataset, 'evaluation_mode_default', '') || '').trim();
+      return value === 'live' || value === 'retrieval_only' ? value : '';
+    }
+
+    function modeLabel(mode) {
+      return mode === 'live'
+        ? '完整链路（live）'
+        : (mode === 'retrieval_only' ? '仅检索（retrieval_only）' : '未知范围');
+    }
+
+    function datasetSuiteKey(dataset) {
+      return String(datasetField(dataset, 'suite_key', '') || '');
+    }
+
+    function datasetCasePolicy(dataset) {
+      var manifest = datasetManifest(dataset);
+      var gatePolicy = dataset && dataset.gate_policy && typeof dataset.gate_policy === 'object'
+        ? dataset.gate_policy
+        : (manifest.gate_policy && typeof manifest.gate_policy === 'object' ? manifest.gate_policy : {});
+      var explicitPolicy = gatePolicy.case_pass_policy && typeof gatePolicy.case_pass_policy === 'object'
+        ? gatePolicy.case_pass_policy
+        : null;
+      var version = String(explicitPolicy && explicitPolicy.policy_version || 'stt.eval.case.v2');
+      if (version === 'stt.eval.case.v3' && explicitPolicy) {
+        return { version: version, explicit: true, label: '显式 stt.eval.case.v3（候选概念合同）' };
+      }
+      if (explicitPolicy) {
+        return { version: version, explicit: true, label: '显式 ' + version };
+      }
+      return { version: version, explicit: false, label: '默认 stt.eval.case.v2' };
+    }
+
+    function datasetDescriptor(dataset) {
+      var suiteKey = datasetSuiteKey(dataset) || '未标记套件';
+      var difficulty = difficultyMeta(dataset);
+      var defaultMode = datasetDefaultMode(dataset);
+      return 'suite=' + suiteKey + ' · 难度=' + difficulty.label
+        + ' · 范围=' + (defaultMode ? modeLabel(defaultMode) : '未指定');
+    }
+
+    function compareDatasets(left, right) {
+      var leftSuite = datasetSuiteKey(left);
+      var rightSuite = datasetSuiteKey(right);
+      var targetPriorityDelta = (leftSuite === QUALITY_TARGETS.suite_key ? 0 : 1)
+        - (rightSuite === QUALITY_TARGETS.suite_key ? 0 : 1);
+      if (targetPriorityDelta) return targetPriorityDelta;
+      var suiteDelta = leftSuite.localeCompare(rightSuite, 'zh-CN');
+      if (suiteDelta) return suiteDelta;
+      var difficultyDelta = difficultyMeta(left).order - difficultyMeta(right).order;
+      if (difficultyDelta) return difficultyDelta;
+      return String(left.name || left.dataset_key || '').localeCompare(
+        String(right.name || right.dataset_key || ''), 'zh-CN'
+      );
+    }
+
+    function preferredDatasetId(datasets, explicitId) {
+      var ordered = (Array.isArray(datasets) ? datasets : []).slice().sort(compareDatasets);
+      var explicitExists = ordered.some(function (dataset) { return dataset.id === explicitId; });
+      if (explicitExists) return explicitId;
+      var finalEasy = ordered.find(function (dataset) {
+        return datasetSuiteKey(dataset) === QUALITY_TARGETS.suite_key
+          && difficultyMeta(dataset).key === 'easy';
+      });
+      return finalEasy ? finalEasy.id : (ordered.length ? ordered[0].id : '');
+    }
+
+    function isRootBaselineRun(run) {
+      return Boolean(run && run.status === 'succeeded' && !run.baseline_run_id);
+    }
+
+    function qualityTargetForDataset(dataset) {
+      if (String(datasetField(dataset, 'suite_key', '')) !== QUALITY_TARGETS.suite_key) return null;
+      var difficulty = difficultyMeta(dataset).key;
+      return difficulty && QUALITY_TARGETS.targets[difficulty]
+        ? Object.assign({ difficulty: difficulty }, QUALITY_TARGETS.targets[difficulty])
+        : null;
+    }
+
+    function finalAnswerAccuracyAggregate(summary) {
+      var caseOutcome = summary && summary.metrics && summary.metrics.case_outcome;
+      var metric = caseOutcome && caseOutcome.final_answer_accuracy;
+      if (!metric || typeof metric !== 'object') return null;
+      var rate = Number(metric.mean);
+      var measuredCount = Number(metric.count);
+      var totalCount = Number(summary.case_count);
+      if (!Number.isFinite(rate) || !Number.isFinite(measuredCount) || measuredCount < 0) return null;
+      if (!Number.isFinite(totalCount) || totalCount < measuredCount) totalCount = measuredCount;
+      return {
+        rate: rate,
+        measured_count: Math.floor(measuredCount),
+        total_count: Math.floor(totalCount),
+        correct_count: Math.round(rate * measuredCount)
+      };
+    }
+
+    function qualityTargetStatus(dataset, summary, runStatus) {
+      var target = qualityTargetForDataset(dataset);
+      if (!target) return null;
+      var accuracy = finalAnswerAccuracyAggregate(summary);
+      if (!target.required) {
+        return { state: 'not_required', label: '不强制', tone: '', target: target, accuracy: accuracy };
+      }
+      if (!accuracy) {
+        return { state: 'unknown', label: '待采集', tone: 'warning', target: target, accuracy: null };
+      }
+      if (accuracy.measured_count < target.case_count) {
+        var terminal = ['succeeded', 'failed', 'cancelled'].indexOf(runStatus) >= 0;
+        return {
+          state: terminal ? 'unknown' : 'pending',
+          label: terminal ? '无法判定' : '评测中',
+          tone: 'warning',
+          target: target,
+          accuracy: accuracy
+        };
+      }
+      var met = accuracy.rate > target.threshold
+        && accuracy.correct_count >= target.minimum_correct_cases;
+      return {
+        state: met ? 'met' : 'not_met',
+        label: met ? '达标' : '未达标',
+        tone: met ? 'success' : 'danger',
+        target: target,
+        accuracy: accuracy
+      };
+    }
+
+    function byId(id) {
+      return document.getElementById(id);
+    }
+
+    function element(tag, className, textValue) {
+      var node = document.createElement(tag);
+      if (className) node.className = className;
+      if (textValue !== undefined && textValue !== null) node.textContent = String(textValue);
+      return node;
+    }
+
+    function appendText(parent, tag, className, value) {
+      var node = element(tag, className, value);
+      parent.appendChild(node);
+      return node;
+    }
+
+    function clear(node) {
+      while (node.firstChild) node.removeChild(node.firstChild);
+    }
+
+    function unwrap(payload) {
+      if (payload && typeof payload === 'object' && Object.prototype.hasOwnProperty.call(payload, 'data')) {
+        return payload.data;
+      }
+      return payload;
+    }
+
+    function listFrom(payload) {
+      var value = unwrap(payload);
+      if (Array.isArray(value)) return value;
+      if (value && Array.isArray(value.items)) return value.items;
+      if (payload && Array.isArray(payload.items)) return payload.items;
+      return [];
+    }
+
+    function errorMessage(body, status) {
+      if (body && body.error && body.error.message) return body.error.message;
+      if (body && typeof body.detail === 'string') return body.detail;
+      if (body && body.detail && body.detail.message) return body.detail.message;
+      return 'HTTP ' + status;
+    }
+
+    async function apiJson(path, options) {
+      if (window.STTUI) return unwrap(await window.STTUI.apiJson(path, options || {}));
+      var config = options || {};
+      var headers = Object.assign({}, config.headers || {});
+      var response = await fetch(API_BASE + path, Object.assign({}, config, {
+        headers: headers,
+        credentials: 'same-origin'
+      }));
+      var body = await response.json().catch(function () { return {}; });
+      if (!response.ok) throw new Error(errorMessage(body, response.status));
+      return unwrap(body);
+    }
+
+    function showNotice(message, tone) {
+      var notice = byId('notice');
+      notice.textContent = message || '';
+      notice.className = 'notice visible ' + (tone || 'info');
+      if (!message) notice.className = 'notice';
+    }
+
+    function setBusy(busy) {
+      state.busy = Boolean(busy);
+      byId('refreshAllButton').disabled = state.busy;
+      byId('loadDatasetButton').disabled = state.busy;
+      byId('preflightButton').disabled = state.busy;
+      byId('refreshRunsButton').disabled = state.busy;
+      updateRunButtons();
+    }
+
+    function shortId(value, size) {
+      var text = value == null ? '—' : String(value);
+      var limit = size || 18;
+      return text.length > limit ? text.slice(0, limit) + '…' : text;
+    }
+
+    function formatDate(value) {
+      if (!value) return '—';
+      var date = new Date(value);
+      return Number.isNaN(date.getTime()) ? String(value) : date.toLocaleString('zh-CN', { hour12: false });
+    }
+
+    function numberValue(value, digits) {
+      if (value === null || value === undefined || value === '' || typeof value === 'boolean') return null;
+      var parsed = Number(value);
+      if (!Number.isFinite(parsed)) return null;
+      var fixed = parsed.toFixed(digits === undefined ? 4 : digits);
+      return fixed.indexOf('.') >= 0 ? fixed.replace(/0+$/, '').replace(/\.$/, '') : fixed;
+    }
+
+    function metricText(value, kind) {
+      var number = numberValue(value, kind === 'latency' ? 1 : 4);
+      if (number === null) return '—';
+      if (kind === 'ratio') return numberValue(Number(value) * 100, 1) + '%';
+      if (kind === 'latency') return number + ' ms';
+      if (kind === 'cost') return '$' + numberValue(value, 6);
+      return number;
+    }
+
+    function nested(root, path) {
+      var current = root;
+      for (var index = 0; index < path.length; index += 1) {
+        if (!current || typeof current !== 'object' || !Object.prototype.hasOwnProperty.call(current, path[index])) return undefined;
+        current = current[path[index]];
+      }
+      return current;
+    }
+
+    function mean(root, path) {
+      return nested(root, path.concat(['mean']));
+    }
+
+    function coverage(root, path) {
+      var count = nested(root, path.concat(['count']));
+      var total = nested(root, path.concat(['total_count']));
+      if (total === undefined && root && typeof root === 'object') total = root.case_count;
+      if (count === undefined || total === undefined) return '覆盖率未知';
+      return '采集 ' + count + ' / ' + total;
+    }
+
+    function statusLabel(status) {
+      var labels = {
+        queued: '排队中',
+        running: '运行中',
+        succeeded: '已成功',
+        failed: '已失败',
+        cancelled: '已取消'
+      };
+      return labels[status] || status || '未知';
+    }
+
+    function statusTone(status) {
+      if (status === 'succeeded') return 'success';
+      if (status === 'failed' || status === 'cancelled') return 'danger';
+      if (status === 'queued' || status === 'running') return 'primary';
+      return '';
+    }
+
+    function setPill(node, textValue, tone) {
+      node.textContent = textValue;
+      node.className = 'pill' + (tone ? ' ' + tone : '');
+    }
+
+    function currentKbId() {
+      return byId('kbIdInput').value.trim();
+    }
+
+    function currentDatasetId() {
+      return byId('datasetSelect').value;
+    }
+
+    async function refreshHealth() {
+      try {
+        var response = await fetch(API_BASE + '/health/ready', { credentials: 'same-origin' });
+        var body = await response.json().catch(function () { return {}; });
+        if (response.ok) {
+          setPill(byId('apiPill'), body.status === 'degraded' ? 'API 可用（降级）' : 'API 已就绪', body.status === 'degraded' ? 'warning' : 'success');
+        } else {
+          setPill(byId('apiPill'), 'API 未就绪', 'danger');
+        }
+      } catch (error) {
+        setPill(byId('apiPill'), 'API 未连接', 'danger');
+      }
+    }
+
+    function applyPrincipal(me) {
+      var roles = Array.isArray(me.roles) ? me.roles.join(', ') : '已认证';
+      setPill(byId('authPill'), roles + ' · ' + (me.tenant_name || me.tenant_id || '当前租户'), 'success');
+    }
+
+    async function refreshPrincipal() {
+      try {
+        var me = await apiJson('/api/v1/auth/me');
+        applyPrincipal(me);
+        return true;
+      } catch (error) {
+        setPill(byId('authPill'), '未登录', 'warning');
+        return false;
+      }
+    }
+
+    function clearEvaluationState() {
+      stopPolling();
+      state.datasets = [];
+      state.dataset = null;
+      state.runs = [];
+      state.selectedRun = null;
+      state.results = [];
+      state.preflight = null;
+      renderDatasets();
+      renderDataset(null);
+      renderRuns();
+      renderSelectedRun();
+      renderPreflight(null);
+    }
+
+    function renderDatasets() {
+      var select = byId('datasetSelect');
+      var previous = select.value || sessionStorage.getItem(STORAGE.dataset) || '';
+      var orderedDatasets = state.datasets.slice().sort(compareDatasets);
+      clear(select);
+      if (!state.datasets.length) {
+        var emptyOption = element('option', '', '暂无可用数据集');
+        emptyOption.value = '';
+        select.appendChild(emptyOption);
+      } else {
+        orderedDatasets.forEach(function (dataset) {
+          var caseStatus = datasetCaseStatus(dataset);
+          var option = element(
+            'option', '',
+            '[' + datasetDescriptor(dataset) + '] ' + dataset.name
+              + ' · v' + dataset.version + ' · ' + caseStatus.label
+          );
+          option.value = dataset.id;
+          select.appendChild(option);
+        });
+        select.value = preferredDatasetId(orderedDatasets, previous);
+      }
+      setPill(byId('datasetCountPill'), state.datasets.length + ' 个数据集', state.datasets.length ? 'primary' : 'warning');
+      updateRunButtons();
+    }
+
+    async function loadDatasets() {
+      var payload = await apiJson('/api/v1/evaluation/datasets');
+      state.datasets = listFrom(payload);
+      renderDatasets();
+      if (currentDatasetId()) await loadDatasetDetail();
+    }
+
+    function fact(label, value) {
+      var wrapper = element('div', 'fact');
+      appendText(wrapper, 'dt', '', label);
+      appendText(wrapper, 'dd', '', value == null || value === '' ? '—' : value);
+      return wrapper;
+    }
+
+    function renderTags(parent, tags) {
+      var list = element('div', 'tag-list');
+      (Array.isArray(tags) ? tags : []).forEach(function (tagValue) {
+        appendText(list, 'span', 'tag', tagValue);
+      });
+      parent.appendChild(list);
+    }
+
+    function renderDataset(dataset) {
+      var root = byId('datasetDetail');
+      clear(root);
+      if (!dataset) {
+        root.appendChild(element('div', 'empty', '登录后选择内置数据集，即可查看版本、校验和、固定 PDF 与全部案例。'));
+        setPill(byId('sourcePill'), '尚未校验源文件', '');
+        return;
+      }
+
+      var difficulty = difficultyMeta(dataset);
+      var caseStatus = datasetCaseStatus(dataset);
+      var suiteKey = datasetField(dataset, 'suite_key', '—');
+      var defaultMode = datasetDefaultMode(dataset);
+      var casePolicy = datasetCasePolicy(dataset);
+      var facts = element('dl', 'facts');
+      facts.appendChild(fact('数据集', dataset.name));
+      facts.appendChild(fact('不可变版本', dataset.dataset_key + ' @ ' + dataset.version));
+      facts.appendChild(fact('套件标识', suiteKey));
+      var difficultyFact = fact('难度', '');
+      clear(difficultyFact.querySelector('dd'));
+      setPill(appendText(difficultyFact.querySelector('dd'), 'span', 'pill', ''), difficulty.label, difficulty.tone);
+      facts.appendChild(difficultyFact);
+      var countFact = fact('题数要求', '');
+      clear(countFact.querySelector('dd'));
+      setPill(appendText(countFact.querySelector('dd'), 'span', 'pill', ''), caseStatus.label, caseStatus.tone);
+      facts.appendChild(countFact);
+      facts.appendChild(fact('默认评测范围', defaultMode ? modeLabel(defaultMode) : '未指定'));
+      facts.appendChild(fact('用例判定策略', casePolicy.label));
+      facts.appendChild(fact('Schema', dataset.schema_version));
+      facts.appendChild(fact('数据集校验和', dataset.checksum));
+      facts.appendChild(fact('固定源文件', nested(dataset, ['source', 'logical_name']) || '—'));
+      facts.appendChild(fact('源 PDF SHA-256', nested(dataset, ['source', 'content_sha256']) || '—'));
+      facts.appendChild(fact('页数 / 布局', String(nested(dataset, ['source', 'page_count']) || '—') + ' · ' + (nested(dataset, ['source', 'layout']) || '—')));
+      var tagFact = fact('数据集标签', '');
+      clear(tagFact.querySelector('dd'));
+      renderTags(tagFact.querySelector('dd'), dataset.tags);
+      facts.appendChild(tagFact);
+      root.appendChild(facts);
+
+      var description = element('div', 'text-block');
+      appendText(description, 'strong', '', '用途说明');
+      appendText(description, 'span', '', dataset.description || '—');
+      root.appendChild(description);
+
+      var catalog = element('details', 'case-catalog');
+      appendText(catalog, 'summary', '', '查看全部 ' + (dataset.cases ? dataset.cases.length : dataset.case_count) + ' 个人工核对案例');
+      var list = element('div', 'case-list');
+      (dataset.cases || []).forEach(function (caseValue) {
+        var line = element('div', 'case-line');
+        appendText(line, 'strong', 'mono', caseValue.case_id);
+        appendText(line, 'span', '', caseValue.query);
+        renderTags(line, caseValue.tags);
+        list.appendChild(line);
+      });
+      catalog.appendChild(list);
+      root.appendChild(catalog);
+      setPill(byId('sourcePill'), '固定源：' + (nested(dataset, ['source', 'logical_name']) || '未知'), 'primary');
+    }
+
+    function applyDatasetDefaultMode(dataset) {
+      var defaultMode = datasetDefaultMode(dataset);
+      if (!defaultMode || byId('runModeSelect').value === defaultMode) return false;
+      byId('runModeSelect').value = defaultMode;
+      return true;
+    }
+
+    async function loadDatasetDetail() {
+      var datasetId = currentDatasetId();
+      if (!datasetId) {
+        state.dataset = null;
+        renderDataset(null);
+        return;
+      }
+      sessionStorage.setItem(STORAGE.dataset, datasetId);
+      var dataset = await apiJson('/api/v1/evaluation/datasets/' + encodeURIComponent(datasetId));
+      state.dataset = dataset;
+      applyDatasetDefaultMode(dataset);
+      renderDataset(dataset);
+      state.preflight = null;
+      renderPreflight(null);
+      updateBaselineOptions();
+    }
+
+    var checkLabels = {
+      knowledge_base_active: ['知识库处于活动状态', '目标 KB 必须可查询且属于当前租户。'],
+      web_search_disabled: ['联网检索已禁用', '评测只允许使用知识库证据。'],
+      source_file_integrity: ['固定 PDF 指纹一致', '本地源文件 SHA-256 必须与数据集快照一致。'],
+      matching_document_version: ['找到匹配文档版本', '文档 logical name 与内容指纹均匹配。'],
+      matching_document_published: ['文档版本已发布', '匹配版本必须是当前 active version 且已有块。'],
+      active_index: ['存在活动索引', '查询必须命中已原子发布的 active index。'],
+      retrieval_profile_resolved: ['检索配置已解析', '评测必须冻结可用的检索配置版本与配置哈希。'],
+      vector_read_set: ['物理向量读集可冻结', '活动索引必须唯一解析到当前 KB 的 collection/partition。'],
+      query_scope_authorized: ['当前账号已获查询授权', '租户、用户、KB 与活动索引范围必须由服务端重新授权。'],
+      authorized_vector_read_set: ['授权范围与冻结读集一致', '评测只能读取授权快照内的文档版本和索引版本。'],
+      answer_generator_configured: ['回答生成器配置可用', '完整链路必须存在服务端配置的模型地址与模型名称。'],
+      external_llm_authorized: ['知识库允许回答生成', '完整链路必须由服务端确认当前 KB 的外部模型策略允许。']
+    };
+
+    function renderPreflight(preflight) {
+      var list = byId('preflightList');
+      clear(list);
+      if (!preflight) {
+        var empty = element('div', 'empty', '等待检查知识库状态、PDF 指纹、已发布文档版本、活动索引和联网禁用。');
+        empty.style.gridColumn = '1 / -1';
+        list.appendChild(empty);
+        byId('preflightEvidence').textContent = '尚无预检证据。';
+        setPill(byId('preflightPill'), '尚未预检', '');
+        updateRunButtons();
+        return;
+      }
+
+      Object.keys(checkLabels).forEach(function (key) {
+        if (!Object.prototype.hasOwnProperty.call(preflight.checks || {}, key)) return;
+        var passed = Boolean(nested(preflight, ['checks', key]));
+        var item = element('div', 'check ' + (passed ? 'pass' : 'fail'));
+        appendText(item, 'span', 'check-icon', passed ? '✓' : '!');
+        var textRoot = element('div', '');
+        appendText(textRoot, 'strong', '', checkLabels[key][0]);
+        appendText(textRoot, 'span', '', checkLabels[key][1]);
+        item.appendChild(textRoot);
+        list.appendChild(item);
+      });
+
+      var matching = Array.isArray(preflight.matching_versions) ? preflight.matching_versions : [];
+      var indexes = Array.isArray(preflight.active_indexes) ? preflight.active_indexes : [];
+      var vectorScopes = Array.isArray(preflight.vector_read_scopes) ? preflight.vector_read_scopes : [];
+      var source = preflight.source_integrity || {};
+      var evidence = [
+        'KB：' + (nested(preflight, ['knowledge_base', 'name']) || '—') + ' (' + (nested(preflight, ['knowledge_base', 'id']) || '—') + ')',
+        '联网允许：' + String(Boolean(nested(preflight, ['knowledge_base', 'web_search_allowed']))),
+        '外部回答生成允许：' + String(Boolean(nested(preflight, ['knowledge_base', 'external_llm_allowed']))),
+        '评测模式：' + (preflight.evaluation_mode || '—'),
+        '生成授权结论：' + (nested(preflight, ['evaluation_security', 'reason_code']) || '—'),
+        '源文件：' + (source.path || nested(state.dataset || {}, ['source', 'relative_path']) || '—'),
+        '源文件 SHA-256：' + (source.actual_sha256 || source.sha256 || nested(state.dataset || {}, ['source', 'content_sha256']) || '—'),
+        '匹配文档版本：' + matching.length + ' 个',
+        '活动索引：' + indexes.length + ' 个',
+        '物理向量路由：' + vectorScopes.length + ' 条',
+        '读集摘要：' + (preflight.vector_read_set_digest || '—')
+      ];
+      byId('preflightEvidence').textContent = evidence.join('\n');
+      setPill(byId('preflightPill'), preflight.ready ? '全部通过，可以运行' : '预检失败，禁止运行', preflight.ready ? 'success' : 'danger');
+      var sourceMatches = Boolean(nested(preflight, ['checks', 'source_file_integrity']));
+      setPill(byId('sourcePill'), sourceMatches ? '源 PDF 指纹一致' : '源 PDF 指纹不一致', sourceMatches ? 'success' : 'danger');
+      updateRunButtons();
+    }
+
+    async function runPreflight() {
+      var kbId = currentKbId();
+      var datasetId = currentDatasetId();
+      if (!kbId || !datasetId) {
+        showNotice('请先填写 KB ID 并选择评测数据集。', 'warning');
+        return null;
+      }
+      setBusy(true);
+      try {
+        var preflight = await apiJson('/api/v1/evaluation/preflight', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            dataset_id: datasetId,
+            kb_id: kbId,
+            mode: byId('runModeSelect').value
+          })
+        });
+        state.preflight = preflight;
+        renderPreflight(preflight);
+        showNotice(preflight.ready ? '预检全部通过：可以建立基线或运行候选。' : '预检未通过：请按红色检查项修复后重试。', preflight.ready ? 'success' : 'danger');
+        return preflight;
+      } catch (error) {
+        state.preflight = null;
+        renderPreflight(null);
+        showNotice('预检请求失败：' + error.message, 'danger');
+        return null;
+      } finally {
+        setBusy(false);
+      }
+    }
+
+    function updateRunButtons() {
+      var ready = Boolean(state.preflight && state.preflight.ready);
+      byId('runBaselineButton').disabled = state.busy || !ready;
+      byId('runCandidateButton').disabled = state.busy || !ready || !byId('baselineSelect').value;
+    }
+
+    function renderProgress(parent, run) {
+      var progress = Number(run.progress || 0);
+      if (!Number.isFinite(progress)) progress = 0;
+      progress = Math.max(0, Math.min(1, progress));
+      var track = element('div', 'progress-track');
+      var bar = element('div', 'progress-bar');
+      bar.style.width = (progress * 100).toFixed(1) + '%';
+      track.appendChild(bar);
+      parent.appendChild(track);
+      appendText(parent, 'span', 'progress-label', run.completed_cases + ' / ' + run.total_cases + ' · ' + (progress * 100).toFixed(1) + '%');
+    }
+
+    function gateSummary(run) {
+      var gate = run.gate_result || {};
+      if (gate.status === 'baseline_recorded') return ['基线已记录', 'primary'];
+      if (gate.status === 'baseline_recorded_with_failures') return ['基线含关键失败', 'danger'];
+      if (gate.passed === true) return ['门禁通过', 'success'];
+      if (gate.passed === false) return ['门禁失败', 'danger'];
+      return ['门禁待定', ''];
+    }
+
+    function gatePresentation(run) {
+      var gate = run.gate_result || {};
+      if (gate.status === 'baseline_recorded') {
+        return { tone: 'warning', message: '首次运行已记录为事实基线。' };
+      }
+      if (gate.status === 'baseline_recorded_with_failures') {
+        return { tone: 'danger', message: '首次运行已建立事实基线，但关键 case 失败，不能视为门禁通过。' };
+      }
+      if (gate.passed === true) {
+        return { tone: 'success', message: '候选运行通过质量门禁。' };
+      }
+      if (gate.passed === false) {
+        return { tone: 'danger', message: '候选运行未通过质量门禁。' };
+      }
+      return { tone: 'neutral', message: '运行完成后展示门禁结论。' };
+    }
+
+    function datasetForRun(run) {
+      if (!run) return null;
+      if (state.dataset && state.dataset.id === run.dataset_id) return state.dataset;
+      return state.datasets.find(function (dataset) { return dataset.id === run.dataset_id; }) || null;
+    }
+
+    function runDatasetContext(run) {
+      var dataset = datasetForRun(run);
+      if (dataset) return dataset;
+      return {
+        suite_key: run.dataset_suite_key || run.suite_key,
+        difficulty: run.dataset_difficulty || run.difficulty,
+        minimum_case_count: run.dataset_minimum_case_count || run.minimum_case_count,
+        case_count: run.total_cases,
+        gate_policy: run.config_snapshot && run.config_snapshot.gate_policy,
+        manifest_json: run.manifest_json
+      };
+    }
+
+    function renderRunContext(parent, run) {
+      var dataset = runDatasetContext(run);
+      var difficulty = difficultyMeta(dataset);
+      var caseStatus = datasetCaseStatus(dataset);
+      appendText(parent, 'div', 'mono', 'suite=' + (datasetSuiteKey(dataset) || '—'));
+      setPill(appendText(parent, 'span', 'pill', ''), difficulty.label, difficulty.tone);
+      appendText(parent, 'div', '', modeLabel(run.mode));
+      setPill(appendText(parent, 'span', 'pill', ''), caseStatus.label, caseStatus.tone);
+    }
+
+    function renderRuns() {
+      var body = byId('runsBody');
+      clear(body);
+      byId('runsEmpty').hidden = state.runs.length > 0;
+      setPill(byId('runCountPill'), state.runs.length + ' 条运行', state.runs.length ? 'primary' : '');
+
+      state.runs.forEach(function (run) {
+        var row = element('tr', state.selectedRun && state.selectedRun.id === run.id ? 'selected' : '');
+        var identity = element('td', '');
+        appendText(identity, 'strong', '', run.name || run.id);
+        appendText(identity, 'div', 'mono', shortId(run.id, 28));
+        appendText(identity, 'div', '', (run.dataset_key || '—') + ' @ ' + (run.dataset_version || '—'));
+        row.appendChild(identity);
+
+        var contextCell = element('td', '');
+        renderRunContext(contextCell, run);
+        row.appendChild(contextCell);
+
+        appendText(row, 'td', 'mono', run.kb_id || '—');
+
+        var statusCell = element('td', '');
+        setPill(appendText(statusCell, 'span', 'pill', ''), statusLabel(run.status), statusTone(run.status));
+        row.appendChild(statusCell);
+
+        var progressCell = element('td', '');
+        renderProgress(progressCell, run);
+        row.appendChild(progressCell);
+
+        var baselineCell = element('td', '');
+        appendText(baselineCell, 'div', 'mono', run.baseline_run_id ? '基线 ' + shortId(run.baseline_run_id, 14) : '首次基线');
+        var gate = gateSummary(run);
+        setPill(appendText(baselineCell, 'span', 'pill', ''), gate[0], gate[1]);
+        row.appendChild(baselineCell);
+
+        appendText(row, 'td', '', formatDate(run.created_at));
+
+        var actions = element('td', '');
+        var selectButton = element('button', 'button secondary small', '查看');
+        selectButton.type = 'button';
+        selectButton.addEventListener('click', function () { selectRun(run.id); });
+        actions.appendChild(selectButton);
+        if (isRootBaselineRun(run)) {
+          var baselineButton = element('button', 'button ghost small', '设为基线');
+          baselineButton.type = 'button';
+          baselineButton.style.marginLeft = '5px';
+          baselineButton.addEventListener('click', async function () {
+            try {
+              if (currentDatasetId() !== run.dataset_id) {
+                var datasetExists = state.datasets.some(function (dataset) { return dataset.id === run.dataset_id; });
+                if (!datasetExists) {
+                  showNotice('该根基线的数据集已不在当前活动列表中，无法用于新候选运行。', 'warning');
+                  return;
+                }
+                byId('datasetSelect').value = run.dataset_id;
+                await loadDatasetDetail();
+              }
+              byId('runModeSelect').value = run.mode || 'live';
+              invalidatePreflight();
+              updateBaselineOptions();
+              byId('baselineSelect').value = run.id;
+              updateRunButtons();
+              showNotice('已选择根运行 ' + run.id + ' 作为候选运行的对比基线。', 'info');
+            } catch (error) {
+              showNotice('选择根基线失败：' + error.message, 'danger');
+            }
+          });
+          actions.appendChild(baselineButton);
+        }
+        row.appendChild(actions);
+        body.appendChild(row);
+      });
+      updateBaselineOptions();
+    }
+
+    function updateBaselineOptions() {
+      var select = byId('baselineSelect');
+      var previous = select.value;
+      clear(select);
+      var placeholder = element('option', '', '请选择成功的基线运行');
+      placeholder.value = '';
+      select.appendChild(placeholder);
+      state.runs.filter(function (run) {
+        return isRootBaselineRun(run)
+          && run.kb_id === currentKbId()
+          && run.mode === byId('runModeSelect').value
+          && (!currentDatasetId() || run.dataset_id === currentDatasetId());
+      }).forEach(function (run) {
+        var difficulty = difficultyMeta(runDatasetContext(run));
+        var suiteKey = datasetSuiteKey(runDatasetContext(run)) || '—';
+        var option = element(
+          'option', '',
+          '[suite=' + suiteKey + ' · 难度=' + difficulty.label
+            + ' · 范围=' + modeLabel(run.mode) + '] '
+            + formatDate(run.created_at) + ' · ' + (run.name || shortId(run.id)) + ' · ' + shortId(run.id, 16)
+        );
+        option.value = run.id;
+        select.appendChild(option);
+      });
+      var exists = Array.from(select.options).some(function (option) { return option.value === previous; });
+      select.value = exists ? previous : '';
+      updateRunButtons();
+    }
+
+    async function loadRuns(options) {
+      var settings = options || {};
+      var payload = await apiJson('/api/v1/evaluation/runs?limit=100');
+      state.runs = listFrom(payload);
+      var selectedId = state.selectedRun && state.selectedRun.id;
+      renderRuns();
+      if (settings.restore !== false) {
+        var restoreId = selectedId || localStorage.getItem(STORAGE.run);
+        if (restoreId && state.runs.some(function (run) { return run.id === restoreId; })) {
+          await selectRun(restoreId, { quiet: true });
+        } else if (!state.selectedRun && state.runs.length) {
+          await selectRun(state.runs[0].id, { quiet: true });
+        }
+      }
+    }
+
+    function selectedDatasetForConfirmation() {
+      var selectedId = currentDatasetId();
+      if (state.dataset && state.dataset.id === selectedId) return state.dataset;
+      return state.datasets.find(function (dataset) { return dataset.id === selectedId; }) || null;
+    }
+
+    function liveRunConfirmationMessage(dataset) {
+      var rawName = dataset && typeof dataset.name === 'string' ? dataset.name : '';
+      var datasetName = rawName.replace(/\s+/g, ' ').trim().slice(0, 120)
+        || '当前选中的评测数据集';
+      return '将运行完整查询图，可能向当前 Provider 发送“' + datasetName
+        + '”的问题/上下文；仅在数据外发或私有模型获批后继续。';
+    }
+
+    async function startRun(isCandidate) {
+      if (byId('runModeSelect').value === 'live' && !window.confirm(
+        liveRunConfirmationMessage(selectedDatasetForConfirmation())
+      )) {
+        showNotice('已取消完整链路运行，未向服务端创建任务。', 'info');
+        return;
+      }
+      var preflight = state.preflight;
+      if (!preflight || !preflight.ready) {
+        preflight = await runPreflight();
+        if (!preflight || !preflight.ready) return;
+      }
+      var baselineId = isCandidate ? byId('baselineSelect').value : null;
+      if (isCandidate && !baselineId) {
+        showNotice('候选运行必须先选择一条已成功的基线。', 'warning');
+        return;
+      }
+      setBusy(true);
+      try {
+        var payload = {
+          dataset_id: currentDatasetId(),
+          kb_id: currentKbId(),
+          mode: byId('runModeSelect').value,
+          name: byId('runNameInput').value.trim() || null,
+          baseline_run_id: baselineId || null,
+          case_ids: null
+        };
+        var run = await apiJson('/api/v1/evaluation/runs', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        showNotice((isCandidate ? '候选' : '基线') + '运行已持久化，后台开始执行。刷新页面不会丢失。', 'success');
+        await loadRuns({ restore: false });
+        await selectRun(run.id, { quiet: true });
+      } catch (error) {
+        showNotice('创建运行失败：' + error.message, 'danger');
+      } finally {
+        setBusy(false);
+      }
+    }
+
+    function findCase(caseId) {
+      if (!state.dataset || !Array.isArray(state.dataset.cases)) return null;
+      return state.dataset.cases.find(function (item) { return item.case_id === caseId; }) || null;
+    }
+
+    function metricCard(label, value, kind, coverageText) {
+      var card = element('div', 'metric');
+      appendText(card, 'div', 'name', label);
+      appendText(card, 'div', 'value', metricText(value, kind));
+      appendText(card, 'div', 'coverage', coverageText || (value === null || value === undefined ? '未采集' : '已采集'));
+      return card;
+    }
+
+    function renderMetrics(summary) {
+      var root = byId('metricGrid');
+      clear(root);
+      var definitions = [
+        ['最终答案正确率', ['metrics', 'case_outcome', 'final_answer_accuracy'], 'ratio'],
+        ['严格有据通过率', ['metrics', 'case_outcome', 'strict_supported_case_pass_rate'], 'ratio'],
+        ['综合用例质量', ['metrics', 'case_outcome', 'quality_score'], 'ratio'],
+        ['Recall@1', ['metrics', 'retrieval', 'recall_at_k', '1'], 'ratio'],
+        ['Recall@3', ['metrics', 'retrieval', 'recall_at_k', '3'], 'ratio'],
+        ['Recall@5', ['metrics', 'retrieval', 'recall_at_k', '5'], 'ratio'],
+        ['Recall@10', ['metrics', 'retrieval', 'recall_at_k', '10'], 'ratio'],
+        ['MRR', ['metrics', 'retrieval', 'mrr'], 'ratio'],
+        ['nDCG@10', ['metrics', 'retrieval', 'ndcg_at_k', '10'], 'ratio'],
+        ['最终答案正确性均值', ['metrics', 'case_outcome', 'final_answer_correctness'], 'ratio'],
+        ['答案忠实度', ['metrics', 'generation', 'faithfulness'], 'ratio'],
+        ['引用精确率', ['metrics', 'citation', 'precision'], 'ratio'],
+        ['引用召回率', ['metrics', 'citation', 'recall'], 'ratio'],
+        ['引用覆盖率', ['metrics', 'citation', 'coverage'], 'ratio'],
+        ['拒答准确率', ['metrics', 'abstention', 'accuracy'], 'ratio'],
+        ['P95 延迟', ['runtime', 'latency_ms', 'p95'], 'latency'],
+        ['Token 总量', ['runtime', 'total_tokens', 'total'], 'number'],
+        ['成本总量', ['runtime', 'cost', 'total'], 'cost']
+      ];
+      definitions.forEach(function (definition) {
+        var path = definition[1];
+        var metricNode = nested(summary || {}, path);
+        var isAggregate = metricNode && typeof metricNode === 'object';
+        var value = isAggregate ? metricNode.mean : metricNode;
+        var coverageText = isAggregate
+          ? coverage(summary || {}, path)
+          : coverage(summary || {}, path.slice(0, -1));
+        root.appendChild(metricCard(definition[0], value, definition[2], coverageText));
+      });
+    }
+
+    function renderQualityTarget(run) {
+      var panel = byId('qualityTargetPanel');
+      if (!run) {
+        panel.hidden = true;
+        return;
+      }
+      var dataset = runDatasetContext(run);
+      var status = qualityTargetStatus(dataset, run.metrics_summary || {}, run.status);
+      if (!status) {
+        panel.hidden = true;
+        return;
+      }
+
+      panel.hidden = false;
+      var difficulty = difficultyMeta(dataset);
+      byId('qualityTargetTitle').textContent = 'suite=' + QUALITY_TARGETS.suite_key
+        + ' · ' + difficulty.label + '集 · 最终可见答案二元正确率目标';
+      setPill(byId('qualityTargetStatus'), status.label, status.tone);
+      if (status.target.required) {
+        byId('qualityTargetRequirement').textContent = '目标：严格 '
+          + status.target.operator + ' ' + metricText(status.target.threshold, 'ratio')
+          + '，即 ' + status.target.case_count + ' 题中至少答对 '
+          + status.target.minimum_correct_cases + ' 题。';
+      } else {
+        byId('qualityTargetRequirement').textContent = '目标：困难集不设强制正确率门槛。';
+      }
+      byId('qualityTargetCurrent').textContent = status.accuracy
+        ? '当前：' + metricText(status.accuracy.rate, 'ratio') + '，答对 '
+          + status.accuracy.correct_count + ' / ' + status.accuracy.measured_count
+          + (status.accuracy.measured_count < status.target.case_count
+            ? '（目标要求完整 ' + status.target.case_count + ' 题）'
+            : '') + '。'
+        : '当前：最终答案正确率尚未采集。';
+    }
+
+    function gateFailureText(failure) {
+      var labels = {
+        recall_at_1: 'Recall@1',
+        recall_at_3: 'Recall@3',
+        recall_at_10: 'Recall@10',
+        mrr: 'MRR',
+        ndcg_at_10: 'nDCG@10',
+        unanswerable_accuracy: '拒答准确率',
+        latency_increase: 'P95 延迟',
+        grounding_coverage: '引用覆盖率',
+        answer_correctness: '最终答案正确性',
+        case_quality: '综合用例质量',
+        faithfulness: '答案忠实度',
+        critical_cases: '关键用例',
+        paired_case_set: '基线与候选配对题集',
+        unsupported_gate_policy: '门禁策略版本'
+      };
+      var rule = failure && failure.rule ? failure.rule : 'unknown';
+      var label = labels[rule] || rule;
+      if (failure && typeof failure.delta === 'number' && typeof failure.max_drop === 'number') {
+        return label + ' 绝对下降 ' + (Math.abs(failure.delta) * 100).toFixed(2)
+          + ' 个百分点，允许最多下降 ' + (failure.max_drop * 100).toFixed(2)
+          + ' 个百分点（有效配对 ' + String(failure.paired_count || 0)
+          + '，未知配对 ' + String(failure.unknown_pair_count || 0) + '）';
+      }
+      if (failure && typeof failure.ratio === 'number') {
+        return label + ' 上涨 ' + (failure.ratio * 100).toFixed(2) + '%';
+      }
+      if (failure && Array.isArray(failure.case_ids)) {
+        return label + '失败：' + failure.case_ids.join(', ');
+      }
+      if (failure && rule === 'paired_case_set') {
+        var expectedCount = Number(failure.expected_case_count || 0);
+        var matchedCount = Number(failure.matched_case_count || 0);
+        var missing = Array.isArray(failure.missing_expected_case_ids) ? failure.missing_expected_case_ids : [];
+        var extra = Array.isArray(failure.unexpected_matched_case_ids) ? failure.unexpected_matched_case_ids : [];
+        var pairingText = label + '不完整：已配对 ' + matchedCount + ' / 期望 ' + expectedCount;
+        if (missing.length) pairingText += '，缺失 ' + missing.join(', ');
+        if (extra.length) pairingText += '，非预期 ' + extra.join(', ');
+        return pairingText;
+      }
+      if (failure && failure.policy_version) {
+        return label + '不受支持：' + failure.policy_version;
+      }
+      return label + ' · ' + JSON.stringify(failure || {});
+    }
+
+    function renderGate(run) {
+      var gate = run.gate_result || {};
+      var root = byId('gateDetail');
+      var presentation = gatePresentation(run);
+      var lines = [presentation.message];
+      var tone = presentation.tone;
+      if (gate.policy_version) {
+        lines.push('门禁策略：' + gate.policy_version);
+      }
+      if (gate.case_pass_policy_version) {
+        lines.push('用例判定策略：' + gate.case_pass_policy_version);
+      }
+      if (Array.isArray(gate.critical_failed_cases) && gate.critical_failed_cases.length) {
+        lines.push('关键失败：' + gate.critical_failed_cases.join(', '));
+      }
+      if (Array.isArray(gate.failures)) {
+        gate.failures.forEach(function (failure) {
+          lines.push('规则失败：' + gateFailureText(failure));
+        });
+      }
+      var metricCoverage = gate.metric_coverage || {};
+      if (Object.keys(metricCoverage).length) {
+        lines.push('遥测覆盖：令牌统计 ' + String(metricCoverage.tokens == null ? '未知' : metricCoverage.tokens)
+          + '，成本统计 ' + String(metricCoverage.cost == null ? '未知' : metricCoverage.cost));
+      }
+      root.className = 'gate ' + tone;
+      root.textContent = lines.join('\n');
+    }
+
+    function renderTagMetrics(summary) {
+      var body = byId('tagMetricsBody');
+      clear(body);
+      var slices = summary && summary.by_tag && typeof summary.by_tag === 'object' ? summary.by_tag : {};
+      var tags = Object.keys(slices).sort();
+      byId('tagMetricsEmpty').hidden = tags.length > 0;
+      tags.forEach(function (tagValue) {
+        var slice = slices[tagValue];
+        var row = element('tr', '');
+        appendText(row, 'td', '', tagValue);
+        appendText(row, 'td', '', slice.case_count);
+        appendText(row, 'td', '', metricText(mean(slice, ['metrics', 'retrieval', 'recall_at_k', '10']), 'ratio'));
+        appendText(row, 'td', '', metricText(mean(slice, ['metrics', 'retrieval', 'mrr']), 'ratio'));
+        appendText(row, 'td', '', metricText(mean(slice, ['metrics', 'generation', 'correctness']), 'ratio'));
+        appendText(row, 'td', '', metricText(mean(slice, ['metrics', 'generation', 'faithfulness']), 'ratio'));
+        appendText(row, 'td', '', metricText(mean(slice, ['metrics', 'citation', 'coverage']), 'ratio'));
+        appendText(row, 'td', '', metricText(nested(slice, ['runtime', 'latency_ms', 'p95']), 'latency'));
+        body.appendChild(row);
+      });
+    }
+
+    function humanMetricName(name) {
+      var names = {
+        'metrics.retrieval.recall_at_k.1': 'Recall@1',
+        'metrics.retrieval.recall_at_k.3': 'Recall@3',
+        'metrics.retrieval.recall_at_k.5': 'Recall@5',
+        'metrics.retrieval.recall_at_k.10': 'Recall@10',
+        'metrics.retrieval.mrr': 'MRR',
+        'metrics.retrieval.ndcg_at_k.1': 'nDCG@1',
+        'metrics.retrieval.ndcg_at_k.3': 'nDCG@3',
+        'metrics.retrieval.ndcg_at_k.5': 'nDCG@5',
+        'metrics.retrieval.ndcg_at_k.10': 'nDCG@10',
+        'metrics.generation.correctness': '答案覆盖分（诊断）',
+        'metrics.generation.contract_correctness': 'v3 显式候选概念合同分',
+        'metrics.generation.faithfulness': '答案忠实度',
+        'metrics.generation.reference_semantic_recall': '参考答案语义召回',
+        'metrics.case_outcome.quality_score': '综合用例质量',
+        'metrics.case_outcome.pass_rate': '用例通过率',
+        'metrics.case_outcome.strict_supported_case_pass_rate': '严格有据通过率',
+        'metrics.case_outcome.answer_correctness': '判定·最终答案正确性',
+        'metrics.case_outcome.final_answer_correctness': '最终答案正确性均值',
+        'metrics.case_outcome.final_answer_accuracy': '最终答案正确率（目标）',
+        'metrics.case_outcome.faithfulness': '判定·答案忠实度',
+        'metrics.case_outcome.citation_coverage': '判定·引用覆盖率',
+        'metrics.case_outcome.retrieval_support': '判定·召回支持',
+        'metrics.citation.precision': '引用精确率',
+        'metrics.citation.recall': '引用召回率',
+        'metrics.citation.coverage': '引用覆盖率',
+        'metrics.abstention.correct': '拒答正确性',
+        'runtime.latency_ms': '延迟',
+        'runtime.total_tokens': 'Token',
+        'runtime.cost': '成本'
+      };
+      return names[name] || name;
+    }
+
+    function renderComparison(run) {
+      var panel = byId('comparisonPanel');
+      var body = byId('comparisonBody');
+      clear(body);
+      var comparison = run.comparison_summary || {};
+      var deltas = comparison.metric_deltas && typeof comparison.metric_deltas === 'object' ? comparison.metric_deltas : {};
+      var names = Object.keys(deltas).sort();
+      panel.hidden = names.length === 0;
+      names.forEach(function (name) {
+        var detail = deltas[name] || {};
+        var row = element('tr', '');
+        appendText(row, 'td', '', humanMetricName(name));
+        appendText(row, 'td', '', metricText(detail.baseline_mean, name.indexOf('latency') >= 0 ? 'latency' : 'number'));
+        appendText(row, 'td', '', metricText(detail.candidate_mean, name.indexOf('latency') >= 0 ? 'latency' : 'number'));
+        var deltaCell = appendText(row, 'td', '', metricText(detail.delta, 'number'));
+        if (Number(detail.delta) < 0 && detail.higher_is_better !== false) deltaCell.style.color = 'var(--danger)';
+        if (Number(detail.delta) > 0 && detail.higher_is_better !== false) deltaCell.style.color = 'var(--success)';
+        appendText(row, 'td', '', detail.improved_cases == null ? '—' : detail.improved_cases);
+        appendText(row, 'td', '', detail.regressed_cases == null ? '—' : detail.regressed_cases);
+        body.appendChild(row);
+      });
+    }
+
+    var artifactLabels = {
+      json: '完整 JSON',
+      markdown: 'Markdown',
+      html: '独立 HTML',
+      summary: '指标摘要',
+      manifest: '运行快照',
+      results: '案例 JSONL',
+      comparison: '配对差异'
+    };
+
+    function renderReports(run) {
+      var root = byId('reportDownloads');
+      clear(root);
+      var paths = run.report_paths || {};
+      var available = Object.keys(artifactLabels).filter(function (name) {
+        return Boolean(paths[name]);
+      });
+      byId('reportEmpty').hidden = available.length > 0;
+      available.forEach(function (name) {
+        var link = element('a', 'download', artifactLabels[name]);
+        link.href = '/api/v1/evaluation/runs/' + encodeURIComponent(run.id) + '/artifacts/' + encodeURIComponent(name);
+        link.target = '_blank';
+        link.rel = 'noopener';
+        link.setAttribute('download', '');
+        root.appendChild(link);
+      });
+    }
+
+    function evaluatedMetrics(result) {
+      return result && result.metrics && typeof result.metrics === 'object' ? result.metrics : {};
+    }
+
+    function observation(result) {
+      return result && result.observation && typeof result.observation === 'object' ? result.observation : {};
+    }
+
+    function visibleAnswerAudit(result) {
+      var observed = observation(result);
+      var evaluated = evaluatedMetrics(result);
+      var outcome = nested(evaluated, ['metrics', 'case_outcome']) || {};
+      var normalizedAudit = outcome.answer_display_audit;
+      if (normalizedAudit && normalizedAudit.status === 'degraded') {
+        return {
+          degraded: true,
+          label: normalizedAudit.label || '答案完整性优先，部分内容未通过引用校验',
+          reasonCode: normalizedAudit.reason_code || '',
+          policy: outcome.visible_answer_policy || observed.visible_answer_policy || {}
+        };
+      }
+      var policy = observed.visible_answer_policy;
+      if (!policy || typeof policy !== 'object' || !Object.keys(policy).length) policy = evaluated.visible_answer_policy;
+      if (!policy || typeof policy !== 'object' || !Object.keys(policy).length) policy = outcome.visible_answer_policy;
+      if (!policy || typeof policy !== 'object') policy = {};
+      var decision = observed.answer_decision && typeof observed.answer_decision === 'object'
+        ? observed.answer_decision : {};
+      var reasonCode = String(policy.reason_code || policy.reason || decision.reason_code || decision.reason || '');
+      var degraded = policy.strict_grounding_eligible === false
+        || reasonCode === 'POST_GENERATION_COMPLETENESS_PRESERVED';
+      return {
+        degraded: degraded,
+        label: '答案完整性优先，部分内容未通过引用校验',
+        reasonCode: reasonCode,
+        policy: policy
+      };
+    }
+
+    function completenessSelfReviewAudit(result) {
+      var observed = observation(result);
+      var evaluated = evaluatedMetrics(result);
+      var raw = observed.completeness_self_review;
+      if (!raw || typeof raw !== 'object' || !Object.keys(raw).length) raw = evaluated.completeness_self_review;
+      if (!raw || typeof raw !== 'object' || !Object.keys(raw).length) {
+        return { available: false };
+      }
+      var usage = raw.usage && typeof raw.usage === 'object' ? raw.usage : {};
+      var callsAttempted = Number(raw.calls_attempted || 0);
+      var triggerCodes = Array.isArray(raw.trigger_reason_codes)
+        ? raw.trigger_reason_codes.map(function (code) { return String(code); }) : [];
+      return {
+        available: true,
+        attempted: Number.isFinite(callsAttempted) && callsAttempted > 0,
+        status: String(raw.status || '未记录'),
+        committed: raw.status === 'committed',
+        model: String(raw.model_id || '未记录'),
+        usage: {
+          status: String(usage.status || '未记录'),
+          inputTokens: usage.input_tokens,
+          outputTokens: usage.output_tokens,
+          totalTokens: usage.total_tokens
+        },
+        triggerCodes: triggerCodes
+      };
+    }
+
+    function completenessSelfReviewText(audit) {
+      if (!audit || !audit.available) return '';
+      var usage = audit.usage || {};
+      var tokenParts = [];
+      if (usage.inputTokens != null) tokenParts.push('input=' + String(usage.inputTokens));
+      if (usage.outputTokens != null) tokenParts.push('output=' + String(usage.outputTokens));
+      if (usage.totalTokens != null) tokenParts.push('total=' + String(usage.totalTokens));
+      var usageText = usage.status + (tokenParts.length ? '(' + tokenParts.join(',') + ')' : '');
+      return 'attempted=' + (audit.attempted ? '是' : '否')
+        + ' · status=' + audit.status
+        + ' · committed=' + (audit.committed ? '是' : '否')
+        + ' · model=' + audit.model
+        + ' · usage=' + usageText
+        + ' · trigger_codes=' + (audit.triggerCodes.length ? audit.triggerCodes.join(',') : '无');
+    }
+
+    function retrieveCandidates(result) {
+      var observed = observation(result);
+      var candidates = observed.reranked || observed.context || observed.rrf || observed.retrieved || [];
+      return Array.isArray(candidates) ? candidates : [];
+    }
+
+    function candidateText(candidate, index) {
+      var source = candidate && typeof candidate === 'object' ? candidate : {};
+      var title = source.document_name || source.doc_name || source.title || source.document_id || '候选 ' + (index + 1);
+      var score = source.rerank_score;
+      if (score == null) score = source.rrf_score;
+      if (score == null) score = source.retrieval_score;
+      if (score == null) score = source.score;
+      var content = source.content || source.text || source.page_content || '';
+      var facts = [
+        '#' + (index + 1),
+        String(title),
+        'chunk=' + String(source.chunk_id || source.id || '—'),
+        'score=' + String(numberValue(score, 5) || '—')
+      ];
+      if (source.page != null || source.page_number != null) facts.push('page=' + String(source.page || source.page_number));
+      return facts.join(' · ') + '\n' + String(content);
+    }
+
+    function caseOutcomeReasonText(outcome) {
+      var value = outcome && typeof outcome === 'object' ? outcome : {};
+      var labels = {
+        execution_error: '执行异常',
+        answer_correctness_below_minimum: '最终答案正确性未达门槛',
+        correctness_contract_missing: 'v3 显式候选概念合同字段缺失',
+        unsupported_factual_claim: '答案包含未获证据或参考支持的事实断言',
+        contradictory_factual_claim: '答案包含与参考约束矛盾的事实断言',
+        abstention_contains_factual_claim: '拒答文本夹带事实性结论',
+        critical_number_mismatch: '关键数字缺失或错误',
+        critical_identifier_mismatch: '关键标识符缺失或错误',
+        polarity_mismatch: '关键肯定/否定极性错误',
+        required_branch_incomplete: '明确多分支问题存在漏答',
+        concept_group_incomplete: '必答概念组未全部覆盖',
+        expected_term_recall_below_minimum: '旧策略期望词召回未达门槛',
+        forbidden_term_hit: '命中禁用答案词',
+        faithfulness_below_minimum: '答案缺少独立证据支持',
+        citation_coverage_below_minimum: '引用覆盖未达门槛',
+        quality_score_below_minimum: '综合用例质量未达门槛',
+        abstention_incorrect: '拒答判断错误',
+        retrieval_recall_missing: '召回真值未命中',
+        retrieval_ground_truth_miss: '召回标注未命中（仅诊断）',
+        retrieval_not_applicable: '无检索真值（不适用）',
+        support_not_applicable_to_abstention: '拒答用例无需答案证据',
+        visible_answer_not_strict_grounding_eligible: '答案完整性优先，严格引用校验未通过'
+      };
+      var reasons = Array.isArray(value.reason_codes) ? value.reason_codes : [];
+      var diagnostics = Array.isArray(value.diagnostic_codes) ? value.diagnostic_codes : [];
+      var parts = reasons.map(function (code) { return labels[code] || code; });
+      diagnostics.forEach(function (code) {
+        parts.push(labels[code] || code);
+      });
+      return parts.length ? parts.join('；') : '最终答案与证据守门均通过';
+    }
+
+    function failureBucketFromOutcome(outcome) {
+      var value = outcome && typeof outcome === 'object' ? outcome : {};
+      if (value.final_answer_correct === false) return 'final';
+      if (value.strict_supported_case_pass === false
+          && value.final_answer_correct !== false) return 'strict';
+      return '';
+    }
+
+    function finalAnswerFailure(result) {
+      var outcome = nested(evaluatedMetrics(result), ['metrics', 'case_outcome']) || {};
+      return failureBucketFromOutcome(outcome) === 'final';
+    }
+
+    function strictSupportedDiagnosticFailure(result) {
+      var outcome = nested(evaluatedMetrics(result), ['metrics', 'case_outcome']) || {};
+      return failureBucketFromOutcome(outcome) === 'strict';
+    }
+
+    function appendFailureDetail(root, result, failureKind) {
+        var caseValue = findCase(result.case_id) || {};
+        var evaluated = evaluatedMetrics(result);
+        var detailClass = failureKind === 'strict' ? 'failure strict-diagnostic' : 'failure';
+        var detail = element('details', detailClass);
+        var summary = element('summary', '');
+        appendText(summary, 'span', 'mono', result.case_id);
+        appendText(summary, 'span', '', caseValue.query || evaluated.query || '未记录问题');
+        appendText(
+          summary,
+          'span',
+          failureKind === 'strict' ? 'pill warning' : 'pill danger',
+          failureKind === 'strict' ? '严格有据失败（诊断）' : '最终答案错误'
+        );
+        if (failureKind === 'strict') {
+          appendText(summary, 'span', 'pill success', '最终答案未判错');
+        }
+        if (result.error_type) appendText(summary, 'span', 'pill danger', result.error_type);
+        var visibleAudit = visibleAnswerAudit(result);
+        if (visibleAudit.degraded) {
+          appendText(summary, 'span', 'pill warning', visibleAudit.label);
+        }
+        detail.appendChild(summary);
+
+        var body = element('div', 'failure-body');
+        var expected = element('div', 'text-block');
+        appendText(expected, 'strong', '', '参考答案 / 期望');
+        appendText(expected, 'span', '', caseValue.reference_answer || '—');
+        if (Array.isArray(caseValue.expected_terms) && caseValue.expected_terms.length) {
+          appendText(expected, 'span', '', '\n期望词：' + caseValue.expected_terms.join('、'));
+        }
+        body.appendChild(expected);
+
+        var actual = element('div', 'text-block');
+        appendText(actual, 'strong', '', '实际回答');
+        appendText(actual, 'span', '', observation(result).answer || '（空回答）');
+        body.appendChild(actual);
+
+        if (visibleAudit.degraded) {
+          var auditBlock = element('div', 'text-block');
+          appendText(auditBlock, 'strong', '', '可见答案降级审计');
+          var auditPolicy = visibleAudit.policy || {};
+          var auditLines = [
+            visibleAudit.label,
+            'reason=' + (visibleAudit.reasonCode || '未记录'),
+            'mode=' + String(auditPolicy.mode || '未记录'),
+            'strict_grounding_eligible=false',
+            'trusted_citations=' + String(auditPolicy.trusted_citation_count == null ? '未记录' : auditPolicy.trusted_citation_count),
+            'removed_untrusted_markers=' + String(auditPolicy.removed_untrusted_marker_count == null ? '未记录' : auditPolicy.removed_untrusted_marker_count)
+          ];
+          appendText(auditBlock, 'span', '', auditLines.join('\n'));
+          body.appendChild(auditBlock);
+        }
+
+        var selfReviewAudit = completenessSelfReviewAudit(result);
+        if (selfReviewAudit.available) {
+          var selfReviewBlock = element('div', 'text-block');
+          appendText(selfReviewBlock, 'strong', '', '完整性自审审计');
+          appendText(selfReviewBlock, 'span', '', completenessSelfReviewText(selfReviewAudit));
+          body.appendChild(selfReviewBlock);
+        }
+
+        var metricBlock = element('div', 'text-block');
+        appendText(metricBlock, 'strong', '', '逐项指标');
+        var caseOutcome = nested(evaluated, ['metrics', 'case_outcome']) || {};
+        var strictPass = caseOutcome.strict_supported_case_pass;
+        if (typeof strictPass !== 'boolean') strictPass = result.passed;
+        var finalCorrect = caseOutcome.final_answer_correct;
+        var finalCorrectness = caseOutcome.final_answer_correctness;
+        if (finalCorrectness == null) {
+          finalCorrectness = nested(evaluated, ['metrics', 'generation', 'correctness']);
+        }
+        var metricLines = [
+          '最终答案是否正确（目标）：' + (
+            typeof finalCorrect === 'boolean' ? (finalCorrect ? '正确' : '错误') : '未采集'
+          ),
+          '最终答案正确性得分：' + metricText(finalCorrectness, 'ratio'),
+          '覆盖分（诊断）：' + metricText(nested(evaluated, ['metrics', 'generation', 'correctness']), 'ratio'),
+          '严格有据判定：' + (strictPass ? '通过' : '失败'),
+          '综合用例质量：' + metricText(caseOutcome.quality_score, 'ratio'),
+          '判定策略：' + String(caseOutcome.policy_version || '旧版/未知'),
+          '判定说明：' + caseOutcomeReasonText(caseOutcome),
+          'Recall@10：' + metricText(nested(evaluated, ['metrics', 'retrieval', 'recall_at_k', '10']), 'ratio'),
+          'MRR：' + metricText(nested(evaluated, ['metrics', 'retrieval', 'mrr']), 'ratio'),
+          '忠实度：' + metricText(nested(evaluated, ['metrics', 'generation', 'faithfulness']), 'ratio'),
+          '引用覆盖率：' + metricText(nested(evaluated, ['metrics', 'citation', 'coverage']), 'ratio'),
+          '拒答正确：' + String(nested(evaluated, ['metrics', 'abstention', 'correct'])),
+          '延迟：' + metricText(result.latency_ms, 'latency')
+        ];
+        if (result.error_type || result.error_detail) {
+          metricLines.push('错误：' + (result.error_type || 'Error') + ' · ' + (result.error_detail || '—'));
+        }
+        appendText(metricBlock, 'span', '', metricLines.join('\n'));
+        body.appendChild(metricBlock);
+
+        var retrievedRoot = element('div', 'text-block');
+        appendText(retrievedRoot, 'strong', '', '召回 / 重排证据');
+        var candidates = retrieveCandidates(result);
+        if (!candidates.length) {
+          appendText(retrievedRoot, 'span', '', '没有持久化候选证据。');
+        } else {
+          var candidateList = element('div', 'retrieved-list');
+          candidates.slice(0, 20).forEach(function (candidate, index) {
+            appendText(candidateList, 'div', 'retrieved', candidateText(candidate, index));
+          });
+          retrievedRoot.appendChild(candidateList);
+        }
+        body.appendChild(retrievedRoot);
+
+        var actions = element('div', 'inline-actions');
+        var feedbackButton = element('button', 'button danger small', '对此回答提交反馈');
+        feedbackButton.type = 'button';
+        feedbackButton.addEventListener('click', function () { openFeedback(result); });
+        actions.appendChild(feedbackButton);
+        body.appendChild(actions);
+        detail.appendChild(body);
+        root.appendChild(detail);
+    }
+
+    function renderFailures() {
+      var finalRoot = byId('finalFailureList');
+      var strictRoot = byId('strictFailureList');
+      clear(finalRoot);
+      clear(strictRoot);
+      var finalFailures = state.results.filter(finalAnswerFailure);
+      var strictFailures = state.results.filter(strictSupportedDiagnosticFailure);
+      byId('finalFailureEmpty').hidden = finalFailures.length > 0;
+      byId('strictFailureEmpty').hidden = strictFailures.length > 0;
+      setPill(
+        byId('finalFailureCountPill'),
+        finalFailures.length + ' 个错题',
+        finalFailures.length ? 'danger' : 'success'
+      );
+      setPill(
+        byId('strictFailureCountPill'),
+        strictFailures.length + ' 个诊断失败',
+        strictFailures.length ? 'warning' : 'success'
+      );
+      finalFailures.forEach(function (result) {
+        appendFailureDetail(finalRoot, result, 'final');
+      });
+      strictFailures.forEach(function (result) {
+        appendFailureDetail(strictRoot, result, 'strict');
+      });
+    }
+
+    function renderResults() {
+      var root = byId('resultList');
+      clear(root);
+      byId('resultEmpty').hidden = state.results.length > 0;
+      setPill(byId('resultCountPill'), state.results.length + ' 条结果', state.results.length ? 'primary' : '');
+      state.results.forEach(function (result) {
+        var caseValue = findCase(result.case_id) || {};
+        var row = element('div', 'result-row');
+        var evaluated = evaluatedMetrics(result);
+        var scope = evaluated.evaluation_scope || 'full';
+        var applicable = nested(evaluated, ['metrics', 'retrieval', 'applicable']);
+        var statusText = result.passed ? '严格通过' : '严格失败';
+        var statusToneValue = result.passed ? 'success' : 'danger';
+        if (scope === 'retrieval_only') {
+          statusText = applicable === false ? 'N/A（无检索真值）' : (result.passed ? '检索命中' : '检索未命中');
+          statusToneValue = applicable === false ? '' : (result.passed ? 'success' : 'danger');
+        }
+        setPill(appendText(row, 'span', 'pill', ''), statusText, statusToneValue);
+        var main = element('div', 'result-main');
+        appendText(main, 'strong', 'mono', result.case_id);
+        appendText(main, 'span', '', caseValue.query || nested(evaluatedMetrics(result), ['query']) || '—');
+        var outcome = nested(evaluated, ['metrics', 'case_outcome']) || {};
+        var visibleAudit = visibleAnswerAudit(result);
+        if (visibleAudit.degraded) {
+          appendText(main, 'span', 'pill warning', visibleAudit.label);
+        }
+        var selfReviewAudit = completenessSelfReviewAudit(result);
+        if (selfReviewAudit.available) {
+          var selfReviewLine = appendText(main, 'span', 'muted', '完整性自审：' + completenessSelfReviewText(selfReviewAudit));
+          selfReviewLine.title = completenessSelfReviewText(selfReviewAudit);
+        }
+        if (scope !== 'retrieval_only' && outcome.quality_score != null) {
+          appendText(main, 'span', 'muted', '最终答案 '
+            + (typeof outcome.final_answer_correct === 'boolean'
+              ? (outcome.final_answer_correct ? '答对' : '答错')
+              : '未判定')
+            + '（得分 ' + metricText(
+            outcome.final_answer_correctness == null
+              ? nested(evaluated, ['metrics', 'generation', 'correctness'])
+              : outcome.final_answer_correctness,
+            'ratio'
+          ) + '） · 严格有据 ' + (outcome.strict_supported_case_pass ? '通过' : '失败')
+            + ' · 综合质量 ' + metricText(outcome.quality_score, 'ratio')
+            + ' · ' + caseOutcomeReasonText(outcome));
+        }
+        row.appendChild(main);
+        var feedbackButton = element('button', 'button ghost small', '反馈');
+        feedbackButton.type = 'button';
+        feedbackButton.addEventListener('click', function () { openFeedback(result); });
+        row.appendChild(feedbackButton);
+        root.appendChild(row);
+      });
+    }
+
+    function renderRunMeta(run) {
+      var root = byId('selectedRunMeta');
+      clear(root);
+      var dataset = runDatasetContext(run);
+      var difficulty = difficultyMeta(dataset);
+      var caseStatus = datasetCaseStatus(dataset);
+      var casePolicy = datasetCasePolicy(dataset);
+      [
+        'run=' + run.id,
+        'suite=' + (datasetSuiteKey(dataset) || '—'),
+        'scope=' + modeLabel(run.mode)
+          + (run.mode === 'retrieval_only' ? '（生成/引用/拒答未采集）' : ''),
+        'difficulty=' + difficulty.label,
+        'case_policy=' + casePolicy.label,
+        'case_requirement=' + caseStatus.label,
+        'dataset=' + (run.dataset_key || run.dataset_id) + '@' + (run.dataset_version || '—'),
+        'kb=' + (run.kb_id || '—'),
+        'created=' + formatDate(run.created_at),
+        'updated=' + formatDate(run.updated_at)
+      ].forEach(function (value) {
+        appendText(root, 'span', 'mono', value);
+      });
+    }
+
+    function renderSelectedRun() {
+      var run = state.selectedRun;
+      byId('runDetailEmpty').hidden = Boolean(run);
+      byId('runDetail').hidden = !run;
+      byId('refreshSelectedButton').disabled = !run;
+      if (!run) {
+        renderQualityTarget(null);
+        return;
+      }
+
+      byId('selectedRunName').textContent = run.name || run.id;
+      setPill(byId('selectedRunStatus'), statusLabel(run.status), statusTone(run.status));
+      var gate = gateSummary(run);
+      setPill(byId('selectedRunGate'), gate[0], gate[1]);
+      renderRunMeta(run);
+
+      var progress = Number(run.progress || 0);
+      progress = Number.isFinite(progress) ? Math.max(0, Math.min(1, progress)) : 0;
+      byId('selectedProgressBar').style.width = (progress * 100).toFixed(1) + '%';
+      byId('selectedProgressLabel').textContent = run.completed_cases + ' / ' + run.total_cases + ' · ' + (progress * 100).toFixed(1) + '%';
+
+      renderMetrics(run.metrics_summary || {});
+      renderQualityTarget(run);
+      renderGate(run);
+      renderTagMetrics(run.metrics_summary || {});
+      renderComparison(run);
+      renderReports(run);
+      renderFailures();
+      renderResults();
+    }
+
+    async function ensureRunDataset(run) {
+      if (state.dataset && state.dataset.id === run.dataset_id) return;
+      try {
+        state.dataset = await apiJson('/api/v1/evaluation/datasets/' + encodeURIComponent(run.dataset_id));
+        byId('datasetSelect').value = run.dataset_id;
+        sessionStorage.setItem(STORAGE.dataset, run.dataset_id);
+        renderDataset(state.dataset);
+      } catch (error) {
+        showNotice('运行已读取，但无法读取其数据集案例详情：' + error.message, 'warning');
+      }
+    }
+
+    async function selectRun(runId, options) {
+      if (!runId) return;
+      var settings = options || {};
+      try {
+        var run = await apiJson('/api/v1/evaluation/runs/' + encodeURIComponent(runId));
+        state.selectedRun = run;
+        localStorage.setItem(STORAGE.run, run.id);
+        await ensureRunDataset(run);
+        if (run.completed_cases > 0 || run.status === 'succeeded' || run.status === 'failed') {
+          var resultsPayload = await apiJson('/api/v1/evaluation/runs/' + encodeURIComponent(runId) + '/results');
+          state.results = listFrom(resultsPayload);
+        } else {
+          state.results = [];
+        }
+        renderRuns();
+        renderSelectedRun();
+        if (run.status === 'queued' || run.status === 'running') {
+          startPolling();
+        } else {
+          stopPolling();
+        }
+        if (!settings.quiet) showNotice('已载入持久运行 ' + run.id + '。', 'info');
+      } catch (error) {
+        stopPolling();
+        if (!settings.quiet) showNotice('读取运行失败：' + error.message, 'danger');
+      }
+    }
+
+    function startPolling() {
+      if (state.pollTimer) return;
+      state.pollTimer = window.setInterval(async function () {
+        if (!state.selectedRun || document.hidden) return;
+        var id = state.selectedRun.id;
+        try {
+          await selectRun(id, { quiet: true });
+          var latest = state.selectedRun;
+          if (latest && latest.status !== 'queued' && latest.status !== 'running') {
+            await loadRuns({ restore: false });
+            stopPolling();
+            showNotice('运行 ' + latest.id + ' 已结束：' + statusLabel(latest.status) + '。', latest.status === 'succeeded' ? 'success' : 'danger');
+          }
+        } catch (error) {
+          // 短暂网络错误不销毁服务端运行，下一轮继续恢复。
+        }
+      }, 1600);
+    }
+
+    function stopPolling() {
+      if (state.pollTimer) {
+        window.clearInterval(state.pollTimer);
+        state.pollTimer = null;
+      }
+    }
+
+    function openFeedback(result) {
+      var observed = observation(result);
+      var answerId = observed.answer_id || ('eval-' + result.run_id + '-' + result.case_id);
+      byId('feedbackResultId').value = result.id || '';
+      byId('feedbackAnswerId').value = answerId;
+      byId('feedbackSessionId').value = observed.session_id || '';
+      byId('feedbackAnswerDisplay').textContent = answerId;
+      byId('feedbackContext').textContent = result.case_id + ' · ' + ((findCase(result.case_id) || {}).query || nested(evaluatedMetrics(result), ['query']) || '回答反馈');
+      byId('feedbackRating').value = result.passed ? '1' : '-1';
+      byId('feedbackComment').value = '';
+      byId('feedbackCorrection').value = '';
+      document.querySelectorAll('input[name="reasonCode"]').forEach(function (input) { input.checked = false; });
+      byId('feedbackDialog').showModal();
+    }
+
+    function closeFeedback() {
+      byId('feedbackDialog').close();
+    }
+
+    async function submitFeedback(event) {
+      event.preventDefault();
+      var reasonCodes = Array.from(document.querySelectorAll('input[name="reasonCode"]:checked')).map(function (input) {
+        return input.value;
+      });
+      var button = byId('submitFeedbackButton');
+      button.disabled = true;
+      try {
+        var feedback = await apiJson('/api/v1/feedback', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            kb_id: currentKbId(),
+            answer_id: byId('feedbackAnswerId').value,
+            evaluation_result_id: byId('feedbackResultId').value || null,
+            session_id: byId('feedbackSessionId').value || null,
+            rating: Number(byId('feedbackRating').value),
+            reason_codes: reasonCodes,
+            comment: byId('feedbackComment').value.trim(),
+            selected_citation: {},
+            corrected_answer: byId('feedbackCorrection').value.trim()
+          })
+        });
+        closeFeedback();
+        showNotice('反馈已提交到待审核池：' + (feedback.id || '已创建') + '。它不会直接修改黄金集。', 'success');
+      } catch (error) {
+        showNotice('提交反馈失败：' + error.message, 'danger');
+      } finally {
+        button.disabled = false;
+      }
+    }
+
+    async function loadAll() {
+      setBusy(true);
+      try {
+        await loadDatasets();
+        await loadRuns();
+      } catch (error) {
+        showNotice('加载评测事实失败：' + error.message + '。请确认已登录且具有 eval:read 权限。', 'danger');
+      } finally {
+        setBusy(false);
+      }
+    }
+
+    async function refreshAll() {
+      await refreshHealth();
+      var authenticated = await refreshPrincipal();
+      if (authenticated) {
+        await loadAuthorizedKnowledgeBases();
+        invalidatePreflight();
+        await loadAll();
+      }
+    }
+
+    function invalidatePreflight() {
+      state.preflight = null;
+      renderPreflight(null);
+    }
+
+    function bindEvents() {
+      byId('refreshAllButton').addEventListener('click', refreshAll);
+      byId('loadDatasetButton').addEventListener('click', async function () {
+        setBusy(true);
+        try {
+          await loadDatasetDetail();
+          showNotice('数据集详情已按不可变 ID 重新读取。', 'success');
+        } catch (error) {
+          showNotice('读取数据集失败：' + error.message, 'danger');
+        } finally {
+          setBusy(false);
+        }
+      });
+      byId('preflightButton').addEventListener('click', runPreflight);
+      byId('refreshRunsButton').addEventListener('click', async function () {
+        try {
+          await loadRuns();
+          showNotice('持久运行列表已刷新。', 'success');
+        } catch (error) {
+          showNotice('刷新运行失败：' + error.message, 'danger');
+        }
+      });
+      byId('refreshSelectedButton').addEventListener('click', function () {
+        if (state.selectedRun) selectRun(state.selectedRun.id);
+      });
+      byId('runBaselineButton').addEventListener('click', function () { startRun(false); });
+      byId('runCandidateButton').addEventListener('click', function () { startRun(true); });
+      byId('baselineSelect').addEventListener('change', updateRunButtons);
+      byId('runModeSelect').addEventListener('change', function () {
+        invalidatePreflight();
+        updateBaselineOptions();
+        showNotice(
+          byId('runModeSelect').value === 'retrieval_only'
+            ? '已切换到仅检索：不会调用外部 LLM，生成、引用和拒答指标将显示“未采集”。'
+            : '注意：完整链路会调用已配置的生成模型。请仅在知识库数据外发或私有模型使用已经获批时运行。页面不会保存任何密钥。',
+          byId('runModeSelect').value === 'retrieval_only' ? 'info' : 'warning'
+        );
+      });
+      byId('datasetSelect').addEventListener('change', async function () {
+        invalidatePreflight();
+        try {
+          await loadDatasetDetail();
+        } catch (error) {
+          showNotice('读取数据集失败：' + error.message, 'danger');
+        }
+      });
+      byId('kbIdInput').addEventListener('change', function () {
+        var value = currentKbId();
+        localStorage.setItem(STORAGE.kb, value);
+        var url = new URL(location.href);
+        if (value) url.searchParams.set('kb_id', value);
+        else url.searchParams.delete('kb_id');
+        history.replaceState(null, '', url);
+        invalidatePreflight();
+        updateBaselineOptions();
+      });
+      byId('feedbackForm').addEventListener('submit', submitFeedback);
+      byId('closeFeedbackButton').addEventListener('click', closeFeedback);
+      byId('cancelFeedbackButton').addEventListener('click', closeFeedback);
+      byId('feedbackDialog').addEventListener('click', function (event) {
+        if (event.target === byId('feedbackDialog')) closeFeedback();
+      });
+      document.addEventListener('visibilitychange', function () {
+        if (!document.hidden && state.selectedRun && (state.selectedRun.status === 'queued' || state.selectedRun.status === 'running')) {
+          selectRun(state.selectedRun.id, { quiet: true });
+        }
+      });
+    }
+
+    async function loadAuthorizedKnowledgeBases(prefetched) {
+      var response = prefetched || await apiJson('/api/v1/ui/bootstrap');
+      var rows = Array.isArray(response.knowledge_bases) ? response.knowledge_bases : [];
+      var select = byId('kbIdInput');
+      var queryKb = new URLSearchParams(location.search).get('kb_id');
+      var preferred = queryKb || localStorage.getItem(STORAGE.kb) || '';
+      select.replaceChildren();
+      rows.forEach(function (item) {
+        var option = document.createElement('option');
+        option.value = item.id;
+        option.textContent = item.name + (item.readiness === 'ready' ? '' : ' · ' + item.readiness_message);
+        select.appendChild(option);
+      });
+      if (rows.some(function (item) { return item.id === preferred; })) {
+        select.value = preferred;
+      }
+      select.disabled = rows.length === 0;
+      if (select.value) localStorage.setItem(STORAGE.kb, select.value);
+    }
+
+    function init() {
+      bindEvents();
+      refreshHealth();
+      state.refreshTimer = window.setInterval(function () {
+        if (!document.hidden) refreshHealth();
+      }, 30000);
+    }
+
+    init();
+    window.STTDiagnosticPage = {
+      async onAuthenticated(bootstrap) {
+        applyPrincipal(bootstrap.identity || {});
+        showNotice('已载入当前租户的授权知识库与评测事实。', 'success');
+        await loadAll();
+      },
+      onSignedOut() {
+        clearEvaluationState();
+        setPill(byId('authPill'), '未登录', 'warning');
+        showNotice('请先登录。评测事实仍保存在服务端，重新登录后可恢复。', 'info');
+      }
+    };
+  </script>
+</body>
+</html>

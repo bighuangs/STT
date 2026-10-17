@@ -1,0 +1,184 @@
+{
+  "schema_version": "stt.eval.semantic-correctness-review-summary.v1",
+  "status": "succeeded",
+  "generated_at": "2026-08-11T00:59:31.287299+00:00",
+  "label": "live-cand-max-mono-01",
+  "answer_stage": "pre_grounding",
+  "review_iteration": "direct-answer-v3-qwen3.7-max",
+  "input": {
+    "answer_stage": "pre_grounding",
+    "run_index_path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/runs/live-cand-max-mono-01/run-index.json",
+    "run_index_sha256": "72e7dc62afe7fa9cf85c90d7214a290ce05e2380c019f25ead4e3393febd5f9c",
+    "baseline_registry_path": "docs/evaluation-baselines/2026-08-10-three-difficulty/baselines/baselines.json",
+    "baseline_registry_sha256": "0b292fe4a68507d9e720ac0a1c44c4ef8065695693289532f2768b2229a031df",
+    "selection": "all",
+    "mode": "live"
+  },
+  "judge": {
+    "script_path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/review_semantic_correctness.py",
+    "script_sha256": "042efc1b975c87976c8ee3b69a23c7612fd04b6045392eb29898b335b5faaf72",
+    "requested_model": "qwen3.7-max",
+    "response_model_counts": {
+      "qwen3.7-max": 153
+    },
+    "temperature": 0,
+    "prompt_version": "stt.semantic-visible-answer-judge.v2",
+    "prompt_template_sha256": "1fdfc4903d2e55f8406ee26891b204fa2174b2204149e9212673ff3eb0a472d3",
+    "evaluation_answer_stage": "pre_grounding",
+    "calibration_answer_stage": "final",
+    "missing_selected_answer_treated_as_empty": true,
+    "safe_base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+    "visible_answer_only": true,
+    "citation_content_supplied": false,
+    "expected_terms_supplied": false,
+    "production_metrics_supplied": false,
+    "free_text_judgment_recorded": false,
+    "query_reference_answer_text_recorded_in_review_output": false
+  },
+  "review_policy": {
+    "binary_correct_rule": "semantic_correct=true only",
+    "low_confidence_second_review_below": 0.8,
+    "production_correctness_binary_threshold": 0.8,
+    "production_correctness_conflict_second_review_enabled": false,
+    "second_review_is_final": true
+  },
+  "calibration": {
+    "P3500-EASY-001": {
+      "expected_semantic_correct": false,
+      "actual_semantic_correct": false,
+      "matched": true,
+      "review_count": 1,
+      "final_review_index": 1,
+      "semantic_score": 0.0,
+      "confidence_score": 0.95,
+      "final_record_sha256": "65b2f3d2b5cd504c8c4f88ae44eb22a1f876cc04949c43e336f36b055da5a61a"
+    },
+    "P3500-EASY-006": {
+      "expected_semantic_correct": true,
+      "actual_semantic_correct": true,
+      "matched": true,
+      "review_count": 2,
+      "final_review_index": 2,
+      "semantic_score": 1.0,
+      "confidence_score": 1.0,
+      "final_record_sha256": "610c97d82cdf9c27a43802c111099f131f964af36b1cc419f8129dbabb4a99e7"
+    }
+  },
+  "calibration_passed": true,
+  "overall": {
+    "case_count": 150,
+    "correct_count": 120,
+    "incorrect_count": 30,
+    "binary_accuracy": 0.8,
+    "mean_semantic_score": 0.861,
+    "mean_confidence_score": 0.98,
+    "second_review_count": 0,
+    "production_correctness_conflict_review_count": 0
+  },
+  "per_difficulty": {
+    "easy": {
+      "case_count": 50,
+      "correct_count": 46,
+      "incorrect_count": 4,
+      "binary_accuracy": 0.92,
+      "mean_semantic_score": 0.934,
+      "mean_confidence_score": 0.993,
+      "second_review_count": 0,
+      "production_correctness_conflict_review_count": 0,
+      "selected_visible_answer_empty_count": 0,
+      "response_model_counts": {
+        "qwen3.7-max": 50
+      },
+      "usage": {
+        "successful_call_count": 50,
+        "input_tokens": 28985,
+        "input_tokens_unknown_call_count": 0,
+        "output_tokens": 34629,
+        "output_tokens_unknown_call_count": 0,
+        "total_tokens": 63614,
+        "total_tokens_unknown_call_count": 0
+      },
+      "run_id": "erun_5943e3f1a8d24eb79ec1ad3897e40f63",
+      "dataset_path": "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/easy.json",
+      "dataset_sha256": "1a3cacbb59b3aa7f354a569f828ad6214351f07cd3d0923a798e98cc33c41b2a",
+      "results_path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/runs/live-cand-max-mono-01/artifacts/easy/erun_5943e3f1a8d24eb79ec1ad3897e40f63/results.jsonl",
+      "results_sha256": "3ab1b34b089639552e98d873c1440b7b6ad982d784780a304577482414efe88a"
+    },
+    "medium": {
+      "case_count": 50,
+      "correct_count": 44,
+      "incorrect_count": 6,
+      "binary_accuracy": 0.88,
+      "mean_semantic_score": 0.929,
+      "mean_confidence_score": 0.987,
+      "second_review_count": 0,
+      "production_correctness_conflict_review_count": 0,
+      "selected_visible_answer_empty_count": 0,
+      "response_model_counts": {
+        "qwen3.7-max": 50
+      },
+      "usage": {
+        "successful_call_count": 50,
+        "input_tokens": 36260,
+        "input_tokens_unknown_call_count": 0,
+        "output_tokens": 49590,
+        "output_tokens_unknown_call_count": 0,
+        "total_tokens": 85850,
+        "total_tokens_unknown_call_count": 0
+      },
+      "run_id": "erun_8faab68e39c1405b98202e0b195468dd",
+      "dataset_path": "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/medium.json",
+      "dataset_sha256": "89c570d10282342fd7facec9bd7d20af61337b5ecaef0038157ed824c25c0369",
+      "results_path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/runs/live-cand-max-mono-01/artifacts/medium/erun_8faab68e39c1405b98202e0b195468dd/results.jsonl",
+      "results_sha256": "eee1ee51916f8c22edf351000707c50981021efd9852c1526aad390a9f3e2e9c"
+    },
+    "hard": {
+      "case_count": 50,
+      "correct_count": 30,
+      "incorrect_count": 20,
+      "binary_accuracy": 0.6,
+      "mean_semantic_score": 0.72,
+      "mean_confidence_score": 0.96,
+      "second_review_count": 0,
+      "production_correctness_conflict_review_count": 0,
+      "selected_visible_answer_empty_count": 0,
+      "response_model_counts": {
+        "qwen3.7-max": 50
+      },
+      "usage": {
+        "successful_call_count": 50,
+        "input_tokens": 35825,
+        "input_tokens_unknown_call_count": 0,
+        "output_tokens": 58114,
+        "output_tokens_unknown_call_count": 0,
+        "total_tokens": 93939,
+        "total_tokens_unknown_call_count": 0
+      },
+      "run_id": "erun_6556fff1063f43f0a38569799d87511d",
+      "dataset_path": "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/hard.json",
+      "dataset_sha256": "e5be4d2495618e819b9758fa753bb10d553037ca10b26dc6ccd8521404600a04",
+      "results_path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/runs/live-cand-max-mono-01/artifacts/hard/erun_6556fff1063f43f0a38569799d87511d/results.jsonl",
+      "results_sha256": "2a954a6a1cbf82eb79b1ae763d4d2e7889edfcda712f5a4ebc908dcdc0126235"
+    }
+  },
+  "usage": {
+    "successful_call_count": 153,
+    "input_tokens": 102740,
+    "input_tokens_unknown_call_count": 0,
+    "output_tokens": 145047,
+    "output_tokens_unknown_call_count": 0,
+    "total_tokens": 247787,
+    "total_tokens_unknown_call_count": 0
+  },
+  "record_count": 153,
+  "records_path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/semantic-reviews/live-cand-max-mono-01/direct-answer-v3-qwen3.7-max/pre_grounding/semantic-correctness-review.jsonl",
+  "records_sha256": "ec4f4a35b570c70e806c20023e45265c96d51189f8ddb9c2b31fb7e869c5e850",
+  "resume_recovery": {
+    "event_count": 0,
+    "audit_path": null,
+    "audit_sha256": null,
+    "raw_truncated_tail_recorded": false
+  },
+  "credentials_recorded": false,
+  "raw_provider_responses_recorded": false
+}

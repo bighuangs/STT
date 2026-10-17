@@ -1,0 +1,998 @@
+﻿case_id,difficulty,stored_final_correct,stored_final_correctness,pre_correct_recomputed,pre_correctness_recomputed,transition,grounding_changed,grounding_status,grounding_reason_code,decision_reason_code,citation_status,citation_issue_codes,recall_at_5,first_relevant_rank,context_omitted_count,context_truncated_count,uncovered_sub_query_count,query,pre_grounding_answer,final_visible_answer
+P3500-EASY-001,easy,True,1.0,True,1.0,pre_correct_to_final_correct,False,passed,,EVIDENCE_SUFFICIENT,valid,,1.0,1,0,0,0,珠海奔图电子有限公司对用户指南的更改是否需要另行通知？,"珠海奔图电子有限公司对用户指南作出更改时,恕不另行通知 [E1]。","珠海奔图电子有限公司对用户指南作出更改时,恕不另行通知 [E1]。"
+P3500-EASY-002,easy,True,1.0,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED,1.0,2,0,0,0,清洁打印机前应采取什么安全措施？,"清洁打印机前应采取的安全措施如下:
+
+-   在清洁打印机之前,请确保已切断电源[E3]。
+-   清洁之前,请将电源线从 AC 电源插座拔下[E2]。
+-   请勿使用液体或气雾清洁剂[E2]。
+-   请使用中性清洁剂[E1]。
+-   打印机使用后短时间内局部零件仍处于高温状态,当打开前盖或后盖接触内部零件时,请勿接触图示阴影部分的零件[E1]。
+-   打印机打印时和打印后,定影组件会处于高温状态,请勿触摸定影单元(图示阴影部分),以免造成烫伤[E3]。
+-   取下激光碳粉盒时,请将激光碳粉盒装入保护袋或用厚纸包裹,避免光线照射而损坏感光鼓[E1]。","-   在清洁打印机之前,请确保已切断电源[E3]。
+-   清洁之前,请将电源线从 AC 电源插座拔下[E2]。
+-   请勿使用液体或气雾清洁剂[E2]。
+-   请使用中性清洁剂[E1]。
+-   打印机使用后短时间内局部零件仍处于高温状态,当打开前盖或后盖接触内部零件时,请勿接触图示阴影部分的零件[E1]。
+-   打印机打印时和打印后,定影组件会处于高温状态,请勿触摸定影单元(图示阴影部分),以免造成烫伤[E3]。
+-   取下激光碳粉盒时,请将激光碳粉盒装入保护袋或用厚纸包裹,避免光线照射而损坏感光鼓[E1]。"
+P3500-EASY-003,easy,True,1.0,True,1.0,pre_correct_to_final_correct,False,passed,,EVIDENCE_SUFFICIENT,valid,,1.0,1,0,0,0,该产品是否适合室外使用？,"该产品不适合室外使用 [E1]。
+
+- 本产品适合室内使用,不适合室外使用 [E1]。
+- 此产品仅适用于非热带、海拔2000米及以下地区安全使用 [E4]。","该产品不适合室外使用 [E1]。
+
+- 本产品适合室内使用,不适合室外使用 [E1]。
+- 此产品仅适用于非热带、海拔2000米及以下地区安全使用 [E4]。"
+P3500-EASY-004,easy,False,0.3333333333333333,False,0.3333333333333333,pre_wrong_to_final_wrong,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED|UNTRUSTED_CITATIONS_REMOVED,1.0,1,0,0,0,根据表格内容，哪一种有毒有害物质在部分部件中含量可能超出标准限量？,"铅(Pb)是在部分部件中含量可能超出标准限量的有毒有害物质[E2]。
+
+-   金属部件中的铅(Pb)含量至少在该部件的某一均质材料中超出SJ/T11363-2006标准规定的限量要求[E2][E1]。
+-   电线电缆中的铅(Pb)含量至少在该部件的某一均质材料中超出SJ/T11363-2006标准规定的限量要求[E2][E1]。
+-   电路板组件中的铅(Pb)含量至少在该部件的某一均质材料中超出SJ/T11363-2006标准规定的限量要求[E2][E1]。
+-   符号“×”表示该有毒有害物质至少在该部件的某一均质材料中的含量超出SJ/T11363-2006标准规定的限量要求[E1]。","-   金属部件中的铅(Pb)含量至少在该部件的某一均质材料中超出SJ/T11363-2006标准规定的限量要求[E1]。
+-   电线电缆中的铅(Pb)含量至少在该部件的某一均质材料中超出SJ/T11363-2006标准规定的限量要求[E1]。
+-   电路板组件中的铅(Pb)含量至少在该部件的某一均质材料中超出SJ/T11363-2006标准规定的限量要求[E1]。
+-   符号“×”表示该有毒有害物质至少在该部件的某一均质材料中的含量超出SJ/T11363-2006标准规定的限量要求[E1]。"
+P3500-EASY-005,easy,True,1.0,True,1.0,pre_correct_to_final_correct,False,passed,,EVIDENCE_SUFFICIENT,degraded,,1.0,1,0,0,0,出纸托盘的作用是什么？,出纸托盘的作用是防止打印出来的纸张滑落 [E1][E2][E4][E5]。,出纸托盘的作用是防止打印出来的纸张滑落 [E1][E2][E4][E5]。
+P3500-EASY-006,easy,True,1.0,True,1.0,pre_correct_to_final_correct,False,passed,,EVIDENCE_SUFFICIENT,valid,,1.0,1,0,0,0,标准容量激光碳粉盒的平均打印量是多少页？,标准容量激光碳粉盒的平均打印量约为3000页[E1]。该数据基于ISO/IEC 19752标准[E1]。,标准容量激光碳粉盒的平均打印量约为3000页[E1]。该数据基于ISO/IEC 19752标准[E1]。
+P3500-EASY-007,easy,True,1.0,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED,1.0,1,0,0,0,控制面板上的“返回键”可以执行哪些操作？,"控制面板上的“返回键”可以执行以下操作:
+
+-   退出控制面板菜单 [E1]。
+-   滚动返回子菜单列表中的上一级菜单 [E1]。
+-   返回菜单上一级,如果在菜单顶级,则返回就绪界面 [E1]。","-   退出控制面板菜单[E1]。
+-   滚动返回子菜单列表中的上一级菜单[E1]。
+-   返回菜单上一级,如果在菜单顶级,则返回就绪界面[E1]。"
+P3500-EASY-008,easy,True,1.0,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,NON_TEXT_PLACEHOLDER_REMOVED|UNSUPPORTED_CLAIMS_PRUNED,1.0,1,0,0,0,如何通过控制面板打印产品报告？,"用户可以通过操作控制面板打印产品报告,具体步骤如下:
+
+-   按“菜单”键进入菜单设置界面 [E1]。
+-   按方向键“▲”或“▼”选择“5.打印信息报告”选项 [E1]。
+-   按“OK”键进入信息报告打印,用户可以根据需要打印产品报告 [E1]。
+
+注意事项:若为非 Wi-Fi 机型,用户还可以直接通过控制面板“网络配置报告”快捷按键,长按打印产品的网络配置报告 [E1]。
+
+【图片】
+&lt;image omitted&gt;","-   按“菜单”键进入菜单设置界面[E1]。
+-   按方向键“▲”或“▼”选择“5.打印信息报告”选项[E1]。
+-   按“OK”键进入信息报告打印,用户可以根据需要打印产品报告[E1]。
+注意事项:若为非 Wi-Fi 机型,用户还可以直接通过控制面板“网络配置报告”快捷按键,长按打印产品的网络配置报告[E1]。"
+P3500-EASY-009,easy,False,0.0,True,1.0,pre_correct_to_final_wrong,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED|UNTRUSTED_CITATIONS_REMOVED,1.0,1,0,0,0,打印机信息页中显示的硒鼓剩余量是多少？,"打印机信息页中显示的硒鼓剩余量是100% [E1]。
+
+-   该数值来源于P3500 Series打印机信息页示例中的“硒鼓信息”部分,具体显示为“硒鼓剩余量: 100%” [E1]。
+-   打印机信息页用于查看打印机当前使用粉盒的碳粉剩余量和已打印的页数以及其他信息 [E1]。",-   打印机信息页用于查看打印机当前使用粉盒的碳粉剩余量和已打印的页数以及其他信息[E1]。
+P3500-EASY-010,easy,False,0.6666666666666666,True,1.0,pre_correct_to_final_wrong,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED|UNTRUSTED_CITATIONS_REMOVED,1.0,3,0,0,0,在“网络信息”一级菜单下，有哪些二级菜单？,"在“网络信息”一级菜单下,包含以下二级菜单:
+
+-   有线网络信息 [E1][E2][E3]
+-   无线网络信息 [E1][E3]
+-   WiFi 热点信息 [E1](注:Evidence [E3] 中对应项记载为“WIFI 热点信息” [E3])","-   有线网络信息[E1][E2][E3]。
+-   无线网络信息[E1][E3]。"
+P3500-EASY-011,easy,True,1.0,True,1.0,pre_correct_to_final_correct,False,passed,,EVIDENCE_SUFFICIENT,valid,,1.0,1,0,0,0,当前打印机支持的PCL设备字体有多少种？,"当前打印机支持的PCL设备字体有93种 [E1]。
+
+- 可以查看当前打印机支持的93种PCL设备字体 [E1]。","当前打印机支持的PCL设备字体有93种 [E1]。
+
+- 可以查看当前打印机支持的93种PCL设备字体 [E1]。"
+P3500-EASY-012,easy,True,1.0,True,1.0,pre_correct_to_final_correct,False,passed,,EVIDENCE_SUFFICIENT,valid,,1.0,3,0,0,0,P3500系列标准纸盒的最大容量是多少页？,P3500系列标准纸盒的最大容量是250页 [E2]。,P3500系列标准纸盒的最大容量是250页 [E2]。
+P3500-EASY-013,easy,False,0.0,True,1.0,pre_correct_to_final_wrong,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED|UNTRUSTED_CITATIONS_REMOVED,1.0,1,0,0,0,存放纸张时应避免哪些情况？,"存放纸张时应避免以下情况:
+
+-   避免使用纹理粗糙、有凹凸、油渍、十分光滑的纸张或原稿,因为这些会导致打印效果不佳 [E1]。
+-   避免纸上有灰尘、绒毛等杂物 [E1]。
+-   避免将纸张存放在非平坦表面,以及非阴凉、干燥的环境中 [E1]。
+-   避免大量使用特殊纸,因为这可能影响打印机寿命 [E3]。
+-   避免使用不符合用户指南所列准则的打印介质,否则可能导致打印质量差、卡纸次数增多、打印机过度磨损 [E3]。
+-   避免使用不符合规格要求的打印介质,这可能会导致打印机的损坏 [E3]。","-   避免使用不符合规格要求的打印介质,这可能会导致打印机的损坏[E3]。"
+P3500-EASY-014,easy,True,1.0,True,1.0,pre_correct_to_final_correct,False,passed,,EVIDENCE_SUFFICIENT,valid,,1.0,3,0,0,0,装入标准纸盒时，如果一次性放入超过250页（80 g/m²）的纸张会怎样？,"如果一次性放入标准纸盒的纸张超过250页(80 g/m2),会导致卡纸或不进纸 [E3]。","如果一次性放入标准纸盒的纸张超过250页(80 g/m2),会导致卡纸或不进纸 [E3]。"
+P3500-EASY-015,easy,True,1.0,True,1.0,pre_correct_to_final_correct,True,passed,,POST_GENERATION_COMPLETE_TRUSTED_PROJECTION,valid,,1.0,1,0,0,0,图中表示非打印区域的部分是什么？,"图中表示非打印区域的部分是阴影部分[E1]。
+
+-   该示意图为由内外两层矩形边框构成的同心矩形框架,外层边框为黑色粗线,内层边框为灰色中等粗细线,中间区域为白色空白[E1]。
+-   左侧外边缘垂直排列标注两个红色大写字母“A”和“I”,底部外边缘左右两端各有一个黑色水平短横线标记并标注红色大写字母“B”[E1]。
+
+【图片】
+[image omitted]","图中表示非打印区域的部分是阴影部分[E1]。
+-   该示意图为由内外两层矩形边框构成的同心矩形框架,外层边框为黑色粗线,内层边框为灰色中等粗细线,中间区域为白色空白[E1]。
+-   左侧外边缘垂直排列标注两个红色大写字母“A”和“I”,底部外边缘左右两端各有一个黑色水平短横线标记并标注红色大写字母“B[E1]。"
+P3500-EASY-016,easy,True,1.0,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED|UNTRUSTED_CITATIONS_REMOVED,1.0,1,0,0,0,安装驱动前需要知道什么信息？,"安装驱动前需要知道的信息取决于操作系统及连接方式,具体如下:
+
+-   基于Windows系统驱动安装前,您需要知道打印机型号,请打印“打印机信息页”并查看“产品名称”[E1]。
+-   在Windows系统下使用有线或无线网络安装驱动时,您需要知道打印机的IP地址,请打印“网络配置信息页”并查看[E1]。
+-   基于Mac系统在使用有线或无线网络安装驱动时,您需要知道打印机的IP地址,请打印“网络配置信息页”并查看“Bonjour名称”[E2]。
+-   无线网络基础结构连接安装驱动前,必须了解您的接入点(无线路由器)的“网络名(SSID)”和“密码”[E3]。
+-   Mac系统下若使用AirPrint打印机进行打印,无须安装驱动,添加打印机即可使用[E2]。","-   基于Windows系统驱动安装前,您需要知道打印机型号,请打印“打印机信息页”并查看“产品名称[E1]。
+-   基于Mac系统在使用有线或无线网络安装驱动时,您需要知道打印机的IP地址,请打印“网络配置信息页”并查看“Bonjour名称[E2]。
+-   无线网络基础结构连接安装驱动前,必须了解您的接入点(无线路由器)的“网络名(SSID)”和“密码[E3]。
+-   Mac系统下若使用AirPrint打印机进行打印,无须安装驱动,添加打印机即可使用[E2]。"
+P3500-EASY-017,easy,False,0.0,True,1.0,pre_correct_to_final_wrong,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED|UNTRUSTED_CITATIONS_REMOVED,1.0,1,0,0,0,在Windows 7系统中卸载Pantum X Series PCL6驱动的第三步是什么？,"在Windows 7系统中卸载Pantum X Series PCL6驱动的第三步是点击“卸载”,按照卸载窗口说明删除驱动 [E1]。
+
+-   该操作步骤以Windows 7为例,计算机屏幕信息可能因操作系统的不同而有差异 [E1]。
+-   Pantum X Series PCL6中的“X”代表产品型号 [E1]。","-   该操作步骤以Windows 7为例,计算机屏幕信息可能因操作系统的不同而有差异[E1]。
+-   Pantum X Series PCL6中的“X”代表产品型号[E1]。"
+P3500-EASY-018,easy,True,1.0,False,0.0,pre_wrong_to_final_correct,False,passed,,EVIDENCE_SUFFICIENT,valid,,0.0,,0,0,0,添加打印机前必须了解无线路由器的什么信息？,"在进行无线网络安装前,必须了解接入点(无线路由器)的网络名(SSID)和密码 [E1][E2]。
+
+-   如果无法确定网络名(SSID)和密码,请咨询您的网络管理员或接入点(无线路由器)制造商 [E1][E2]。
+-   如果不了解网络安全模式及密码,也需咨询您的网络管理员或接入点(无线路由器)制造商 [E3]。","在进行无线网络安装前,必须了解接入点(无线路由器)的网络名(SSID)和密码 [E1][E2]。
+
+-   如果无法确定网络名(SSID)和密码,请咨询您的网络管理员或接入点(无线路由器)制造商 [E1][E2]。
+-   如果不了解网络安全模式及密码,也需咨询您的网络管理员或接入点(无线路由器)制造商 [E3]。"
+P3500-EASY-019,easy,True,1.0,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED|UNTRUSTED_CITATIONS_REMOVED,1.0,1,0,0,0,有线网络连接方式添加打印机时，第3步操作是什么？,"在有线网络连接方式添加打印机时,第3步操作是进入计算机的“系统偏好设置”-“打印机与扫描仪”[E1]。
+
+需注意,该步骤属于通过计算机系统偏好设置手动添加打印机的流程[E1];若执行的是有线网络安装程序(如使用光盘安装),其第3步则是将网线连接到打印机的网络接口并确保打印机与计算机处于同一网络[E2]。","在有线网络连接方式添加打印机时,第3步操作是进入计算机的“系统偏好设置”-“打印机与扫描仪[E1]。"
+P3500-EASY-020,easy,True,1.0,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED|UNTRUSTED_CITATIONS_REMOVED,1.0,2,0,0,0,4.2.1章的标题是什么？,"4.2.1章的标题是“基础结构连接模式”[E1][E2]。
+
+-   在目录中,4.2.1对应的标题为“基础结构连接模式”[E1]。
+-   在网络设置章节中,4.2.1对应的标题同样为“基础结构连接模式”[E2]。","4.2.1章的标题是“基础结构连接模式[E2]。
+-   在网络设置章节中,4.2.1对应的标题同样为“基础结构连接模式[E2]。"
+P3500-EASY-021,easy,True,1.0,True,1.0,pre_correct_to_final_correct,False,passed,,EVIDENCE_SUFFICIENT,valid,,1.0,1,0,0,0,在通过面板设置打印机的IPv4地址时，需要按哪个键进入IP地址设置界面？,"在通过面板设置打印机的IPv4地址时,需按下“ok”键进入“IP地址”设置界面 [E1]。
+
+具体操作路径为:按下打印机控制面板“菜单键”-“菜单设置”-“网络设置”-“有线网络设置”-“IPv4”-“手动”,然后按下“ok”键 [E1]。","在通过面板设置打印机的IPv4地址时,需按下“ok”键进入“IP地址”设置界面 [E1]。
+
+具体操作路径为:按下打印机控制面板“菜单键”-“菜单设置”-“网络设置”-“有线网络设置”-“IPv4”-“手动”,然后按下“ok”键 [E1]。"
+P3500-EASY-022,easy,True,1.0,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED|UNTRUSTED_CITATIONS_REMOVED,1.0,1,0,0,0,通过面板启用IPv6时，应选择哪个选项来开启DHCPv6？,"通过面板启用IPv6时,应选择“开启DHCPv6”选项来开启DHCPv6 [E1]。
+
+具体操作路径为:按下打印机控制面板“菜单键”-“菜单设置”-“网络设置”-“有线网络设置”-“IPv6”-“开启DHCPv6”,按下“ok”键完成设置 [E1]。","具体操作路径为:按下打印机控制面板“菜单键”-“菜单设置”-“网络设置”-“有线网络设置”-“IPv6”-“开启DHCPv6”,按下“ok”键完成设置[E1]。"
+P3500-EASY-023,easy,True,1.0,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED,1.0,1,0,0,0,如果接入点支持Wi-Fi Protected Setup，可以通过什么方式将打印机连接到无线网络？,"如果接入点(无线路由器)支持 Wi-Fi Protected Setup,可以分别按下打印机控制面板上的 Wi-Fi 按键和接入点(无线路由器)上的 WPS 按键,从而将打印机连接到无线网络 [E1]。
+
+具体操作需满足以下条件及步骤:
+-   打开打印机和接入点(无线路由器)的电源,并确保打印机处于就绪状态 [E2]。
+-   按下打印机控制面板上的“Wi-Fi”键约3秒,直到面板显示“WPS连接中...”,然后松开 [E2]。
+-   需要在2分钟内,按下接入点(无线路由器)上的“WPS”按键,然后松开 [E2]。
+-   连接成功后打印机的 Wi-Fi 灯蓝灯常亮 [E2]。","如果接入点(无线路由器)支持 Wi-Fi Protected Setup,可以分别按下打印机控制面板上的 Wi-Fi 按键和接入点(无线路由器)上的 WPS 按键,从而将打印机连接到无线网络[E1]。
+-   打开打印机和接入点(无线路由器)的电源,并确保打印机处于就绪状态[E2]。
+-   按下打印机控制面板上的“Wi-Fi”键约3秒,直到面板显示“WPS连接中...”,然后松开[E2]。
+-   需要在2分钟内,按下接入点(无线路由器)上的“WPS”按键,然后松开[E2]。
+-   连接成功后打印机的 Wi-Fi 灯蓝灯常亮[E2]。"
+P3500-EASY-024,easy,False,0.0,True,0.9375,pre_correct_to_final_wrong,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED|UNTRUSTED_CITATIONS_REMOVED,1.0,1,0,0,0,在使用Wi-Fi Protected Setup配置时，需要在多长时间内按下接入点的WPS按键？,"在使用Wi-Fi Protected Setup配置时,需要在2分钟内按下接入点(无线路由器)上的“WPS”按键[E1]。
+
+-   若超过2分钟没有建立好连接,打印机LCD面板返回就绪状态,Wi-Fi灯灭,Wi-Fi Protected Setup连接失败[E1]。
+-   若需要重新连接,请重复按下打印机控制面板上的“Wi-Fi”键及按下接入点“WPS”按键的步骤[E1]。","-   若超过2分钟没有建立好连接,打印机LCD面板返回就绪状态,Wi-Fi灯灭,Wi-Fi Protected Setup连接失败[E1]。
+-   若需要重新连接,请重复按下打印机控制面板上的“Wi-Fi”键及按下接入点“WPS”按键的步骤[E1]。"
+P3500-EASY-025,easy,False,0.0,False,0.0,pre_wrong_to_final_wrong,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED|UNTRUSTED_CITATIONS_REMOVED,1.0,1,0,0,0,移动设备与打印机成功建立连接后，如何进行打印操作？,"移动设备与打印机成功建立连接后,打印操作需根据移动设备操作系统选择对应方式:若使用Android移动设备,可以使用Mopria移动打印[E2];若使用IOS移动设备,可以使用AirPrint移动打印[E2]。具体操作步骤如下:
+
+**Android设备使用Mopria移动打印步骤(以Adobe Reader为例):**
+-   打印前需先将Mopria print service设置为打开[E4]。
+-   若要使用Mopria移动打印功能,需要将“Cloud Print”或“HP Print Service Plugin”设置为“关闭”[E4]。
+-   打开打印机电源[E4]。
+-   Android移动设备连接打印机的无线网络[E4]。
+-   在Android移动设备上,使用Adobe Reader打开您需要打印的文档[E4]。
+-   点击相应图标后点击“打印”[E4]。
+-   确保已选择Pantum打印机,若未选择请点击打印机下拉菜单进行选择[E4]。
+-   设置打印参数(如打印页数)后点击“打印”[E4]。
+
+**IOS设备使用AirPrint移动打印步骤(以PDF为例):**
+-   打开打印机电源[E3]。
+-   IOS移动设备连接打印机的无线网络[E3]。
+-   在IOS设备上,使用PDF打开您需要打印的文档[E3]。
+-   点击相应图标后点击“打印”[E3]。
+-   确保已选择Pantum打印机,若未选择请点击“打印机”选项进行选择[E3]。
+-   设置打印参数(如打印份数)后点击“打印”[E3]。
+
+**注意事项:**
+-   打印步骤可能会因应用程序而异[E3][E4]。
+-   如果打印失败,请检查移动设备是否已连接到打印机的无线热点(Wi-Fi)[E3][E4]。
+-   如果移动设备未检测到任何打印机,请检查打印机是否已接通电源以及是否已打开[E3][E4]。","若使用IOS移动设备,可以使用AirPrint移动打印[E2]。
+-   若要使用Mopria移动打印功能,需要将“Cloud Print”或“HP Print Service Plugin”设置为“关闭[E4]。
+-   打开打印机电源[E4]。
+-   Android移动设备连接打印机的无线网络[E4]。
+-   在Android移动设备上,使用Adobe Reader打开您需要打印的文档[E4]。
+-   设置打印参数(如打印页数)后点击“打印[E4]。
+-   打开打印机电源[E3]。
+-   IOS移动设备连接打印机的无线网络[E3]。
+-   在IOS设备上,使用PDF打开您需要打印的文档[E3]。
+-   设置打印参数(如打印份数)后点击“打印[E3]。
+-   打印步骤可能会因应用程序而异[E3][E4]。
+-   如果打印失败,请检查移动设备是否已连接到打印机的无线热点(Wi-Fi)[E3][E4]。
+-   如果移动设备未检测到任何打印机,请检查打印机是否已接通电源以及是否已打开[E3][E4]。"
+P3500-EASY-026,easy,False,0.0,False,0.0,pre_wrong_to_final_wrong,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED,1.0,1,0,0,0,当计算机无法连接打印机的无线热点时，应检查什么？,"当计算机无法连接打印机的无线热点时,应检查打印机电源是否已打开[E1]。
+
+此外,若涉及连接失败或网络使用问题,还应检查以下方面:
+-   检查接入点(无线路由器)和打印机的安全模式、密码是否正确[E1]。
+-   检查打印机周围的无线接收,如果路由器远离打印机或中间有障碍,可能影响信号的接收[E1]。
+-   关闭接入点(无线路由器)和打印机的电源,然后再重新启动[E1]。
+-   检查防火墙软件是否封锁通信,如果计算机和打印机连接在同一网络中却搜索不到,可能是因为防火墙软件封锁了通信[E5]。
+-   检查打印机 IP 地址的分配是否正确,可以打印打印机的网络配置信息页来检查 IP地址[E5]。","当计算机无法连接打印机的无线热点时,应检查打印机电源是否已打开[E1]。
+-   检查接入点(无线路由器)和打印机的安全模式、密码是否正确[E1]。
+-   检查打印机周围的无线接收,如果路由器远离打印机或中间有障碍,可能影响信号的接收[E1]。
+-   关闭接入点(无线路由器)和打印机的电源,然后再重新启动[E1]。
+-   检查防火墙软件是否封锁通信,如果计算机和打印机连接在同一网络中却搜索不到,可能是因为防火墙软件封锁了通信[E5]。
+-   检查打印机 IP 地址的分配是否正确,可以打印打印机的网络配置信息页来检查 IP地址[E5]。"
+P3500-EASY-027,easy,True,1.0,True,1.0,pre_correct_to_final_correct,False,passed,,EVIDENCE_SUFFICIENT,valid,,1.0,1,0,0,0,打印机支持哪种SNMP协议，默认状态是什么？,"打印机支持SNMPv1/SNMPv2协议,默认为启用 [E1]。","打印机支持SNMPv1/SNMPv2协议,默认为启用 [E1]。"
+P3500-EASY-028,easy,True,1.0,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED,1.0,3,0,0,0,在浏览器中访问打印机内嵌Web服务器时，应输入什么内容？,"在浏览器中访问打印机内嵌Web服务器时,应在地址栏中输入打印机的IP地址(例如 http://192.168.1.100)[E3]。
+
+注意事项:
+- 需确保打印机与计算机处于同一网络 [E3]。
+- 可通过打印“网络配置信息页”查看打印机的IP地址 [E3]。","在浏览器中访问打印机内嵌Web服务器时,应在地址栏中输入打印机的IP地址(例如 http://192.168.1.100)[E3]。
+- 需确保打印机与计算机处于同一网络[E3]。
+- 可通过打印“网络配置信息页”查看打印机的IP地址[E3]。"
+P3500-EASY-029,easy,True,1.0,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED,1.0,3,0,0,0,通过内嵌Web服务器可以配置哪些功能？,"通过内嵌Web服务器可以配置以下功能:
+
+-   可配置打印机支持的网络协议参数 [E3]。
+-   可配置打印机的无线网络连接,开启/关闭无线网络和无线热点 [E3]。
+-   可配置邮件服务器客户端,通过电子邮件通知方式管理打印机状态 [E3]。
+-   可以通过无线设置页面,设置打印机的“无线网络”、“无线IP配置”、“无线热点”和“WPS” [E4]。
+-   可以将IPv4地址分配方式设置为“手动”,输入“IPv4地址”、“子网掩码”和“网关地址” [E2]。
+-   可以勾选“启用IPv6协议”和“启用DHCPv6”以启用IPv6协议 [E5]。
+
+此外,您还可以通过内嵌Web服务器查看打印机的基本信息,包括产品名称、打印机状态和粉盒状态 [E3]。","-   可配置打印机支持的网络协议参数[E3]。
+-   可配置打印机的无线网络连接,开启/关闭无线网络和无线热点[E3]。
+-   可配置邮件服务器客户端,通过电子邮件通知方式管理打印机状态[E3]。
+-   可以通过无线设置页面,设置打印机的“无线网络”、“无线IP配置”、“无线热点”和“WPS[E4]。
+-   可以将IPv4地址分配方式设置为“手动”,输入“IPv4地址”、“子网掩码”和“网关地址[E2]。
+-   可以勾选“启用IPv6协议”和“启用DHCPv6”以启用IPv6协议[E5]。
+此外,您还可以通过内嵌Web服务器查看打印机的基本信息,包括产品名称、打印机状态和粉盒状态[E3]。"
+P3500-EASY-030,easy,True,1.0,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED,1.0,2,0,0,0,配置电子邮件通知前，需要先做什么操作？,"配置电子邮件通知前,您需要登录内嵌Web服务器 [E2]。
+
+此外,根据设置流程,还需完成以下前置配置:
+-   在SMTP页面输入SMTP服务器地址、配置发件人的邮箱登录名和密码并点击“应用”,以完成SMTP客户端配置 [E4]。
+-   通过机器设置页面添加邮件地址通讯录 [E3]。","配置电子邮件通知前,您需要登录内嵌Web服务器[E2]。
+-   在SMTP页面输入SMTP服务器地址、配置发件人的邮箱登录名和密码并点击“应用”,以完成SMTP客户端配置[E4]。
+-   通过机器设置页面添加邮件地址通讯录[E3]。"
+P3500-EASY-031,easy,False,0.5,True,1.0,pre_correct_to_final_wrong,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED|UNTRUSTED_CITATIONS_REMOVED,1.0,1,0,0,0,在设置电子邮件通知时，应点击哪个按钮来添加邮件地址？,"在设置电子邮件通知时,应点击“设置”-“机器设置”-“电子邮件通知”界面中的按钮(原文未给出该按钮具体名称),在弹出的联系人列表里选择希望添加的邮件地址 [E1]。
+
+-   操作路径为点击“设置”-“机器设置”-“电子邮件通知” [E1]。
+-   点击该按钮后,可在弹出的联系人列表里选择您希望添加的邮件地址 [E1]。
+-   您也可以勾选“地址X”(如地址1),手动输入您希望添加的收件人邮件地址 [E1]。","-   操作路径为点击“设置”-“机器设置”-“电子邮件通知[E1]。
+-   您也可以勾选“地址X”(如地址1),手动输入您希望添加的收件人邮件地址[E1]。"
+P3500-EASY-032,easy,True,1.0,True,1.0,pre_correct_to_final_correct,False,passed,,EVIDENCE_SUFFICIENT,valid,,1.0,1,0,0,0,通过Web服务器恢复出厂设置后，管理员的登录密码会恢复为什么？,"通过Web服务器恢复出厂设置后,管理员的登录密码会恢复为000000 [E1]。
+
+- 打印机恢复出厂设置后,管理员的用户名恢复为admin,登录密码恢复为000000 [E1]。","通过Web服务器恢复出厂设置后,管理员的登录密码会恢复为000000 [E1]。
+
+- 打印机恢复出厂设置后,管理员的用户名恢复为admin,登录密码恢复为000000 [E1]。"
+P3500-EASY-033,easy,True,1.0,True,1.0,pre_correct_to_final_correct,False,passed,,EVIDENCE_SUFFICIENT,valid,,1.0,1,0,0,0,Mopria移动打印需要在Android设备上安装什么插件才能使用？,"Mopria移动打印需要在Android移动设备安装Mopria Print Service打印插件[E1]。
+
+-   该插件可从Google play Store下载并安装到Android移动设备[E5]。
+-   中国用户需登录指定网站下载Mopria打印服务并安装[E5]。","Mopria移动打印需要在Android移动设备安装Mopria Print Service打印插件[E1]。
+
+-   该插件可从Google play Store下载并安装到Android移动设备[E5]。
+-   中国用户需登录指定网站下载Mopria打印服务并安装[E5]。"
+P3500-EASY-034,easy,False,0.0,False,0.0,pre_wrong_to_final_wrong,True,passed,EXTRACTIVE_REPAIR_VALIDATED,POST_GENERATION_EXTRACTIVE_REPAIR,valid,,1.0,1,0,0,0,Mopria移动打印支持的最低Android操作系统版本是多少？,"Mopria移动打印支持的最低Android操作系统版本是Android 4.4 [E1]。
+
+- Mopria移动打印适用于Android 4.4或更高版本 [E1]。","支持Mopria移动打印。[E2]
+2.Mopria移动打印支持的应用软件有微软Office 1.01(16.0.4201.1006) 或更高版本,AdobeReader (V11.7.1)或更高版本等。[E1]
+Mopria 移动打印需要在Android移动设备安装Mopria Print Service打印插件。[E3]"
+P3500-EASY-035,easy,True,1.0,True,1.0,pre_correct_to_final_correct,False,passed,,EVIDENCE_SUFFICIENT,valid,,1.0,2,0,0,0,在使用AirPrint打印时，若未检测到打印机，应检查打印机是否已接通电源且处于什么状态？,"在使用AirPrint打印时,若未检测到打印机,应检查打印机是否已接通电源,以及打印机是否已打开[E2]。","在使用AirPrint打印时,若未检测到打印机,应检查打印机是否已接通电源,以及打印机是否已打开[E2]。"
+P3500-EASY-036,easy,True,1.0,True,1.0,pre_correct_to_final_correct,False,passed,,EVIDENCE_SUFFICIENT,valid,,1.0,1,0,0,0,在打印首选项中，“省墨”模式下打印输出的颜色为哪种？,"在打印首选项中,“省墨”模式下打印输出的颜色为“较淡”[E1]。
+
+-   点击打印首选项左上方“版面”按钮进入界面,选择“省墨”模式后,“省墨”模式下打印输出颜色为“较淡”[E1]。
+-   当省墨模式为“打开”时,打印输出的颜色将偏淡[E2]。","在打印首选项中,“省墨”模式下打印输出的颜色为“较淡”[E1]。
+
+-   点击打印首选项左上方“版面”按钮进入界面,选择“省墨”模式后,“省墨”模式下打印输出颜色为“较淡”[E1]。
+-   当省墨模式为“打开”时,打印输出的颜色将偏淡[E2]。"
+P3500-EASY-037,easy,True,1.0,True,1.0,pre_correct_to_final_correct,False,passed,,EVIDENCE_SUFFICIENT,valid,,1.0,1,0,0,0,在多页合一中选择2x2海报打印可以实现什么功能？,"在多页合一中选择2x2海报打印可以实现海报打印功能[E1]。
+
+-   该功能仅适用于Windows系统[E3]。
+-   自动双面打印不支持海报打印[E4]。","在多页合一中选择2x2海报打印可以实现海报打印功能[E1]。
+
+-   该功能仅适用于Windows系统[E3]。
+-   自动双面打印不支持海报打印[E4]。"
+P3500-EASY-038,easy,True,1.0,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED,1.0,1,0,0,0,在控制面板设置纸张类型时，应按“OK键”进入哪个界面？,"在控制面板设置纸张类型时,按“OK键”进入的是“纸盒设置界面”[E1]。
+
+具体操作路径如下:
+-   按控制面板的“菜单键”,按“方向键”,选择“纸盒设置”[E1]。
+-   按“OK键”,进入“纸盒设置界面”,按“方向键”,选择需要设置的纸盒[E1]。
+-   再次按“OK键”,进入“设置界面”,按“方向键”,选择“纸张类型”[E1]。
+-   再按“OK键”,进入“纸张类型界面”[E1]。","在控制面板设置纸张类型时,按“OK键”进入的是“纸盒设置界面[E1]。
+-   按控制面板的“菜单键”,按“方向键”,选择“纸盒设置[E1]。
+-   按“OK键”,进入“纸盒设置界面”,按“方向键”,选择需要设置的纸盒[E1]。
+-   再次按“OK键”,进入“设置界面”,按“方向键”,选择“纸张类型[E1]。
+-   再按“OK键”,进入“纸张类型界面[E1]。"
+P3500-EASY-039,easy,True,1.0,True,1.0,pre_correct_to_final_correct,True,passed,,POST_GENERATION_COMPLETE_TRUSTED_PROJECTION,valid,,1.0,1,0,0,0,当计算机端设置的纸张尺寸与多个纸盒匹配时，打印机优先抽取哪个纸盒的纸张？,"当打印作业计算机端设置的纸张尺寸、纸张类型和纸张来源与打印机端多个纸盒设置相匹配时,打印机抽取纸张的顺序依次为:多功能纸盒 > 标准纸盒 > 选配纸盒 [E1]。
+
+【图片】","当打印作业计算机端设置的纸张尺寸、纸张类型和纸张来源与打印机端多个纸盒设置相匹配时,打印机抽取纸张的顺序依次为:多功能纸盒 > 标准纸盒 > 选配纸盒[E1]。"
+P3500-EASY-040,easy,True,1.0,True,1.0,pre_correct_to_final_correct,False,passed,,EVIDENCE_SUFFICIENT,valid,,1.0,1,0,0,0,在标准纸盒打印前，应确保标准纸盒中已装入什么？,"在标准纸盒打印前,应确保标准纸盒中已装入相应数量的介质[E1]。
+
+-   有关装纸注意事项,请参阅第2章[E1]。","在标准纸盒打印前,应确保标准纸盒中已装入相应数量的介质[E1]。
+
+-   有关装纸注意事项,请参阅第2章[E1]。"
+P3500-EASY-041,easy,True,1.0,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED,1.0,1,0,0,0,本机驱动程序支持哪种纸张大小的自动双面打印？,"本机驱动程序支持自动双面打印的纸张大小为A4、Letter、Legal、Oficio、Folio [E1]。
+
+注意事项:
+-   自动双面打印仅支持普通纸 [E1]。
+-   某些纸张介质不适于自动双面打印,尝试自动双面打印可能会损坏打印机 [E1]。
+-   自动双面打印不支持海报打印 [E1]。","本机驱动程序支持自动双面打印的纸张大小为A4、Letter、Legal、Oficio、Folio[E1]。
+-   自动双面打印仅支持普通纸[E1]。
+-   某些纸张介质不适于自动双面打印,尝试自动双面打印可能会损坏打印机[E1]。
+-   自动双面打印不支持海报打印[E1]。"
+P3500-EASY-042,easy,True,1.0,True,1.0,pre_correct_to_final_correct,False,passed,,EVIDENCE_SUFFICIENT,valid,,1.0,1,0,0,0,在打印过程中，打印机将如何调整页面文字的方向？,"在打印过程中,打印机将自动调整页面文字的方向[E1]。","在打印过程中,打印机将自动调整页面文字的方向[E1]。"
+P3500-EASY-043,easy,True,1.0,True,1.0,pre_correct_to_final_correct,False,passed,,EVIDENCE_SUFFICIENT,valid,,1.0,1,0,0,0,更换激光碳粉盒前应关闭什么设备？,更换激光碳粉盒前应关闭打印机电源 [E1]。,更换激光碳粉盒前应关闭打印机电源 [E1]。
+P3500-EASY-044,easy,True,1.0,True,1.0,pre_correct_to_final_correct,False,passed,,EVIDENCE_SUFFICIENT,valid,,1.0,1,0,0,0,清除卡纸后，合上前盖并整理好纸张，打印机将如何恢复打印？,"清除卡纸后,合上前盖并在纸盒中整理好纸张,打印机将自动恢复打印 [E1]。
+
+-   按步骤将卡纸全部取出后,合上前盖,在纸盒中整理好纸张,打印机将自动恢复打印 [E1]。
+-   如果打印机不能自动恢复打印,请按控制面板按键 [E1]。
+-   如果打印机仍然未开始打印,请检查打印机内的卡纸是否全部清除 [E1]。","清除卡纸后,合上前盖并在纸盒中整理好纸张,打印机将自动恢复打印 [E1]。
+
+-   按步骤将卡纸全部取出后,合上前盖,在纸盒中整理好纸张,打印机将自动恢复打印 [E1]。
+-   如果打印机不能自动恢复打印,请按控制面板按键 [E1]。
+-   如果打印机仍然未开始打印,请检查打印机内的卡纸是否全部清除 [E1]。"
+P3500-EASY-045,easy,True,1.0,True,1.0,pre_correct_to_final_correct,False,passed,,EVIDENCE_SUFFICIENT,valid,,1.0,2,0,0,0,当打印机处于“就绪”模式但不执行打印作业时，应采取什么操作？,"当打印机处于“就绪”模式但不执行任何打印作业时,应重启打印机;若故障依旧,请重新安装打印机驱动程序,并确保USB连接线正确连接[E2]。
+
+-   重启打印机,若故障依旧,请重新安装打印机驱动程序[E2]。
+-   请确保 USB 连接线正确连接[E2]。","当打印机处于“就绪”模式但不执行任何打印作业时,应重启打印机;若故障依旧,请重新安装打印机驱动程序,并确保USB连接线正确连接[E2]。
+
+-   重启打印机,若故障依旧,请重新安装打印机驱动程序[E2]。
+-   请确保 USB 连接线正确连接[E2]。"
+P3500-EASY-046,easy,True,1.0,True,1.0,pre_correct_to_final_correct,True,degraded,EXTRACTIVE_REPAIR_VALIDATED,POST_GENERATION_EXTRACTIVE_REPAIR,valid,,1.0,4,0,0,0,页面歪斜的故障原因中，未正确安装打印介质属于哪一类原因？,"根据给定Evidence,页面歪斜的故障原因中,“未正确安装打印介质”属于导致该图像缺陷的具体故障原因之一,Evidence未对其进行更上层的类别划分或归类命名[E4]。
+
+-   在“10.3.2. 图像缺陷”表中,“页面歪斜”对应的“故障原因”列明确列出“未正确安装打印介质”[E4]。
+-   该表仅将问题归入“图像缺陷”这一大类,并未对“未正确安装打印介质”这一具体原因再做进一步分类[E4]。","|  | ·未正确安装打印介质。[E4]
+| 打印不进纸 | 未正确安装打印介质。[E1]
+| ·确保正确安装打印介质。[E4]
+| 页面歪斜 |  |  |[E4]"
+P3500-EASY-047,easy,True,1.0,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED|UNTRUSTED_CITATIONS_REMOVED,1.0,2,0,0,0,黑色竖条故障的解决办法中，需要清洁哪些部件？,"黑色竖条故障的解决办法中,需要清洁的部件包括机器背部激光器反光玻璃、打印机背部进纸通道以及机器内部进纸通道[E2]。
+
+具体清洁操作如下:
+-   清洁机器背部激光器反光玻璃[E2]。
+-   清洁打印机背部进纸通道[E2]。
+-   清洁机器内部进纸通道[E2]。","-   清洁机器背部激光器反光玻璃[E2]。
+-   清洁打印机背部进纸通道[E2]。
+-   清洁机器内部进纸通道[E2]。"
+P3500-EASY-048,easy,True,1.0,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED|UNTRUSTED_CITATIONS_REMOVED,1.0,2,0,0,0,在系统设置菜单中，哪个选项可以设置休眠时间？,"在系统设置菜单中,可以选择“2.休眠时间设置”选项来设置休眠时间[E1]。
+
+-   该选项位于“1.系统设置”菜单下,名称为“2.休眠时间设置”[E1][E2]。
+-   进入该选项后,可按方向键选择“1 分钟”、“5 分钟”、“15 分钟”、“30 分钟”、“60 分钟”或“8 小时”[E1]。","在系统设置菜单中,可以选择“2.休眠时间设置”选项来设置休眠时间[E1]。"
+P3500-EASY-049,easy,True,1.0,True,1.0,pre_correct_to_final_correct,False,passed,,EVIDENCE_SUFFICIENT,valid,,1.0,1,0,0,0,控制面板菜单结构图中，代表文本行的视觉元素是什么？,"控制面板菜单结构图中,代表文本行的视觉元素是纸张轮廓内部的四条水平横线[E1]。
+
+-   该图像主体是一个竖直矩形纸张轮廓,内部有四条水平横线,代表文本行[E1]。
+-   本章中的菜单结构为最全的菜单结构,实际使用机型的菜单结构可能与以下的菜单结构存在差异[E1]。","控制面板菜单结构图中,代表文本行的视觉元素是纸张轮廓内部的四条水平横线[E1]。
+
+-   该图像主体是一个竖直矩形纸张轮廓,内部有四条水平横线,代表文本行[E1]。
+-   本章中的菜单结构为最全的菜单结构,实际使用机型的菜单结构可能与以下的菜单结构存在差异[E1]。"
+P3500-EASY-050,easy,True,1.0,True,1.0,pre_correct_to_final_correct,False,passed,,EVIDENCE_SUFFICIENT,valid,,1.0,1,0,0,0,该打印机的最大月打印量是多少页？,"该打印机的最大月打印量为80,000页[E1]。","该打印机的最大月打印量为80,000页[E1]。"
+P3500-MEDIUM-001,medium,False,0.4189189189189189,False,0.0,pre_wrong_to_final_wrong,True,degraded,COMPOSITE_CONSTRAINT_REPAIR_VALIDATED,POST_GENERATION_COMPOSITE_CONSTRAINT_REPAIR,valid,,1.0,1,0,0,0,在使用打印机前，若遇到哪些情况必须立即断开电源并联系专业维修人员？同时，请说明为何不应自行拆解机器。,"在使用打印机前,若出现机器中溅入了液体、机器受到雨淋或进水、机器跌落或机壳摔坏、机器性能发生明显变化这四种情况时,必须将机器从计算机和墙上 AC 电源插座上拔下,并联络专业维修人员进行维护 [E1]。
+
+不应自行拆解机器的原因如下:
+-   拆解本机器以免造成电击,且打开或卸下护盖时会有电击或其它危险 [E1]。
+-   不正确的拆装可能会导致以后使用时造成电击 [E1]。
+-   激光辐射对人体有害,为了避免激光辐射,请不要随意拆机 [E3]。
+-   盖板打开并且连锁装置处于无效状态时,请不要直视激光光束 [E3]。
+-   切勿让尖锐物品刺穿机器槽孔,以免触到内部高压装置,造成火灾或电击 [E2]。
+-   打印机内部有高压电极 [E4]。","-   拆解本机器以免造成电击,且打开或卸下护盖时会有电击或其它危险[E1]。
+-   不正确的拆装可能会导致以后使用时造成电击[E1]。
+-   激光辐射对人体有害,为了避免激光辐射,请不要随意拆机[E3]。
+-   盖板打开并且连锁装置处于无效状态时,请不要直视激光光束[E3]。
+-   切勿让尖锐物品刺穿机器槽孔,以免触到内部高压装置,造成火灾或电击[E2]。
+-   打印机内部有高压电极[E4]。
+13. 请勿拆解本机器以免造成电击;需要修理时应请专业维护人员进行;打开或卸下护盖时会有电击或其它危险;不正确的拆装可能会导致以后使用时造成电击;[E1]
+15. 只调整操作说明中提到的控制;不正确地调整其它控制可能会造成损坏,并且需要专业维修人员用更长时间才能修好;[E1]
+16. 避免在雷暴天气使用本机器,以免遭到电击;如果可能,请在雷雨期间拔下 AC 电源线;[E1]
+打印机打印时和打印后,定影组件会处于高温状态,请勿触摸定影单元(图示阴影部分),以免造成烫伤![E4]"
+P3500-MEDIUM-002,medium,True,1.0,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED|UNTRUSTED_CITATIONS_REMOVED,1.0,1,0,0,0,该打印机符合哪些欧盟指令的合规要求？其适用的地理环境限制是什么？,"该打印机符合欧共体理事会2004/108/EC和2006/95/EC指令、EN 55022 B级范围、EN 60950安全要求,以及ROHS指令2009/95/EC及重订指令2011/65/EU [E1]。其适用的地理环境限制为仅适用于非热带地区安全使用,且仅适用于海拔2000米及以下地区安全使用 [E1]。
+
+-   本产品符合欧共体理事会 2004/108/EC 和 2006/95/EC 指令的成员国近似和协调法规中涉及电磁兼容性和电气设备安全性(为在特定电压范围内使用)的保护要求 [E1]。
+-   本产品符合 EN 55022 的 B 级范围和 EN 60950 的安全要求 [E1]。
+-   本产品完全符合 ROHS 指令 2009/95/EC 及重订指令 2011/65/EU 对有毒有害物质的管理要求 [E1]。
+-   本产品仅适用于非热带地区安全使用 [E1]。
+-   本产品仅适用于海拔 2000 米及以下地区安全使用 [E1]。","-   本产品符合欧共体理事会 2004/108/EC 和 2006/95/EC 指令的成员国近似和协调法规中涉及电磁兼容性和电气设备安全性(为在特定电压范围内使用)的保护要求[E1]。
+-   本产品符合 EN 55022 的 B 级范围和 EN 60950 的安全要求[E1]。
+-   本产品完全符合 ROHS 指令 2009/95/EC 及重订指令 2011/65/EU 对有毒有害物质的管理要求[E1]。
+-   本产品仅适用于非热带地区安全使用[E1]。
+-   本产品仅适用于海拔 2000 米及以下地区安全使用[E1]。"
+P3500-MEDIUM-003,medium,False,0.0,False,0.7,pre_wrong_to_final_wrong,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED|UNTRUSTED_CITATIONS_REMOVED,1.0,1,0,0,0,P3500 Series 黑白激光打印机的推荐月打印量范围是多少？其最大月工作负荷是多少？,"P3500 Series 黑白激光打印机的推荐月打印量范围为 750 至 4,000 页 [E1]。其最大月工作负荷(最大月打印量)为 80,000 页 [E5]。
+
+-   推荐月打印量:750 to 4,000 recommended monthly page volume [E1]。
+-   最大月打印量:80,000页 [E5]。","-   最大月打印量:80,000页[E5]。"
+P3500-MEDIUM-004,medium,False,0.46153846153846156,True,1.0,pre_correct_to_final_wrong,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED|UNTRUSTED_CITATIONS_REMOVED,1.0,5,0,0,0,当打印机通过无线网络连接时，其IP地址、默认网关和身份验证方式分别是什么？,"根据提供的Evidence,打印机通过无线网络连接时的IP地址、默认网关和身份验证方式取决于具体设备的当前网络配置状态,以下为网络配置信息页中记录的一组实例数据:
+
+-   无线网络IPv4信息的IP地址为192.168.0.102 [E5]。
+-   无线网络IPv4信息的默认网关为192.168.0.1 [E5]。
+-   身份验证方式为WPA/WPA2 [E5]。
+
+注意:上述参数仅为Evidence中展示的网络配置信息页示例值[E5];若需手动配置无线IP地址,可在开启打印机无线网络后通过内嵌Web服务器的“无线IP配置”页面取消勾选DHCPv4并输入自定义的IPv4地址、子网掩码和网关地址[E1]。",-   身份验证方式为WPA/WPA2[E5]。
+P3500-MEDIUM-005,medium,False,0.0,True,1.0,pre_correct_to_final_wrong,True,failed,,UNSUPPORTED_GENERATION,invalid,GROUNDING_FAILED_AFTER_BOUNDED_REPAIR|REPAIR_QUESTION_COVERAGE_INCOMPLETE,1.0,1,0,0,0,在 Wi-Fi 热点列表页中，信号强度为 60% 的热点有哪些？它们的加密方式是什么？,"在 Wi-Fi 热点列表页中,信号强度为 60% 的热点有 Test-AP2 和 Test-AP3 [E1]。它们的加密方式均为 WPA/WPA2 [E1]。
+
+-   序号 2 的热点名称为 Test-AP2,加密方式为 WPA/WPA2,信号强度为 60% [E1]。
+-   序号 3 的热点名称为 Test-AP3,加密方式为 WPA/WPA2,信号强度为 60% [E1]。",当前授权的已发布知识库范围内的证据没有给出可验证答案；仅依据本次授权范围内的文档，无法确定该问题的答案。为避免误导，本次不提供推测性结论。
+P3500-MEDIUM-006,medium,True,1.0,True,1.0,pre_correct_to_final_correct,False,passed,,EVIDENCE_SUFFICIENT,valid,,1.0,2,0,0,0,标准纸盒支持的介质克重范围是多少？选配纸盒的最大容量是多少页？,"- 标准纸盒支持的介质克重范围是60~105 g/m2 [E1][E4]。
+- 选配纸盒的最大容量是550页(单个选配纸盒) [E1]。","- 标准纸盒支持的介质克重范围是60~105 g/m2 [E1][E4]。
+- 选配纸盒的最大容量是550页(单个选配纸盒) [E1]。"
+P3500-MEDIUM-007,medium,True,1.0,True,1.0,pre_correct_to_final_correct,False,passed,,EVIDENCE_SUFFICIENT,valid,,1.0,1,0,0,0,特殊纸张包括哪些类型？这些纸张应在哪个纸盒中打印？,"特殊纸张包括标签纸、信封、透明胶片、厚纸、卡片纸等 [E1]。这些特殊纸张需在多功能纸盒进行打印 [E1]。
+
+-   本产品支持的特殊纸张包括标签纸、信封、透明胶片、厚纸、卡片纸等 [E1]。
+-   特殊纸张需在多功能纸盒进行打印 [E1]。
+-   当在多功能纸盒使用特殊介质打印时,建议一次仅放一张纸 [E1][E5]。
+-   使用特殊纸张或打印介质时,请确保在打印设置上选择匹配的打印类型和尺寸,以便获得最佳打印效果 [E1]。","特殊纸张包括标签纸、信封、透明胶片、厚纸、卡片纸等 [E1]。这些特殊纸张需在多功能纸盒进行打印 [E1]。
+
+-   本产品支持的特殊纸张包括标签纸、信封、透明胶片、厚纸、卡片纸等 [E1]。
+-   特殊纸张需在多功能纸盒进行打印 [E1]。
+-   当在多功能纸盒使用特殊介质打印时,建议一次仅放一张纸 [E1][E5]。
+-   使用特殊纸张或打印介质时,请确保在打印设置上选择匹配的打印类型和尺寸,以便获得最佳打印效果 [E1]。"
+P3500-MEDIUM-008,medium,True,1.0,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,TABLE_FACT_FIELDS_MISSING_FROM_CONTEXT|UNSUPPORTED_CLAIMS_PRUNED|UNTRUSTED_CITATIONS_REMOVED,1.0,2,0,0,0,使用标签纸时，正确的做法和错误的做法分别是什么？,"使用标签纸时,正确的做法是仅使用未暴露衬纸的标签、标签使用时应放平、仅使用整张的标签;错误的做法是使用褶皱、起泡或破损的标签纸 [E1]。
+
+-   正确做法包括:仅使用未暴露衬纸的标签 [E1]。
+-   正确做法包括:标签使用时应放平 [E1]。
+-   正确做法包括:仅使用整张的标签 [E1]。
+-   需注意不保证市面上所有的标签纸都能够满足要求 [E1]。
+-   错误做法包括:使用褶皱、起泡或破损的标签纸 [E1]。","-   正确做法包括:仅使用未暴露衬纸的标签[E1]。
+-   正确做法包括:标签使用时应放平[E1]。
+-   正确做法包括:仅使用整张的标签[E1]。
+-   需注意不保证市面上所有的标签纸都能够满足要求[E1]。
+-   错误做法包括:使用褶皱、起泡或破损的标签纸[E1]。"
+P3500-MEDIUM-009,medium,True,1.0,True,1.0,pre_correct_to_final_correct,True,passed,,POST_GENERATION_STRONG_COMPOSITE_PROJECTION,valid,NON_TEXT_PLACEHOLDER_REMOVED|UNSUPPORTED_CLAIMS_PRUNED|UNTRUSTED_CITATIONS_REMOVED,1.0,4,0,0,0,装入多功能纸盒时，应如何正确放置信封或透明胶片？每次最多可放入多少张打印介质？,"装入多功能纸盒时,应将信封或透明胶片打印面向上放入,且纸张顶部先进入,直至前端碰到校正辊 [E3]。每次最多可放入 60 张打印介质到多功能纸盒中 [E3][E4]。
+
+具体操作及注意事项如下:
+- 双手将信封或透明胶片等打印介质放入多功能纸盒中,直至信封或透明胶片的前端碰到校正辊 [E3]。
+- 将打印介质打印面向上放入多功能纸盒,装入时纸张的顶部先进入多功能纸盒 [E3]。
+- 使用打印过的纸张时,请将要打印的面(空白面)朝上 [E1]。
+- 每次最多放入 60 张打印介质到多功能纸盒中 [E3]。
+- 滑动多功能纸盒的导纸板以匹配纸张的两侧,不要用力过度,否则会导致卡纸或纸张歪斜 [E3]。
+- 打印后请立即取走纸张、信封和透明胶片,堆叠的纸张或信封会引起卡纸或曲纸 [E1]。
+
+【图片】
+&lt;image omitted&gt;","装入多功能纸盒时,应将信封或透明胶片打印面向上放入,且纸张顶部先进入,直至前端碰到校正辊[E3]。
+每次最多可放入 60 张打印介质到多功能纸盒中[E3]。
+- 双手将信封或透明胶片等打印介质放入多功能纸盒中,直至信封或透明胶片的前端碰到校正辊[E3]。
+- 将打印介质打印面向上放入多功能纸盒,装入时纸张的顶部先进入多功能纸盒[E3]。
+- 使用打印过的纸张时,请将要打印的面(空白面)朝上[E1]。
+- 每次最多放入 60 张打印介质到多功能纸盒中[E3]。
+- 滑动多功能纸盒的导纸板以匹配纸张的两侧,不要用力过度,否则会导致卡纸或纸张歪斜[E3]。
+- 打印后请立即取走纸张、信封和透明胶片,堆叠的纸张或信封会引起卡纸或曲纸[E1]。"
+P3500-MEDIUM-010,medium,True,1.0,True,1.0,pre_correct_to_final_correct,False,passed,,EVIDENCE_SUFFICIENT,valid,,1.0,1,0,0,0,装入选配纸盒时，应如何调整导纸板？装入纸张前应采取什么操作以避免卡纸？,"- 装入选配纸盒时,应滑动纸盒的长度导纸板、宽度导纸板到所需的纸张尺寸卡槽,以匹配纸张的长度和宽度[E1]。
+- 调整导纸板时请不要过度挤压“长度导纸板”和“宽度导纸板”,否则容易导致纸张变形[E1]。
+- 装入纸张前应在展开堆叠的纸张后再装入,以避免卡纸或进纸错误[E1]。","- 装入选配纸盒时,应滑动纸盒的长度导纸板、宽度导纸板到所需的纸张尺寸卡槽,以匹配纸张的长度和宽度[E1]。
+- 调整导纸板时请不要过度挤压“长度导纸板”和“宽度导纸板”,否则容易导致纸张变形[E1]。
+- 装入纸张前应在展开堆叠的纸张后再装入,以避免卡纸或进纸错误[E1]。"
+P3500-MEDIUM-011,medium,True,0.797979797979798,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED|UNTRUSTED_CITATIONS_REMOVED,1.0,1,0,0,0,在安装Pantum P3500DN Series打印机时，若选择通过网络连接，需要满足哪些条件并执行哪些步骤？请结合安装向导界面说明。,"在安装Pantum P3500DN Series打印机时,若选择通过网络连接,需满足计算机已连接到有线网络、打印机与计算机处于同一网络等条件[E1]。具体执行步骤及安装向导界面说明如下:
+
+-   打开打印机和计算机的电源[E1]。
+-   将网线连接到打印机的网络接口,确保打印机与计算机处于同一网络[E1]。
+-   在计算机的光驱中插入随附的安装光盘,运行Autorun.exe安装程序[E1]。
+-   阅读许可协议,选择安装语言和打印机型号(Pantum P3500DN Series PCL6),选择“已连接至网络的打印机”,点击“安装”[E1]。
+-   安装向导界面显示安装语言为中文(简体),选择打印机为Pantum P3500DN Series PCL6,安装方式选中“已连接至网络的打印机”,且“我同意许可协议”复选框已勾选[E1]。
+-   安装程序自动搜索打印机,搜索过程可能需要1-2分钟[E1]。
+-   搜索完成后,在安装向导界面的“已搜索到的打印机”列表中选择需要连接的打印机(例如打印机名称为Pantum P3500DN Series PC...,IP地址为192.168.1.2,主机名为Pantum-011504),点击“下一步”[E1]。
+-   若以主机名方式安装打印机驱动,请同时勾选您需要连接的“打印机名称”和“以主机名安装列表中的打印机”[E3]。
+-   若已搜索到的打印机列表中,没有您需要连接的打印机,点击刷新[E3]。","-   打开打印机和计算机的电源[E1]。
+-   将网线连接到打印机的网络接口,确保打印机与计算机处于同一网络[E1]。
+-   在计算机的光驱中插入随附的安装光盘,运行Autorun.exe安装程序[E1]。
+-   阅读许可协议,选择安装语言和打印机型号(Pantum P3500DN Series PCL6),选择“已连接至网络的打印机”,点击“安装[E1]。
+-   安装程序自动搜索打印机,搜索过程可能需要1-2分钟[E1]。
+-   若以主机名方式安装打印机驱动,请同时勾选您需要连接的“打印机名称”和“以主机名安装列表中的打印机[E3]。
+-   若已搜索到的打印机列表中,没有您需要连接的打印机,点击刷新[E3]。"
+P3500-MEDIUM-012,medium,True,1.0,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED,1.0,1,0,0,0,使用USB线连接Pantum P3500D Series打印机时，安装驱动前需完成哪些操作？请根据安装向导界面描述。,"使用USB线连接Pantum P3500D Series打印机时,在安装驱动前需完成以下操作:
+
+-   使用USB线连接打印机和计算机,并打开电源 [E1]。
+-   在计算机的光驱中插入随附的安装光盘,运行Autorun.exe安装程序 [E1]。
+-   阅读许可协议,选择安装语言,点击“安装” [E1]。
+
+根据安装向导界面描述,在执行上述第3步点击“安装”之前,界面上可见以下状态或元素:
+-   窗口标题栏显示“Pantum P3500 Series PCL6”,右上角有关闭按钮“X” [E1]。
+-   窗口顶部为灰色横幅,印有“PANTUM”品牌标志 [E1]。
+-   中部区域包含一个带红色边框的选项组,内含标签“安装语言:”及下拉选择框,当前选中项为“中文(简体)” [E1]。
+-   底部左侧为蓝色超链接文字“用户指南” [E1]。
+-   右侧为复选框(已勾选)后接文字“我同意许可协议” [E1]。
+-   再下方是一个带红色边框的矩形“安装”按钮 [E1]。","-   使用USB线连接打印机和计算机,并打开电源[E1]。
+-   在计算机的光驱中插入随附的安装光盘,运行Autorun.exe安装程序[E1]。
+-   阅读许可协议,选择安装语言,点击“安装[E1]。
+-   窗口标题栏显示“Pantum P3500 Series PCL6”,右上角有关闭按钮“X[E1]。
+-   窗口顶部为灰色横幅,印有“PANTUM”品牌标志[E1]。
+-   中部区域包含一个带红色边框的选项组,内含标签“安装语言:”及下拉选择框,当前选中项为“中文(简体)[E1]。
+-   底部左侧为蓝色超链接文字“用户指南[E1]。
+-   右侧为复选框(已勾选)后接文字“我同意许可协议[E1]。
+-   再下方是一个带红色边框的矩形“安装”按钮[E1]。"
+P3500-MEDIUM-013,medium,False,0.0,False,0.0,pre_wrong_to_final_wrong,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED,1.0,1,0,0,0,在配置Pantum P3500DW Series打印机连接新无线网络时，必须满足什么前提条件，并在安装向导中如何操作？请结合证据说明。,"在配置Pantum P3500DW Series打印机连接新无线网络时,必须满足的前提条件及安装向导操作步骤如下:
+
+### 前提条件
+-   驱动安装前,必须了解您的接入点(无线路由器)的“网络名(SSID)”和“密码”[E1]。
+-   如果无法确定网络名或密码,请咨询您的网络管理员或接入点(无线路由器)制造商[E1]。
+-   计算机已成功连接到接入点(无线路由器)[E1]。
+-   使用USB线连接打印机和计算机,并打开电源[E1]。
+
+### 安装向导操作步骤
+1.  在计算机的光驱中插入随附的安装光盘,运行Autorun.exe安装程序[E1]。
+2.  阅读许可协议,选择安装语言和打印机型号,选择“连接至新的网络的打印机”,点击安装[E1]。
+3.  按照安装窗口提示进行操作,将打印机配置到无线网络[E1]。
+4.  无线网络配置成功后,安装程序自动搜索打印机,搜索过程可能需要1-2分钟[E1]。
+5.  选择需要连接的打印机,点击“下一步”[E1]。
+
+### 注意事项
+-   若已搜索到的打印机列表中没有您需要连接的打印机,需点击刷新[E1]。
+-   若以主机名方式安装打印机驱动,请同时勾选您需要连接的“打印机名称”和“以主机名安装列表中的打印机”[E1]。
+
+【图片】","-   驱动安装前,必须了解您的接入点(无线路由器)的“网络名(SSID)”和“密码[E1]。
+-   如果无法确定网络名或密码,请咨询您的网络管理员或接入点(无线路由器)制造商[E1]。
+-   计算机已成功连接到接入点(无线路由器)[E1]。
+-   使用USB线连接打印机和计算机,并打开电源[E1]。
+1.  在计算机的光驱中插入随附的安装光盘,运行Autorun.exe安装程序[E1]。
+2.  阅读许可协议,选择安装语言和打印机型号,选择“连接至新的网络的打印机”,点击安装[E1]。
+3.  按照安装窗口提示进行操作,将打印机配置到无线网络[E1]。
+4.  无线网络配置成功后,安装程序自动搜索打印机,搜索过程可能需要1-2分钟[E1]。
+5.  选择需要连接的打印机,点击“下一步[E1]。
+-   若已搜索到的打印机列表中没有您需要连接的打印机,需点击刷新[E1]。
+-   若以主机名方式安装打印机驱动,请同时勾选您需要连接的“打印机名称”和“以主机名安装列表中的打印机[E1]。"
+P3500-MEDIUM-014,medium,False,0.0,False,0.0,pre_wrong_to_final_wrong,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,NON_TEXT_PLACEHOLDER_REMOVED|UNSUPPORTED_CLAIMS_PRUNED|UNTRUSTED_CITATIONS_REMOVED,1.0,1,0,0,0,当通过Wi-Fi热点方式连接Pantum P3500DW Series打印机时，安装过程中应遵循哪些关键步骤？请依据安装界面信息回答。,"通过Wi-Fi热点方式连接Pantum P3500DW Series打印机时,依据安装界面信息应遵循以下关键步骤:
+
+-   在安装向导界面的“安装方式”中选择“已连接至网络的打印机”,并勾选“我同意许可协议”后点击“安装”按钮[E1]。
+-   在自动搜索到的打印机列表中选中需要连接的打印机(如Pantum P3500DW Series),若需以主机名方式安装则同时勾选“以主机名安装列表中的打印机”,然后点击“下一步”[E1]。
+-   若已搜索到的打印机列表中没有您需要连接的打印机,需点击“刷新”按钮[E1]。
+-   系统自动安装驱动完成后,会弹出“安装完成”界面并在约3秒后自动关闭[E1]。
+
+注意事项:
+-   执行上述界面前置操作前,必须打开打印机的Wi-Fi热点并使用计算机连接该无线热点[E1]。
+-   驱动安装前必须了解打印机的无线热点信息,如不清楚请打印网络配置信息页查看SSID和密码[E1]。
+
+【图片】
+[image omitted]","-   若已搜索到的打印机列表中没有您需要连接的打印机,需点击“刷新”按钮[E1]。
+-   系统自动安装驱动完成后,会弹出“安装完成”界面并在约3秒后自动关闭[E1]。
+-   驱动安装前必须了解打印机的无线热点信息,如不清楚请打印网络配置信息页查看SSID和密码[E1]。"
+P3500-MEDIUM-015,medium,False,0.0,False,0.25609756097560976,pre_wrong_to_final_wrong,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED|UNTRUSTED_CITATIONS_REMOVED,1.0,1,0,0,0,在Mac系统上安装Pantum P3500 Series打印机驱动时，需要完成哪些具体操作？请结合安装流程说明。,"提供的Evidence不足以确定在Mac系统上安装Pantum P3500 Series打印机驱动的具体操作。
+
+- 现有证据仅包含以Windows系统为例的安装流程,例如USB安装操作以Pantum P3500D Series为例,涉及在计算机光驱中插入光盘并运行Autorun.exe安装程序 [E1]。
+- 基础结构连接安装操作以Pantum P3500DW Series为例,同样要求运行Autorun.exe安装程序 [E2]。
+- Wi-Fi热点连接安装和有线网络安装的操作示例也均基于上述Windows环境下的安装程序 [E3][E4]。
+- Evidence中未提及Mac系统的安装步骤、驱动程序获取方式或任何针对macOS的特定操作说明。","- 基础结构连接安装操作以Pantum P3500DW Series为例,同样要求运行Autorun.exe安装程序[E2]。"
+P3500-MEDIUM-016,medium,True,1.0,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED|UNTRUSTED_CITATIONS_REMOVED,1.0,1,0,0,0,在Mac系统中通过Wi-Fi热点连接Pantum打印机时，需要执行哪些步骤？请根据“打印机与扫描仪”设置界面说明。,"在Mac系统中通过Wi-Fi热点连接Pantum打印机时,需先打开打印机和计算机电源并开启打印机Wi-Fi热点,然后在计算机桌面右上角连接打印机的无线热点,最后进入“系统偏好设置”中的“打印机与扫描仪”界面执行添加操作[E1]。
+
+具体步骤如下:
+-   打开打印机和计算机的电源[E1]。
+-   打开打印机的Wi-Fi热点[E1]。
+-   点击计算机桌面右上角的图标,连接打印机的无线热点[E1]。
+-   进入计算机的“系统偏好设置”-“打印机与扫描仪”[E1]。
+-   点击添加按钮(原文表述为“点击 按钮”)[E1]。
+-   选择您的Pantum打印机,然后从“使用”弹出菜单中选择对应的打印机型号[E1]。
+-   点击“添加”[E1]。
+
+注意事项:
+-   驱动安装前,必须了解您的打印机的无线热点信息[E1]。
+-   如不清楚无线热点信息,请打印“网络配置信息页”并查看打印机无线热点的“SSID”和“密码”[E1]。","-   打开打印机和计算机的电源[E1]。
+-   打开打印机的Wi-Fi热点[E1]。
+-   点击计算机桌面右上角的图标,连接打印机的无线热点[E1]。
+-   进入计算机的“系统偏好设置”-“打印机与扫描仪[E1]。
+-   选择您的Pantum打印机,然后从“使用”弹出菜单中选择对应的打印机型号[E1]。
+-   点击“添加[E1]。
+-   驱动安装前,必须了解您的打印机的无线热点信息[E1]。
+-   如不清楚无线热点信息,请打印“网络配置信息页”并查看打印机无线热点的“SSID”和“密码[E1]。"
+P3500-MEDIUM-017,medium,True,1.0,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED,1.0,1,0,0,1,当打印机启用DHCP自动分配功能时，其获取IP地址的过程及注意事项是什么？请结合证据说明。,"当打印机启用DHCP自动分配功能时,获取IP地址的过程是将打印机连接到网络后由DHCP服务器自动分配,注意事项包括获取过程可能需要几分钟以及分配失败时会自动获取链路本地地址。
+
+**获取过程:**
+-   打开打印机电源,将打印机连接到网络 [E1]。
+-   打印机将自动获取DHCP服务器分配的IP地址 [E1]。
+
+**注意事项:**
+-   整个获取IP地址的过程可能需要几分钟 [E1]。
+-   您可以打印“网络配置信息页”并查看打印机“IP地址”,如果IP地址未列出,请等待几分钟,然后重试 [E1]。
+-   如果DHCP服务器自动分配IP地址不成功,打印机会自动获取系统分配的链路本地地址:169.254.xx.xx [E1]。","-   打开打印机电源,将打印机连接到网络[E1]。
+-   打印机将自动获取DHCP服务器分配的IP地址[E1]。
+-   整个获取IP地址的过程可能需要几分钟[E1]。
+-   您可以打印“网络配置信息页”并查看打印机“IP地址”,如果IP地址未列出,请等待几分钟,然后重试[E1]。
+-   如果DHCP服务器自动分配IP地址不成功,打印机会自动获取系统分配的链路本地地址:169.254.xx.xx[E1]。"
+P3500-MEDIUM-018,medium,True,0.8,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED|UNTRUSTED_CITATIONS_REMOVED,1.0,1,0,0,0,如何通过内嵌Web服务器启用IPv6协议？请说明具体操作步骤。,"通过内嵌Web服务器启用IPv6协议的具体操作步骤如下:
+
+-   打开打印机电源,将打印机连接到网络 [E1]。
+-   登录内嵌Web服务器 [E1]。
+-   点击“设置”-“网络设置”-“协议设置”-“IPv6” [E1]。
+-   勾选“启用IPv6协议”和“启用DHCPv6”(默认为勾选),点击“应用” [E1]。
+
+注意事项:
+-   登录内嵌Web服务器时,默认用户名为“admin”,初始密码为“000000” [E3]。
+-   设置完成后可刷新浏览器,在“有线IP配置”界面查看“IPv6本地链路地址”和“有状态地址” [E1]。
+-   若网络中无DHCPv6服务器,“有状态地址”不能分配 [E1]。","-   打开打印机电源,将打印机连接到网络[E1]。
+-   登录内嵌Web服务器[E1]。
+-   点击“设置”-“网络设置”-“协议设置”-“IPv6[E1]。
+-   勾选“启用IPv6协议”和“启用DHCPv6”(默认为勾选),点击“应用[E1]。
+-   登录内嵌Web服务器时,默认用户名为“admin”,初始密码为“000000[E3]。
+-   若网络中无DHCPv6服务器,“有状态地址”不能分配[E1]。"
+P3500-MEDIUM-019,medium,False,0.0,False,0.0,pre_wrong_to_final_wrong,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED|UNTRUSTED_CITATIONS_REMOVED,1.0,1,0,0,0,在进行基础结构连接模式的无线网络安装前，必须了解哪些关键信息？请根据文档内容回答。,"在进行基础结构连接模式的无线网络安装前,必须了解接入点(无线路由器)的网络名(SSID)和密码 [E1][E2][E3]。
+
+-   如果无法确定网络名(SSID)和密码,请咨询您的网络管理员或接入点(无线路由器)制造商 [E1][E2][E3]。
+-   若需手动添加IP地址或主机名进行安装,还需要知道所连接的打印机IP地址或主机名 [E4]。","-   如果无法确定网络名(SSID)和密码,请咨询您的网络管理员或接入点(无线路由器)制造商[E1][E2][E3]。
+-   若需手动添加IP地址或主机名进行安装,还需要知道所连接的打印机IP地址或主机名[E4]。"
+P3500-MEDIUM-020,medium,True,0.9,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED|UNTRUSTED_CITATIONS_REMOVED,1.0,1,0,0,0,在使用无线网络配置工具配置打印机时，输入Wi-Fi密码后应执行哪些操作？请结合界面信息说明。,"在使用无线网络配置工具配置打印机时,输入Wi-Fi密码后应执行以下操作:
+
+-   点击“下一步”按钮 `[E1]`。
+-   等待计算机开始与打印机建立无线连接 `[E1]`。
+-   连接成功后,点击“完成”按钮 `[E1]`。
+
+**界面信息说明:**
+在验证无线凭证的界面中,“密码”输入框下方有“显示密码”复选框(默认为不勾选),窗口底部横向排列“上一步”、“下一步”(蓝色高亮)和“取消”三个按钮,其中“下一步”按钮被红色方框突出标记 `[E1]`。
+
+**注意事项:**
+-   如果不了解您的网络安全模式及密码,请咨询您的网络管理员或接入点(无线路由器)制造商 `[E1]`。
+-   无线网络配置完成后,若打印机不能正常使用,请重新安装驱动,安装方式请选择“已连接至网络的打印机” `[E1]`。","-   点击“下一步”按钮[E1]。
+-   等待计算机开始与打印机建立无线连接[E1]。
+-   连接成功后,点击“完成”按钮[E1]。
+-   如果不了解您的网络安全模式及密码,请咨询您的网络管理员或接入点(无线路由器)制造商[E1]。
+-   无线网络配置完成后,若打印机不能正常使用,请重新安装驱动,安装方式请选择“已连接至网络的打印机[E1]。"
+P3500-MEDIUM-021,medium,True,0.8125,True,0.8125,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED,1.0,2,0,0,1,在设置打印机Wi-Fi热点时，需要完成哪些操作步骤？请按顺序说明。,"设置打印机Wi-Fi热点需按以下顺序完成操作步骤:
+
+1.  打开打印机电源 [E2]。
+2.  按下打印机控制面板“菜单键”-“菜单设置”-“网络设置”-“Wi-Fi热点”-“开启”,打开打印机的Wi-Fi热点 [E2]。
+3.  按下打印机控制面板“菜单键”-“打印信息报告”-“网络配置信息页”,打印“网络配置信息页”并查看打印机无线热点的“SSID”和“密码” [E2]。
+
+注意:Wi-Fi热点默认为关闭状态 [E2];您还可以通过内嵌Web服务器打开打印机的Wi-Fi热点 [E2]。","1.  打开打印机电源[E2]。
+2.  按下打印机控制面板“菜单键”-“菜单设置”-“网络设置”-“Wi-Fi热点”-“开启”,打开打印机的Wi-Fi热点[E2]。
+3.  按下打印机控制面板“菜单键”-“打印信息报告”-“网络配置信息页”,打印“网络配置信息页”并查看打印机无线热点的“SSID”和“密码[E2]。
+注意:Wi-Fi热点默认为关闭状态[E2]。
+您还可以通过内嵌Web服务器打开打印机的Wi-Fi热点[E2]。"
+P3500-MEDIUM-022,medium,False,0.0,True,1.0,pre_correct_to_final_wrong,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED|UNTRUSTED_CITATIONS_REMOVED,1.0,1,0,0,1,关闭打印机无线网络前需满足什么条件？具体操作步骤是什么？,"关闭打印机无线网络前需满足的条件是确保打印机处于就绪状态 [E1]。
+
+具体操作步骤如下:
+-   按打印机控制面板“菜单键” - “菜单设置” -“网络设置” - “无线网络设置” -“无线网络” - “关闭”,关闭无线网络,Wi-Fi灯灭 [E1]。
+
+注意事项:
+-   若打印机进入休眠状态,请按下打印机控制面板的任意按键,然后松开,再等待约3-6秒,打印机即被唤醒 [E1]。","-   按打印机控制面板“菜单键” - “菜单设置” -“网络设置” - “无线网络设置” -“无线网络” - “关闭”,关闭无线网络,Wi-Fi灯灭[E1]。
+-   若打印机进入休眠状态,请按下打印机控制面板的任意按键,然后松开,再等待约3-6秒,打印机即被唤醒[E1]。"
+P3500-MEDIUM-023,medium,True,1.0,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED,1.0,1,0,0,0,当打印机在网络中无法被搜索到时，应检查哪几项内容？请列出所有相关检查点。,"当打印机在网络中无法被搜索到时,应检查以下内容:
+
+-   关闭计算机、接入点(无线路由器)和打印机的电源,然后再重启 [E1]。
+-   检查防火墙软件是否封锁通信,如果计算机和打印机连接在同一网络中却搜索不到,可能是因为防火墙软件封锁了通信 [E1]。
+-   检查打印机 IP 地址的分配是否正确,您可以打印打印机的网络配置信息页来检查 IP地址 [E1]。
+-   检查计算机、接入点(无线路由器)或打印机电源是否已打开 [E2]。
+-   检查计算机和打印机之间是否已连接了USB线 [E2]。
+-   检查打印机是否支持无线网络连接 [E2]。
+-   检查接入点(无线路由器)的电源开关是否已打开 [E3]。
+-   若打印机找不到您选择或输入的接入点(无线路由器)的网络名称 (SSID),请检查接入点上的网络名称(SSID)并尝试重新连接 [E3]。
+-   每当接入点(无线路由器)的配置发生变化时,您必须重新设置打印机的无线网络 [E3]。
+-   请检查接入点(无线路由器)和打印机的安全模式、密码是否正确 [E4]。
+-   若计算机无法连接打印机的无线热点,请检查打印机电源是否已打开 [E4]。
+-   检查打印机周围的无线接收,如果路由器远离打印机或中间有障碍,可能影响信号的接收 [E4]。
+-   关闭接入点(无线路由器)和打印机的电源,然后再重新启动 [E4]。","-   关闭计算机、接入点(无线路由器)和打印机的电源,然后再重启[E1]。
+-   检查防火墙软件是否封锁通信,如果计算机和打印机连接在同一网络中却搜索不到,可能是因为防火墙软件封锁了通信[E1]。
+-   检查打印机 IP 地址的分配是否正确,您可以打印打印机的网络配置信息页来检查 IP地址[E1]。
+-   检查计算机、接入点(无线路由器)或打印机电源是否已打开[E2]。
+-   检查计算机和打印机之间是否已连接了USB线[E2]。
+-   检查打印机是否支持无线网络连接[E2]。
+-   检查接入点(无线路由器)的电源开关是否已打开[E3]。
+-   若打印机找不到您选择或输入的接入点(无线路由器)的网络名称 (SSID),请检查接入点上的网络名称(SSID)并尝试重新连接[E3]。
+-   每当接入点(无线路由器)的配置发生变化时,您必须重新设置打印机的无线网络[E3]。
+-   请检查接入点(无线路由器)和打印机的安全模式、密码是否正确[E4]。
+-   若计算机无法连接打印机的无线热点,请检查打印机电源是否已打开[E4]。
+-   检查打印机周围的无线接收,如果路由器远离打印机或中间有障碍,可能影响信号的接收[E4]。
+-   关闭接入点(无线路由器)和打印机的电源,然后再重新启动[E4]。"
+P3500-MEDIUM-024,medium,True,1.0,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED,1.0,1,0,0,0,通过内嵌Web服务器设置打印机休眠时间时，需要执行哪些操作？请按顺序说明。,"通过内嵌Web服务器设置打印机休眠时间,需按顺序执行以下操作:
+
+1.  登录内嵌Web服务器 [E1]。
+2.  点击“设置”-“机器设置”-“系统” [E1]。
+3.  根据您的需要选择休眠时间,点击“应用” [E1]。
+
+注意:若您的打印机恢复出厂设置,休眠时间将自动恢复为1分钟 [E1]。","1.  登录内嵌Web服务器[E1]。
+2.  点击“设置”-“机器设置”-“系统[E1]。
+3.  根据您的需要选择休眠时间,点击“应用[E1]。
+注意:若您的打印机恢复出厂设置,休眠时间将自动恢复为1分钟[E1]。"
+P3500-MEDIUM-025,medium,True,1.0,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED,1.0,2,0,0,0,在无线网络连接中，Wi-Fi热点连接模式与基础结构连接模式有何区别？请从连接方式上说明。,"Wi-Fi热点连接模式与基础结构连接模式在连接方式上的区别如下:
+
+-   基础结构连接模式是通过路由器与无线设备连接[E1][E2]。
+-   在基础结构连接模式中,可以通过接入点(无线路由器)作为媒介,将计算机和打印机连接在一起[E5]。
+-   Wi-Fi热点连接模式是计算机与带Wi-Fi功能的打印机连接[E1]。
+-   Wi-Fi热点连接模式也指移动设备与带Wi-Fi功能的打印机连接[E2]。
+-   在Wi-Fi热点连接模式下,移动设备通过无线网络连接打印机热点[E2]。","-   基础结构连接模式是通过路由器与无线设备连接[E1][E2]。
+-   在基础结构连接模式中,可以通过接入点(无线路由器)作为媒介,将计算机和打印机连接在一起[E5]。
+-   Wi-Fi热点连接模式是计算机与带Wi-Fi功能的打印机连接[E1]。
+-   Wi-Fi热点连接模式也指移动设备与带Wi-Fi功能的打印机连接[E2]。
+-   在Wi-Fi热点连接模式下,移动设备通过无线网络连接打印机热点[E2]。"
+P3500-MEDIUM-026,medium,True,0.9565217391304348,True,0.9565217391304348,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,NON_TEXT_PLACEHOLDER_REMOVED|UNSUPPORTED_CLAIMS_PRUNED,1.0,1,0,0,0,进行基础结构连接模式设置前，必须了解哪些关键信息？具体如何连接移动设备和打印机？,"进行基础结构连接模式设置前,必须了解接入点(无线路由器)的网络名(SSID)和密码 [E1][E2]。
+
+关于移动设备和打印机的具体连接方法:
+-   将打印机连接到接入点(无线路由器),连接方法请参阅第4.2.1章 [E2]。
+-   将移动设备连接到接入点(无线路由器),如何连接请咨询您的网络管理员或移动设备制造商 [E2]。
+-   若使用的是Android移动设备,可以使用Mopria移动打印,如何打印请参阅第6.2.1章 [E2]。
+-   若您使用的是IOS移动设备,可以使用AirPrint移动打印,如何打印请参阅第6.2.2章 [E2]。
+
+【图片】
+&lt;image omitted&gt;","进行基础结构连接模式设置前,必须了解接入点(无线路由器)的网络名(SSID)和密码[E1][E2]。
+-   将打印机连接到接入点(无线路由器),连接方法请参阅第4.2.1章[E2]。
+-   将移动设备连接到接入点(无线路由器),如何连接请咨询您的网络管理员或移动设备制造商[E2]。
+-   若使用的是Android移动设备,可以使用Mopria移动打印,如何打印请参阅第6.2.1章[E2]。
+-   若您使用的是IOS移动设备,可以使用AirPrint移动打印,如何打印请参阅第6.2.2章[E2]。"
+P3500-MEDIUM-027,medium,True,1.0,True,1.0,pre_correct_to_final_correct,False,degraded,,PARTIAL_EVIDENCE,valid,,1.0,1,0,0,1,中国用户如何下载Mopria Print Service？请说明具体下载路径。,"中国用户下载Mopria Print Service的具体路径是登录 http://simplifiedchinese.tyslab.com/ 下载Mopria打印服务并安装 [E1]。
+
+-   中国用户请登录&lt;http://simplifiedchinese.tyslab.com/&gt; 下载Mopria打印服务 > 下载并安装 [E1]。","中国用户下载Mopria Print Service的具体路径是登录 http://simplifiedchinese.tyslab.com/ 下载Mopria打印服务并安装 [E1]。
+
+-   中国用户请登录&lt;http://simplifiedchinese.tyslab.com/&gt; 下载Mopria打印服务 > 下载并安装 [E1]。"
+P3500-MEDIUM-028,medium,True,1.0,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED,1.0,1,0,0,1,如何通过控制面板更改打印机的语言设置？请按顺序说明操作步骤。,"通过控制面板更改打印机语言设置的操作步骤如下:
+
+1.  按“菜单”键进入菜单设置界面 [E1]。
+2.  按“OK”键选择“1.系统设置”选项 [E1]。
+3.  按“OK”键选择“1.语言设置”选项 [E1]。
+
+注:“语言设置”用来选择控制面板的显示语言 [E1]。","1.  按“菜单”键进入菜单设置界面[E1]。
+2.  按“OK”键选择“1.系统设置”选项[E1]。
+3.  按“OK”键选择“1.语言设置”选项[E1]。
+注:“语言设置”用来选择控制面板的显示语言[E1]。"
+P3500-MEDIUM-029,medium,True,1.0,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,NON_TEXT_PLACEHOLDER_REMOVED|UNSUPPORTED_CLAIMS_PRUNED|UNTRUSTED_CITATIONS_REMOVED,1.0,1,0,0,1,在省墨设置中，如何开启或关闭省墨模式？请说明具体操作流程。,"在省墨设置中,开启或关闭省墨模式可通过控制面板或打印首选项两种方式进行操作[E1][E2]。
+
+### 通过控制面板设置
+1.  按“菜单”键进入菜单设置界面[E1]。
+2.  按“OK”键选择“1.系统设置”选项[E1]。
+3.  按方向键“▲”或“▼”选择“3. 省墨”选项,按“OK”键[E1]。
+4.  按方向键“▲”或“▼”选择“1. 关闭”,按“OK”键,“1. 关闭”后出现“*”表示关闭省墨设定完成;或按方向键“▲”或“▼”选择“2. 开启”,按“OK”键,“2. 开启”后出现“*”表示开启省墨设置完成[E1]。
+5.  按“菜单”键退出菜单界面,或者选择每级菜单中最后一项“返回上一级”按“OK”键逐级退出菜单界面[E1]。
+
+### 通过打印首选项设置
+-   点击打印首选项,点击左上方“版面”按钮,进入界面后选择“省墨”模式即可开启,“省墨”模式下打印输出颜色为“较淡”[E2]。
+
+### 注意事项
+-   用户可以选择省墨设置降低打印成本,当省墨模式为“打开”时,打印输出的颜色将偏淡[E1]。
+-   省墨设置的默认设置为“关闭”[E1]。
+
+【图片】
+&lt;image omitted&gt;
+&lt;image omitted&gt;","1.  按“菜单”键进入菜单设置界面[E1]。
+2.  按“OK”键选择“1.系统设置”选项[E1]。
+3.  按方向键“▲”或“▼”选择“3. 省墨”选项,按“OK”键[E1]。
+4.  按方向键“▲”或“▼”选择“1. 关闭”,按“OK”键,“1. 关闭”后出现“*”表示关闭省墨设定完成;或按方向键“▲”或“▼”选择“2. 开启”,按“OK”键,“2. 开启”后出现“*”表示开启省墨设置完成[E1]。
+5.  按“菜单”键退出菜单界面,或者选择每级菜单中最后一项“返回上一级”按“OK”键逐级退出菜单界面[E1]。
+-   用户可以选择省墨设置降低打印成本,当省墨模式为“打开”时,打印输出的颜色将偏淡[E1]。
+-   省墨设置的默认设置为“关闭[E1]。"
+P3500-MEDIUM-030,medium,True,1.0,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,NON_TEXT_PLACEHOLDER_REMOVED|UNSUPPORTED_CLAIMS_PRUNED|UNTRUSTED_CITATIONS_REMOVED,1.0,1,0,0,1,恢复出厂设置前需进入哪个菜单？具体操作步骤是什么？,"恢复出厂设置前需进入“1.系统设置”菜单 [E1]。通过控制面板恢复出厂设置的具体操作步骤如下:
+
+-   按“菜单”键进入菜单设置界面 [E1]。
+-   按“OK”键选择“1.系统设置”选项 [E1]。
+-   按方向键“▲”或“▼”选择“4.恢复出厂设置”选项,按“OK”键 [E1]。
+-   在“4.恢复出厂设置”的三级菜单中选择“2.是”以确认执行 [E2]。
+
+注意事项:
+-   若您通过网络方式安装打印机,可通过内嵌Web服务器恢复出厂设置 [E1]。
+-   通过Web服务器恢复时,需登录内嵌Web服务器,点击“用户管理”选项,再点击“恢复出厂设置”,打印机自动重启 [E3]。
+-   打印机恢复出厂设置后,管理员的用户名恢复为admin,登录密码恢复为000000 [E3]。
+
+【图片】
+&lt;image omitted&gt;","-   按“菜单”键进入菜单设置界面[E1]。
+-   按“OK”键选择“1.系统设置”选项[E1]。
+-   按方向键“▲”或“▼”选择“4.恢复出厂设置”选项,按“OK”键[E1]。
+-   若您通过网络方式安装打印机,可通过内嵌Web服务器恢复出厂设置[E1]。
+-   通过Web服务器恢复时,需登录内嵌Web服务器,点击“用户管理”选项,再点击“恢复出厂设置”,打印机自动重启[E3]。
+-   打印机恢复出厂设置后,管理员的用户名恢复为admin,登录密码恢复为000000[E3]。"
+P3500-MEDIUM-031,medium,True,1.0,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,TABLE_FACT_FIELDS_MISSING_FROM_CONTEXT|UNSUPPORTED_CLAIMS_PRUNED,1.0,2,0,0,0,根据打印机纸盒与纸张尺寸的对应关系，多功能纸盒和标准纸盒分别支持哪些纸张尺寸？请列出两者都支持的尺寸。,"根据Evidence,多功能纸盒和标准纸盒支持的纸张尺寸如下:
+
+-   多功能纸盒支持的纸张尺寸为:自动*、A4、Letter、Legal、Folio、Oficio、Statement、Executive、JIS B5、ISO B5、A5、A5 L、A6、B6、Monarch Env、DL Env、C5 Env、NO.10 Env、C6 Env、Jap Postcard、Postcard、Yougata2、Nagagata3、Younaga3、Yougata4、Long Paper (1.2m)、ZL、16K、Big 16K、32K、Big 32K [E2]。
+-   标准纸盒支持的纸张尺寸为:自动*、Folio、Oficio、Executive、ISO B5、A5 L、A6、B6、16K、Big 16K、32K、Big 32K [E2]。
+
+两者都支持的纸张尺寸包括:
+-   自动* [E2]
+-   Folio [E2]
+-   Oficio [E2]
+-   Executive [E2]
+-   ISO B5 [E2]
+-   A5 L [E2]
+-   A6 [E2]
+-   B6 [E2]
+-   16K [E2]
+-   Big 16K [E2]
+-   32K [E2]
+-   Big 32K [E2]","-   多功能纸盒支持的纸张尺寸为:自动*、A4、Letter、Legal、Folio、Oficio、Statement、Executive、JIS B5、ISO B5、A5、A5 L、A6、B6、Monarch Env、DL Env、C5 Env、NO.10 Env、C6 Env、Jap Postcard、Postcard、Yougata2、Nagagata3、Younaga3、Yougata4、Long Paper (1.2m)、ZL、16K、Big 16K、32K、Big 32K[E2]。
+-   标准纸盒支持的纸张尺寸为:自动*、Folio、Oficio、Executive、ISO B5、A5 L、A6、B6、16K、Big 16K、32K、Big 32K[E2]。
+-   自动*[E2]。
+-   Folio[E2]。
+-   Oficio[E2]。
+-   Executive[E2]。
+-   ISO B5[E2]。
+-   A5 L[E2]。
+-   A6[E2]。
+-   B6[E2]。
+-   16K[E2]。
+-   Big 16K[E2]。
+-   32K[E2]。
+-   Big 32K[E2]。"
+P3500-MEDIUM-032,medium,False,0.0,False,0.0,pre_wrong_to_final_wrong,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED,1.0,1,0,0,1,在控制面板设置纸张尺寸时，需要完成哪几个步骤？请按顺序说明操作流程。,"在控制面板设置纸张尺寸时,需按顺序完成以下5个步骤:
+
+1.  按控制面板的“菜单键”,按“方向键”,选择“纸盒设置”[E1]。
+2.  按“OK键”,进入“纸盒设置界面”,按“方向键”,选择需要设置的纸盒[E1]。
+3.  按“OK键”,进入“设置界面”,按“方向键”,选择“纸张尺寸”[E1]。
+4.  按“OK键”,进入“纸张尺寸界面”[E1]。
+5.  按“方向键”,选择需要设置的选项,再按“OK键”,设置选项[E1]。
+
+注意:请确保纸张尺寸设置与纸盒放置的纸张尺寸相匹配[E1]。","1.  按控制面板的“菜单键”,按“方向键”,选择“纸盒设置[E1]。
+2.  按“OK键”,进入“纸盒设置界面”,按“方向键”,选择需要设置的纸盒[E1]。
+3.  按“OK键”,进入“设置界面”,按“方向键”,选择“纸张尺寸[E1]。
+4.  按“OK键”,进入“纸张尺寸界面[E1]。
+5.  按“方向键”,选择需要设置的选项,再按“OK键”,设置选项[E1]。
+注意:请确保纸张尺寸设置与纸盒放置的纸张尺寸相匹配[E1]。"
+P3500-MEDIUM-033,medium,True,1.0,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,NON_TEXT_PLACEHOLDER_REMOVED|UNSUPPORTED_CLAIMS_PRUNED,1.0,1,0,0,0,使用纸盒拨盘设置标准纸盒的纸张尺寸时，应执行哪些具体操作？请描述完整流程。,"使用纸盒拨盘设置标准纸盒纸张尺寸的完整操作流程如下:
+
+1.  将标准纸盒从打印机中拉出 `[E1]`。
+2.  拨动纸盒拨盘,选择您需要的纸张尺寸 `[E1]`。
+3.  放入纸张,将标准纸盒装入打印机 `[E1]`。
+
+注意事项:
+-   请确保纸盒拨盘的纸张尺寸设置与纸盒放置的纸张尺寸相匹配 `[E1]`。
+-   当所打印作业纸型与拨盘设置纸型不一致时,打印机LCD显示屏将会报错“纸张设置不匹配”,需重新设置好拨盘以排除错误 `[E2]`。
+-   拨盘上没有显示的纸型可通过控制面板进行纸张尺寸设置 `[E3]`。
+
+【图片】
+&lt;image omitted&gt;","1.  将标准纸盒从打印机中拉出[E1]。
+2.  拨动纸盒拨盘,选择您需要的纸张尺寸[E1]。
+3.  放入纸张,将标准纸盒装入打印机[E1]。
+-   请确保纸盒拨盘的纸张尺寸设置与纸盒放置的纸张尺寸相匹配[E1]。
+-   当所打印作业纸型与拨盘设置纸型不一致时,打印机LCD显示屏将会报错“纸张设置不匹配”,需重新设置好拨盘以排除错误[E2]。
+-   拨盘上没有显示的纸型可通过控制面板进行纸张尺寸设置[E3]。"
+P3500-MEDIUM-034,medium,True,1.0,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,NON_TEXT_PLACEHOLDER_REMOVED|UNSUPPORTED_CLAIMS_PRUNED,1.0,2,0,0,0,当使用多功能纸盒打印长纸或特殊纸张时，有哪些注意事项？请结合证据说明。,"当使用多功能纸盒打印长纸或特殊纸张时,需注意以下事项:
+
+-   特殊纸张(包括标签纸、信封、透明胶片、厚纸、卡片纸等)需在多功能纸盒进行打印 [E1]。
+-   当在多功能纸盒使用特殊介质打印时,建议一次仅放一张纸 [E1][E2]。
+-   当使用特殊纸张或打印介质时,请确保在打印设置上选择匹配的打印类型和尺寸,以便获得最佳打印效果 [E1]。
+-   若您设置的纸张尺寸为Long Paper,打印前请打开打印机后盖,使打印纸张从打印机后端排出 [E2]。
+-   打印Long Paper时,一次只能放置1页纸张 [E2]。
+-   将打印介质打印面向上放入多功能纸盒,装入时纸张的顶部先进入多功能纸盒 [E4]。
+-   滑动多功能纸盒的导纸板以匹配纸张的两侧,不要用力过度,否则会导致卡纸或纸张歪斜 [E4]。
+-   双手将信封或透明胶片等打印介质放入多功能纸盒中,直至前端碰到校正辊 [E4]。
+-   打印后请立即取走纸张、信封和透明胶片,堆叠的纸张或信封会引起卡纸或曲纸 [E3]。
+-   抬起出纸托盘避免打印完的纸张滑落,或在打印完成后立即将打印的文档取走 [E4]。
+
+【图片】
+&lt;image omitted&gt;
+&lt;image omitted&gt;","-   特殊纸张(包括标签纸、信封、透明胶片、厚纸、卡片纸等)需在多功能纸盒进行打印[E1]。
+-   当在多功能纸盒使用特殊介质打印时,建议一次仅放一张纸[E1][E2]。
+-   当使用特殊纸张或打印介质时,请确保在打印设置上选择匹配的打印类型和尺寸,以便获得最佳打印效果[E1]。
+-   若您设置的纸张尺寸为Long Paper,打印前请打开打印机后盖,使打印纸张从打印机后端排出[E2]。
+-   打印Long Paper时,一次只能放置1页纸张[E2]。
+-   将打印介质打印面向上放入多功能纸盒,装入时纸张的顶部先进入多功能纸盒[E4]。
+-   滑动多功能纸盒的导纸板以匹配纸张的两侧,不要用力过度,否则会导致卡纸或纸张歪斜[E4]。
+-   双手将信封或透明胶片等打印介质放入多功能纸盒中,直至前端碰到校正辊[E4]。
+-   打印后请立即取走纸张、信封和透明胶片,堆叠的纸张或信封会引起卡纸或曲纸[E3]。
+-   抬起出纸托盘避免打印完的纸张滑落,或在打印完成后立即将打印的文档取走[E4]。"
+P3500-MEDIUM-035,medium,True,1.0,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,NON_TEXT_PLACEHOLDER_REMOVED|UNSUPPORTED_CLAIMS_PRUNED|UNTRUSTED_CITATIONS_REMOVED,1.0,1,0,0,1,选配纸盒最多可容纳多少页普通纸？安装时需要注意什么？,"选配纸盒最多可容纳550页80 g/m2普通纸[E1][E2][E5]。
+
+安装及装入纸张时需注意以下事项:
+- 请确保选配纸盒与打印机本机正常安装[E1]。
+- 滑动纸盒的长度导纸板、宽度导纸板到所需的纸张尺寸卡槽,匹配纸张的长度和宽度[E2]。
+- 请不要过度挤压“长度导纸板”和“宽度导纸板”,否则容易导致纸张变形[E2]。
+- 要装入Legal尺寸纸张,请向里按纸盘后端的释放按键并拉出纸盘后端,从而加长纸盘[E2]。
+- 请在装入纸张之前展开堆叠的纸张,避免卡纸或进纸错误[E2]。
+- 把纸张打印面朝下装入纸盒内[E2]。
+- 如果一次性放入选配纸盒的纸张超过550页(80 g/m2)会卡纸或不进纸[E3]。
+- 产品纸盒上设有常用纸张尺寸的“纸盒拨盘”,当所打印作业纸型与拨盘设置纸型不一致时,打印机LCD显示屏将会报错“选配纸盒一,纸张设置不匹配”,需重新设置好拨盘排除错误[E3]。
+- 拨盘上没有显示的纸型可通过控制面板进行纸张尺寸设置[E3]。
+- 抬起出纸托盘,避免打印完的纸张滑落[E3]。
+- 关于选配纸盒的安装,详细内容请参照选配纸盒随机附带的安装指南[E3]。
+
+【图片】
+&lt;image omitted&gt;
+&lt;image omitted&gt;","选配纸盒最多可容纳550页80 g/m2普通纸[E1][E2]。
+- 请确保选配纸盒与打印机本机正常安装[E1]。
+- 滑动纸盒的长度导纸板、宽度导纸板到所需的纸张尺寸卡槽,匹配纸张的长度和宽度[E2]。
+- 请不要过度挤压“长度导纸板”和“宽度导纸板”,否则容易导致纸张变形[E2]。
+- 要装入Legal尺寸纸张,请向里按纸盘后端的释放按键并拉出纸盘后端,从而加长纸盘[E2]。
+- 请在装入纸张之前展开堆叠的纸张,避免卡纸或进纸错误[E2]。
+- 把纸张打印面朝下装入纸盒内[E2]。
+- 如果一次性放入选配纸盒的纸张超过550页(80 g/m2)会卡纸或不进纸[E3]。
+- 产品纸盒上设有常用纸张尺寸的“纸盒拨盘”,当所打印作业纸型与拨盘设置纸型不一致时,打印机LCD显示屏将会报错“选配纸盒一,纸张设置不匹配”,需重新设置好拨盘排除错误[E3]。
+- 拨盘上没有显示的纸型可通过控制面板进行纸张尺寸设置[E3]。
+- 抬起出纸托盘,避免打印完的纸张滑落[E3]。
+- 关于选配纸盒的安装,详细内容请参照选配纸盒随机附带的安装指南[E3]。"
+P3500-MEDIUM-036,medium,True,1.0,True,1.0,pre_correct_to_final_correct,False,passed,,EVIDENCE_SUFFICIENT,valid,,1.0,1,0,0,0,多功能纸盒支持自动双面打印吗？如果支持，其最大容量和推荐纸张类型是什么？,"多功能纸盒支持自动双面打印,但最多只能放置60页纸张,且需使用推荐的打印纸张类型;该纸盒支持普通纸的自动双面打印 [E1]。
+
+- 多功能纸盒可实现自动双面打印,但是最多只能放置 60 页纸张,且使用推荐的打印纸张类型 [E1]。
+- 多功能纸盒支持普通纸的自动双面打印 [E1]。","多功能纸盒支持自动双面打印,但最多只能放置60页纸张,且需使用推荐的打印纸张类型;该纸盒支持普通纸的自动双面打印 [E1]。
+
+- 多功能纸盒可实现自动双面打印,但是最多只能放置 60 页纸张,且使用推荐的打印纸张类型 [E1]。
+- 多功能纸盒支持普通纸的自动双面打印 [E1]。"
+P3500-MEDIUM-037,medium,True,1.0,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED|UNTRUSTED_CITATIONS_REMOVED,1.0,1,0,0,0,在Windows系统中如何通过打印首选项打开帮助文档？请说明具体操作路径。,"在Windows系统中,您可以通过打开“打印首选项”并点击“帮助”按钮来打开帮助文档[E1]。
+
+具体操作路径及注意事项如下:
+-   该操作仅适用于 Windows 系统[E1]。
+-   用户需先打开“打印首选项”界面[E1]。
+-   在打印首选项界面底部,从左至右依次排列有“确定”、“取消”、“应用(A)”和“帮助”按钮,点击“帮助”按钮即可[E1]。
+-   帮助文档中包含打印机的使用指南,可通过使用指南了解打印的相关设置信息[E1]。
+
+【图片】
+https://pantum-oss.pantum.com/user-manual/P3500/zh_CNV1.2_1644316283788/image_72_0.png
+https://pantum-oss.pantum.com/user-manual/P3500/zh_CNV1.2_1644316283788/image_72_1.png","在Windows系统中,您可以通过打开“打印首选项”并点击“帮助”按钮来打开帮助文档[E1]。
+-   该操作仅适用于 Windows 系统[E1]。
+-   在打印首选项界面底部,从左至右依次排列有“确定”、“取消”、“应用(A)”和“帮助”按钮,点击“帮助”按钮即可[E1]。
+-   帮助文档中包含打印机的使用指南,可通过使用指南了解打印的相关设置信息[E1]。"
+P3500-MEDIUM-038,medium,True,1.0,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,NON_TEXT_PLACEHOLDER_REMOVED|UNSUPPORTED_CLAIMS_PRUNED,1.0,2,0,0,0,更换激光碳粉盒后，需要完成哪些后续操作以确保打印正常？请按顺序说明。,"更换激光碳粉盒后,为确保打印正常,需按顺序完成以下后续操作:
+
+1.  将激光碳粉盒沿导轨放入打印机,盖紧机盖[E2]。
+2.  重新开启打印机电源[E2]。
+3.  打印一张测试页[E2]。
+
+注意事项:
+-   碳粉盒放入打印机前请检查是否有封条,如果有请先撕下封条再安装[E2]。
+-   取下保护罩时,应立即将激光碳粉盒装入打印机,以免过多地受到阳光或室内光线直射,损坏激光碳粉盒感光鼓[E1]。
+-   安装时,请勿触碰感光鼓表面,以免刮伤感光鼓[E1]。
+
+【图片】
+&lt;image omitted&gt;
+&lt;image omitted&gt;","1.  将激光碳粉盒沿导轨放入打印机,盖紧机盖[E2]。
+2.  重新开启打印机电源[E2]。
+3.  打印一张测试页[E2]。
+-   碳粉盒放入打印机前请检查是否有封条,如果有请先撕下封条再安装[E2]。
+-   取下保护罩时,应立即将激光碳粉盒装入打印机,以免过多地受到阳光或室内光线直射,损坏激光碳粉盒感光鼓[E1]。
+-   安装时,请勿触碰感光鼓表面,以免刮伤感光鼓[E1]。"
+P3500-MEDIUM-039,medium,True,1.0,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED,1.0,1,0,0,0,在处理打印故障前，应检查哪些关键项目？请列出全部内容。,"在处理打印故障前,应检查以下关键项目:
+
+-   电源线是否连接正确,并且打印机电源开关是否已打开 [E1]。
+-   所有的保护零件是否已拆除 [E1]。
+-   激光碳粉盒是否已正确安装 [E1]。
+-   出纸槽是否已完全合上 [E1]。
+-   纸张是否已正确放入纸盒中 [E1]。
+-   接口电缆线是否已正确连接打印机和计算机 [E1]。
+-   是否已选择并安装了正确的打印机驱动程序 [E1]。
+-   计算机端口是否已安装并连接到正确的打印机端口 [E1]。","-   电源线是否连接正确,并且打印机电源开关是否已打开[E1]。
+-   所有的保护零件是否已拆除[E1]。
+-   激光碳粉盒是否已正确安装[E1]。
+-   出纸槽是否已完全合上[E1]。
+-   纸张是否已正确放入纸盒中[E1]。
+-   接口电缆线是否已正确连接打印机和计算机[E1]。
+-   是否已选择并安装了正确的打印机驱动程序[E1]。
+-   计算机端口是否已安装并连接到正确的打印机端口[E1]。"
+P3500-MEDIUM-040,medium,True,1.0,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED,1.0,1,0,0,0,当标准纸盒发生卡纸时，应如何处理？请按顺序说明操作步骤。,"当标准纸盒发生卡纸时,应按以下顺序处理:
+
+1.  打开纸盒 [E1]。
+2.  将卡住的纸张轻轻地向外拉出 [E1]。
+3.  取出卡纸后,请将纸盒重新装入打印机,打印机将自动恢复打印 [E1]。
+
+【图片】
+https://pantum-cdn.com/manual/PantumP3500/zh_CNV1.2_1644316283788/page79_image.png
+https://pantum-cdn.com/manual/PantumP3500/zh_CNV1.2_1644316283788/page80_image.png","1.  打开纸盒[E1]。
+2.  将卡住的纸张轻轻地向外拉出[E1]。
+3.  取出卡纸后,请将纸盒重新装入打印机,打印机将自动恢复打印[E1]。"
+P3500-MEDIUM-041,medium,True,1.0,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED,1.0,1,0,0,1,当打印机选配纸盒出现卡纸时，若在该区域看不到纸张，应执行哪些操作步骤？请按顺序说明。,"当打印机选配纸盒出现卡纸且在该区域看不到纸张时,应停止当前操作并转至下一步,按顺序执行以下操作步骤:
+
+1.  打开标准纸盒 [E1]。
+2.  从标准纸盒中取出卡纸 [E1]。
+3.  取出卡纸后,重新将纸盒放入打印机 [E1]。
+
+注意:如果在该区域看不到纸张,请停止并转至下一步(即上述针对标准纸盒的操作)[E1]。","1.  打开标准纸盒[E1]。
+2.  从标准纸盒中取出卡纸[E1]。
+3.  取出卡纸后,重新将纸盒放入打印机[E1]。
+注意:如果在该区域看不到纸张,请停止并转至下一步(即上述针对标准纸盒的操作)[E1]。"
+P3500-MEDIUM-042,medium,False,0.6,True,1.0,pre_correct_to_final_wrong,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED|UNTRUSTED_CITATIONS_REMOVED,1.0,1,0,0,0,处理中部卡纸时，为避免感光鼓曝光影响打印质量，在取出激光碳粉盒后应采取什么措施？取出卡纸后又需完成哪些操作才能恢复打印？,"处理中部卡纸时,为避免感光鼓曝光影响打印质量,在取出激光碳粉盒后应用黑色胶袋将激光碳粉盒装好,或用纸张盖住激光碳粉盒 [E1]。
+
+取出卡纸后需完成以下操作才能恢复打印:
+-   重新装入激光碳粉盒 [E1]。
+-   合上前盖 [E1]。
+-   完成上述操作后打印机将自动恢复打印 [E1]。","-   重新装入激光碳粉盒[E1]。
+-   合上前盖[E1]。
+-   完成上述操作后打印机将自动恢复打印[E1]。"
+P3500-MEDIUM-043,medium,True,1.0,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED,1.0,1,0,0,0,如果双面打印单元卡纸且纸张未随其一起出来，应如何操作？取出卡纸后还需进行哪些检查和操作？,"如果双面打印单元卡纸且纸张未随其一起出来,应打开纸盒直接从底部取出卡纸[E1]。
+
+取出卡纸后需进行以下检查和操作:
+-   装回双面打印单元[E1]。
+-   检查产品其他部位,确保无卡纸[E1]。
+-   合上后盖,打印机将自动恢复打印[E1]。","如果双面打印单元卡纸且纸张未随其一起出来,应打开纸盒直接从底部取出卡纸[E1]。
+-   装回双面打印单元[E1]。
+-   检查产品其他部位,确保无卡纸[E1]。
+-   合上后盖,打印机将自动恢复打印[E1]。"
+P3500-MEDIUM-044,medium,False,0.6774193548387096,True,1.0,pre_correct_to_final_wrong,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED|UNTRUSTED_CITATIONS_REMOVED,1.0,1,0,0,0,根据故障表，导致卡纸的可能原因有哪些？对应的解决办法包括哪些具体操作？,"根据故障表,导致卡纸的可能原因包括:纸盘中的纸张过多、打印介质超出了使用规格范围、进纸通道有异物、给纸辊脏污以及内部部件故障 [E1]。
+
+对应的解决办法包括以下具体操作:
+- 从纸盘中取出多余的纸张 [E1]。
+- 如果在特殊打印介质上打印,请使用多功能纸盒 [E1]。
+- 确保使用符合规格的纸张 [E1]。
+- 清洁进纸通道 [E1]。
+- 清洁给纸辊 [E1]。
+- 如果问题依旧,请联系奔图客服 [E1]。","- 从纸盘中取出多余的纸张[E1]。
+- 如果在特殊打印介质上打印,请使用多功能纸盒[E1]。
+- 确保使用符合规格的纸张[E1]。
+- 清洁进纸通道[E1]。
+- 清洁给纸辊[E1]。
+- 如果问题依旧,请联系奔图客服[E1]。"
+P3500-MEDIUM-045,medium,True,1.0,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED,1.0,1,0,0,0,打印全黑版的故障原因是什么？解决办法中建议采取哪两项措施？,"打印全黑版的故障原因是未正确安装激光碳粉盒、激光碳粉盒内部损坏、机器内部充电异常未给激光碳粉盒充电 [E1]。
+
+解决办法中建议采取的两项措施是:
+- 确保正确安装激光碳粉盒 [E1]。
+- 建议更换原装激光碳粉盒 [E1]。","打印全黑版的故障原因是未正确安装激光碳粉盒、激光碳粉盒内部损坏、机器内部充电异常未给激光碳粉盒充电[E1]。
+- 确保正确安装激光碳粉盒[E1]。
+- 建议更换原装激光碳粉盒[E1]。"
+P3500-MEDIUM-046,medium,False,0.3114754098360656,True,1.0,pre_correct_to_final_wrong,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED|UNTRUSTED_CITATIONS_REMOVED,1.0,1,0,0,0,打印发白或偏淡的故障原因有哪些？解决办法中提到需要调整哪些打印设置？,"打印发白或偏淡的故障原因包括碳粉不足、打印介质不符合使用规格(例如介质受潮或太粗糙)、打印程序中分辨率设置过低、浓度设置过低或勾选了省墨模式,以及激光碳粉盒损坏 [E1]。
+
+解决办法中提到的需要调整的打印设置包括:
+-   设置程序中的打印分辨率 [E1]。
+-   设置程序中的浓度设置 [E1]。
+-   取消勾选省墨模式 [E1]。","-   设置程序中的打印分辨率[E1]。
+-   设置程序中的浓度设置[E1]。
+-   取消勾选省墨模式[E1]。"
+P3500-MEDIUM-047,medium,False,0.2,True,1.0,pre_correct_to_final_wrong,True,passed,EXTRACTIVE_REPAIR_VALIDATED,POST_GENERATION_EXTRACTIVE_REPAIR,valid,,1.0,1,0,0,0,在打印机菜单结构中，网络信息下的无线网络信息包含哪些三级菜单项？其中哪个菜单项用于查看当前连接状态？,"在打印机菜单结构中,网络信息下的无线网络信息包含的三级菜单项为:连接状态、IP 地址、子网掩码、网关、信道、SSID [E1]。其中用于查看当前连接状态的菜单项是“连接状态” [E1]。
+
+-   一级菜单“4.网络信息”下的二级菜单“2.无线网络信息”包含三级菜单“1.连接状态” [E1]。
+-   一级菜单“4.网络信息”下的二级菜单“2.无线网络信息”包含三级菜单“2.IP 地址” [E1]。
+-   一级菜单“4.网络信息”下的二级菜单“2.无线网络信息”包含三级菜单“3.子网掩码” [E1]。
+-   一级菜单“4.网络信息”下的二级菜单“2.无线网络信息”包含三级菜单“4.网关” [E1]。
+-   一级菜单“4.网络信息”下的二级菜单“2.无线网络信息”包含三级菜单“5.信道” [E1]。
+-   一级菜单“4.网络信息”下的二级菜单“2.无线网络信息”包含三级菜单“6.SSID” [E1]。","| 4.网络信息 | 2.无线网络信息 | 1.连接状态 |[E1]
+| 5.打印信息报告 | 5.WiFi 热点列表页 |  |[E1]
+| 一级菜单 | 二级菜单 | 三级菜单 | 四级菜单 | 五级菜单 |[E2]"
+P3500-MEDIUM-048,medium,False,0.0,False,0.0,pre_wrong_to_final_wrong,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED|UNTRUSTED_CITATIONS_REMOVED,1.0,1,0,0,0,打印机的工作环境温度要求是多少？电源电压在220V型号下支持的电压范围和电流是多少？,"- 打印机工作环境温度要求为5~35°C,最佳工作温度为10~32°C [E1]。
+- 安装时请将本产品安装在温度介于10°C至32.5°C之间的地方 [E2]。
+- 220V型号支持的电源电压范围为AC220~240V(±10%),电流为4A [E1]。","- 打印机工作环境温度要求为5~35°C,最佳工作温度为10~32°C[E1]。
+- 安装时请将本产品安装在温度介于10°C至32.5°C之间的地方[E2]。"
+P3500-MEDIUM-049,medium,True,0.75,True,1.0,pre_correct_to_final_correct,True,degraded,,POST_GENERATION_UNSUPPORTED_CLAIMS_PRUNED,degraded,UNSUPPORTED_CLAIMS_PRUNED|UNTRUSTED_CITATIONS_REMOVED,1.0,1,0,0,0,"Pantum 和 Pantum 标识是哪家公司注册的商标？Mopria Alliance, Inc. 注册的商标包括哪些？","- Pantum 和 Pantum 标识是珠海奔图电子有限公司注册的商标 [E1]。
+- Mopria Alliance, Inc. 在美国和其他国家注册的商标和服务标志包括 Mopria®、Mopria® Logo 和 Mopria® Alliance logo [E1]。",- Pantum 和 Pantum 标识是珠海奔图电子有限公司注册的商标[E1]。
+P3500-MEDIUM-050,medium,True,1.0,True,1.0,pre_correct_to_final_correct,True,passed,,POST_GENERATION_STRONG_COMPOSITE_PROJECTION,valid,UNSUPPORTED_CLAIMS_PRUNED,1.0,1,0,0,0,在打印机警告中，关于电源插拔和高温定影单元分别提出了哪些安全提示？,"关于电源插拔和高温定影单元的安全提示如下:
+
+-   在清洁打印机之前,请确保已切断电源 [E1]。
+-   请勿用湿手插拔电源线插头,以免导致电击 [E1]。
+-   清洁之前,请将电源线从 AC 电源插座拔下 [E2]。
+-   避免在雷暴天气使用本机器,以免遭到电击;如果可能,请在雷雨期间拔下 AC 电源线 [E4]。
+-   打印机打印时和打印后,定影组件会处于高温状态,请勿触摸定影单元(图示阴影部分),以免造成烫伤 [E1]。
+-   定影单元有高温警示标签,请勿移动或损坏该标签 [E1]。","-   在清洁打印机之前,请确保已切断电源[E1]。
+-   请勿用湿手插拔电源线插头,以免导致电击[E1]。
+-   清洁之前,请将电源线从 AC 电源插座拔下[E2]。
+-   避免在雷暴天气使用本机器,以免遭到电击;如果可能,请在雷雨期间拔下 AC 电源线[E4]。
+-   打印机打印时和打印后,定影组件会处于高温状态,请勿触摸定影单元(图示阴影部分),以免造成烫伤[E1]。
+-   定影单元有高温警示标签,请勿移动或损坏该标签[E1]。"

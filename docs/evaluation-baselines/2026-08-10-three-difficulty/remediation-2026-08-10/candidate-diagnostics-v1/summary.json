@@ -1,0 +1,845 @@
+{
+  "analysis_mode": "deterministic_offline_archive_audit",
+  "analysis_script_sha256": "eda33774c9467ac3780d140a8bae12914c9b59104534f2dc4de941364e33fa1f",
+  "attribution_rules_sha256": "sha256:72ac536faad396cc6bd46c55b7715a1f963e053b52cfc506b3d98dd2a61f854d",
+  "data_quality_gate": {
+    "checks": [
+      {
+        "dataset_case_count": 50,
+        "difficulty": "easy",
+        "hashes_verified": true,
+        "join_coverage": 1.0,
+        "result_case_count": 50
+      },
+      {
+        "dataset_case_count": 50,
+        "difficulty": "medium",
+        "hashes_verified": true,
+        "join_coverage": 1.0,
+        "result_case_count": 50
+      }
+    ],
+    "current_code_drift_case_ids": [
+      "P3500-EASY-026"
+    ],
+    "missing_required_stage_fields": 0,
+    "pre_or_final_hash_mismatches": 0,
+    "status": "passed",
+    "stored_final_metric_authoritative": true,
+    "stored_vs_recomputed_final_correctness_mismatches": 1,
+    "verified_case_count": 100,
+    "visible_vs_envelope_answer_mismatches": 0
+  },
+  "expected_terms_full_then_lost": {
+    "by_citation_status": {
+      "degraded": 11,
+      "invalid": 13,
+      "valid": 19
+    },
+    "by_difficulty": {
+      "easy": 15,
+      "medium": 28
+    },
+    "by_primary_attribution": {
+      "generation_or_reasoning_error": 3,
+      "no_observed_semantic_failure": 1,
+      "post_generation_grounding_damage": 39
+    },
+    "by_stage_loss_subtype": {
+      "explicit_extractive_repair": 2,
+      "grounding_failed_to_refusal": 13,
+      "not_stage_loss": 4,
+      "opaque_grounding_rewrite": 7,
+      "table_fact_repair": 1,
+      "unsupported_claim_pruning": 16
+    },
+    "case_ids": [
+      "P3500-EASY-001",
+      "P3500-EASY-002",
+      "P3500-EASY-007",
+      "P3500-EASY-008",
+      "P3500-EASY-009",
+      "P3500-EASY-010",
+      "P3500-EASY-011",
+      "P3500-EASY-017",
+      "P3500-EASY-020",
+      "P3500-EASY-022",
+      "P3500-EASY-029",
+      "P3500-EASY-042",
+      "P3500-EASY-045",
+      "P3500-EASY-048",
+      "P3500-EASY-049",
+      "P3500-MEDIUM-001",
+      "P3500-MEDIUM-004",
+      "P3500-MEDIUM-005",
+      "P3500-MEDIUM-006",
+      "P3500-MEDIUM-008",
+      "P3500-MEDIUM-009",
+      "P3500-MEDIUM-010",
+      "P3500-MEDIUM-011",
+      "P3500-MEDIUM-012",
+      "P3500-MEDIUM-014",
+      "P3500-MEDIUM-016",
+      "P3500-MEDIUM-017",
+      "P3500-MEDIUM-018",
+      "P3500-MEDIUM-028",
+      "P3500-MEDIUM-030",
+      "P3500-MEDIUM-031",
+      "P3500-MEDIUM-033",
+      "P3500-MEDIUM-034",
+      "P3500-MEDIUM-039",
+      "P3500-MEDIUM-040",
+      "P3500-MEDIUM-041",
+      "P3500-MEDIUM-042",
+      "P3500-MEDIUM-043",
+      "P3500-MEDIUM-044",
+      "P3500-MEDIUM-045",
+      "P3500-MEDIUM-047",
+      "P3500-MEDIUM-049",
+      "P3500-MEDIUM-050"
+    ],
+    "count": 43,
+    "definition": "pre expected_term_recall == 1 and final expected_term_recall < 1",
+    "denominator": 100,
+    "percent": 43.0,
+    "rate": 0.43
+  },
+  "freshness_audit": {
+    "app_modified": false,
+    "cases": [
+      {
+        "case_evidence_sha256": "sha256:da2a83b7f4f6d5b37da041c0aced1a9aebd586a84ece3873bf5aec4eb4a87a16",
+        "case_id": "P3500-EASY-011",
+        "evidence_query_coverage": 1.0,
+        "evidence_reasons": [
+          "FRESH_EVIDENCE_REQUIRED"
+        ],
+        "evidence_status": "STALE",
+        "final_answer_sha256": "sha256:2860712f4d3c91c251bf1970e8e5a3faf78d3276abcedba91161061aa6e15cd9",
+        "query": "当前打印机支持的PCL设备字体有多少种？",
+        "recall_at_5": 1.0,
+        "reference_answer": "93种",
+        "temporal_expression": "当前",
+        "temporal_kind": "current"
+      },
+      {
+        "case_evidence_sha256": "sha256:6013c3d7969f19dc1af29382cb811e34eb3ba4a6f2509ff50281ab943050fab2",
+        "case_id": "P3500-MEDIUM-047",
+        "evidence_query_coverage": 1.0,
+        "evidence_reasons": [
+          "FRESH_EVIDENCE_REQUIRED"
+        ],
+        "evidence_status": "STALE",
+        "final_answer_sha256": "sha256:2860712f4d3c91c251bf1970e8e5a3faf78d3276abcedba91161061aa6e15cd9",
+        "query": "在打印机菜单结构中，网络信息下的无线网络信息包含哪些三级菜单项？其中哪个菜单项用于查看当前连接状态？",
+        "recall_at_5": 1.0,
+        "reference_answer": "连接状态、IP地址、子网掩码、网关、信道、SSID；连接状态用于查看当前连接状态。",
+        "temporal_expression": "当前",
+        "temporal_kind": "current"
+      }
+    ],
+    "counterexample_tests": {
+      "must_not_require_external_web": [
+        "当前打印机支持的PCL设备字体有多少种？",
+        "哪个菜单项用于查看当前连接状态？",
+        "该设备当前支持哪些纸张规格？"
+      ],
+      "must_still_require_external_freshness": [
+        "当前最新固件版本是什么？",
+        "今天官网售价是多少？",
+        "截至今天有哪些安全公告？"
+      ]
+    },
+    "freshness_gate_only_block": {
+      "count": 2,
+      "denominator": 100,
+      "percent": 2.0,
+      "rate": 0.02
+    },
+    "minimum_generic_fix": "Represent freshness scope explicitly. Strong external-recency requests (最新/今天/实时/截至) remain external and require fresh web. Product/manual capability or menu semantics using 当前 become authorized_kb_current and are satisfied only by evidence bound to the active published document version; do not simply disable the downstream gate when web is forbidden.",
+    "trigger_chain": [
+      {
+        "finding": "Any occurrence of 当前/最新/目前/现在/... becomes TemporalKind.CURRENT and therefore need_freshness=True.",
+        "lines": [
+          78,
+          344,
+          721
+        ],
+        "path": "app/application/query_understanding_service.py",
+        "symbols": [
+          "_CURRENT_TIME",
+          "_detect_temporal",
+          "QueryPlanner.understand"
+        ]
+      },
+      {
+        "finding": "Every freshness request requires at least one recent web item; active local document versions cannot satisfy it.",
+        "lines": [
+          501,
+          579,
+          580,
+          591
+        ],
+        "path": "app/rag/query/sufficiency_service.py",
+        "symbols": [
+          "_freshness_required",
+          "assess_evidence"
+        ]
+      }
+    ]
+  },
+  "groups": {
+    "easy": {
+      "case_count": 50,
+      "citation_issue_occurrences": {
+        "GROUNDING_FAILED_AFTER_BOUNDED_REPAIR": 7,
+        "NO_RELEVANT_EXTRACTIVE_SENTENCE": 4,
+        "TABLE_FACT_FIELDS_MISSING_FROM_CONTEXT": 2,
+        "UNSUPPORTED_CLAIMS_PRUNED": 8,
+        "UNTRUSTED_CITATIONS_REMOVED": 5
+      },
+      "citation_status": {
+        "degraded": 14,
+        "invalid": 7,
+        "valid": 29
+      },
+      "context_truncated": {
+        "count": 0,
+        "denominator": 50,
+        "percent": 0.0,
+        "rate": 0.0
+      },
+      "final_correct": {
+        "count": 28,
+        "denominator": 50,
+        "percent": 56.0,
+        "rate": 0.56
+      },
+      "flags": {
+        "citation_causal_candidate": {
+          "count": 9,
+          "denominator": 50,
+          "percent": 18.0,
+          "rate": 0.18
+        },
+        "citation_normalization_issue": {
+          "count": 21,
+          "denominator": 50,
+          "percent": 42.0,
+          "rate": 0.42
+        },
+        "expected_terms_full_then_lost": {
+          "count": 15,
+          "denominator": 50,
+          "percent": 30.0,
+          "rate": 0.3
+        },
+        "final_itself_generation_error": {
+          "count": 4,
+          "denominator": 50,
+          "percent": 8.0,
+          "rate": 0.08
+        },
+        "freshness_gate_only_block": {
+          "count": 1,
+          "denominator": 50,
+          "percent": 2.0,
+          "rate": 0.02
+        },
+        "post_generation_damage_candidate": {
+          "count": 18,
+          "denominator": 50,
+          "percent": 36.0,
+          "rate": 0.36
+        },
+        "pre_correct_final_noncorrect": {
+          "count": 18,
+          "denominator": 50,
+          "percent": 36.0,
+          "rate": 0.36
+        },
+        "retrieval_insufficient": {
+          "count": 1,
+          "denominator": 50,
+          "percent": 2.0,
+          "rate": 0.02
+        },
+        "retrieval_label_noise_exposure": {
+          "count": 50,
+          "denominator": 50,
+          "percent": 100.0,
+          "rate": 1.0
+        },
+        "retrieval_low_rank_noise_risk": {
+          "count": 2,
+          "denominator": 50,
+          "percent": 4.0,
+          "rate": 0.04
+        },
+        "severe_truncation_candidate": {
+          "count": 6,
+          "denominator": 50,
+          "percent": 12.0,
+          "rate": 0.12
+        }
+      },
+      "grounding_changed": {
+        "count": 34,
+        "denominator": 50,
+        "percent": 68.0,
+        "rate": 0.68
+      },
+      "label": "easy",
+      "mean_correctness_delta": -0.28637183235867447,
+      "mean_final_correctness": 0.6285576548208127,
+      "mean_pre_correctness": 0.9149294871794872,
+      "numeric_correctness_drop": {
+        "count": 19,
+        "denominator": 50,
+        "percent": 38.0,
+        "rate": 0.38
+      },
+      "official_recall_at_5_full": {
+        "count": 49,
+        "denominator": 50,
+        "percent": 98.0,
+        "rate": 0.98
+      },
+      "pre_correct": {
+        "count": 45,
+        "denominator": 50,
+        "percent": 90.0,
+        "rate": 0.9
+      },
+      "primary_attribution": {
+        "generation_or_reasoning_error": {
+          "count": 4,
+          "denominator": 50,
+          "percent": 8.0,
+          "rate": 0.08
+        },
+        "no_observed_semantic_failure": {
+          "count": 28,
+          "denominator": 50,
+          "percent": 56.0,
+          "rate": 0.56
+        },
+        "post_generation_grounding_damage": {
+          "count": 18,
+          "denominator": 50,
+          "percent": 36.0,
+          "rate": 0.36
+        }
+      },
+      "quality_transitions": {
+        "correct->correct": 27,
+        "correct->incorrect": 11,
+        "correct->partial": 7,
+        "incorrect->correct": 1,
+        "incorrect->incorrect": 2,
+        "partial->incorrect": 1,
+        "partial->partial": 1
+      },
+      "relevant_rank_4_or_worse_or_missing": {
+        "count": 2,
+        "denominator": 50,
+        "percent": 4.0,
+        "rate": 0.04
+      },
+      "relevant_rank_top_1": {
+        "count": 36,
+        "denominator": 50,
+        "percent": 72.0,
+        "rate": 0.72
+      },
+      "stage_loss_subtypes": {
+        "explicit_extractive_repair": {
+          "count": 3,
+          "denominator": 50,
+          "percent": 6.0,
+          "rate": 0.06
+        },
+        "grounding_failed_to_refusal": {
+          "count": 6,
+          "denominator": 50,
+          "percent": 12.0,
+          "rate": 0.12
+        },
+        "opaque_grounding_rewrite": {
+          "count": 5,
+          "denominator": 50,
+          "percent": 10.0,
+          "rate": 0.1
+        },
+        "table_fact_repair": {
+          "count": 1,
+          "denominator": 50,
+          "percent": 2.0,
+          "rate": 0.02
+        },
+        "unsupported_claim_pruning": {
+          "count": 3,
+          "denominator": 50,
+          "percent": 6.0,
+          "rate": 0.06
+        }
+      }
+    },
+    "medium": {
+      "case_count": 50,
+      "citation_issue_occurrences": {
+        "GROUNDING_FAILED_AFTER_BOUNDED_REPAIR": 10,
+        "NON_TEXT_PLACEHOLDER_REMOVED": 1,
+        "NO_RELEVANT_EXTRACTIVE_SENTENCE": 6,
+        "TABLE_FACT_FIELDS_MISSING_FROM_CONTEXT": 3,
+        "UNSUPPORTED_CLAIMS_PRUNED": 32,
+        "UNTRUSTED_CITATIONS_REMOVED": 20
+      },
+      "citation_status": {
+        "degraded": 23,
+        "invalid": 10,
+        "valid": 17
+      },
+      "context_truncated": {
+        "count": 0,
+        "denominator": 50,
+        "percent": 0.0,
+        "rate": 0.0
+      },
+      "final_correct": {
+        "count": 8,
+        "denominator": 50,
+        "percent": 16.0,
+        "rate": 0.16
+      },
+      "flags": {
+        "citation_causal_candidate": {
+          "count": 25,
+          "denominator": 50,
+          "percent": 50.0,
+          "rate": 0.5
+        },
+        "citation_normalization_issue": {
+          "count": 43,
+          "denominator": 50,
+          "percent": 86.0,
+          "rate": 0.86
+        },
+        "expected_terms_full_then_lost": {
+          "count": 28,
+          "denominator": 50,
+          "percent": 56.0,
+          "rate": 0.56
+        },
+        "final_itself_generation_error": {
+          "count": 15,
+          "denominator": 50,
+          "percent": 30.0,
+          "rate": 0.3
+        },
+        "freshness_gate_only_block": {
+          "count": 1,
+          "denominator": 50,
+          "percent": 2.0,
+          "rate": 0.02
+        },
+        "post_generation_damage_candidate": {
+          "count": 27,
+          "denominator": 50,
+          "percent": 54.0,
+          "rate": 0.54
+        },
+        "pre_correct_final_noncorrect": {
+          "count": 27,
+          "denominator": 50,
+          "percent": 54.0,
+          "rate": 0.54
+        },
+        "retrieval_insufficient": {
+          "count": 0,
+          "denominator": 50,
+          "percent": 0.0,
+          "rate": 0.0
+        },
+        "retrieval_label_noise_exposure": {
+          "count": 50,
+          "denominator": 50,
+          "percent": 100.0,
+          "rate": 1.0
+        },
+        "retrieval_low_rank_noise_risk": {
+          "count": 5,
+          "denominator": 50,
+          "percent": 10.0,
+          "rate": 0.1
+        },
+        "severe_truncation_candidate": {
+          "count": 19,
+          "denominator": 50,
+          "percent": 38.0,
+          "rate": 0.38
+        }
+      },
+      "grounding_changed": {
+        "count": 48,
+        "denominator": 50,
+        "percent": 96.0,
+        "rate": 0.96
+      },
+      "label": "medium",
+      "mean_correctness_delta": -0.4225738968650037,
+      "mean_final_correctness": 0.30517176591623785,
+      "mean_pre_correctness": 0.7277456627812415,
+      "numeric_correctness_drop": {
+        "count": 32,
+        "denominator": 50,
+        "percent": 64.0,
+        "rate": 0.64
+      },
+      "official_recall_at_5_full": {
+        "count": 50,
+        "denominator": 50,
+        "percent": 100.0,
+        "rate": 1.0
+      },
+      "pre_correct": {
+        "count": 35,
+        "denominator": 50,
+        "percent": 70.0,
+        "rate": 0.7
+      },
+      "primary_attribution": {
+        "generation_or_reasoning_error": {
+          "count": 13,
+          "denominator": 50,
+          "percent": 26.0,
+          "rate": 0.26
+        },
+        "no_observed_semantic_failure": {
+          "count": 8,
+          "denominator": 50,
+          "percent": 16.0,
+          "rate": 0.16
+        },
+        "post_generation_grounding_damage": {
+          "count": 27,
+          "denominator": 50,
+          "percent": 54.0,
+          "rate": 0.54
+        },
+        "retrieval_noise_likely": {
+          "count": 2,
+          "denominator": 50,
+          "percent": 4.0,
+          "rate": 0.04
+        }
+      },
+      "quality_transitions": {
+        "correct->correct": 8,
+        "correct->incorrect": 13,
+        "correct->partial": 14,
+        "incorrect->incorrect": 10,
+        "incorrect->partial": 1,
+        "partial->incorrect": 2,
+        "partial->partial": 2
+      },
+      "relevant_rank_4_or_worse_or_missing": {
+        "count": 5,
+        "denominator": 50,
+        "percent": 10.0,
+        "rate": 0.1
+      },
+      "relevant_rank_top_1": {
+        "count": 29,
+        "denominator": 50,
+        "percent": 58.0,
+        "rate": 0.58
+      },
+      "stage_loss_subtypes": {
+        "grounding_failed_to_refusal": {
+          "count": 8,
+          "denominator": 50,
+          "percent": 16.0,
+          "rate": 0.16
+        },
+        "opaque_grounding_rewrite": {
+          "count": 2,
+          "denominator": 50,
+          "percent": 4.0,
+          "rate": 0.04
+        },
+        "unsupported_claim_pruning": {
+          "count": 17,
+          "denominator": 50,
+          "percent": 34.0,
+          "rate": 0.34
+        }
+      }
+    },
+    "overall": {
+      "case_count": 100,
+      "citation_issue_occurrences": {
+        "GROUNDING_FAILED_AFTER_BOUNDED_REPAIR": 17,
+        "NON_TEXT_PLACEHOLDER_REMOVED": 1,
+        "NO_RELEVANT_EXTRACTIVE_SENTENCE": 10,
+        "TABLE_FACT_FIELDS_MISSING_FROM_CONTEXT": 5,
+        "UNSUPPORTED_CLAIMS_PRUNED": 40,
+        "UNTRUSTED_CITATIONS_REMOVED": 25
+      },
+      "citation_status": {
+        "degraded": 37,
+        "invalid": 17,
+        "valid": 46
+      },
+      "context_truncated": {
+        "count": 0,
+        "denominator": 100,
+        "percent": 0.0,
+        "rate": 0.0
+      },
+      "final_correct": {
+        "count": 36,
+        "denominator": 100,
+        "percent": 36.0,
+        "rate": 0.36
+      },
+      "flags": {
+        "citation_causal_candidate": {
+          "count": 34,
+          "denominator": 100,
+          "percent": 34.0,
+          "rate": 0.34
+        },
+        "citation_normalization_issue": {
+          "count": 64,
+          "denominator": 100,
+          "percent": 64.0,
+          "rate": 0.64
+        },
+        "expected_terms_full_then_lost": {
+          "count": 43,
+          "denominator": 100,
+          "percent": 43.0,
+          "rate": 0.43
+        },
+        "final_itself_generation_error": {
+          "count": 19,
+          "denominator": 100,
+          "percent": 19.0,
+          "rate": 0.19
+        },
+        "freshness_gate_only_block": {
+          "count": 2,
+          "denominator": 100,
+          "percent": 2.0,
+          "rate": 0.02
+        },
+        "post_generation_damage_candidate": {
+          "count": 45,
+          "denominator": 100,
+          "percent": 45.0,
+          "rate": 0.45
+        },
+        "pre_correct_final_noncorrect": {
+          "count": 45,
+          "denominator": 100,
+          "percent": 45.0,
+          "rate": 0.45
+        },
+        "retrieval_insufficient": {
+          "count": 1,
+          "denominator": 100,
+          "percent": 1.0,
+          "rate": 0.01
+        },
+        "retrieval_label_noise_exposure": {
+          "count": 100,
+          "denominator": 100,
+          "percent": 100.0,
+          "rate": 1.0
+        },
+        "retrieval_low_rank_noise_risk": {
+          "count": 7,
+          "denominator": 100,
+          "percent": 7.0,
+          "rate": 0.07
+        },
+        "severe_truncation_candidate": {
+          "count": 25,
+          "denominator": 100,
+          "percent": 25.0,
+          "rate": 0.25
+        }
+      },
+      "grounding_changed": {
+        "count": 82,
+        "denominator": 100,
+        "percent": 82.0,
+        "rate": 0.82
+      },
+      "label": "overall",
+      "mean_correctness_delta": -0.3544728646118391,
+      "mean_final_correctness": 0.4668647103685253,
+      "mean_pre_correctness": 0.8213375749803643,
+      "numeric_correctness_drop": {
+        "count": 51,
+        "denominator": 100,
+        "percent": 51.0,
+        "rate": 0.51
+      },
+      "official_recall_at_5_full": {
+        "count": 99,
+        "denominator": 100,
+        "percent": 99.0,
+        "rate": 0.99
+      },
+      "pre_correct": {
+        "count": 80,
+        "denominator": 100,
+        "percent": 80.0,
+        "rate": 0.8
+      },
+      "primary_attribution": {
+        "generation_or_reasoning_error": {
+          "count": 17,
+          "denominator": 100,
+          "percent": 17.0,
+          "rate": 0.17
+        },
+        "no_observed_semantic_failure": {
+          "count": 36,
+          "denominator": 100,
+          "percent": 36.0,
+          "rate": 0.36
+        },
+        "post_generation_grounding_damage": {
+          "count": 45,
+          "denominator": 100,
+          "percent": 45.0,
+          "rate": 0.45
+        },
+        "retrieval_noise_likely": {
+          "count": 2,
+          "denominator": 100,
+          "percent": 2.0,
+          "rate": 0.02
+        }
+      },
+      "quality_transitions": {
+        "correct->correct": 35,
+        "correct->incorrect": 24,
+        "correct->partial": 21,
+        "incorrect->correct": 1,
+        "incorrect->incorrect": 12,
+        "incorrect->partial": 1,
+        "partial->incorrect": 3,
+        "partial->partial": 3
+      },
+      "relevant_rank_4_or_worse_or_missing": {
+        "count": 7,
+        "denominator": 100,
+        "percent": 7.0,
+        "rate": 0.07
+      },
+      "relevant_rank_top_1": {
+        "count": 65,
+        "denominator": 100,
+        "percent": 65.0,
+        "rate": 0.65
+      },
+      "stage_loss_subtypes": {
+        "explicit_extractive_repair": {
+          "count": 3,
+          "denominator": 100,
+          "percent": 3.0,
+          "rate": 0.03
+        },
+        "grounding_failed_to_refusal": {
+          "count": 14,
+          "denominator": 100,
+          "percent": 14.0,
+          "rate": 0.14
+        },
+        "opaque_grounding_rewrite": {
+          "count": 7,
+          "denominator": 100,
+          "percent": 7.0,
+          "rate": 0.07
+        },
+        "table_fact_repair": {
+          "count": 1,
+          "denominator": 100,
+          "percent": 1.0,
+          "rate": 0.01
+        },
+        "unsupported_claim_pruning": {
+          "count": 20,
+          "denominator": 100,
+          "percent": 20.0,
+          "rate": 0.2
+        }
+      }
+    }
+  },
+  "high_frequency_pattern_count": 11,
+  "llm_calls": 0,
+  "metric_definition": {
+    "caveat": "This deterministic expected-term/reference proxy is not a substitute for blinded semantic review.",
+    "code_drift_policy": "Current-code final recomputation is sensitivity-only and never overrides the archived run-time final metric.",
+    "correct": "correctness >= 0.8",
+    "correct_threshold": 0.8,
+    "final_implementation": "archived record.metrics.metrics.generation.correctness (run-time authoritative)",
+    "incorrect": "correctness == 0",
+    "partial": "0 < correctness < 0.8",
+    "pre_implementation": "current app.evaluation.metrics._generation_metrics applied to archived pre-grounding text",
+    "severe_truncation_candidate": "stage loss, final character count <= 50% of pre, and removed_character_count > 0",
+    "stage_loss": "pre quality is correct and final quality is partial or incorrect"
+  },
+  "run_index": {
+    "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/runs/live-candidate-v2-qwen-plus-01/run-index.json",
+    "sha256": "6ee98ede72e8917524e87b3f10dee1ebc68830f04e5e47eae20d4fa79554f4f1"
+  },
+  "run_label": "live-candidate-v2-qwen-plus-01",
+  "schema_version": "stt.eval.candidate-diagnostics-summary.v1",
+  "source_files": [
+    {
+      "case_count": 50,
+      "dataset_schema": "stt.eval.v1",
+      "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/easy.json",
+      "role": "easy_dataset",
+      "sha256": "1a3cacbb59b3aa7f354a569f828ad6214351f07cd3d0923a798e98cc33c41b2a"
+    },
+    {
+      "case_count": 50,
+      "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/runs/live-candidate-v2-qwen-plus-01/artifacts/easy/erun_7f43e81f07a441fe996c2297f7b897c3/results.jsonl",
+      "role": "easy_results",
+      "run_id": "erun_7f43e81f07a441fe996c2297f7b897c3",
+      "sha256": "630b52934ad55bf8cc0d3ace8d0ce633a84a4b3b22cb3101c070201ae0ab92c3"
+    },
+    {
+      "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/runs/live-candidate-v2-qwen-plus-01/artifacts/easy/erun_7f43e81f07a441fe996c2297f7b897c3/artifact-copy-manifest.json",
+      "role": "easy_artifact_copy_manifest",
+      "sha256": "fc792d9be6b339826ea93ac847023eb108f2b68f20e5d1cc8a09ea05042a869a"
+    },
+    {
+      "case_count": 50,
+      "dataset_schema": "stt.eval.v1",
+      "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/datasets/medium.json",
+      "role": "medium_dataset",
+      "sha256": "89c570d10282342fd7facec9bd7d20af61337b5ecaef0038157ed824c25c0369"
+    },
+    {
+      "case_count": 50,
+      "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/runs/live-candidate-v2-qwen-plus-01/artifacts/medium/erun_6954a0e895a74f4eb7052416996a4a2b/results.jsonl",
+      "role": "medium_results",
+      "run_id": "erun_6954a0e895a74f4eb7052416996a4a2b",
+      "sha256": "80c447e8aad99a51fda79d23fb39a4aa63d28e770b402bd8b8bcde83615bf2e1"
+    },
+    {
+      "path": "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/runs/live-candidate-v2-qwen-plus-01/artifacts/medium/erun_6954a0e895a74f4eb7052416996a4a2b/artifact-copy-manifest.json",
+      "role": "medium_artifact_copy_manifest",
+      "sha256": "e4c65eedfdfc824ba35e02c3247c969f197bda0d9ffd6343fb1154edcf08405d"
+    }
+  ],
+  "source_snapshot_at": "2026-08-10T07:55:56.532340+00:00"
+}

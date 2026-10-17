@@ -1,0 +1,57 @@
+{
+  "status": "incomplete_stopped_on_failure",
+  "runner_version": "2.32.0-v229-formal-ledger-strict-scalars",
+  "prompt_sha256": "d5af42cbcf5385c408583c4ed36b110ac89740be24d83248fafb58681d04a78b",
+  "prepared_case_calls": 15,
+  "already_completed_case_calls": 10,
+  "remaining_case_calls": 9,
+  "original_150_review_complete": true,
+  "superseded_review_reused": false,
+  "execution_contract_sha256": "60694067e286a704a7644e70c63786c0c062e44be27373b8b79927dfc9ba9414",
+  "materialization_adoption": {
+    "policy": "post150-formal-materialization-adoption-v1",
+    "materializer_fresh_retry_quota": 1,
+    "global_fresh_retry_quota": 1,
+    "global_fresh_retry_consumed_count": 1,
+    "global_fresh_retry_episode_ids": [
+      "post150-materialization-a03d8138b7570bc067a084c6"
+    ],
+    "stream_receipt_authority": {
+      "policy": "post150-formal-stream-content-diagnostics-non-authoritative-v1",
+      "content_sha256_authoritative": false,
+      "content_chars_authoritative": false,
+      "event_counts_authoritative": false,
+      "semantic_authority": "response_sha256_recomputed_from_review_plus_exact_core_payload_canonicalization_materializer_and_reducer_replay"
+    },
+    "adopted_episode_count": 1,
+    "adopted_custom_ids": [
+      "concept-review-8f4066c9d919364718f5"
+    ],
+    "adopted_episodes": {
+      "concept-review-8f4066c9d919364718f5": {
+        "episode_id": "post150-materialization-a03d8138b7570bc067a084c6",
+        "source_success_sha256": "dce89bf86f221bdc42e59da40f6bcf440294691a22d49e85328d1bd61befd46d",
+        "invalidation_sha256": "87c8450e1844c7f947c9b2ebc6dd4662fcb76fe8231820773d8ff769dcbaa0a2",
+        "retry_started_sha256": "840986b9c4c8b6f7484d76308ca07184b420f8d89f87aa8c1f31fe4ed7759470",
+        "fresh_success_sha256": "8ffe11306314a85d829d7be6e771cdfc7a8963fea3be0865e81fa2dd4fc5b158",
+        "fresh_retry_quota": 1,
+        "global_fresh_retry_quota": 1,
+        "stream_receipt_policy": "post150-formal-stream-content-diagnostics-non-authoritative-v1",
+        "stream_content_sha256_authoritative": false,
+        "policy": "post150-formal-materialization-adoption-v1"
+      }
+    },
+    "retry_eligible_count": 0,
+    "retry_eligible_custom_ids": [],
+    "invalidated_pending_count": 0,
+    "invalidated_pending_receipt_sha256_by_id": {},
+    "retry_started_in_doubt_count": 0,
+    "retry_started_receipt_sha256_by_id": {},
+    "terminal_episode_count": 0,
+    "terminal_outcome_sha256_by_id": {}
+  },
+  "failed_custom_ids": [
+    "concept-review-14ed6e92ece7b780068d"
+  ],
+  "completed_at": "2026-08-12T09:17:37.289702+00:00"
+}

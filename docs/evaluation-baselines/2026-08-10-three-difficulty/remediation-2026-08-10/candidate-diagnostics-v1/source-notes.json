@@ -1,0 +1,57 @@
+{
+  "chart_map": [
+    {
+      "chart_id": "primary_attribution",
+      "denominator": 100,
+      "legend": "hidden because the chart has one series",
+      "question": "最终语义失败最常发生在哪个阶段？",
+      "rationale": "Exact comparison of a small number of mutually exclusive categories.",
+      "sort": "case_count descending",
+      "type": "horizontalBar",
+      "x": "mutually exclusive primary attribution",
+      "y": "case_count",
+      "zero_baseline": true
+    }
+  ],
+  "data_quality_gate": {
+    "checks": [
+      {
+        "dataset_case_count": 50,
+        "difficulty": "easy",
+        "hashes_verified": true,
+        "join_coverage": 1.0,
+        "result_case_count": 50
+      },
+      {
+        "dataset_case_count": 50,
+        "difficulty": "medium",
+        "hashes_verified": true,
+        "join_coverage": 1.0,
+        "result_case_count": 50
+      }
+    ],
+    "current_code_drift_case_ids": [
+      "P3500-EASY-026"
+    ],
+    "missing_required_stage_fields": 0,
+    "pre_or_final_hash_mismatches": 0,
+    "status": "passed",
+    "stored_final_metric_authoritative": true,
+    "stored_vs_recomputed_final_correctness_mismatches": 1,
+    "verified_case_count": 100,
+    "visible_vs_envelope_answer_mismatches": 0
+  },
+  "portable_html_qa": {
+    "browser_verification": "structural_only",
+    "canonical_artifact_validation": "passed",
+    "content_mitigation": "Wide report tables were removed; all exact case data remains in JSON/CSV. The self-contained report retains semantic chart fallback data.",
+    "limitation": "Installed Windows Chromium engines render the packaged reader, but the shared full-bleed top bar plus a traditional vertical scrollbar creates an 8px document-width overflow (measured clientWidth=1409, scrollWidth=1417). This is a packaging-reader layout issue, not an analytical data overflow."
+  },
+  "quantitative_sections_without_additional_charts": {
+    "difficulty_breakdown": "The two difficulty comparisons are stated directly; exact fields remain in summary.json.",
+    "examples": "Case-level answer previews and audit hashes require exact lookup and remain in cases.json/cases.csv rather than a wide report table.",
+    "high_frequency_patterns": "Patterns overlap, so another partition-like chart would be misleading; definitions and case IDs remain in high-frequency-patterns.json."
+  },
+  "report_surface": "portable self-contained HTML",
+  "schema_version": "stt.eval.candidate-diagnostic-source-notes.v1"
+}

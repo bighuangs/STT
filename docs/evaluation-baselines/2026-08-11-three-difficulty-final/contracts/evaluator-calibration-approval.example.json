@@ -1,0 +1,74 @@
+{
+  "schema_version": "stt.eval.evaluator-calibration-approval.v1",
+  "status": "approved",
+  "approved": true,
+  "suite_key": "three-difficulty-live-2026-08-11-reviewed-v2",
+  "case_contract": "stt.eval.case.v3",
+  "code_revision": "<exact-run-index-code-revision>",
+  "split": {
+    "algorithm": "sha256-suite-difficulty-case-v1",
+    "calibration_fraction": 0.5,
+    "calibration_case_count": "<recomputed-integer>",
+    "calibration_case_keys_sha256": "<64-lowercase-hex>",
+    "holdout_case_count": "<recomputed-integer>",
+    "holdout_case_keys_sha256": "<64-lowercase-hex>"
+  },
+  "metrics": {
+    "calibration": {
+      "case_count": "<recomputed-integer>",
+      "agreement_count": "<recomputed-integer>",
+      "agreement_rate": "<recomputed-number>",
+      "true_positive_count": "<recomputed-integer>",
+      "true_negative_count": "<recomputed-integer>",
+      "false_positive_count": "<recomputed-integer>",
+      "false_negative_count": "<recomputed-integer>"
+    },
+    "holdout": {
+      "case_count": "<recomputed-integer>",
+      "agreement_count": "<recomputed-integer>",
+      "agreement_rate": "<recomputed-number>",
+      "true_positive_count": "<recomputed-integer>",
+      "true_negative_count": "<recomputed-integer>",
+      "false_positive_count": "<recomputed-integer>",
+      "false_negative_count": "<recomputed-integer>"
+    },
+    "overall": {
+      "case_count": 150,
+      "agreement_count": "<recomputed-integer>",
+      "agreement_rate": "<recomputed-number>",
+      "true_positive_count": "<recomputed-integer>",
+      "true_negative_count": "<recomputed-integer>",
+      "false_positive_count": "<recomputed-integer>",
+      "false_negative_count": "<recomputed-integer>"
+    }
+  },
+  "acceptance_policy": {
+    "minimum_calibration_agreement_rate": 0.8,
+    "minimum_holdout_agreement_rate": 0.8,
+    "maximum_confirmed_evaluator_errors": 0,
+    "all_disagreements_require_adjudication": true
+  },
+  "source_receipts": {
+    "run_index": {
+      "path": "runs/<candidate-label>/run-index.json",
+      "sha256": "<64-lowercase-hex>"
+    },
+    "blind_summary": {
+      "path": "semantic-reviews/<candidate-label>/<iteration>/final/summary.json",
+      "sha256": "<64-lowercase-hex>"
+    },
+    "blind_records": {
+      "path": "semantic-reviews/<candidate-label>/<iteration>/final/semantic-correctness-review.jsonl",
+      "sha256": "<64-lowercase-hex>"
+    }
+  },
+  "adjudications": [
+    {
+      "case_key": "easy:<case-id-with-a-disagreement>",
+      "path": "certification/adjudications/easy-<case-id>.json",
+      "sha256": "<64-lowercase-hex>"
+    }
+  ],
+  "unresolved_disagreement_count": 0,
+  "confirmed_evaluator_error_count": 0
+}

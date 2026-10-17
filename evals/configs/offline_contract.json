@@ -1,0 +1,11 @@
+{
+  "schema_version": "stt.eval.harness-config.v1",
+  "config_id": "offline-contract-v1",
+  "target_id": "injected-static-target",
+  "dataset_id": "hak180-safety@1.0.0",
+  "scenario_id": "static-contract",
+  "graders": ["observation_contract"],
+  "failure_policy": "fail_fast",
+  "formal_evaluation": false
+}
+

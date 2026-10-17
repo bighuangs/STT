@@ -1,0 +1,126 @@
+schema_version: "1.0.0"
+evaluation:
+  evaluation_id: "hak180-live-e2e-iteration-1-20260815"
+  version: "1.0.0"
+  owner: "STT evaluation"
+  status: "completed_with_failed_gate"
+  mode: "live"
+  question: "中档迭代方案在 HAK180 新评测合同下建立的 root baseline 表现如何？"
+  decision_rule: "只记录实际完成的 root baseline；不得用旧协议运行做 formal paired gate，也不得在本授权下自动追加迭代。"
+  created_at: "2026-08-15"
+authorization:
+  method_selection: "user_selected"
+  implementation: true
+  evaluation_execution: true
+  iteration_scope: "one_cycle_only"
+  authorization_evidence: "2026-08-15 用户明确表示‘批准进行迭代修复’，承接此前推荐的中档方案。"
+  continuous_iteration: false
+target:
+  application_version: "source-sha256:e1f473c59aaa1d2ca45bdf8c1d05721d639cb5676340780de51dc2b950449a01"
+  git_commit: "d1a4192dd5eb9da9a8601644521c6876a7bec959"
+  post_run_manifest_fix_source_sha256: "dcd565f4b81128a74e2a248071319d93891c08c24e6fb4d8c2848d894b2b8471"
+  post_run_manifest_fix_online_validated: false
+  environment: "local-dev-online-provider; dirty-worktree"
+  knowledge_base_id: "kb_5b90254dd5a24565b347c63ba56ce69d"
+  knowledge_base_version: "dv_96c2404854b64e9497cee18bca109b97"
+  index_version: "idx_08abedf9eecc4f488528f57b318eeeed"
+  retrieval_profile: "rpf_default@2"
+  generator: "qwen3.7-max via configured DashScope-compatible endpoint"
+dataset:
+  registry_id: "hak180-safety@1.1.0"
+  dataset_version: "1.1.0"
+  registry_asset_sha256: "fb54b8c8704f3606669b7d5ea88fcb73cce83666131201eaf79dee8f6e5c0a70"
+  imported_dataset_id: "eds_2d4db4e2d18ae07694d7c25a96c726fb"
+  imported_checksum: "d4351c234e9a832463f687bb1b9bc9c69079ab426bc4ad9ed42439f1bc77cba1"
+  case_policy: "stt.eval.case.v3"
+  security_contract: "stt.eval.security.v1"
+  expected_case_count: 28
+  splits: ["test"]
+systems:
+  root_baseline:
+    system_id: "stt-hak180-iteration-1"
+    run_id: "erun_ed23dbc347734ff0af638bd1c24966ca"
+    status: "succeeded"
+  paired_candidate: null
+historical_evidence:
+  - run_id: "erun_bc92de08decd43f990b3c61041798fe9"
+    dataset: "hak180-safety@1.0.0"
+    case_policy: "stt.eval.case.v2"
+    use: "failure attribution and offline historical evidence only"
+    formal_paired_gate_eligible: false
+experimental_control:
+  changed_variables:
+    - "dataset/evaluator contract: hak180-safety@1.1.0 plus stt.eval.case.v3 and stt.eval.security.v1"
+    - "polarity-aware forbidden terms, explicit abstention and security metrics"
+    - "typed and sanitized security observation with stricter case/KB sensitivity"
+    - "bounded provider retry under logical deadline"
+    - "citation/grounding projection and structured insufficient-evidence abstention"
+    - "answer prompt normative opening constraint"
+  held_constants:
+    - "HAK180 manual fact scope"
+    - "KB, document version and active index"
+    - "rpf_default@2"
+    - "qwen3.7-max"
+    - "Web and HyDE disabled in evaluation adapter"
+    - "one visible result per Case, including failures"
+  repetitions: 1
+  concurrency: 1
+  cache_policy: "unique evaluation session per run/case; provider cache status unknown"
+  timeout_seconds: 7200
+  pairing_policy: "new protocol establishes a root baseline first; no formal paired comparison in this run"
+metrics:
+  retrieval: ["hit_at_k", "recall_at_k", "mrr_at_k", "ndcg_at_k"]
+  generation: ["final_answer_accuracy", "faithfulness", "completeness"]
+  citation: ["citation_precision", "citation_recall", "citation_coverage"]
+  abstention: ["contract_correct"]
+  safety: ["security_expectation_pass", "no_retrieval_side_effect", "no_external_llm_side_effect", "no_canary_leak"]
+  end_to_end: ["case_pass_rate", "runtime_error_rate", "latency_ms"]
+scoring:
+  thresholds_source: "hak180-safety@1.1.0 gate_policy"
+  missing_result_policy: "fail_visible"
+  guardrail_override_forbidden: true
+judge:
+  enabled: false
+  acceptance_rule: "No uncalibrated LLM-as-a-Judge is used as a release gate."
+privacy:
+  redaction_policy: "Credential values, raw blocked input and hidden reasoning are excluded from durable artifacts."
+  external_data_policy: "Only the configured LLM provider is allowed; Web and Phoenix writes remain disabled."
+artifacts:
+  durable_directory: "docs/experiment/hak180-online-e2e-iteration-1/"
+  runtime_directory: "var/evals/erun_ed23dbc347734ff0af638bd1c24966ca/"
+  large_table_format: "jsonl"
+  integrity:
+    manifest_json: "d05ffc9f558a00d7117ad1c4ca8fb0f9ab6e286e66ff244a0ee0528e83c480e0"
+    report_html: "e75844c55aecf8551dd207214899727feb6ba878329300598114af0d7563062e"
+    report_json: "8190ad3926b2328aeaeb3e1279513a398f3f6e09882752bc821fe8f3478d8db0"
+    report_markdown: "04bbd78d84946da44c9d0c0333d158681433f7112c8a963d4e4604d6d0231449"
+    results_jsonl: "b471befb6554825b9df1c69cd4e7bc945445876293edd0fc42ef868924c87832"
+    summary_json: "ea49ff2ffe38d666db7b07524ee09443c6f2a7b465d71145fe63bb100f5f3741"
+results:
+  run_id: "erun_ed23dbc347734ff0af638bd1c24966ca"
+  run_status: "succeeded"
+  started_at_utc: "2026-08-15T02:16:30.719747+00:00"
+  completed_at_utc: "2026-08-15T02:23:52.838766+00:00"
+  completed_cases: 28
+  total_cases: 28
+  execution_error_count: 0
+  strict_passed_cases: 8
+  strict_pass_rate: 0.2857142857142857
+  non_security_final_answer_correct: 12
+  non_security_final_answer_eligible: 27
+  safety_passed_cases: 1
+  safety_eligible_cases: 1
+  critical_failed_cases: 16
+  safety_failed_cases: 0
+  gate_status: "baseline_recorded_with_failures"
+  gate_passed: false
+  report_ref: "var/evals/erun_ed23dbc347734ff0af638bd1c24966ca/report.md"
+  vector_read_set_digest: "sha256:c72facd7755c8638d68951449e5c0fa6f33cb2268e3359fb11be6220154fe931"
+limitations:
+  - "旧 v1 运行与新 v3 合同不构成 formal paired gate。"
+  - "本轮先建立 root baseline，不宣称相对提升。"
+  - "仅执行一次 repetition，尚无同协议 paired Candidate。"
+  - "minimum_metric_coverage 仍是未执行的配置；cost coverage 为 0/28，不得解释为零成本。"
+  - "Phoenix 未启用；本次没有外部 trace export。"
+  - "原始 manifest 在 complete_run 前生成，终态字段陈旧；DB 与 report.json 顶层 gate 为最终权威，代码已修复但未追加在线运行。"
+  - "本地 reranker 曾报告 521 tokens 超过 512 上限的警告；本次未产生 execution error，但仍需单独验证截断合同。"

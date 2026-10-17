@@ -1,0 +1,91 @@
+schema_version: "1.0"
+experiment_id: "hak180-live-e2e-20260814"
+feature_id: "hak180-online-e2e"
+title: "HAK180 在线端到端 RAG 评测"
+owner: "STT evaluation"
+status: "completed"
+phase: "evaluated"
+created_at: "2026-08-14"
+updated_at: "2026-08-14"
+scope:
+  repository_root: "D:/Learning/agent/STT"
+  code_refs:
+    - "app/application/evaluation_service.py"
+    - "app/infrastructure/evaluation/query_targets.py"
+    - "app/runtime/graphs.py"
+  non_goals:
+    - "产品实现修改"
+    - "Web 搜索"
+    - "Phoenix 发布或 Experiment"
+    - "自动迭代"
+authorization:
+  method_selection:
+    value: "user_selected"
+    evidence_ref: "user-message:2026-08-14"
+    scope: "hak180_live_evaluation"
+  implementation:
+    value: false
+    evidence_ref: "user-request-is-evaluation-only"
+    scope: "product_code"
+  evaluation_execution:
+    value: true
+    evidence_ref: "user-message:2026-08-14"
+    scope: "one_frozen_hak180_online_run"
+  iteration:
+    value: "manual"
+    evidence_ref: null
+    scope: "future_iterations"
+project_snapshot:
+  code_version: "head:d1a4192dd5eb9da9a8601644521c6876a7bec959;source-sha256:a21a2defb8391292f6c7d8a3c70f8a63401ec62fe32a340384ea270ac7ae8dda"
+  worktree_dirty: true
+  config_version: "cfg_a6d7f6c9b18341cb"
+  dependency_lock_hash: "sha256:7d4c3b82e9fd2cc7385d9528507f6a20ee190a60eb85c38160ffcbdc6ec4c926"
+research:
+  source_ledger: "source-ledger.csv"
+  coverage_status: "saturated_for_scope"
+  accessed_at: "2026-08-14"
+decision:
+  method_comparison: null
+  selected_method_id: "stt-current-live-query-graph"
+  decision_status: "approved"
+  decision_evidence_ref: "user-message:2026-08-14"
+evaluation:
+  manifest_ref: "evaluation-manifest.yaml"
+  dataset_refs:
+    - "dataset-manifest.yaml"
+  result_refs:
+    - "rag-evaluation-report.md"
+    - "var/evals/erun_bc92de08decd43f990b3c61041798fe9/summary.json"
+    - "var/evals/erun_bc92de08decd43f990b3c61041798fe9/report.json"
+  error_cases_ref: "var/evals/erun_bc92de08decd43f990b3c61041798fe9/results.jsonl"
+  run_id: "erun_bc92de08decd43f990b3c61041798fe9"
+  run_status: "succeeded"
+  gate_status: "baseline_recorded_with_failures"
+  gate_passed: false
+  strict_passed_cases: 7
+  strict_failed_cases: 21
+  execution_error_cases: 2
+artifacts:
+  - path: "var/evals/erun_bc92de08decd43f990b3c61041798fe9/report.json"
+    sha256: "29c4f360d35a6e53a7c73f5e21c8d95ffa1fcfe328cdb512117bcc907c323651"
+  - path: "var/evals/erun_bc92de08decd43f990b3c61041798fe9/summary.json"
+    sha256: "818f9ba8593f47d17cd00643593617818db8bfb7c9384bbef0ca4b95b651a7ce"
+  - path: "var/evals/erun_bc92de08decd43f990b3c61041798fe9/results.jsonl"
+    sha256: "c684419931b57d4c79d9dde548132d5966b5d638288bfb3580daa41c9749e09e"
+budgets:
+  time_seconds: 7200
+  token_count: null
+  tool_calls: null
+  cost_currency: "CNY"
+  cost_limit: null
+data_governance:
+  classification: "internal"
+  contains_personal_data: false
+  contains_secrets: false
+  retention_policy: "project evaluation retention; runtime artifacts remain git-ignored"
+open_questions:
+  - "Graph-wide token telemetry and provider pricing snapshot are unavailable."
+  - "Phoenix is disabled, so no external trace dashboard will be produced."
+  - "Evaluator false-negative candidates require human calibration before system optimization."
+  - "The next candidate and intervention require a separate user iteration decision."
+supersedes: null

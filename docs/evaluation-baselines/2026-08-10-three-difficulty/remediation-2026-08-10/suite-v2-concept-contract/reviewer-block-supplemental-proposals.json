@@ -1,0 +1,107 @@
+{
+  "schema_version": "stt.eval.suite-v2-reviewer-block-remediation-proposal.v1",
+  "authoring_policy": {
+    "trigger": "uniform full-suite reviewer returned an evidence-backed block",
+    "production_answers_read": false,
+    "production_run_labels_read": false,
+    "index_rebuild_required": false,
+    "evidence_refresh_required": false,
+    "superseded_review_must_not_be_reused": true
+  },
+  "proposals": [
+    {
+      "case_id": "P3500-EASY-031",
+      "difficulty": "easy",
+      "disposition": "semantic_replacement",
+      "blocker_reason": "问题要求按钮标识，但reference和活动证据的图标位置均为空，无法确定按钮名称。改问同一证据中完整可见的手动添加路径。",
+      "source_review_verdict": "block",
+      "source_review_reason": "critical button identifier absent from both reference and evidence text",
+      "audit": {
+        "original_case_sha256": "d1d43d2bdf1892f7b2c5ec35fd9512f5d1562215e4fb15ec492ec5a2ea1529dd",
+        "proposed_case_sha256": "3dae9f63c282a576adc3f58688dc75c3662c2c17c00793944e29f3e23ae307c4"
+      },
+      "proposed_case": {
+        "case_id": "P3500-EASY-031",
+        "query": "设置电子邮件通知时，除了从联系人列表选择，还可以如何手动添加收件人邮件地址？",
+        "conversation": [],
+        "reference_answer": "勾选“地址X”（如地址1），手动输入希望添加的收件人邮件地址。",
+        "unanswerable": false,
+        "expected_terms": ["勾选“地址X”", "手动输入收件人邮件地址"],
+        "forbidden_terms": [],
+        "relevant_document_ids": ["doc_9353bf25fcfa4991a8a0425713a3c9f1"],
+        "relevant_document_names": ["source.pdf"],
+        "relevant_chunk_ids": ["chk_5ab108aac39b921838a5118483ed445d"],
+        "relevant_evidence": [
+          {
+            "evidence_id": "ev_fecf19bc8f234ec75ed379efd654006cd036fad5",
+            "chunk_id": "chk_5ab108aac39b921838a5118483ed445d",
+            "page": 50,
+            "text": "标题路径：前言 > 三.设置电子邮件通知\n\n1.点击“设置”－“机器设置”－“电子邮件通知”。\n\n2.点击 按钮，在弹出的联系人列表里，选择您希望添加的邮件地址。\n\n您也可以勾选“地址X”（如地址1），手动输入您希望添加的收件人邮件地址。\n\n3.勾选您希望通知的邮件地址和通知的内容，点击“应用”。",
+            "match_terms": ["点击 按钮"],
+            "content_hash": "sha256:30afdaf8068a7fb76c12bc71483d9f97cf0f0af945311b0c1242d09a89ba6425"
+          }
+        ],
+        "tags": ["manual", "printer", "zh-CN", "live-baseline", "difficulty-easy", "single-evidence", "direct_fact", "suite-v2", "reviewer-block-remediation-proposal"],
+        "sensitivity": "internal",
+        "metadata": {
+          "type": "direct_fact",
+          "difficulty": "easy",
+          "suite_key": "three-difficulty-live-2026-08-10",
+          "evidence_count": 1,
+          "critical": false,
+          "blocker_remediation_disposition": "semantic_replacement",
+          "lineage_semantic_replacement": true,
+          "parent_case_id": "P3500-EASY-031",
+          "proposal_schema_version": "stt.eval.suite-v2-reviewer-block-remediation-proposal.v1"
+        }
+      }
+    },
+    {
+      "case_id": "P3500-EASY-046",
+      "difficulty": "easy",
+      "disposition": "semantic_replacement",
+      "blocker_reason": "问题预设了源中不存在的原因分类，reference只复述原因本身。改为询问同一表格行明确列出的两个原因。",
+      "source_review_verdict": "block",
+      "source_review_reason": "source lists causes but provides no higher-level classification",
+      "audit": {
+        "original_case_sha256": "017594464238fc71b681855d4a3f4017a5f30876c5f3c5dd35ac458d04bc8c0a",
+        "proposed_case_sha256": "1bb393e65742f4ddf6977582ad56ac0192ac2bb0afead89ce6306af32e56cff2"
+      },
+      "proposed_case": {
+        "case_id": "P3500-EASY-046",
+        "query": "页面歪斜的两个故障原因是什么？",
+        "conversation": [],
+        "reference_answer": "未正确安装打印介质；机器进纸通道脏污。",
+        "unanswerable": false,
+        "expected_terms": ["未正确安装打印介质", "机器进纸通道脏污"],
+        "forbidden_terms": [],
+        "relevant_document_ids": ["doc_9353bf25fcfa4991a8a0425713a3c9f1"],
+        "relevant_document_names": ["source.pdf"],
+        "relevant_chunk_ids": ["chk_1d0023b481e831a407c5970b5518f523"],
+        "relevant_evidence": [
+          {
+            "evidence_id": "ev_7aa7ff92a8f1f7536c5bcd7560f48d004672babd",
+            "chunk_id": "chk_1d0023b481e831a407c5970b5518f523",
+            "page": 86,
+            "text": "标题路径：前言 > 10.3.1. 一般故障\n\n表题：10.3.2. 图像缺陷\n| 故障现象 | 故障原因 | 解决办法 |\n| --- | --- | --- |\n|  | ·激光碳粉盒脏污。·激光碳粉盒内部部件损坏。·定影组件损坏。 | ·清洁或更换新激光碳粉盒。·请联系奔图客服维修更换新的定影组件。 |\n| 出现周期性痕迹 |  |  |\n|  | ·未正确安装打印介质。·机器进纸通道脏污。 | ·确保正确安装打印介质。·清洁机器内部进纸通道。 |\n| 页面歪斜 |  |  |\n|  | ·未正确安装打印介质。·打印介质不符合使用规格。·打印内部进纸通道脏污。·打印定影组件损坏。 | ·确保正确安装打印介质。·请使用规格范围内的打印介质进行打印。·清洁机器内部进纸通道。 |\n| 皱纸 |  |  |\n|  | ·激光碳粉盒脏污。·机器内部转印辊脏污。·机器内部转印电压异常。 | ·清洁或更换新激光碳粉盒。·清洁机器内部转印部件。 |\n| 背面脏污 |  |  |",
+            "match_terms": ["未正确安装打印介质"],
+            "content_hash": "sha256:3a9f0f870bf29861c17e4e269f0a35aa145a2ae4bf1bc2f12e1cbcd6e7a8fca8"
+          }
+        ],
+        "tags": ["manual", "printer", "zh-CN", "live-baseline", "difficulty-easy", "single-evidence", "direct_fact", "suite-v2", "reviewer-block-remediation-proposal"],
+        "sensitivity": "internal",
+        "metadata": {
+          "type": "direct_fact",
+          "difficulty": "easy",
+          "suite_key": "three-difficulty-live-2026-08-10",
+          "evidence_count": 1,
+          "critical": false,
+          "blocker_remediation_disposition": "semantic_replacement",
+          "lineage_semantic_replacement": true,
+          "parent_case_id": "P3500-EASY-046",
+          "proposal_schema_version": "stt.eval.suite-v2-reviewer-block-remediation-proposal.v1"
+        }
+      }
+    }
+  ]
+}

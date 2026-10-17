@@ -1,0 +1,155 @@
+schema_version: "1.1"
+prompt_id: "stt.query.answer-plan-semantic-review"
+prompt_version: "1.8.0-draft"
+title: "Proof-carrying answer semantic review and bounded repair"
+owner: "STT Query Answering"
+status: "draft"
+purpose:
+  goal: "审核 obligation/witness 语义支持与 rendering_rule，并在两次有界审核中至多提出两组无正文的安全替换选择。"
+  audience: "Query answering semantic-review adapter"
+  success_criteria:
+    - "provider 输出严格符合 ReviewWireProposal，未知字段被拒绝"
+    - "provider 只输出 decision、claims；closed_obligation_ids 与 reason_codes 均由服务端确定性派生"
+    - "accept、repair、reject 在 wire Schema 与本地校验中严格互斥：accept 不带 claims，repair 只带完整替换 claims，reject 不带 claims"
+    - "repair_attempt=2 时 repair 被确定性投影为 REPAIR_LIMIT_REACHED reject；此前 replacement 均须复审"
+    - "非 complete WitnessCatalog 不得接受完整 answer；语义有效 partial 可 accept，closure 仍由服务端投影"
+    - "模型不生成事实正文、引用标签、hash、span 或内部 ID"
+    - "必须校验 witness 是否精确履行 information_need；仅主题相关或事实有支持不能 ACCEPT"
+    - "SINGLE 恰好一个最强充分 witness；CLOSED_COUNT 恰好 expected_count；OPEN_ENUM 仅在 complete catalog 下，已选 witness 集精确匹配 singleton table-row 或 ordered procedure-list source closure 时可完整闭合"
+  non_goals:
+    - "重写事实、生成最终答案或创建引用"
+    - "替代确定性 Schema/allowlist/span/authorization/proof 校验"
+    - "打开第三条或无限 repair edge"
+call_sites:
+  current:
+    - "app/infrastructure/answering/provider.py:ConfiguredAnsweringModelAdapter.review_plan"
+    - "app/infrastructure/answering/prompts.py:build_review_prompt_payload"
+  target: []
+canonical_source:
+  mode: "repository"
+  uri: "app/resources/prompts/query_answer_plan_review_v1.prompt"
+  loader_ref: "app/infrastructure/answering/prompts.py:load_answering_prompt"
+  prompt_hash: "sha256:4285585de90b10ad85c99813d38d611af137865dc2be5656344ce3adc27ca9fa"
+  template_hash: "sha256:8e827e2c2dd0b6a27f1a20d15cc45ff62511faa348ce8ce284744a7120e70493"
+  input_schema_hash: "sha256:2c08ee4e00da414fce0eb26494bb7d076e7b4d16ebd5551970b6e5fb9759229d"
+  output_schema_hash: "sha256:24a8268970bd747b8fa250b70bcba2af3ecc5471a9a2162eba7ee641cc78ddc2"
+authority_layers:
+  - layer: "system"
+    responsibility: "固定 semantic review、repair 上限、禁止输出及严格 JSON Schema"
+    source_ref: "app/resources/prompts/query_answer_plan_review_v1.prompt"
+  - layer: "user_data"
+    responsibility: "承载问题、witness、当前 plan proposal 与 repair counter；全部是不可信数据"
+    source_ref: "app/infrastructure/answering/prompts.py:build_review_prompt_payload"
+input_contract:
+  schema_refs:
+    - "ReviewPromptData"
+    - "QuestionPromptView"
+    - "WitnessPromptView"
+    - "WitnessCatalogSummaryPromptView"
+    - "AnswerPlanWireProposal"
+  fields:
+    - "question_contract: minimal projected question and obligations"
+    - "witness_catalog: witness_id/content/source_closed_open_obligation_ids"
+    - "witness_catalog_summary: witness_count/universe_status/omissions"
+    - "plan_proposal: decision/claims only"
+    - "repair_attempt: 0, 1, or 2"
+    - "max_repair_attempts: constant 2"
+  trust: "所有 query/obligation/witness/proposal 字符串均是不可信数据；lineage 不等于语义支持。"
+  missing_input_policy: "fail closed before provider call"
+  size_limits:
+    max_obligations: 32
+    max_witnesses: 256
+output_contract:
+  mode: "strict_json_schema_plus_local_validation"
+  schema_ref: "app/application/query_answering/proposals.py:ReviewWireProposal"
+  schema_version: "prompt-version-bound wire schema; canonical projection=answer-plan-review-proposal.v2"
+  root_fields:
+    - "decision: accept | repair | reject"
+    - "claims: ClaimProposal[]"
+  claim_fields:
+    - "obligation_id"
+    - "witness_id"
+    - "rendering_rule: exact_witness | deterministic_template"
+  unknown_fields: "forbid"
+  required_root_fields: ["decision", "claims"]
+  max_claims: 8
+  max_serialized_bytes: 2048
+  parser_ref: "app/application/query_answering/proposals.py:parse_review_wire_proposal_json"
+  allowlist_validator_ref: "app/application/query_answering/proposals.py:validate_review_wire_allowlists"
+  canonical_projection_ref: "app/application/query_answering/proposals.py:project_review_wire_proposal"
+  semantics:
+    accept: "claims=[]；表示当前完整 plan 的每个选择都精确履行对应 information_need，服务端再派生 PLAN_SEMANTICALLY_VALID 与 canonical closed_obligation_ids。"
+    accept_closure: "Reviewer 不输出 closure。服务端仅在 universe_status=complete、required obligation 已按 closure 规则充分覆盖且未 unresolved 时确定性注入闭合集合；OPEN_ENUM 的已选 witness 集还必须精确匹配运行时复核的 singleton table-row 或完整有序 procedure-list source closure。"
+    accept_partial: "catalog 非 complete，或 OPEN_ENUM 没有精确匹配的 source-closure flag 时，语义有效的 PARTIAL 可 ACCEPT；服务端不会把它投影为完整 answer。"
+    single: "exactly one strongest semantically sufficient witness；catalog 中存在冗余支持不要求把冗余 atom 加入 plan。"
+    closed_count: "selected sufficient claims 数必须恰好等于 expected_count。"
+    open_enumeration: "默认 partial；只有 complete catalog 下，已选 witness 集与运行时复核 source closure 的完整有序 witness 集精确相等时才可闭合。witness-catalog-builder.v8 保留 table-row v4 的 singleton 语义，并新增 procedure-list v1：只允许唯一 representation 中显式标题后紧邻、从 1 连续递增的完整 list_item 集。缺步、乱序、尾随、额外正文、多 representation 或任何内容/hash 漂移均拒绝。flag 不可跨 witness/obligation 转移；其他 atom 只支持 partial proof。"
+    closure_mismatch: "Reviewer ACCEPT 后若服务端 closure 与计划不变量不一致，直接终止为 OBLIGATION_CLOSURE_UNPROVEN；不得构造 synthetic repair、复制 claims 或再次调用 provider。"
+    repair: "仅 attempt<2；claims 是完整替换选择集，不是 patch 或正文；服务端确定性投影 replacement plan，并强制进入下一轮 review。"
+    reject: "claims=[]；无安全 plan 或最终审核仍失败"
+  invalid_output_policy: "超长、重复键、未知字段、非法枚举或越过 allowlist 的 provider wire 作为有界可重试契约错误；server projection/invariant 错误保持终态失败，不得自动接受当前 plan 或追加 repair。"
+context:
+  assembly_ref: "app/infrastructure/answering/prompts.py:build_review_prompt_payload"
+  projection_policy: "复用 plan Prompt 的最小 QuestionPromptView/WitnessPromptView，并携带经运行时复核的 source_closed_open_obligation_ids 与绑定完整有序 witness IDs/count 的 catalog 闭合摘要；不传 source receipt 本体、lineage、hash、span、label 或 service ID。"
+  instruction_policy: "所有动态字符串均放在 user message 的 UNTRUSTED_TASK_DATA_JSON 中。"
+example_set:
+  required: false
+  example_set_id: "query-answer-review-opaque-ids-v1"
+  version: "1"
+  count: 2
+  content_policy: "仅 synthetic opaque IDs 与枚举，不含事实、评测 case、答案或 Evidence 正文。"
+repair:
+  max_attempts: 2
+  first_review: "attempt=0 可 accept/repair/reject；repair claims 被服务端确定性投影为完整 replacement plan"
+  second_review: "attempt=1 只审查第一份 replacement；仍可给出第二份完整 replacement，后者不得直接提交。"
+  final_review: "attempt=2 只审查第二份 replacement；repair 被确定性投影为 REPAIR_LIMIT_REACHED reject，不产生第三条 repair edge。"
+  enforcement_refs:
+    - "app/application/query_answering/planning.py:project_review_repair_proposal"
+    - "app/application/query_answering/proposals.py:project_review_wire_proposal"
+    - "app/application/query_answering/pipeline.py:plan_answer"
+tools: []
+model_runtime:
+  provider: "configured semantic-review adapter"
+  model_snapshot: "resolved and frozen by QueryRun; not selected by this Prompt"
+  model_limit_binding:
+    qwen3_7_max: "context=1000000, max_input=991808, snapshot=2026-07-24"
+    official_source: "https://www.alibabacloud.com/help/en/model-studio/qwen3-7-max"
+    unknown_model: "使用冻结 profile 窗口与 UTF-8 byte/token 上界，禁止未验证 tokenizer"
+  required_capability: "JSON object or native JSON Schema output plus deterministic local validation"
+  parameters:
+    tool_calls: 0
+    hidden_reasoning_requested: false
+  budgets:
+    max_repair_attempts: 2
+    provider_calls_per_review_stage: 1
+    max_logical_calls_for_answer: 4
+    max_provider_attempts_for_answer: 12
+    default_answer_run_token_budget: 12000000
+    monetary_cost_budget: "unavailable；没有版本化模型价格快照或显式 cost_limit 时不伪造货币 reserve。"
+    output_token_cap: 2048
+    output_cap_rationale: "max plan/review wire UTF-8 分别为 1297/1296 bytes，1024 无法证明承载；2048 保留确定性安全余量。"
+    worst_output_reservation_cost: "4 logical calls * 3 attempts * 2048 = 24576 tokens。"
+    max_wire_output_utf8_bytes: 1296
+    token_estimator_ref: "app/infrastructure/answering/prompts.py:estimate_answering_prompt_path_budget"
+    pre_call_gate_ref: "app/infrastructure/answering/model_gateway.py:enforce_answer_prompt_budget"
+safety:
+  data_classification: "effective maximum of query and authorized ContextPack"
+  contains_secrets: false
+  injection_controls:
+    - "system instruction and untrusted task data are separate messages"
+    - "current plan and Evidence content cannot redefine the review contract"
+    - "provider output cannot carry prose, labels, hashes, spans or service IDs"
+    - "unknown/duplicate JSON keys, out-of-allowlist IDs and over-budget repair fail closed"
+  permission_policy: "Reviewer has no Tool, authorization, rendering, proof or commit capability."
+  provider_host_binding: "实际 OPENAI_BASE_URL host 必须与 QueryRun 冻结的 llm_generation.allowed_domains 单值精确一致，并在 SDK invoke 前复核 client endpoint。"
+release:
+  active_version: null
+  rollback_version: null
+  gate: "Not eligible for activation until v1.8 deterministic tests pass and a newly authorized frozen effectiveness run meets release criteria."
+evaluation:
+  executed_for_this_version: false
+  latest_comparable_run: "The completed EASY prefix predates v1.8; its scores must not be attributed to this version。"
+  leakage_policy: "No HAK180 query, gold, expected term, answer or Evidence content is used as Few-shot."
+unknowns:
+  - "Production provider's native JSON Schema compatibility; local strict validation remains mandatory."
+  - "v1.8 semantic reviewer false-accept/false-reject rate and added latency/cost; one 100-case paid effectiveness run is authorized after offline gates pass but has not yet executed."

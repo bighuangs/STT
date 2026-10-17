@@ -1,0 +1,62 @@
+schema_version: "stt.eval.single_retest.v1"
+evaluation_id: "hak180-medium50-recharge-20260827-r5"
+status: "superseded_before_execution"
+created_at: "2026-08-27T16:44:56.694662+08:00"
+updated_at: "2026-08-28T08:40:51.627214+08:00"
+completed_at: "2026-08-28T08:40:51.627214+08:00"
+authorization:
+  evidence_ref: "conversation:user-recharged-and-authorized-one-medium-rerun-20260827"
+  evaluation_execution: true
+  paid_model_calls: true
+  authorized_run_count: 1
+  automatic_retry_allowed: false
+  replacement_after_failure_allowed: false
+  easy_rerun_authorized: false
+  post_result_iteration_authorized: false
+scope:
+  difficulty: "medium"
+  unique_case_count: 50
+  repetitions: 1
+  hard_included: false
+  relationship_to_r4: "user_authorized_retest_after_reported_balance_recharge"
+prior_run:
+  run_id: "erun_3d9f4e215f8f4cca87246cd25850c53b"
+  generation_id: "404a12b0ce0605de5288d78ae4c3f157"
+  recorded_status: "succeeded"
+  completed_cases: 50
+  execution_error_count: 0
+  existing_effect_validity: "valid"
+  reported_reason_for_retest: "User reports that balance was insufficient during the Medium run and has recharged."
+  anomaly_audit_status: "pending"
+protocol:
+  config_path: "evals/configs/hak180_medium_proof_v2_authority_v3.json"
+  config_canonical_sha256: "76132b6d9c5332b281ae42cf5f8ea14d2fd3adf75b6a2fc4a2c75d50ac22455e"
+  dataset_registry_id: "three-difficulty-medium@2026-08-10"
+  dataset_asset_sha256: "89c570d10282342fd7facec9bd7d20af61337b5ecaef0038157ed824c25c0369"
+  retrieval_profile_id: "rpf_default"
+  retrieval_profile_version: 4
+  retrieval_profile_hash: "cf4c295a62f18e884cc26839a589188993b1d4e32d148e0574878f4bec107b14"
+  vector_read_set_digest: "sha256:f583155382b2537d0279ca7e5fb4fe2be89307585caee738727cadd89b41a399"
+  llm_model: "qwen3.7-max"
+  concurrency: 1
+  cache_policy: "formal live run; no result reuse"
+  planned_run_name: "hak180-medium50-recharge-20260827-r5"
+targets:
+  final_answer_accuracy: ">=43/50"
+  strict_supported_case_pass_rate: ">=41/50"
+guardrails:
+  retrieval_support: ">=47/50"
+  answered_citation_correctness: "1.0"
+  answered_faithfulness: "1.0"
+  unsupported_factual_claim_count: 0
+  execution_error_count: 0
+execution:
+  run_id: null
+  generation_id: null
+  run_status: "not_started"
+  consumed_run_count: 0
+  retry_count: 0
+  replacement_count: 0
+  superseded_by: "ragas-full-system-evaluation-20260828"
+  supersede_reason: "User replaced the Medium-only rerun request with a full-system RAGAS evaluation before execution started."
+results: null

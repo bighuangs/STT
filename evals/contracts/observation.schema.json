@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://stt.local/evals/contracts/observation.schema.json",
+  "title": "STT Evaluation Observation",
+  "type": "object",
+  "required": [
+    "observation_schema",
+    "answer",
+    "retrieved",
+    "reranked",
+    "context",
+    "latency_ms",
+    "versions",
+    "side_effects"
+  ],
+  "properties": {
+    "observation_schema": {
+      "type": "string",
+      "pattern": "^stt\\.eval\\.observation\\.v[1-9][0-9]*$"
+    },
+    "answer": {"type": "string"},
+    "retrieved": {"type": "array", "items": {"type": "object"}},
+    "reranked": {"type": "array", "items": {"type": "object"}},
+    "context": {"type": "array", "items": {"type": "object"}},
+    "latency_ms": {"type": "number", "minimum": 0},
+    "versions": {"type": "object"},
+    "side_effects": {"type": "object"}
+  },
+  "additionalProperties": true
+}
+

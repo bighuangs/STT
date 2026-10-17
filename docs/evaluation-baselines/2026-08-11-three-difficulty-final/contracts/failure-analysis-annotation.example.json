@@ -1,0 +1,18 @@
+{
+  "difficulty": "easy",
+  "run_id": "<run-id>",
+  "case_id": "<case-id>",
+  "primary_cause": "retrieval_insufficient",
+  "earliest_divergence": {
+    "stage": "retrieval",
+    "description": "最早可验证偏差是召回候选没有包含回答该题所需的关键事实。"
+  },
+  "mechanism": "缺失的关键事实没有进入后续上下文，最终答案因此无法给出正确结论。",
+  "evidence": [
+    {
+      "path": "runs/<candidate-label>/artifacts/easy/<run-id>/results.jsonl",
+      "sha256": "<64-lowercase-hex>",
+      "description": "持久化结果包含该题的召回候选、最终答案和评测指标。"
+    }
+  ]
+}

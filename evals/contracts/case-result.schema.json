@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://stt.local/evals/contracts/case-result.schema.json",
+  "title": "STT Evaluation Case Result",
+  "type": "object",
+  "required": ["schema_version", "case_id", "observation", "grades"],
+  "properties": {
+    "schema_version": {"const": "stt.eval.case-result.v1"},
+    "case_id": {"type": "string", "minLength": 1},
+    "observation": {"$ref": "observation.schema.json"},
+    "grades": {"type": "array", "items": {"type": "object"}}
+  },
+  "additionalProperties": false
+}
+

@@ -1,0 +1,293 @@
+[
+  {
+    "issue_code": "UNSUPPORTED_FALSE_ADDITION_CAN_PASS",
+    "category": "evaluator_error",
+    "severity": "critical",
+    "case_count": 145,
+    "case_rate": 0.9666666666666667,
+    "easy": 50,
+    "medium": 50,
+    "hard": 45,
+    "description": "在完整参考答案后追加明确无源的虚假功能，final correctness 仍通过；最终正确率没有惩罚额外错误断言。",
+    "examples": [
+      "P3500-EASY-001",
+      "P3500-EASY-002",
+      "P3500-EASY-003",
+      "P3500-EASY-004",
+      "P3500-EASY-005",
+      "P3500-EASY-006",
+      "P3500-EASY-007",
+      "P3500-EASY-008"
+    ]
+  },
+  {
+    "issue_code": "FABRICATED_FACT_WITH_REFUSAL_CAN_PASS",
+    "category": "evaluator_error",
+    "severity": "critical",
+    "case_count": 5,
+    "case_rate": 0.03333333333333333,
+    "easy": 0,
+    "medium": 0,
+    "hard": 5,
+    "description": "unanswerable 只核对 abstention 标志；拒答文本同时给出伪造事实仍通过。",
+    "examples": [
+      "P3500-HARD-046",
+      "P3500-HARD-047",
+      "P3500-HARD-048",
+      "P3500-HARD-049",
+      "P3500-HARD-050"
+    ]
+  },
+  {
+    "issue_code": "EXPECTED_TERMS_ONLY_CAN_PASS",
+    "category": "evaluator_error",
+    "severity": "high",
+    "case_count": 49,
+    "case_rate": 0.32666666666666666,
+    "easy": 5,
+    "medium": 21,
+    "hard": 23,
+    "description": "仅拼接达到 75% 数量的 expected terms 即可通过，未要求形成完整、连贯且无矛盾的答案。",
+    "examples": [
+      "P3500-EASY-004",
+      "P3500-EASY-013",
+      "P3500-EASY-022",
+      "P3500-EASY-023",
+      "P3500-EASY-041",
+      "P3500-MEDIUM-004",
+      "P3500-MEDIUM-007",
+      "P3500-MEDIUM-008"
+    ]
+  },
+  {
+    "issue_code": "MULTI_BRANCH_TRUNCATION_CAN_PASS",
+    "category": "evaluator_error",
+    "severity": "high",
+    "case_count": 28,
+    "case_rate": 0.18666666666666668,
+    "easy": 0,
+    "medium": 22,
+    "hard": 6,
+    "description": "多分支题删除参考答案末分支后仍达到 0.75 阈值，允许不完整最终答案计为正确。",
+    "examples": [
+      "P3500-MEDIUM-002",
+      "P3500-MEDIUM-007",
+      "P3500-MEDIUM-008",
+      "P3500-MEDIUM-012",
+      "P3500-MEDIUM-014",
+      "P3500-MEDIUM-015",
+      "P3500-MEDIUM-016",
+      "P3500-MEDIUM-018"
+    ]
+  },
+  {
+    "issue_code": "NUMERIC_MUTATION_CAN_PASS",
+    "category": "evaluator_error",
+    "severity": "high",
+    "case_count": 14,
+    "case_rate": 0.09333333333333334,
+    "easy": 3,
+    "medium": 4,
+    "hard": 7,
+    "description": "参考答案首个独立数值被改错后仍通过，说明召回阈值未形成关键数值全约束。",
+    "examples": [
+      "P3500-EASY-008",
+      "P3500-EASY-025",
+      "P3500-EASY-028",
+      "P3500-MEDIUM-004",
+      "P3500-MEDIUM-009",
+      "P3500-MEDIUM-026",
+      "P3500-MEDIUM-036",
+      "P3500-HARD-017"
+    ]
+  },
+  {
+    "issue_code": "QUERY_REFERENCE_POLARITY_CANDIDATE",
+    "category": "dataset_reference_candidate",
+    "severity": "high",
+    "case_count": 12,
+    "case_rate": 0.08,
+    "easy": 2,
+    "medium": 2,
+    "hard": 8,
+    "description": "问题包含否定约束，但参考答案未保留可识别的否定极性。",
+    "examples": [
+      "P3500-EASY-026",
+      "P3500-EASY-035",
+      "P3500-MEDIUM-023",
+      "P3500-MEDIUM-043",
+      "P3500-HARD-004",
+      "P3500-HARD-006",
+      "P3500-HARD-016",
+      "P3500-HARD-025"
+    ]
+  },
+  {
+    "issue_code": "ACTUAL_PASS_DEPENDS_ON_EXPECTED_TERMS",
+    "category": "evaluator_error",
+    "severity": "high",
+    "case_count": 8,
+    "case_rate": 0.05333333333333334,
+    "easy": 2,
+    "medium": 1,
+    "hard": 5,
+    "description": "实际通过依赖 expected terms；reference semantic recall 本身不足 0.75。",
+    "examples": [
+      "P3500-EASY-001",
+      "P3500-EASY-022",
+      "P3500-MEDIUM-018",
+      "P3500-HARD-002",
+      "P3500-HARD-015",
+      "P3500-HARD-017",
+      "P3500-HARD-040",
+      "P3500-HARD-049"
+    ]
+  },
+  {
+    "issue_code": "ACTUAL_FINAL_CORRECT_WITH_LOW_FAITHFULNESS",
+    "category": "evaluator_error",
+    "severity": "high",
+    "case_count": 7,
+    "case_rate": 0.04666666666666667,
+    "easy": 5,
+    "medium": 2,
+    "hard": 0,
+    "description": "实际归档输出被记为答对，但项目自身 faithfulness 低于严格阈值。",
+    "examples": [
+      "P3500-EASY-006",
+      "P3500-EASY-020",
+      "P3500-EASY-028",
+      "P3500-EASY-033",
+      "P3500-EASY-048",
+      "P3500-MEDIUM-027",
+      "P3500-MEDIUM-031"
+    ]
+  },
+  {
+    "issue_code": "TABLE_QUERY_WITHOUT_PARSED_DATA_ROW",
+    "category": "source_ambiguity",
+    "severity": "high",
+    "case_count": 2,
+    "case_rate": 0.013333333333333334,
+    "easy": 1,
+    "medium": 0,
+    "hard": 1,
+    "description": "表格型问题的绑定证据没有可解析数据行，参考答案可能来自表头/备注推断而非明确单元格。",
+    "examples": [
+      "P3500-EASY-004",
+      "P3500-HARD-040"
+    ]
+  },
+  {
+    "issue_code": "EXPECTED_TERM_DUPLICATE_WEIGHT_CAN_DOMINATE",
+    "category": "dataset_reference_candidate+evaluator_error",
+    "severity": "high",
+    "case_count": 1,
+    "case_rate": 0.006666666666666667,
+    "easy": 0,
+    "medium": 0,
+    "hard": 1,
+    "description": "同一概念的重叠 expected-term 变体占到至少 75% 权重，可挤掉其他必答概念。",
+    "examples": [
+      "P3500-HARD-045"
+    ]
+  },
+  {
+    "issue_code": "PDF_TEXT_EXTRACTION_TERM_GAP",
+    "category": "source_ambiguity",
+    "severity": "medium",
+    "case_count": 37,
+    "case_rate": 0.24666666666666667,
+    "easy": 5,
+    "medium": 15,
+    "hard": 17,
+    "description": "索引证据中的 match term 未在声明 PDF 页的可提取文本中复现；可能是表格/图像提取差异，需页面视觉复核。",
+    "examples": [
+      "P3500-EASY-009",
+      "P3500-EASY-010",
+      "P3500-EASY-028",
+      "P3500-EASY-046",
+      "P3500-EASY-049",
+      "P3500-MEDIUM-003",
+      "P3500-MEDIUM-004",
+      "P3500-MEDIUM-005"
+    ]
+  },
+  {
+    "issue_code": "EXPECTED_TERM_VARIANTS_OVERLAP",
+    "category": "dataset_reference_candidate",
+    "severity": "medium",
+    "case_count": 13,
+    "case_rate": 0.08666666666666667,
+    "easy": 1,
+    "medium": 4,
+    "hard": 8,
+    "description": "expected_terms 存在包含/高度相似变体，当前逐字符串平均会重复加权同一概念。",
+    "examples": [
+      "P3500-EASY-026",
+      "P3500-MEDIUM-009",
+      "P3500-MEDIUM-019",
+      "P3500-MEDIUM-036",
+      "P3500-MEDIUM-041",
+      "P3500-HARD-016",
+      "P3500-HARD-019",
+      "P3500-HARD-031"
+    ]
+  },
+  {
+    "issue_code": "HARD_EVIDENCE_WITHOUT_SCORING_CONCEPT",
+    "category": "dataset_reference_candidate",
+    "severity": "medium",
+    "case_count": 13,
+    "case_rate": 0.08666666666666667,
+    "easy": 0,
+    "medium": 0,
+    "hard": 13,
+    "description": "困难题至少一条绑定证据没有任何 expected/match concept，无法证明两条证据都被最终答案实质使用。",
+    "examples": [
+      "P3500-HARD-001",
+      "P3500-HARD-003",
+      "P3500-HARD-007",
+      "P3500-HARD-008",
+      "P3500-HARD-016",
+      "P3500-HARD-019",
+      "P3500-HARD-023",
+      "P3500-HARD-030"
+    ]
+  },
+  {
+    "issue_code": "QUERY_SINGULAR_REFERENCE_ENUMERATION",
+    "category": "dataset_reference_candidate",
+    "severity": "medium",
+    "case_count": 5,
+    "case_rate": 0.03333333333333333,
+    "easy": 1,
+    "medium": 3,
+    "hard": 1,
+    "description": "问题使用单数选择表达，参考答案却列出多个并列项，存在口径歧义候选。",
+    "examples": [
+      "P3500-EASY-004",
+      "P3500-MEDIUM-007",
+      "P3500-MEDIUM-030",
+      "P3500-MEDIUM-047",
+      "P3500-HARD-010"
+    ]
+  },
+  {
+    "issue_code": "ACTUAL_NEAR_THRESHOLD_FALSE_NEGATIVE_CANDIDATE",
+    "category": "evaluator_error_candidate",
+    "severity": "medium",
+    "case_count": 4,
+    "case_rate": 0.02666666666666667,
+    "easy": 1,
+    "medium": 1,
+    "hard": 2,
+    "description": "实际答案保持参考约束且语义召回在 0.65–0.75，需盲审确认是否为阈值型误杀。",
+    "examples": [
+      "P3500-EASY-010",
+      "P3500-MEDIUM-044",
+      "P3500-HARD-001",
+      "P3500-HARD-041"
+    ]
+  }
+]

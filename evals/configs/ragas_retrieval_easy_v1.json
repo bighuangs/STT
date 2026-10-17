@@ -1,0 +1,23 @@
+{
+  "schema_version": "stt.eval.harness-config.v3",
+  "config_id": "ragas-retrieval-easy-v1",
+  "target_id": "query-graph-evaluation-target",
+  "dataset_id": "three-difficulty-easy@2026-08-10",
+  "scenario_id": "retrieval-only",
+  "graders": ["retrieval"],
+  "failure_policy": "continue",
+  "formal_evaluation": true,
+  "planning_admission_budgets": {
+    "scope": "per_case_query_plan_admission",
+    "max_plan_tokens": 4096,
+    "max_routes": 3,
+    "max_planned_cost_units": 1.0
+  },
+  "usage_accounting": {
+    "provider_tokens": "unavailable",
+    "provider_cost_usd": "unavailable",
+    "retrieval_calls": "unavailable",
+    "enforcement": "not_enforced"
+  },
+  "allowed_intervention_dimensions": ["code_revision"]
+}

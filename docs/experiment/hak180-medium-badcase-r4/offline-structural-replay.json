@@ -1,0 +1,2671 @@
+{
+  "schema_version": "hak180-medium-offline-structural-replay.v1",
+  "created_at": "2026-08-27T04:35:39.354679+00:00",
+  "status": "diagnostic_only_not_formal_evaluation",
+  "no_model_calls": true,
+  "no_retrieval_service_calls": true,
+  "limitations": [
+    "Uses archived top-5 Evidence identities and local raw Evidence, not a new retrieval run.",
+    "Archived observation omits per-sub-query lineage; each Evidence is projected to every current retrieval branch.",
+    "Receipt issuance proves only deterministic structural eligibility, not model plan quality or final/strict correctness."
+  ],
+  "inputs": {
+    "dataset": "D:\\Learning\\agent\\STT\\docs\\evaluation-baselines\\2026-08-10-three-difficulty\\datasets\\medium.json",
+    "dataset_sha256": "89c570d10282342fd7facec9bd7d20af61337b5ecaef0038157ed824c25c0369",
+    "results": "D:\\Learning\\agent\\STT\\var\\evals\\erun_d1b179e0579e407cbe19cfe2aef11258\\generation-fe83c80cb960443e18a8152b4353bec6\\results.jsonl",
+    "results_sha256": "d358ddd6dcf95a918625b91a986cdd421cc7a575c27ea8c65fad72bb806d8e7c",
+    "database": "D:\\Learning\\agent\\STT\\volumes\\control\\stt-control.db"
+  },
+  "summary": {
+    "case_count": 50,
+    "succeeded_count": 49,
+    "failed_count": 0,
+    "missing_context_count": 1,
+    "baseline_final_pass_count": 29,
+    "baseline_strict_pass_count": 10,
+    "receipt_case_count": 30,
+    "receipt_case_ids": [
+      "P3500-MEDIUM-001",
+      "P3500-MEDIUM-002",
+      "P3500-MEDIUM-005",
+      "P3500-MEDIUM-011",
+      "P3500-MEDIUM-012",
+      "P3500-MEDIUM-013",
+      "P3500-MEDIUM-016",
+      "P3500-MEDIUM-018",
+      "P3500-MEDIUM-020",
+      "P3500-MEDIUM-021",
+      "P3500-MEDIUM-022",
+      "P3500-MEDIUM-023",
+      "P3500-MEDIUM-024",
+      "P3500-MEDIUM-028",
+      "P3500-MEDIUM-029",
+      "P3500-MEDIUM-030",
+      "P3500-MEDIUM-031",
+      "P3500-MEDIUM-032",
+      "P3500-MEDIUM-033",
+      "P3500-MEDIUM-037",
+      "P3500-MEDIUM-039",
+      "P3500-MEDIUM-040",
+      "P3500-MEDIUM-041",
+      "P3500-MEDIUM-042",
+      "P3500-MEDIUM-043",
+      "P3500-MEDIUM-044",
+      "P3500-MEDIUM-046",
+      "P3500-MEDIUM-047",
+      "P3500-MEDIUM-049",
+      "P3500-MEDIUM-050"
+    ],
+    "receipt_complete_required_open_case_count": 30,
+    "receipt_complete_required_open_case_ids": [
+      "P3500-MEDIUM-001",
+      "P3500-MEDIUM-002",
+      "P3500-MEDIUM-005",
+      "P3500-MEDIUM-011",
+      "P3500-MEDIUM-012",
+      "P3500-MEDIUM-013",
+      "P3500-MEDIUM-016",
+      "P3500-MEDIUM-018",
+      "P3500-MEDIUM-020",
+      "P3500-MEDIUM-021",
+      "P3500-MEDIUM-022",
+      "P3500-MEDIUM-023",
+      "P3500-MEDIUM-024",
+      "P3500-MEDIUM-028",
+      "P3500-MEDIUM-029",
+      "P3500-MEDIUM-030",
+      "P3500-MEDIUM-031",
+      "P3500-MEDIUM-032",
+      "P3500-MEDIUM-033",
+      "P3500-MEDIUM-037",
+      "P3500-MEDIUM-039",
+      "P3500-MEDIUM-040",
+      "P3500-MEDIUM-041",
+      "P3500-MEDIUM-042",
+      "P3500-MEDIUM-043",
+      "P3500-MEDIUM-044",
+      "P3500-MEDIUM-046",
+      "P3500-MEDIUM-047",
+      "P3500-MEDIUM-049",
+      "P3500-MEDIUM-050"
+    ],
+    "receipt_schema_counts": {
+      "query-anchored-inline-action-chain-closure-receipt.v1": 3,
+      "query-anchored-scoped-bullet-list-closure-receipt.v1": 2,
+      "query-anchored-scoped-fact-set-closure-receipt.v1": 7,
+      "query-anchored-scoped-procedure-list-closure-receipt.v4": 16,
+      "query-anchored-scoped-table-selection-closure-receipt.v2": 5
+    }
+  },
+  "cases": [
+    {
+      "case_id": "P3500-MEDIUM-001",
+      "baseline_final_passed": true,
+      "baseline_strict_passed": false,
+      "baseline_action": "PARTIAL_ANSWER",
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_171822cabd6918b2f716c8c7aea0f0af",
+          "information_need": "在使用打印机前，若遇到哪些情况必须立即断开电源并联系专业维修人员",
+          "kind": "enumeration",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "list"
+        },
+        {
+          "obligation_id": "qf_a5a759a7a3fcf4df1c1d96e63be3e1d6",
+          "information_need": "请说明为何不应自行拆解机器",
+          "kind": "fact",
+          "necessity": "required",
+          "closure": "single",
+          "required_output_form": "fact"
+        }
+      ],
+      "source_closure_receipts": [
+        {
+          "schema_version": "query-anchored-scoped-bullet-list-closure-receipt.v1",
+          "obligation_id": "qf_171822cabd6918b2f716c8c7aea0f0af",
+          "member_count": 4
+        }
+      ],
+      "witness_universe_status": "complete",
+      "witness_count": 50,
+      "witness_atom_kind_counts": {
+        "list_item": 28,
+        "sentence": 22
+      },
+      "required_open_obligation_count": 1,
+      "receipted_required_open_obligation_count": 1,
+      "all_required_open_obligations_receipted": true,
+      "closure_diagnostics": [
+        {
+          "obligation_id": "qf_171822cabd6918b2f716c8c7aea0f0af",
+          "required_output_form": "list",
+          "attempts": {
+            "scoped_table_selection": {
+              "status": "not_applicable",
+              "reason": "no_matching_atom_kind"
+            },
+            "scoped_bullet_list": {
+              "status": "issued",
+              "schema_version": "query-anchored-scoped-bullet-list-closure-receipt.v1",
+              "member_count": 4
+            },
+            "scoped_fact_set": {
+              "status": "rejected",
+              "reason": "fact-set closure requires exactly one catalog-wide candidate"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-002",
+      "baseline_final_passed": true,
+      "baseline_strict_passed": false,
+      "baseline_action": "PARTIAL_ANSWER",
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_4f0d99216e84ac7b3d535463e8013b20",
+          "information_need": "该打印机符合哪些欧盟指令的合规要求",
+          "kind": "enumeration",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "list"
+        },
+        {
+          "obligation_id": "qf_b5b861a44ba9a9b855ff38dc8e1a7371",
+          "information_need": "其适用的地理环境限制是什么",
+          "kind": "enumeration",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "list"
+        }
+      ],
+      "source_closure_receipts": [
+        {
+          "schema_version": "query-anchored-scoped-fact-set-closure-receipt.v1",
+          "obligation_id": "qf_4f0d99216e84ac7b3d535463e8013b20",
+          "member_count": 1
+        },
+        {
+          "schema_version": "query-anchored-scoped-fact-set-closure-receipt.v1",
+          "obligation_id": "qf_b5b861a44ba9a9b855ff38dc8e1a7371",
+          "member_count": 2
+        }
+      ],
+      "witness_universe_status": "complete",
+      "witness_count": 60,
+      "witness_atom_kind_counts": {
+        "list_item": 12,
+        "sentence": 26,
+        "table_data_row": 20,
+        "table_row": 2
+      },
+      "required_open_obligation_count": 2,
+      "receipted_required_open_obligation_count": 2,
+      "all_required_open_obligations_receipted": true,
+      "closure_diagnostics": [
+        {
+          "obligation_id": "qf_4f0d99216e84ac7b3d535463e8013b20",
+          "required_output_form": "list",
+          "attempts": {
+            "scoped_table_selection": {
+              "status": "rejected",
+              "reason": "scoped table-selection requires exactly one catalog-wide selector candidate"
+            },
+            "scoped_bullet_list": {
+              "status": "rejected",
+              "reason": "scoped bullet-list requires exactly one catalog-wide candidate"
+            },
+            "scoped_fact_set": {
+              "status": "issued",
+              "schema_version": "query-anchored-scoped-fact-set-closure-receipt.v1",
+              "member_count": 1
+            }
+          }
+        },
+        {
+          "obligation_id": "qf_b5b861a44ba9a9b855ff38dc8e1a7371",
+          "required_output_form": "list",
+          "attempts": {
+            "scoped_table_selection": {
+              "status": "rejected",
+              "reason": "scoped table-selection requires exactly one catalog-wide selector candidate"
+            },
+            "scoped_bullet_list": {
+              "status": "rejected",
+              "reason": "scoped bullet-list requires exactly one catalog-wide candidate"
+            },
+            "scoped_fact_set": {
+              "status": "issued",
+              "schema_version": "query-anchored-scoped-fact-set-closure-receipt.v1",
+              "member_count": 2
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-003",
+      "baseline_final_passed": true,
+      "baseline_strict_passed": true,
+      "baseline_action": "ANSWER",
+      "baseline_proof_strict_eligible": true,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_fba7b48a7441b36f382a24564cf4bef8",
+          "information_need": "P3500 Series 黑白激光打印机的推荐月打印量范围是多少",
+          "kind": "fact",
+          "necessity": "required",
+          "closure": "single",
+          "required_output_form": "fact"
+        },
+        {
+          "obligation_id": "qf_804c150bc93ade09a5ad2108ebb46cc4",
+          "information_need": "其最大月工作负荷是多少",
+          "kind": "fact",
+          "necessity": "required",
+          "closure": "single",
+          "required_output_form": "fact"
+        }
+      ],
+      "source_closure_receipts": [],
+      "witness_universe_status": "complete",
+      "witness_count": 95,
+      "witness_atom_kind_counts": {
+        "sentence": 79,
+        "table_data_row": 11,
+        "table_row": 5
+      },
+      "required_open_obligation_count": 0,
+      "receipted_required_open_obligation_count": 0,
+      "all_required_open_obligations_receipted": false,
+      "closure_diagnostics": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-004",
+      "baseline_final_passed": false,
+      "baseline_strict_passed": false,
+      "baseline_action": "REFUSE",
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_9c3f20fab006c29379ab9586e5f36d76",
+          "information_need": "当打印机通过无线网络连接时，其IP地址、默认网关和身份验证方式分别是什么",
+          "kind": "enumeration",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "list"
+        }
+      ],
+      "source_closure_receipts": [],
+      "witness_universe_status": "complete",
+      "witness_count": 49,
+      "witness_atom_kind_counts": {
+        "list_item": 10,
+        "sentence": 29,
+        "table_data_row": 8,
+        "table_row": 2
+      },
+      "required_open_obligation_count": 1,
+      "receipted_required_open_obligation_count": 0,
+      "all_required_open_obligations_receipted": false,
+      "closure_diagnostics": [
+        {
+          "obligation_id": "qf_9c3f20fab006c29379ab9586e5f36d76",
+          "required_output_form": "list",
+          "attempts": {
+            "scoped_table_selection": {
+              "status": "rejected",
+              "reason": "scoped table-selection requires exactly one catalog-wide selector candidate"
+            },
+            "scoped_bullet_list": {
+              "status": "rejected",
+              "reason": "scoped bullet-list requires exactly one catalog-wide candidate"
+            },
+            "scoped_fact_set": {
+              "status": "rejected",
+              "reason": "fact-set closure requires exactly one catalog-wide candidate"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-005",
+      "baseline_final_passed": false,
+      "baseline_strict_passed": false,
+      "baseline_action": "PARTIAL_ANSWER",
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_4f5afc95e05a9c8ca440e48ac8c1193d",
+          "information_need": "在 Wi-Fi 热点列表页中，信号强度为 60% 的热点有哪些？它们的加密方式是什么",
+          "kind": "enumeration",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "list"
+        }
+      ],
+      "source_closure_receipts": [
+        {
+          "schema_version": "query-anchored-scoped-table-selection-closure-receipt.v2",
+          "obligation_id": "qf_4f5afc95e05a9c8ca440e48ac8c1193d",
+          "member_count": 2
+        }
+      ],
+      "witness_universe_status": "complete",
+      "witness_count": 150,
+      "witness_atom_kind_counts": {
+        "list_item": 16,
+        "sentence": 124,
+        "table_data_row": 8,
+        "table_row": 2
+      },
+      "required_open_obligation_count": 1,
+      "receipted_required_open_obligation_count": 1,
+      "all_required_open_obligations_receipted": true,
+      "closure_diagnostics": [
+        {
+          "obligation_id": "qf_4f5afc95e05a9c8ca440e48ac8c1193d",
+          "required_output_form": "list",
+          "attempts": {
+            "scoped_table_selection": {
+              "status": "issued",
+              "schema_version": "query-anchored-scoped-table-selection-closure-receipt.v2",
+              "member_count": 2
+            },
+            "scoped_bullet_list": {
+              "status": "rejected",
+              "reason": "scoped bullet-list requires exactly one catalog-wide candidate"
+            },
+            "scoped_fact_set": {
+              "status": "rejected",
+              "reason": "fact-set closure requires exactly one catalog-wide candidate"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-006",
+      "baseline_final_passed": true,
+      "baseline_strict_passed": true,
+      "baseline_action": "ANSWER",
+      "baseline_proof_strict_eligible": true,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_90cd836c2602fa59509be51dff8c062c",
+          "information_need": "标准纸盒支持的介质克重范围是多少",
+          "kind": "fact",
+          "necessity": "required",
+          "closure": "single",
+          "required_output_form": "fact"
+        },
+        {
+          "obligation_id": "qf_723e5fe0cc65464e79169ba42545afcc",
+          "information_need": "选配纸盒的最大容量是多少页",
+          "kind": "fact",
+          "necessity": "required",
+          "closure": "single",
+          "required_output_form": "fact"
+        }
+      ],
+      "source_closure_receipts": [],
+      "witness_universe_status": "complete",
+      "witness_count": 57,
+      "witness_atom_kind_counts": {
+        "list_item": 4,
+        "sentence": 33,
+        "table_data_row": 13,
+        "table_row": 7
+      },
+      "required_open_obligation_count": 0,
+      "receipted_required_open_obligation_count": 0,
+      "all_required_open_obligations_receipted": false,
+      "closure_diagnostics": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-007",
+      "baseline_final_passed": true,
+      "baseline_strict_passed": false,
+      "baseline_action": "PARTIAL_ANSWER",
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_749d834a53b14c778f3f4764d66f642a",
+          "information_need": "特殊纸张包括哪些类型？这些纸张应在哪个纸盒中打印",
+          "kind": "enumeration",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "list"
+        }
+      ],
+      "source_closure_receipts": [],
+      "witness_universe_status": "complete",
+      "witness_count": 41,
+      "witness_atom_kind_counts": {
+        "list_item": 3,
+        "sentence": 24,
+        "table_data_row": 10,
+        "table_row": 4
+      },
+      "required_open_obligation_count": 1,
+      "receipted_required_open_obligation_count": 0,
+      "all_required_open_obligations_receipted": false,
+      "closure_diagnostics": [
+        {
+          "obligation_id": "qf_749d834a53b14c778f3f4764d66f642a",
+          "required_output_form": "list",
+          "attempts": {
+            "scoped_table_selection": {
+              "status": "rejected",
+              "reason": "scoped table-selection requires exactly one catalog-wide selector candidate"
+            },
+            "scoped_bullet_list": {
+              "status": "rejected",
+              "reason": "scoped bullet-list requires exactly one catalog-wide candidate"
+            },
+            "scoped_fact_set": {
+              "status": "rejected",
+              "reason": "fact-set closure requires exactly one catalog-wide candidate"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-008",
+      "baseline_final_passed": true,
+      "baseline_strict_passed": true,
+      "baseline_action": "ANSWER",
+      "baseline_proof_strict_eligible": true,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_7c78028f5e58d609e13e7cbd706b4200",
+          "information_need": "使用标签纸时，正确的做法是什么",
+          "kind": "fact",
+          "necessity": "required",
+          "closure": "single",
+          "required_output_form": "fact"
+        },
+        {
+          "obligation_id": "qf_47fa39afb89bf074852e64aa50e83533",
+          "information_need": "错误的做法是什么",
+          "kind": "fact",
+          "necessity": "required",
+          "closure": "single",
+          "required_output_form": "fact"
+        }
+      ],
+      "source_closure_receipts": [],
+      "witness_universe_status": "complete",
+      "witness_count": 33,
+      "witness_atom_kind_counts": {
+        "list_item": 3,
+        "sentence": 19,
+        "table_data_row": 7,
+        "table_row": 4
+      },
+      "required_open_obligation_count": 0,
+      "receipted_required_open_obligation_count": 0,
+      "all_required_open_obligations_receipted": false,
+      "closure_diagnostics": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-009",
+      "baseline_final_passed": true,
+      "baseline_strict_passed": true,
+      "baseline_action": "ANSWER",
+      "baseline_proof_strict_eligible": true,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_cb859bed968fcc787290c64062118a4c",
+          "information_need": "装入多功能纸盒时，应如何正确放置信封或透明胶片",
+          "kind": "fact",
+          "necessity": "required",
+          "closure": "single",
+          "required_output_form": "fact"
+        },
+        {
+          "obligation_id": "qf_3c0545b25d0612cd98a76f2c007d3e37",
+          "information_need": "每次最多可放入多少张打印介质",
+          "kind": "fact",
+          "necessity": "required",
+          "closure": "single",
+          "required_output_form": "fact"
+        }
+      ],
+      "source_closure_receipts": [],
+      "witness_universe_status": "complete",
+      "witness_count": 63,
+      "witness_atom_kind_counts": {
+        "list_item": 13,
+        "sentence": 50
+      },
+      "required_open_obligation_count": 0,
+      "receipted_required_open_obligation_count": 0,
+      "all_required_open_obligations_receipted": false,
+      "closure_diagnostics": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-010",
+      "baseline_final_passed": true,
+      "baseline_strict_passed": true,
+      "baseline_action": "ANSWER",
+      "baseline_proof_strict_eligible": true,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_0e53d761961409f039d8df5469cfb87c",
+          "information_need": "装入选配纸盒时，应如何调整导纸板",
+          "kind": "fact",
+          "necessity": "required",
+          "closure": "single",
+          "required_output_form": "fact"
+        },
+        {
+          "obligation_id": "qf_03fa033e60aee6b3c172c189cb44bd0f",
+          "information_need": "装入纸张前应采取什么操作以避免卡纸",
+          "kind": "fact",
+          "necessity": "required",
+          "closure": "single",
+          "required_output_form": "fact"
+        }
+      ],
+      "source_closure_receipts": [],
+      "witness_universe_status": "complete",
+      "witness_count": 70,
+      "witness_atom_kind_counts": {
+        "list_item": 15,
+        "sentence": 55
+      },
+      "required_open_obligation_count": 0,
+      "receipted_required_open_obligation_count": 0,
+      "all_required_open_obligations_receipted": false,
+      "closure_diagnostics": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-011",
+      "baseline_final_passed": false,
+      "baseline_strict_passed": false,
+      "baseline_action": "PARTIAL_ANSWER",
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_822f6cb8620a1bf12232e80b11ae43bd",
+          "information_need": "在安装Pantum P3500DN Series打印机时，若选择通过网络连接，需要满足哪些条件并执行哪些步骤",
+          "kind": "procedure",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "ordered_steps"
+        }
+      ],
+      "source_closure_receipts": [
+        {
+          "schema_version": "query-anchored-scoped-procedure-list-closure-receipt.v4",
+          "obligation_id": "qf_822f6cb8620a1bf12232e80b11ae43bd",
+          "member_count": 7
+        }
+      ],
+      "witness_universe_status": "complete",
+      "witness_count": 237,
+      "witness_atom_kind_counts": {
+        "list_item": 54,
+        "sentence": 183
+      },
+      "required_open_obligation_count": 1,
+      "receipted_required_open_obligation_count": 1,
+      "all_required_open_obligations_receipted": true,
+      "closure_diagnostics": [
+        {
+          "obligation_id": "qf_822f6cb8620a1bf12232e80b11ae43bd",
+          "required_output_form": "ordered_steps",
+          "attempts": {
+            "scoped_procedure_list": {
+              "status": "issued",
+              "schema_version": "query-anchored-scoped-procedure-list-closure-receipt.v4",
+              "member_count": 7
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-012",
+      "baseline_final_passed": false,
+      "baseline_strict_passed": false,
+      "baseline_action": "REFUSE",
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_58f7d8bce0379296f8612cfff662db88",
+          "information_need": "使用USB线连接Pantum P3500D Series打印机时，安装驱动前需完成哪些操作",
+          "kind": "procedure",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "ordered_steps"
+        }
+      ],
+      "source_closure_receipts": [
+        {
+          "schema_version": "query-anchored-scoped-procedure-list-closure-receipt.v4",
+          "obligation_id": "qf_58f7d8bce0379296f8612cfff662db88",
+          "member_count": 3
+        }
+      ],
+      "witness_universe_status": "complete",
+      "witness_count": 186,
+      "witness_atom_kind_counts": {
+        "list_item": 78,
+        "sentence": 108
+      },
+      "required_open_obligation_count": 1,
+      "receipted_required_open_obligation_count": 1,
+      "all_required_open_obligations_receipted": true,
+      "closure_diagnostics": [
+        {
+          "obligation_id": "qf_58f7d8bce0379296f8612cfff662db88",
+          "required_output_form": "ordered_steps",
+          "attempts": {
+            "scoped_procedure_list": {
+              "status": "issued",
+              "schema_version": "query-anchored-scoped-procedure-list-closure-receipt.v4",
+              "member_count": 3
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-013",
+      "baseline_final_passed": false,
+      "baseline_strict_passed": false,
+      "baseline_action": "REFUSE",
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_9623e13993cbc0e7388b50439a8c328e",
+          "information_need": "在配置Pantum P3500DW Series打印机连接新无线网络时，必须满足什么前提条件",
+          "kind": "enumeration",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "list"
+        },
+        {
+          "obligation_id": "qf_94dd8e9784e33e7449d35fee283e6633",
+          "information_need": "在安装向导中如何操作",
+          "kind": "procedure",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "ordered_steps"
+        }
+      ],
+      "source_closure_receipts": [
+        {
+          "schema_version": "query-anchored-scoped-fact-set-closure-receipt.v1",
+          "obligation_id": "qf_9623e13993cbc0e7388b50439a8c328e",
+          "member_count": 1
+        },
+        {
+          "schema_version": "query-anchored-scoped-procedure-list-closure-receipt.v4",
+          "obligation_id": "qf_94dd8e9784e33e7449d35fee283e6633",
+          "member_count": 7
+        }
+      ],
+      "witness_universe_status": "complete",
+      "witness_count": 240,
+      "witness_atom_kind_counts": {
+        "list_item": 87,
+        "sentence": 153
+      },
+      "required_open_obligation_count": 2,
+      "receipted_required_open_obligation_count": 2,
+      "all_required_open_obligations_receipted": true,
+      "closure_diagnostics": [
+        {
+          "obligation_id": "qf_9623e13993cbc0e7388b50439a8c328e",
+          "required_output_form": "list",
+          "attempts": {
+            "scoped_table_selection": {
+              "status": "not_applicable",
+              "reason": "no_matching_atom_kind"
+            },
+            "scoped_bullet_list": {
+              "status": "rejected",
+              "reason": "scoped bullet-list requires exactly one catalog-wide candidate"
+            },
+            "scoped_fact_set": {
+              "status": "issued",
+              "schema_version": "query-anchored-scoped-fact-set-closure-receipt.v1",
+              "member_count": 1
+            }
+          }
+        },
+        {
+          "obligation_id": "qf_94dd8e9784e33e7449d35fee283e6633",
+          "required_output_form": "ordered_steps",
+          "attempts": {
+            "scoped_procedure_list": {
+              "status": "issued",
+              "schema_version": "query-anchored-scoped-procedure-list-closure-receipt.v4",
+              "member_count": 7
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-014",
+      "baseline_final_passed": false,
+      "baseline_strict_passed": false,
+      "baseline_action": null,
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": "EvaluationContractError",
+      "archived_context_evidence_count": 0,
+      "replay_status": "missing_archived_context",
+      "obligations": [],
+      "source_closure_receipts": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-015",
+      "baseline_final_passed": false,
+      "baseline_strict_passed": false,
+      "baseline_action": "REFUSE",
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_6bc953bf30ca82a1f360f1ffd6cdd5ec",
+          "information_need": "在Mac系统上安装Pantum P3500 Series打印机驱动时，需要完成哪些具体操作",
+          "kind": "procedure",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "ordered_steps"
+        }
+      ],
+      "source_closure_receipts": [],
+      "witness_universe_status": "complete",
+      "witness_count": 141,
+      "witness_atom_kind_counts": {
+        "list_item": 47,
+        "sentence": 94
+      },
+      "required_open_obligation_count": 1,
+      "receipted_required_open_obligation_count": 0,
+      "all_required_open_obligations_receipted": false,
+      "closure_diagnostics": [
+        {
+          "obligation_id": "qf_6bc953bf30ca82a1f360f1ffd6cdd5ec",
+          "required_output_form": "ordered_steps",
+          "attempts": {
+            "scoped_procedure_list": {
+              "status": "rejected",
+              "reason": "scoped procedure list closure requires exactly one catalog-wide candidate"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-016",
+      "baseline_final_passed": false,
+      "baseline_strict_passed": false,
+      "baseline_action": "REFUSE",
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_c738e8fe15a1095153dcf732f9fd361c",
+          "information_need": "在Mac系统中通过Wi-Fi热点连接Pantum打印机时，需要执行哪些步骤",
+          "kind": "procedure",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "ordered_steps"
+        }
+      ],
+      "source_closure_receipts": [
+        {
+          "schema_version": "query-anchored-scoped-procedure-list-closure-receipt.v4",
+          "obligation_id": "qf_c738e8fe15a1095153dcf732f9fd361c",
+          "member_count": 7
+        }
+      ],
+      "witness_universe_status": "complete",
+      "witness_count": 137,
+      "witness_atom_kind_counts": {
+        "list_item": 80,
+        "sentence": 57
+      },
+      "required_open_obligation_count": 1,
+      "receipted_required_open_obligation_count": 1,
+      "all_required_open_obligations_receipted": true,
+      "closure_diagnostics": [
+        {
+          "obligation_id": "qf_c738e8fe15a1095153dcf732f9fd361c",
+          "required_output_form": "ordered_steps",
+          "attempts": {
+            "scoped_procedure_list": {
+              "status": "issued",
+              "schema_version": "query-anchored-scoped-procedure-list-closure-receipt.v4",
+              "member_count": 7
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-017",
+      "baseline_final_passed": true,
+      "baseline_strict_passed": false,
+      "baseline_action": "PARTIAL_ANSWER",
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_353dca3b1ef44248afb9b640c82d6567",
+          "information_need": "当打印机启用DHCP自动分配功能时，其获取IP地址的过程及注意事项是什么",
+          "kind": "enumeration",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "list"
+        }
+      ],
+      "source_closure_receipts": [],
+      "witness_universe_status": "complete",
+      "witness_count": 32,
+      "witness_atom_kind_counts": {
+        "list_item": 13,
+        "sentence": 19
+      },
+      "required_open_obligation_count": 1,
+      "receipted_required_open_obligation_count": 0,
+      "all_required_open_obligations_receipted": false,
+      "closure_diagnostics": [
+        {
+          "obligation_id": "qf_353dca3b1ef44248afb9b640c82d6567",
+          "required_output_form": "list",
+          "attempts": {
+            "scoped_table_selection": {
+              "status": "not_applicable",
+              "reason": "no_matching_atom_kind"
+            },
+            "scoped_bullet_list": {
+              "status": "rejected",
+              "reason": "scoped bullet-list requires exactly one catalog-wide candidate"
+            },
+            "scoped_fact_set": {
+              "status": "rejected",
+              "reason": "fact-set closure requires exactly one catalog-wide candidate"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-018",
+      "baseline_final_passed": true,
+      "baseline_strict_passed": false,
+      "baseline_action": "PARTIAL_ANSWER",
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_df6938aeec39bdaf4a0284293241744a",
+          "information_need": "如何通过内嵌Web服务器启用IPv6协议",
+          "kind": "procedure",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "ordered_steps"
+        }
+      ],
+      "source_closure_receipts": [
+        {
+          "schema_version": "query-anchored-scoped-procedure-list-closure-receipt.v4",
+          "obligation_id": "qf_df6938aeec39bdaf4a0284293241744a",
+          "member_count": 4
+        }
+      ],
+      "witness_universe_status": "complete",
+      "witness_count": 39,
+      "witness_atom_kind_counts": {
+        "list_item": 15,
+        "sentence": 24
+      },
+      "required_open_obligation_count": 1,
+      "receipted_required_open_obligation_count": 1,
+      "all_required_open_obligations_receipted": true,
+      "closure_diagnostics": [
+        {
+          "obligation_id": "qf_df6938aeec39bdaf4a0284293241744a",
+          "required_output_form": "ordered_steps",
+          "attempts": {
+            "scoped_procedure_list": {
+              "status": "issued",
+              "schema_version": "query-anchored-scoped-procedure-list-closure-receipt.v4",
+              "member_count": 4
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-019",
+      "baseline_final_passed": false,
+      "baseline_strict_passed": false,
+      "baseline_action": "REFUSE",
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_bacce1df744926c6541f48c5aaaa1472",
+          "information_need": "在进行基础结构连接模式的无线网络安装前，必须了解哪些关键信息",
+          "kind": "enumeration",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "list"
+        }
+      ],
+      "source_closure_receipts": [],
+      "witness_universe_status": "complete",
+      "witness_count": 77,
+      "witness_atom_kind_counts": {
+        "list_item": 7,
+        "sentence": 66,
+        "table_data_row": 2,
+        "table_row": 2
+      },
+      "required_open_obligation_count": 1,
+      "receipted_required_open_obligation_count": 0,
+      "all_required_open_obligations_receipted": false,
+      "closure_diagnostics": [
+        {
+          "obligation_id": "qf_bacce1df744926c6541f48c5aaaa1472",
+          "required_output_form": "list",
+          "attempts": {
+            "scoped_table_selection": {
+              "status": "rejected",
+              "reason": "scoped table-selection requires exactly one catalog-wide selector candidate"
+            },
+            "scoped_bullet_list": {
+              "status": "rejected",
+              "reason": "scoped bullet-list requires exactly one catalog-wide candidate"
+            },
+            "scoped_fact_set": {
+              "status": "rejected",
+              "reason": "fact-set closure requires exactly one catalog-wide candidate"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-020",
+      "baseline_final_passed": true,
+      "baseline_strict_passed": false,
+      "baseline_action": "PARTIAL_ANSWER",
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_d28b9b2cad49ec9f556d9f2fdc258c61",
+          "information_need": "在使用无线网络配置工具配置打印机时，输入Wi-Fi密码后应执行哪些操作",
+          "kind": "procedure",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "ordered_steps"
+        }
+      ],
+      "source_closure_receipts": [
+        {
+          "schema_version": "query-anchored-scoped-procedure-list-closure-receipt.v4",
+          "obligation_id": "qf_d28b9b2cad49ec9f556d9f2fdc258c61",
+          "member_count": 3
+        }
+      ],
+      "witness_universe_status": "complete",
+      "witness_count": 91,
+      "witness_atom_kind_counts": {
+        "list_item": 37,
+        "sentence": 54
+      },
+      "required_open_obligation_count": 1,
+      "receipted_required_open_obligation_count": 1,
+      "all_required_open_obligations_receipted": true,
+      "closure_diagnostics": [
+        {
+          "obligation_id": "qf_d28b9b2cad49ec9f556d9f2fdc258c61",
+          "required_output_form": "ordered_steps",
+          "attempts": {
+            "scoped_procedure_list": {
+              "status": "issued",
+              "schema_version": "query-anchored-scoped-procedure-list-closure-receipt.v4",
+              "member_count": 3
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-021",
+      "baseline_final_passed": true,
+      "baseline_strict_passed": false,
+      "baseline_action": "PARTIAL_ANSWER",
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_35e4f09bc88a4e85a88c929bf1272951",
+          "information_need": "在设置打印机Wi-Fi热点时，需要完成哪些操作步骤",
+          "kind": "procedure",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "ordered_steps"
+        }
+      ],
+      "source_closure_receipts": [
+        {
+          "schema_version": "query-anchored-scoped-procedure-list-closure-receipt.v4",
+          "obligation_id": "qf_35e4f09bc88a4e85a88c929bf1272951",
+          "member_count": 4
+        }
+      ],
+      "witness_universe_status": "complete",
+      "witness_count": 76,
+      "witness_atom_kind_counts": {
+        "list_item": 15,
+        "sentence": 39,
+        "table_data_row": 20,
+        "table_row": 2
+      },
+      "required_open_obligation_count": 1,
+      "receipted_required_open_obligation_count": 1,
+      "all_required_open_obligations_receipted": true,
+      "closure_diagnostics": [
+        {
+          "obligation_id": "qf_35e4f09bc88a4e85a88c929bf1272951",
+          "required_output_form": "ordered_steps",
+          "attempts": {
+            "scoped_procedure_list": {
+              "status": "issued",
+              "schema_version": "query-anchored-scoped-procedure-list-closure-receipt.v4",
+              "member_count": 4
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-022",
+      "baseline_final_passed": false,
+      "baseline_strict_passed": false,
+      "baseline_action": "REFUSE",
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_4936f3171d0e9aee73f1dbd92f6f61e4",
+          "information_need": "关闭打印机无线网络前需满足什么条件",
+          "kind": "fact",
+          "necessity": "required",
+          "closure": "single",
+          "required_output_form": "fact"
+        },
+        {
+          "obligation_id": "qf_8ed612553aed0c3ed73fe4e9fb9b2e13",
+          "information_need": "具体操作步骤是什么",
+          "kind": "procedure",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "ordered_steps"
+        }
+      ],
+      "source_closure_receipts": [
+        {
+          "schema_version": "query-anchored-scoped-procedure-list-closure-receipt.v4",
+          "obligation_id": "qf_8ed612553aed0c3ed73fe4e9fb9b2e13",
+          "member_count": 2
+        }
+      ],
+      "witness_universe_status": "complete",
+      "witness_count": 107,
+      "witness_atom_kind_counts": {
+        "list_item": 24,
+        "sentence": 83
+      },
+      "required_open_obligation_count": 1,
+      "receipted_required_open_obligation_count": 1,
+      "all_required_open_obligations_receipted": true,
+      "closure_diagnostics": [
+        {
+          "obligation_id": "qf_8ed612553aed0c3ed73fe4e9fb9b2e13",
+          "required_output_form": "ordered_steps",
+          "attempts": {
+            "scoped_procedure_list": {
+              "status": "issued",
+              "schema_version": "query-anchored-scoped-procedure-list-closure-receipt.v4",
+              "member_count": 2
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-023",
+      "baseline_final_passed": false,
+      "baseline_strict_passed": false,
+      "baseline_action": "REFUSE",
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_3a5f64f62ae26f300501b6477749cfa6",
+          "information_need": "当打印机在网络中无法被搜索到时，应检查哪几项内容",
+          "kind": "enumeration",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "list"
+        }
+      ],
+      "source_closure_receipts": [
+        {
+          "schema_version": "query-anchored-scoped-fact-set-closure-receipt.v1",
+          "obligation_id": "qf_3a5f64f62ae26f300501b6477749cfa6",
+          "member_count": 3
+        }
+      ],
+      "witness_universe_status": "complete",
+      "witness_count": 23,
+      "witness_atom_kind_counts": {
+        "list_item": 9,
+        "sentence": 14
+      },
+      "required_open_obligation_count": 1,
+      "receipted_required_open_obligation_count": 1,
+      "all_required_open_obligations_receipted": true,
+      "closure_diagnostics": [
+        {
+          "obligation_id": "qf_3a5f64f62ae26f300501b6477749cfa6",
+          "required_output_form": "list",
+          "attempts": {
+            "scoped_table_selection": {
+              "status": "not_applicable",
+              "reason": "no_matching_atom_kind"
+            },
+            "scoped_bullet_list": {
+              "status": "rejected",
+              "reason": "scoped bullet-list contains an open cross-reference"
+            },
+            "scoped_fact_set": {
+              "status": "issued",
+              "schema_version": "query-anchored-scoped-fact-set-closure-receipt.v1",
+              "member_count": 3
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-024",
+      "baseline_final_passed": false,
+      "baseline_strict_passed": false,
+      "baseline_action": "REFUSE",
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_bf220511ddd1f82304bae92b50df881d",
+          "information_need": "通过内嵌Web服务器设置打印机休眠时间时，需要执行哪些操作",
+          "kind": "procedure",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "ordered_steps"
+        }
+      ],
+      "source_closure_receipts": [
+        {
+          "schema_version": "query-anchored-scoped-procedure-list-closure-receipt.v4",
+          "obligation_id": "qf_bf220511ddd1f82304bae92b50df881d",
+          "member_count": 3
+        }
+      ],
+      "witness_universe_status": "complete",
+      "witness_count": 58,
+      "witness_atom_kind_counts": {
+        "list_item": 5,
+        "sentence": 31,
+        "table_data_row": 20,
+        "table_row": 2
+      },
+      "required_open_obligation_count": 1,
+      "receipted_required_open_obligation_count": 1,
+      "all_required_open_obligations_receipted": true,
+      "closure_diagnostics": [
+        {
+          "obligation_id": "qf_bf220511ddd1f82304bae92b50df881d",
+          "required_output_form": "ordered_steps",
+          "attempts": {
+            "scoped_procedure_list": {
+              "status": "issued",
+              "schema_version": "query-anchored-scoped-procedure-list-closure-receipt.v4",
+              "member_count": 3
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-025",
+      "baseline_final_passed": true,
+      "baseline_strict_passed": true,
+      "baseline_action": "ANSWER",
+      "baseline_proof_strict_eligible": true,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_4232f0d383076ff9349e398d8229ec3a",
+          "information_need": "在无线网络连接中，Wi-Fi热点连接模式与基础结构连接模式有何区别",
+          "kind": "fact",
+          "necessity": "required",
+          "closure": "single",
+          "required_output_form": "fact"
+        },
+        {
+          "obligation_id": "qf_d3997ad28f21b92cac82c214aab3e47f",
+          "information_need": "请从连接方式上说明",
+          "kind": "fact",
+          "necessity": "required",
+          "closure": "single",
+          "required_output_form": "fact"
+        }
+      ],
+      "source_closure_receipts": [],
+      "witness_universe_status": "complete",
+      "witness_count": 73,
+      "witness_atom_kind_counts": {
+        "list_item": 15,
+        "sentence": 58
+      },
+      "required_open_obligation_count": 0,
+      "receipted_required_open_obligation_count": 0,
+      "all_required_open_obligations_receipted": false,
+      "closure_diagnostics": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-026",
+      "baseline_final_passed": false,
+      "baseline_strict_passed": false,
+      "baseline_action": "REFUSE",
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_c4e8f7c51c2e07d20b5c3255dc727dc0",
+          "information_need": "进行基础结构连接模式设置前，必须了解哪些关键信息",
+          "kind": "enumeration",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "list"
+        },
+        {
+          "obligation_id": "qf_da6b04627b907132752d4fe19135b470",
+          "information_need": "具体如何连接移动设备和打印机",
+          "kind": "fact",
+          "necessity": "required",
+          "closure": "single",
+          "required_output_form": "fact"
+        }
+      ],
+      "source_closure_receipts": [],
+      "witness_universe_status": "complete",
+      "witness_count": 62,
+      "witness_atom_kind_counts": {
+        "list_item": 22,
+        "sentence": 40
+      },
+      "required_open_obligation_count": 1,
+      "receipted_required_open_obligation_count": 0,
+      "all_required_open_obligations_receipted": false,
+      "closure_diagnostics": [
+        {
+          "obligation_id": "qf_c4e8f7c51c2e07d20b5c3255dc727dc0",
+          "required_output_form": "list",
+          "attempts": {
+            "scoped_table_selection": {
+              "status": "not_applicable",
+              "reason": "no_matching_atom_kind"
+            },
+            "scoped_bullet_list": {
+              "status": "rejected",
+              "reason": "scoped bullet-list requires exactly one catalog-wide candidate"
+            },
+            "scoped_fact_set": {
+              "status": "rejected",
+              "reason": "fact-set closure requires exactly one catalog-wide candidate"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-027",
+      "baseline_final_passed": true,
+      "baseline_strict_passed": true,
+      "baseline_action": "ANSWER",
+      "baseline_proof_strict_eligible": true,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_c2bfc57f708df3f5efb404900ef25e6f",
+          "information_need": "中国用户如何下载Mopria Print Service",
+          "kind": "fact",
+          "necessity": "required",
+          "closure": "single",
+          "required_output_form": "fact"
+        }
+      ],
+      "source_closure_receipts": [],
+      "witness_universe_status": "complete",
+      "witness_count": 31,
+      "witness_atom_kind_counts": {
+        "list_item": 4,
+        "sentence": 27
+      },
+      "required_open_obligation_count": 0,
+      "receipted_required_open_obligation_count": 0,
+      "all_required_open_obligations_receipted": false,
+      "closure_diagnostics": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-028",
+      "baseline_final_passed": false,
+      "baseline_strict_passed": false,
+      "baseline_action": "REFUSE",
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_36c5dfa469933d64dd16d68df7b096e8",
+          "information_need": "如何通过控制面板更改打印机的语言设置",
+          "kind": "procedure",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "ordered_steps"
+        }
+      ],
+      "source_closure_receipts": [
+        {
+          "schema_version": "query-anchored-scoped-procedure-list-closure-receipt.v4",
+          "obligation_id": "qf_36c5dfa469933d64dd16d68df7b096e8",
+          "member_count": 3
+        }
+      ],
+      "witness_universe_status": "complete",
+      "witness_count": 110,
+      "witness_atom_kind_counts": {
+        "list_item": 14,
+        "sentence": 92,
+        "table_data_row": 2,
+        "table_row": 2
+      },
+      "required_open_obligation_count": 1,
+      "receipted_required_open_obligation_count": 1,
+      "all_required_open_obligations_receipted": true,
+      "closure_diagnostics": [
+        {
+          "obligation_id": "qf_36c5dfa469933d64dd16d68df7b096e8",
+          "required_output_form": "ordered_steps",
+          "attempts": {
+            "scoped_procedure_list": {
+              "status": "issued",
+              "schema_version": "query-anchored-scoped-procedure-list-closure-receipt.v4",
+              "member_count": 3
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-029",
+      "baseline_final_passed": true,
+      "baseline_strict_passed": false,
+      "baseline_action": "PARTIAL_ANSWER",
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_6aa9bb74929521cee98f522371a2c779",
+          "information_need": "在省墨设置中，如何开启或关闭省墨模式",
+          "kind": "procedure",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "ordered_steps"
+        }
+      ],
+      "source_closure_receipts": [
+        {
+          "schema_version": "query-anchored-scoped-procedure-list-closure-receipt.v4",
+          "obligation_id": "qf_6aa9bb74929521cee98f522371a2c779",
+          "member_count": 5
+        }
+      ],
+      "witness_universe_status": "complete",
+      "witness_count": 87,
+      "witness_atom_kind_counts": {
+        "list_item": 17,
+        "sentence": 70
+      },
+      "required_open_obligation_count": 1,
+      "receipted_required_open_obligation_count": 1,
+      "all_required_open_obligations_receipted": true,
+      "closure_diagnostics": [
+        {
+          "obligation_id": "qf_6aa9bb74929521cee98f522371a2c779",
+          "required_output_form": "ordered_steps",
+          "attempts": {
+            "scoped_procedure_list": {
+              "status": "issued",
+              "schema_version": "query-anchored-scoped-procedure-list-closure-receipt.v4",
+              "member_count": 5
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-030",
+      "baseline_final_passed": false,
+      "baseline_strict_passed": false,
+      "baseline_action": "REFUSE",
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_9a1f600882f4ece230e6688d988e0541",
+          "information_need": "恢复出厂设置前需进入哪个菜单",
+          "kind": "fact",
+          "necessity": "required",
+          "closure": "single",
+          "required_output_form": "fact"
+        },
+        {
+          "obligation_id": "qf_3a000bdba8f72f1124b327d30310b57c",
+          "information_need": "具体操作步骤是什么",
+          "kind": "procedure",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "ordered_steps"
+        }
+      ],
+      "source_closure_receipts": [
+        {
+          "schema_version": "query-anchored-scoped-procedure-list-closure-receipt.v4",
+          "obligation_id": "qf_3a000bdba8f72f1124b327d30310b57c",
+          "member_count": 3
+        }
+      ],
+      "witness_universe_status": "complete",
+      "witness_count": 107,
+      "witness_atom_kind_counts": {
+        "list_item": 30,
+        "sentence": 77
+      },
+      "required_open_obligation_count": 1,
+      "receipted_required_open_obligation_count": 1,
+      "all_required_open_obligations_receipted": true,
+      "closure_diagnostics": [
+        {
+          "obligation_id": "qf_3a000bdba8f72f1124b327d30310b57c",
+          "required_output_form": "ordered_steps",
+          "attempts": {
+            "scoped_procedure_list": {
+              "status": "issued",
+              "schema_version": "query-anchored-scoped-procedure-list-closure-receipt.v4",
+              "member_count": 3
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-031",
+      "baseline_final_passed": true,
+      "baseline_strict_passed": false,
+      "baseline_action": "PARTIAL_ANSWER",
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_44887851ee1b9cc961206ccb01780fc9",
+          "information_need": "根据打印机纸盒与纸张尺寸的对应关系，多功能纸盒和标准纸盒分别支持哪些纸张尺寸？请列出两者都支持的尺寸",
+          "kind": "enumeration",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "list"
+        }
+      ],
+      "source_closure_receipts": [
+        {
+          "schema_version": "query-anchored-scoped-table-selection-closure-receipt.v2",
+          "obligation_id": "qf_44887851ee1b9cc961206ccb01780fc9",
+          "member_count": 1
+        }
+      ],
+      "witness_universe_status": "complete",
+      "witness_count": 41,
+      "witness_atom_kind_counts": {
+        "list_item": 9,
+        "sentence": 28,
+        "table_data_row": 2,
+        "table_row": 2
+      },
+      "required_open_obligation_count": 1,
+      "receipted_required_open_obligation_count": 1,
+      "all_required_open_obligations_receipted": true,
+      "closure_diagnostics": [
+        {
+          "obligation_id": "qf_44887851ee1b9cc961206ccb01780fc9",
+          "required_output_form": "list",
+          "attempts": {
+            "scoped_table_selection": {
+              "status": "issued",
+              "schema_version": "query-anchored-scoped-table-selection-closure-receipt.v2",
+              "member_count": 1
+            },
+            "scoped_bullet_list": {
+              "status": "rejected",
+              "reason": "scoped bullet-list requires exactly one catalog-wide candidate"
+            },
+            "scoped_fact_set": {
+              "status": "rejected",
+              "reason": "fact-set closure requires exactly one catalog-wide candidate"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-032",
+      "baseline_final_passed": false,
+      "baseline_strict_passed": false,
+      "baseline_action": "REFUSE",
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_ccd02124f8b0cf494e276b1ba618b18f",
+          "information_need": "在控制面板设置纸张尺寸时，需要完成哪几个步骤",
+          "kind": "procedure",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "ordered_steps"
+        }
+      ],
+      "source_closure_receipts": [
+        {
+          "schema_version": "query-anchored-scoped-procedure-list-closure-receipt.v4",
+          "obligation_id": "qf_ccd02124f8b0cf494e276b1ba618b18f",
+          "member_count": 5
+        }
+      ],
+      "witness_universe_status": "complete",
+      "witness_count": 48,
+      "witness_atom_kind_counts": {
+        "list_item": 14,
+        "sentence": 34
+      },
+      "required_open_obligation_count": 1,
+      "receipted_required_open_obligation_count": 1,
+      "all_required_open_obligations_receipted": true,
+      "closure_diagnostics": [
+        {
+          "obligation_id": "qf_ccd02124f8b0cf494e276b1ba618b18f",
+          "required_output_form": "ordered_steps",
+          "attempts": {
+            "scoped_procedure_list": {
+              "status": "issued",
+              "schema_version": "query-anchored-scoped-procedure-list-closure-receipt.v4",
+              "member_count": 5
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-033",
+      "baseline_final_passed": false,
+      "baseline_strict_passed": false,
+      "baseline_action": "REFUSE",
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_2741ff582f90b70fc8b59fdf43644907",
+          "information_need": "使用纸盒拨盘设置标准纸盒的纸张尺寸时，应执行哪些具体操作",
+          "kind": "procedure",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "ordered_steps"
+        }
+      ],
+      "source_closure_receipts": [
+        {
+          "schema_version": "query-anchored-scoped-procedure-list-closure-receipt.v4",
+          "obligation_id": "qf_2741ff582f90b70fc8b59fdf43644907",
+          "member_count": 3
+        }
+      ],
+      "witness_universe_status": "complete",
+      "witness_count": 103,
+      "witness_atom_kind_counts": {
+        "list_item": 11,
+        "sentence": 92
+      },
+      "required_open_obligation_count": 1,
+      "receipted_required_open_obligation_count": 1,
+      "all_required_open_obligations_receipted": true,
+      "closure_diagnostics": [
+        {
+          "obligation_id": "qf_2741ff582f90b70fc8b59fdf43644907",
+          "required_output_form": "ordered_steps",
+          "attempts": {
+            "scoped_procedure_list": {
+              "status": "issued",
+              "schema_version": "query-anchored-scoped-procedure-list-closure-receipt.v4",
+              "member_count": 3
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-034",
+      "baseline_final_passed": true,
+      "baseline_strict_passed": false,
+      "baseline_action": "PARTIAL_ANSWER",
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_fb8034fa763d728fe9854930614c1695",
+          "information_need": "当使用多功能纸盒打印长纸或特殊纸张时，有哪些注意事项",
+          "kind": "enumeration",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "list"
+        }
+      ],
+      "source_closure_receipts": [],
+      "witness_universe_status": "complete",
+      "witness_count": 36,
+      "witness_atom_kind_counts": {
+        "list_item": 5,
+        "sentence": 25,
+        "table_data_row": 4,
+        "table_row": 2
+      },
+      "required_open_obligation_count": 1,
+      "receipted_required_open_obligation_count": 0,
+      "all_required_open_obligations_receipted": false,
+      "closure_diagnostics": [
+        {
+          "obligation_id": "qf_fb8034fa763d728fe9854930614c1695",
+          "required_output_form": "list",
+          "attempts": {
+            "scoped_table_selection": {
+              "status": "rejected",
+              "reason": "scoped table-selection requires exactly one catalog-wide selector candidate"
+            },
+            "scoped_bullet_list": {
+              "status": "rejected",
+              "reason": "scoped bullet-list requires exactly one catalog-wide candidate"
+            },
+            "scoped_fact_set": {
+              "status": "rejected",
+              "reason": "fact-set closure requires exactly one catalog-wide candidate"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-035",
+      "baseline_final_passed": true,
+      "baseline_strict_passed": true,
+      "baseline_action": "ANSWER",
+      "baseline_proof_strict_eligible": true,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_7f1568b6d5590dcf2c6c920e2d5d2b6e",
+          "information_need": "选配纸盒最多可容纳多少页普通纸",
+          "kind": "fact",
+          "necessity": "required",
+          "closure": "single",
+          "required_output_form": "fact"
+        },
+        {
+          "obligation_id": "qf_f3e33936a6547ed8415d1bdffb2f4a05",
+          "information_need": "安装时需要注意什么",
+          "kind": "fact",
+          "necessity": "required",
+          "closure": "single",
+          "required_output_form": "fact"
+        }
+      ],
+      "source_closure_receipts": [],
+      "witness_universe_status": "complete",
+      "witness_count": 94,
+      "witness_atom_kind_counts": {
+        "list_item": 31,
+        "sentence": 55,
+        "table_data_row": 5,
+        "table_row": 3
+      },
+      "required_open_obligation_count": 0,
+      "receipted_required_open_obligation_count": 0,
+      "all_required_open_obligations_receipted": false,
+      "closure_diagnostics": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-036",
+      "baseline_final_passed": true,
+      "baseline_strict_passed": true,
+      "baseline_action": "ANSWER",
+      "baseline_proof_strict_eligible": true,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_3e02b32ef37e2a6b21058f1aacda734d",
+          "information_need": "多功能纸盒支持自动双面打印吗",
+          "kind": "fact",
+          "necessity": "required",
+          "closure": "single",
+          "required_output_form": "fact"
+        },
+        {
+          "obligation_id": "qf_1bd8b2ed66e62f1c0c254caf4bb89d1a",
+          "information_need": "如果支持，其最大容量和推荐纸张类型是什么",
+          "kind": "fact",
+          "necessity": "conditional",
+          "closure": "single",
+          "required_output_form": "fact"
+        }
+      ],
+      "source_closure_receipts": [],
+      "witness_universe_status": "complete",
+      "witness_count": 89,
+      "witness_atom_kind_counts": {
+        "list_item": 19,
+        "sentence": 70
+      },
+      "required_open_obligation_count": 0,
+      "receipted_required_open_obligation_count": 0,
+      "all_required_open_obligations_receipted": false,
+      "closure_diagnostics": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-037",
+      "baseline_final_passed": false,
+      "baseline_strict_passed": false,
+      "baseline_action": "ANSWER",
+      "baseline_proof_strict_eligible": true,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_5f90b1877f14243cc53e5e039cca2bb4",
+          "information_need": "在Windows系统中如何通过打印首选项打开帮助文档",
+          "kind": "procedure",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "ordered_steps"
+        }
+      ],
+      "source_closure_receipts": [
+        {
+          "schema_version": "query-anchored-inline-action-chain-closure-receipt.v1",
+          "obligation_id": "qf_5f90b1877f14243cc53e5e039cca2bb4",
+          "member_count": 1
+        }
+      ],
+      "witness_universe_status": "complete",
+      "witness_count": 121,
+      "witness_atom_kind_counts": {
+        "list_item": 32,
+        "sentence": 89
+      },
+      "required_open_obligation_count": 1,
+      "receipted_required_open_obligation_count": 1,
+      "all_required_open_obligations_receipted": true,
+      "closure_diagnostics": [
+        {
+          "obligation_id": "qf_5f90b1877f14243cc53e5e039cca2bb4",
+          "required_output_form": "ordered_steps",
+          "attempts": {
+            "scoped_procedure_list": {
+              "status": "rejected",
+              "reason": "scoped procedure list closure requires exactly one catalog-wide candidate"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-038",
+      "baseline_final_passed": false,
+      "baseline_strict_passed": false,
+      "baseline_action": "REFUSE",
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_4cd03dd3d2f39337cf252fc2c9b327c2",
+          "information_need": "更换激光碳粉盒后，需要完成哪些后续操作以确保打印正常",
+          "kind": "procedure",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "ordered_steps"
+        }
+      ],
+      "source_closure_receipts": [],
+      "witness_universe_status": "complete",
+      "witness_count": 70,
+      "witness_atom_kind_counts": {
+        "list_item": 9,
+        "sentence": 34,
+        "table_data_row": 23,
+        "table_row": 4
+      },
+      "required_open_obligation_count": 1,
+      "receipted_required_open_obligation_count": 0,
+      "all_required_open_obligations_receipted": false,
+      "closure_diagnostics": [
+        {
+          "obligation_id": "qf_4cd03dd3d2f39337cf252fc2c9b327c2",
+          "required_output_form": "ordered_steps",
+          "attempts": {
+            "scoped_procedure_list": {
+              "status": "rejected",
+              "reason": "scoped procedure list closure requires exactly one catalog-wide candidate"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-039",
+      "baseline_final_passed": false,
+      "baseline_strict_passed": false,
+      "baseline_action": "REFUSE",
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_a282b66fa116229ef5750286e2ec3f88",
+          "information_need": "在处理打印故障前，应检查哪些关键项目",
+          "kind": "enumeration",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "list"
+        }
+      ],
+      "source_closure_receipts": [
+        {
+          "schema_version": "query-anchored-scoped-bullet-list-closure-receipt.v1",
+          "obligation_id": "qf_a282b66fa116229ef5750286e2ec3f88",
+          "member_count": 8
+        }
+      ],
+      "witness_universe_status": "complete",
+      "witness_count": 73,
+      "witness_atom_kind_counts": {
+        "list_item": 11,
+        "sentence": 40,
+        "table_data_row": 14,
+        "table_row": 8
+      },
+      "required_open_obligation_count": 1,
+      "receipted_required_open_obligation_count": 1,
+      "all_required_open_obligations_receipted": true,
+      "closure_diagnostics": [
+        {
+          "obligation_id": "qf_a282b66fa116229ef5750286e2ec3f88",
+          "required_output_form": "list",
+          "attempts": {
+            "scoped_table_selection": {
+              "status": "rejected",
+              "reason": "scoped table-selection requires exactly one catalog-wide selector candidate"
+            },
+            "scoped_bullet_list": {
+              "status": "issued",
+              "schema_version": "query-anchored-scoped-bullet-list-closure-receipt.v1",
+              "member_count": 8
+            },
+            "scoped_fact_set": {
+              "status": "rejected",
+              "reason": "fact-set closure requires exactly one catalog-wide candidate"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-040",
+      "baseline_final_passed": true,
+      "baseline_strict_passed": false,
+      "baseline_action": "PARTIAL_ANSWER",
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_54d0087bebeebbb34aba0edac2dd7b64",
+          "information_need": "当标准纸盒发生卡纸时，应如何处理",
+          "kind": "procedure",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "ordered_steps"
+        }
+      ],
+      "source_closure_receipts": [
+        {
+          "schema_version": "query-anchored-scoped-procedure-list-closure-receipt.v4",
+          "obligation_id": "qf_54d0087bebeebbb34aba0edac2dd7b64",
+          "member_count": 3
+        }
+      ],
+      "witness_universe_status": "complete",
+      "witness_count": 111,
+      "witness_atom_kind_counts": {
+        "list_item": 20,
+        "sentence": 87,
+        "table_data_row": 2,
+        "table_row": 2
+      },
+      "required_open_obligation_count": 1,
+      "receipted_required_open_obligation_count": 1,
+      "all_required_open_obligations_receipted": true,
+      "closure_diagnostics": [
+        {
+          "obligation_id": "qf_54d0087bebeebbb34aba0edac2dd7b64",
+          "required_output_form": "ordered_steps",
+          "attempts": {
+            "scoped_procedure_list": {
+              "status": "issued",
+              "schema_version": "query-anchored-scoped-procedure-list-closure-receipt.v4",
+              "member_count": 3
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-041",
+      "baseline_final_passed": false,
+      "baseline_strict_passed": false,
+      "baseline_action": "REFUSE",
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_21131985795962a6b7a996862af7e490",
+          "information_need": "当打印机选配纸盒出现卡纸时，若在该区域看不到纸张，应执行哪些操作步骤",
+          "kind": "procedure",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "ordered_steps"
+        }
+      ],
+      "source_closure_receipts": [
+        {
+          "schema_version": "query-anchored-scoped-procedure-list-closure-receipt.v4",
+          "obligation_id": "qf_21131985795962a6b7a996862af7e490",
+          "member_count": 3
+        }
+      ],
+      "witness_universe_status": "complete",
+      "witness_count": 84,
+      "witness_atom_kind_counts": {
+        "list_item": 17,
+        "sentence": 45,
+        "table_data_row": 20,
+        "table_row": 2
+      },
+      "required_open_obligation_count": 1,
+      "receipted_required_open_obligation_count": 1,
+      "all_required_open_obligations_receipted": true,
+      "closure_diagnostics": [
+        {
+          "obligation_id": "qf_21131985795962a6b7a996862af7e490",
+          "required_output_form": "ordered_steps",
+          "attempts": {
+            "scoped_procedure_list": {
+              "status": "issued",
+              "schema_version": "query-anchored-scoped-procedure-list-closure-receipt.v4",
+              "member_count": 3
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-042",
+      "baseline_final_passed": true,
+      "baseline_strict_passed": false,
+      "baseline_action": "PARTIAL_ANSWER",
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_82881f9fddcd8526f60bcca7ec65771b",
+          "information_need": "处理中部卡纸时，为避免感光鼓曝光影响打印质量，在取出激光碳粉盒后应采取什么措施",
+          "kind": "fact",
+          "necessity": "required",
+          "closure": "single",
+          "required_output_form": "fact"
+        },
+        {
+          "obligation_id": "qf_4832b905b10e4cb3cab08572987f7a1f",
+          "information_need": "取出卡纸后又需完成哪些操作才能恢复打印",
+          "kind": "procedure",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "ordered_steps"
+        }
+      ],
+      "source_closure_receipts": [
+        {
+          "schema_version": "query-anchored-inline-action-chain-closure-receipt.v1",
+          "obligation_id": "qf_4832b905b10e4cb3cab08572987f7a1f",
+          "member_count": 1
+        }
+      ],
+      "witness_universe_status": "complete",
+      "witness_count": 69,
+      "witness_atom_kind_counts": {
+        "list_item": 17,
+        "sentence": 47,
+        "table_data_row": 2,
+        "table_row": 3
+      },
+      "required_open_obligation_count": 1,
+      "receipted_required_open_obligation_count": 1,
+      "all_required_open_obligations_receipted": true,
+      "closure_diagnostics": [
+        {
+          "obligation_id": "qf_4832b905b10e4cb3cab08572987f7a1f",
+          "required_output_form": "ordered_steps",
+          "attempts": {
+            "scoped_procedure_list": {
+              "status": "rejected",
+              "reason": "scoped procedure list closure requires exactly one catalog-wide candidate"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-043",
+      "baseline_final_passed": true,
+      "baseline_strict_passed": false,
+      "baseline_action": "PARTIAL_ANSWER",
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_7400101b21ee21b1b78be4f54bb04693",
+          "information_need": "如果双面打印单元卡纸且纸张未随其一起出来，应如何操作",
+          "kind": "fact",
+          "necessity": "required",
+          "closure": "single",
+          "required_output_form": "fact"
+        },
+        {
+          "obligation_id": "qf_5c6fdc763cce909e3f0b22c77db445c4",
+          "information_need": "取出卡纸后还需进行哪些检查和操作",
+          "kind": "procedure",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "ordered_steps"
+        }
+      ],
+      "source_closure_receipts": [
+        {
+          "schema_version": "query-anchored-inline-action-chain-closure-receipt.v1",
+          "obligation_id": "qf_5c6fdc763cce909e3f0b22c77db445c4",
+          "member_count": 1
+        }
+      ],
+      "witness_universe_status": "complete",
+      "witness_count": 62,
+      "witness_atom_kind_counts": {
+        "list_item": 15,
+        "sentence": 47
+      },
+      "required_open_obligation_count": 1,
+      "receipted_required_open_obligation_count": 1,
+      "all_required_open_obligations_receipted": true,
+      "closure_diagnostics": [
+        {
+          "obligation_id": "qf_5c6fdc763cce909e3f0b22c77db445c4",
+          "required_output_form": "ordered_steps",
+          "attempts": {
+            "scoped_procedure_list": {
+              "status": "rejected",
+              "reason": "scoped procedure list closure requires exactly one catalog-wide candidate"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-044",
+      "baseline_final_passed": true,
+      "baseline_strict_passed": false,
+      "baseline_action": "PARTIAL_ANSWER",
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_31141aa05779b934aa33798c0e2ef62b",
+          "information_need": "根据故障表，导致卡纸的可能原因有哪些？对应的解决办法包括哪些具体操作",
+          "kind": "enumeration",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "list"
+        }
+      ],
+      "source_closure_receipts": [
+        {
+          "schema_version": "query-anchored-scoped-table-selection-closure-receipt.v2",
+          "obligation_id": "qf_31141aa05779b934aa33798c0e2ef62b",
+          "member_count": 1
+        }
+      ],
+      "witness_universe_status": "complete",
+      "witness_count": 179,
+      "witness_atom_kind_counts": {
+        "list_item": 7,
+        "sentence": 168,
+        "table_data_row": 2,
+        "table_row": 2
+      },
+      "required_open_obligation_count": 1,
+      "receipted_required_open_obligation_count": 1,
+      "all_required_open_obligations_receipted": true,
+      "closure_diagnostics": [
+        {
+          "obligation_id": "qf_31141aa05779b934aa33798c0e2ef62b",
+          "required_output_form": "list",
+          "attempts": {
+            "scoped_table_selection": {
+              "status": "issued",
+              "schema_version": "query-anchored-scoped-table-selection-closure-receipt.v2",
+              "member_count": 1
+            },
+            "scoped_bullet_list": {
+              "status": "rejected",
+              "reason": "scoped bullet-list requires exactly one catalog-wide candidate"
+            },
+            "scoped_fact_set": {
+              "status": "rejected",
+              "reason": "fact-set closure requires exactly one catalog-wide candidate"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-045",
+      "baseline_final_passed": true,
+      "baseline_strict_passed": false,
+      "baseline_action": "PARTIAL_ANSWER",
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_afca91862356447a7af4ca588100e8a1",
+          "information_need": "打印全黑版的故障原因是什么",
+          "kind": "fact",
+          "necessity": "required",
+          "closure": "single",
+          "required_output_form": "fact"
+        },
+        {
+          "obligation_id": "qf_ccce5a567296ea35daae7e271431db9d",
+          "information_need": "解决办法中建议采取哪两项措施",
+          "kind": "enumeration",
+          "necessity": "required",
+          "closure": "closed_count",
+          "required_output_form": "list"
+        }
+      ],
+      "source_closure_receipts": [],
+      "witness_universe_status": "complete",
+      "witness_count": 66,
+      "witness_atom_kind_counts": {
+        "sentence": 51,
+        "table_data_row": 8,
+        "table_row": 7
+      },
+      "required_open_obligation_count": 0,
+      "receipted_required_open_obligation_count": 0,
+      "all_required_open_obligations_receipted": false,
+      "closure_diagnostics": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-046",
+      "baseline_final_passed": true,
+      "baseline_strict_passed": false,
+      "baseline_action": "PARTIAL_ANSWER",
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_04d3e992993840abc93df70bd63ae630",
+          "information_need": "打印发白或偏淡的故障原因有哪些？解决办法中提到需要调整哪些打印设置",
+          "kind": "enumeration",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "list"
+        }
+      ],
+      "source_closure_receipts": [
+        {
+          "schema_version": "query-anchored-scoped-table-selection-closure-receipt.v2",
+          "obligation_id": "qf_04d3e992993840abc93df70bd63ae630",
+          "member_count": 1
+        }
+      ],
+      "witness_universe_status": "complete",
+      "witness_count": 54,
+      "witness_atom_kind_counts": {
+        "list_item": 17,
+        "sentence": 23,
+        "table_data_row": 7,
+        "table_row": 7
+      },
+      "required_open_obligation_count": 1,
+      "receipted_required_open_obligation_count": 1,
+      "all_required_open_obligations_receipted": true,
+      "closure_diagnostics": [
+        {
+          "obligation_id": "qf_04d3e992993840abc93df70bd63ae630",
+          "required_output_form": "list",
+          "attempts": {
+            "scoped_table_selection": {
+              "status": "issued",
+              "schema_version": "query-anchored-scoped-table-selection-closure-receipt.v2",
+              "member_count": 1
+            },
+            "scoped_bullet_list": {
+              "status": "rejected",
+              "reason": "scoped bullet-list requires exactly one catalog-wide candidate"
+            },
+            "scoped_fact_set": {
+              "status": "rejected",
+              "reason": "fact-set closure requires exactly one catalog-wide candidate"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-047",
+      "baseline_final_passed": true,
+      "baseline_strict_passed": false,
+      "baseline_action": "PARTIAL_ANSWER",
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_285e9d32127a9f455a912b0506358ec0",
+          "information_need": "在打印机菜单结构中，网络信息下的无线网络信息包含哪些三级菜单项？其中哪个菜单项用于查看当前连接状态",
+          "kind": "enumeration",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "list"
+        }
+      ],
+      "source_closure_receipts": [
+        {
+          "schema_version": "query-anchored-scoped-table-selection-closure-receipt.v2",
+          "obligation_id": "qf_285e9d32127a9f455a912b0506358ec0",
+          "member_count": 6
+        }
+      ],
+      "witness_universe_status": "complete",
+      "witness_count": 133,
+      "witness_atom_kind_counts": {
+        "sentence": 92,
+        "table_data_row": 30,
+        "table_row": 11
+      },
+      "required_open_obligation_count": 1,
+      "receipted_required_open_obligation_count": 1,
+      "all_required_open_obligations_receipted": true,
+      "closure_diagnostics": [
+        {
+          "obligation_id": "qf_285e9d32127a9f455a912b0506358ec0",
+          "required_output_form": "list",
+          "attempts": {
+            "scoped_table_selection": {
+              "status": "issued",
+              "schema_version": "query-anchored-scoped-table-selection-closure-receipt.v2",
+              "member_count": 6
+            },
+            "scoped_bullet_list": {
+              "status": "not_applicable",
+              "reason": "no_matching_atom_kind"
+            },
+            "scoped_fact_set": {
+              "status": "rejected",
+              "reason": "fact-set closure requires exactly one catalog-wide candidate"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-048",
+      "baseline_final_passed": true,
+      "baseline_strict_passed": true,
+      "baseline_action": "ANSWER",
+      "baseline_proof_strict_eligible": true,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_2136fb2aa2743775cbf7236d0350df4a",
+          "information_need": "打印机的工作环境温度要求是多少",
+          "kind": "fact",
+          "necessity": "required",
+          "closure": "single",
+          "required_output_form": "fact"
+        },
+        {
+          "obligation_id": "qf_d0ddffeafefd68d4801413cb305f334e",
+          "information_need": "电源电压在220V型号下支持的电压范围和电流是多少",
+          "kind": "fact",
+          "necessity": "required",
+          "closure": "single",
+          "required_output_form": "fact"
+        }
+      ],
+      "source_closure_receipts": [],
+      "witness_universe_status": "complete",
+      "witness_count": 68,
+      "witness_atom_kind_counts": {
+        "list_item": 12,
+        "sentence": 34,
+        "table_data_row": 20,
+        "table_row": 2
+      },
+      "required_open_obligation_count": 0,
+      "receipted_required_open_obligation_count": 0,
+      "all_required_open_obligations_receipted": false,
+      "closure_diagnostics": []
+    },
+    {
+      "case_id": "P3500-MEDIUM-049",
+      "baseline_final_passed": true,
+      "baseline_strict_passed": false,
+      "baseline_action": "PARTIAL_ANSWER",
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_f2c4db595ab929972ef902ff7dcc9e80",
+          "information_need": "Pantum 和 Pantum 标识是哪家公司注册的商标",
+          "kind": "fact",
+          "necessity": "required",
+          "closure": "single",
+          "required_output_form": "fact"
+        },
+        {
+          "obligation_id": "qf_b9f8322c9dde4e3e45b025fd6f709ef9",
+          "information_need": "Mopria Alliance, Inc. 注册的商标包括哪些",
+          "kind": "enumeration",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "list"
+        }
+      ],
+      "source_closure_receipts": [
+        {
+          "schema_version": "query-anchored-scoped-fact-set-closure-receipt.v1",
+          "obligation_id": "qf_b9f8322c9dde4e3e45b025fd6f709ef9",
+          "member_count": 1
+        }
+      ],
+      "witness_universe_status": "complete",
+      "witness_count": 36,
+      "witness_atom_kind_counts": {
+        "list_item": 5,
+        "sentence": 31
+      },
+      "required_open_obligation_count": 1,
+      "receipted_required_open_obligation_count": 1,
+      "all_required_open_obligations_receipted": true,
+      "closure_diagnostics": [
+        {
+          "obligation_id": "qf_b9f8322c9dde4e3e45b025fd6f709ef9",
+          "required_output_form": "list",
+          "attempts": {
+            "scoped_table_selection": {
+              "status": "not_applicable",
+              "reason": "no_matching_atom_kind"
+            },
+            "scoped_bullet_list": {
+              "status": "rejected",
+              "reason": "scoped bullet-list requires exactly one catalog-wide candidate"
+            },
+            "scoped_fact_set": {
+              "status": "issued",
+              "schema_version": "query-anchored-scoped-fact-set-closure-receipt.v1",
+              "member_count": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "P3500-MEDIUM-050",
+      "baseline_final_passed": true,
+      "baseline_strict_passed": false,
+      "baseline_action": "PARTIAL_ANSWER",
+      "baseline_proof_strict_eligible": false,
+      "baseline_error_type": null,
+      "archived_context_evidence_count": 5,
+      "replay_status": "succeeded",
+      "obligations": [
+        {
+          "obligation_id": "qf_d3f76d45351e722f4f696c805e342476",
+          "information_need": "在打印机警告中，关于电源插拔提出了哪些安全提示",
+          "kind": "enumeration",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "list"
+        },
+        {
+          "obligation_id": "qf_e5ded4d2db3ddfd62bfac2c80b21d029",
+          "information_need": "高温定影单元提出了哪些安全提示",
+          "kind": "enumeration",
+          "necessity": "required",
+          "closure": "open_enumeration",
+          "required_output_form": "list"
+        }
+      ],
+      "source_closure_receipts": [
+        {
+          "schema_version": "query-anchored-scoped-fact-set-closure-receipt.v1",
+          "obligation_id": "qf_d3f76d45351e722f4f696c805e342476",
+          "member_count": 2
+        },
+        {
+          "schema_version": "query-anchored-scoped-fact-set-closure-receipt.v1",
+          "obligation_id": "qf_e5ded4d2db3ddfd62bfac2c80b21d029",
+          "member_count": 2
+        }
+      ],
+      "witness_universe_status": "complete",
+      "witness_count": 40,
+      "witness_atom_kind_counts": {
+        "list_item": 16,
+        "sentence": 24
+      },
+      "required_open_obligation_count": 2,
+      "receipted_required_open_obligation_count": 2,
+      "all_required_open_obligations_receipted": true,
+      "closure_diagnostics": [
+        {
+          "obligation_id": "qf_d3f76d45351e722f4f696c805e342476",
+          "required_output_form": "list",
+          "attempts": {
+            "scoped_table_selection": {
+              "status": "not_applicable",
+              "reason": "no_matching_atom_kind"
+            },
+            "scoped_bullet_list": {
+              "status": "rejected",
+              "reason": "scoped bullet-list requires exactly one catalog-wide candidate"
+            },
+            "scoped_fact_set": {
+              "status": "issued",
+              "schema_version": "query-anchored-scoped-fact-set-closure-receipt.v1",
+              "member_count": 2
+            }
+          }
+        },
+        {
+          "obligation_id": "qf_e5ded4d2db3ddfd62bfac2c80b21d029",
+          "required_output_form": "list",
+          "attempts": {
+            "scoped_table_selection": {
+              "status": "not_applicable",
+              "reason": "no_matching_atom_kind"
+            },
+            "scoped_bullet_list": {
+              "status": "rejected",
+              "reason": "scoped bullet-list requires exactly one catalog-wide candidate"
+            },
+            "scoped_fact_set": {
+              "status": "issued",
+              "schema_version": "query-anchored-scoped-fact-set-closure-receipt.v1",
+              "member_count": 2
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

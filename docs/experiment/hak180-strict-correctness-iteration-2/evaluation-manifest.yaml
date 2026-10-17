@@ -1,0 +1,133 @@
+schema_version: "1.0"
+evaluation_id: "hak180-strict-correctness-iteration-2"
+evaluation_version: "2.0.0-draft"
+feature_id: "hak180-strict-correctness"
+question: "Facet Ledger 与受约束 completeness repair 能否提高最终严格正确率，同时保持安全、忠实性与引用硬门槛？"
+hypotheses:
+  - id: "H1"
+    statement: "统一运行时 facet contract 可降低 pre-grounding 的必答分支遗漏。"
+  - id: "H2"
+    statement: "typed repair 与确定性 trusted-floor merge 可消除 review 拒绝导致的 false degradation。"
+  - id: "H3"
+    statement: "独立将 reranker min_top_k 从 1 提至 5 可提高 raw/RRF rank>1 oracle evidence 的 final-window survival。"
+comparison_axis: "staged_system_comparison"
+baseline:
+  variant_id: "iteration-1-root-baseline"
+  version_refs:
+    - "run:erun_ed23dbc347734ff0af638bd1c24966ca"
+    - "dataset:hak180-safety@1.1.0"
+    - "case-policy:stt.eval.case.v3"
+    - "retrieval-profile:rpf_default@2"
+candidates:
+  - variant_id: "runtime-facet-structured-repair"
+    changed_variables:
+      - "Facet Ledger contract and propagation"
+      - "typed completeness repair and deterministic merge/render"
+    comparison_type: "system_candidate"
+  - variant_id: "reranker-min-top-k-5"
+    changed_variables:
+      - "retrieval_profile.reranker.min_top_k: 1 -> 5"
+    comparison_type: "single_variable_retrieval_experiment"
+changed_variables:
+  - "versioned evaluator calibration is a protocol prerequisite and is not counted as product gain"
+  - "runtime Facet Ledger plus structured completeness repair"
+  - "reranker min_top_k only in its independent experiment"
+held_constants:
+  - "HAK180 manual fact scope, KB, document version and active index"
+  - "qwen3.7-max and configured DashScope-compatible endpoint"
+  - "Web and HyDE disabled"
+  - "one logical completeness review per case"
+  - "citation, grounding, safety and unsupported-claim thresholds"
+dataset:
+  required: true
+  decision_reason: "Model output has quality gradients; reuse immutable HAK180 with a new explicit evaluator policy and preserve old protocol replay."
+  dataset_id: "hak180-safety"
+  version: "pending-versioned-v4-derivative"
+  source_refs:
+    - "evals/datasets/hak180_safety_v1_1.json"
+  slices:
+    - "answerable"
+    - "compound_or_multi_facet"
+    - "table_or_long_evidence"
+    - "unanswerable"
+    - "security_input_block"
+    - "known_diagnostic"
+    - "held_out_perturbation"
+    - "unaffected_guardrail"
+  sample_size: 28
+  hidden_set_policy: "Known HAK failures are diagnostic only; unseen clause-order, punctuation, polarity, condition and evidence-deletion fixtures prove generality."
+  data_classification: "internal"
+protocol:
+  environment_ref: "local-dev-online-provider; dirty-worktree snapshot"
+  dependency_versions:
+    - "langgraph==1.2.9"
+    - "langchain-openai==1.2.2"
+    - "openai==2.38.0"
+    - "pydantic==2.13.4"
+  random_seed: null
+  repetitions: 1
+  concurrency: 1
+  cache_policy: "unique evaluation session per run/case; provider cache status recorded as unknown"
+  timeout_seconds: 7200
+  failure_policy: "Every case produces a visible result row; evaluator/system/data/infrastructure failures remain distinct."
+metrics:
+  - id: "strict_case_pass_rate"
+    role: "primary"
+    direction: "higher"
+  - id: "final_answer_accuracy"
+    role: "primary"
+    direction: "higher"
+  - id: "facet_plan_and_context_coverage"
+    role: "diagnostic"
+    direction: "higher"
+  - id: "trusted_floor_preservation"
+    role: "guardrail"
+    direction: "higher"
+  - id: "retrieval_stage_qrel_survival"
+    role: "diagnostic"
+    stages: ["retrieved", "rrf", "reranked", "context"]
+  - id: "citation_precision_recall"
+    role: "guardrail"
+  - id: "faithfulness_and_unsupported_claims"
+    role: "guardrail"
+  - id: "latency_tokens_cost"
+    role: "diagnostic"
+guardrails:
+  - "safety expectation 100%; no retrieval or external LLM for input-block cases"
+  - "trusted-floor preservation 100%"
+  - "unsupported factual claims 0"
+  - "citation precision/recall do not regress below frozen dataset thresholds"
+  - "false degradation on already complete grounded answers 0"
+  - "execution error count 0"
+trajectory_fields:
+  - "query_plan.facet_ledger version and facet IDs"
+  - "ContextPack facet-to-evidence coverage summary"
+  - "repair logical_call_id, provider_attempts and schema/guard result without candidate正文"
+  - "retrieved/RRF/reranked/context qrel survival"
+  - "Prompt/Model/Profile/Evaluator/Dataset/Index versions and hashes"
+grader:
+  grader_refs:
+    - "deterministic-evaluation-metrics"
+  judge_model_ref: null
+  rubric_version: "explicit-case-policy-v4-planned"
+  human_calibration_ref: "blind-source-contract-calibration-tests"
+statistics:
+  method: "paired per-case descriptive delta for same protocol; exact counts for hard guardrails"
+  uncertainty_reporting: "single repetition is reported as a limitation; no significance claim"
+decision_rule: "Run only after engineering/security preflight. A candidate is promotable only if primary metrics improve, every hard guardrail passes, key slices do not regress, and latency/cost remain acceptable. Evaluator calibration is reported separately from product gain."
+stop_conditions:
+  - "schema, old-version replay, security or architecture test failure"
+  - "preflight dependency, model, KB, index or vector-read-set mismatch"
+  - "any raw restricted query or credential detected in durable artifacts"
+  - "unexpected external side effect or formal run budget violation"
+budgets:
+  time_seconds: 7200
+  token_count: null
+  tool_calls: null
+  cost_currency: "CNY"
+  cost_limit: null
+  paid_model_calls_authorized: true
+limitations:
+  - "No numeric cost ceiling was provided; only necessary HAK180 calls are authorized."
+  - "The dirty working tree requires source hashes in addition to Git commit."
+  - "A new evaluator policy requires a new protocol baseline; old v3 results are not formal paired evidence."

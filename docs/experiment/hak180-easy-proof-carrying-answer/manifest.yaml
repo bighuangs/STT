@@ -1,0 +1,165 @@
+schema_version: "1.0"
+experiment_id: "hak180-easy-proof-carrying-answer"
+feature_id: "hak180-easy-correctness"
+title: "HAK180 简单集 Proof-Carrying Answer Graph 实施"
+owner: "STT Query / Evaluation"
+status: "active"
+phase: "round2_v1_6_candidate_offline_no_paid_authority"
+created_at: "2026-08-25T09:32:30+08:00"
+updated_at: "2026-08-26T11:21:35+08:00"
+scope:
+  repository_root: "D:/Learning/agent/STT"
+  code_refs:
+    - "app/domain/answering/"
+    - "app/application/query_answering/"
+    - "app/infrastructure/answering/"
+    - "app/process/query/agent/main_graph.py"
+    - "app/api/http/query_runtime_routes.py"
+    - "app/domain/evaluation_proof.py"
+    - "app/infrastructure/evaluation/query_targets.py"
+    - "app/application/evaluation_service.py"
+  non_goals:
+    - "修复与确定性验证完成前运行产品评测或调用付费模型"
+    - "分析或迭代 P3500-EASY-002 的内容"
+    - "处理中等集或困难集"
+    - "通过降低评分阈值、放宽 strict guard 或删除有效检查制造通过"
+authorization:
+  method_selection:
+    value: "user_selected"
+    evidence_ref: "conversation:user-selected-option-3"
+    scope: "complex-proof-carrying-answer-graph"
+  implementation:
+    value: true
+    evidence_ref: "conversation:user-approved-iterative-fix"
+    scope: "selected-proof-carrying-answer-graph-for-easy-set"
+  evaluation_execution:
+    value: "historical_single_run_consumed_no_current_paid_authority"
+    evidence_ref: "conversation:user-authorized-paid-test-after-fix -> erun_db77ab5661ba4d9690c6e49340121dbe"
+    scope: "the one authorized frozen easy n=50 run has completed; any additional paid/model evaluation requires new authorization"
+  iteration:
+    value: "same_family_round2_offline_implementation_authorized"
+    evidence_ref: "conversation:user-approved-iterative-fix-and-post-fix-paid-test"
+    scope: "v1.6 general root-cause implementation and offline engineering verification only; no paid formal run"
+  external_service_deployment:
+    value: true
+    evidence_ref: "conversation:external-service-deployment-if-needed"
+    scope: "selected-easy-set-method-only"
+project_snapshot:
+  code_version: "d1a4192dd5eb9da9a8601644521c6876a7bec959+dirty"
+  config_version: "pyproject-sha256:ab33a31565fc10ccfcda3e8f77a8b24e05497bb3a1239e0e66ab57d95d42a924"
+  dependency_lock_hash: "sha256:7d4c3b82e9fd2cc7385d9528507f6a20ee190a60eb85c38160ffcbdc6ec4c926"
+  runtime_versions:
+    langgraph: "1.2.9"
+    langchain_openai: "1.2.2"
+    openai: "2.38.0"
+    pydantic: "2.13.4"
+research:
+  source_ledger: "source-ledger.csv"
+  coverage_status: "sufficient_for_method_selection"
+  accessed_at: "2026-08-25"
+decision:
+  method_comparison: "method-comparison.csv"
+  selected_method_id: "complex-proof-carrying-answer-graph"
+  recommended_method_id: "complex-proof-carrying-answer-graph"
+  decision_status: "user_selected"
+  decision_evidence_ref: "conversation:user-selected-option-3"
+complexity_control:
+  decision_ref: "solution-decision.json"
+  report_ref: "solution-selection-report.md"
+  active_method_family: "proof_carrying_fixed_workflow"
+  baseline_round0: "erun_47d0b8f621714a77b92cc25c7e7ddd4d"
+  valid_round_count: 1
+  remaining_valid_round_budget: 2
+  planned_round2: "proof_carrying_workflow_v1_6_draft; deterministic offline verification only; not formally evaluated"
+  aggregate_target_verdict: "target_not_met"
+  near_target: "Unknown; no rule was preregistered"
+evaluation:
+  manifest_ref: "evaluation-manifest.yaml"
+  dataset_refs:
+    - "easy frozen cohort, n=50, dataset_sha256=c5e28b1d04aa31403795d796984d7ddd52bfa6faa0abc4b6300c4b61c648b5ac"
+  baseline_result_refs:
+    - "docs/evaluation-baselines/2026-08-10-three-difficulty/remediation-2026-08-10/runs/strict-correctness-20260824-approved-v1-full-04/artifacts/easy/erun_ea0f239a4b574befa5f1c1e68457881f"
+  new_result_refs:
+    - "run_id=erun_47d0b8f621714a77b92cc25c7e7ddd4d; status=succeeded; completed=50/50; gate=baseline_recorded_with_failures; accuracy=11/50; strict=0/50"
+    - "run_id=erun_db77ab5661ba4d9690c6e49340121dbe; generation=generation-602023bb832882bf2b7fb8a1df0ae444; status=succeeded; completed=50/50; valid_round=1; accuracy=38/50; strict=35/50; target_verdict=target_not_met"
+  invalid_attempt_refs:
+    - "run_id=erun_5e08787d8cda4dee92e466df55510c93; status=failed/interrupted; progress=5/50; no metrics or reports"
+  error_cases_ref: "error-cases.csv"
+  error_attribution:
+    historical_ledger_scope: "pre-method baseline redacted cases; retained without rewriting"
+    round1_summary_ref: "solution-selection-report.md#七、有效优化轮次"
+    round1_status: "general root-cause attribution completed; v1.6 remains unmeasured"
+    restricted_case_policy: "P3500-EASY-002 content was not read or analyzed"
+  authorized_next_run:
+    execution_count: 0
+    status: "consumed_no_additional_authority"
+    dataset: "hak180-easy-frozen-50"
+    sample_size: null
+    paid_model_calls: false
+    earliest_start: "only after new explicit evaluation authorization"
+    medium_and_hard: "not_authorized"
+  offline_verification:
+    status: "round1_passed_round2_v1_6_deterministic_validation_only_effectiveness_unmeasured"
+    contract_versions:
+      query_planner: "query-planner-rules/1.4.0"
+      witness_catalog_builder: "witness-catalog-builder.v7"
+      plan_prompt: "1.6.0-draft"
+      review_prompt: "1.6.0-draft"
+      source_enumeration_closure: "query-anchored-table-row-closure-receipt.v4"
+      source_key_normalization: "nfkc-default-ignorable-markup-aware-token.v3"
+      obligation_proof: "obligation-proof.v3"
+      answer_proof: "answer-proof.v3"
+      coverage_decision: "answer-coverage-decision.v4"
+      coverage_verifier: "answer-coverage.v4"
+      evaluation_source_table_authority: "source-table-authority-summary.v1"
+    core_query_security_and_proof: "236/236"
+    structured_wire_gateway_and_retry: "167/167"
+    evaluation_authority_metrics_and_reports: "386/386"
+    runtime_entrypoints: "40/40"
+    checkpoint_recovery_and_migration: "19/19"
+    active_data_mapping: "137/137 unique Evidence; 1715/1715 Witness; source_mapping_unproven=0; excludes 002 before content access"
+    prompt_card_hashes: "plan/review v1.6 version and prompt/template/input/output hashes match the current runtime constants"
+    formal_asset_preflight: "validated; will_write=false; no paid model call"
+    independent_audits: "safe receipt PASS; formal output-cap snapshot PASS; no P0/P1/P2"
+    round2_open_enumeration_partial: "OPEN_ENUMERATION full-atom Witness produces open_enumeration_witness_atom.v1 proven items, accepted_partial proof, strict_eligible=false and a committable PARTIAL_ANSWER."
+    round2_chapter_title_retrieval: "High-confidence title/heading intent plus an explicit chapter/section reference appends 标题路径 to RETRIEVAL subqueries only; original/display/standalone/synthesis queries remain natural and the route remains one local hybrid retrieval path."
+    round2_source_bounded_enumeration: "OPEN_ENUM may close only through query-anchored-table-row-closure-receipt.v4 produced by witness-catalog-builder.v7: the complete ContextPack has exactly one complete non-empty safe representation; one simple Markdown table covers the full canonical and packed representations; the query-selected key column has an explicit identifier-semantic header and every data row has an explicit unique primary key in that column; and exactly one table-row witness/query obligation pair is anchored. A query match in an ordinary value/function column, continuation/ditto rows, cross-representation reference or supplementation, default-ignorable or Markdown-formatted duplicates, and selected cross-script visual confusables are rejected. Any ambiguity remains partial."
+    round2_proof_chain: "obligation-proof.v3 nests the source closure receipt; answer-proof.v3 and answer-coverage-decision.v4/answer-coverage.v4 replay it before commit. The evaluator additionally requires the exact authoritative source receipt from the WitnessCatalog projection; cross-checks canonical/packed representation lengths and SHA-256 summaries; recomputes the outer AnswerProof plus nested proof identities; and independently derives source-table-authority-summary.v1 from canonical Evidence and packed ContextPack text. Its canonical and packed table span, line, column count, data-row count, witness-row index, structure hash, and table/header/separator/witness-row hashes must each equal the v4 receipt, closing coordinated nested+catalog row-count rewrites even when all proof identities are recomputed."
+    round2_closure_terminal: "Closure mismatch no longer creates synthetic repair; it terminates with OBLIGATION_CLOSURE_UNPROVEN, semantic-review-terminal.v1, no repair request or feedback, and a committable safe abstention."
+    round2_candidate: "v1.6 is limited to deterministic offline engineering verification; no new paid/model easy-50 run was executed, formal effectiveness remains unmeasured, and this does not count as valid round 2."
+artifacts:
+  - uri: "experiment.md"
+    classification: "internal-redacted-analysis"
+  - uri: "method-comparison.csv"
+    classification: "internal-redacted-analysis"
+  - uri: "error-cases.csv"
+    classification: "internal-redacted-analysis"
+  - uri: "current-to-target-map.csv"
+    classification: "internal-architecture-migration"
+  - uri: "migration-plan.md"
+    classification: "internal-architecture-migration"
+  - uri: "solution-selection-report.md"
+    classification: "internal-decision-record"
+  - uri: "solution-decision.json"
+    classification: "internal-machine-decision-record"
+  - uri: "prompt-cards/query-answer-plan-v1.yaml"
+    classification: "internal-prompt-card"
+  - uri: "prompt-cards/query-answer-plan-review-v1.yaml"
+    classification: "internal-prompt-card"
+budgets:
+  time_seconds: null
+  token_count: null
+  tool_calls: null
+  cost_currency: "CNY"
+  cost_limit: null
+  paid_model_calls_authorized_for_this_phase: false
+  paid_model_call_scope: "none; the prior one-run authorization was consumed by erun_db77ab5661ba4d9690c6e49340121dbe"
+data_governance:
+  classification: "internal"
+  contains_personal_data: false
+  contains_secrets: false
+  contains_raw_eval_content: false
+  retention_policy: "project-evaluation-policy"
+open_questions:
+  - "v1.6 离线门完成后，是否由用户另行授权新的冻结简单集 n=50 付费正式运行"
+supersedes: "docs/experiment/hak180-strict-correctness-iteration-2"

@@ -1,0 +1,537 @@
+{
+  "schema_version": "stt.eval.suite-source-evaluator-qa.v1",
+  "generated_at": "2026-08-10T12:43:19.186075+00:00",
+  "suite_key": "three-difficulty-live-2026-08-10",
+  "run_label": "live-cand-max-mono-01",
+  "intended_grain": "case_id",
+  "input_checks": {
+    "intended_grain": "one immutable evaluation case per case_id",
+    "expected_case_count": 150,
+    "dataset_case_count": 150,
+    "dataset_case_id_unique_count": 150,
+    "result_case_count": 150,
+    "result_case_id_unique_count": 150,
+    "joined_case_count": 150,
+    "dataset_without_result": [],
+    "result_without_dataset": [],
+    "canonical_manifest_hashes": {
+      "easy": "c5e28b1d04aa31403795d796984d7ddd52bfa6faa0abc4b6300c4b61c648b5ac",
+      "medium": "4924a812732614a5da729c088d2d269a38e67393cc2afa6ba3addcf450c7b4ae",
+      "hard": "57099f7dbdb789fae887447b1bcb3666af3f5f8b45f1f9675b0b36a7d6274bad"
+    },
+    "suite_manifest_hashes": {
+      "easy": "c5e28b1d04aa31403795d796984d7ddd52bfa6faa0abc4b6300c4b61c648b5ac",
+      "medium": "4924a812732614a5da729c088d2d269a38e67393cc2afa6ba3addcf450c7b4ae",
+      "hard": "57099f7dbdb789fae887447b1bcb3666af3f5f8b45f1f9675b0b36a7d6274bad"
+    },
+    "archived_run_dataset_hashes": {
+      "easy": "c5e28b1d04aa31403795d796984d7ddd52bfa6faa0abc4b6300c4b61c648b5ac",
+      "medium": "4924a812732614a5da729c088d2d269a38e67393cc2afa6ba3addcf450c7b4ae",
+      "hard": "57099f7dbdb789fae887447b1bcb3666af3f5f8b45f1f9675b0b36a7d6274bad"
+    },
+    "dataset_file_sha256": {
+      "easy": "1a3cacbb59b3aa7f354a569f828ad6214351f07cd3d0923a798e98cc33c41b2a",
+      "medium": "89c570d10282342fd7facec9bd7d20af61337b5ecaef0038157ed824c25c0369",
+      "hard": "e5be4d2495618e819b9758fa753bb10d553037ca10b26dc6ccd8521404600a04"
+    },
+    "manifest_hashes_match_suite": true,
+    "manifest_hashes_match_archived_run": true,
+    "source_path": "doc/PantumP3500用户手册zh_CNV1.2_1644316283788.pdf",
+    "source_sha256": "c4c7b2a434f3f86c4988d3961ac7304970029e71b0201fb6c10ca722b63bce2b",
+    "source_declared_sha256_values": [
+      "c4c7b2a434f3f86c4988d3961ac7304970029e71b0201fb6c10ca722b63bce2b"
+    ],
+    "source_hash_matches": true,
+    "source_pdf_page_count": 95,
+    "source_declared_page_counts": [
+      95
+    ],
+    "source_page_count_matches": true,
+    "indexed_evidence_count": 218,
+    "index_version_id": "idx_fb5eeac133f540f4af31004dbde23151",
+    "run_label": "live-cand-max-mono-01"
+  },
+  "difficulty_summary": {
+    "easy": {
+      "case_count": 50,
+      "answerable_count": 50,
+      "unanswerable_count": 0,
+      "critical_count": 10,
+      "unique_query_count": 50,
+      "type_distribution": {
+        "direct_fact": 46,
+        "procedure": 4
+      },
+      "mean_query_chars": 25.06,
+      "median_query_chars": 23.5,
+      "mean_reference_chars": 15.22,
+      "median_reference_chars": 9.0,
+      "mean_evidence_count": 1,
+      "production_correct": 40,
+      "production_final_accuracy": 0.8,
+      "production_strict_pass": 35,
+      "target": {
+        "operator": ">",
+        "threshold": 0.95,
+        "minimum_correct": 48
+      },
+      "target_shortfall_cases": 8,
+      "source_integrity_pass": 50,
+      "archived_query_match": 50,
+      "archived_evaluator_drift": 0,
+      "reference_self_pass": 50,
+      "expected_term_overlap_cases": 1,
+      "duplicate_weight_dominance_cases": 0,
+      "expected_terms_only_can_pass": 5,
+      "multi_branch_truncation_can_pass": 0,
+      "numeric_mutation_can_pass": 3,
+      "unsupported_false_addition_can_pass": 50,
+      "fabricated_fact_with_refusal_can_pass": 0,
+      "actual_final_correct_low_faithfulness": 5,
+      "actual_final_correct_low_citation": 0,
+      "actual_pass_expected_terms_only": 2,
+      "actual_near_threshold_false_negative_candidates": 1,
+      "source_ambiguity_candidates": 6,
+      "dataset_reference_candidates": 11
+    },
+    "medium": {
+      "case_count": 50,
+      "answerable_count": 50,
+      "unanswerable_count": 0,
+      "critical_count": 10,
+      "unique_query_count": 50,
+      "type_distribution": {
+        "direct_fact": 11,
+        "procedure": 27,
+        "synthesis": 1,
+        "table": 11
+      },
+      "mean_query_chars": 40.24,
+      "median_query_chars": 37.0,
+      "mean_reference_chars": 89.64,
+      "median_reference_chars": 65.0,
+      "mean_evidence_count": 1,
+      "production_correct": 35,
+      "production_final_accuracy": 0.7,
+      "production_strict_pass": 33,
+      "target": {
+        "operator": ">",
+        "threshold": 0.85,
+        "minimum_correct": 43
+      },
+      "target_shortfall_cases": 8,
+      "source_integrity_pass": 50,
+      "archived_query_match": 50,
+      "archived_evaluator_drift": 0,
+      "reference_self_pass": 50,
+      "expected_term_overlap_cases": 4,
+      "duplicate_weight_dominance_cases": 0,
+      "expected_terms_only_can_pass": 21,
+      "multi_branch_truncation_can_pass": 22,
+      "numeric_mutation_can_pass": 4,
+      "unsupported_false_addition_can_pass": 50,
+      "fabricated_fact_with_refusal_can_pass": 0,
+      "actual_final_correct_low_faithfulness": 2,
+      "actual_final_correct_low_citation": 0,
+      "actual_pass_expected_terms_only": 1,
+      "actual_near_threshold_false_negative_candidates": 1,
+      "source_ambiguity_candidates": 15,
+      "dataset_reference_candidates": 26
+    },
+    "hard": {
+      "case_count": 50,
+      "answerable_count": 45,
+      "unanswerable_count": 5,
+      "critical_count": 14,
+      "unique_query_count": 50,
+      "type_distribution": {
+        "direct_fact": 1,
+        "procedure": 4,
+        "synthesis": 40,
+        "unanswerable": 5
+      },
+      "mean_query_chars": 65.2,
+      "median_query_chars": 61.0,
+      "mean_reference_chars": 66.46,
+      "median_reference_chars": 58.0,
+      "mean_evidence_count": 1.8,
+      "production_correct": 23,
+      "production_final_accuracy": 0.46,
+      "production_strict_pass": 23,
+      "target": {
+        "operator": null,
+        "threshold": null,
+        "minimum_correct": null
+      },
+      "target_shortfall_cases": null,
+      "source_integrity_pass": 50,
+      "archived_query_match": 50,
+      "archived_evaluator_drift": 0,
+      "reference_self_pass": 50,
+      "expected_term_overlap_cases": 8,
+      "duplicate_weight_dominance_cases": 1,
+      "expected_terms_only_can_pass": 23,
+      "multi_branch_truncation_can_pass": 6,
+      "numeric_mutation_can_pass": 7,
+      "unsupported_false_addition_can_pass": 45,
+      "fabricated_fact_with_refusal_can_pass": 5,
+      "actual_final_correct_low_faithfulness": 0,
+      "actual_final_correct_low_citation": 0,
+      "actual_pass_expected_terms_only": 5,
+      "actual_near_threshold_false_negative_candidates": 2,
+      "source_ambiguity_candidates": 18,
+      "dataset_reference_candidates": 40
+    }
+  },
+  "difficulty_ordering_checks": {
+    "mean_query_chars_strictly_increases": true,
+    "mean_reference_chars_easy_below_medium": true,
+    "evidence_cardinality_contract": {
+      "easy": [
+        1
+      ],
+      "medium": [
+        1
+      ],
+      "hard_answerable": [
+        2
+      ],
+      "hard_unanswerable": [
+        0
+      ]
+    }
+  },
+  "query_near_duplicates": [],
+  "issue_counts": {
+    "ACTUAL_FINAL_CORRECT_WITH_LOW_FAITHFULNESS": 7,
+    "ACTUAL_NEAR_THRESHOLD_FALSE_NEGATIVE_CANDIDATE": 4,
+    "ACTUAL_PASS_DEPENDS_ON_EXPECTED_TERMS": 8,
+    "EXPECTED_TERMS_ONLY_CAN_PASS": 49,
+    "EXPECTED_TERM_DUPLICATE_WEIGHT_CAN_DOMINATE": 1,
+    "EXPECTED_TERM_TOO_SHORT": 56,
+    "EXPECTED_TERM_VARIANTS_OVERLAP": 13,
+    "FABRICATED_FACT_WITH_REFUSAL_CAN_PASS": 5,
+    "HARD_EVIDENCE_WITHOUT_SCORING_CONCEPT": 13,
+    "MULTI_BRANCH_TRUNCATION_CAN_PASS": 28,
+    "NUMERIC_MUTATION_CAN_PASS": 14,
+    "PDF_TEXT_EXTRACTION_TERM_GAP": 37,
+    "QUERY_REFERENCE_POLARITY_CANDIDATE": 12,
+    "QUERY_SINGULAR_REFERENCE_ENUMERATION": 5,
+    "TABLE_QUERY_WITHOUT_PARSED_DATA_ROW": 2,
+    "UNSUPPORTED_FALSE_ADDITION_CAN_PASS": 145
+  },
+  "classification_counts": {
+    "dataset_reference_candidate": 77,
+    "evaluator_error": 150,
+    "evaluator_error_candidate": 4,
+    "source_ambiguity": 39
+  },
+  "findings": [
+    {
+      "issue_code": "UNSUPPORTED_FALSE_ADDITION_CAN_PASS",
+      "category": "evaluator_error",
+      "severity": "critical",
+      "case_count": 145,
+      "case_rate": 0.9666666666666667,
+      "easy": 50,
+      "medium": 50,
+      "hard": 45,
+      "description": "在完整参考答案后追加明确无源的虚假功能，final correctness 仍通过；最终正确率没有惩罚额外错误断言。",
+      "examples": [
+        "P3500-EASY-001",
+        "P3500-EASY-002",
+        "P3500-EASY-003",
+        "P3500-EASY-004",
+        "P3500-EASY-005",
+        "P3500-EASY-006",
+        "P3500-EASY-007",
+        "P3500-EASY-008"
+      ]
+    },
+    {
+      "issue_code": "FABRICATED_FACT_WITH_REFUSAL_CAN_PASS",
+      "category": "evaluator_error",
+      "severity": "critical",
+      "case_count": 5,
+      "case_rate": 0.03333333333333333,
+      "easy": 0,
+      "medium": 0,
+      "hard": 5,
+      "description": "unanswerable 只核对 abstention 标志；拒答文本同时给出伪造事实仍通过。",
+      "examples": [
+        "P3500-HARD-046",
+        "P3500-HARD-047",
+        "P3500-HARD-048",
+        "P3500-HARD-049",
+        "P3500-HARD-050"
+      ]
+    },
+    {
+      "issue_code": "EXPECTED_TERMS_ONLY_CAN_PASS",
+      "category": "evaluator_error",
+      "severity": "high",
+      "case_count": 49,
+      "case_rate": 0.32666666666666666,
+      "easy": 5,
+      "medium": 21,
+      "hard": 23,
+      "description": "仅拼接达到 75% 数量的 expected terms 即可通过，未要求形成完整、连贯且无矛盾的答案。",
+      "examples": [
+        "P3500-EASY-004",
+        "P3500-EASY-013",
+        "P3500-EASY-022",
+        "P3500-EASY-023",
+        "P3500-EASY-041",
+        "P3500-MEDIUM-004",
+        "P3500-MEDIUM-007",
+        "P3500-MEDIUM-008"
+      ]
+    },
+    {
+      "issue_code": "MULTI_BRANCH_TRUNCATION_CAN_PASS",
+      "category": "evaluator_error",
+      "severity": "high",
+      "case_count": 28,
+      "case_rate": 0.18666666666666668,
+      "easy": 0,
+      "medium": 22,
+      "hard": 6,
+      "description": "多分支题删除参考答案末分支后仍达到 0.75 阈值，允许不完整最终答案计为正确。",
+      "examples": [
+        "P3500-MEDIUM-002",
+        "P3500-MEDIUM-007",
+        "P3500-MEDIUM-008",
+        "P3500-MEDIUM-012",
+        "P3500-MEDIUM-014",
+        "P3500-MEDIUM-015",
+        "P3500-MEDIUM-016",
+        "P3500-MEDIUM-018"
+      ]
+    },
+    {
+      "issue_code": "NUMERIC_MUTATION_CAN_PASS",
+      "category": "evaluator_error",
+      "severity": "high",
+      "case_count": 14,
+      "case_rate": 0.09333333333333334,
+      "easy": 3,
+      "medium": 4,
+      "hard": 7,
+      "description": "参考答案首个独立数值被改错后仍通过，说明召回阈值未形成关键数值全约束。",
+      "examples": [
+        "P3500-EASY-008",
+        "P3500-EASY-025",
+        "P3500-EASY-028",
+        "P3500-MEDIUM-004",
+        "P3500-MEDIUM-009",
+        "P3500-MEDIUM-026",
+        "P3500-MEDIUM-036",
+        "P3500-HARD-017"
+      ]
+    },
+    {
+      "issue_code": "QUERY_REFERENCE_POLARITY_CANDIDATE",
+      "category": "dataset_reference_candidate",
+      "severity": "high",
+      "case_count": 12,
+      "case_rate": 0.08,
+      "easy": 2,
+      "medium": 2,
+      "hard": 8,
+      "description": "问题包含否定约束，但参考答案未保留可识别的否定极性。",
+      "examples": [
+        "P3500-EASY-026",
+        "P3500-EASY-035",
+        "P3500-MEDIUM-023",
+        "P3500-MEDIUM-043",
+        "P3500-HARD-004",
+        "P3500-HARD-006",
+        "P3500-HARD-016",
+        "P3500-HARD-025"
+      ]
+    },
+    {
+      "issue_code": "ACTUAL_PASS_DEPENDS_ON_EXPECTED_TERMS",
+      "category": "evaluator_error",
+      "severity": "high",
+      "case_count": 8,
+      "case_rate": 0.05333333333333334,
+      "easy": 2,
+      "medium": 1,
+      "hard": 5,
+      "description": "实际通过依赖 expected terms；reference semantic recall 本身不足 0.75。",
+      "examples": [
+        "P3500-EASY-001",
+        "P3500-EASY-022",
+        "P3500-MEDIUM-018",
+        "P3500-HARD-002",
+        "P3500-HARD-015",
+        "P3500-HARD-017",
+        "P3500-HARD-040",
+        "P3500-HARD-049"
+      ]
+    },
+    {
+      "issue_code": "ACTUAL_FINAL_CORRECT_WITH_LOW_FAITHFULNESS",
+      "category": "evaluator_error",
+      "severity": "high",
+      "case_count": 7,
+      "case_rate": 0.04666666666666667,
+      "easy": 5,
+      "medium": 2,
+      "hard": 0,
+      "description": "实际归档输出被记为答对，但项目自身 faithfulness 低于严格阈值。",
+      "examples": [
+        "P3500-EASY-006",
+        "P3500-EASY-020",
+        "P3500-EASY-028",
+        "P3500-EASY-033",
+        "P3500-EASY-048",
+        "P3500-MEDIUM-027",
+        "P3500-MEDIUM-031"
+      ]
+    },
+    {
+      "issue_code": "TABLE_QUERY_WITHOUT_PARSED_DATA_ROW",
+      "category": "source_ambiguity",
+      "severity": "high",
+      "case_count": 2,
+      "case_rate": 0.013333333333333334,
+      "easy": 1,
+      "medium": 0,
+      "hard": 1,
+      "description": "表格型问题的绑定证据没有可解析数据行，参考答案可能来自表头/备注推断而非明确单元格。",
+      "examples": [
+        "P3500-EASY-004",
+        "P3500-HARD-040"
+      ]
+    },
+    {
+      "issue_code": "EXPECTED_TERM_DUPLICATE_WEIGHT_CAN_DOMINATE",
+      "category": "dataset_reference_candidate+evaluator_error",
+      "severity": "high",
+      "case_count": 1,
+      "case_rate": 0.006666666666666667,
+      "easy": 0,
+      "medium": 0,
+      "hard": 1,
+      "description": "同一概念的重叠 expected-term 变体占到至少 75% 权重，可挤掉其他必答概念。",
+      "examples": [
+        "P3500-HARD-045"
+      ]
+    },
+    {
+      "issue_code": "PDF_TEXT_EXTRACTION_TERM_GAP",
+      "category": "source_ambiguity",
+      "severity": "medium",
+      "case_count": 37,
+      "case_rate": 0.24666666666666667,
+      "easy": 5,
+      "medium": 15,
+      "hard": 17,
+      "description": "索引证据中的 match term 未在声明 PDF 页的可提取文本中复现；可能是表格/图像提取差异，需页面视觉复核。",
+      "examples": [
+        "P3500-EASY-009",
+        "P3500-EASY-010",
+        "P3500-EASY-028",
+        "P3500-EASY-046",
+        "P3500-EASY-049",
+        "P3500-MEDIUM-003",
+        "P3500-MEDIUM-004",
+        "P3500-MEDIUM-005"
+      ]
+    },
+    {
+      "issue_code": "EXPECTED_TERM_VARIANTS_OVERLAP",
+      "category": "dataset_reference_candidate",
+      "severity": "medium",
+      "case_count": 13,
+      "case_rate": 0.08666666666666667,
+      "easy": 1,
+      "medium": 4,
+      "hard": 8,
+      "description": "expected_terms 存在包含/高度相似变体，当前逐字符串平均会重复加权同一概念。",
+      "examples": [
+        "P3500-EASY-026",
+        "P3500-MEDIUM-009",
+        "P3500-MEDIUM-019",
+        "P3500-MEDIUM-036",
+        "P3500-MEDIUM-041",
+        "P3500-HARD-016",
+        "P3500-HARD-019",
+        "P3500-HARD-031"
+      ]
+    },
+    {
+      "issue_code": "HARD_EVIDENCE_WITHOUT_SCORING_CONCEPT",
+      "category": "dataset_reference_candidate",
+      "severity": "medium",
+      "case_count": 13,
+      "case_rate": 0.08666666666666667,
+      "easy": 0,
+      "medium": 0,
+      "hard": 13,
+      "description": "困难题至少一条绑定证据没有任何 expected/match concept，无法证明两条证据都被最终答案实质使用。",
+      "examples": [
+        "P3500-HARD-001",
+        "P3500-HARD-003",
+        "P3500-HARD-007",
+        "P3500-HARD-008",
+        "P3500-HARD-016",
+        "P3500-HARD-019",
+        "P3500-HARD-023",
+        "P3500-HARD-030"
+      ]
+    },
+    {
+      "issue_code": "QUERY_SINGULAR_REFERENCE_ENUMERATION",
+      "category": "dataset_reference_candidate",
+      "severity": "medium",
+      "case_count": 5,
+      "case_rate": 0.03333333333333333,
+      "easy": 1,
+      "medium": 3,
+      "hard": 1,
+      "description": "问题使用单数选择表达，参考答案却列出多个并列项，存在口径歧义候选。",
+      "examples": [
+        "P3500-EASY-004",
+        "P3500-MEDIUM-007",
+        "P3500-MEDIUM-030",
+        "P3500-MEDIUM-047",
+        "P3500-HARD-010"
+      ]
+    },
+    {
+      "issue_code": "ACTUAL_NEAR_THRESHOLD_FALSE_NEGATIVE_CANDIDATE",
+      "category": "evaluator_error_candidate",
+      "severity": "medium",
+      "case_count": 4,
+      "case_rate": 0.02666666666666667,
+      "easy": 1,
+      "medium": 1,
+      "hard": 2,
+      "description": "实际答案保持参考约束且语义召回在 0.65–0.75，需盲审确认是否为阈值型误杀。",
+      "examples": [
+        "P3500-EASY-010",
+        "P3500-MEDIUM-044",
+        "P3500-HARD-001",
+        "P3500-HARD-041"
+      ]
+    }
+  ],
+  "blocking_conclusion": {
+    "status": "blocked_for_new_baseline_registration",
+    "reasons": [
+      "easy and medium stored production accuracy remain below their strict targets",
+      "final correctness admits explicit unsupported false additions for answerable cases",
+      "unanswerable correctness admits a refusal that also states a fabricated fact",
+      "multi-branch and numeric counterfactuals expose completeness/critical-constraint blind spots",
+      "expected-term strings lack concept-level all-of/any-of semantics and can duplicate-weight one concept"
+    ],
+    "not_claimed": [
+      "counterfactual susceptibility does not prove every current production pass is factually wrong",
+      "PDF text-extraction gaps are source-ambiguity candidates, not confirmed source errors",
+      "near-threshold actual failures require an independent blind semantic review before relabeling"
+    ]
+  }
+}

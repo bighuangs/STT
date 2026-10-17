@@ -1,0 +1,6 @@
+slice_id,case_count,earliest_divergence,root_cause_layer,evidence_summary,selected_fix,held_out_guard
+safe_pre_false_degradation,5,completeness_guard,runtime_contract,"final correctness/faithfulness/citation all pass; review rejection alone makes strict grounding ineligible",typed_repair_and_no_false_degrade,"complete grounded answers must not rewrite or degrade"
+repair_floor_loss,8,completeness_candidate,model_output_contract,"repair candidate loses one or more trusted claims",deterministic_floor_merge,"trusted-floor preservation must equal 100%"
+generation_facet_omission,4,pre_grounding_generation,planning_and_generation,"ContextPack contains authored concepts but pre-grounding answer omits at least one",facet_ledger,"unseen compound queries with clause/order perturbations"
+source_contract_alignment,7,evaluator,evaluation_contract,"Gold/Context itself does not satisfy the authored matcher despite retrieval hit",versioned_blind_calibration,"old v1/v2/v3 replay unchanged and negative counterfactuals still fail"
+reranker_window_loss,2,reranked_stage,retrieval_profile,"oracle evidence is raw/RRF rank 2 but final reranked window size is 1",independent_min_top_k_experiment,"held-out prose/table slices and latency/noise guardrails"

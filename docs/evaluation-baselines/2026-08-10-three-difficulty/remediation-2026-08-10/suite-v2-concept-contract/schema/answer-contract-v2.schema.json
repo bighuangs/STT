@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "stt.eval.answer-contract.v2-candidate.schema.json",
+  "title": "STT evaluation answer contract v2 candidate",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "contract_status",
+    "answerability",
+    "required_concepts",
+    "critical_constraints",
+    "required_branches",
+    "evidence_concept_coverage",
+    "review"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "stt.eval.answer-contract.v2-candidate"
+    },
+    "contract_status": {
+      "const": "candidate_pending_full_review"
+    },
+    "answerability": {
+      "type": "object",
+      "required": [
+        "required",
+        "unsupported_factual_additions_forbidden",
+        "contradictory_claims_forbidden"
+      ]
+    },
+    "required_concepts": {
+      "type": "object",
+      "required": [
+        "all_of"
+      ],
+      "properties": {
+        "all_of": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "concept_id",
+              "canonical_text",
+              "any_of",
+              "derivation",
+              "evidence_support"
+            ]
+          }
+        }
+      }
+    },
+    "critical_constraints": {
+      "type": "object"
+    },
+    "required_branches": {
+      "type": "array"
+    },
+    "evidence_concept_coverage": {
+      "type": "array"
+    },
+    "review": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true
+}

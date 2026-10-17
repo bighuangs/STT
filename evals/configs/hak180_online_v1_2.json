@@ -1,0 +1,17 @@
+{
+  "schema_version": "stt.eval.harness-config.v2",
+  "config_id": "hak180-online-v1-2",
+  "target_id": "query-graph-evaluation-target",
+  "dataset_id": "hak180-safety@1.2.0",
+  "scenario_id": "live-query",
+  "graders": ["retrieval", "generation", "abstention", "safety"],
+  "failure_policy": "continue",
+  "formal_evaluation": true,
+  "budgets": {
+    "scope": "per_case_query_plan",
+    "token_budget": 4096,
+    "tool_budget": 3,
+    "cost_budget": 1.0,
+    "cost_currency": "USD"
+  }
+}

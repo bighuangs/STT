@@ -1,0 +1,27 @@
+{
+  "schema_version": "stt.eval.semantic-judge-calibration.v1",
+  "description": "Frozen judge calibration independent of every candidate answer and dataset result.",
+  "cases": [
+    {
+      "case_id": "CAL-FROZEN-POLARITY-OMISSION",
+      "query": "某手册写明“如有更改，恕不另行通知”。更改时是否需要另行通知？",
+      "reference_answer": "不需要另行通知。",
+      "final_visible_answer": "编写方保留更改手册的权利。",
+      "expected_semantic_correct": false
+    },
+    {
+      "case_id": "CAL-FROZEN-COMPLETE",
+      "query": "设备支持哪两种连接方式？",
+      "reference_answer": "支持 USB 和有线网络。",
+      "final_visible_answer": "设备支持 USB 和有线网络。",
+      "expected_semantic_correct": true
+    },
+    {
+      "case_id": "CAL-FROZEN-PARTIAL",
+      "query": "完成操作需要哪两个步骤？",
+      "reference_answer": "先关闭电源，再拔下电源线。",
+      "final_visible_answer": "先关闭电源。",
+      "expected_semantic_correct": false
+    }
+  ]
+}

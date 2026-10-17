@@ -1,0 +1,17 @@
+{
+  "case_rows": [
+    "shadow-cases.json",
+    "shadow-cases.csv"
+  ],
+  "counterfactuals": "counterfactuals.json",
+  "report": "REPORT.md",
+  "reproduce": ".venv/Scripts/python.exe shadow_replay.py",
+  "schema_version": "stt.eval.artifact.v1",
+  "source_audit_findings": {
+    "cases": "docs\\evaluation-baselines\\2026-08-10-three-difficulty\\remediation-2026-08-10\\suite-source-evaluator-qa\\pdf-visual-review\\cases.json",
+    "summary": "docs\\evaluation-baselines\\2026-08-10-three-difficulty\\remediation-2026-08-10\\suite-source-evaluator-qa\\pdf-visual-review\\summary.json"
+  },
+  "status": "shadow_only_not_a_baseline",
+  "summary": "summary.json",
+  "visual_omission_reason": "This is a fixed one-snapshot contract audit; exact case counts and attribution denominators are clearer in tables than in a trend chart."
+}

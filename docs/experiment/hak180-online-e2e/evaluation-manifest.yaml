@@ -1,0 +1,131 @@
+schema_version: "1.0.0"
+evaluation:
+  evaluation_id: "hak180-live-e2e-20260814"
+  version: "1.0.0"
+  owner: "STT evaluation"
+  status: "completed"
+  question: "当前在线 Query Graph 能否在冻结 HAK180 手册与 active 索引上完成 28 Case 全链路运行并满足冻结 gate？"
+  hypothesis: "当前配置至少应稳定完成全部 Case；质量是否达标由逐项指标和硬 gate 决定。"
+  decision_rule: "只有运行成功、28 行结果完整且冻结 gate 通过，才可称当前 HAK180 baseline 达标。"
+  created_at: "2026-08-14"
+target:
+  application_version: "source-sha256:a21a2defb8391292f6c7d8a3c70f8a63401ec62fe32a340384ea270ac7ae8dda"
+  git_commit: "d1a4192dd5eb9da9a8601644521c6876a7bec959"
+  environment: "local-dev-online-provider; dirty-worktree"
+  knowledge_base_version: "dv_96c2404854b64e9497cee18bca109b97"
+  index_version: "idx_08abedf9eecc4f488528f57b318eeeed"
+dataset:
+  dataset_id: "eds_cff7b6f0f1cfc994a5731543a1c00e33"
+  dataset_version: "1.0.0"
+  splits: ["test"]
+  slices: ["all", "critical", "unanswerable", "multi_turn", "multi_fact"]
+systems:
+  baseline:
+    system_id: "stt-current-live-query-graph"
+    config_version: "cfg_a6d7f6c9b18341cb"
+  candidates: []
+  interventions: []
+experimental_control:
+  changed_variables: []
+  held_constants:
+    - "dataset bytes and case order"
+    - "KB/document/index/vector read set"
+    - "rpf_default@2"
+    - "qwen3.7-max"
+    - "Web disabled and HyDE disabled in evaluation adapter"
+  seeds: [20260814]
+  repetitions: 1
+  concurrency: 1
+  cache_policy: "unique evaluation session per run/case; provider cache status unknown"
+  timeout_seconds: 7200
+  retry_policy: "provider/runtime policy as frozen by config; every final failure remains visible"
+metrics:
+  retrieval:
+    primary: ["hit_at_k", "recall_at_k", "mrr_at_k", "ndcg_at_k"]
+    diagnostic: ["route_counts", "rrf", "reranked_context_coverage"]
+    guardrail: ["authorized_vector_read_set"]
+  generation:
+    primary: ["final_answer_accuracy", "faithfulness", "completeness"]
+    diagnostic: ["citation_precision", "citation_recall", "grounding_coverage", "abstention"]
+    guardrail: ["critical_case_pass", "no_unsupported_answer_on_unanswerable"]
+  end_to_end:
+    primary: ["case_pass_rate", "task_success"]
+    diagnostic: ["case_outcome_reason", "runtime_error_rate"]
+    guardrail: ["all_cases_persisted", "report_integrity"]
+  cost_safety:
+    primary: ["e2e_latency_ms"]
+    diagnostic: ["token_usage_unknown", "provider_cost_unknown"]
+    guardrail: ["tenant_scope", "external_llm_policy", "web_disabled", "no_secret_in_artifacts"]
+scoring:
+  composite_score_enabled: false
+  composite_utility_function: null
+  thresholds_source: "hak180-safety@1.0.0 gate_policy frozen by EvaluationRun"
+  missing_result_policy: "fail_visible"
+  guardrail_override_forbidden: true
+judge:
+  enabled: false
+  provider: ""
+  model: ""
+  model_version: ""
+  prompt_version: ""
+  rubric_version: ""
+  temperature: null
+  calibration_dataset_version: ""
+  order_swap_test: false
+  repeatability_test: false
+  cross_version_test: false
+  human_calibration_slices: []
+  acceptance_rule: "No LLM-as-a-Judge is used as a release gate in this run."
+budgets:
+  token: null
+  time_seconds: 7200
+  cost: null
+  tool_calls: null
+  failed_cases: 0
+  judge_cost: 0
+artifacts:
+  durable_directory: "docs/experiment/hak180-online-e2e/"
+  runtime_directory: "var/evals/erun_bc92de08decd43f990b3c61041798fe9/"
+  external_store_uri: null
+  trajectory_format: "results.jsonl plus report artifacts"
+  large_table_format: "jsonl"
+privacy:
+  redaction_policy: "Credential values and hidden reasoning are excluded; only observable answers, evidence, metrics and sanitized errors persist."
+  external_data_policy: "Only configured LLM provider is allowed; Web and Phoenix writes are disabled."
+  retention_policy: "project evaluation retention; runtime directory is git-ignored"
+versions:
+  corpus: "pdf-sha256:dff3aaa8133427992d0e0693391287f936a81b4b3806bc1ebc3b047609026765"
+  chunker: "manual@1.1.0"
+  embedding: "BAAI/bge-m3"
+  retriever: "rpf_default@2;sha256:5679fb0a7723d50846f945c5e4269d5ed64393aae371810b9d9497351abd7185"
+  fusion: "production Query Graph"
+  reranker: "D:/models/rerank/BAAI/bge-reranker-large"
+  generator: "qwen3.7-max via configured DashScope-compatible endpoint"
+  prompt: "captured per Case as prompt_sha256"
+  evaluator: "app.evaluation.metrics; deterministic gate policy"
+  dependencies_lock: "sha256:7d4c3b82e9fd2cc7385d9528507f6a20ee190a60eb85c38160ffcbdc6ec4c926"
+limitations:
+  - "Graph-wide token usage and provider price snapshots are unavailable."
+  - "No calibrated LLM Judge or human repeatability study is included."
+  - "The dirty worktree is pinned by source manifest hash rather than commit alone."
+  - "This run reuses the active index and does not repeat upload, parsing, or indexing."
+  - "Evaluator false-negative candidates are recorded without changing the frozen gate result."
+results:
+  run_id: "erun_bc92de08decd43f990b3c61041798fe9"
+  run_status: "succeeded"
+  completed_cases: 28
+  total_cases: 28
+  strict_passed_cases: 7
+  strict_pass_rate: 0.25
+  final_answer_correct_cases: 16
+  final_answer_accuracy: 0.5714
+  critical_strict_passed_cases: 3
+  critical_total_cases: 21
+  execution_error_cases: 2
+  gate_status: "baseline_recorded_with_failures"
+  gate_passed: false
+  mean_latency_ms: 21093.3775
+  p95_latency_ms: 26501.8255
+  observed_token_total: 36471
+  provider_cost: null
+  report_ref: "rag-evaluation-report.md"

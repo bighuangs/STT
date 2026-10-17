@@ -1,0 +1,179 @@
+schema_version: "stt.eval.campaign.v1"
+campaign_id: "hak180-easy-medium-100-v1.9-20260827-r4"
+status: "completed_target_not_met"
+created_at: "2026-08-27T14:59:42.5388604+08:00"
+updated_at: "2026-08-27T16:03:27.113388+08:00"
+completed_at: "2026-08-27T16:03:27.113388+08:00"
+authorization:
+  evidence_ref: "conversation:user-authorized-one-easy-plus-medium-100-case-test-20260827"
+  evaluation_execution: true
+  paid_model_calls: true
+  campaign_count_limit: 1
+  child_run_count_limit: 2
+  restart_or_replacement_allowed: false
+  post_result_iteration_authorized: false
+  consumed_campaign_count: 1
+  consumed_child_run_count: 2
+  retry_count: 0
+  replacement_count: 0
+scope:
+  total_unique_cases: 100
+  repetitions: 1
+  difficulties:
+    easy: 50
+    medium: 50
+  hard_included: false
+  hidden_case_policy: >-
+    P3500-EASY-002 remains in the scoring denominator. Result analysis must read
+    case_id first and immediately skip that case without deserializing or reading
+    any other field.
+  hidden_case_policy_execution:
+    case_id: "P3500-EASY-002"
+    denominator_included: true
+    content_analyzed: false
+runtime:
+  retrieval_profile_id: "rpf_default"
+  retrieval_profile_version: 4
+  retrieval_profile_hash: "cf4c295a62f18e884cc26839a589188993b1d4e32d148e0574878f4bec107b14"
+  vector_read_set_digest: "sha256:f583155382b2537d0279ca7e5fb4fe2be89307585caee738727cadd89b41a399"
+  llm_model: "qwen3.7-max"
+  concurrency: 1
+  code_head: "d1a4192dd5eb9da9a8601644521c6876a7bec959"
+  effective_source_sha256: "442065b3f291b0d2439f93718a9418251860f05f10b98cf92b3019a368602864"
+  usage_accounting: >-
+    Provider token and monetary hard limits are unavailable; report observable
+    usage only. Do not interpret unknown cost as zero.
+baselines:
+  easy:
+    run_id: "erun_a7b71d8508d748869fd41e6ebc981b92"
+    final_answer_accuracy: "40/50"
+    strict_supported_case_pass_rate: "37/50"
+  medium:
+    run_id: "erun_d1b179e0579e407cbe19cfe2aef11258"
+    final_answer_accuracy: "29/50"
+    strict_supported_case_pass_rate: "10/50"
+targets:
+  easy:
+    final_answer_accuracy: ">=48/50"
+    strict_supported_case_pass_rate: ">=45/50"
+  medium:
+    final_answer_accuracy: ">=43/50"
+    strict_supported_case_pass_rate: ">=41/50"
+  campaign_rule: >-
+    Both required metrics for both difficulties and every guardrail must pass.
+    The overall 100-case aggregate is descriptive only.
+guardrails:
+  campaign:
+    - "Each difficulty has exactly 50 unique cases; Hard count is zero."
+    - "Both runs bind the same effective source, model, profile and vector read set."
+    - "Each run persists six complete artifacts whose hashes and sizes match records."
+    - "Execution errors are reported separately; succeeded status alone is not effect validity."
+  easy:
+    - "Answered citation correctness and faithfulness do not regress from 1.0."
+    - "Unsupported factual claim count is zero."
+    - "Proof remains fail-closed."
+  medium:
+    - "Retrieval support is at least 47/50."
+    - "Answered citation correctness and faithfulness equal 1.0."
+    - "Unsupported factual claim count and execution error count are zero."
+cohorts:
+  - difficulty: "easy"
+    case_count: 50
+    config_path: "evals/configs/hak180_easy_proof_v2_authority_v3.json"
+    config_canonical_sha256: "b0fafb75ad1ac917ecd2da27f8a424ab2c9a49a612c35056326cfb6a5b6fbfa0"
+    dataset_registry_id: "three-difficulty-easy@2026-08-10"
+    dataset_asset_sha256: "1a3cacbb59b3aa7f354a569f828ad6214351f07cd3d0923a798e98cc33c41b2a"
+    planned_child_run_name: "hak180-em100-v19-20260827-r4-easy"
+    run_id: "erun_b46519eebd0c4ff0a1255d77463f6fb6"
+    generation_id: "0ddc3e58c018d1697c42dd3dfb7b337e"
+    status: "succeeded"
+    completed_at: "2026-08-27T15:26:11.097633+08:00"
+    completed_cases: 50
+    execution_error_count: 0
+    effect_validity: "valid"
+    validity_reason: "All 50 cases completed; no execution errors; all six artifacts passed database size and SHA-256 verification."
+    artifact_root: "var/evals/erun_b46519eebd0c4ff0a1255d77463f6fb6/generation-0ddc3e58c018d1697c42dd3dfb7b337e"
+    artifact_summary_ref: "docs/experiment/hak180-easy-medium-100-evaluation/results/formal-evaluation-r4-summary.json"
+  - difficulty: "medium"
+    case_count: 50
+    config_path: "evals/configs/hak180_medium_proof_v2_authority_v3.json"
+    config_canonical_sha256: "76132b6d9c5332b281ae42cf5f8ea14d2fd3adf75b6a2fc4a2c75d50ac22455e"
+    dataset_registry_id: "three-difficulty-medium@2026-08-10"
+    dataset_asset_sha256: "89c570d10282342fd7facec9bd7d20af61337b5ecaef0038157ed824c25c0369"
+    planned_child_run_name: "hak180-em100-v19-20260827-r4-medium"
+    run_id: "erun_3d9f4e215f8f4cca87246cd25850c53b"
+    generation_id: "404a12b0ce0605de5288d78ae4c3f157"
+    status: "succeeded"
+    completed_at: "2026-08-27T16:03:27.113388+08:00"
+    completed_cases: 50
+    execution_error_count: 0
+    effect_validity: "valid"
+    validity_reason: "All 50 cases completed; no execution errors; all six artifacts passed database size and SHA-256 verification."
+    artifact_root: "var/evals/erun_3d9f4e215f8f4cca87246cd25850c53b/generation-404a12b0ce0605de5288d78ae4c3f157"
+    artifact_summary_ref: "docs/experiment/hak180-easy-medium-100-evaluation/results/formal-evaluation-r4-summary.json"
+preflight:
+  config_and_dataset_assets: "passed"
+  formal_harness_regression: "72 passed"
+  active_evaluation_run_count: 0
+  credential_state: "configured_masked"
+  dashscope_tcp_443: "reachable"
+  milvus:
+    container_status: "running_healthy"
+    restart_count: 0
+    target_collection_present: true
+    target_collection_load_state: "Loaded"
+    query_ready: true
+  runtime_authority_checks: "passed"
+execution_policy:
+  order:
+    - "easy"
+    - "medium"
+  continue_to_medium_after_easy_metric_failure: true
+  stop_before_medium_after_easy_infrastructure_or_provider_batch_failure: true
+  paid_retry_without_new_authorization: false
+  replacement_run_without_new_authorization: false
+results:
+  easy:
+    effect_validity: "valid"
+    final_answer_accuracy: {count: 44, denominator: 50, rate: 0.88}
+    strict_supported_case_pass_rate: {count: 42, denominator: 50, rate: 0.84}
+    retrieval_support: {count: 48, denominator: 50, rate: 0.96}
+    answered_citation_correctness: {count: 45, denominator: 45, rate: 1.0}
+    answered_faithfulness: {count: 45, denominator: 45, rate: 1.0}
+    unsupported_factual_claim_count: {maximum: 0, mean: 0.0}
+    execution_error_count: 0
+    proof_fail_closed: "passed"
+    false_positive_refusal_count: 5
+    contract_false_positive_refusal_count: 6
+    target_verdict: "not_met"
+    guardrail_status: "passed"
+    token_usage: {total: 573779, observed_case_count: 50, unknown_case_count: 0}
+    monetary_cost: "unavailable"
+  medium:
+    effect_validity: "valid"
+    final_answer_accuracy: {count: 33, denominator: 50, rate: 0.66}
+    strict_supported_case_pass_rate: {count: 26, denominator: 50, rate: 0.52}
+    retrieval_support: {count: 49, denominator: 50, rate: 0.98}
+    answered_citation_correctness: {count: 39, denominator: 39, rate: 1.0}
+    answered_faithfulness: {count: 39, denominator: 39, rate: 1.0}
+    unsupported_factual_claim_count: {maximum: 0, mean: 0.0}
+    execution_error_count: 0
+    false_positive_refusal_count: 11
+    contract_false_positive_refusal_count: 11
+    target_verdict: "not_met"
+    guardrail_status: "passed"
+    token_usage: {total: 850660, observed_case_count: 50, unknown_case_count: 0}
+    monetary_cost: "unavailable"
+  overall:
+    descriptive_only: true
+    final_answer_accuracy: {count: 77, denominator: 100, rate: 0.77}
+    strict_supported_case_pass_rate: {count: 68, denominator: 100, rate: 0.68}
+    retrieval_support: {count: 97, denominator: 100, rate: 0.97}
+    execution_error_count: 0
+    token_usage: {total: 1424439, observed_case_count: 100, unknown_case_count: 0}
+    monetary_cost: "unavailable"
+    campaign_target_verdict: "not_met"
+records:
+  formal_report_ref: "docs/experiment/hak180-easy-medium-100-evaluation/formal-evaluation-r4.md"
+  structured_summary_ref: "docs/experiment/hak180-easy-medium-100-evaluation/results/formal-evaluation-r4-summary.json"
+  badcase_analysis_ref: "docs/experiment/hak180-easy-medium-100-evaluation/badcase-analysis-r4.md"
