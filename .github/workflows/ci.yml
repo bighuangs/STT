@@ -11,8 +11,6 @@ on:
         required: false
         default: false
         type: boolean
-  schedule:
-    - cron: "30 18 * * *"
 
 permissions:
   contents: read
@@ -25,6 +23,7 @@ env:
   UV_FROZEN: "1"
   PYTHONUNBUFFERED: "1"
   PYTHONHASHSEED: "0"
+  PROJECT_ROOT: ${{ github.workspace }}
 
 jobs:
   quality:
@@ -179,7 +178,6 @@ jobs:
   external-dependencies:
     name: Real dependency smoke tests
     if: >-
-      github.event_name == 'schedule' ||
       (github.event_name == 'workflow_dispatch' && inputs.run_external)
     runs-on: ubuntu-latest
     timeout-minutes: 45
